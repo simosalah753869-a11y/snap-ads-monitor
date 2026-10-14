@@ -85,6 +85,23 @@
       "spend_2d": 10.01,
       "conv_2d": 0,
       "paused_at": "2026-10-14T21:50:48+00:00"
+    },
+    "7631763556322148369:1878973397989458:1878995986920322": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "ad_id": "1878973397989458",
+      "creative_id": "1878973397989474",
+      "campaign_ad_name": "Copy 1 of car armrest leads  13-10 / Ad name2026-10-13 11:52:19",
+      "video_name": "غطاء مساند ذراع السيارة فاخر مُبطّن بذاكرة فوم مع حافظة مناديل وجوال-Music_Refresh-9-24",
+      "draft_ids": [
+        "1878995986920322"
+      ],
+      "reason": "2-Day Spend $6.28 > $6.00 with 0 sales",
+      "spend_1d": 0.0,
+      "conv_1d": 0,
+      "spend_2d": 6.28,
+      "conv_2d": 0,
+      "paused_at": "2026-10-14T22:26:05.108635+00:00"
     }
   },
   "tiktok_ads": {}
