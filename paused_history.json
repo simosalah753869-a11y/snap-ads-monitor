@@ -51,5 +51,41 @@
       "reason": "[Ad CPC Rule] صرف الفيديو $1.43 | النقرات: 4 | سعر النقرة CPC = $0.357 (> $0.28)",
       "paused_at": "2026-10-14 22:22 GMT+3"
     }
-  }
+  },
+  "tiktok_videos": {
+    "7631765070816509959:1878928548528418:1878928684914737": {
+      "aadvid": "7631765070816509959",
+      "account_name": "ROELLINGER RECYCLING2",
+      "ad_id": "1878928548528418",
+      "creative_id": "1878928548528434",
+      "campaign_ad_name": "watch broad tiktok / Ad name2026-10-10 08:10:58",
+      "video_name": "2_7(4)_h1OUmy8e.mp4",
+      "draft_ids": [
+        "1878928684914737"
+      ],
+      "reason": "Today Spend $1.08 >= $1.00 & CPC $0.36 > $0.35",
+      "spend_1d": 1.08,
+      "conv_1d": 0,
+      "spend_2d": 1.29,
+      "conv_2d": 0,
+      "paused_at": "2026-10-14T21:58:20.687762+00:00"
+    },
+    "7631763556322148369:1878973397989458:1878995986916242": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "ad_id": "1878973397989458",
+      "creative_id": "1878973397989474",
+      "video_name": "وسادة مقعد السيارة من الميموري فوم مع جيوب جانبيه ومكان للمناديل-New_Hook-7-7",
+      "draft_ids": [
+        "1878995986916242"
+      ],
+      "reason": "Today Spend $10.01 > $6.00 with 0 sales",
+      "spend_1d": 10.01,
+      "conv_1d": 0,
+      "spend_2d": 10.01,
+      "conv_2d": 0,
+      "paused_at": "2026-10-14T21:50:48+00:00"
+    }
+  },
+  "tiktok_ads": {}
 }
