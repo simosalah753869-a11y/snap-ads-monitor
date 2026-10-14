@@ -1,0 +1,65 @@
+{
+  "adsquads": {
+    "036257b8-c553-44cc-97ef-021ed38bc1a8": {
+      "name": "Copy of 14-10",
+      "reason": "تم إيقافها سابقاً وأعاد المستخدم تشغيلها لإعطائها فرصة أخرى",
+      "paused_at": "2026-10-14 19:03 UTC"
+    },
+    "5162252f-4edd-4520-b121-0a6296b372bb": {
+      "name": "Copy of Copy of Copy of Copy of Copy of Copy of Copy of text1",
+      "reason": "[Copy Rule] تكلفة المبيعة CPA = $11.1 (>= $8) | الصرف: $11.1 | المبيعات: 1",
+      "paused_at": "2026-10-14 19:19 UTC"
+    },
+    "8f9dc3ec-2009-40ab-941d-103a5c43afc0": {
+      "name": "Copy of Kuwait, All genders and All ages",
+      "reason": "[Copy Rule] صرفت $7.29 (>= $5) بدون مبيعات",
+      "paused_at": "2026-10-14 22:22 GMT+3"
+    },
+    "3fd573ea-9256-4b26-acf9-05468709d242": {
+      "name": "Copy of Copy of Copy of Copy of Copy of Copy of 1.5 | 23.8",
+      "reason": "[Copy Rule] صرفت $6.15 (>= $5) بدون مبيعات",
+      "paused_at": "2026-10-14 22:22 GMT+3"
+    },
+    "ea62ccc1-74af-4de3-89e1-6c5b16ddfd78": {
+      "name": "Copy of 12-10",
+      "reason": "[Copy Rule] صرفت $12.79 (>= $5) بدون مبيعات",
+      "paused_at": "2026-10-14 22:22 GMT+3"
+    },
+    "ba869810-b043-4225-a423-86b65f68e39a": {
+      "name": "Copy of 12-10",
+      "reason": "[Copy Rule] سعر البيعة CPA = $12.91 (>= $8) | الصرف: $12.91 | المبيعات: 1",
+      "paused_at": "2026-10-14 22:22 GMT+3"
+    },
+    "98813d6a-2a5f-4420-af09-b749919200af": {
+      "name": "Copy of Copy of BB",
+      "reason": "[Copy Rule] سعر البيعة CPA = $8.16 (>= $8) | الصرف: $8.16 | المبيعات: 1",
+      "paused_at": "2026-10-14 22:22 GMT+3"
+    }
+  },
+  "ads": {
+    "632f35de-0f27-422a-99ba-a3cf3f9f6c97": {
+      "name": "3 باوربانك ",
+      "adsquad_id": "665f817e-afe0-4d37-a343-47f6e43773e6",
+      "reason": "[Ad CPC Rule] صرف الفيديو $1.03 | النقرات: 3 | سعر النقرة CPC = $0.343 (> $0.28)",
+      "paused_at": "2026-10-14 22:22 GMT+3"
+    },
+    "7a7c3c79-437e-4dc2-be3c-d77321588881": {
+      "name": "Copy of 4",
+      "adsquad_id": "0388c300-40c5-414b-ac24-72b6d8422fcf",
+      "reason": "[Ad CPC Rule] صرف الفيديو $1.23 | النقرات: 4 | سعر النقرة CPC = $0.307 (> $0.28)",
+      "paused_at": "2026-10-14 22:22 GMT+3"
+    },
+    "dead0559-08ef-463a-a490-8227cf983145": {
+      "name": "Copy of 4",
+      "adsquad_id": "9a564441-3ad4-4133-afe0-144d514251c5",
+      "reason": "[Ad CPC Rule] صرف الفيديو $1.02 | النقرات: 3 | سعر النقرة CPC = $0.34 (> $0.28)",
+      "paused_at": "2026-10-14 22:22 GMT+3"
+    },
+    "7909c8df-b895-4a8d-bfb0-5bd69f9fa36e": {
+      "name": "Copy of 4",
+      "adsquad_id": "33181608-0ee8-4150-af9d-26a0632daad7",
+      "reason": "[Ad CPC Rule] صرف الفيديو $1.43 | النقرات: 4 | سعر النقرة CPC = $0.357 (> $0.28)",
+      "paused_at": "2026-10-14 22:22 GMT+3"
+    }
+  }
+}
