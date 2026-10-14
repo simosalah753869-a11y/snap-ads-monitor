@@ -34,11 +34,6 @@
       "name": "Copy of Copy of BB",
       "reason": "[Copy Rule] سعر البيعة CPA = $8.16 (>= $8) | الصرف: $8.16 | المبيعات: 1",
       "paused_at": "2026-10-14 22:22 GMT+3"
-    },
-    "6123c6ab-5a08-4690-8499-6105865a5471": {
-      "name": "Copy of Copy of Copy of Copy of Copy of text 2 ",
-      "reason": "[Copy Rule] صرفت $5.34 (>= $5) بدون مبيعات",
-      "paused_at": "2026-10-14 23:26 GMT+3"
     }
   },
   "ads": {
@@ -65,13 +60,6 @@
       "adsquad_id": "33181608-0ee8-4150-af9d-26a0632daad7",
       "reason": "[Ad CPC Rule] صرف الفيديو $1.43 | النقرات: 4 | سعر النقرة CPC = $0.357 (> $0.28)",
       "paused_at": "2026-10-14 22:22 GMT+3"
-    },
-    "15e42c42-a4d9-449d-81d2-b0640831a5f6": {
-      "name": "Copy of 4",
-      "campaign": "car scaling camp ",
-      "adsquad": "Copy of Copy of 1.5 | 23.8",
-      "reason": "[Ad CPC Rule] صرف الفيديو $1.24 | النقرات: 4 | سعر النقرة CPC = $0.31 (> $0.28)",
-      "paused_at": "2026-10-14 23:26 GMT+3"
     }
   }
 }
