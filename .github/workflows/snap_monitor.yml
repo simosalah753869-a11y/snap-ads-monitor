@@ -1,4 +1,4 @@
-name: Snapchat Ads 24/7 Monitor
+name: Snapchat & TikTok Ads 24/7 Monitor
 
 on:
   schedule:
@@ -20,6 +20,9 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: Install dependencies
+        run: pip install requests
+
       - name: Create snap_config.json
         env:
           SNAP_CLIENT_ID: ${{ vars.SNAP_CLIENT_ID || secrets.SNAP_CLIENT_ID }}
@@ -29,11 +32,18 @@ jobs:
           python -c "import json, os; open('snap_config.json', 'w').write(json.dumps({'client_id': os.environ['SNAP_CLIENT_ID'], 'client_secret': os.environ['SNAP_CLIENT_SECRET'], 'refresh_token': os.environ['SNAP_REFRESH_TOKEN']}))"
 
       - name: Run Snapchat Automation Rules
+        continue-on-error: true
         run: python snap_monitor.py
+
+      - name: Run TikTok Smart+ Automation Rules (All 6 Accounts)
+        continue-on-error: true
+        env:
+          TIKTOK_COOKIES_JSON: ${{ vars.TIKTOK_COOKIES_JSON || secrets.TIKTOK_COOKIES_JSON }}
+        run: python tiktok_monitor.py
 
       - name: Save paused_history.json (لتذكر ما تم إيقافه وعدم إيقاف ما تعيد تشغيله)
         run: |
-          git config user.name "SnapAdsBot"
+          git config user.name "SnapTikTokAdsBot"
           git config user.email "bot@users.noreply.github.com"
           git add paused_history.json
           git diff --staged --quiet || (git commit -m "Update paused_history.json [skip ci]" && git push)
