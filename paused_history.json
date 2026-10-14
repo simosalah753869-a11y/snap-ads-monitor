@@ -10,11 +10,6 @@
       "reason": "[Copy Rule] تكلفة المبيعة CPA = $11.1 (>= $8) | الصرف: $11.1 | المبيعات: 1",
       "paused_at": "2026-10-14 19:19 UTC"
     },
-    "8f9dc3ec-2009-40ab-941d-103a5c43afc0": {
-      "name": "Copy of Kuwait, All genders and All ages",
-      "reason": "[Copy Rule] صرفت $7.29 (>= $5) بدون مبيعات",
-      "paused_at": "2026-10-14 22:22 GMT+3"
-    },
     "3fd573ea-9256-4b26-acf9-05468709d242": {
       "name": "Copy of Copy of Copy of Copy of Copy of Copy of 1.5 | 23.8",
       "reason": "[Copy Rule] صرفت $6.15 (>= $5) بدون مبيعات",
@@ -28,11 +23,6 @@
     "ba869810-b043-4225-a423-86b65f68e39a": {
       "name": "Copy of 12-10",
       "reason": "[Copy Rule] سعر البيعة CPA = $12.91 (>= $8) | الصرف: $12.91 | المبيعات: 1",
-      "paused_at": "2026-10-14 22:22 GMT+3"
-    },
-    "98813d6a-2a5f-4420-af09-b749919200af": {
-      "name": "Copy of Copy of BB",
-      "reason": "[Copy Rule] سعر البيعة CPA = $8.16 (>= $8) | الصرف: $8.16 | المبيعات: 1",
       "paused_at": "2026-10-14 22:22 GMT+3"
     }
   },
