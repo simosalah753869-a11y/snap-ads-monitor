@@ -97,17 +97,26 @@ def fetch_account_breakdown_stats(token: str, ad_account_id: str, breakdown: str
     return results
 
 
-def evaluate_adsquad_rule(name: str, st: dict) -> tuple[bool, str]:
-    is_copy = "copy" in name.lower()
+def evaluate_adsquad_rule(adsquad_name: str, st: dict, campaign_name: str = "") -> tuple[bool, str]:
+    is_copy = "copy" in adsquad_name.lower()
+    is_gulf = is_gulf_034_campaign(campaign_name, adsquad_name)
     spend = st["spend"]
     purchases = st["purchases"]
     cpa = st["cpa"]
 
     if is_copy:
-        if spend >= 5.0 and purchases == 0:
-            return True, f"[Copy Rule] صرفت ${spend} (>= $5) بدون مبيعات"
-        if purchases > 0 and cpa is not None and cpa >= 8.0:
-            return True, f"[Copy Rule] سعر البيعة CPA = ${cpa} (>= $8) | الصرف: ${spend} | المبيعات: {purchases}"
+        if is_gulf:
+            # دول (قطر، عمان، البحرين، الكويت): صرف > 8$ بدون مبيعة، أو سعر المبيعة >= 14$
+            if spend > 8.0 and purchases == 0:
+                return True, f"[Gulf Copy Rule] صرفت ${spend} (> $8) بدون مبيعات"
+            if purchases > 0 and cpa is not None and cpa >= 14.0:
+                return True, f"[Gulf Copy Rule] سعر البيعة CPA = ${cpa} (>= $14) | الصرف: ${spend} | المبيعات: {purchases}"
+        else:
+            # باقي الدول (السعودية وغيرها): صرف >= 5$ بدون مبيعة، أو سعر المبيعة >= 8$
+            if spend >= 5.0 and purchases == 0:
+                return True, f"[Copy Rule] صرفت ${spend} (>= $5) بدون مبيعات"
+            if purchases > 0 and cpa is not None and cpa >= 8.0:
+                return True, f"[Copy Rule] سعر البيعة CPA = ${cpa} (>= $8) | الصرف: ${spend} | المبيعات: {purchases}"
     else:
         if spend >= 14.0 and purchases == 0:
             return True, f"[Normal Rule] صرفت ${spend} (>= $14) بدون مبيعات"
@@ -135,7 +144,6 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
     history = load_paused_history()
     now_str = datetime.now(ACCOUNT_TZ).strftime("%Y-%m-%d %H:%M GMT+3")
 
-    # Cache campaign names for quick lookup
     camps_resp = api_get(f"/adaccounts/{ad_account_id}/campaigns", token)
     camp_names = {
         c_wrap["campaign"]["id"]: c_wrap["campaign"].get("name", "")
@@ -162,20 +170,31 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
             continue
 
         s_name = squad.get("name", "")
+        c_id = squad.get("campaign_id", "")
+        if c_id and c_id not in camp_names:
+            c_resp = api_get(f"/campaigns/{c_id}", token)
+            camp_names[c_id] = c_resp.get("campaigns", [{}])[0].get("campaign", {}).get("name", "")
+        c_name = camp_names.get(c_id, "")
+
         if s_id in history["adsquads"]:
             print(f"⏭️ تجاهل المجموعة '{s_name}' (صرف: ${st['spend']}) — أعدتَ تشغيلها يدوياً (فرصة أخرى).")
             continue
 
-        should_pause, reason = evaluate_adsquad_rule(s_name, st)
+        should_pause, reason = evaluate_adsquad_rule(s_name, st, c_name)
         if should_pause:
             if dry_run:
-                print(f"🔍 [مطابق للشرط] المجموعة: '{s_name}' | {reason}")
+                print(f"🔍 [مطابق للشرط] المجموعة: '{s_name}' (حملة: '{c_name}') | {reason}")
             else:
                 squad["status"] = "PAUSED"
                 api_put(f"/campaigns/{squad['campaign_id']}/adsquads", token, {"adsquads": [squad]})
-                history["adsquads"][s_id] = {"name": s_name, "reason": reason, "paused_at": now_str}
+                history["adsquads"][s_id] = {
+                    "name": s_name,
+                    "campaign": c_name,
+                    "reason": reason,
+                    "paused_at": now_str,
+                }
                 save_paused_history(history)
-                print(f"🛑 تم إيقاف المجموعة: '{s_name}' | {reason}")
+                print(f"🛑 تم إيقاف المجموعة: '{s_name}' (حملة: '{c_name}') | {reason}")
                 time.sleep(0.3)
 
     # 2. One API call for all Ad (video) stats today
@@ -184,7 +203,6 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
 
     for st in ad_stats:
         ad_id = st["id"]
-        # Pre-filter: only inspect ads that spent >= $1.0 and have CPC > $0.28
         if st["spend"] < 1.0 or (st["swipes"] > 0 and st["cpc"] <= 0.28):
             continue
 
@@ -232,31 +250,30 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
             time.sleep(0.3)
 
 
-def recheck_gulf_ads(token: str):
+def recheck_gulf_adsquads(token: str):
     history = load_paused_history()
-    for aid, info in list(history["ads"].items()):
-        s_id = info.get("adsquad_id")
-        if not s_id:
+    stats_map = {st["id"]: st for st in fetch_account_breakdown_stats(token, TARGET_ACCOUNT_ID, "adsquad")}
+    for sid, info in list(history["adsquads"].items()):
+        if sid == "036257b8-c553-44cc-97ef-021ed38bc1a8":  # Copy of 14-10
             continue
-        s = api_get(f"/adsquads/{s_id}", token)["adsquads"][0]["adsquad"]
+        s = api_get(f"/adsquads/{sid}", token)["adsquads"][0]["adsquad"]
         c = api_get(f"/campaigns/{s['campaign_id']}", token)["campaigns"][0]["campaign"]
-        gulf = is_gulf_034_campaign(c["name"], s["name"])
-        reason = info.get("reason", "")
-        print(f"Ad: {info['name']} | Camp: {c['name']} | Squad: {s['name']} | Gulf($0.34): {gulf} | {reason}")
-        if gulf and "0.357" not in reason and "0.343" not in reason:
-            a = api_get(f"/ads/{aid}", token)["ads"][0]["ad"]
-            a["status"] = "ACTIVE"
-            api_put(f"/adsquads/{s_id}/ads", token, {"ads": [a]})
-            del history["ads"][aid]
-            save_paused_history(history)
-            print(f"   ✅ أُعيد تشغيل الفيديو '{info['name']}' لأنه في حملة '{c['name']}' وسعر نقرته أقل من $0.34!")
+        if is_gulf_034_campaign(c["name"], s["name"]):
+            st = stats_map.get(sid, {"spend": 0.0, "purchases": 0, "cpa": None})
+            should_pause, _ = evaluate_adsquad_rule(s["name"], st, c["name"])
+            if not should_pause:
+                s["status"] = "ACTIVE"
+                api_put(f"/campaigns/{s['campaign_id']}/adsquads", token, {"adsquads": [s]})
+                del history["adsquads"][sid]
+                save_paused_history(history)
+                print(f"✅ أُعيد تشغيل مجموعة الخليج '{s['name']}' (في حملة '{c['name']}') لأن الصرف/CPA أقل من حد الخليج ($8 / $14)!")
 
 
 if __name__ == "__main__":
     cfg = load_config()
     token = refresh_access_token(cfg)
-    if "--recheck-gulf" in sys.argv:
-        recheck_gulf_ads(token)
+    if "--recheck-gulf-squads" in sys.argv:
+        recheck_gulf_adsquads(token)
     else:
         dry = "--dry-run" in sys.argv
         run_automation(token, TARGET_ACCOUNT_ID, dry_run=dry)
