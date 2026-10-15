@@ -30,6 +30,12 @@
       "campaign": "car scaling camp ",
       "reason": "[Copy Rule] صرفت $5.17 (>= $5) بدون مبيعات",
       "paused_at": "2026-10-15 08:07 GMT+3"
+    },
+    "33181608-0ee8-4150-af9d-26a0632daad7": {
+      "name": "Copy of Copy of Copy of Copy of Copy of Copy of 1.5 | 23.8",
+      "campaign": "car scaling camp ",
+      "reason": "[Copy Rule] صرفت $5.3 (>= $5) بدون مبيعات",
+      "paused_at": "2026-10-15 08:52 GMT+3"
     }
   },
   "ads": {
@@ -84,6 +90,13 @@
       "adsquad": "Copy of Copy of Copy of Copy of Copy of Copy of 1.5 | 23.8",
       "reason": "[Ad CPC Rule] صرف الفيديو $1.43 | النقرات: 5 | سعر النقرة CPC = $0.286 (> $0.28)",
       "paused_at": "2026-10-15 08:07 GMT+3"
+    },
+    "59534223-2fdf-4b10-aa12-a5922cbbb4a1": {
+      "name": "Copy of Copy of Copy of Copy of Copy of 1",
+      "campaign": "car scaling camp ",
+      "adsquad": "Copy of Copy of Copy of 1.5 | 23.8",
+      "reason": "[Ad CPC Rule] صرف الفيديو $1.03 | النقرات: 3 | سعر النقرة CPC = $0.343 (> $0.28)",
+      "paused_at": "2026-10-15 08:52 GMT+3"
     }
   },
   "tiktok_videos": {
