@@ -48,6 +48,18 @@
       "campaign": "car scaling camp ",
       "reason": "[Copy Rule] صرفت $5.23 (>= $5) بدون مبيعات",
       "paused_at": "2026-10-15 13:10 GMT+3"
+    },
+    "ae0139a5-73c0-4247-9683-ab164f703857": {
+      "name": "Copy of Copy of 1.5 | 23.8",
+      "campaign": "car scaling camp ",
+      "reason": "[Copy Rule] صرفت $5.36 (>= $5) بدون مبيعات",
+      "paused_at": "2026-10-15 13:55 GMT+3"
+    },
+    "20d04bfb-9c9f-45e8-93bd-fe69648d9e42": {
+      "name": "Copy of Copy of Copy of 1.5 | 23.8",
+      "campaign": "car scaling camp ",
+      "reason": "[Copy Rule] سعر البيعة CPA = $8.11 (>= $8) | الصرف: $8.11 | المبيعات: 1",
+      "paused_at": "2026-10-15 13:55 GMT+3"
     }
   },
   "ads": {
