@@ -96,6 +96,12 @@
       "campaign": "car scaling camp ",
       "reason": "[Copy Rule] صرفت $6.16 (>= $5) بدون مبيعات",
       "paused_at": "2026-10-15 22:14 GMT+3"
+    },
+    "4e1380ed-d8eb-4e09-9072-93fb79cbb8d0": {
+      "name": "Copy of Copy of Copy of 1.5 | 23.8",
+      "campaign": "car scaling camp ",
+      "reason": "[Copy Rule] صرفت $6.0 (>= $5) بدون مبيعات",
+      "paused_at": "2026-10-15 23:24 GMT+3"
     }
   },
   "ads": {
@@ -206,6 +212,20 @@
       "adsquad": "Copy of Copy of 1.5 | 23.8",
       "reason": "[Ad CPC Rule] صرف الفيديو $1.07 | النقرات: 3 | سعر النقرة CPC = $0.357 (> $0.28)",
       "paused_at": "2026-10-15 22:14 GMT+3"
+    },
+    "ef13c82e-c2fa-4b5b-9a0a-a43101f1c6f5": {
+      "name": "Copy of Copy of Copy of Copy of Copy of Copy of 2",
+      "campaign": "car scaling new 2 text",
+      "adsquad": "Copy of Copy of Copy of Copy of Copy of text 2 ",
+      "reason": "[Ad CPC Rule] صرف الفيديو $1.2 | النقرات: 4 | سعر النقرة CPC = $0.3 (> $0.28)",
+      "paused_at": "2026-10-15 23:24 GMT+3"
+    },
+    "d43bcbd1-43d9-475c-a02e-1cd7fb1121fb": {
+      "name": "1 باوربانك ",
+      "campaign": "qatar  power bank",
+      "adsquad": "Copy of 112 ( باوربانك)",
+      "reason": "[Ad CPC Rule] صرف الفيديو $1.02 | النقرات: 2 | سعر النقرة CPC = $0.51 (> $0.34)",
+      "paused_at": "2026-10-15 23:24 GMT+3"
     }
   },
   "tiktok_videos": {
@@ -615,6 +635,40 @@
       "spend_2d": 1.07,
       "conv_2d": 0,
       "paused_at": "2026-10-15T19:50:32.505292+00:00"
+    },
+    "7631765070816509959:1878928863895761:1878929010283073": {
+      "aadvid": "7631765070816509959",
+      "account_name": "ROELLINGER RECYCLING2",
+      "ad_id": "1878928863895761",
+      "creative_id": "1878928863895777",
+      "campaign_ad_name": "watch leads with pangle  / Ad name2026-10-12 01:24:12",
+      "video_name": "11_10(3).mp4",
+      "draft_ids": [
+        "1878929010283073"
+      ],
+      "reason": "2-Day Spend $6.11 > $6.00 with 0 sales",
+      "spend_1d": 4.28,
+      "conv_1d": 0,
+      "spend_2d": 6.11,
+      "conv_2d": 0,
+      "paused_at": "2026-10-15T20:25:48.726764+00:00"
+    },
+    "7631765070816509959:1878928863895761:1878929010283089": {
+      "aadvid": "7631765070816509959",
+      "account_name": "ROELLINGER RECYCLING2",
+      "ad_id": "1878928863895761",
+      "creative_id": "1878928863895777",
+      "campaign_ad_name": "watch leads with pangle  / Ad name2026-10-12 01:24:12",
+      "video_name": "11_10(2).mov",
+      "draft_ids": [
+        "1878929010283089"
+      ],
+      "reason": "2-Day Spend $6.02 > $6.00 with 0 sales",
+      "spend_1d": 2.08,
+      "conv_1d": 0,
+      "spend_2d": 6.02,
+      "conv_2d": 0,
+      "paused_at": "2026-10-15T20:25:49.429204+00:00"
     }
   },
   "tiktok_ads": {},
