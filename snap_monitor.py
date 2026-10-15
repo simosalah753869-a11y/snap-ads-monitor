@@ -28,10 +28,23 @@ def is_gulf_034_campaign(campaign_name: str, adsquad_name: str = "") -> bool:
 def load_paused_history() -> dict:
     if HISTORY_FILE.exists():
         try:
-            return json.loads(HISTORY_FILE.read_text(encoding="utf-8"))
+            data = json.loads(HISTORY_FILE.read_text(encoding="utf-8"))
+            data.setdefault("adsquads", {})
+            data.setdefault("ads", {})
+            data.setdefault("bid_bumps", {})
+            return data
         except Exception:
             pass
-    return {"adsquads": {}, "ads": {}}
+    return {"adsquads": {}, "ads": {}, "bid_bumps": {}}
+
+
+def parse_iso_utc(ts_str: str) -> datetime | None:
+    if not ts_str:
+        return None
+    try:
+        return datetime.fromisoformat(ts_str.replace("Z", "+00:00")).astimezone(timezone.utc)
+    except Exception:
+        return None
 
 
 def save_paused_history(history: dict):
@@ -145,15 +158,21 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
     now_str = datetime.now(ACCOUNT_TZ).strftime("%Y-%m-%d %H:%M GMT+3")
 
     camps_resp = api_get(f"/adaccounts/{ad_account_id}/campaigns", token)
-    camp_names = {
-        c_wrap["campaign"]["id"]: c_wrap["campaign"].get("name", "")
-        for c_wrap in camps_resp.get("campaigns", [])
-        if "campaign" in c_wrap
-    }
+    camp_names = {}
+    active_campaigns = []
+    for c_wrap in camps_resp.get("campaigns", []):
+        c = c_wrap.get("campaign", {})
+        if not c:
+            continue
+        camp_names[c["id"]] = c.get("name", "")
+        if c.get("status") == "ACTIVE":
+            active_campaigns.append(c)
+
     squad_cache = {}
 
     # 1. One API call for all Ad Squad stats today
     squad_stats = fetch_account_breakdown_stats(token, ad_account_id, "adsquad")
+    spend_by_squad = {st["id"]: st["spend"] for st in squad_stats}
     print(f"📊 عدد المجموعات الإعلانية (Ad Squads) التي صرفت اليوم: {len(squad_stats)}")
 
     for st in squad_stats:
@@ -248,6 +267,82 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
             save_paused_history(history)
             print(f"🛑 تم إيقاف الفيديو: '{ad_name}' (حملة: '{c_name}' / مجموعة: '{s_name}') | {reason}")
             time.sleep(0.3)
+
+    # 3. Low-spend (< $1.00) 2-hour +$0.10 Bid Bump rule (max 2 times per Ad Squad, 2 hours apart)
+    now_utc = datetime.now(timezone.utc)
+    today_start_utc = (
+        datetime.now(ACCOUNT_TZ)
+        .replace(hour=0, minute=0, second=0, microsecond=0)
+        .astimezone(timezone.utc)
+    )
+    print(f"\n⏱️ فحص المجموعات النشطة التي صرفت أقل من $1.00 لمدة ساعتين (عدد الحملات النشطة: {len(active_campaigns)})...")
+    for c in active_campaigns:
+        c_id = c["id"]
+        c_name = c.get("name", "")
+        sq_resp = api_get(f"/campaigns/{c_id}/adsquads", token)
+        for sq_wrap in sq_resp.get("adsquads", []):
+            squad = sq_wrap.get("adsquad", {})
+            if not squad or squad.get("status") != "ACTIVE":
+                continue
+            s_id = squad["id"]
+            s_name = squad.get("name", "")
+            today_spend = spend_by_squad.get(s_id, 0.0)
+            if today_spend >= 1.0:
+                continue
+
+            bid_micro = squad.get("bid_micro")
+            if not bid_micro or bid_micro <= 0:
+                continue
+
+            bump_rec = history["bid_bumps"].get(s_id, {"count": 0, "last_bump_at": None})
+            bump_count = bump_rec.get("count", 0)
+            if bump_count >= 2:
+                continue
+
+            if bump_count == 0:
+                created_dt = parse_iso_utc(squad.get("created_at", ""))
+                start_dt = parse_iso_utc(squad.get("start_time", ""))
+                candidates = [dt for dt in (created_dt, start_dt, today_start_utc) if dt is not None]
+                effective_start = max(candidates) if candidates else today_start_utc
+                elapsed = now_utc - effective_start
+            else:
+                last_bump_dt = parse_iso_utc(bump_rec.get("last_bump_at", ""))
+                if last_bump_dt is None:
+                    continue
+                elapsed = now_utc - last_bump_dt
+
+            if elapsed < timedelta(hours=2):
+                continue
+
+            old_bid = round(bid_micro / 1_000_000, 2)
+            new_bid_micro = bid_micro + 100_000  # +$0.10
+            new_bid = round(new_bid_micro / 1_000_000, 2)
+            new_count = bump_count + 1
+            hrs_waited = round(elapsed.total_seconds() / 3600, 1)
+
+            if dry_run:
+                print(
+                    f"🔍 [مطابق لشرط زيادة البيد ({new_count}/2)] المجموعة: '{s_name}' (حملة: '{c_name}') "
+                    f"| الصرف: ${today_spend} (< $1) خلال {hrs_waited} ساعة | البيد: ${old_bid} -> ${new_bid}"
+                )
+            else:
+                squad["bid_micro"] = new_bid_micro
+                api_put(f"/campaigns/{c_id}/adsquads", token, {"adsquads": [squad]})
+                history["bid_bumps"][s_id] = {
+                    "name": s_name,
+                    "campaign": c_name,
+                    "count": new_count,
+                    "old_bid": old_bid,
+                    "new_bid": new_bid,
+                    "last_bump_at": now_utc.isoformat(),
+                    "last_bump_local": now_str,
+                }
+                save_paused_history(history)
+                print(
+                    f"📈 تم رفع البيد (+$0.10) للمرة ({new_count}/2) للمجموعة: '{s_name}' (حملة: '{c_name}') "
+                    f"| الصرف: ${today_spend} خلال {hrs_waited} ساعة | البيد: ${old_bid} -> ${new_bid}"
+                )
+                time.sleep(0.3)
 
 
 def recheck_gulf_adsquads(token: str):
