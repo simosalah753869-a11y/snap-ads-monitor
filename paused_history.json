@@ -50,6 +50,13 @@
       "adsquad_id": "33181608-0ee8-4150-af9d-26a0632daad7",
       "reason": "[Ad CPC Rule] صرف الفيديو $1.43 | النقرات: 4 | سعر النقرة CPC = $0.357 (> $0.28)",
       "paused_at": "2026-10-14 22:22 GMT+3"
+    },
+    "e9127308-fd3d-4baf-9041-b540004c0c38": {
+      "name": "Copy of Copy of Copy of Copy of Copy of 1",
+      "campaign": "car scaling camp ",
+      "adsquad": "Copy of Copy of Copy of Copy of 1.5 | 23.8",
+      "reason": "[Ad CPC Rule] صرف الفيديو $1.2 | النقرات: 4 | سعر النقرة CPC = $0.3 (> $0.28)",
+      "paused_at": "2026-10-15 03:33 GMT+3"
     }
   },
   "tiktok_videos": {
@@ -102,6 +109,23 @@
       "spend_2d": 6.28,
       "conv_2d": 0,
       "paused_at": "2026-10-14T22:26:05.108635+00:00"
+    },
+    "7631763556322148369:1874314269673729:1876391326945474": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "ad_id": "1874314269673729",
+      "creative_id": "1874314269673745",
+      "campaign_ad_name": "Copy 1 of car armrest leads  19-9 / Ad name2026-08-21 05:44:45",
+      "video_name": "3 (1).mp4",
+      "draft_ids": [
+        "1876391326945474"
+      ],
+      "reason": "Today Spend $1.47 >= $1.00 & CPC $0.37 > $0.35",
+      "spend_1d": 1.47,
+      "conv_1d": 1,
+      "spend_2d": 37.73,
+      "conv_2d": 11,
+      "paused_at": "2026-10-15T00:34:16.468940+00:00"
     }
   },
   "tiktok_ads": {}
