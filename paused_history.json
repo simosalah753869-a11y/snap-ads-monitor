@@ -64,6 +64,13 @@
       "adsquad": "15-10",
       "reason": "[Ad CPC Rule] صرف الفيديو $1.03 | النقرات: 2 | سعر النقرة CPC = $0.515 (> $0.28)",
       "paused_at": "2026-10-15 06:07 GMT+3"
+    },
+    "7caab7e6-a77d-427b-88d7-cb9cb1465ead": {
+      "name": "Copy of Copy of Copy of Copy of Copy of Copy of 2",
+      "campaign": "car scaling new 2 text",
+      "adsquad": "Copy of Copy of Copy of Copy of text 2 ",
+      "reason": "[Ad CPC Rule] صرف الفيديو $1.16 | النقرات: 3 | سعر النقرة CPC = $0.387 (> $0.28)",
+      "paused_at": "2026-10-15 06:54 GMT+3"
     }
   },
   "tiktok_videos": {
@@ -167,6 +174,40 @@
       "spend_2d": 3.62,
       "conv_2d": 1,
       "paused_at": "2026-10-15T01:15:06.434885+00:00"
+    },
+    "7631765070816509959:1878928863895761:1878929010346129": {
+      "aadvid": "7631765070816509959",
+      "account_name": "ROELLINGER RECYCLING2",
+      "ad_id": "1878928863895761",
+      "creative_id": "1878928863895777",
+      "campaign_ad_name": "watch leads with pangle  / Ad name2026-10-12 01:24:12",
+      "video_name": "11_10(2).mp4",
+      "draft_ids": [
+        "1878929010346129"
+      ],
+      "reason": "Today Spend $1.36 >= $1.00 & CPC $1.36 > $0.35",
+      "spend_1d": 1.36,
+      "conv_1d": 0,
+      "spend_2d": 21.05,
+      "conv_2d": 3,
+      "paused_at": "2026-10-15T03:55:27.709103+00:00"
+    },
+    "7631765070816509959:1878928863895761:1878929010280945": {
+      "aadvid": "7631765070816509959",
+      "account_name": "ROELLINGER RECYCLING2",
+      "ad_id": "1878928863895761",
+      "creative_id": "1878928863895777",
+      "campaign_ad_name": "watch leads with pangle  / Ad name2026-10-12 01:24:12",
+      "video_name": "11_10(4).mov",
+      "draft_ids": [
+        "1878929010280945"
+      ],
+      "reason": "Today Spend $1.38 >= $1.00 & CPC $1.38 > $0.35",
+      "spend_1d": 1.38,
+      "conv_1d": 1,
+      "spend_2d": 3.66,
+      "conv_2d": 1,
+      "paused_at": "2026-10-15T03:55:28.301512+00:00"
     }
   },
   "tiktok_ads": {}
