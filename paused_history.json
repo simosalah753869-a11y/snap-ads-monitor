@@ -36,6 +36,12 @@
       "campaign": "car scaling camp ",
       "reason": "[Copy Rule] صرفت $5.3 (>= $5) بدون مبيعات",
       "paused_at": "2026-10-15 08:52 GMT+3"
+    },
+    "ba8516d1-49d6-4528-ad3b-ebe404ea2577": {
+      "name": "Copy of Copy of Copy of Copy of Copy of Copy of Copy of Copy of text1",
+      "campaign": "car scaling new 2 text",
+      "reason": "[Copy Rule] صرفت $5.09 (>= $5) بدون مبيعات",
+      "paused_at": "2026-10-15 11:57 GMT+3"
     }
   },
   "ads": {
@@ -97,6 +103,13 @@
       "adsquad": "Copy of Copy of Copy of 1.5 | 23.8",
       "reason": "[Ad CPC Rule] صرف الفيديو $1.03 | النقرات: 3 | سعر النقرة CPC = $0.343 (> $0.28)",
       "paused_at": "2026-10-15 08:52 GMT+3"
+    },
+    "4c5a6933-d15a-4ca0-a8bf-db015558cfbd": {
+      "name": "Copy of Copy of Copy of Copy of Copy of Copy of Copy of 4",
+      "campaign": "Copy of kashaf qatar",
+      "adsquad": "Copy of 15$",
+      "reason": "[Ad CPC Rule] صرف الفيديو $1.05 | النقرات: 3 | سعر النقرة CPC = $0.35 (> $0.34)",
+      "paused_at": "2026-10-15 11:57 GMT+3"
     }
   },
   "tiktok_videos": {
