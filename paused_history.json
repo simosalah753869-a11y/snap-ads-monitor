@@ -208,6 +208,40 @@
       "spend_2d": 3.66,
       "conv_2d": 1,
       "paused_at": "2026-10-15T03:55:28.301512+00:00"
+    },
+    "7631765070816509959:1878928863895761:1878929010283121": {
+      "aadvid": "7631765070816509959",
+      "account_name": "ROELLINGER RECYCLING2",
+      "ad_id": "1878928863895761",
+      "creative_id": "1878928863895777",
+      "campaign_ad_name": "watch leads with pangle  / Ad name2026-10-12 01:24:12",
+      "video_name": "11_10(3).mov",
+      "draft_ids": [
+        "1878929010283121"
+      ],
+      "reason": "Today Spend $1.27 >= $1.00 & CPC $0.64 > $0.35",
+      "spend_1d": 1.27,
+      "conv_1d": 0,
+      "spend_2d": 5.19,
+      "conv_2d": 2,
+      "paused_at": "2026-10-15T04:27:51.626972+00:00"
+    },
+    "7631765070816509959:1878928863895761:1878929010346113": {
+      "aadvid": "7631765070816509959",
+      "account_name": "ROELLINGER RECYCLING2",
+      "ad_id": "1878928863895761",
+      "creative_id": "1878928863895777",
+      "campaign_ad_name": "watch leads with pangle  / Ad name2026-10-12 01:24:12",
+      "video_name": "11_10.mov",
+      "draft_ids": [
+        "1878929010346113"
+      ],
+      "reason": "2-Day Spend $1.00 >= $1.00 & CPC $0.50 > $0.35",
+      "spend_1d": 0.05,
+      "conv_1d": 0,
+      "spend_2d": 1.0,
+      "conv_2d": 0,
+      "paused_at": "2026-10-15T04:27:52.235045+00:00"
     }
   },
   "tiktok_ads": {}
