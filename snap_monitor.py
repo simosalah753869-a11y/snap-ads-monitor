@@ -268,14 +268,14 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
             print(f"🛑 تم إيقاف الفيديو: '{ad_name}' (حملة: '{c_name}' / مجموعة: '{s_name}') | {reason}")
             time.sleep(0.3)
 
-    # 3. Low-spend (< $1.00) 2-hour +$0.10 Bid Bump rule (max 2 times per Ad Squad, 2 hours apart)
+    # 3. Low-spend (< $1.00) 3-hour +$0.10 Bid Bump rule (max 2 times per Ad Squad, 3 hours apart)
     now_utc = datetime.now(timezone.utc)
     today_start_utc = (
         datetime.now(ACCOUNT_TZ)
         .replace(hour=0, minute=0, second=0, microsecond=0)
         .astimezone(timezone.utc)
     )
-    print(f"\n⏱️ فحص المجموعات النشطة التي صرفت أقل من $1.00 لمدة ساعتين (عدد الحملات النشطة: {len(active_campaigns)})...")
+    print(f"\n⏱️ فحص المجموعات النشطة التي صرفت أقل من $1.00 لمدة 3 ساعات (عدد الحملات النشطة: {len(active_campaigns)})...")
     for c in active_campaigns:
         c_id = c["id"]
         c_name = c.get("name", "")
@@ -311,7 +311,7 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
                     continue
                 elapsed = now_utc - last_bump_dt
 
-            if elapsed < timedelta(hours=2):
+            if elapsed < timedelta(hours=3):
                 continue
 
             old_bid = round(bid_micro / 1_000_000, 2)
