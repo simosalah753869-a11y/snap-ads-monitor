@@ -42,6 +42,12 @@
       "campaign": "car scaling new 2 text",
       "reason": "[Copy Rule] صرفت $5.09 (>= $5) بدون مبيعات",
       "paused_at": "2026-10-15 11:57 GMT+3"
+    },
+    "40041a3b-08c5-42e7-a437-331387a148c5": {
+      "name": "Copy of Copy of 1.5 | 23.8",
+      "campaign": "car scaling camp ",
+      "reason": "[Copy Rule] صرفت $5.23 (>= $5) بدون مبيعات",
+      "paused_at": "2026-10-15 13:10 GMT+3"
     }
   },
   "ads": {
@@ -117,6 +123,13 @@
       "adsquad": "15-10",
       "reason": "[Ad CPC Rule] صرف الفيديو $1.01 | النقرات: 1 | سعر النقرة CPC = $1.01 (> $0.28)",
       "paused_at": "2026-10-15 12:33 GMT+3"
+    },
+    "32ab6833-a7e6-47f7-aff8-52005c0611b4": {
+      "name": "4",
+      "campaign": "Copy of kashaf qatar",
+      "adsquad": "Copy of 15$",
+      "reason": "[Ad CPC Rule] صرف الفيديو $3.48 | النقرات: 10 | سعر النقرة CPC = $0.348 (> $0.34)",
+      "paused_at": "2026-10-15 13:10 GMT+3"
     }
   },
   "tiktok_videos": {
@@ -322,6 +335,23 @@
       "spend_2d": 3.52,
       "conv_2d": 1,
       "paused_at": "2026-10-15T08:13:14.378081+00:00"
+    },
+    "7631763556322148369:1878973397989458:1878995986912370": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "ad_id": "1878973397989458",
+      "creative_id": "1878973397989474",
+      "campaign_ad_name": "Copy 1 of car armrest leads  13-10 / Ad name2026-10-13 11:52:19",
+      "video_name": "12_10.mp4",
+      "draft_ids": [
+        "1878995986912370"
+      ],
+      "reason": "Today Spend $1.05 >= $1.00 & CPC $0.53 > $0.35",
+      "spend_1d": 1.05,
+      "conv_1d": 0,
+      "spend_2d": 3.14,
+      "conv_2d": 0,
+      "paused_at": "2026-10-15T10:11:37.595053+00:00"
     }
   },
   "tiktok_ads": {}
