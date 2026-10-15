@@ -285,6 +285,23 @@
       "spend_2d": 14.85,
       "conv_2d": 3,
       "paused_at": "2026-10-15T05:08:29.385554+00:00"
+    },
+    "7631763556322148369:1874314269673729:1876391327057377": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "ad_id": "1874314269673729",
+      "creative_id": "1874314269673745",
+      "campaign_ad_name": "Copy 1 of car armrest leads  19-9 / Ad name2026-08-21 05:44:45",
+      "video_name": "AI Generated Video-13",
+      "draft_ids": [
+        "1876391327057377"
+      ],
+      "reason": "Today Spend $1.07 >= $1.00 & CPC $0.36 > $0.35",
+      "spend_1d": 1.07,
+      "conv_1d": 1,
+      "spend_2d": 3.52,
+      "conv_2d": 1,
+      "paused_at": "2026-10-15T08:13:14.378081+00:00"
     }
   },
   "tiktok_ads": {}
