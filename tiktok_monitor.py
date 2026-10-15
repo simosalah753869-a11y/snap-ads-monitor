@@ -23,9 +23,13 @@ ACCOUNTS = [
 ]
 
 # Rules configured per user request:
-# 1. Video spend > $6.00 in 1 day (Today) with 0 conversions -> Pause
-# 2. Video spend > $6.00 in 2 days (Yesterday + Today) with 0 conversions -> Pause
-# 3. Video spend >= $1.00 and CPC > $0.35 (or 0 clicks) -> Pause
+# Campaign Level:
+# - Campaign spend >= $18.00 in 1 day (Today) or 2 days (Yesterday + Today) with 0 conversions -> Pause Campaign
+# Video Level (Smart+):
+# 1. Video spend > $6.00 in 1 day (Today) with 0 conversions -> Pause Video
+# 2. Video spend > $6.00 in 2 days (Yesterday + Today) with 0 conversions -> Pause Video
+# 3. Video spend >= $1.00 and CPC > $0.35 (or 0 clicks) -> Pause Video
+MAX_CAMPAIGN_NO_SALE_SPEND = 18.00
 MAX_NO_SALE_SPEND = 6.00
 MIN_SPEND_FOR_CPC = 1.00
 MAX_CPC = 0.35
@@ -62,6 +66,7 @@ def load_history():
         data = {}
     data.setdefault("adsquads", {})
     data.setdefault("ads", {})
+    data.setdefault("tiktok_campaigns", {})
     data.setdefault("tiktok_videos", {})
     data.setdefault("tiktok_ads", {})
     return data
@@ -104,6 +109,84 @@ def parse_draft_ids(raw_val):
     if not cleaned:
         return []
     return [x.strip().strip("\"'") for x in cleaned.split(",") if x.strip().strip("\"'")]
+
+
+def fetch_campaigns(session, headers, aadvid, st_date, et_date):
+    h = dict(headers)
+    h["Referer"] = f"https://ads.tiktok.com/i18n/manage/campaign?aadvid={aadvid}"
+    body = {
+        "common_req": {
+            "compare_et": "",
+            "compare_st": "",
+            "dimensions": ["campaign_id"],
+            "filters": [
+                {"field": "campaign_status", "in_field_values": ["delete"], "filter_type": 10},
+                {"field": "campaign_system_origin", "in_field_values": ["100000"], "filter_type": 0},
+            ],
+            "metrics": [
+                "stat_cost",
+                "cpc",
+                "cpm",
+                "show_cnt",
+                "click_cnt",
+                "ctr",
+                "time_attr_convert_cnt",
+                "time_attr_conversion_cost",
+            ],
+            "sort_stat": "stat_cost",
+            "sort_order": 1,
+            "st": st_date,
+            "et": et_date,
+            "lifetime": 0,
+            "page": 1,
+            "page_size": 100,
+        },
+        "extra": {
+            "ab_primary_status": "v2",
+            "get_compare_diff": "0",
+            "get_compare_rate": "0",
+            "get_compare_value": "0",
+            "list_version": "v2",
+            "region_schedule": "1",
+        },
+    }
+    r = session.post(
+        f"https://ads.tiktok.com/api/v4/i18n/statistics/op/campaign/list/?aadvid={aadvid}&req_src=bidding",
+        headers=h,
+        json=body,
+        timeout=20,
+    ).json()
+    return r.get("data", {}).get("table", []) or []
+
+
+def pause_campaign(session, headers, aadvid, campaign_id):
+    h = dict(headers)
+    h["Referer"] = f"https://ads.tiktok.com/i18n/manage/campaign?aadvid={aadvid}"
+    payload = {
+        "campaign_list": json.dumps([str(campaign_id)]),
+        "operation": "disable",
+        "allow_partial_success": True,
+        "ad_channel": 1,
+    }
+    r = session.post(
+        f"https://ads.tiktok.com/api/v2/i18n/overture/campaign/update_status/?aadvid={aadvid}&req_src=bidding",
+        headers=h,
+        json=payload,
+        timeout=20,
+    ).json()
+    ok = r.get("code") == 0
+    return ok, json.dumps(r, ensure_ascii=False)
+
+
+def evaluate_campaign_rules(spend_1d, conv_1d, spend_2d, conv_2d):
+    reasons = []
+    # Rule 1: Campaign Spend >= $18 today with 0 conversions
+    if spend_1d >= MAX_CAMPAIGN_NO_SALE_SPEND and conv_1d == 0:
+        reasons.append(f"Campaign Today Spend ${spend_1d:.2f} >= ${MAX_CAMPAIGN_NO_SALE_SPEND:.2f} with 0 sales")
+    # Rule 2: Campaign Spend >= $18 over 2 days (Yesterday + Today) with 0 conversions
+    if spend_2d >= MAX_CAMPAIGN_NO_SALE_SPEND and conv_2d == 0:
+        reasons.append(f"Campaign 2-Day Spend ${spend_2d:.2f} >= ${MAX_CAMPAIGN_NO_SALE_SPEND:.2f} with 0 sales")
+    return reasons
 
 
 def fetch_ads(session, headers, aadvid, st_date, et_date):
@@ -296,11 +379,22 @@ def main():
     history = load_history()
     session, headers = build_session(cookies_raw)
 
+    total_campaigns_paused = 0
     total_paused = 0
     for acc_name, aadvid, utc_offset in ACCOUNTS:
         now_tz = datetime.now(timezone(timedelta(hours=utc_offset)))
         today_str = now_tz.strftime("%Y-%m-%d")
         yesterday_str = (now_tz - timedelta(days=1)).strftime("%Y-%m-%d")
+
+        # 1. Campaign-Level Rule Check (Spend >= $18.00 with 0 sales)
+        camps_1d = fetch_campaigns(session, headers, aadvid, today_str, today_str)
+        camps_2d = fetch_campaigns(session, headers, aadvid, yesterday_str, today_str)
+        camp_1d_map = {str(c.get("campaign_id")): c for c in camps_1d if c.get("campaign_id")}
+        active_camps = [
+            c for c in camps_2d
+            if c.get("primary_status") not in ("disable", "delete")
+            and str(c.get("opt_status")) == "0"
+        ]
 
         ads_2d = fetch_ads(session, headers, aadvid, yesterday_str, today_str)
         active_ads = [
@@ -309,7 +403,60 @@ def main():
             and str(a.get("opt_status")) == "0"
         ]
         active_cids = [str(a.get("creative_id")) for a in active_ads if a.get("creative_id")]
-        print(f"\n=== [{acc_name}] ({aadvid}) | Date: {yesterday_str} -> {today_str} | Active Ads: {len(active_cids)} ===")
+        print(
+            f"\n=== [{acc_name}] ({aadvid}) | Date: {yesterday_str} -> {today_str} | "
+            f"Active Campaigns: {len(active_camps)} | Active Ads: {len(active_cids)} ==="
+        )
+
+        for c2 in active_camps:
+            camp_id = str(c2.get("campaign_id") or "")
+            camp_name = c2.get("campaign_name") or "Campaign"
+            c1 = camp_1d_map.get(camp_id, {})
+            rd1 = c1.get("row_data") or {}
+            rd2 = c2.get("row_data") or {}
+
+            c_spend_1d = float(rd1.get("stat_cost") or 0.0)
+            c_conv_1d = int(float(rd1.get("time_attr_convert_cnt") or 0))
+            c_spend_2d = float(rd2.get("stat_cost") or 0.0)
+            c_conv_2d = int(float(rd2.get("time_attr_convert_cnt") or 0))
+
+            if c_spend_2d > 0 or c_spend_1d > 0:
+                print(
+                    f"  * Campaign '{camp_name}' (ID={camp_id}, status={c2.get('primary_status')}) | "
+                    f"Today: Spend=${c_spend_1d:.2f}, Conv={c_conv_1d} | "
+                    f"2-Day: Spend=${c_spend_2d:.2f}, Conv={c_conv_2d}"
+                )
+
+            c_reasons = evaluate_campaign_rules(c_spend_1d, c_conv_1d, c_spend_2d, c_conv_2d)
+            if c_reasons:
+                c_hist_key = f"{aadvid}:{camp_id}"
+                if c_hist_key in history["tiktok_campaigns"]:
+                    print(
+                        f"    [SKIP CAMPAIGN - SECOND CHANCE] Already paused once before "
+                        f"({history['tiktok_campaigns'][c_hist_key].get('paused_at')}), user re-enabled it."
+                    )
+                    continue
+                c_reason_str = " | ".join(c_reasons)
+                print(f"    [PAUSING CAMPAIGN] Reason: {c_reason_str}")
+                ok, resp_txt = pause_campaign(session, headers, aadvid, camp_id)
+                if ok:
+                    print(f"    [SUCCESS] Paused campaign {camp_name} ({camp_id})")
+                    history["tiktok_campaigns"][c_hist_key] = {
+                        "aadvid": aadvid,
+                        "account_name": acc_name,
+                        "campaign_id": camp_id,
+                        "campaign_name": camp_name,
+                        "reason": c_reason_str,
+                        "spend_1d": c_spend_1d,
+                        "conv_1d": c_conv_1d,
+                        "spend_2d": c_spend_2d,
+                        "conv_2d": c_conv_2d,
+                        "paused_at": datetime.now(timezone.utc).isoformat(),
+                    }
+                    total_campaigns_paused += 1
+                else:
+                    print(f"    [ERROR] Failed to pause campaign {camp_id}: {resp_txt}")
+
         if not active_cids:
             continue
 
@@ -397,7 +544,7 @@ def main():
                     print(f"    [ERROR] Failed to pause video {draft_str}: {resp_txt}")
 
     save_history(history)
-    print(f"\nDone! Total TikTok Smart+ videos paused in this run: {total_paused}")
+    print(f"\nDone! Total TikTok Campaigns paused: {total_campaigns_paused} | Smart+ videos paused: {total_paused}")
 
 
 if __name__ == "__main__":
