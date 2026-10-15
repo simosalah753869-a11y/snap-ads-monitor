@@ -78,6 +78,24 @@
       "campaign": "car scaling camp ",
       "reason": "[Copy Rule] صرفت $5.62 (>= $5) بدون مبيعات",
       "paused_at": "2026-10-15 20:50 GMT+3"
+    },
+    "6a3c96df-eacb-417a-9e3f-59425f622c85": {
+      "name": "Copy of Copy of Copy of Copy of Copy of 1.5 | 23.8",
+      "campaign": "car scaling camp ",
+      "reason": "[Copy Rule] صرفت $5.28 (>= $5) بدون مبيعات",
+      "paused_at": "2026-10-15 22:14 GMT+3"
+    },
+    "673d6004-54cc-445c-ba3e-4ff2783731fd": {
+      "name": "Copy of Copy of 1.5 | 23.8",
+      "campaign": "car scaling camp ",
+      "reason": "[Copy Rule] صرفت $5.19 (>= $5) بدون مبيعات",
+      "paused_at": "2026-10-15 22:14 GMT+3"
+    },
+    "ff81cd25-0053-4ebc-be87-6242727be891": {
+      "name": "Copy of Copy of Copy of Copy of Copy of Copy of 1.5 | 23.8",
+      "campaign": "car scaling camp ",
+      "reason": "[Copy Rule] صرفت $6.16 (>= $5) بدون مبيعات",
+      "paused_at": "2026-10-15 22:14 GMT+3"
     }
   },
   "ads": {
@@ -181,6 +199,13 @@
       "adsquad": "Copy of Copy of Copy of Copy of Copy of text 2 ",
       "reason": "[Ad CPC Rule] صرف الفيديو $1.01 | النقرات: 2 | سعر النقرة CPC = $0.505 (> $0.28)",
       "paused_at": "2026-10-15 20:50 GMT+3"
+    },
+    "7627c1a1-cd40-4abd-8048-c2ea937de6a1": {
+      "name": "Copy of 4",
+      "campaign": "car scaling camp ",
+      "adsquad": "Copy of Copy of 1.5 | 23.8",
+      "reason": "[Ad CPC Rule] صرف الفيديو $1.07 | النقرات: 3 | سعر النقرة CPC = $0.357 (> $0.28)",
+      "paused_at": "2026-10-15 22:14 GMT+3"
     }
   },
   "tiktok_videos": {
@@ -522,6 +547,23 @@
       "spend_2d": 11.66,
       "conv_2d": 1,
       "paused_at": "2026-10-15T18:30:11.030658+00:00"
+    },
+    "7631765070816509959:1878928863895761:1878929010346145": {
+      "aadvid": "7631765070816509959",
+      "account_name": "ROELLINGER RECYCLING2",
+      "ad_id": "1878928863895761",
+      "creative_id": "1878928863895777",
+      "campaign_ad_name": "watch leads with pangle  / Ad name2026-10-12 01:24:12",
+      "video_name": "11_10(1).mov",
+      "draft_ids": [
+        "1878929010346145"
+      ],
+      "reason": "Today Spend $6.04 > $6.00 with 0 sales | 2-Day Spend $6.56 > $6.00 with 0 sales",
+      "spend_1d": 6.04,
+      "conv_1d": 0,
+      "spend_2d": 6.56,
+      "conv_2d": 0,
+      "paused_at": "2026-10-15T19:16:15.102590+00:00"
     }
   },
   "tiktok_ads": {},
