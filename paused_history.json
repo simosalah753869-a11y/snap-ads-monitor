@@ -564,6 +564,57 @@
       "spend_2d": 6.56,
       "conv_2d": 0,
       "paused_at": "2026-10-15T19:16:15.102590+00:00"
+    },
+    "7631763556322148369:1878973397989458:1878995986920338": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "ad_id": "1878973397989458",
+      "creative_id": "1878973397989474",
+      "campaign_ad_name": "Copy 1 of car armrest leads  13-10 / Ad name2026-10-13 11:52:19",
+      "video_name": "غطاء مساند ذراع السيارة فاخر مُبطّن بذاكرة فوم مع حافظة مناديل وجوال-Music_Refresh-0-15",
+      "draft_ids": [
+        "1878995986920338"
+      ],
+      "reason": "Today Spend $8.69 > $6.00 with 0 sales | 2-Day Spend $10.16 > $6.00 with 0 sales",
+      "spend_1d": 8.69,
+      "conv_1d": 0,
+      "spend_2d": 10.16,
+      "conv_2d": 0,
+      "paused_at": "2026-10-15T19:50:22.770232+00:00"
+    },
+    "7631763556322148369:1879119542754066:1879119546183874": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "ad_id": "1879119542754066",
+      "creative_id": "1879119543983698",
+      "campaign_ad_name": "car armrest leads 15-10 B / car armrest leads 15-10 B - Creative",
+      "video_name": "15-10_video_5.mp4",
+      "draft_ids": [
+        "1879119546183874"
+      ],
+      "reason": "Today Spend $1.08 >= $1.00 & CPC $0.36 > $0.35",
+      "spend_1d": 1.08,
+      "conv_1d": 0,
+      "spend_2d": 1.08,
+      "conv_2d": 0,
+      "paused_at": "2026-10-15T19:50:23.408991+00:00"
+    },
+    "7631765070816509959:1878928863895761:1878929010283105": {
+      "aadvid": "7631765070816509959",
+      "account_name": "ROELLINGER RECYCLING2",
+      "ad_id": "1878928863895761",
+      "creative_id": "1878928863895777",
+      "campaign_ad_name": "watch leads with pangle  / Ad name2026-10-12 01:24:12",
+      "video_name": "11_10(4).mp4",
+      "draft_ids": [
+        "1878929010283105"
+      ],
+      "reason": "2-Day Spend $1.07 >= $1.00 & CPC $0.54 > $0.35",
+      "spend_1d": 0.94,
+      "conv_1d": 0,
+      "spend_2d": 1.07,
+      "conv_2d": 0,
+      "paused_at": "2026-10-15T19:50:32.505292+00:00"
     }
   },
   "tiktok_ads": {},
