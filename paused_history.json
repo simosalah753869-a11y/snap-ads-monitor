@@ -452,6 +452,23 @@
       "spend_2d": 7.31,
       "conv_2d": 3,
       "paused_at": "2026-10-15T14:53:31.062421+00:00"
+    },
+    "7631763556322148369:1878973397989458:1878995986917650": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "ad_id": "1878973397989458",
+      "creative_id": "1878973397989474",
+      "campaign_ad_name": "Copy 1 of car armrest leads  13-10 / Ad name2026-10-13 11:52:19",
+      "video_name": "وسادة مقعد السيارة من الميموري فوم مع جيوب جانبيه ومكان للمناديل-Music_Refresh-5-6",
+      "draft_ids": [
+        "1878995986917650"
+      ],
+      "reason": "Today Spend $1.03 >= $1.00 & CPC $1.03 > $0.35",
+      "spend_1d": 1.03,
+      "conv_1d": 0,
+      "spend_2d": 5.33,
+      "conv_2d": 1,
+      "paused_at": "2026-10-15T15:16:18.824494+00:00"
     }
   },
   "tiktok_ads": {},
