@@ -24,12 +24,14 @@ ACCOUNTS = [
 
 # Rules configured per user request:
 # Campaign Level:
-# - Campaign spend >= $18.00 in 1 day (Today) or 2 days (Yesterday + Today) with 0 conversions -> Pause Campaign
+# 1. Campaign spend >= $18.00 in 1 day (Today) or 2 days (Yesterday + Today) with 0 conversions -> Pause Campaign
+# 2. Campaign CPA (cost per sale) >= $21.00 in 1 day (Today) or 2 days (Yesterday + Today) -> Pause Campaign
 # Video Level (Smart+):
 # 1. Video spend > $6.00 in 1 day (Today) with 0 conversions -> Pause Video
 # 2. Video spend > $6.00 in 2 days (Yesterday + Today) with 0 conversions -> Pause Video
 # 3. Video spend >= $1.00 and CPC > $0.35 (or 0 clicks) -> Pause Video
 MAX_CAMPAIGN_NO_SALE_SPEND = 18.00
+MAX_CAMPAIGN_CPA = 21.00
 MAX_NO_SALE_SPEND = 6.00
 MIN_SPEND_FOR_CPC = 1.00
 MAX_CPC = 0.35
@@ -186,6 +188,18 @@ def evaluate_campaign_rules(spend_1d, conv_1d, spend_2d, conv_2d):
     # Rule 2: Campaign Spend >= $18 over 2 days (Yesterday + Today) with 0 conversions
     if spend_2d >= MAX_CAMPAIGN_NO_SALE_SPEND and conv_2d == 0:
         reasons.append(f"Campaign 2-Day Spend ${spend_2d:.2f} >= ${MAX_CAMPAIGN_NO_SALE_SPEND:.2f} with 0 sales")
+    # Rule 3: Campaign Today CPA >= $21 (with >= 1 conversion)
+    if conv_1d > 0 and (spend_1d / conv_1d) >= MAX_CAMPAIGN_CPA:
+        reasons.append(
+            f"Campaign Today CPA ${(spend_1d / conv_1d):.2f} >= ${MAX_CAMPAIGN_CPA:.2f} "
+            f"(Spend=${spend_1d:.2f}, Sales={conv_1d})"
+        )
+    # Rule 4: Campaign 2-Day CPA >= $21 (with >= 1 conversion)
+    if conv_2d > 0 and (spend_2d / conv_2d) >= MAX_CAMPAIGN_CPA:
+        reasons.append(
+            f"Campaign 2-Day CPA ${(spend_2d / conv_2d):.2f} >= ${MAX_CAMPAIGN_CPA:.2f} "
+            f"(Spend=${spend_2d:.2f}, Sales={conv_2d})"
+        )
     return reasons
 
 
