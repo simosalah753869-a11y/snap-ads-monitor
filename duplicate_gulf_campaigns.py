@@ -19,6 +19,12 @@ def make_session(token: str) -> requests.Session:
     return s
 
 
+import json
+from pathlib import Path
+
+HISTORY_FILE = Path(__file__).parent / "paused_history.json"
+
+
 def clone_adsquad_exact(session: requests.Session, src: dict, copies_count: int):
     source_squad_id = src["id"]
     campaign_id = src["campaign_id"]
@@ -29,10 +35,31 @@ def clone_adsquad_exact(session: requests.Session, src: dict, copies_count: int)
     ra = session.get(f"{API_BASE}/adsquads/{source_squad_id}/ads", timeout=20)
     ra.raise_for_status()
     all_ads = [a["ad"] for a in ra.json().get("ads", []) if "ad" in a]
-    ads_to_copy = [a for a in all_ads if a.get("status") == "ACTIVE"] or all_ads
+
+    # استبعاد أي فيديو تم إيقافه/حذفه نهائياً على مستوى الحملة بالكامل (disabled_videos)
+    disabled_keys = set()
+    cmap = {}
+    if HISTORY_FILE.exists():
+        try:
+            hist = json.loads(HISTORY_FILE.read_text(encoding="utf-8"))
+            disabled_keys = set((hist.get("disabled_videos") or {}).keys())
+            cmap = hist.get("creative_media_map") or {}
+        except Exception:
+            pass
+
+    def is_ad_allowed(a: dict) -> bool:
+        cr_id = a.get("creative_id")
+        v_key = cmap.get(cr_id) or cr_id
+        return f"{campaign_id}:{v_key}" not in disabled_keys and f"{campaign_id}:{cr_id}" not in disabled_keys
+
+    allowed_all = [a for a in all_ads if is_ad_allowed(a)]
+    ads_to_copy = [a for a in allowed_all if a.get("status") == "ACTIVE"] or allowed_all
+    if not ads_to_copy:
+        print(f"   ⚠️ تخطي نسخ '{src_name}': جميع الفيديوهات بداخلها تم إيقافها/حذفها.", flush=True)
+        return
 
     print(
-        f"   📋 نسخ '{src_name}' عدد {copies_count} مرات | نفس الـ Bid (${bid_dollars}) | الإعلانات: {len(ads_to_copy)}...",
+        f"   📋 نسخ '{src_name}' عدد {copies_count} مرات | نفس الـ Bid (${bid_dollars}) | الإعلانات النشطة المسموحة: {len(ads_to_copy)}...",
         flush=True,
     )
 
