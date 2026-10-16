@@ -2434,5 +2434,18 @@
       "last_bump_local": "2026-10-16 03:32 GMT+3"
     }
   },
-  "tiktok_campaigns": {}
+  "tiktok_campaigns": {
+    "7631765070816509959:1878928863895745": {
+      "aadvid": "7631765070816509959",
+      "account_name": "ROELLINGER RECYCLING2",
+      "campaign_id": "1878928863895745",
+      "campaign_name": "watch leads with pangle ",
+      "reason": "Campaign 2-Day CPA $21.17 >= $21.00 (Spend=$21.17, Sales=1)",
+      "spend_1d": 0.76,
+      "conv_1d": 0,
+      "spend_2d": 21.17,
+      "conv_2d": 1,
+      "paused_at": "2026-10-16T01:50:59.572680+00:00"
+    }
+  }
 }
