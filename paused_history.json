@@ -162,6 +162,24 @@
       "campaign": "car scaling camp ",
       "reason": "[Copy Rule] صرفت $5.38 (>= $5) بدون مبيعات",
       "paused_at": "2026-10-16 14:08 GMT+3"
+    },
+    "e9d2f4c5-47e2-456f-b614-2954b2021879": {
+      "name": "Copy of Copy of Copy of Copy of Copy of Copy of 1.5 | 23.8",
+      "campaign": "car scaling camp ",
+      "reason": "[Copy Rule] صرفت $5.62 (>= $5) بدون مبيعات",
+      "paused_at": "2026-10-16 14:52 GMT+3"
+    },
+    "82f2045e-3b11-45a2-a607-275e9368d70d": {
+      "name": "Copy of Copy of Copy of Copy of Copy of Copy of Copy of Copy of text1",
+      "campaign": "car scaling new 2 text",
+      "reason": "[Copy Rule] صرفت $6.15 (>= $5) بدون مبيعات",
+      "paused_at": "2026-10-16 14:52 GMT+3"
+    },
+    "f683d835-57bf-4409-8109-5ad70a4fb5b7": {
+      "name": "Copy of 16-10 1",
+      "campaign": "باور بانك وينر",
+      "reason": "[Copy Rule] صرفت $5.04 (>= $5) بدون مبيعات",
+      "paused_at": "2026-10-16 14:52 GMT+3"
     }
   },
   "ads": {
@@ -363,6 +381,13 @@
       "adsquad": "16-10 2",
       "reason": "[Ad CPC Rule] صرف الفيديو $1.03 | النقرات: 3 | سعر النقرة CPC = $0.343 (> $0.28)",
       "paused_at": "2026-10-16 14:08 GMT+3"
+    },
+    "220bddcd-c299-459b-9135-f1e191abc62f": {
+      "name": "باوربانك ",
+      "campaign": "qatar  power bank",
+      "adsquad": "Copy of 112 ( باوربانك)",
+      "reason": "[Ad CPC Rule] صرف الفيديو $1.27 | النقرات: 2 | سعر النقرة CPC = $0.635 (> $0.34)",
+      "paused_at": "2026-10-16 14:52 GMT+3"
     }
   },
   "tiktok_videos": {
@@ -942,6 +967,40 @@
       "spend_2d": 1.04,
       "conv_2d": 1,
       "paused_at": "2026-10-16T11:09:30.846134+00:00"
+    },
+    "7631763556322148369:1878973397989458:1878995986921666": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "ad_id": "1878973397989458",
+      "creative_id": "1878973397989474",
+      "campaign_ad_name": "Copy 1 of car armrest leads  13-10 / Ad name2026-10-13 11:52:19",
+      "video_name": "غطاء مساند ذراع السيارة فاخر مُبطّن بذاكرة فوم مع حافظة مناديل وجوال-New_Hook-20-13",
+      "draft_ids": [
+        "1878995986921666"
+      ],
+      "reason": "Today Spend $6.27 > $6.00 with 0 sales",
+      "spend_1d": 6.27,
+      "conv_1d": 0,
+      "spend_2d": 55.38,
+      "conv_2d": 14,
+      "paused_at": "2026-10-16T11:54:36.591914+00:00"
+    },
+    "7631763556322148369:1878973397989458:1878995986922642": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "ad_id": "1878973397989458",
+      "creative_id": "1878973397989474",
+      "campaign_ad_name": "Copy 1 of car armrest leads  13-10 / Ad name2026-10-13 11:52:19",
+      "video_name": "غطاء مساند ذراع السيارة فاخر مُبطّن بذاكرة فوم مع حافظة مناديل وجوال-Music_Refresh-4-7",
+      "draft_ids": [
+        "1878995986922642"
+      ],
+      "reason": "Today Spend $6.89 > $6.00 with 0 sales | 2-Day Spend $8.43 > $6.00 with 0 sales",
+      "spend_1d": 6.89,
+      "conv_1d": 0,
+      "spend_2d": 8.43,
+      "conv_2d": 0,
+      "paused_at": "2026-10-16T11:54:37.259969+00:00"
     }
   },
   "tiktok_ads": {},
@@ -1074,7 +1133,8 @@
       "old_bid": 3.1,
       "new_bid": 3.2,
       "last_bump_at": "2026-10-16T09:07:37.191219+00:00",
-      "last_bump_local": "2026-10-16 12:06 GMT+3"
+      "last_bump_local": "2026-10-16 12:06 GMT+3",
+      "done": true
     },
     "3a8dcc66-4bfd-418e-ab79-892e2b4f2558": {
       "name": "Copy of 112 ( باوربانك)",
@@ -1611,7 +1671,8 @@
       "old_bid": 2.2,
       "new_bid": 2.3,
       "last_bump_at": "2026-10-16T09:07:37.191219+00:00",
-      "last_bump_local": "2026-10-16 12:06 GMT+3"
+      "last_bump_local": "2026-10-16 12:06 GMT+3",
+      "done": true
     },
     "fdedb223-e02d-4408-bef2-25eb56ea3b17": {
       "name": "Copy of Copy of Copy of Copy of Copy of text1",
@@ -2453,7 +2514,8 @@
       "old_bid": 3.2,
       "new_bid": 3.3,
       "last_bump_at": "2026-10-16T09:07:37.191219+00:00",
-      "last_bump_local": "2026-10-16 12:06 GMT+3"
+      "last_bump_local": "2026-10-16 12:06 GMT+3",
+      "done": true
     },
     "79e411a8-48e4-48a8-b328-4d6a85e17f55": {
       "name": "Copy of 15$",
@@ -2888,7 +2950,7 @@
       "campaign": "باور بانك وينر",
       "date": "2026-10-16",
       "count": 2,
-      "done": false,
+      "done": true,
       "old_bid": 2.1,
       "new_bid": 2.2,
       "last_bump_at": "2026-10-16T11:08:51.413278+00:00",
@@ -2909,7 +2971,7 @@
       "campaign": "باور بانك وينر",
       "date": "2026-10-16",
       "count": 2,
-      "done": false,
+      "done": true,
       "old_bid": 2.1,
       "new_bid": 2.2,
       "last_bump_at": "2026-10-16T11:08:51.413278+00:00",
@@ -3010,6 +3072,332 @@
       "done": true,
       "name": "15-10",
       "campaign": "car scaling camp "
+    },
+    "34298954-e558-4743-a881-4aa236f3fabc": {
+      "count": 0,
+      "last_bump_at": null,
+      "done": true,
+      "name": "Copy of Copy of Copy of Copy of Copy of Copy of Copy of Copy of text1",
+      "campaign": "car scaling new 2 text"
+    },
+    "4685d1e4-3b21-4575-b552-83620ea4d4fa": {
+      "name": "Copy of Copy of Copy of Copy of Copy of Copy of Copy of Copy of text1",
+      "campaign": "car scaling new 2 text",
+      "date": "2026-10-16",
+      "count": 1,
+      "done": false,
+      "old_bid": 2.2,
+      "new_bid": 2.3,
+      "last_bump_at": "2026-10-16T11:53:16.428409+00:00",
+      "last_bump_local": "2026-10-16 14:52 GMT+3"
+    },
+    "49347651-ed23-4a01-b05c-42a7e812545a": {
+      "name": "Copy of Copy of Copy of Copy of Copy of Copy of Copy of Copy of text1",
+      "campaign": "car scaling new 2 text",
+      "date": "2026-10-16",
+      "count": 1,
+      "done": false,
+      "old_bid": 2.2,
+      "new_bid": 2.3,
+      "last_bump_at": "2026-10-16T11:53:16.428409+00:00",
+      "last_bump_local": "2026-10-16 14:52 GMT+3"
+    },
+    "63ba3a93-97bf-4161-87c8-6b7b0b5f7e8b": {
+      "name": "Copy of Copy of Copy of Copy of Copy of Copy of Copy of Copy of text1",
+      "campaign": "car scaling new 2 text",
+      "date": "2026-10-16",
+      "count": 1,
+      "done": false,
+      "old_bid": 2.2,
+      "new_bid": 2.3,
+      "last_bump_at": "2026-10-16T11:53:16.428409+00:00",
+      "last_bump_local": "2026-10-16 14:52 GMT+3"
+    },
+    "6663a9c8-3c1d-426d-b871-af4af60b47db": {
+      "name": "Copy of Copy of Copy of Copy of Copy of Copy of Copy of Copy of text1",
+      "campaign": "car scaling new 2 text",
+      "date": "2026-10-16",
+      "count": 1,
+      "done": false,
+      "old_bid": 2.2,
+      "new_bid": 2.3,
+      "last_bump_at": "2026-10-16T11:53:16.428409+00:00",
+      "last_bump_local": "2026-10-16 14:52 GMT+3"
+    },
+    "8293a195-ddc1-48a9-990e-8f6e29387d53": {
+      "name": "Copy of Copy of Copy of Copy of Copy of Copy of Copy of Copy of text1",
+      "campaign": "car scaling new 2 text",
+      "date": "2026-10-16",
+      "count": 1,
+      "done": false,
+      "old_bid": 2.2,
+      "new_bid": 2.3,
+      "last_bump_at": "2026-10-16T11:53:16.428409+00:00",
+      "last_bump_local": "2026-10-16 14:52 GMT+3"
+    },
+    "8e1bcb50-3351-471f-b1b3-7512ed50ac6d": {
+      "name": "Copy of Copy of Copy of Copy of Copy of Copy of Copy of Copy of text1",
+      "campaign": "car scaling new 2 text",
+      "date": "2026-10-16",
+      "count": 1,
+      "done": false,
+      "old_bid": 2.2,
+      "new_bid": 2.3,
+      "last_bump_at": "2026-10-16T11:53:16.428409+00:00",
+      "last_bump_local": "2026-10-16 14:52 GMT+3"
+    },
+    "f3cc0014-943c-4308-b45b-664564fb5fdf": {
+      "name": "Copy of Copy of Copy of Copy of Copy of Copy of Copy of Copy of text1",
+      "campaign": "car scaling new 2 text",
+      "date": "2026-10-16",
+      "count": 1,
+      "done": false,
+      "old_bid": 2.2,
+      "new_bid": 2.3,
+      "last_bump_at": "2026-10-16T11:53:16.428409+00:00",
+      "last_bump_local": "2026-10-16 14:52 GMT+3"
+    },
+    "fafc68a6-0c17-4c0e-923b-e84ca14abb60": {
+      "name": "Copy of Copy of Copy of Copy of Copy of Copy of Copy of Copy of text1",
+      "campaign": "car scaling new 2 text",
+      "date": "2026-10-16",
+      "count": 1,
+      "done": false,
+      "old_bid": 2.2,
+      "new_bid": 2.3,
+      "last_bump_at": "2026-10-16T11:53:16.428409+00:00",
+      "last_bump_local": "2026-10-16 14:52 GMT+3"
+    },
+    "fc2957f6-4601-4094-8a7f-f45d968b67dc": {
+      "name": "Copy of Copy of Copy of Copy of Copy of Copy of Copy of Copy of text1",
+      "campaign": "car scaling new 2 text",
+      "date": "2026-10-16",
+      "count": 1,
+      "done": false,
+      "old_bid": 2.2,
+      "new_bid": 2.3,
+      "last_bump_at": "2026-10-16T11:53:16.428409+00:00",
+      "last_bump_local": "2026-10-16 14:52 GMT+3"
+    },
+    "0606321b-5f18-4bdc-89b8-71797dbcf579": {
+      "name": "Copy of 1",
+      "campaign": "car armrest qatar 27-6 ",
+      "date": "2026-10-16",
+      "count": 1,
+      "done": false,
+      "old_bid": 3.5,
+      "new_bid": 3.6,
+      "last_bump_at": "2026-10-16T11:53:16.428409+00:00",
+      "last_bump_local": "2026-10-16 14:52 GMT+3"
+    },
+    "11488615-fe63-4afe-9f3d-89c77e57a7c2": {
+      "name": "Copy of 1",
+      "campaign": "car armrest qatar 27-6 ",
+      "date": "2026-10-16",
+      "count": 1,
+      "done": false,
+      "old_bid": 3.5,
+      "new_bid": 3.6,
+      "last_bump_at": "2026-10-16T11:53:16.428409+00:00",
+      "last_bump_local": "2026-10-16 14:52 GMT+3"
+    },
+    "22dfdd48-f48a-4af7-9829-f4e244f7b72b": {
+      "name": "Copy of 1",
+      "campaign": "car armrest qatar 27-6 ",
+      "date": "2026-10-16",
+      "count": 1,
+      "done": false,
+      "old_bid": 3.5,
+      "new_bid": 3.6,
+      "last_bump_at": "2026-10-16T11:53:16.428409+00:00",
+      "last_bump_local": "2026-10-16 14:52 GMT+3"
+    },
+    "2da06645-799d-467e-bf2e-95a8e404eab1": {
+      "name": "Copy of 1",
+      "campaign": "car armrest qatar 27-6 ",
+      "date": "2026-10-16",
+      "count": 1,
+      "done": false,
+      "old_bid": 3.5,
+      "new_bid": 3.6,
+      "last_bump_at": "2026-10-16T11:53:16.428409+00:00",
+      "last_bump_local": "2026-10-16 14:52 GMT+3"
+    },
+    "69c4c03e-7fd4-4981-a5d0-6b6246a0b6f0": {
+      "name": "Copy of 1",
+      "campaign": "car armrest qatar 27-6 ",
+      "date": "2026-10-16",
+      "count": 1,
+      "done": false,
+      "old_bid": 3.5,
+      "new_bid": 3.6,
+      "last_bump_at": "2026-10-16T11:53:16.428409+00:00",
+      "last_bump_local": "2026-10-16 14:52 GMT+3"
+    },
+    "90eb3f0f-e948-4d1b-815a-ca91274d5640": {
+      "name": "Copy of 1",
+      "campaign": "car armrest qatar 27-6 ",
+      "date": "2026-10-16",
+      "count": 1,
+      "done": false,
+      "old_bid": 3.5,
+      "new_bid": 3.6,
+      "last_bump_at": "2026-10-16T11:53:16.428409+00:00",
+      "last_bump_local": "2026-10-16 14:52 GMT+3"
+    },
+    "93495de7-331f-42fb-b307-5fa60ce3634d": {
+      "name": "Copy of 1",
+      "campaign": "car armrest qatar 27-6 ",
+      "date": "2026-10-16",
+      "count": 1,
+      "done": false,
+      "old_bid": 3.5,
+      "new_bid": 3.6,
+      "last_bump_at": "2026-10-16T11:53:16.428409+00:00",
+      "last_bump_local": "2026-10-16 14:52 GMT+3"
+    },
+    "a6d8e7ec-d89e-45f1-85bf-f50cbfb28885": {
+      "name": "Copy of 1",
+      "campaign": "car armrest qatar 27-6 ",
+      "date": "2026-10-16",
+      "count": 1,
+      "done": false,
+      "old_bid": 3.5,
+      "new_bid": 3.6,
+      "last_bump_at": "2026-10-16T11:53:16.428409+00:00",
+      "last_bump_local": "2026-10-16 14:52 GMT+3"
+    },
+    "b62be6d4-b9b9-49b2-b994-8d0969f2baf9": {
+      "name": "Copy of 1",
+      "campaign": "car armrest qatar 27-6 ",
+      "date": "2026-10-16",
+      "count": 1,
+      "done": false,
+      "old_bid": 3.5,
+      "new_bid": 3.6,
+      "last_bump_at": "2026-10-16T11:53:16.428409+00:00",
+      "last_bump_local": "2026-10-16 14:52 GMT+3"
+    },
+    "cfcf8a5e-63fa-40f7-9cc2-9c6a6d23676f": {
+      "name": "Copy of 1",
+      "campaign": "car armrest qatar 27-6 ",
+      "date": "2026-10-16",
+      "count": 1,
+      "done": false,
+      "old_bid": 3.5,
+      "new_bid": 3.6,
+      "last_bump_at": "2026-10-16T11:53:16.428409+00:00",
+      "last_bump_local": "2026-10-16 14:52 GMT+3"
+    },
+    "231b24e2-bfb8-457d-85f5-f58fb15bddbd": {
+      "name": "Copy of Copy of 1.5 | 23.8",
+      "campaign": "car scaling camp ",
+      "date": "2026-10-16",
+      "count": 1,
+      "done": false,
+      "old_bid": 2.05,
+      "new_bid": 2.15,
+      "last_bump_at": "2026-10-16T11:53:16.428409+00:00",
+      "last_bump_local": "2026-10-16 14:52 GMT+3"
+    },
+    "4ce9e28c-2792-445b-b1bc-d0055498f801": {
+      "name": "Copy of Copy of 1.5 | 23.8",
+      "campaign": "car scaling camp ",
+      "date": "2026-10-16",
+      "count": 1,
+      "done": false,
+      "old_bid": 2.05,
+      "new_bid": 2.15,
+      "last_bump_at": "2026-10-16T11:53:16.428409+00:00",
+      "last_bump_local": "2026-10-16 14:52 GMT+3"
+    },
+    "4e2c01bc-fc59-4a57-a37b-428841a86d3b": {
+      "name": "Copy of Copy of 1.5 | 23.8",
+      "campaign": "car scaling camp ",
+      "date": "2026-10-16",
+      "count": 1,
+      "done": false,
+      "old_bid": 2.05,
+      "new_bid": 2.15,
+      "last_bump_at": "2026-10-16T11:53:16.428409+00:00",
+      "last_bump_local": "2026-10-16 14:52 GMT+3"
+    },
+    "709a2777-1d75-42cb-8f83-ae79624103c6": {
+      "name": "Copy of Copy of 1.5 | 23.8",
+      "campaign": "car scaling camp ",
+      "date": "2026-10-16",
+      "count": 1,
+      "done": false,
+      "old_bid": 2.05,
+      "new_bid": 2.15,
+      "last_bump_at": "2026-10-16T11:53:16.428409+00:00",
+      "last_bump_local": "2026-10-16 14:52 GMT+3"
+    },
+    "74c45e66-a517-4cf9-aca2-833e8afdb1d3": {
+      "name": "Copy of Copy of 1.5 | 23.8",
+      "campaign": "car scaling camp ",
+      "date": "2026-10-16",
+      "count": 1,
+      "done": false,
+      "old_bid": 2.05,
+      "new_bid": 2.15,
+      "last_bump_at": "2026-10-16T11:53:16.428409+00:00",
+      "last_bump_local": "2026-10-16 14:52 GMT+3"
+    },
+    "84bbae6d-2c07-4ee3-9358-f9fb05eac48d": {
+      "name": "Copy of Copy of 1.5 | 23.8",
+      "campaign": "car scaling camp ",
+      "date": "2026-10-16",
+      "count": 1,
+      "done": false,
+      "old_bid": 2.05,
+      "new_bid": 2.15,
+      "last_bump_at": "2026-10-16T11:53:16.428409+00:00",
+      "last_bump_local": "2026-10-16 14:52 GMT+3"
+    },
+    "b43fbc6d-a5a0-46b0-a354-94c5a3a01c1c": {
+      "name": "Copy of Copy of 1.5 | 23.8",
+      "campaign": "car scaling camp ",
+      "date": "2026-10-16",
+      "count": 1,
+      "done": false,
+      "old_bid": 2.05,
+      "new_bid": 2.15,
+      "last_bump_at": "2026-10-16T11:53:16.428409+00:00",
+      "last_bump_local": "2026-10-16 14:52 GMT+3"
+    },
+    "bf505ca0-7d83-4743-b1df-37ad1a9a4114": {
+      "name": "Copy of Copy of 1.5 | 23.8",
+      "campaign": "car scaling camp ",
+      "date": "2026-10-16",
+      "count": 1,
+      "done": false,
+      "old_bid": 2.05,
+      "new_bid": 2.15,
+      "last_bump_at": "2026-10-16T11:53:16.428409+00:00",
+      "last_bump_local": "2026-10-16 14:52 GMT+3"
+    },
+    "d06431af-af53-40b8-b95d-d3088d515be9": {
+      "name": "Copy of Copy of 1.5 | 23.8",
+      "campaign": "car scaling camp ",
+      "date": "2026-10-16",
+      "count": 1,
+      "done": false,
+      "old_bid": 2.05,
+      "new_bid": 2.15,
+      "last_bump_at": "2026-10-16T11:53:16.428409+00:00",
+      "last_bump_local": "2026-10-16 14:52 GMT+3"
+    },
+    "da6b55a8-1f47-49b6-b92f-a442e5cafa5f": {
+      "name": "Copy of Copy of 1.5 | 23.8",
+      "campaign": "car scaling camp ",
+      "date": "2026-10-16",
+      "count": 1,
+      "done": false,
+      "old_bid": 2.05,
+      "new_bid": 2.15,
+      "last_bump_at": "2026-10-16T11:53:16.428409+00:00",
+      "last_bump_local": "2026-10-16 14:52 GMT+3"
     }
   },
   "tiktok_campaigns": {
