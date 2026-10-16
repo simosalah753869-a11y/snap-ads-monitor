@@ -414,6 +414,12 @@
       "campaign": "car scaling new 2 text",
       "reason": "[Copy Rule] صرفت $5.01 (>= $5) بدون مبيعات",
       "paused_at": "2026-10-16 22:30 GMT+3"
+    },
+    "4685d1e4-3b21-4575-b552-83620ea4d4fa": {
+      "name": "Copy of Copy of Copy of Copy of Copy of Copy of Copy of Copy of text1",
+      "campaign": "car scaling new 2 text",
+      "reason": "[Copy Rule] سعر البيعة CPA = $8.36 (>= $8) | الصرف: $16.72 | المبيعات: 2",
+      "paused_at": "2026-10-16 23:01 GMT+3"
     }
   },
   "ads": {
@@ -1784,6 +1790,20 @@
       "adsquad": "Copy of Copy of Copy of Copy of 1.5 | 23.8",
       "reason": "[Winner Isolation] إبقاء الفيديو الرابح فقط (<$5 CPA) وإيقاف الفيديو غير الرابح (7d spend=$1.24, sales=0)",
       "paused_at": "2026-10-16 21:41 GMT+3"
+    },
+    "7d04eb7a-e062-454c-b1dc-e57cd2974f57": {
+      "name": "Copy of Copy of Copy of 2",
+      "campaign": "car scaling new 2 text",
+      "adsquad": "Copy of Copy of Copy of Copy of Copy of Copy of Copy of Copy of Copy of text1",
+      "reason": "[Ad CPC Rule] صرف الفيديو $2.35 | النقرات: 8 | سعر النقرة CPC = $0.294 (> $0.28)",
+      "paused_at": "2026-10-16 23:01 GMT+3"
+    },
+    "6dbe4315-e1a5-4ec0-8b00-ff12c42ceef9": {
+      "name": "Copy of Copy of Copy of Copy of Copy of 1",
+      "campaign": "car scaling camp ",
+      "adsquad": "Copy of Copy of Copy of Copy of 1.5 | 23.8",
+      "reason": "[Saudi Single Video Stop-Loss] صرف الفيديو $8.16 (>= $6.00) بدون مبيعة",
+      "paused_at": "2026-10-16 23:01 GMT+3"
     }
   },
   "tiktok_videos": {
@@ -2813,7 +2833,8 @@
       "old_bid": 3.2,
       "new_bid": 3.3,
       "last_bump_at": "2026-10-16T09:07:37.191219+00:00",
-      "last_bump_local": "2026-10-16 12:06 GMT+3"
+      "last_bump_local": "2026-10-16 12:06 GMT+3",
+      "done": true
     },
     "118f68f3-a5fe-4a7b-8330-17395bea25cd": {
       "name": "Interest Stack — AR",
@@ -4892,6 +4913,13 @@
       "new_bid": 2.55,
       "last_bump_at": "2026-10-16T18:37:53.694769+00:00",
       "last_bump_local": "2026-10-16 21:34 GMT+3"
+    },
+    "18720c0e-220f-4636-a6f9-d01bec43030d": {
+      "count": 0,
+      "last_bump_at": null,
+      "done": true,
+      "name": "Copy of Copy of Copy of Copy of Copy of Copy of Copy of Copy of Copy of text1",
+      "campaign": "car scaling new 2 text"
     }
   },
   "tiktok_campaigns": {
