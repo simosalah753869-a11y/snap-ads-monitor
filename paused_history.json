@@ -294,6 +294,24 @@
       "campaign": "car scaling new 2 text",
       "reason": "[Copy Rule] صرفت $5.26 (>= $5) بدون مبيعات",
       "paused_at": "2026-10-16 21:06 GMT+3"
+    },
+    "c44ffcc6-35d7-444e-81f7-e3e931154133": {
+      "name": "Copy of 16-10 2",
+      "campaign": "باور بانك وينر",
+      "reason": "[Copy Rule] صرفت $5.37 (>= $5) بدون مبيعات",
+      "paused_at": "2026-10-16 21:23 GMT+3"
+    },
+    "3eb08e1f-a7fb-457d-8689-7d7d1dbf95ac": {
+      "name": "Copy of Copy of Copy of Copy of Copy of 1.5 | 23.8",
+      "campaign": "car scaling camp ",
+      "reason": "[Copy Rule] سعر البيعة CPA = $8.19 (>= $8) | الصرف: $16.38 | المبيعات: 2",
+      "paused_at": "2026-10-16 21:23 GMT+3"
+    },
+    "f83d044b-89fd-4b91-bc0e-c2ede115f3af": {
+      "name": "Copy of Copy of Copy of Copy of Copy of Copy of Copy of Copy of Copy of text1",
+      "campaign": "car scaling new 2 text",
+      "reason": "[Copy Rule] صرفت $5.04 (>= $5) بدون مبيعات",
+      "paused_at": "2026-10-16 21:23 GMT+3"
     }
   },
   "ads": {
@@ -1381,7 +1399,8 @@
       "old_bid": 3.1,
       "new_bid": 3.2,
       "last_bump_at": "2026-10-16T09:07:37.191219+00:00",
-      "last_bump_local": "2026-10-16 12:06 GMT+3"
+      "last_bump_local": "2026-10-16 12:06 GMT+3",
+      "done": true
     },
     "3a8dcc66-4bfd-418e-ab79-892e2b4f2558": {
       "name": "Copy of 112 ( باوربانك)",
@@ -1510,7 +1529,8 @@
       "old_bid": 3.1,
       "new_bid": 3.2,
       "last_bump_at": "2026-10-15T21:31:13.158986+00:00",
-      "last_bump_local": "2026-10-16 00:30 GMT+3"
+      "last_bump_local": "2026-10-16 00:30 GMT+3",
+      "done": true
     },
     "7a88f2ba-af4e-4314-94ee-6ba9cfd94e3c": {
       "name": "Copy of BB",
@@ -1519,7 +1539,8 @@
       "old_bid": 3.1,
       "new_bid": 3.2,
       "last_bump_at": "2026-10-15T21:31:13.158986+00:00",
-      "last_bump_local": "2026-10-16 00:30 GMT+3"
+      "last_bump_local": "2026-10-16 00:30 GMT+3",
+      "done": true
     },
     "a22007a3-caa9-4f16-8176-68cd9a628bfc": {
       "name": "Copy of BB",
@@ -1528,7 +1549,8 @@
       "old_bid": 3.1,
       "new_bid": 3.2,
       "last_bump_at": "2026-10-15T21:31:13.158986+00:00",
-      "last_bump_local": "2026-10-16 00:30 GMT+3"
+      "last_bump_local": "2026-10-16 00:30 GMT+3",
+      "done": true
     },
     "a4690fa6-c42b-46d7-9fa7-244c58bf5d6a": {
       "name": "Copy of BB",
@@ -1548,7 +1570,8 @@
       "old_bid": 3.2,
       "new_bid": 3.3,
       "last_bump_at": "2026-10-16T09:07:37.191219+00:00",
-      "last_bump_local": "2026-10-16 12:06 GMT+3"
+      "last_bump_local": "2026-10-16 12:06 GMT+3",
+      "done": true
     },
     "b8296148-07c8-4d9e-9926-d24602fd4d48": {
       "name": "Copy of BB",
@@ -1617,7 +1640,8 @@
       "old_bid": 2.1,
       "new_bid": 2.2,
       "last_bump_at": "2026-10-15T21:31:13.158986+00:00",
-      "last_bump_local": "2026-10-16 00:30 GMT+3"
+      "last_bump_local": "2026-10-16 00:30 GMT+3",
+      "done": true
     },
     "0d0f8a18-1ce7-4345-8721-185922704e0d": {
       "name": "Copy of Copy of Copy of Copy of Copy of text 2 ",
@@ -1626,7 +1650,8 @@
       "old_bid": 2.0,
       "new_bid": 2.1,
       "last_bump_at": "2026-10-15T21:31:13.158986+00:00",
-      "last_bump_local": "2026-10-16 00:30 GMT+3"
+      "last_bump_local": "2026-10-16 00:30 GMT+3",
+      "done": true
     },
     "175f7d04-05b5-4eb5-8d8e-2c32b482f7fd": {
       "name": "Copy of Copy of Copy of Copy of Copy of text 2 ",
@@ -1635,7 +1660,8 @@
       "old_bid": 2.1,
       "new_bid": 2.2,
       "last_bump_at": "2026-10-15T21:31:13.158986+00:00",
-      "last_bump_local": "2026-10-16 00:30 GMT+3"
+      "last_bump_local": "2026-10-16 00:30 GMT+3",
+      "done": true
     },
     "2fe5d669-1d2a-4b61-a002-fbe74389ea98": {
       "name": "Copy of Copy of Copy of Copy of Copy of Copy of text 2 ",
@@ -1684,7 +1710,8 @@
       "old_bid": 2.1,
       "new_bid": 2.2,
       "last_bump_at": "2026-10-15T21:31:13.158986+00:00",
-      "last_bump_local": "2026-10-16 00:30 GMT+3"
+      "last_bump_local": "2026-10-16 00:30 GMT+3",
+      "done": true
     },
     "632a1267-0662-4bcd-9f19-c40f95e3fd35": {
       "name": "Copy of Copy of Copy of Copy of Copy of Copy of Copy of text1",
@@ -1713,7 +1740,8 @@
       "old_bid": 2.1,
       "new_bid": 2.2,
       "last_bump_at": "2026-10-15T21:31:13.158986+00:00",
-      "last_bump_local": "2026-10-16 00:30 GMT+3"
+      "last_bump_local": "2026-10-16 00:30 GMT+3",
+      "done": true
     },
     "82f2045e-3b11-45a2-a607-275e9368d70d": {
       "name": "Copy of Copy of Copy of Copy of Copy of Copy of Copy of Copy of text1",
@@ -1733,7 +1761,8 @@
       "old_bid": 2.1,
       "new_bid": 2.2,
       "last_bump_at": "2026-10-16T09:07:37.191219+00:00",
-      "last_bump_local": "2026-10-16 12:06 GMT+3"
+      "last_bump_local": "2026-10-16 12:06 GMT+3",
+      "done": true
     },
     "93383882-6817-4df3-8739-9fdf90c73b55": {
       "name": "Copy of Copy of Copy of Copy of Copy of Copy of Copy of Copy of text1",
@@ -1751,7 +1780,8 @@
       "old_bid": 2.1,
       "new_bid": 2.2,
       "last_bump_at": "2026-10-15T21:31:13.158986+00:00",
-      "last_bump_local": "2026-10-16 00:30 GMT+3"
+      "last_bump_local": "2026-10-16 00:30 GMT+3",
+      "done": true
     },
     "9a3ab9be-80a9-40f6-85eb-8574f2a66317": {
       "name": "Copy of Copy of text1",
@@ -1770,7 +1800,8 @@
       "old_bid": 2.1,
       "new_bid": 2.2,
       "last_bump_at": "2026-10-15T21:31:13.158986+00:00",
-      "last_bump_local": "2026-10-16 00:30 GMT+3"
+      "last_bump_local": "2026-10-16 00:30 GMT+3",
+      "done": true
     },
     "af048b40-ce00-4029-bda4-2e6ee1e9a641": {
       "name": "Copy of Copy of Copy of Copy of Copy of Copy of Copy of text1",
@@ -1780,7 +1811,8 @@
       "old_bid": 2.1,
       "new_bid": 2.2,
       "last_bump_at": "2026-10-16T09:07:37.191219+00:00",
-      "last_bump_local": "2026-10-16 12:06 GMT+3"
+      "last_bump_local": "2026-10-16 12:06 GMT+3",
+      "done": true
     },
     "b0a67a39-cc00-46d5-b67b-ec9aa9b1fd5f": {
       "name": "Copy of Copy of Copy of Copy of Copy of Copy of Copy of Copy of text1",
@@ -1828,7 +1860,8 @@
       "old_bid": 2.1,
       "new_bid": 2.2,
       "last_bump_at": "2026-10-15T21:31:13.158986+00:00",
-      "last_bump_local": "2026-10-16 00:30 GMT+3"
+      "last_bump_local": "2026-10-16 00:30 GMT+3",
+      "done": true
     },
     "dcb61838-e8f2-4b8d-ad55-070e17493568": {
       "name": "Copy of Copy of Copy of Copy of Copy of Copy of Copy of Copy of text1",
@@ -1837,7 +1870,8 @@
       "old_bid": 2.0,
       "new_bid": 2.1,
       "last_bump_at": "2026-10-15T21:31:13.158986+00:00",
-      "last_bump_local": "2026-10-16 00:30 GMT+3"
+      "last_bump_local": "2026-10-16 00:30 GMT+3",
+      "done": true
     },
     "dfbdf7f6-0f99-4a56-a117-635145b9be52": {
       "name": "Copy of Copy of Copy of Copy of Copy of Copy of Copy of Copy of text1",
@@ -1886,7 +1920,8 @@
       "old_bid": 2.0,
       "new_bid": 2.1,
       "last_bump_at": "2026-10-15T21:31:13.158986+00:00",
-      "last_bump_local": "2026-10-16 00:30 GMT+3"
+      "last_bump_local": "2026-10-16 00:30 GMT+3",
+      "done": true
     },
     "f83d044b-89fd-4b91-bc0e-c2ede115f3af": {
       "name": "Copy of Copy of Copy of Copy of Copy of Copy of Copy of Copy of Copy of text1",
@@ -2083,7 +2118,8 @@
       "old_bid": 1.95,
       "new_bid": 2.05,
       "last_bump_at": "2026-10-15T21:37:29.242829+00:00",
-      "last_bump_local": "2026-10-16 00:37 GMT+3"
+      "last_bump_local": "2026-10-16 00:37 GMT+3",
+      "done": true
     },
     "1c50b885-5e44-45db-846e-bb9b735d4c29": {
       "name": "Copy of Copy of Copy of Copy of 1.5 | 23.8",
@@ -2101,7 +2137,8 @@
       "old_bid": 1.95,
       "new_bid": 2.05,
       "last_bump_at": "2026-10-15T21:37:29.242829+00:00",
-      "last_bump_local": "2026-10-16 00:37 GMT+3"
+      "last_bump_local": "2026-10-16 00:37 GMT+3",
+      "done": true
     },
     "2c2638a7-438c-4435-8224-b11dc67aeabe": {
       "name": "1.5 | 23.8",
@@ -2166,7 +2203,8 @@
       "old_bid": 2.05,
       "new_bid": 2.15,
       "last_bump_at": "2026-10-15T21:37:29.242829+00:00",
-      "last_bump_local": "2026-10-16 00:37 GMT+3"
+      "last_bump_local": "2026-10-16 00:37 GMT+3",
+      "done": true
     },
     "9a564441-3ad4-4133-afe0-144d514251c5": {
       "name": "Copy of Copy of Copy of Copy of 1.5 | 23.8",
@@ -2184,7 +2222,8 @@
       "old_bid": 2.0,
       "new_bid": 2.1,
       "last_bump_at": "2026-10-15T21:37:29.242829+00:00",
-      "last_bump_local": "2026-10-16 00:37 GMT+3"
+      "last_bump_local": "2026-10-16 00:37 GMT+3",
+      "done": true
     },
     "b059247a-e780-4099-9a56-04248fae3170": {
       "name": "Copy of Copy of 1.5 | 23.8",
@@ -2193,7 +2232,8 @@
       "old_bid": 2.05,
       "new_bid": 2.15,
       "last_bump_at": "2026-10-15T21:37:29.242829+00:00",
-      "last_bump_local": "2026-10-16 00:37 GMT+3"
+      "last_bump_local": "2026-10-16 00:37 GMT+3",
+      "done": true
     },
     "c9d2903f-41fa-4bf6-9fe9-7594f1c39469": {
       "name": "Copy of Copy of 1.5 | 23.8",
@@ -2239,7 +2279,8 @@
       "old_bid": 2.05,
       "new_bid": 2.15,
       "last_bump_at": "2026-10-15T21:37:29.242829+00:00",
-      "last_bump_local": "2026-10-16 00:37 GMT+3"
+      "last_bump_local": "2026-10-16 00:37 GMT+3",
+      "done": true
     },
     "f2d7e627-45f5-4bef-bdfd-01db4be88ff8": {
       "name": "Copy of Copy of 1.5 | 23.8",
@@ -2257,7 +2298,8 @@
       "old_bid": 1.95,
       "new_bid": 2.05,
       "last_bump_at": "2026-10-15T21:37:29.242829+00:00",
-      "last_bump_local": "2026-10-16 00:37 GMT+3"
+      "last_bump_local": "2026-10-16 00:37 GMT+3",
+      "done": true
     },
     "f584b178-86a6-4637-ab4f-89fa9b9dc194": {
       "name": "Copy of Copy of Copy of Copy of 1.5 | 23.8",
@@ -2294,7 +2336,8 @@
       "old_bid": 2.05,
       "new_bid": 2.15,
       "last_bump_at": "2026-10-15T21:37:29.242829+00:00",
-      "last_bump_local": "2026-10-16 00:37 GMT+3"
+      "last_bump_local": "2026-10-16 00:37 GMT+3",
+      "done": true
     },
     "ff81cd25-0053-4ebc-be87-6242727be891": {
       "name": "Copy of Copy of Copy of Copy of Copy of Copy of 1.5 | 23.8",
@@ -2312,7 +2355,8 @@
       "old_bid": 3.1,
       "new_bid": 3.2,
       "last_bump_at": "2026-10-15T21:31:13.158986+00:00",
-      "last_bump_local": "2026-10-16 00:30 GMT+3"
+      "last_bump_local": "2026-10-16 00:30 GMT+3",
+      "done": true
     },
     "102d724b-8c35-49d8-b8b4-e7be133d32b9": {
       "name": "Copy of 15$",
@@ -2332,7 +2376,8 @@
       "old_bid": 3.2,
       "new_bid": 3.3,
       "last_bump_at": "2026-10-16T09:07:37.191219+00:00",
-      "last_bump_local": "2026-10-16 12:06 GMT+3"
+      "last_bump_local": "2026-10-16 12:06 GMT+3",
+      "done": true
     },
     "4408fd0a-a125-4135-9286-6f8e5232148d": {
       "name": "Copy of 15$",
@@ -2362,7 +2407,8 @@
       "old_bid": 3.2,
       "new_bid": 3.3,
       "last_bump_at": "2026-10-16T09:07:37.191219+00:00",
-      "last_bump_local": "2026-10-16 12:06 GMT+3"
+      "last_bump_local": "2026-10-16 12:06 GMT+3",
+      "done": true
     },
     "980d70fd-c629-4cef-9a86-7561e8501383": {
       "name": "Copy of 15$",
@@ -2411,7 +2457,8 @@
       "old_bid": 3.6,
       "new_bid": 3.7,
       "last_bump_at": "2026-10-15T21:31:13.158986+00:00",
-      "last_bump_local": "2026-10-16 00:30 GMT+3"
+      "last_bump_local": "2026-10-16 00:30 GMT+3",
+      "done": true
     },
     "39b175ba-c1ae-4645-b388-0b8e20336b55": {
       "name": "Copy of 112 ( باوربانك)",
@@ -2421,7 +2468,8 @@
       "old_bid": 3.7,
       "new_bid": 3.8,
       "last_bump_at": "2026-10-16T09:07:37.191219+00:00",
-      "last_bump_local": "2026-10-16 12:06 GMT+3"
+      "last_bump_local": "2026-10-16 12:06 GMT+3",
+      "done": true
     },
     "3d5066cd-bb69-418c-92f0-9f6e2fab3d8a": {
       "name": "Copy of 112 ( باوربانك)",
@@ -2431,7 +2479,8 @@
       "old_bid": 3.7,
       "new_bid": 3.8,
       "last_bump_at": "2026-10-16T09:07:37.191219+00:00",
-      "last_bump_local": "2026-10-16 12:06 GMT+3"
+      "last_bump_local": "2026-10-16 12:06 GMT+3",
+      "done": true
     },
     "521c05aa-afd6-48ce-919c-0e650a47af5f": {
       "name": "Copy of 112 ( باوربانك)",
@@ -2441,7 +2490,8 @@
       "old_bid": 3.7,
       "new_bid": 3.8,
       "last_bump_at": "2026-10-16T09:07:37.191219+00:00",
-      "last_bump_local": "2026-10-16 12:06 GMT+3"
+      "last_bump_local": "2026-10-16 12:06 GMT+3",
+      "done": true
     },
     "52ade981-1f02-4709-a4ab-37da63904356": {
       "name": "Copy of 112 ( باوربانك)",
@@ -2451,7 +2501,8 @@
       "old_bid": 3.7,
       "new_bid": 3.8,
       "last_bump_at": "2026-10-16T09:07:37.191219+00:00",
-      "last_bump_local": "2026-10-16 12:06 GMT+3"
+      "last_bump_local": "2026-10-16 12:06 GMT+3",
+      "done": true
     },
     "54008073-60d6-47d0-9dde-8ad85c947ed3": {
       "name": "Copy of 112 ( باوربانك)",
@@ -2511,7 +2562,8 @@
       "old_bid": 3.1,
       "new_bid": 3.2,
       "last_bump_at": "2026-10-16T09:07:37.191219+00:00",
-      "last_bump_local": "2026-10-16 12:06 GMT+3"
+      "last_bump_local": "2026-10-16 12:06 GMT+3",
+      "done": true
     },
     "41a3f447-77ba-454f-b2ff-181faaaa8981": {
       "name": "Copy of BB",
@@ -2531,7 +2583,8 @@
       "old_bid": 3.1,
       "new_bid": 3.2,
       "last_bump_at": "2026-10-16T09:07:37.191219+00:00",
-      "last_bump_local": "2026-10-16 12:06 GMT+3"
+      "last_bump_local": "2026-10-16 12:06 GMT+3",
+      "done": true
     },
     "579cbd44-36e2-40ac-a442-cc59b8ca16d2": {
       "name": "Copy of BB",
@@ -2721,7 +2774,8 @@
       "old_bid": 3.2,
       "new_bid": 3.3,
       "last_bump_at": "2026-10-16T09:07:37.191219+00:00",
-      "last_bump_local": "2026-10-16 12:06 GMT+3"
+      "last_bump_local": "2026-10-16 12:06 GMT+3",
+      "done": true
     },
     "79e411a8-48e4-48a8-b328-4d6a85e17f55": {
       "name": "Copy of 15$",
@@ -2731,7 +2785,8 @@
       "old_bid": 3.2,
       "new_bid": 3.3,
       "last_bump_at": "2026-10-16T09:07:37.191219+00:00",
-      "last_bump_local": "2026-10-16 12:06 GMT+3"
+      "last_bump_local": "2026-10-16 12:06 GMT+3",
+      "done": true
     },
     "a45806ff-a04c-4edc-a9f9-7cff9b49d267": {
       "name": "Copy of Copy of 15$",
@@ -2740,7 +2795,8 @@
       "old_bid": 3.1,
       "new_bid": 3.2,
       "last_bump_at": "2026-10-16T03:54:50.115193+00:00",
-      "last_bump_local": "2026-10-16 06:54 GMT+3"
+      "last_bump_local": "2026-10-16 06:54 GMT+3",
+      "done": true
     },
     "e7fe61c8-e52a-4db8-90a5-b64350c4d0f3": {
       "name": "male",
@@ -2749,7 +2805,8 @@
       "old_bid": 3.0,
       "new_bid": 3.1,
       "last_bump_at": "2026-10-16T00:32:39.546384+00:00",
-      "last_bump_local": "2026-10-16 03:32 GMT+3"
+      "last_bump_local": "2026-10-16 03:32 GMT+3",
+      "done": true
     },
     "361cbef7-5397-40e8-a511-bb075bee7c20": {
       "name": "Copy of 112 ( باوربانك)",
@@ -2759,7 +2816,8 @@
       "old_bid": 3.7,
       "new_bid": 3.8,
       "last_bump_at": "2026-10-16T09:07:37.191219+00:00",
-      "last_bump_local": "2026-10-16 12:06 GMT+3"
+      "last_bump_local": "2026-10-16 12:06 GMT+3",
+      "done": true
     },
     "479bd16b-7843-4018-a192-e8a4cd246447": {
       "name": "Copy of BB",
@@ -2849,7 +2907,8 @@
       "old_bid": 2.0,
       "new_bid": 2.1,
       "last_bump_at": "2026-10-16T09:07:37.191219+00:00",
-      "last_bump_local": "2026-10-16 12:06 GMT+3"
+      "last_bump_local": "2026-10-16 12:06 GMT+3",
+      "done": true
     },
     "42dd5671-c395-44e5-afc9-1f5cf429f27c": {
       "name": "Copy of Copy of Copy of Copy of Copy of Copy of text1",
@@ -2869,7 +2928,8 @@
       "old_bid": 2.05,
       "new_bid": 2.15,
       "last_bump_at": "2026-10-16T09:07:37.191219+00:00",
-      "last_bump_local": "2026-10-16 12:06 GMT+3"
+      "last_bump_local": "2026-10-16 12:06 GMT+3",
+      "done": true
     },
     "644d9793-0294-40b3-9e38-d9995895ac81": {
       "name": "Copy of Copy of Copy of Copy of Copy of Copy of text1",
@@ -2879,7 +2939,8 @@
       "old_bid": 2.0,
       "new_bid": 2.1,
       "last_bump_at": "2026-10-16T09:07:37.191219+00:00",
-      "last_bump_local": "2026-10-16 12:06 GMT+3"
+      "last_bump_local": "2026-10-16 12:06 GMT+3",
+      "done": true
     },
     "7649aaa4-b74e-461f-9fee-7826c31e9010": {
       "name": "Copy of Copy of Copy of Copy of Copy of text 2 ",
@@ -2889,7 +2950,8 @@
       "old_bid": 2.05,
       "new_bid": 2.15,
       "last_bump_at": "2026-10-16T09:07:37.191219+00:00",
-      "last_bump_local": "2026-10-16 12:06 GMT+3"
+      "last_bump_local": "2026-10-16 12:06 GMT+3",
+      "done": true
     },
     "78507601-6e7b-4c0a-9311-bcad3ecdd49d": {
       "name": "Copy of Copy of Copy of Copy of Copy of Copy of text 2 ",
@@ -2899,7 +2961,8 @@
       "old_bid": 2.05,
       "new_bid": 2.15,
       "last_bump_at": "2026-10-16T09:07:37.191219+00:00",
-      "last_bump_local": "2026-10-16 12:06 GMT+3"
+      "last_bump_local": "2026-10-16 12:06 GMT+3",
+      "done": true
     },
     "07ca6461-2780-4b05-ba31-5fd3033b1633": {
       "name": "Copy of 2",
@@ -2929,7 +2992,8 @@
       "old_bid": 1.95,
       "new_bid": 2.05,
       "last_bump_at": "2026-10-16T09:07:37.191219+00:00",
-      "last_bump_local": "2026-10-16 12:06 GMT+3"
+      "last_bump_local": "2026-10-16 12:06 GMT+3",
+      "done": true
     },
     "08118536-f10f-4db1-9601-dc794dff066f": {
       "name": "15-10",
@@ -2938,7 +3002,8 @@
       "old_bid": 2.5,
       "new_bid": 2.6,
       "last_bump_at": "2026-10-16T00:32:39.546384+00:00",
-      "last_bump_local": "2026-10-16 03:32 GMT+3"
+      "last_bump_local": "2026-10-16 03:32 GMT+3",
+      "done": true
     },
     "1e2df112-3dea-4854-a15c-64c4a0cc2195": {
       "name": "Copy of Copy of Copy of Copy of Copy of 1.5 | 23.8",
@@ -2965,7 +3030,8 @@
       "old_bid": 1.9,
       "new_bid": 2.0,
       "last_bump_at": "2026-10-16T03:54:50.115193+00:00",
-      "last_bump_local": "2026-10-16 06:54 GMT+3"
+      "last_bump_local": "2026-10-16 06:54 GMT+3",
+      "done": true
     },
     "57f8c84b-8b25-4647-827e-6896d4bf382f": {
       "name": "Copy of Copy of 1.5 | 23.8",
@@ -2984,7 +3050,8 @@
       "old_bid": 1.9,
       "new_bid": 2.0,
       "last_bump_at": "2026-10-16T03:54:50.115193+00:00",
-      "last_bump_local": "2026-10-16 06:54 GMT+3"
+      "last_bump_local": "2026-10-16 06:54 GMT+3",
+      "done": true
     },
     "7ceaa939-3bf7-4a72-82ab-e652ff92f0d4": {
       "name": "Copy of Copy of Copy of 1.5 | 23.8",
@@ -2993,7 +3060,8 @@
       "old_bid": 1.85,
       "new_bid": 1.95,
       "last_bump_at": "2026-10-16T03:54:50.115193+00:00",
-      "last_bump_local": "2026-10-16 06:54 GMT+3"
+      "last_bump_local": "2026-10-16 06:54 GMT+3",
+      "done": true
     },
     "7e476bd3-62ed-4d91-b712-533ccd1601b3": {
       "name": "Copy of Copy of Copy of Copy of Copy of 1.5 | 23.8",
@@ -3011,7 +3079,8 @@
       "old_bid": 1.9,
       "new_bid": 2.0,
       "last_bump_at": "2026-10-16T03:54:50.115193+00:00",
-      "last_bump_local": "2026-10-16 06:54 GMT+3"
+      "last_bump_local": "2026-10-16 06:54 GMT+3",
+      "done": true
     },
     "ab9f9ced-7f7a-4930-8d56-e3f461d8755e": {
       "name": "Copy of Copy of Copy of Copy of Copy of 1.5 | 23.8",
@@ -3039,7 +3108,8 @@
       "old_bid": 1.95,
       "new_bid": 2.05,
       "last_bump_at": "2026-10-16T09:07:37.191219+00:00",
-      "last_bump_local": "2026-10-16 12:06 GMT+3"
+      "last_bump_local": "2026-10-16 12:06 GMT+3",
+      "done": true
     },
     "d53aefb3-117a-419c-92a0-62da469f7afe": {
       "name": "14-10",
@@ -3049,7 +3119,8 @@
       "old_bid": 2.3,
       "new_bid": 2.4,
       "last_bump_at": "2026-10-16T09:07:37.191219+00:00",
-      "last_bump_local": "2026-10-16 12:06 GMT+3"
+      "last_bump_local": "2026-10-16 12:06 GMT+3",
+      "done": true
     },
     "e9797a44-dfce-4125-ab5d-4aa4daaa9717": {
       "name": "Copy of Copy of Copy of Copy of Copy of Copy of 1.5 | 23.8",
@@ -3058,7 +3129,8 @@
       "old_bid": 1.8,
       "new_bid": 1.9,
       "last_bump_at": "2026-10-16T00:32:39.546384+00:00",
-      "last_bump_local": "2026-10-16 03:32 GMT+3"
+      "last_bump_local": "2026-10-16 03:32 GMT+3",
+      "done": true
     },
     "e9d2f4c5-47e2-456f-b614-2954b2021879": {
       "name": "Copy of Copy of Copy of Copy of Copy of Copy of 1.5 | 23.8",
@@ -3077,7 +3149,8 @@
       "old_bid": 1.85,
       "new_bid": 1.95,
       "last_bump_at": "2026-10-16T03:54:50.115193+00:00",
-      "last_bump_local": "2026-10-16 06:54 GMT+3"
+      "last_bump_local": "2026-10-16 06:54 GMT+3",
+      "done": true
     },
     "ef6abc37-b063-4ae9-8487-717783069422": {
       "name": "Copy of Copy of 1.5 | 23.8",
@@ -3114,7 +3187,8 @@
       "old_bid": 1.8,
       "new_bid": 1.9,
       "last_bump_at": "2026-10-16T06:32:49.894774+00:00",
-      "last_bump_local": "2026-10-16 09:32 GMT+3"
+      "last_bump_local": "2026-10-16 09:32 GMT+3",
+      "done": true
     },
     "38233ee3-0d59-46bc-8e4a-1cd2063ab3c8": {
       "name": "Copy of 16-10 2",
@@ -3124,7 +3198,8 @@
       "old_bid": 1.9,
       "new_bid": 2.0,
       "last_bump_at": "2026-10-16T09:07:37.191219+00:00",
-      "last_bump_local": "2026-10-16 12:06 GMT+3"
+      "last_bump_local": "2026-10-16 12:06 GMT+3",
+      "done": true
     },
     "8a134913-9d88-4a00-9319-88dd56d99409": {
       "name": "Copy of 16-10 2",
@@ -3143,7 +3218,8 @@
       "old_bid": 1.8,
       "new_bid": 1.9,
       "last_bump_at": "2026-10-16T06:32:49.894774+00:00",
-      "last_bump_local": "2026-10-16 09:32 GMT+3"
+      "last_bump_local": "2026-10-16 09:32 GMT+3",
+      "done": true
     },
     "c44ffcc6-35d7-444e-81f7-e3e931154133": {
       "name": "Copy of 16-10 2",
@@ -3171,7 +3247,8 @@
       "old_bid": 1.8,
       "new_bid": 1.9,
       "last_bump_at": "2026-10-16T06:32:49.894774+00:00",
-      "last_bump_local": "2026-10-16 09:32 GMT+3"
+      "last_bump_local": "2026-10-16 09:32 GMT+3",
+      "done": true
     },
     "ecc23b27-0928-4b5f-b1a7-7cd4fe0c2586": {
       "name": "Copy of 16-10 2",
@@ -3181,7 +3258,8 @@
       "old_bid": 1.9,
       "new_bid": 2.0,
       "last_bump_at": "2026-10-16T09:07:37.191219+00:00",
-      "last_bump_local": "2026-10-16 12:06 GMT+3"
+      "last_bump_local": "2026-10-16 12:06 GMT+3",
+      "done": true
     },
     "f683d835-57bf-4409-8109-5ad70a4fb5b7": {
       "name": "Copy of 16-10 1",
@@ -3201,7 +3279,8 @@
       "old_bid": 1.9,
       "new_bid": 2.0,
       "last_bump_at": "2026-10-16T09:07:37.191219+00:00",
-      "last_bump_local": "2026-10-16 12:06 GMT+3"
+      "last_bump_local": "2026-10-16 12:06 GMT+3",
+      "done": true
     },
     "ae1a0885-dbe1-41d8-8dbc-dc4d514e3685": {
       "name": "16-10 1",
@@ -3211,7 +3290,8 @@
       "old_bid": 1.9,
       "new_bid": 2.0,
       "last_bump_at": "2026-10-16T09:07:37.191219+00:00",
-      "last_bump_local": "2026-10-16 12:06 GMT+3"
+      "last_bump_local": "2026-10-16 12:06 GMT+3",
+      "done": true
     },
     "f7919058-8123-459c-903b-11ad820ecb10": {
       "name": "16-10 2",
@@ -3221,7 +3301,8 @@
       "old_bid": 1.9,
       "new_bid": 2.0,
       "last_bump_at": "2026-10-16T09:07:37.191219+00:00",
-      "last_bump_local": "2026-10-16 12:06 GMT+3"
+      "last_bump_local": "2026-10-16 12:06 GMT+3",
+      "done": true
     },
     "30b0ea54-e875-41dd-adeb-0ecaaface37b": {
       "count": 0,
@@ -3464,111 +3545,111 @@
       "name": "Copy of Copy of 1.5 | 23.8",
       "campaign": "car scaling camp ",
       "date": "2026-10-16",
-      "count": 3,
+      "count": 4,
       "done": false,
-      "old_bid": 2.25,
-      "new_bid": 2.35,
-      "last_bump_at": "2026-10-16T16:11:40.447150+00:00",
-      "last_bump_local": "2026-10-16 19:10 GMT+3"
+      "old_bid": 2.35,
+      "new_bid": 2.45,
+      "last_bump_at": "2026-10-16T18:24:18.892519+00:00",
+      "last_bump_local": "2026-10-16 21:23 GMT+3"
     },
     "4ce9e28c-2792-445b-b1bc-d0055498f801": {
       "name": "Copy of Copy of 1.5 | 23.8",
       "campaign": "car scaling camp ",
       "date": "2026-10-16",
-      "count": 3,
+      "count": 4,
       "done": false,
-      "old_bid": 2.25,
-      "new_bid": 2.35,
-      "last_bump_at": "2026-10-16T16:11:40.447150+00:00",
-      "last_bump_local": "2026-10-16 19:10 GMT+3"
+      "old_bid": 2.35,
+      "new_bid": 2.45,
+      "last_bump_at": "2026-10-16T18:24:18.892519+00:00",
+      "last_bump_local": "2026-10-16 21:23 GMT+3"
     },
     "4e2c01bc-fc59-4a57-a37b-428841a86d3b": {
       "name": "Copy of Copy of 1.5 | 23.8",
       "campaign": "car scaling camp ",
       "date": "2026-10-16",
-      "count": 3,
+      "count": 4,
       "done": false,
-      "old_bid": 2.25,
-      "new_bid": 2.35,
-      "last_bump_at": "2026-10-16T16:11:40.447150+00:00",
-      "last_bump_local": "2026-10-16 19:10 GMT+3"
+      "old_bid": 2.35,
+      "new_bid": 2.45,
+      "last_bump_at": "2026-10-16T18:24:18.892519+00:00",
+      "last_bump_local": "2026-10-16 21:23 GMT+3"
     },
     "709a2777-1d75-42cb-8f83-ae79624103c6": {
       "name": "Copy of Copy of 1.5 | 23.8",
       "campaign": "car scaling camp ",
       "date": "2026-10-16",
-      "count": 3,
+      "count": 4,
       "done": false,
-      "old_bid": 2.25,
-      "new_bid": 2.35,
-      "last_bump_at": "2026-10-16T16:11:40.447150+00:00",
-      "last_bump_local": "2026-10-16 19:10 GMT+3"
+      "old_bid": 2.35,
+      "new_bid": 2.45,
+      "last_bump_at": "2026-10-16T18:24:18.892519+00:00",
+      "last_bump_local": "2026-10-16 21:23 GMT+3"
     },
     "74c45e66-a517-4cf9-aca2-833e8afdb1d3": {
       "name": "Copy of Copy of 1.5 | 23.8",
       "campaign": "car scaling camp ",
       "date": "2026-10-16",
-      "count": 3,
+      "count": 4,
       "done": false,
-      "old_bid": 2.25,
-      "new_bid": 2.35,
-      "last_bump_at": "2026-10-16T16:11:40.447150+00:00",
-      "last_bump_local": "2026-10-16 19:10 GMT+3"
+      "old_bid": 2.35,
+      "new_bid": 2.45,
+      "last_bump_at": "2026-10-16T18:24:18.892519+00:00",
+      "last_bump_local": "2026-10-16 21:23 GMT+3"
     },
     "84bbae6d-2c07-4ee3-9358-f9fb05eac48d": {
       "name": "Copy of Copy of 1.5 | 23.8",
       "campaign": "car scaling camp ",
       "date": "2026-10-16",
-      "count": 3,
+      "count": 4,
       "done": false,
-      "old_bid": 2.25,
-      "new_bid": 2.35,
-      "last_bump_at": "2026-10-16T16:11:40.447150+00:00",
-      "last_bump_local": "2026-10-16 19:10 GMT+3"
+      "old_bid": 2.35,
+      "new_bid": 2.45,
+      "last_bump_at": "2026-10-16T18:24:18.892519+00:00",
+      "last_bump_local": "2026-10-16 21:23 GMT+3"
     },
     "b43fbc6d-a5a0-46b0-a354-94c5a3a01c1c": {
       "name": "Copy of Copy of 1.5 | 23.8",
       "campaign": "car scaling camp ",
       "date": "2026-10-16",
-      "count": 3,
+      "count": 4,
       "done": false,
-      "old_bid": 2.25,
-      "new_bid": 2.35,
-      "last_bump_at": "2026-10-16T16:11:40.447150+00:00",
-      "last_bump_local": "2026-10-16 19:10 GMT+3"
+      "old_bid": 2.35,
+      "new_bid": 2.45,
+      "last_bump_at": "2026-10-16T18:24:18.892519+00:00",
+      "last_bump_local": "2026-10-16 21:23 GMT+3"
     },
     "bf505ca0-7d83-4743-b1df-37ad1a9a4114": {
       "name": "Copy of Copy of 1.5 | 23.8",
       "campaign": "car scaling camp ",
       "date": "2026-10-16",
-      "count": 3,
+      "count": 4,
       "done": false,
-      "old_bid": 2.25,
-      "new_bid": 2.35,
-      "last_bump_at": "2026-10-16T16:11:40.447150+00:00",
-      "last_bump_local": "2026-10-16 19:10 GMT+3"
+      "old_bid": 2.35,
+      "new_bid": 2.45,
+      "last_bump_at": "2026-10-16T18:24:18.892519+00:00",
+      "last_bump_local": "2026-10-16 21:23 GMT+3"
     },
     "d06431af-af53-40b8-b95d-d3088d515be9": {
       "name": "Copy of Copy of 1.5 | 23.8",
       "campaign": "car scaling camp ",
       "date": "2026-10-16",
-      "count": 3,
+      "count": 4,
       "done": false,
-      "old_bid": 2.25,
-      "new_bid": 2.35,
-      "last_bump_at": "2026-10-16T16:11:40.447150+00:00",
-      "last_bump_local": "2026-10-16 19:10 GMT+3"
+      "old_bid": 2.35,
+      "new_bid": 2.45,
+      "last_bump_at": "2026-10-16T18:24:18.892519+00:00",
+      "last_bump_local": "2026-10-16 21:23 GMT+3"
     },
     "da6b55a8-1f47-49b6-b92f-a442e5cafa5f": {
       "name": "Copy of Copy of 1.5 | 23.8",
       "campaign": "car scaling camp ",
       "date": "2026-10-16",
-      "count": 3,
+      "count": 4,
       "done": false,
-      "old_bid": 2.25,
-      "new_bid": 2.35,
-      "last_bump_at": "2026-10-16T16:11:40.447150+00:00",
-      "last_bump_local": "2026-10-16 19:10 GMT+3"
+      "old_bid": 2.35,
+      "new_bid": 2.45,
+      "last_bump_at": "2026-10-16T18:24:18.892519+00:00",
+      "last_bump_local": "2026-10-16 21:23 GMT+3"
     }
   },
   "tiktok_campaigns": {
