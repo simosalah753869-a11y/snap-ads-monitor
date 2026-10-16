@@ -1,10 +1,36 @@
 import http.server
 import json
 import os
+import socket
 import urllib.parse
 import urllib.request
 import webbrowser
 from pathlib import Path
+
+_orig_getaddrinfo = socket.getaddrinfo
+_dns_cache = {}
+def _doh_getaddrinfo(host, port, family=0, type=0, proto=0, flags=0):
+    try:
+        return _orig_getaddrinfo(host, port, family, type, proto, flags)
+    except Exception:
+        if host not in _dns_cache:
+            try:
+                req = urllib.request.Request(
+                    f"https://1.1.1.1/dns-query?name={host}&type=A",
+                    headers={"accept": "application/dns-json"},
+                )
+                with urllib.request.urlopen(req, timeout=5) as resp:
+                    r = json.loads(resp.read().decode("utf-8"))
+                ips = [a["data"] for a in r.get("Answer", []) if a.get("type") == 1]
+                if ips:
+                    _dns_cache[host] = ips[0]
+            except Exception:
+                pass
+        if host in _dns_cache:
+            return _orig_getaddrinfo(_dns_cache[host], port, family, type, proto, flags)
+        raise
+
+socket.getaddrinfo = _doh_getaddrinfo
 
 CONFIG_FILE = Path(__file__).parent / "snap_config.json"
 REDIRECT_URI = "https://example.com/callback"
@@ -37,15 +63,23 @@ def exchange_code_for_token(client_id: str, client_secret: str, code: str) -> di
 
 
 def refresh_access_token(cfg: dict) -> str:
+    import time
     data = urllib.parse.urlencode({
         "client_id": cfg["client_id"],
         "client_secret": cfg["client_secret"],
         "refresh_token": cfg["refresh_token"],
         "grant_type": "refresh_token",
     }).encode("utf-8")
-    req = urllib.request.Request(TOKEN_URL, data=data, method="POST")
-    with urllib.request.urlopen(req) as resp:
-        tokens = json.loads(resp.read().decode("utf-8"))
+    for attempt in range(4):
+        try:
+            req = urllib.request.Request(TOKEN_URL, data=data, method="POST")
+            with urllib.request.urlopen(req, timeout=25) as resp:
+                tokens = json.loads(resp.read().decode("utf-8"))
+            break
+        except Exception:
+            if attempt == 3:
+                raise
+            time.sleep(1.5 * (attempt + 1))
     cfg["access_token"] = tokens["access_token"]
     if "refresh_token" in tokens:
         cfg["refresh_token"] = tokens["refresh_token"]
@@ -54,10 +88,18 @@ def refresh_access_token(cfg: dict) -> str:
 
 
 def api_get(endpoint: str, token: str) -> dict:
+    import time
     url = f"{API_BASE}{endpoint}" if endpoint.startswith("/") else endpoint
-    req = urllib.request.Request(url, headers={"Authorization": f"Bearer {token}"})
-    with urllib.request.urlopen(req) as resp:
-        return json.loads(resp.read().decode("utf-8"))
+    for attempt in range(4):
+        try:
+            req = urllib.request.Request(url, headers={"Authorization": f"Bearer {token}"})
+            with urllib.request.urlopen(req, timeout=25) as resp:
+                return json.loads(resp.read().decode("utf-8"))
+        except Exception:
+            if attempt == 3:
+                raise
+            time.sleep(1.5 * (attempt + 1))
+
 
 
 def get_auth_url(client_id: str, client_secret: str) -> str:
