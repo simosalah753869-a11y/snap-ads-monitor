@@ -1,91 +1,118 @@
+from datetime import datetime, timedelta
 import sys
-from snap_auth import API_BASE, load_config, refresh_access_token
+import urllib.parse
+from snap_auth import API_BASE, load_config, refresh_access_token, api_get
+from snap_monitor import ACCOUNT_TZ, TARGET_ACCOUNT_ID
 from duplicate_gulf_campaigns import clone_adsquad_exact, make_session
 
 sys.stdout.reconfigure(encoding="utf-8")
 
 AD_ACCOUNT_ID = "350cb560-ad77-4fb5-9bbf-4c090c9ad081"
-TARGET_ACTIVE_COUNT = 20
+MIN_ACTIVE_COUNT = 20
+
+# الكلمات المفتاحية أو شروط حملات السكالينج والدوبليكيت
+SCALING_KEYWORDS = ("scaling", "car", "qatar", "oman", "قطر", "عمان", "وينر", "winner", "kashaf", "kahsaf")
 
 
-def is_saudi_squad(squad: dict) -> bool:
-    geos = squad.get("targeting", {}).get("geos", [])
-    countries = {str(g.get("country_code", "")).lower() for g in geos if g.get("country_code")}
-    return "sa" in countries
+def get_7d_squad_stats(token: str) -> dict:
+    now_local = datetime.now(ACCOUNT_TZ)
+    today_start = now_local.replace(hour=0, minute=0, second=0, microsecond=0)
+    tomorrow_start = today_start + timedelta(days=1)
+    week_start = today_start - timedelta(days=7)
+
+    url = (
+        f"/adaccounts/{TARGET_ACCOUNT_ID}/stats?granularity=TOTAL"
+        f"&start_time={urllib.parse.quote(week_start.isoformat())}"
+        f"&end_time={urllib.parse.quote(tomorrow_start.isoformat())}"
+        f"&breakdown=adsquad&fields=impressions,swipes,spend,conversion_purchases"
+    )
+    resp = api_get(url, token)
+    b_list = resp.get("total_stats", [{}])[0].get("total_stat", {}).get("breakdown_stats", {}).get("adsquad", [])
+    stats_map = {}
+    for item in b_list:
+        st = item.get("stats", {})
+        sp = round(st.get("spend", 0) / 1e6, 2)
+        pu = st.get("conversion_purchases", 0)
+        cpa = round(sp / pu, 2) if pu > 0 else 999999.0
+        stats_map[item["id"]] = {"spend": sp, "purchases": pu, "cpa": cpa}
+    return stats_map
+
+
+def is_scaling_or_duplicate_campaign(cname: str, squads: list[dict], active_squads: list[dict]) -> bool:
+    if not active_squads:
+        return False
+    has_copy = any("copy" in s.get("name", "").lower() for s in squads)
+    if has_copy and len(squads) >= 5:
+        return True
+    name_low = cname.lower()
+    if any(k in name_low for k in SCALING_KEYWORDS) and len(squads) >= 5:
+        return True
+    return False
+
+
+def pick_best_source_squad(session, active_squads: list[dict], stats_map: dict) -> dict | None:
+    sorted_candidates = sorted(
+        active_squads,
+        key=lambda s: (
+            stats_map.get(s["id"], {}).get("purchases", 0),
+            -stats_map.get(s["id"], {}).get("cpa", 999999.0),
+            "copy" in s.get("name", "").lower(),
+            stats_map.get(s["id"], {}).get("spend", 0.0),
+        ),
+        reverse=True,
+    )
+    for sq in sorted_candidates:
+        ra = session.get(f"{API_BASE}/adsquads/{sq['id']}/ads", timeout=20)
+        if ra.ok:
+            ads = [a["ad"] for a in ra.json().get("ads", []) if "ad" in a]
+            active_ads = [a for a in ads if a.get("status") == "ACTIVE"]
+            if active_ads:
+                return sq
+    return sorted_candidates[0] if sorted_candidates else None
 
 
 def main():
-    dry_run = "--dry-run" in sys.argv
     token = refresh_access_token(load_config())
     session = make_session(token)
+    stats_map = get_7d_squad_stats(token)
 
     rc = session.get(f"{API_BASE}/adaccounts/{AD_ACCOUNT_ID}/campaigns", timeout=20)
     rc.raise_for_status()
     campaigns = [c["campaign"] for c in rc.json().get("campaigns", []) if "campaign" in c]
-
     active_camps = [c for c in campaigns if c.get("status") == "ACTIVE"]
 
-    print(f"🔍 فحص جميع الحملات النشطة ({len(active_camps)} حملة) للبحث عن حملات السعودية التي تحتوي على Copy:", flush=True)
+    print(f"🔍 فحص حملات السكالينج والدوبليكيت النشطة للتأكد من أن عدد المجموعات النشطة لا يقل عن {MIN_ACTIVE_COUNT}:", flush=True)
     for c in active_camps:
         cid = c["id"]
         cname = c["name"]
         rsq = session.get(f"{API_BASE}/campaigns/{cid}/adsquads", timeout=20)
         rsq.raise_for_status()
         squads = [s["adsquad"] for s in rsq.json().get("adsquads", []) if "adsquad" in s]
-        if not squads:
-            continue
-
-        # فحص الدولة من إعدادات الاستهداف الفعلية داخل AdSquad (targeting.geos -> country_code == 'sa')
-        saudi_squads = [s for s in squads if is_saudi_squad(s)]
-        has_copy_squads = any("copy" in s.get("name", "").lower() for s in squads)
-        geos_sample = [g.get("country_code") for g in squads[0].get("targeting", {}).get("geos", [])]
-
         active_squads = [s for s in squads if s.get("status") == "ACTIVE"]
         active_count = len(active_squads)
 
+        if not is_scaling_or_duplicate_campaign(cname, squads, active_squads):
+            continue
+
+        print(f"\n=== حملة: '{cname}' (ID: {cid}) ===", flush=True)
+        print(f"   📊 عدد المجموعات النشطة حالياً: {active_count} (الحد الأدنى المطلوب: {MIN_ACTIVE_COUNT})", flush=True)
+
+        if active_count >= MIN_ACTIVE_COUNT:
+            print(f"   ✅ الحملة تحتوي على {active_count} مجموعة نشطة (>= {MIN_ACTIVE_COUNT}) — لا تحتاج أي إضافة.", flush=True)
+            continue
+
+        needed = MIN_ACTIVE_COUNT - active_count
+        source_squad = pick_best_source_squad(session, active_squads, stats_map)
+        if not source_squad:
+            print("   ⚠️ لا توجد أي مجموعة إعلانية صالحة للنسخ منها في هذه الحملة.", flush=True)
+            continue
+
+        st = stats_map.get(source_squad["id"], {"spend": 0.0, "purchases": 0, "cpa": None})
         print(
-            f"\n=== حملة: '{cname}' (ID: {cid}) | الدول المستهدفة: {geos_sample} | تحتوي Copy: {has_copy_squads} | النشطة: {active_count} ===",
+            f"   🚀 جاري استنساخ {needed} مجموعة من أفضل مجموعة رابحة ('{source_squad['name']}', مبيعات: {st['purchases']}, CPA: ${st['cpa']}) للوصول إلى {MIN_ACTIVE_COUNT} مجموعة نشطة...",
             flush=True,
         )
-
-        if not saudi_squads:
-            print("   ⏭️ تخطي: الحملة لا تستهدف السعودية (country_code != 'sa').", flush=True)
-            continue
-
-        if not has_copy_squads:
-            print("   ⏭️ تخطي: الحملة لا تحتوي على مجموعات Copy/دوبليكيت.", flush=True)
-            continue
-
-        if active_count >= TARGET_ACTIVE_COUNT:
-            print(f"   ✅ الحملة تحتوي بالفعل على {active_count} مجموعة نشطة (>= {TARGET_ACTIVE_COUNT}) — لا تحتاج استنساخ.", flush=True)
-            continue
-
-        needed = TARGET_ACTIVE_COUNT - active_count
-        copy_squads = [s for s in active_squads if "copy" in s.get("name", "").lower()]
-        if not copy_squads:
-            copy_squads = [s for s in squads if "copy" in s.get("name", "").lower()]
-
-        # تجميع المجموعات الفريدة بالاسم (مثلاً Copy of 16-10 1 و Copy of 16-10 2) لتوزيع النسخ بالتساوي بينها
-        distinct_templates = {}
-        for sq in copy_squads:
-            sq_name = sq.get("name", "").strip()
-            if sq_name not in distinct_templates:
-                distinct_templates[sq_name] = sq
-        templates_list = list(distinct_templates.values()) if distinct_templates else [active_squads[0] if active_squads else squads[0]]
-
-        num_templates = len(templates_list)
-        base_per_tmpl = needed // num_templates
-        rem = needed % num_templates
-
-        for idx, tmpl in enumerate(templates_list):
-            cnt = base_per_tmpl + (1 if idx < rem else 0)
-            if cnt <= 0:
-                continue
-            if dry_run:
-                print(f"   🔍 [Dry-Run] سيتم استنساخ {cnt} مجموعة جديدة من '{tmpl['name']}' للوصول إلى {TARGET_ACTIVE_COUNT} مجموعة نشطة.", flush=True)
-            else:
-                print(f"   🚀 جاري استنساخ {cnt} مجموعة جديدة من '{tmpl['name']}' للوصول إلى {TARGET_ACTIVE_COUNT} مجموعة نشطة...", flush=True)
-                clone_adsquad_exact(session, tmpl, cnt)
+        clone_adsquad_exact(session, source_squad, needed)
 
 
 if __name__ == "__main__":
