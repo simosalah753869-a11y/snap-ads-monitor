@@ -114,6 +114,12 @@
       "campaign": "car scaling camp ",
       "reason": "[Copy Rule] صرفت $5.08 (>= $5) بدون مبيعات",
       "paused_at": "2026-10-16 08:09 GMT+3"
+    },
+    "56c5dba0-3853-4953-b655-e94c315300d0": {
+      "name": "Copy of Copy of Copy of Copy of 1.5 | 23.8",
+      "campaign": "car scaling camp ",
+      "reason": "[Copy Rule] صرفت $5.37 (>= $5) بدون مبيعات",
+      "paused_at": "2026-10-16 08:51 GMT+3"
     }
   },
   "ads": {
@@ -252,6 +258,20 @@
       "adsquad": "15-10",
       "reason": "[Ad CPC Rule] صرف الفيديو $1.4 | النقرات: 3 | سعر النقرة CPC = $0.467 (> $0.28)",
       "paused_at": "2026-10-16 05:27 GMT+3"
+    },
+    "3c306577-1783-4bd7-997a-b72a928769dd": {
+      "name": "Copy of Copy of Copy of 2",
+      "campaign": "car scaling new 2 text",
+      "adsquad": "Copy of Copy of Copy of Copy of Copy of Copy of Copy of Copy of text1",
+      "reason": "[Ad CPC Rule] صرف الفيديو $1.46 | النقرات: 5 | سعر النقرة CPC = $0.292 (> $0.28)",
+      "paused_at": "2026-10-16 08:51 GMT+3"
+    },
+    "3fb114a4-3500-4f69-aa6a-4fe27f0fc6e6": {
+      "name": "Copy of Copy of Copy of Copy of Copy of Copy of 2",
+      "campaign": "car scaling new 2 text",
+      "adsquad": "Copy of Copy of Copy of Copy of Copy of text 2 ",
+      "reason": "[Ad CPC Rule] صرف الفيديو $1.04 | النقرات: 3 | سعر النقرة CPC = $0.347 (> $0.28)",
+      "paused_at": "2026-10-16 08:51 GMT+3"
     }
   },
   "tiktok_videos": {
@@ -729,6 +749,23 @@
       "spend_2d": 9.62,
       "conv_2d": 1,
       "paused_at": "2026-10-16T01:14:01.409397+00:00"
+    },
+    "7631763556322148369:1878973397989458:1878973602128257": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "ad_id": "1878973397989458",
+      "creative_id": "1878973397989474",
+      "campaign_ad_name": "Copy 1 of car armrest leads  13-10 / Ad name2026-10-13 11:52:19",
+      "video_name": "12_10(2).mp4",
+      "draft_ids": [
+        "1878973602128257"
+      ],
+      "reason": "Today Spend $6.11 > $6.00 with 0 sales",
+      "spend_1d": 6.11,
+      "conv_1d": 0,
+      "spend_2d": 52.85,
+      "conv_2d": 8,
+      "paused_at": "2026-10-16T05:52:18.865574+00:00"
     }
   },
   "tiktok_ads": {},
