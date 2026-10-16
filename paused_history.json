@@ -132,6 +132,30 @@
       "campaign": "car scaling camp ",
       "reason": "[Copy Rule] سعر البيعة CPA = $8.54 (>= $8) | الصرف: $8.54 | المبيعات: 1",
       "paused_at": "2026-10-16 12:54 GMT+3"
+    },
+    "1e2df112-3dea-4854-a15c-64c4a0cc2195": {
+      "name": "Copy of Copy of Copy of Copy of Copy of 1.5 | 23.8",
+      "campaign": "car scaling camp ",
+      "reason": "[Copy Rule] صرفت $5.03 (>= $5) بدون مبيعات",
+      "paused_at": "2026-10-16 13:28 GMT+3"
+    },
+    "fc89f3fa-bce2-4a31-9009-013a7a610017": {
+      "name": "Copy of Copy of Copy of Copy of 1.5 | 23.8",
+      "campaign": "car scaling camp ",
+      "reason": "[Copy Rule] صرفت $5.73 (>= $5) بدون مبيعات",
+      "paused_at": "2026-10-16 13:28 GMT+3"
+    },
+    "f386f822-7bbc-49b2-83fe-2b8bd047f4e9": {
+      "name": "Copy of Copy of 1.5 | 23.8",
+      "campaign": "car scaling camp ",
+      "reason": "[Copy Rule] صرفت $5.03 (>= $5) بدون مبيعات",
+      "paused_at": "2026-10-16 13:28 GMT+3"
+    },
+    "c9d2903f-41fa-4bf6-9fe9-7594f1c39469": {
+      "name": "Copy of Copy of 1.5 | 23.8",
+      "campaign": "car scaling camp ",
+      "reason": "[Copy Rule] سعر البيعة CPA = $8.43 (>= $8) | الصرف: $8.43 | المبيعات: 1",
+      "paused_at": "2026-10-16 13:28 GMT+3"
     }
   },
   "ads": {
@@ -1156,7 +1180,8 @@
       "old_bid": 3.2,
       "new_bid": 3.3,
       "last_bump_at": "2026-10-16T09:07:37.191219+00:00",
-      "last_bump_local": "2026-10-16 12:06 GMT+3"
+      "last_bump_local": "2026-10-16 12:06 GMT+3",
+      "done": true
     },
     "a7e0044b-e09b-4a9c-bf70-28d01c7b05b7": {
       "name": "Copy of BB",
@@ -1357,7 +1382,8 @@
       "old_bid": 2.1,
       "new_bid": 2.2,
       "last_bump_at": "2026-10-16T09:07:37.191219+00:00",
-      "last_bump_local": "2026-10-16 12:06 GMT+3"
+      "last_bump_local": "2026-10-16 12:06 GMT+3",
+      "done": true
     },
     "93383882-6817-4df3-8739-9fdf90c73b55": {
       "name": "Copy of Copy of Copy of Copy of Copy of Copy of Copy of Copy of text1",
@@ -1477,7 +1503,8 @@
       "old_bid": 2.2,
       "new_bid": 2.3,
       "last_bump_at": "2026-10-16T09:07:37.191219+00:00",
-      "last_bump_local": "2026-10-16 12:06 GMT+3"
+      "last_bump_local": "2026-10-16 12:06 GMT+3",
+      "done": true
     },
     "e0d183ce-39f6-477a-ba69-238bacd3b3df": {
       "name": "Copy of Copy of Copy of Copy of Copy of Copy of text1",
@@ -1507,7 +1534,8 @@
       "old_bid": 2.2,
       "new_bid": 2.3,
       "last_bump_at": "2026-10-16T09:07:37.191219+00:00",
-      "last_bump_local": "2026-10-16 12:06 GMT+3"
+      "last_bump_local": "2026-10-16 12:06 GMT+3",
+      "done": true
     },
     "eaa0c8c1-e1ca-4225-81ae-25d6b3d8bb6d": {
       "name": "Copy of Copy of Copy of Copy of Copy of Copy of Copy of text1",
@@ -2085,7 +2113,8 @@
       "old_bid": 3.7,
       "new_bid": 3.8,
       "last_bump_at": "2026-10-16T09:07:37.191219+00:00",
-      "last_bump_local": "2026-10-16 12:06 GMT+3"
+      "last_bump_local": "2026-10-16 12:06 GMT+3",
+      "done": true
     },
     "52ade981-1f02-4709-a4ab-37da63904356": {
       "name": "Copy of 112 ( باوربانك)",
@@ -2626,7 +2655,8 @@
       "old_bid": 2.0,
       "new_bid": 2.1,
       "last_bump_at": "2026-10-16T09:07:37.191219+00:00",
-      "last_bump_local": "2026-10-16 12:06 GMT+3"
+      "last_bump_local": "2026-10-16 12:06 GMT+3",
+      "done": true
     },
     "752090e5-7ea9-4c6d-aed8-b657183f6ab9": {
       "name": "Copy of Copy of Copy of Copy of Copy of 1.5 | 23.8",
@@ -2706,7 +2736,8 @@
       "old_bid": 2.3,
       "new_bid": 2.4,
       "last_bump_at": "2026-10-16T09:07:37.191219+00:00",
-      "last_bump_local": "2026-10-16 12:06 GMT+3"
+      "last_bump_local": "2026-10-16 12:06 GMT+3",
+      "done": true
     },
     "e9797a44-dfce-4125-ab5d-4aa4daaa9717": {
       "name": "Copy of Copy of Copy of Copy of Copy of Copy of 1.5 | 23.8",
@@ -2726,7 +2757,8 @@
       "old_bid": 1.95,
       "new_bid": 2.05,
       "last_bump_at": "2026-10-16T09:07:37.191219+00:00",
-      "last_bump_local": "2026-10-16 12:06 GMT+3"
+      "last_bump_local": "2026-10-16 12:06 GMT+3",
+      "done": true
     },
     "eec3fa9e-3f45-4e59-8acb-dc48c84bdfd6": {
       "name": "Copy of 1.5 | 23.8",
@@ -2746,7 +2778,8 @@
       "old_bid": 2.0,
       "new_bid": 2.1,
       "last_bump_at": "2026-10-16T09:07:37.191219+00:00",
-      "last_bump_local": "2026-10-16 12:06 GMT+3"
+      "last_bump_local": "2026-10-16 12:06 GMT+3",
+      "done": true
     },
     "f386f822-7bbc-49b2-83fe-2b8bd047f4e9": {
       "name": "Copy of Copy of 1.5 | 23.8",
@@ -2786,7 +2819,8 @@
       "old_bid": 1.9,
       "new_bid": 2.0,
       "last_bump_at": "2026-10-16T09:07:37.191219+00:00",
-      "last_bump_local": "2026-10-16 12:06 GMT+3"
+      "last_bump_local": "2026-10-16 12:06 GMT+3",
+      "done": true
     },
     "8a134913-9d88-4a00-9319-88dd56d99409": {
       "name": "Copy of 16-10 2",
@@ -2868,7 +2902,8 @@
       "old_bid": 1.9,
       "new_bid": 2.0,
       "last_bump_at": "2026-10-16T09:07:37.191219+00:00",
-      "last_bump_local": "2026-10-16 12:06 GMT+3"
+      "last_bump_local": "2026-10-16 12:06 GMT+3",
+      "done": true
     },
     "ae1a0885-dbe1-41d8-8dbc-dc4d514e3685": {
       "name": "16-10 1",
