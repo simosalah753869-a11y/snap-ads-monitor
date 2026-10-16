@@ -6,6 +6,7 @@ import time
 import urllib.parse
 import urllib.request
 from snap_auth import API_BASE, api_get, load_config, refresh_access_token
+from duplicate_gulf_campaigns import clone_adsquad_exact, make_session
 
 sys.stdout.reconfigure(encoding="utf-8")
 
@@ -18,9 +19,27 @@ GULF_HIGHER_CPC_KEYWORDS = (
     "oman", "qatar", "qat", "bahrain", "kuwait", "kuwiat", "kwt",
     "عمان", "قطر", "البحرين", "بحرين", "كويت"
 )
+GULF_COUNTRY_CODES = {"qa", "om", "bh", "kw"}
 
 
-def is_gulf_034_campaign(campaign_name: str, adsquad_name: str = "") -> bool:
+def get_squad_countries(squad: dict | None) -> set[str]:
+    if not squad:
+        return set()
+    geos = squad.get("targeting", {}).get("geos", [])
+    return {str(g.get("country_code", "")).lower() for g in geos if g.get("country_code")}
+
+
+def is_saudi_squad(squad: dict | None, campaign_name: str = "", adsquad_name: str = "") -> bool:
+    countries = get_squad_countries(squad)
+    if countries:
+        return "sa" in countries
+    return not is_gulf_034_campaign(campaign_name, adsquad_name)
+
+
+def is_gulf_034_campaign(campaign_name: str, adsquad_name: str = "", squad: dict | None = None) -> bool:
+    countries = get_squad_countries(squad)
+    if countries & GULF_COUNTRY_CODES:
+        return True
     combined = f"{campaign_name} {adsquad_name}".lower()
     return any(k in combined for k in GULF_HIGHER_CPC_KEYWORDS)
 
@@ -117,9 +136,9 @@ def fetch_account_breakdown_stats(token: str, ad_account_id: str, breakdown: str
     return results
 
 
-def evaluate_adsquad_rule(adsquad_name: str, st: dict, campaign_name: str = "") -> tuple[bool, str]:
+def evaluate_adsquad_rule(adsquad_name: str, st: dict, campaign_name: str = "", squad: dict | None = None) -> tuple[bool, str]:
     is_copy = "copy" in adsquad_name.lower()
-    is_gulf = is_gulf_034_campaign(campaign_name, adsquad_name)
+    is_gulf = is_gulf_034_campaign(campaign_name, adsquad_name, squad)
     spend = st["spend"]
     purchases = st["purchases"]
     cpa = st["cpa"]
@@ -146,11 +165,11 @@ def evaluate_adsquad_rule(adsquad_name: str, st: dict, campaign_name: str = "") 
     return False, ""
 
 
-def evaluate_ad_cpc_rule(st: dict, campaign_name: str, adsquad_name: str) -> tuple[bool, str]:
+def evaluate_ad_cpc_rule(st: dict, campaign_name: str, adsquad_name: str, squad: dict | None = None) -> tuple[bool, str]:
     spend = st["spend"]
     swipes = st["swipes"]
     cpc = st["cpc"]
-    max_cpc = 0.34 if is_gulf_034_campaign(campaign_name, adsquad_name) else 0.28
+    max_cpc = 0.34 if is_gulf_034_campaign(campaign_name, adsquad_name, squad) else 0.28
 
     if spend >= 1.0:
         if swipes == 0:
@@ -163,6 +182,7 @@ def evaluate_ad_cpc_rule(st: dict, campaign_name: str, adsquad_name: str) -> tup
 def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
     history = load_paused_history()
     now_str = datetime.now(ACCOUNT_TZ).strftime("%Y-%m-%d %H:%M GMT+3")
+    clone_session = None
 
     camps_resp = api_get(f"/adaccounts/{ad_account_id}/campaigns", token)
     camp_names = {}
@@ -206,10 +226,12 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
             print(f"⏭️ تجاهل المجموعة '{s_name}' (صرف: ${st['spend']}) — أعدتَ تشغيلها يدوياً (فرصة أخرى).")
             continue
 
-        should_pause, reason = evaluate_adsquad_rule(s_name, st, c_name)
+        should_pause, reason = evaluate_adsquad_rule(s_name, st, c_name, squad)
         if should_pause:
             if dry_run:
                 print(f"🔍 [مطابق للشرط] المجموعة: '{s_name}' (حملة: '{c_name}') | {reason}")
+                if is_saudi_squad(squad, c_name, s_name):
+                    print(f"   ♻️ [Dry-Run] سيتم فوراً استنساخ مجموعة بديلة مكان '{s_name}' لأنها في حملة سعودية (country_code='sa').")
             else:
                 squad["status"] = "PAUSED"
                 api_put(f"/campaigns/{squad['campaign_id']}/adsquads", token, {"adsquads": [squad]})
@@ -222,6 +244,16 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
                 save_paused_history(history)
                 print(f"🛑 تم إيقاف المجموعة: '{s_name}' (حملة: '{c_name}') | {reason}")
                 time.sleep(0.3)
+
+                # إذا كانت المجموعة في حملة تستهدف السعودية (country_code == 'sa')، يتم فوراً إنشاء نسخة بديلة مكانها!
+                if is_saudi_squad(squad, c_name, s_name):
+                    try:
+                        if clone_session is None:
+                            clone_session = make_session(token)
+                        print(f"♻️ جاري إنشاء نسخة بديلة فورية مكان '{s_name}' في حملة السعودية '{c_name}'...")
+                        clone_adsquad_exact(clone_session, squad, 1)
+                    except Exception as e:
+                        print(f"⚠️ تعذر إنشاء نسخة فورية مكان '{s_name}': {e}")
 
     # 2. One API call for all Ad (video) stats today
     ad_stats = fetch_account_breakdown_stats(token, ad_account_id, "ad")
@@ -251,7 +283,7 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
             camp_names[c_id] = c_resp.get("campaigns", [{}])[0].get("campaign", {}).get("name", "")
         c_name = camp_names.get(c_id, "")
 
-        should_pause, reason = evaluate_ad_cpc_rule(st, c_name, s_name)
+        should_pause, reason = evaluate_ad_cpc_rule(st, c_name, s_name, squad)
         if not should_pause:
             continue
 
