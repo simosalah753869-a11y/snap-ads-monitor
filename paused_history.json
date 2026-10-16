@@ -420,6 +420,30 @@
       "campaign": "car scaling new 2 text",
       "reason": "[Copy Rule] سعر البيعة CPA = $8.36 (>= $8) | الصرف: $16.72 | المبيعات: 2",
       "paused_at": "2026-10-16 23:01 GMT+3"
+    },
+    "8e1bcb50-3351-471f-b1b3-7512ed50ac6d": {
+      "name": "Copy of Copy of Copy of Copy of Copy of Copy of Copy of Copy of text1",
+      "campaign": "car scaling new 2 text",
+      "reason": "[Copy Rule] صرفت $6.42 (>= $5) بدون مبيعات",
+      "paused_at": "2026-10-16 23:51 GMT+3"
+    },
+    "18720c0e-220f-4636-a6f9-d01bec43030d": {
+      "name": "Copy of Copy of Copy of Copy of Copy of Copy of Copy of Copy of Copy of text1",
+      "campaign": "car scaling new 2 text",
+      "reason": "[Copy Rule] صرفت $6.1 (>= $5) بدون مبيعات",
+      "paused_at": "2026-10-16 23:51 GMT+3"
+    },
+    "614cd8a2-80b9-4c11-bc20-38ec1935c748": {
+      "name": "Copy of Copy of Copy of Copy of Copy of Copy of Copy of Copy of text1",
+      "campaign": "car scaling new 2 text",
+      "reason": "[Copy Rule] سعر البيعة CPA = $8.54 (>= $8) | الصرف: $8.54 | المبيعات: 1",
+      "paused_at": "2026-10-16 23:51 GMT+3"
+    },
+    "8ea2264d-2284-4f44-8e79-8b8d2fac3768": {
+      "name": "Copy of Copy of Copy of text 2 ",
+      "campaign": "car scaling new 2 text",
+      "reason": "[Copy Rule] سعر البيعة CPA = $8.41 (>= $8) | الصرف: $8.41 | المبيعات: 1",
+      "paused_at": "2026-10-16 23:51 GMT+3"
     }
   },
   "ads": {
@@ -1804,6 +1828,13 @@
       "adsquad": "Copy of Copy of Copy of Copy of 1.5 | 23.8",
       "reason": "[Saudi Single Video Stop-Loss] صرف الفيديو $8.16 (>= $6.00) بدون مبيعة",
       "paused_at": "2026-10-16 23:01 GMT+3"
+    },
+    "cbbd4fb2-fbbc-409a-a4c1-e34265df6b58": {
+      "name": "Copy of Copy of Copy of 2",
+      "campaign": "car scaling new 2 text",
+      "adsquad": "Copy of Copy of Copy of Copy of Copy of Copy of Copy of Copy of text1",
+      "reason": "[Saudi Single Video Stop-Loss] صرف الفيديو $6.42 (>= $6.00) بدون مبيعة",
+      "paused_at": "2026-10-16 23:51 GMT+3"
     }
   },
   "tiktok_videos": {
@@ -3505,7 +3536,8 @@
       "old_bid": 1.75,
       "new_bid": 1.85,
       "last_bump_at": "2026-10-15T10:09:58.932831+00:00",
-      "last_bump_local": "2026-10-15 13:09 GMT+3"
+      "last_bump_local": "2026-10-15 13:09 GMT+3",
+      "done": true
     },
     "de97478a-0038-4778-af48-0739f9aac82c": {
       "name": "2.9",
@@ -4808,111 +4840,111 @@
       "name": "Copy of Copy of 1.5 | 23.8",
       "campaign": "car scaling camp ",
       "date": "2026-10-16",
-      "count": 4,
-      "done": false,
-      "old_bid": 2.45,
-      "new_bid": 2.55,
-      "last_bump_at": "2026-10-16T18:37:53.694769+00:00",
-      "last_bump_local": "2026-10-16 21:34 GMT+3"
+      "count": 5,
+      "done": true,
+      "old_bid": 2.55,
+      "new_bid": 2.65,
+      "last_bump_at": "2026-10-16T20:53:23.378142+00:00",
+      "last_bump_local": "2026-10-16 23:51 GMT+3"
     },
     "4ce9e28c-2792-445b-b1bc-d0055498f801": {
       "name": "Copy of Copy of 1.5 | 23.8",
       "campaign": "car scaling camp ",
       "date": "2026-10-16",
-      "count": 4,
-      "done": false,
-      "old_bid": 2.45,
-      "new_bid": 2.55,
-      "last_bump_at": "2026-10-16T18:37:53.694769+00:00",
-      "last_bump_local": "2026-10-16 21:34 GMT+3"
+      "count": 5,
+      "done": true,
+      "old_bid": 2.55,
+      "new_bid": 2.65,
+      "last_bump_at": "2026-10-16T20:53:23.378142+00:00",
+      "last_bump_local": "2026-10-16 23:51 GMT+3"
     },
     "4e2c01bc-fc59-4a57-a37b-428841a86d3b": {
       "name": "Copy of Copy of 1.5 | 23.8",
       "campaign": "car scaling camp ",
       "date": "2026-10-16",
-      "count": 4,
-      "done": false,
-      "old_bid": 2.45,
-      "new_bid": 2.55,
-      "last_bump_at": "2026-10-16T18:37:53.694769+00:00",
-      "last_bump_local": "2026-10-16 21:34 GMT+3"
+      "count": 5,
+      "done": true,
+      "old_bid": 2.55,
+      "new_bid": 2.65,
+      "last_bump_at": "2026-10-16T20:53:23.378142+00:00",
+      "last_bump_local": "2026-10-16 23:51 GMT+3"
     },
     "709a2777-1d75-42cb-8f83-ae79624103c6": {
       "name": "Copy of Copy of 1.5 | 23.8",
       "campaign": "car scaling camp ",
       "date": "2026-10-16",
-      "count": 4,
-      "done": false,
-      "old_bid": 2.45,
-      "new_bid": 2.55,
-      "last_bump_at": "2026-10-16T18:37:53.694769+00:00",
-      "last_bump_local": "2026-10-16 21:34 GMT+3"
+      "count": 5,
+      "done": true,
+      "old_bid": 2.55,
+      "new_bid": 2.65,
+      "last_bump_at": "2026-10-16T20:53:23.378142+00:00",
+      "last_bump_local": "2026-10-16 23:51 GMT+3"
     },
     "74c45e66-a517-4cf9-aca2-833e8afdb1d3": {
       "name": "Copy of Copy of 1.5 | 23.8",
       "campaign": "car scaling camp ",
       "date": "2026-10-16",
-      "count": 4,
-      "done": false,
-      "old_bid": 2.45,
-      "new_bid": 2.55,
-      "last_bump_at": "2026-10-16T18:37:53.694769+00:00",
-      "last_bump_local": "2026-10-16 21:34 GMT+3"
+      "count": 5,
+      "done": true,
+      "old_bid": 2.55,
+      "new_bid": 2.65,
+      "last_bump_at": "2026-10-16T20:53:23.378142+00:00",
+      "last_bump_local": "2026-10-16 23:51 GMT+3"
     },
     "84bbae6d-2c07-4ee3-9358-f9fb05eac48d": {
       "name": "Copy of Copy of 1.5 | 23.8",
       "campaign": "car scaling camp ",
       "date": "2026-10-16",
-      "count": 4,
-      "done": false,
-      "old_bid": 2.45,
-      "new_bid": 2.55,
-      "last_bump_at": "2026-10-16T18:37:53.694769+00:00",
-      "last_bump_local": "2026-10-16 21:34 GMT+3"
+      "count": 5,
+      "done": true,
+      "old_bid": 2.55,
+      "new_bid": 2.65,
+      "last_bump_at": "2026-10-16T20:53:23.378142+00:00",
+      "last_bump_local": "2026-10-16 23:51 GMT+3"
     },
     "b43fbc6d-a5a0-46b0-a354-94c5a3a01c1c": {
       "name": "Copy of Copy of 1.5 | 23.8",
       "campaign": "car scaling camp ",
       "date": "2026-10-16",
-      "count": 4,
-      "done": false,
-      "old_bid": 2.45,
-      "new_bid": 2.55,
-      "last_bump_at": "2026-10-16T18:37:53.694769+00:00",
-      "last_bump_local": "2026-10-16 21:34 GMT+3"
+      "count": 5,
+      "done": true,
+      "old_bid": 2.55,
+      "new_bid": 2.65,
+      "last_bump_at": "2026-10-16T20:53:23.378142+00:00",
+      "last_bump_local": "2026-10-16 23:51 GMT+3"
     },
     "bf505ca0-7d83-4743-b1df-37ad1a9a4114": {
       "name": "Copy of Copy of 1.5 | 23.8",
       "campaign": "car scaling camp ",
       "date": "2026-10-16",
-      "count": 4,
-      "done": false,
-      "old_bid": 2.45,
-      "new_bid": 2.55,
-      "last_bump_at": "2026-10-16T18:37:53.694769+00:00",
-      "last_bump_local": "2026-10-16 21:34 GMT+3"
+      "count": 5,
+      "done": true,
+      "old_bid": 2.55,
+      "new_bid": 2.65,
+      "last_bump_at": "2026-10-16T20:53:23.378142+00:00",
+      "last_bump_local": "2026-10-16 23:51 GMT+3"
     },
     "d06431af-af53-40b8-b95d-d3088d515be9": {
       "name": "Copy of Copy of 1.5 | 23.8",
       "campaign": "car scaling camp ",
       "date": "2026-10-16",
-      "count": 4,
-      "done": false,
-      "old_bid": 2.45,
-      "new_bid": 2.55,
-      "last_bump_at": "2026-10-16T18:37:53.694769+00:00",
-      "last_bump_local": "2026-10-16 21:34 GMT+3"
+      "count": 5,
+      "done": true,
+      "old_bid": 2.55,
+      "new_bid": 2.65,
+      "last_bump_at": "2026-10-16T20:53:23.378142+00:00",
+      "last_bump_local": "2026-10-16 23:51 GMT+3"
     },
     "da6b55a8-1f47-49b6-b92f-a442e5cafa5f": {
       "name": "Copy of Copy of 1.5 | 23.8",
       "campaign": "car scaling camp ",
       "date": "2026-10-16",
-      "count": 4,
-      "done": false,
-      "old_bid": 2.45,
-      "new_bid": 2.55,
-      "last_bump_at": "2026-10-16T18:37:53.694769+00:00",
-      "last_bump_local": "2026-10-16 21:34 GMT+3"
+      "count": 5,
+      "done": true,
+      "old_bid": 2.55,
+      "new_bid": 2.65,
+      "last_bump_at": "2026-10-16T20:53:23.378142+00:00",
+      "last_bump_local": "2026-10-16 23:51 GMT+3"
     },
     "18720c0e-220f-4636-a6f9-d01bec43030d": {
       "count": 0,
@@ -4920,6 +4952,145 @@
       "done": true,
       "name": "Copy of Copy of Copy of Copy of Copy of Copy of Copy of Copy of Copy of text1",
       "campaign": "car scaling new 2 text"
+    },
+    "1d0c0ac5-5b36-4306-ba1b-2c899998b672": {
+      "name": "Copy of 16-10 1",
+      "campaign": "باور بانك وينر",
+      "date": "2026-10-16",
+      "count": 1,
+      "done": false,
+      "old_bid": 1.8,
+      "new_bid": 1.9,
+      "last_bump_at": "2026-10-16T20:53:23.378142+00:00",
+      "last_bump_local": "2026-10-16 23:51 GMT+3"
+    },
+    "2a551071-0b11-4fef-8a72-2e34e2a37a77": {
+      "name": "Copy of 16-10 1",
+      "campaign": "باور بانك وينر",
+      "date": "2026-10-16",
+      "count": 1,
+      "done": false,
+      "old_bid": 1.8,
+      "new_bid": 1.9,
+      "last_bump_at": "2026-10-16T20:53:23.378142+00:00",
+      "last_bump_local": "2026-10-16 23:51 GMT+3"
+    },
+    "339188ed-cd4e-47a1-a646-b84d8ecbc557": {
+      "name": "Copy of 16-10 1",
+      "campaign": "باور بانك وينر",
+      "date": "2026-10-16",
+      "count": 1,
+      "done": false,
+      "old_bid": 1.8,
+      "new_bid": 1.9,
+      "last_bump_at": "2026-10-16T20:53:23.378142+00:00",
+      "last_bump_local": "2026-10-16 23:51 GMT+3"
+    },
+    "59518613-7736-4f59-af79-7c5003a7b948": {
+      "name": "Copy of 16-10 2",
+      "campaign": "باور بانك وينر",
+      "date": "2026-10-16",
+      "count": 1,
+      "done": false,
+      "old_bid": 1.9,
+      "new_bid": 2.0,
+      "last_bump_at": "2026-10-16T20:53:23.378142+00:00",
+      "last_bump_local": "2026-10-16 23:51 GMT+3"
+    },
+    "8b731288-746e-458a-a580-36a8c6b54676": {
+      "name": "Copy of 16-10 2",
+      "campaign": "باور بانك وينر",
+      "date": "2026-10-16",
+      "count": 1,
+      "done": false,
+      "old_bid": 1.9,
+      "new_bid": 2.0,
+      "last_bump_at": "2026-10-16T20:53:23.378142+00:00",
+      "last_bump_local": "2026-10-16 23:51 GMT+3"
+    },
+    "9ef26d7f-30b3-4917-a64c-72a1bb683979": {
+      "name": "Copy of 16-10 2",
+      "campaign": "باور بانك وينر",
+      "date": "2026-10-16",
+      "count": 1,
+      "done": false,
+      "old_bid": 1.9,
+      "new_bid": 2.0,
+      "last_bump_at": "2026-10-16T20:53:23.378142+00:00",
+      "last_bump_local": "2026-10-16 23:51 GMT+3"
+    },
+    "ab2337a8-5435-4b0d-8084-5dfd55b60d8d": {
+      "name": "Copy of 16-10 2",
+      "campaign": "باور بانك وينر",
+      "date": "2026-10-16",
+      "count": 1,
+      "done": false,
+      "old_bid": 1.9,
+      "new_bid": 2.0,
+      "last_bump_at": "2026-10-16T20:53:23.378142+00:00",
+      "last_bump_local": "2026-10-16 23:51 GMT+3"
+    },
+    "bfa340c7-1eaa-4eff-83e8-837f0de61651": {
+      "name": "Copy of 16-10 2",
+      "campaign": "باور بانك وينر",
+      "date": "2026-10-16",
+      "count": 1,
+      "done": false,
+      "old_bid": 1.9,
+      "new_bid": 2.0,
+      "last_bump_at": "2026-10-16T20:53:23.378142+00:00",
+      "last_bump_local": "2026-10-16 23:51 GMT+3"
+    },
+    "d9745e2d-0a36-43be-8cf1-2541071c08d6": {
+      "name": "Copy of 16-10 1",
+      "campaign": "باور بانك وينر",
+      "date": "2026-10-16",
+      "count": 1,
+      "done": false,
+      "old_bid": 1.8,
+      "new_bid": 1.9,
+      "last_bump_at": "2026-10-16T20:53:23.378142+00:00",
+      "last_bump_local": "2026-10-16 23:51 GMT+3"
+    },
+    "e7c385ee-aa6e-47c8-9c2a-6cbf076be2dd": {
+      "name": "Copy of 16-10 1",
+      "campaign": "باور بانك وينر",
+      "date": "2026-10-16",
+      "count": 1,
+      "done": false,
+      "old_bid": 1.8,
+      "new_bid": 1.9,
+      "last_bump_at": "2026-10-16T20:53:23.378142+00:00",
+      "last_bump_local": "2026-10-16 23:51 GMT+3"
+    },
+    "eedb6e2c-8f7a-44aa-9ff3-e7b599e78635": {
+      "name": "Copy of 16-10 2",
+      "campaign": "باور بانك وينر",
+      "date": "2026-10-16",
+      "count": 1,
+      "done": false,
+      "old_bid": 1.9,
+      "new_bid": 2.0,
+      "last_bump_at": "2026-10-16T20:53:23.378142+00:00",
+      "last_bump_local": "2026-10-16 23:51 GMT+3"
+    },
+    "f070b0cf-3590-4e22-8655-dfb594694df6": {
+      "count": 0,
+      "last_bump_at": null,
+      "done": true,
+      "name": "Copy of 16-10 2",
+      "campaign": "باور بانك وينر"
+    },
+    "91f56236-7635-4bfe-863f-fcc7ad01e84e": {
+      "name": "Copy of Copy of Copy of Copy of Copy of 1.5 | 23.8",
+      "campaign": "car scaling camp ",
+      "date": "2026-10-16",
+      "count": 1,
+      "done": false,
+      "old_bid": 2.05,
+      "new_bid": 2.15,
+      "last_bump_at": "2026-10-16T20:53:23.378142+00:00",
+      "last_bump_local": "2026-10-16 23:51 GMT+3"
     }
   },
   "tiktok_campaigns": {
