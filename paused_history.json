@@ -288,6 +288,12 @@
       "campaign": "car scaling camp ",
       "reason": "[Copy Rule] سعر البيعة CPA = $8.02 (>= $8) | الصرف: $8.02 | المبيعات: 1",
       "paused_at": "2026-10-16 20:24 GMT+3"
+    },
+    "fafc68a6-0c17-4c0e-923b-e84ca14abb60": {
+      "name": "Copy of Copy of Copy of Copy of Copy of Copy of Copy of Copy of text1",
+      "campaign": "car scaling new 2 text",
+      "reason": "[Copy Rule] صرفت $5.26 (>= $5) بدون مبيعات",
+      "paused_at": "2026-10-16 21:06 GMT+3"
     }
   },
   "ads": {
@@ -531,6 +537,20 @@
       "adsquad": "Copy of 2",
       "reason": "[Ad CPC Rule] صرف الفيديو $1.06 | النقرات: 3 | سعر النقرة CPC = $0.353 (> $0.34)",
       "paused_at": "2026-10-16 19:54 GMT+3"
+    },
+    "17d58fbc-aa1a-485e-9089-899187ef01e5": {
+      "name": "Copy of Copy of Copy of 2",
+      "campaign": "car scaling new 2 text",
+      "adsquad": "Copy of Copy of Copy of Copy of Copy of Copy of Copy of Copy of text1",
+      "reason": "[Ad CPC Rule] صرف الفيديو $1.12 | النقرات: 3 | سعر النقرة CPC = $0.373 (> $0.28)",
+      "paused_at": "2026-10-16 21:06 GMT+3"
+    },
+    "652069ed-05b5-4964-81b1-8048e0cc8e2d": {
+      "name": "Copy of 4",
+      "campaign": "car scaling camp ",
+      "adsquad": "Copy of Copy of Copy of Copy of Copy of 1.5 | 23.8",
+      "reason": "[Ad CPC Rule] صرف الفيديو $1.04 بدون أي نقرة (الحد الأقصى $0.28)",
+      "paused_at": "2026-10-16 21:06 GMT+3"
     }
   },
   "tiktok_videos": {
@@ -3380,7 +3400,7 @@
       "campaign": "car scaling new 2 text",
       "date": "2026-10-16",
       "count": 3,
-      "done": false,
+      "done": true,
       "old_bid": 2.4,
       "new_bid": 2.5,
       "last_bump_at": "2026-10-16T16:11:40.447150+00:00",
@@ -3413,7 +3433,7 @@
       "campaign": "car scaling new 2 text",
       "date": "2026-10-16",
       "count": 3,
-      "done": false,
+      "done": true,
       "old_bid": 2.4,
       "new_bid": 2.5,
       "last_bump_at": "2026-10-16T16:11:40.447150+00:00",
@@ -3424,7 +3444,7 @@
       "campaign": "car armrest qatar 27-6 ",
       "date": "2026-10-16",
       "count": 3,
-      "done": false,
+      "done": true,
       "old_bid": 3.7,
       "new_bid": 3.8,
       "last_bump_at": "2026-10-16T16:11:40.447150+00:00",
