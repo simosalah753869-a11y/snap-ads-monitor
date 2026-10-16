@@ -276,6 +276,18 @@
       "campaign": "car scaling new 2 text",
       "reason": "[Copy Rule] صرفت $7.4 (>= $5) بدون مبيعات",
       "paused_at": "2026-10-16 19:54 GMT+3"
+    },
+    "2fe5d669-1d2a-4b61-a002-fbe74389ea98": {
+      "name": "Copy of Copy of Copy of Copy of Copy of Copy of text 2 ",
+      "campaign": "car scaling new 2 text",
+      "reason": "[Copy Rule] صرفت $5.09 (>= $5) بدون مبيعات",
+      "paused_at": "2026-10-16 20:24 GMT+3"
+    },
+    "ab9f9ced-7f7a-4930-8d56-e3f461d8755e": {
+      "name": "Copy of Copy of Copy of Copy of Copy of 1.5 | 23.8",
+      "campaign": "car scaling camp ",
+      "reason": "[Copy Rule] سعر البيعة CPA = $8.02 (>= $8) | الصرف: $8.02 | المبيعات: 1",
+      "paused_at": "2026-10-16 20:24 GMT+3"
     }
   },
   "ads": {
@@ -2749,7 +2761,8 @@
       "old_bid": 3.2,
       "new_bid": 3.3,
       "last_bump_at": "2026-10-16T09:07:37.191219+00:00",
-      "last_bump_local": "2026-10-16 12:06 GMT+3"
+      "last_bump_local": "2026-10-16 12:06 GMT+3",
+      "done": true
     },
     "a45806ff-a04c-4edc-a9f9-7cff9b49d267": {
       "name": "Copy of Copy of 15$",
