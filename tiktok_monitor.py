@@ -33,8 +33,10 @@ ACCOUNTS = [
 MAX_CAMPAIGN_NO_SALE_SPEND = 18.00
 MAX_CAMPAIGN_CPA = 21.00
 MAX_NO_SALE_SPEND = 6.00
+MAX_VIDEO_CPA = 10.00
 MIN_SPEND_FOR_CPC = 1.00
 MAX_CPC = 0.35
+
 
 ORIGIN_MATERIAL_TYPES = [
     "no_post_video",
@@ -379,13 +381,20 @@ def evaluate_video_rules(spend_1d, conv_1d, cpc_1d, clicks_1d, spend_2d, conv_2d
     # Rule 2: Spend > $6 over 2 days (Yesterday + Today) with 0 conversions
     if spend_2d > MAX_NO_SALE_SPEND and conv_2d == 0:
         reasons.append(f"2-Day Spend ${spend_2d:.2f} > ${MAX_NO_SALE_SPEND:.2f} with 0 sales")
-    # Rule 3: Spend >= $1 today and CPC > $0.35 (or 0 clicks)
+    # Rule 3: Video Today CPA >= $10.00 (with >= 1 conversion)
+    if conv_1d > 0 and (spend_1d / conv_1d) >= MAX_VIDEO_CPA:
+        reasons.append(f"Today Video CPA ${(spend_1d / conv_1d):.2f} >= ${MAX_VIDEO_CPA:.2f} (Spend=${spend_1d:.2f}, Sales={conv_1d})")
+    # Rule 4: Video 2-Day CPA >= $10.00 (with >= 1 conversion)
+    if conv_2d > 0 and (spend_2d / conv_2d) >= MAX_VIDEO_CPA:
+        reasons.append(f"2-Day Video CPA ${(spend_2d / conv_2d):.2f} >= ${MAX_VIDEO_CPA:.2f} (Spend=${spend_2d:.2f}, Sales={conv_2d})")
+    # Rule 5: Spend >= $1 today and CPC > $0.35 (or 0 clicks)
     if spend_1d >= MIN_SPEND_FOR_CPC and (cpc_1d > MAX_CPC or clicks_1d == 0):
         reasons.append(f"Today Spend ${spend_1d:.2f} >= ${MIN_SPEND_FOR_CPC:.2f} & CPC ${cpc_1d:.2f} > ${MAX_CPC:.2f}")
-    # Rule 4: Spend >= $1 over 2 days and CPC > $0.35 (or 0 clicks)
+    # Rule 6: Spend >= $1 over 2 days and CPC > $0.35 (or 0 clicks)
     elif spend_2d >= MIN_SPEND_FOR_CPC and (cpc_2d > MAX_CPC or clicks_2d == 0):
         reasons.append(f"2-Day Spend ${spend_2d:.2f} >= ${MIN_SPEND_FOR_CPC:.2f} & CPC ${cpc_2d:.2f} > ${MAX_CPC:.2f}")
     return reasons
+
 
 
 def main():
