@@ -210,6 +210,24 @@
       "campaign": "باور بانك وينر",
       "reason": "[Copy Rule] صرفت $5.06 (>= $5) بدون مبيعات",
       "paused_at": "2026-10-16 15:33 GMT+3"
+    },
+    "93383882-6817-4df3-8739-9fdf90c73b55": {
+      "name": "Copy of Copy of Copy of Copy of Copy of Copy of Copy of Copy of text1",
+      "campaign": "car scaling new 2 text",
+      "reason": "[Copy Rule] صرفت $5.26 (>= $5) بدون مبيعات",
+      "paused_at": "2026-10-16 16:19 GMT+3"
+    },
+    "ef6abc37-b063-4ae9-8487-717783069422": {
+      "name": "Copy of Copy of 1.5 | 23.8",
+      "campaign": "car scaling camp ",
+      "reason": "[Copy Rule] سعر البيعة CPA = $8.8 (>= $8) | الصرف: $8.8 | المبيعات: 1",
+      "paused_at": "2026-10-16 16:19 GMT+3"
+    },
+    "3b0b018a-e580-42e4-b174-733c1616e685": {
+      "name": "Copy of Copy of Copy of Copy of Copy of 1.5 | 23.8",
+      "campaign": "car scaling camp ",
+      "reason": "[Copy Rule] صرفت $5.32 (>= $5) بدون مبيعات",
+      "paused_at": "2026-10-16 16:19 GMT+3"
     }
   },
   "ads": {
@@ -418,6 +436,27 @@
       "adsquad": "Copy of 112 ( باوربانك)",
       "reason": "[Ad CPC Rule] صرف الفيديو $1.27 | النقرات: 2 | سعر النقرة CPC = $0.635 (> $0.34)",
       "paused_at": "2026-10-16 14:52 GMT+3"
+    },
+    "8c211c8d-461a-4017-89de-319dddf7d947": {
+      "name": "4",
+      "campaign": "car scaling camp ",
+      "adsquad": "15-10",
+      "reason": "[Ad CPC Rule] صرف الفيديو $1.92 | النقرات: 4 | سعر النقرة CPC = $0.48 (> $0.28)",
+      "paused_at": "2026-10-16 16:19 GMT+3"
+    },
+    "3dbd81a0-bdfc-4891-9923-3bb7c75db957": {
+      "name": "3",
+      "campaign": "car scaling camp ",
+      "adsquad": "15-10",
+      "reason": "[Ad CPC Rule] صرف الفيديو $2.29 | النقرات: 8 | سعر النقرة CPC = $0.286 (> $0.28)",
+      "paused_at": "2026-10-16 16:19 GMT+3"
+    },
+    "a441cc19-2f2d-4477-ac56-85d6fe8e26d5": {
+      "name": "Copy of Copy of Copy of Copy of Copy of Copy of Copy of 4",
+      "campaign": "Copy of kashaf qatar",
+      "adsquad": "Copy of 15$",
+      "reason": "[Ad CPC Rule] صرف الفيديو $1.4 | النقرات: 4 | سعر النقرة CPC = $0.35 (> $0.34)",
+      "paused_at": "2026-10-16 16:19 GMT+3"
     }
   },
   "tiktok_videos": {
@@ -3098,23 +3137,23 @@
       "name": "16-10 1",
       "campaign": "باور بانك 16-10",
       "date": "2026-10-16",
-      "count": 2,
+      "count": 3,
       "done": false,
-      "old_bid": 2.0,
-      "new_bid": 2.1,
-      "last_bump_at": "2026-10-16T11:08:51.413278+00:00",
-      "last_bump_local": "2026-10-16 14:08 GMT+3"
+      "old_bid": 2.1,
+      "new_bid": 2.2,
+      "last_bump_at": "2026-10-16T13:20:04.328956+00:00",
+      "last_bump_local": "2026-10-16 16:19 GMT+3"
     },
     "f7919058-8123-459c-903b-11ad820ecb10": {
       "name": "16-10 2",
       "campaign": "باور بانك 16-10",
       "date": "2026-10-16",
-      "count": 2,
+      "count": 3,
       "done": false,
-      "old_bid": 2.0,
-      "new_bid": 2.1,
-      "last_bump_at": "2026-10-16T11:08:51.413278+00:00",
-      "last_bump_local": "2026-10-16 14:08 GMT+3"
+      "old_bid": 2.1,
+      "new_bid": 2.2,
+      "last_bump_at": "2026-10-16T13:20:04.328956+00:00",
+      "last_bump_local": "2026-10-16 16:19 GMT+3"
     },
     "30b0ea54-e875-41dd-adeb-0ecaaface37b": {
       "count": 0,
@@ -3215,7 +3254,7 @@
       "campaign": "car scaling new 2 text",
       "date": "2026-10-16",
       "count": 1,
-      "done": false,
+      "done": true,
       "old_bid": 2.2,
       "new_bid": 2.3,
       "last_bump_at": "2026-10-16T11:53:16.428409+00:00",
