@@ -2550,6 +2550,23 @@
       "spend_2d": 1.45,
       "conv_2d": 0,
       "paused_at": "2026-10-16T19:32:05.115777+00:00"
+    },
+    "7631763556322148369:1879156756829313:1879156760399089": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "ad_id": "1879156756829313",
+      "creative_id": "1879156756830465",
+      "campaign_ad_name": "power bank winner 16-10 A / power bank winner 16-10 A - Creative",
+      "video_name": "16-10_pb_winner_2.mp4",
+      "draft_ids": [
+        "1879156760399089"
+      ],
+      "reason": "Today Spend $6.12 > $6.00 with 0 sales | 2-Day Spend $6.12 > $6.00 with 0 sales",
+      "spend_1d": 6.12,
+      "conv_1d": 0,
+      "spend_2d": 6.12,
+      "conv_2d": 0,
+      "paused_at": "2026-10-16T21:04:06.640684+00:00"
     }
   },
   "tiktok_ads": {},
