@@ -35,6 +35,10 @@ jobs:
         continue-on-error: true
         run: python snap_monitor.py
 
+      - name: Run Snapchat Auto-Duplication (Top-Up Active AdSquads to 20)
+        continue-on-error: true
+        run: python topup_car_campaigns.py
+
       - name: Run TikTok Smart+ Automation Rules (All 6 Accounts)
         continue-on-error: true
         env:
