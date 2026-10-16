@@ -8,6 +8,10 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: snap-tiktok-ads-monitor
+  cancel-in-progress: false
+
 jobs:
   monitor:
     runs-on: ubuntu-latest
@@ -45,9 +49,14 @@ jobs:
           TIKTOK_COOKIES_JSON: ${{ vars.TIKTOK_COOKIES_JSON || secrets.TIKTOK_COOKIES_JSON }}
         run: python tiktok_monitor.py
 
-      - name: Save paused_history.json (لتذكر ما تم إيقافه وعدم إيقاف ما تعيد تشغيله)
+      - name: Save paused_history.json
         run: |
           git config user.name "SnapTikTokAdsBot"
           git config user.email "bot@users.noreply.github.com"
           git add paused_history.json
-          git diff --staged --quiet || (git commit -m "Update paused_history.json [skip ci]" && git push)
+          if ! git diff --staged --quiet; then
+            git commit -m "Update paused_history.json [skip ci]"
+            git pull --rebase -X theirs origin main || true
+            git push || true
+          fi
+
