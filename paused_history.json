@@ -2453,6 +2453,18 @@
       "spend_2d": 21.17,
       "conv_2d": 1,
       "paused_at": "2026-10-16T01:50:59.572680+00:00"
+    },
+    "7631763556322148369:1879119542754050": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "campaign_id": "1879119542754050",
+      "campaign_name": "car armrest leads 15-10 B",
+      "reason": "Campaign Today CPA $21.14 >= $21.00 (Spend=$21.14, Sales=1)",
+      "spend_1d": 21.14,
+      "conv_1d": 1,
+      "spend_2d": 37.58,
+      "conv_2d": 3,
+      "paused_at": "2026-10-16T03:08:11.845667+00:00"
     }
   }
 }
