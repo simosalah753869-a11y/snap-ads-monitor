@@ -51,10 +51,18 @@ def load_paused_history() -> dict:
             data.setdefault("adsquads", {})
             data.setdefault("ads", {})
             data.setdefault("bid_bumps", {})
+            data.setdefault("creative_media_map", {})
+            data.setdefault("disabled_videos", {})
             return data
         except Exception:
             pass
-    return {"adsquads": {}, "ads": {}, "bid_bumps": {}}
+    return {
+        "adsquads": {},
+        "ads": {},
+        "bid_bumps": {},
+        "creative_media_map": {},
+        "disabled_videos": {},
+    }
 
 
 def parse_iso_utc(ts_str: str) -> datetime | None:
@@ -90,7 +98,6 @@ def api_put(endpoint: str, token: str, payload: dict) -> dict:
             if attempt == 3:
                 raise
             time.sleep(1.5 * (attempt + 1))
-
 
 
 def fetch_account_breakdown_stats(token: str, ad_account_id: str, breakdown: str) -> list[dict]:
@@ -165,18 +172,42 @@ def evaluate_adsquad_rule(adsquad_name: str, st: dict, campaign_name: str = "", 
     return False, ""
 
 
-def evaluate_ad_cpc_rule(st: dict, campaign_name: str, adsquad_name: str, squad: dict | None = None) -> tuple[bool, str]:
+def evaluate_single_ad_rule(st: dict, campaign_name: str, adsquad_name: str, squad: dict | None = None) -> tuple[bool, str]:
     spend = st["spend"]
     swipes = st["swipes"]
+    purchases = st["purchases"]
     cpc = st["cpc"]
-    max_cpc = 0.34 if is_gulf_034_campaign(campaign_name, adsquad_name, squad) else 0.28
+    is_gulf = is_gulf_034_campaign(campaign_name, adsquad_name, squad)
+    is_saudi = is_saudi_squad(squad, campaign_name, adsquad_name)
+    max_cpc = 0.34 if is_gulf else 0.28
 
+    # 1. قاعدة إيقاف الفيديو في حملات السعودية إذا صرف >= 6$ بدون مبيعة داخل المجموعة
+    if is_saudi and spend >= 6.0 and purchases == 0:
+        return True, f"[Saudi Single Video Stop-Loss] صرف الفيديو ${spend} (>= $6.00) بدون مبيعة"
+
+    # 2. قاعدة إيقاف الـ CPC المرتفع بعد صرف >= 1$
     if spend >= 1.0:
         if swipes == 0:
             return True, f"[Ad CPC Rule] صرف الفيديو ${spend} بدون أي نقرة (الحد الأقصى ${max_cpc})"
         if cpc > max_cpc:
             return True, f"[Ad CPC Rule] صرف الفيديو ${spend} | النقرات: {swipes} | سعر النقرة CPC = ${cpc} (> ${max_cpc})"
     return False, ""
+
+
+def resolve_video_media_id(creative_id: str, token: str, history: dict) -> str:
+    if not creative_id:
+        return "unknown"
+    cmap = history.setdefault("creative_media_map", {})
+    if creative_id in cmap:
+        return cmap[creative_id]
+    try:
+        cr_resp = api_get(f"/creatives/{creative_id}", token)
+        cr = cr_resp.get("creatives", [{}])[0].get("creative", {})
+        media_id = cr.get("top_snap_media_id") or creative_id
+        cmap[creative_id] = media_id
+        return media_id
+    except Exception:
+        return creative_id
 
 
 def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
@@ -257,11 +288,15 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
 
     # 2. One API call for all Ad (video) stats today
     ad_stats = fetch_account_breakdown_stats(token, ad_account_id, "ad")
+    ad_stats_map = {st["id"]: st for st in ad_stats}
     print(f"\n🎬 عدد الفيديوهات الإعلانية (Ads) التي صرفت اليوم: {len(ad_stats)}")
 
     for st in ad_stats:
         ad_id = st["id"]
-        if st["spend"] < 1.0 or (st["swipes"] > 0 and st["cpc"] <= 0.28):
+        # نفحص أي إعلان صرف >= 1$ (سواء لفحص الـ CPC أو لفحص الـ 6$ بدون مبيعة في السعودية)
+        if st["spend"] < 1.0:
+            continue
+        if st["spend"] < 6.0 and (st["swipes"] > 0 and st["cpc"] <= 0.28):
             continue
 
         a_resp = api_get(f"/ads/{ad_id}", token)
@@ -283,7 +318,7 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
             camp_names[c_id] = c_resp.get("campaigns", [{}])[0].get("campaign", {}).get("name", "")
         c_name = camp_names.get(c_id, "")
 
-        should_pause, reason = evaluate_ad_cpc_rule(st, c_name, s_name, squad)
+        should_pause, reason = evaluate_single_ad_rule(st, c_name, s_name, squad)
         if not should_pause:
             continue
 
@@ -292,7 +327,7 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
             continue
 
         if dry_run:
-            print(f"🔍 [مطابق للشرط] الفيديو: '{ad_name}' (حملة: '{c_name}' / مجموعة: '{s_name}') | {reason}")
+            print(f"🔍 [مطابق لشرط الفيديو الفردي] الفيديو: '{ad_name}' (حملة: '{c_name}' / مجموعة: '{s_name}') | {reason}")
         else:
             ad["status"] = "PAUSED"
             api_put(f"/adsquads/{s_id}/ads", token, {"ads": [ad]})
@@ -307,6 +342,146 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
             print(f"🛑 تم إيقاف الفيديو: '{ad_name}' (حملة: '{c_name}' / مجموعة: '{s_name}') | {reason}")
             time.sleep(0.3)
 
+    # 2B. فحص مجموع صرف ومبيعات كل فيديو (مكرر في عدة AdSquads) على مستوى الحملة بالكامل:
+    # - السعودية (country_code == 'sa'):
+    #     * مجموع الصرف >= 10$ بين كل الـ AdSquads مع 0 مبيعات -> إيقاف/حذف الفيديو من كل الـ AdSquads في الحملة.
+    #     * مجموع المبيعات >= 1 وسعر البيعة الإجمالي (CPA) >= 12$ بين كل الـ AdSquads -> إيقاف/حذف الفيديو من كل الـ AdSquads في الحملة.
+    # - الدول الأخرى غير السعودية (قطر، عمان، إلخ):
+    #     * مجموع الصرف >= 13$ بين كل الـ AdSquads مع 0 مبيعات -> إيقاف/حذف الفيديو من كل الـ AdSquads في الحملة.
+    #     * مجموع المبيعات >= 1 وسعر البيعة الإجمالي (CPA) >= 14$ بين كل الـ AdSquads -> إيقاف/حذف الفيديو من كل الـ AdSquads في الحملة.
+    print(f"\n🧮 فحص مجموع صرف الفيديوهات المكررة عبر كل الـ AdSquads داخل الحملات النشطة ({len(active_campaigns)} حملة)...")
+    camp_squads_cache = {}
+    for c in active_campaigns:
+        c_id = c["id"]
+        c_name = c.get("name", "")
+        sq_resp = api_get(f"/campaigns/{c_id}/adsquads", token)
+        c_squads = [sq_w.get("adsquad", {}) for sq_w in sq_resp.get("adsquads", []) if sq_w.get("adsquad")]
+        camp_squads_cache[c_id] = c_squads
+        if not c_squads:
+            continue
+
+        for sq in c_squads:
+            squad_cache[sq["id"]] = sq
+
+        camp_is_saudi = is_saudi_squad(c_squads[0], c_name, c_squads[0].get("name", ""))
+        no_sale_limit = 10.0 if camp_is_saudi else 13.0
+        max_cpa_limit = 12.0 if camp_is_saudi else 14.0
+        region_label = "السعودية" if camp_is_saudi else "غير السعودية/الخليج"
+
+        ads_resp = api_get(f"/campaigns/{c_id}/ads", token)
+        c_ads = [a_w.get("ad", {}) for a_w in ads_resp.get("ads", []) if a_w.get("ad")]
+        if not c_ads:
+            continue
+
+        # معرفة الإعلانات التي صرفت اليوم داخل هذه الحملة لتحديد الفيديوهات التي تحتاج فحص
+        spending_creatives = {a.get("creative_id") for a in c_ads if a.get("id") in ad_stats_map and a.get("creative_id")}
+        if not spending_creatives:
+            continue
+
+        # ربط كل creative_id بملف الفيديو الأصلي (top_snap_media_id) لتجميع كل نسخ نفس الفيديو في الحملة
+        for cr_id in spending_creatives:
+            resolve_video_media_id(cr_id, token, history)
+
+        # أيضاً نربط أي إعلان نشط في الحملة حتى لو لم يصرف بعد لكي نتمكن من إيقافه من جميع الـ AdSquads إذا خسر الفيديو
+        active_creatives = {a.get("creative_id") for a in c_ads if a.get("status") == "ACTIVE" and a.get("creative_id")}
+        for cr_id in active_creatives:
+            resolve_video_media_id(cr_id, token, history)
+        save_paused_history(history)
+
+        video_groups = {}
+        for a in c_ads:
+            cr_id = a.get("creative_id")
+            v_key = history["creative_media_map"].get(cr_id) or cr_id or a.get("name", "unknown")
+            grp = video_groups.setdefault(v_key, {
+                "ads": [],
+                "active_ads": [],
+                "spend": 0.0,
+                "purchases": 0,
+                "swipes": 0,
+                "sample_name": a.get("name", ""),
+            })
+            grp["ads"].append(a)
+            if a.get("status") == "ACTIVE":
+                grp["active_ads"].append(a)
+            st = ad_stats_map.get(a["id"])
+            if st:
+                grp["spend"] = round(grp["spend"] + st["spend"], 2)
+                grp["purchases"] += st["purchases"]
+                grp["swipes"] += st["swipes"]
+
+        for v_key, grp in video_groups.items():
+            tot_spend = grp["spend"]
+            tot_purch = grp["purchases"]
+            active_list = grp["active_ads"]
+            if not active_list or tot_spend < no_sale_limit:
+                continue
+
+            tot_cpa = round(tot_spend / tot_purch, 2) if tot_purch > 0 else None
+            kill_video = False
+            kill_reason = ""
+
+            if tot_spend >= no_sale_limit and tot_purch == 0:
+                kill_video = True
+                kill_reason = (
+                    f"[Aggregated Video Stop-Loss - {region_label}] مجموع صرف الفيديو عبر كل الـ AdSquads = "
+                    f"${tot_spend:.2f} (>= ${no_sale_limit:.2f}) بدون أي مبيعة"
+                )
+            elif tot_purch > 0 and tot_cpa is not None and tot_cpa >= max_cpa_limit:
+                kill_video = True
+                kill_reason = (
+                    f"[Aggregated Video High CPA - {region_label}] مجموع صرف الفيديو = ${tot_spend:.2f} | "
+                    f"المبيعات = {tot_purch} | سعر البيعة الإجمالي CPA = ${tot_cpa:.2f} (>= ${max_cpa_limit:.2f})"
+                )
+
+            if not kill_video:
+                continue
+
+            if dry_run:
+                print(
+                    f"🔍 [حذف/إيقاف الفيديو من كل الـ AdSquads] الحملة: '{c_name}' | الفيديو: '{grp['sample_name']}' (Media: {v_key}) "
+                    f"| عدد النسخ النشطة التي ستُغلق: {len(active_list)} | {kill_reason}"
+                )
+            else:
+                print(
+                    f"🗑️ جاري إيقاف/إزالة الفيديو '{grp['sample_name']}' (Media: {v_key}) من جميع الـ AdSquads ({len(active_list)} مجموعة) في حملة '{c_name}' | {kill_reason}"
+                )
+                # تجميع الإعلانات النشطة حسب الـ AdSquad لإغلاقها دفعة واحدة لكل مجموعة
+                ads_by_squad = {}
+                for a in active_list:
+                    a["status"] = "PAUSED"
+                    ads_by_squad.setdefault(a["ad_squad_id"], []).append(a)
+
+                closed_cnt = 0
+                for sq_id, sq_ads in ads_by_squad.items():
+                    try:
+                        api_put(f"/adsquads/{sq_id}/ads", token, {"ads": sq_ads})
+                        for a in sq_ads:
+                            history["ads"][a["id"]] = {
+                                "name": a.get("name", ""),
+                                "campaign": c_name,
+                                "adsquad": squad_cache.get(sq_id, {}).get("name", sq_id),
+                                "reason": kill_reason,
+                                "paused_at": now_str,
+                            }
+                            closed_cnt += 1
+                        time.sleep(0.2)
+                    except Exception as e:
+                        print(f"   ⚠️ خطأ أثناء إغلاق الفيديو في المجموعة {sq_id}: {e}")
+
+                history["disabled_videos"][f"{c_id}:{v_key}"] = {
+                    "campaign_id": c_id,
+                    "campaign_name": c_name,
+                    "video_media_id": v_key,
+                    "sample_ad_name": grp["sample_name"],
+                    "closed_instances": closed_cnt,
+                    "total_spend": tot_spend,
+                    "total_purchases": tot_purch,
+                    "reason": kill_reason,
+                    "disabled_at": now_str,
+                }
+                save_paused_history(history)
+                print(f"   ✅ تم إيقاف/حذف الفيديو من {closed_cnt} مجموعة إعلانية بنجاح!")
+
     # 3. Low-spend (< $1.00) 2-hour +$0.10 Bid Bump rule (max 5 times ONCE per Ad Squad lifetime, 2 hours apart)
     now_utc = datetime.now(timezone.utc)
     today_local = datetime.now(ACCOUNT_TZ)
@@ -315,9 +490,12 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
     for c in active_campaigns:
         c_id = c["id"]
         c_name = c.get("name", "")
-        sq_resp = api_get(f"/campaigns/{c_id}/adsquads", token)
-        for sq_wrap in sq_resp.get("adsquads", []):
-            squad = sq_wrap.get("adsquad", {})
+        c_squads = camp_squads_cache.get(c_id)
+        if c_squads is None:
+            sq_resp = api_get(f"/campaigns/{c_id}/adsquads", token)
+            c_squads = [sq_w.get("adsquad", {}) for sq_w in sq_resp.get("adsquads", []) if sq_w.get("adsquad")]
+
+        for squad in c_squads:
             if not squad or squad.get("status") != "ACTIVE":
                 continue
             s_id = squad["id"]
@@ -395,7 +573,6 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
                 time.sleep(0.3)
 
 
-
 def recheck_gulf_adsquads(token: str):
     history = load_paused_history()
     stats_map = {st["id"]: st for st in fetch_account_breakdown_stats(token, TARGET_ACCOUNT_ID, "adsquad")}
@@ -404,9 +581,9 @@ def recheck_gulf_adsquads(token: str):
             continue
         s = api_get(f"/adsquads/{sid}", token)["adsquads"][0]["adsquad"]
         c = api_get(f"/campaigns/{s['campaign_id']}", token)["campaigns"][0]["campaign"]
-        if is_gulf_034_campaign(c["name"], s["name"]):
+        if is_gulf_034_campaign(c["name"], s["name"], s):
             st = stats_map.get(sid, {"spend": 0.0, "purchases": 0, "cpa": None})
-            should_pause, _ = evaluate_adsquad_rule(s["name"], st, c["name"])
+            should_pause, _ = evaluate_adsquad_rule(s["name"], st, c["name"], s)
             if not should_pause:
                 s["status"] = "ACTIVE"
                 api_put(f"/campaigns/{s['campaign_id']}/adsquads", token, {"adsquads": [s]})
