@@ -264,6 +264,18 @@
       "campaign": "car scaling new 2 text",
       "reason": "[Copy Rule] صرفت $6.48 (>= $5) بدون مبيعات",
       "paused_at": "2026-10-16 19:10 GMT+3"
+    },
+    "a4690fa6-c42b-46d7-9fa7-244c58bf5d6a": {
+      "name": "Copy of BB",
+      "campaign": " kahsaf oman 29-7 ",
+      "reason": "[Gulf Copy Rule] صرفت $8.17 (> $8) بدون مبيعات",
+      "paused_at": "2026-10-16 19:54 GMT+3"
+    },
+    "63ba3a93-97bf-4161-87c8-6b7b0b5f7e8b": {
+      "name": "Copy of Copy of Copy of Copy of Copy of Copy of Copy of Copy of text1",
+      "campaign": "car scaling new 2 text",
+      "reason": "[Copy Rule] صرفت $7.4 (>= $5) بدون مبيعات",
+      "paused_at": "2026-10-16 19:54 GMT+3"
     }
   },
   "ads": {
@@ -500,6 +512,13 @@
       "adsquad": "16-10 2",
       "reason": "[Ad CPC Rule] صرف الفيديو $1.3 | النقرات: 3 | سعر النقرة CPC = $0.433 (> $0.28)",
       "paused_at": "2026-10-16 18:27 GMT+3"
+    },
+    "4d7ca3b5-6652-4dd9-801f-958d404e3d38": {
+      "name": "Copy of Copy of Copy of Copy of Copy of 3",
+      "campaign": "car armrest qatar 27-6 ",
+      "adsquad": "Copy of 2",
+      "reason": "[Ad CPC Rule] صرف الفيديو $1.06 | النقرات: 3 | سعر النقرة CPC = $0.353 (> $0.34)",
+      "paused_at": "2026-10-16 19:54 GMT+3"
     }
   },
   "tiktok_videos": {
@@ -1181,6 +1200,23 @@
       "spend_2d": 1.02,
       "conv_2d": 0,
       "paused_at": "2026-10-16T16:12:59.394076+00:00"
+    },
+    "7631763556322148369:1878973125749954:1878983551041729": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "ad_id": "1878973125749954",
+      "creative_id": "1878973173545585",
+      "campaign_ad_name": "car armrest leads  13-10 / Ad name2026-10-13 11:52:19",
+      "video_name": "وسادة مقعد السيارة من الميموري فوم مع جيوب جانبيه ومكان للمناديل-Music_Refresh-5-6",
+      "draft_ids": [
+        "1878983551041729"
+      ],
+      "reason": "2-Day Spend $1.12 >= $1.00 & CPC $0.37 > $0.35",
+      "spend_1d": 1.06,
+      "conv_1d": 0,
+      "spend_2d": 1.12,
+      "conv_2d": 0,
+      "paused_at": "2026-10-16T16:55:58.696390+00:00"
     }
   },
   "tiktok_ads": {},
@@ -1485,7 +1521,8 @@
       "old_bid": 3.2,
       "new_bid": 3.3,
       "last_bump_at": "2026-10-16T09:07:37.191219+00:00",
-      "last_bump_local": "2026-10-16 12:06 GMT+3"
+      "last_bump_local": "2026-10-16 12:06 GMT+3",
+      "done": true
     },
     "b8296148-07c8-4d9e-9926-d24602fd4d48": {
       "name": "Copy of BB",
@@ -2302,7 +2339,8 @@
       "old_bid": 3.2,
       "new_bid": 3.3,
       "last_bump_at": "2026-10-16T09:07:37.191219+00:00",
-      "last_bump_local": "2026-10-16 12:06 GMT+3"
+      "last_bump_local": "2026-10-16 12:06 GMT+3",
+      "done": true
     },
     "4408fd0a-a125-4135-9286-6f8e5232148d": {
       "name": "Copy of 15$",
@@ -2393,7 +2431,8 @@
       "old_bid": 3.7,
       "new_bid": 3.8,
       "last_bump_at": "2026-10-16T09:07:37.191219+00:00",
-      "last_bump_local": "2026-10-16 12:06 GMT+3"
+      "last_bump_local": "2026-10-16 12:06 GMT+3",
+      "done": true
     },
     "3d5066cd-bb69-418c-92f0-9f6e2fab3d8a": {
       "name": "Copy of 112 ( باوربانك)",
@@ -3036,7 +3075,8 @@
       "old_bid": 1.95,
       "new_bid": 2.05,
       "last_bump_at": "2026-10-16T09:07:37.191219+00:00",
-      "last_bump_local": "2026-10-16 12:06 GMT+3"
+      "last_bump_local": "2026-10-16 12:06 GMT+3",
+      "done": true
     },
     "d53aefb3-117a-419c-92a0-62da469f7afe": {
       "name": "14-10",
