@@ -2864,8 +2864,7 @@
       "old_bid": 3.2,
       "new_bid": 3.3,
       "last_bump_at": "2026-10-16T09:07:37.191219+00:00",
-      "last_bump_local": "2026-10-16 12:06 GMT+3",
-      "done": true
+      "last_bump_local": "2026-10-16 12:06 GMT+3"
     },
     "118f68f3-a5fe-4a7b-8330-17395bea25cd": {
       "name": "Interest Stack — AR",
@@ -3526,8 +3525,7 @@
       "old_bid": 2.1,
       "new_bid": 2.2,
       "last_bump_at": "2026-10-15T21:37:29.242829+00:00",
-      "last_bump_local": "2026-10-16 00:37 GMT+3",
-      "done": true
+      "last_bump_local": "2026-10-16 00:37 GMT+3"
     },
     "db49c595-f770-4a63-adea-62ada70362c7": {
       "name": "Copy of Copy of Copy of 1.5 | 23.8",
@@ -3536,8 +3534,7 @@
       "old_bid": 1.75,
       "new_bid": 1.85,
       "last_bump_at": "2026-10-15T10:09:58.932831+00:00",
-      "last_bump_local": "2026-10-15 13:09 GMT+3",
-      "done": true
+      "last_bump_local": "2026-10-15 13:09 GMT+3"
     },
     "de97478a-0038-4778-af48-0739f9aac82c": {
       "name": "2.9",
@@ -3556,8 +3553,7 @@
       "old_bid": 1.95,
       "new_bid": 2.05,
       "last_bump_at": "2026-10-15T21:37:29.242829+00:00",
-      "last_bump_local": "2026-10-16 00:37 GMT+3",
-      "done": true
+      "last_bump_local": "2026-10-16 00:37 GMT+3"
     },
     "f0734ba4-268f-4e79-a70d-f2b7c5042c53": {
       "name": "Copy of Copy of 14-10",
@@ -3595,8 +3591,7 @@
       "old_bid": 1.95,
       "new_bid": 2.05,
       "last_bump_at": "2026-10-15T21:37:29.242829+00:00",
-      "last_bump_local": "2026-10-16 00:37 GMT+3",
-      "done": true
+      "last_bump_local": "2026-10-16 00:37 GMT+3"
     },
     "f64b806f-eda7-4f85-b417-b19984581714": {
       "name": "Copy of Copy of 1.5 | 23.8",
@@ -3605,8 +3600,7 @@
       "old_bid": 2.1,
       "new_bid": 2.2,
       "last_bump_at": "2026-10-15T21:37:29.242829+00:00",
-      "last_bump_local": "2026-10-16 00:37 GMT+3",
-      "done": true
+      "last_bump_local": "2026-10-16 00:37 GMT+3"
     },
     "f7951da6-7161-4e97-b99b-03e483913f49": {
       "name": "Copy of Copy of Copy of Copy of Copy of 1.5 | 23.8",
@@ -4311,8 +4305,7 @@
       "old_bid": 1.75,
       "new_bid": 1.85,
       "last_bump_at": "2026-10-16T00:32:39.546384+00:00",
-      "last_bump_local": "2026-10-16 03:32 GMT+3",
-      "done": true
+      "last_bump_local": "2026-10-16 03:32 GMT+3"
     },
     "44383669-f411-429b-a1ac-9f42d2ff8a38": {
       "name": "Copy of Copy of Copy of Copy of Copy of Copy of 1.5 | 23.8",
@@ -4361,8 +4354,7 @@
       "old_bid": 1.85,
       "new_bid": 1.95,
       "last_bump_at": "2026-10-16T03:54:50.115193+00:00",
-      "last_bump_local": "2026-10-16 06:54 GMT+3",
-      "done": true
+      "last_bump_local": "2026-10-16 06:54 GMT+3"
     },
     "a4727be0-c845-449d-9368-a1f3019f30b5": {
       "name": "Copy of Copy of 1.5 | 23.8",
@@ -4381,8 +4373,7 @@
       "old_bid": 1.8,
       "new_bid": 1.9,
       "last_bump_at": "2026-10-16T00:32:39.546384+00:00",
-      "last_bump_local": "2026-10-16 03:32 GMT+3",
-      "done": true
+      "last_bump_local": "2026-10-16 03:32 GMT+3"
     },
     "acd2e260-fffc-4f7e-8342-a25628023e02": {
       "name": "Copy of Copy of Copy of Copy of Copy of Copy of 1.5 | 23.8",
@@ -4462,8 +4453,7 @@
       "old_bid": 1.85,
       "new_bid": 1.95,
       "last_bump_at": "2026-10-16T03:54:50.115193+00:00",
-      "last_bump_local": "2026-10-16 06:54 GMT+3",
-      "done": true
+      "last_bump_local": "2026-10-16 06:54 GMT+3"
     },
     "fc89f3fa-bce2-4a31-9009-013a7a610017": {
       "name": "Copy of Copy of Copy of Copy of 1.5 | 23.8",
@@ -4472,8 +4462,7 @@
       "old_bid": 1.85,
       "new_bid": 1.95,
       "last_bump_at": "2026-10-16T03:54:50.115193+00:00",
-      "last_bump_local": "2026-10-16 06:54 GMT+3",
-      "done": true
+      "last_bump_local": "2026-10-16 06:54 GMT+3"
     },
     "0110b31e-4cdc-46cf-af35-d88546a99282": {
       "name": "Copy of 16-10 2",
@@ -4840,111 +4829,111 @@
       "name": "Copy of Copy of 1.5 | 23.8",
       "campaign": "car scaling camp ",
       "date": "2026-10-16",
-      "count": 5,
-      "done": true,
-      "old_bid": 2.55,
-      "new_bid": 2.65,
-      "last_bump_at": "2026-10-16T20:53:23.378142+00:00",
-      "last_bump_local": "2026-10-16 23:51 GMT+3"
+      "count": 4,
+      "done": false,
+      "old_bid": 2.45,
+      "new_bid": 2.55,
+      "last_bump_at": "2026-10-16T18:37:53.694769+00:00",
+      "last_bump_local": "2026-10-16 21:34 GMT+3"
     },
     "4ce9e28c-2792-445b-b1bc-d0055498f801": {
       "name": "Copy of Copy of 1.5 | 23.8",
       "campaign": "car scaling camp ",
       "date": "2026-10-16",
-      "count": 5,
-      "done": true,
-      "old_bid": 2.55,
-      "new_bid": 2.65,
-      "last_bump_at": "2026-10-16T20:53:23.378142+00:00",
-      "last_bump_local": "2026-10-16 23:51 GMT+3"
+      "count": 4,
+      "done": false,
+      "old_bid": 2.45,
+      "new_bid": 2.55,
+      "last_bump_at": "2026-10-16T18:37:53.694769+00:00",
+      "last_bump_local": "2026-10-16 21:34 GMT+3"
     },
     "4e2c01bc-fc59-4a57-a37b-428841a86d3b": {
       "name": "Copy of Copy of 1.5 | 23.8",
       "campaign": "car scaling camp ",
       "date": "2026-10-16",
-      "count": 5,
-      "done": true,
-      "old_bid": 2.55,
-      "new_bid": 2.65,
-      "last_bump_at": "2026-10-16T20:53:23.378142+00:00",
-      "last_bump_local": "2026-10-16 23:51 GMT+3"
+      "count": 4,
+      "done": false,
+      "old_bid": 2.45,
+      "new_bid": 2.55,
+      "last_bump_at": "2026-10-16T18:37:53.694769+00:00",
+      "last_bump_local": "2026-10-16 21:34 GMT+3"
     },
     "709a2777-1d75-42cb-8f83-ae79624103c6": {
       "name": "Copy of Copy of 1.5 | 23.8",
       "campaign": "car scaling camp ",
       "date": "2026-10-16",
-      "count": 5,
-      "done": true,
-      "old_bid": 2.55,
-      "new_bid": 2.65,
-      "last_bump_at": "2026-10-16T20:53:23.378142+00:00",
-      "last_bump_local": "2026-10-16 23:51 GMT+3"
+      "count": 4,
+      "done": false,
+      "old_bid": 2.45,
+      "new_bid": 2.55,
+      "last_bump_at": "2026-10-16T18:37:53.694769+00:00",
+      "last_bump_local": "2026-10-16 21:34 GMT+3"
     },
     "74c45e66-a517-4cf9-aca2-833e8afdb1d3": {
       "name": "Copy of Copy of 1.5 | 23.8",
       "campaign": "car scaling camp ",
       "date": "2026-10-16",
-      "count": 5,
-      "done": true,
-      "old_bid": 2.55,
-      "new_bid": 2.65,
-      "last_bump_at": "2026-10-16T20:53:23.378142+00:00",
-      "last_bump_local": "2026-10-16 23:51 GMT+3"
+      "count": 4,
+      "done": false,
+      "old_bid": 2.45,
+      "new_bid": 2.55,
+      "last_bump_at": "2026-10-16T18:37:53.694769+00:00",
+      "last_bump_local": "2026-10-16 21:34 GMT+3"
     },
     "84bbae6d-2c07-4ee3-9358-f9fb05eac48d": {
       "name": "Copy of Copy of 1.5 | 23.8",
       "campaign": "car scaling camp ",
       "date": "2026-10-16",
-      "count": 5,
-      "done": true,
-      "old_bid": 2.55,
-      "new_bid": 2.65,
-      "last_bump_at": "2026-10-16T20:53:23.378142+00:00",
-      "last_bump_local": "2026-10-16 23:51 GMT+3"
+      "count": 4,
+      "done": false,
+      "old_bid": 2.45,
+      "new_bid": 2.55,
+      "last_bump_at": "2026-10-16T18:37:53.694769+00:00",
+      "last_bump_local": "2026-10-16 21:34 GMT+3"
     },
     "b43fbc6d-a5a0-46b0-a354-94c5a3a01c1c": {
       "name": "Copy of Copy of 1.5 | 23.8",
       "campaign": "car scaling camp ",
       "date": "2026-10-16",
-      "count": 5,
-      "done": true,
-      "old_bid": 2.55,
-      "new_bid": 2.65,
-      "last_bump_at": "2026-10-16T20:53:23.378142+00:00",
-      "last_bump_local": "2026-10-16 23:51 GMT+3"
+      "count": 4,
+      "done": false,
+      "old_bid": 2.45,
+      "new_bid": 2.55,
+      "last_bump_at": "2026-10-16T18:37:53.694769+00:00",
+      "last_bump_local": "2026-10-16 21:34 GMT+3"
     },
     "bf505ca0-7d83-4743-b1df-37ad1a9a4114": {
       "name": "Copy of Copy of 1.5 | 23.8",
       "campaign": "car scaling camp ",
       "date": "2026-10-16",
-      "count": 5,
-      "done": true,
-      "old_bid": 2.55,
-      "new_bid": 2.65,
-      "last_bump_at": "2026-10-16T20:53:23.378142+00:00",
-      "last_bump_local": "2026-10-16 23:51 GMT+3"
+      "count": 4,
+      "done": false,
+      "old_bid": 2.45,
+      "new_bid": 2.55,
+      "last_bump_at": "2026-10-16T18:37:53.694769+00:00",
+      "last_bump_local": "2026-10-16 21:34 GMT+3"
     },
     "d06431af-af53-40b8-b95d-d3088d515be9": {
       "name": "Copy of Copy of 1.5 | 23.8",
       "campaign": "car scaling camp ",
       "date": "2026-10-16",
-      "count": 5,
-      "done": true,
-      "old_bid": 2.55,
-      "new_bid": 2.65,
-      "last_bump_at": "2026-10-16T20:53:23.378142+00:00",
-      "last_bump_local": "2026-10-16 23:51 GMT+3"
+      "count": 4,
+      "done": false,
+      "old_bid": 2.45,
+      "new_bid": 2.55,
+      "last_bump_at": "2026-10-16T18:37:53.694769+00:00",
+      "last_bump_local": "2026-10-16 21:34 GMT+3"
     },
     "da6b55a8-1f47-49b6-b92f-a442e5cafa5f": {
       "name": "Copy of Copy of 1.5 | 23.8",
       "campaign": "car scaling camp ",
       "date": "2026-10-16",
-      "count": 5,
-      "done": true,
-      "old_bid": 2.55,
-      "new_bid": 2.65,
-      "last_bump_at": "2026-10-16T20:53:23.378142+00:00",
-      "last_bump_local": "2026-10-16 23:51 GMT+3"
+      "count": 4,
+      "done": false,
+      "old_bid": 2.45,
+      "new_bid": 2.55,
+      "last_bump_at": "2026-10-16T18:37:53.694769+00:00",
+      "last_bump_local": "2026-10-16 21:34 GMT+3"
     },
     "18720c0e-220f-4636-a6f9-d01bec43030d": {
       "count": 0,
@@ -5197,17 +5186,7 @@
     "64eb1d5c-4218-44cc-a90b-91d1421443c8": "00d6d0ca-c373-4844-aa1e-e6c1c6ec8e29",
     "a9e717f9-ee61-4968-b83d-4aeb34e31729": "e38f3c01-88a2-46b3-a1e8-09d97b3feb35",
     "e6de3720-ecab-4de5-93e4-359a5a5221db": "ace230e8-baf2-44d8-8e25-2f7c0050a6a3",
-    "6d714d18-2e9c-4984-8700-83b26e6ed17a": "547cec40-5a74-4bc3-a7e2-538b8bd0a627",
-    "225bde70-c8d2-42a4-99ed-716251fd5ada": "38313a2a-e6fa-4f57-ac56-c1631bcf84d6",
-    "3bedd7f1-994b-4adb-8d66-d968b4bd6219": "2470f469-e1d5-49bb-b6ff-aad2a7b0acfa",
-    "5dba3559-3e1a-428f-b362-cc386ecd555f": "9c02cd5f-1c91-44f2-94a3-39b8a209e5f7",
-    "8eb0a73a-89c8-4ab5-a631-02c995f34f47": "a873c3b8-ac45-4c09-afeb-42598624e59f",
-    "af0b1d9f-aadd-40ba-82d9-4a71f171c015": "061342eb-fe70-4db4-9c41-9d3a7d90a0f6",
-    "95aac1c9-f991-4f54-8c30-a299993eede0": "c5db59b0-41a6-41e7-ac32-bbeec668b4a2",
-    "36be357f-972b-421f-bf7d-ad33231325d7": "3ab098a3-ea2d-4ce9-a4fb-fb52246f78a9",
-    "5765e578-d979-4c6e-81ea-ee9c079ef304": "c6cbaa18-52e0-46fe-936b-fa2a8b43f852",
-    "86a07f58-e8e3-4b1b-9b92-82949e076b87": "f03056f6-efbc-4526-9fd3-d259cede788e",
-    "12e8d245-b30a-4642-9907-3e52a9036218": "548d662c-a9e2-4308-bfc8-2a6c24b76179"
+    "6d714d18-2e9c-4984-8700-83b26e6ed17a": "547cec40-5a74-4bc3-a7e2-538b8bd0a627"
   },
   "disabled_videos": {
     "3fd84a83-2854-4330-8e5f-b295e7945562:3a13e534-7b24-47eb-9ffd-0033629623c2": {
