@@ -54,17 +54,24 @@ def save_paused_history(history: dict):
 def api_put(endpoint: str, token: str, payload: dict) -> dict:
     url = f"{API_BASE}{endpoint}" if endpoint.startswith("/") else endpoint
     data = json.dumps(payload).encode("utf-8")
-    req = urllib.request.Request(
-        url,
-        data=data,
-        headers={
-            "Authorization": f"Bearer {token}",
-            "Content-Type": "application/json",
-        },
-        method="PUT",
-    )
-    with urllib.request.urlopen(req) as resp:
-        return json.loads(resp.read().decode("utf-8"))
+    for attempt in range(4):
+        try:
+            req = urllib.request.Request(
+                url,
+                data=data,
+                headers={
+                    "Authorization": f"Bearer {token}",
+                    "Content-Type": "application/json",
+                },
+                method="PUT",
+            )
+            with urllib.request.urlopen(req, timeout=25) as resp:
+                return json.loads(resp.read().decode("utf-8"))
+        except Exception as e:
+            if attempt == 3:
+                raise
+            time.sleep(1.5 * (attempt + 1))
+
 
 
 def fetch_account_breakdown_stats(token: str, ad_account_id: str, breakdown: str) -> list[dict]:
@@ -268,14 +275,11 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
             print(f"🛑 تم إيقاف الفيديو: '{ad_name}' (حملة: '{c_name}' / مجموعة: '{s_name}') | {reason}")
             time.sleep(0.3)
 
-    # 3. Low-spend (< $1.00) 3-hour +$0.10 Bid Bump rule (max 2 times per Ad Squad, 3 hours apart)
+    # 3. Low-spend (< $1.00) 2-hour +$0.10 Bid Bump rule (max 5 times ONCE per Ad Squad lifetime, 2 hours apart)
     now_utc = datetime.now(timezone.utc)
-    today_start_utc = (
-        datetime.now(ACCOUNT_TZ)
-        .replace(hour=0, minute=0, second=0, microsecond=0)
-        .astimezone(timezone.utc)
-    )
-    print(f"\n⏱️ فحص المجموعات النشطة التي صرفت أقل من $1.00 لمدة 3 ساعات (عدد الحملات النشطة: {len(active_campaigns)})...")
+    today_local = datetime.now(ACCOUNT_TZ)
+    today_date_str = today_local.strftime("%Y-%m-%d")
+    print(f"\n⏱️ فحص المجموعات النشطة التي صرفت أقل من $1.00 كل ساعتين بحد أقصى 5 مرات (مرة واحدة فقط لكل Ad Squad مدى الحياة) (عدد الحملات النشطة: {len(active_campaigns)})...")
     for c in active_campaigns:
         c_id = c["id"]
         c_name = c.get("name", "")
@@ -286,32 +290,44 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
                 continue
             s_id = squad["id"]
             s_name = squad.get("name", "")
+
+            bump_rec = history["bid_bumps"].get(s_id, {"count": 0, "last_bump_at": None})
+            last_bump_dt = parse_iso_utc(bump_rec.get("last_bump_at", ""))
+            bump_count = bump_rec.get("count", 0)
+
             today_spend = spend_by_squad.get(s_id, 0.0)
             if today_spend >= 1.0:
+                if not bump_rec.get("done"):
+                    bump_rec["done"] = True
+                    bump_rec["name"] = s_name
+                    bump_rec["campaign"] = c_name
+                    history["bid_bumps"][s_id] = bump_rec
+                    save_paused_history(history)
+                continue
+
+            # Once an Ad Squad reaches 5 bumps (or is marked done after spending >= $1), NEVER bump it again on future days
+            if bump_count >= 5 or bump_rec.get("done"):
+                continue
+
+            created_dt = parse_iso_utc(squad.get("created_at", ""))
+            start_dt = parse_iso_utc(squad.get("start_time", ""))
+            candidates = [dt for dt in (created_dt, start_dt) if dt is not None]
+            effective_start = max(candidates) if candidates else now_utc
+
+            # Do not start or continue bumping old Ad Squads from previous days (> 24 hours since launch)
+            if (now_utc - effective_start) > timedelta(hours=24):
                 continue
 
             bid_micro = squad.get("bid_micro")
             if not bid_micro or bid_micro <= 0:
                 continue
 
-            bump_rec = history["bid_bumps"].get(s_id, {"count": 0, "last_bump_at": None})
-            bump_count = bump_rec.get("count", 0)
-            if bump_count >= 2:
-                continue
-
-            if bump_count == 0:
-                created_dt = parse_iso_utc(squad.get("created_at", ""))
-                start_dt = parse_iso_utc(squad.get("start_time", ""))
-                candidates = [dt for dt in (created_dt, start_dt, today_start_utc) if dt is not None]
-                effective_start = max(candidates) if candidates else today_start_utc
+            if bump_count == 0 or last_bump_dt is None:
                 elapsed = now_utc - effective_start
             else:
-                last_bump_dt = parse_iso_utc(bump_rec.get("last_bump_at", ""))
-                if last_bump_dt is None:
-                    continue
                 elapsed = now_utc - last_bump_dt
 
-            if elapsed < timedelta(hours=3):
+            if elapsed < timedelta(hours=2):
                 continue
 
             old_bid = round(bid_micro / 1_000_000, 2)
@@ -322,7 +338,7 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
 
             if dry_run:
                 print(
-                    f"🔍 [مطابق لشرط زيادة البيد ({new_count}/2)] المجموعة: '{s_name}' (حملة: '{c_name}') "
+                    f"🔍 [مطابق لشرط زيادة البيد ({new_count}/5 مدى الحياة)] المجموعة: '{s_name}' (حملة: '{c_name}') "
                     f"| الصرف: ${today_spend} (< $1) خلال {hrs_waited} ساعة | البيد: ${old_bid} -> ${new_bid}"
                 )
             else:
@@ -331,7 +347,9 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
                 history["bid_bumps"][s_id] = {
                     "name": s_name,
                     "campaign": c_name,
+                    "date": today_date_str,
                     "count": new_count,
+                    "done": new_count >= 5,
                     "old_bid": old_bid,
                     "new_bid": new_bid,
                     "last_bump_at": now_utc.isoformat(),
@@ -339,10 +357,11 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
                 }
                 save_paused_history(history)
                 print(
-                    f"📈 تم رفع البيد (+$0.10) للمرة ({new_count}/2) للمجموعة: '{s_name}' (حملة: '{c_name}') "
+                    f"📈 تم رفع البيد (+$0.10) للمرة ({new_count}/5 مدى الحياة) للمجموعة: '{s_name}' (حملة: '{c_name}') "
                     f"| الصرف: ${today_spend} خلال {hrs_waited} ساعة | البيد: ${old_bid} -> ${new_bid}"
                 )
                 time.sleep(0.3)
+
 
 
 def recheck_gulf_adsquads(token: str):
