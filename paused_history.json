@@ -797,6 +797,23 @@
       "spend_2d": 1.07,
       "conv_2d": 0,
       "paused_at": "2026-10-16T06:33:34.838735+00:00"
+    },
+    "7631763556322148369:1879156756829313:1879156760400513": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "ad_id": "1879156756829313",
+      "creative_id": "1879156756830465",
+      "campaign_ad_name": "power bank winner 16-10 A / power bank winner 16-10 A - Creative",
+      "video_name": "16-10_pb_winner_3.mp4",
+      "draft_ids": [
+        "1879156760400513"
+      ],
+      "reason": "Today Spend $1.21 >= $1.00 & CPC $0.61 > $0.35",
+      "spend_1d": 1.21,
+      "conv_1d": 0,
+      "spend_2d": 1.21,
+      "conv_2d": 0,
+      "paused_at": "2026-10-16T07:20:10.680918+00:00"
     }
   },
   "tiktok_ads": {},
@@ -2609,6 +2626,24 @@
       "new_bid": 1.9,
       "last_bump_at": "2026-10-16T06:32:49.894774+00:00",
       "last_bump_local": "2026-10-16 09:32 GMT+3"
+    },
+    "ae1a0885-dbe1-41d8-8dbc-dc4d514e3685": {
+      "name": "16-10 1",
+      "campaign": "باور بانك 16-10",
+      "count": 1,
+      "old_bid": 1.8,
+      "new_bid": 1.9,
+      "last_bump_at": "2026-10-16T07:19:44.954281+00:00",
+      "last_bump_local": "2026-10-16 10:19 GMT+3"
+    },
+    "f7919058-8123-459c-903b-11ad820ecb10": {
+      "name": "16-10 2",
+      "campaign": "باور بانك 16-10",
+      "count": 1,
+      "old_bid": 1.8,
+      "new_bid": 1.9,
+      "last_bump_at": "2026-10-16T07:19:44.954281+00:00",
+      "last_bump_local": "2026-10-16 10:19 GMT+3"
     }
   },
   "tiktok_campaigns": {
