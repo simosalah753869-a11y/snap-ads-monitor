@@ -240,6 +240,12 @@
       "campaign": "car scaling new 2 text",
       "reason": "[Copy Rule] سعر البيعة CPA = $8.43 (>= $8) | الصرف: $8.43 | المبيعات: 1",
       "paused_at": "2026-10-16 17:00 GMT+3"
+    },
+    "34298954-e558-4743-a881-4aa236f3fabc": {
+      "name": "Copy of Copy of Copy of Copy of Copy of Copy of Copy of Copy of text1",
+      "campaign": "car scaling new 2 text",
+      "reason": "[Copy Rule] صرفت $5.29 (>= $5) بدون مبيعات",
+      "paused_at": "2026-10-16 17:54 GMT+3"
     }
   },
   "ads": {
@@ -1116,6 +1122,23 @@
       "spend_2d": 1.02,
       "conv_2d": 0,
       "paused_at": "2026-10-16T12:35:04.419950+00:00"
+    },
+    "7631763556322148369:1878973125749954:1878990296890513": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "ad_id": "1878973125749954",
+      "creative_id": "1878973173545585",
+      "campaign_ad_name": "car armrest leads  13-10 / Ad name2026-10-13 11:52:19",
+      "video_name": "غطاء مساند ذراع السيارة فاخر مُبطّن بذاكرة فوم مع حافظة مناديل وجوال-Music_Refresh-0-15",
+      "draft_ids": [
+        "1878990296890513"
+      ],
+      "reason": "2-Day Spend $1.04 >= $1.00 & CPC $0.52 > $0.35",
+      "spend_1d": 0.94,
+      "conv_1d": 1,
+      "spend_2d": 1.04,
+      "conv_2d": 1,
+      "paused_at": "2026-10-16T14:55:58.127607+00:00"
     }
   },
   "tiktok_ads": {},
@@ -1837,7 +1860,8 @@
       "old_bid": 3.4,
       "new_bid": 3.5,
       "last_bump_at": "2026-10-16T09:07:37.191219+00:00",
-      "last_bump_local": "2026-10-16 12:06 GMT+3"
+      "last_bump_local": "2026-10-16 12:06 GMT+3",
+      "done": true
     },
     "56fa8595-36bd-489e-8366-0f4bb45bb115": {
       "name": "Copy of 2",
@@ -3226,7 +3250,7 @@
       "campaign": "car scaling new 2 text",
       "date": "2026-10-16",
       "count": 2,
-      "done": false,
+      "done": true,
       "old_bid": 2.3,
       "new_bid": 2.4,
       "last_bump_at": "2026-10-16T14:01:24.096721+00:00",
@@ -3248,7 +3272,7 @@
       "campaign": "car scaling new 2 text",
       "date": "2026-10-16",
       "count": 2,
-      "done": false,
+      "done": true,
       "old_bid": 2.3,
       "new_bid": 2.4,
       "last_bump_at": "2026-10-16T14:01:24.096721+00:00",
