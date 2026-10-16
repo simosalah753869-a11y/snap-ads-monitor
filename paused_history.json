@@ -286,6 +286,20 @@
       "adsquad": "Copy of Copy of Copy of Copy of Copy of Copy of Copy of text1",
       "reason": "[Ad CPC Rule] صرف الفيديو $1.13 | النقرات: 4 | سعر النقرة CPC = $0.282 (> $0.28)",
       "paused_at": "2026-10-16 09:32 GMT+3"
+    },
+    "82f2e2af-a005-47e1-889a-5a52a8b2a049": {
+      "name": "4",
+      "campaign": "Copy of kashaf qatar",
+      "adsquad": "Copy of Copy of 15$",
+      "reason": "[Ad CPC Rule] صرف الفيديو $1.45 | النقرات: 3 | سعر النقرة CPC = $0.483 (> $0.34)",
+      "paused_at": "2026-10-16 10:59 GMT+3"
+    },
+    "ad00fea7-8cdb-4ec2-8ee0-c990ac010ab8": {
+      "name": "Copy of Copy of Copy of Copy of Copy of Copy of Copy of 4",
+      "campaign": "Copy of kashaf qatar",
+      "adsquad": "Copy of 15$",
+      "reason": "[Ad CPC Rule] صرف الفيديو $1.04 | النقرات: 3 | سعر النقرة CPC = $0.347 (> $0.34)",
+      "paused_at": "2026-10-16 10:59 GMT+3"
     }
   },
   "tiktok_videos": {
@@ -814,6 +828,23 @@
       "spend_2d": 1.21,
       "conv_2d": 0,
       "paused_at": "2026-10-16T07:20:10.680918+00:00"
+    },
+    "7631763556322148369:1879158246855697:1879158246869697": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "ad_id": "1879158246855697",
+      "creative_id": "1879158246855729",
+      "campaign_ad_name": "power bank 16-10 B / power bank 16-10 B - Creative",
+      "video_name": "ola_pb_16_10_2_6-10_2.mp4",
+      "draft_ids": [
+        "1879158246869697"
+      ],
+      "reason": "Today Spend $1.06 >= $1.00 & CPC $0.53 > $0.35",
+      "spend_1d": 1.06,
+      "conv_1d": 0,
+      "spend_2d": 1.06,
+      "conv_2d": 0,
+      "paused_at": "2026-10-16T08:00:11.064835+00:00"
     }
   },
   "tiktok_ads": {},
