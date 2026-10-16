@@ -344,8 +344,8 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
 
     # 2B. فحص مجموع صرف ومبيعات كل فيديو (مكرر في عدة AdSquads) على مستوى الحملة بالكامل:
     # - السعودية (country_code == 'sa'):
-    #     * مجموع الصرف >= 10$ بين كل الـ AdSquads مع 0 مبيعات -> إيقاف/حذف الفيديو من كل الـ AdSquads في الحملة.
-    #     * مجموع المبيعات >= 1 وسعر البيعة الإجمالي (CPA) >= 12$ بين كل الـ AdSquads -> إيقاف/حذف الفيديو من كل الـ AdSquads في الحملة.
+    #     * مجموع الصرف >= 15$ بين كل الـ AdSquads مع 0 مبيعات -> إيقاف/حذف الفيديو من كل الـ AdSquads في الحملة.
+    #     * مجموع المبيعات >= 1 وسعر البيعة الإجمالي (CPA) >= 18$ بين كل الـ AdSquads -> إيقاف/حذف الفيديو من كل الـ AdSquads في الحملة.
     # - الدول الأخرى غير السعودية (قطر، عمان، إلخ):
     #     * مجموع الصرف >= 13$ بين كل الـ AdSquads مع 0 مبيعات -> إيقاف/حذف الفيديو من كل الـ AdSquads في الحملة.
     #     * مجموع المبيعات >= 1 وسعر البيعة الإجمالي (CPA) >= 14$ بين كل الـ AdSquads -> إيقاف/حذف الفيديو من كل الـ AdSquads في الحملة.
@@ -364,8 +364,8 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
             squad_cache[sq["id"]] = sq
 
         camp_is_saudi = is_saudi_squad(c_squads[0], c_name, c_squads[0].get("name", ""))
-        no_sale_limit = 10.0 if camp_is_saudi else 13.0
-        max_cpa_limit = 12.0 if camp_is_saudi else 14.0
+        no_sale_limit = 15.0 if camp_is_saudi else 13.0
+        max_cpa_limit = 18.0 if camp_is_saudi else 14.0
         region_label = "السعودية" if camp_is_saudi else "غير السعودية/الخليج"
 
         ads_resp = api_get(f"/campaigns/{c_id}/ads", token)
