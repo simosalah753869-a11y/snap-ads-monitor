@@ -693,6 +693,23 @@
       "spend_2d": 39.26,
       "conv_2d": 5,
       "paused_at": "2026-10-16T00:34:37.080399+00:00"
+    },
+    "7631763556322148369:1879119542754066:1879119546185874": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "ad_id": "1879119542754066",
+      "creative_id": "1879119543983698",
+      "campaign_ad_name": "car armrest leads 15-10 B / car armrest leads 15-10 B - Creative",
+      "video_name": "15-10_video_10.mp4",
+      "draft_ids": [
+        "1879119546185874"
+      ],
+      "reason": "Today Spend $6.22 > $6.00 with 0 sales",
+      "spend_1d": 6.22,
+      "conv_1d": 0,
+      "spend_2d": 9.62,
+      "conv_2d": 1,
+      "paused_at": "2026-10-16T01:14:01.409397+00:00"
     }
   },
   "tiktok_ads": {},
