@@ -272,6 +272,20 @@
       "adsquad": "Copy of Copy of Copy of Copy of Copy of text 2 ",
       "reason": "[Ad CPC Rule] صرف الفيديو $1.04 | النقرات: 3 | سعر النقرة CPC = $0.347 (> $0.28)",
       "paused_at": "2026-10-16 08:51 GMT+3"
+    },
+    "b83e16fd-370c-4b9d-8cc2-0b20d42e2e1b": {
+      "name": "Copy of Copy of Copy of Copy of Copy of 1",
+      "campaign": "car scaling camp ",
+      "adsquad": "Copy of 1.5 | 23.8",
+      "reason": "[Ad CPC Rule] صرف الفيديو $1.23 | النقرات: 4 | سعر النقرة CPC = $0.307 (> $0.28)",
+      "paused_at": "2026-10-16 09:32 GMT+3"
+    },
+    "63bb86c5-0653-49fa-ad85-669c3125daf4": {
+      "name": "Copy of Copy of Copy of 2",
+      "campaign": "car scaling new 2 text",
+      "adsquad": "Copy of Copy of Copy of Copy of Copy of Copy of Copy of text1",
+      "reason": "[Ad CPC Rule] صرف الفيديو $1.13 | النقرات: 4 | سعر النقرة CPC = $0.282 (> $0.28)",
+      "paused_at": "2026-10-16 09:32 GMT+3"
     }
   },
   "tiktok_videos": {
@@ -766,6 +780,23 @@
       "spend_2d": 52.85,
       "conv_2d": 8,
       "paused_at": "2026-10-16T05:52:18.865574+00:00"
+    },
+    "7631763556322148369:1878973125749954:1878990296891601": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "ad_id": "1878973125749954",
+      "creative_id": "1878973173545585",
+      "campaign_ad_name": "car armrest leads  13-10 / Ad name2026-10-13 11:52:19",
+      "video_name": "غطاء مساند ذراع السيارة فاخر مُبطّن بذاكرة فوم مع حافظة مناديل وجوال-Music_Refresh-9-24",
+      "draft_ids": [
+        "1878990296891601"
+      ],
+      "reason": "2-Day Spend $1.07 >= $1.00 & CPC $0.36 > $0.35",
+      "spend_1d": 0.21,
+      "conv_1d": 0,
+      "spend_2d": 1.07,
+      "conv_2d": 0,
+      "paused_at": "2026-10-16T06:33:34.838735+00:00"
     }
   },
   "tiktok_ads": {},
@@ -2488,6 +2519,96 @@
       "new_bid": 1.95,
       "last_bump_at": "2026-10-16T03:54:50.115193+00:00",
       "last_bump_local": "2026-10-16 06:54 GMT+3"
+    },
+    "0110b31e-4cdc-46cf-af35-d88546a99282": {
+      "name": "Copy of 16-10 2",
+      "campaign": "باور بانك وينر",
+      "count": 1,
+      "old_bid": 1.8,
+      "new_bid": 1.9,
+      "last_bump_at": "2026-10-16T06:32:49.894774+00:00",
+      "last_bump_local": "2026-10-16 09:32 GMT+3"
+    },
+    "38233ee3-0d59-46bc-8e4a-1cd2063ab3c8": {
+      "name": "Copy of 16-10 2",
+      "campaign": "باور بانك وينر",
+      "count": 1,
+      "old_bid": 1.8,
+      "new_bid": 1.9,
+      "last_bump_at": "2026-10-16T06:32:49.894774+00:00",
+      "last_bump_local": "2026-10-16 09:32 GMT+3"
+    },
+    "8a134913-9d88-4a00-9319-88dd56d99409": {
+      "name": "Copy of 16-10 2",
+      "campaign": "باور بانك وينر",
+      "count": 1,
+      "old_bid": 1.8,
+      "new_bid": 1.9,
+      "last_bump_at": "2026-10-16T06:32:49.894774+00:00",
+      "last_bump_local": "2026-10-16 09:32 GMT+3"
+    },
+    "9cfcd30b-d7d1-475c-b203-8970f30ac41b": {
+      "name": "16-10 1",
+      "campaign": "باور بانك وينر",
+      "count": 1,
+      "old_bid": 1.8,
+      "new_bid": 1.9,
+      "last_bump_at": "2026-10-16T06:32:49.894774+00:00",
+      "last_bump_local": "2026-10-16 09:32 GMT+3"
+    },
+    "c44ffcc6-35d7-444e-81f7-e3e931154133": {
+      "name": "Copy of 16-10 2",
+      "campaign": "باور بانك وينر",
+      "count": 1,
+      "old_bid": 1.8,
+      "new_bid": 1.9,
+      "last_bump_at": "2026-10-16T06:32:49.894774+00:00",
+      "last_bump_local": "2026-10-16 09:32 GMT+3"
+    },
+    "cf101ec5-2095-4348-aa3e-2bc2ff88f507": {
+      "name": "Copy of 16-10 1",
+      "campaign": "باور بانك وينر",
+      "count": 1,
+      "old_bid": 1.8,
+      "new_bid": 1.9,
+      "last_bump_at": "2026-10-16T06:32:49.894774+00:00",
+      "last_bump_local": "2026-10-16 09:32 GMT+3"
+    },
+    "e3c6e041-0013-4db6-92ee-0e22cdec3e4d": {
+      "name": "Copy of 16-10 1",
+      "campaign": "باور بانك وينر",
+      "count": 1,
+      "old_bid": 1.8,
+      "new_bid": 1.9,
+      "last_bump_at": "2026-10-16T06:32:49.894774+00:00",
+      "last_bump_local": "2026-10-16 09:32 GMT+3"
+    },
+    "ecc23b27-0928-4b5f-b1a7-7cd4fe0c2586": {
+      "name": "Copy of 16-10 2",
+      "campaign": "باور بانك وينر",
+      "count": 1,
+      "old_bid": 1.8,
+      "new_bid": 1.9,
+      "last_bump_at": "2026-10-16T06:32:49.894774+00:00",
+      "last_bump_local": "2026-10-16 09:32 GMT+3"
+    },
+    "f683d835-57bf-4409-8109-5ad70a4fb5b7": {
+      "name": "Copy of 16-10 1",
+      "campaign": "باور بانك وينر",
+      "count": 1,
+      "old_bid": 1.8,
+      "new_bid": 1.9,
+      "last_bump_at": "2026-10-16T06:32:49.894774+00:00",
+      "last_bump_local": "2026-10-16 09:32 GMT+3"
+    },
+    "f87d4a7f-9c18-4e25-8135-86206422ef1b": {
+      "name": "16-10 2",
+      "campaign": "باور بانك وينر",
+      "count": 1,
+      "old_bid": 1.8,
+      "new_bid": 1.9,
+      "last_bump_at": "2026-10-16T06:32:49.894774+00:00",
+      "last_bump_local": "2026-10-16 09:32 GMT+3"
     }
   },
   "tiktok_campaigns": {
