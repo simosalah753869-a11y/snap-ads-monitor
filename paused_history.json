@@ -10391,17 +10391,6 @@
       "total_purchases": 0,
       "reason": "[Aggregated Video Stop-Loss - السعودية] مجموع صرف الفيديو عبر كل الـ AdSquads = $15.11 (>= $15.00) بدون أي مبيعة",
       "disabled_at": "2026-10-18 02:07 GMT+3"
-    },
-    "e23e7c95-3f15-4945-9844-8bd73e2d79d3:04d7ae2c-e2c4-41ee-a5c9-1a6d3ace7f38": {
-      "campaign_id": "e23e7c95-3f15-4945-9844-8bd73e2d79d3",
-      "campaign_name": "باور بانك وينر",
-      "video_media_id": "04d7ae2c-e2c4-41ee-a5c9-1a6d3ace7f38",
-      "sample_ad_name": "4",
-      "closed_instances": 20,
-      "total_spend": 15.76,
-      "total_purchases": 0,
-      "reason": "[Aggregated Video Stop-Loss - السعودية] مجموع صرف الفيديو عبر كل الـ AdSquads = $15.76 (>= $15.00) بدون أي مبيعة",
-      "disabled_at": "2026-10-18 02:40 GMT+3"
     }
   },
   "night_bid_reductions": {
@@ -11921,73 +11910,106 @@
       "name": "18-10 حنان (5 فيديوهات)",
       "campaign": "وسادة السيارة علا وحنان 18-10 (دفعة 13-10)",
       "date": "2026-10-18",
-      "old_bid": 1.8,
+      "old_bid": 1.5,
       "new_bid": 1.5,
-      "reduced_at": "2026-10-18 02:40 GMT+3"
+      "skipped_at_floor": true,
+      "reduced_at": "2026-10-18 02:43 GMT+3"
     },
     "2026-10-18:9c721e4e-92eb-461e-a785-ddb7a02615e1": {
       "name": "18-10 علا (5 فيديوهات)",
       "campaign": "وسادة السيارة علا وحنان 18-10 (دفعة 13-10)",
       "date": "2026-10-18",
-      "old_bid": 1.8,
+      "old_bid": 1.5,
       "new_bid": 1.5,
-      "reduced_at": "2026-10-18 02:40 GMT+3"
+      "skipped_at_floor": true,
+      "reduced_at": "2026-10-18 02:43 GMT+3"
     },
     "2026-10-18:bdd8488b-6289-4959-9fd0-ce3f8c81b441": {
       "name": "Smart+ Broad — كل الـ 10 فيديوهات",
       "campaign": "وسادة السيارة علا وحنان 18-10 (دفعة 13-10)",
       "date": "2026-10-18",
-      "old_bid": 1.8,
+      "old_bid": 1.5,
       "new_bid": 1.5,
-      "reduced_at": "2026-10-18 02:40 GMT+3"
+      "skipped_at_floor": true,
+      "reduced_at": "2026-10-18 02:43 GMT+3"
     },
     "2026-10-18:3058cddf-0dd1-48b4-9531-4dd48a7abfa0": {
       "name": "Smart+ Broad — كل الـ 10 فيديوهات",
       "campaign": "باور بانك علا 18-10 (دفعة 30-9)",
       "date": "2026-10-18",
-      "old_bid": 1.8,
+      "old_bid": 1.5,
       "new_bid": 1.5,
-      "reduced_at": "2026-10-18 02:40 GMT+3"
+      "skipped_at_floor": true,
+      "reduced_at": "2026-10-18 02:43 GMT+3"
     },
     "2026-10-18:77c76974-487d-4ba6-a782-faec27b55dbb": {
       "name": "18-10 مجموعة 2 (5 فيديوهات)",
       "campaign": "باور بانك علا 18-10 (دفعة 30-9)",
       "date": "2026-10-18",
-      "old_bid": 1.8,
+      "old_bid": 1.5,
       "new_bid": 1.5,
-      "reduced_at": "2026-10-18 02:40 GMT+3"
+      "skipped_at_floor": true,
+      "reduced_at": "2026-10-18 02:43 GMT+3"
     },
     "2026-10-18:a2ffc4c5-01c9-4cce-942e-92d1805acf18": {
       "name": "18-10 مجموعة 1 (5 فيديوهات)",
       "campaign": "باور بانك علا 18-10 (دفعة 30-9)",
       "date": "2026-10-18",
-      "old_bid": 1.8,
+      "old_bid": 1.5,
       "new_bid": 1.5,
-      "reduced_at": "2026-10-18 02:40 GMT+3"
+      "skipped_at_floor": true,
+      "reduced_at": "2026-10-18 02:43 GMT+3"
     },
     "2026-10-18:094039d3-7ca8-4440-b037-fbdb122cd571": {
       "name": "18-10 حنان (5 فيديوهات)",
       "campaign": "باور بانك علا وحنان 18-10 (دفعة 15-10)",
       "date": "2026-10-18",
-      "old_bid": 1.8,
+      "old_bid": 1.5,
       "new_bid": 1.5,
-      "reduced_at": "2026-10-18 02:40 GMT+3"
+      "skipped_at_floor": true,
+      "reduced_at": "2026-10-18 02:43 GMT+3"
     },
     "2026-10-18:15393aa6-1fb3-4967-a0e1-4f1c34ce925a": {
       "name": "Smart+ Broad — كل الـ 10 فيديوهات",
       "campaign": "باور بانك علا وحنان 18-10 (دفعة 15-10)",
       "date": "2026-10-18",
-      "old_bid": 1.8,
+      "old_bid": 1.5,
       "new_bid": 1.5,
-      "reduced_at": "2026-10-18 02:40 GMT+3"
+      "skipped_at_floor": true,
+      "reduced_at": "2026-10-18 02:43 GMT+3"
     },
     "2026-10-18:9de2a259-09b5-4662-811c-b18b2e79be1e": {
       "name": "18-10 علا (5 فيديوهات)",
       "campaign": "باور بانك علا وحنان 18-10 (دفعة 15-10)",
       "date": "2026-10-18",
-      "old_bid": 1.8,
+      "old_bid": 1.5,
       "new_bid": 1.5,
-      "reduced_at": "2026-10-18 02:40 GMT+3"
+      "skipped_at_floor": true,
+      "reduced_at": "2026-10-18 02:43 GMT+3"
+    },
+    "2026-10-18:7649aaa4-b74e-461f-9fee-7826c31e9010": {
+      "name": "Copy of Copy of Copy of Copy of Copy of text 2 ",
+      "campaign": "car scaling new 2 text",
+      "date": "2026-10-18",
+      "old_bid": 2.15,
+      "new_bid": 1.85,
+      "reduced_at": "2026-10-18 02:43 GMT+3"
+    },
+    "2026-10-18:4ce9e28c-2792-445b-b1bc-d0055498f801": {
+      "name": "Copy of Copy of 1.5 | 23.8",
+      "campaign": "car scaling camp ",
+      "date": "2026-10-18",
+      "old_bid": 2.65,
+      "new_bid": 2.35,
+      "reduced_at": "2026-10-18 02:43 GMT+3"
+    },
+    "2026-10-18:be14ca17-ebfe-4458-8e41-b12542a6015c": {
+      "name": "Copy of Copy of 1.5 | 23.8",
+      "campaign": "car scaling camp ",
+      "date": "2026-10-18",
+      "old_bid": 2.25,
+      "new_bid": 1.95,
+      "reduced_at": "2026-10-18 02:43 GMT+3"
     }
   }
 }
