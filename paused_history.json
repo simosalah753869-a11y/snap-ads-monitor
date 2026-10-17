@@ -594,6 +594,30 @@
       "campaign": "car scaling new 2 text",
       "reason": "[Copy Rule] صرفت $5.45 (>= $5) بدون مبيعات",
       "paused_at": "2026-10-17 18:46 GMT+3"
+    },
+    "30b0ea54-e875-41dd-adeb-0ecaaface37b": {
+      "name": "Copy of 16-10 1",
+      "campaign": "باور بانك وينر",
+      "reason": "[Copy Rule] سعر البيعة CPA = $8.57 (>= $8) | الصرف: $8.57 | المبيعات: 1",
+      "paused_at": "2026-10-17 20:44 GMT+3"
+    },
+    "44eeb30d-3636-41a4-a32a-bf004df67e38": {
+      "name": "Copy of Copy of 1.5 | 23.8",
+      "campaign": "car scaling camp ",
+      "reason": "[Copy Rule] صرفت $5.93 (>= $5) بدون مبيعات",
+      "paused_at": "2026-10-17 20:44 GMT+3"
+    },
+    "339188ed-cd4e-47a1-a646-b84d8ecbc557": {
+      "name": "Copy of 16-10 1",
+      "campaign": "باور بانك وينر",
+      "reason": "[Copy Rule] سعر البيعة CPA = $8.89 (>= $8) | الصرف: $8.89 | المبيعات: 1",
+      "paused_at": "2026-10-17 20:44 GMT+3"
+    },
+    "8b1fc8da-3757-4d26-a79e-667fe033ec0a": {
+      "name": "Copy of Copy of 1.5 | 23.8",
+      "campaign": "car scaling camp ",
+      "reason": "[Copy Rule] صرفت $5.02 (>= $5) بدون مبيعات",
+      "paused_at": "2026-10-17 20:44 GMT+3"
     }
   },
   "ads": {
@@ -2580,6 +2604,20 @@
       "adsquad": "Copy of Copy of Copy of 1.5 | 23.8",
       "reason": "[Ad CPC Rule] صرف الفيديو $1.02 | النقرات: 3 | سعر النقرة CPC = $0.34 (> $0.28)",
       "paused_at": "2026-10-17 20:02 GMT+3"
+    },
+    "ed9207c1-5863-4e90-b70e-8664800ddea2": {
+      "name": "2_winner",
+      "campaign": "watch suis winners 17-10",
+      "adsquad": "Copy of 17-10 male winners",
+      "reason": "[Ad CPC Rule] صرف الفيديو $2.1 | النقرات: 4 | سعر النقرة CPC = $0.525 (> $0.28)",
+      "paused_at": "2026-10-17 20:44 GMT+3"
+    },
+    "fc7cf710-8437-430d-8e04-822f7183aeb3": {
+      "name": "2",
+      "campaign": "باور بانك وينر",
+      "adsquad": "Copy of 16-10 1",
+      "reason": "[Ad CPC Rule] صرف الفيديو $3.09 | النقرات: 11 | سعر النقرة CPC = $0.281 (> $0.28)",
+      "paused_at": "2026-10-17 20:44 GMT+3"
     }
   },
   "tiktok_videos": {
@@ -4094,6 +4132,74 @@
       "spend_2d": 8.45,
       "conv_2d": 0,
       "paused_at": "2026-10-17T17:04:50.529935+00:00"
+    },
+    "7631763556322148369:1879232878358738:1879232878362034": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "ad_id": "1879232878358738",
+      "creative_id": "1879232878358754",
+      "campaign_ad_name": "power bank super winners 16-10 (3 vids) / power bank super winners 16-10 (3 vids) - Creative",
+      "video_name": "16-10_pb_winner_5.mp4",
+      "draft_ids": [
+        "1879232878362034"
+      ],
+      "reason": "Today Spend $6.35 > $6.00 with 0 sales | 2-Day Spend $6.35 > $6.00 with 0 sales",
+      "spend_1d": 6.35,
+      "conv_1d": 0,
+      "spend_2d": 6.35,
+      "conv_2d": 0,
+      "paused_at": "2026-10-17T17:46:26.620878+00:00"
+    },
+    "7631763556322148369:1874314269673729:1876391327057393": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "ad_id": "1874314269673729",
+      "creative_id": "1874314269673745",
+      "campaign_ad_name": "Copy 1 of car armrest leads  19-9 / Ad name2026-08-21 05:44:45",
+      "video_name": "11(1).mp4",
+      "draft_ids": [
+        "1876391327057393"
+      ],
+      "reason": "2-Day Spend $6.13 > $6.00 with 0 sales",
+      "spend_1d": 5.38,
+      "conv_1d": 0,
+      "spend_2d": 6.13,
+      "conv_2d": 0,
+      "paused_at": "2026-10-17T17:46:27.198746+00:00"
+    },
+    "7631763556322148369:1879281524132882:1879281531033969": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "ad_id": "1879281524132882",
+      "creative_id": "1879281524156641",
+      "campaign_ad_name": "power bank winner 17-10 scale / power bank winner 17-10 scale - Creative",
+      "video_name": "16-10_pb_winner_2.mp4",
+      "draft_ids": [
+        "1879281531033969"
+      ],
+      "reason": "Today Spend $1.11 >= $1.00 & CPC $1.11 > $0.35",
+      "spend_1d": 1.11,
+      "conv_1d": 0,
+      "spend_2d": 1.11,
+      "conv_2d": 0,
+      "paused_at": "2026-10-17T17:46:27.814619+00:00"
+    },
+    "7631765070816509959:1879281776361841:1879281776420354": {
+      "aadvid": "7631765070816509959",
+      "account_name": "ROELLINGER RECYCLING2",
+      "ad_id": "1879281776361841",
+      "creative_id": "1879281776420306",
+      "campaign_ad_name": "watch broad tiktok scale 17-10 / watch broad tiktok scale 17-10 - Creative",
+      "video_name": "11_9(1)_C05oPyUq.mp4",
+      "draft_ids": [
+        "1879281776420354"
+      ],
+      "reason": "Today Spend $1.00 >= $1.00 & CPC $0.50 > $0.35",
+      "spend_1d": 1.0,
+      "conv_1d": 0,
+      "spend_2d": 1.0,
+      "conv_2d": 0,
+      "paused_at": "2026-10-17T17:46:37.983223+00:00"
     }
   },
   "tiktok_ads": {},
@@ -8398,7 +8504,7 @@
       "campaign": "watch suis winners 17-10",
       "date": "2026-10-17",
       "count": 3,
-      "done": false,
+      "done": true,
       "old_bid": 2.05,
       "new_bid": 2.15,
       "last_bump_at": "2026-10-17T15:47:46.933022+00:00",
@@ -8430,7 +8536,7 @@
       "campaign": "watch suis winners 17-10",
       "date": "2026-10-17",
       "count": 3,
-      "done": false,
+      "done": true,
       "old_bid": 2.05,
       "new_bid": 2.15,
       "last_bump_at": "2026-10-17T16:23:59.073125+00:00",
@@ -8564,6 +8670,13 @@
       "campaign": "car scaling camp "
     },
     "cc57590a-22a1-40cb-b3eb-c0502195fc5f": {
+      "count": 0,
+      "last_bump_at": null,
+      "done": true,
+      "name": "Copy of Copy of 1.5 | 23.8",
+      "campaign": "car scaling camp "
+    },
+    "be14ca17-ebfe-4458-8e41-b12542a6015c": {
       "count": 0,
       "last_bump_at": null,
       "done": true,
