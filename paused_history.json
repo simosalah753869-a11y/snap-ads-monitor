@@ -630,6 +630,30 @@
       "campaign": "car scaling camp ",
       "reason": "[Copy Rule] سعر البيعة CPA = $9.48 (>= $8) | الصرف: $9.48 | المبيعات: 1",
       "paused_at": "2026-10-17 22:05 GMT+3"
+    },
+    "9f5c64d5-b8bf-488e-b022-cf54b6427aad": {
+      "name": "Copy of Copy of 1.5 | 23.8",
+      "campaign": "car scaling camp ",
+      "reason": "[Copy Rule] سعر البيعة CPA = $9.33 (>= $8) | الصرف: $9.33 | المبيعات: 1",
+      "paused_at": "2026-10-17 22:42 GMT+3"
+    },
+    "bfa340c7-1eaa-4eff-83e8-837f0de61651": {
+      "name": "Copy of 16-10 2",
+      "campaign": "باور بانك وينر",
+      "reason": "[Copy Rule] سعر البيعة CPA = $8.04 (>= $8) | الصرف: $8.04 | المبيعات: 1",
+      "paused_at": "2026-10-17 22:42 GMT+3"
+    },
+    "42958a42-1da5-43d9-97c2-68057391fbfc": {
+      "name": "Copy of 16-10 1",
+      "campaign": "باور بانك وينر",
+      "reason": "[Copy Rule] سعر البيعة CPA = $8.06 (>= $8) | الصرف: $8.06 | المبيعات: 1",
+      "paused_at": "2026-10-17 22:42 GMT+3"
+    },
+    "1f9f7860-b46b-4f5d-a96f-644d7d5e013d": {
+      "name": "Copy of 16-10 1",
+      "campaign": "باور بانك وينر",
+      "reason": "[Copy Rule] صرفت $6.75 (>= $5) بدون مبيعات",
+      "paused_at": "2026-10-17 22:42 GMT+3"
     }
   },
   "ads": {
@@ -2763,6 +2787,20 @@
       "adsquad": "Copy of 16-10 1",
       "reason": "[Ad CPC Rule] صرف الفيديو $1.71 | النقرات: 5 | سعر النقرة CPC = $0.342 (> $0.28)",
       "paused_at": "2026-10-17 22:05 GMT+3"
+    },
+    "d2af6f37-c9c3-43ed-b31a-d11185d105c9": {
+      "name": "4",
+      "campaign": "باور بانك وينر",
+      "adsquad": "Copy of 16-10 1",
+      "reason": "[Ad CPC Rule] صرف الفيديو $1.19 | النقرات: 4 | سعر النقرة CPC = $0.297 (> $0.28)",
+      "paused_at": "2026-10-17 22:42 GMT+3"
+    },
+    "27becd8b-c3bb-4b0a-b535-1b92f1add666": {
+      "name": "3_6-10_3",
+      "campaign": "باور بانك 16-10",
+      "adsquad": "Copy of 16-10 1",
+      "reason": "[Ad CPC Rule] صرف الفيديو $1.14 | النقرات: 4 | سعر النقرة CPC = $0.285 (> $0.28)",
+      "paused_at": "2026-10-17 22:42 GMT+3"
     }
   },
   "tiktok_videos": {
@@ -4396,6 +4434,23 @@
       "spend_2d": 1.09,
       "conv_2d": 0,
       "paused_at": "2026-10-17T19:07:37.117636+00:00"
+    },
+    "7631765070816509959:1879246753691810:1879246753757265": {
+      "aadvid": "7631765070816509959",
+      "account_name": "ROELLINGER RECYCLING2",
+      "ad_id": "1879246753691810",
+      "creative_id": "1879246753752481",
+      "campaign_ad_name": "car armrest 16-10 (Hanan + Ola) / car armrest 16-10 (Hanan + Ola) - Creative",
+      "video_name": "16-10_ola_1.mp4",
+      "draft_ids": [
+        "1879246753757265"
+      ],
+      "reason": "Today Spend $11.02 >= $1.00 & CPC $0.37 > $0.35",
+      "spend_1d": 11.02,
+      "conv_1d": 4,
+      "spend_2d": 11.02,
+      "conv_2d": 4,
+      "paused_at": "2026-10-17T19:44:59.079661+00:00"
     }
   },
   "tiktok_ads": {},
@@ -8557,7 +8612,7 @@
       "campaign": "watch suis winners 17-10",
       "date": "2026-10-17",
       "count": 4,
-      "done": false,
+      "done": true,
       "old_bid": 2.25,
       "new_bid": 2.35,
       "last_bump_at": "2026-10-17T18:25:13.173681+00:00",
@@ -8590,7 +8645,7 @@
       "campaign": "watch suis winners 17-10",
       "date": "2026-10-17",
       "count": 4,
-      "done": false,
+      "done": true,
       "old_bid": 2.25,
       "new_bid": 2.35,
       "last_bump_at": "2026-10-17T18:25:13.173681+00:00",
@@ -8667,7 +8722,7 @@
       "campaign": "watch suis winners 17-10",
       "date": "2026-10-17",
       "count": 4,
-      "done": false,
+      "done": true,
       "old_bid": 2.25,
       "new_bid": 2.35,
       "last_bump_at": "2026-10-17T18:25:13.173681+00:00",
@@ -8765,7 +8820,7 @@
       "campaign": "watch suis winners 17-10",
       "date": "2026-10-17",
       "count": 4,
-      "done": false,
+      "done": true,
       "old_bid": 2.25,
       "new_bid": 2.35,
       "last_bump_at": "2026-10-17T18:25:13.173681+00:00",
