@@ -624,6 +624,12 @@
       "campaign": "car scaling camp ",
       "reason": "[Copy Rule] سعر البيعة CPA = $9.68 (>= $8) | الصرف: $9.68 | المبيعات: 1",
       "paused_at": "2026-10-17 21:23 GMT+3"
+    },
+    "cc57590a-22a1-40cb-b3eb-c0502195fc5f": {
+      "name": "Copy of Copy of 1.5 | 23.8",
+      "campaign": "car scaling camp ",
+      "reason": "[Copy Rule] سعر البيعة CPA = $9.48 (>= $8) | الصرف: $9.48 | المبيعات: 1",
+      "paused_at": "2026-10-17 22:05 GMT+3"
     }
   },
   "ads": {
@@ -2743,6 +2749,20 @@
       "adsquad": "Copy of 16-10 2",
       "reason": "[Aggregated Video High CPA - السعودية] مجموع صرف الفيديو = $18.66 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $18.66 (>= $18.00)",
       "paused_at": "2026-10-17 21:23 GMT+3"
+    },
+    "68ae8c41-fd93-485f-b131-349b4927b716": {
+      "name": "4",
+      "campaign": "باور بانك وينر",
+      "adsquad": "Copy of 16-10 1",
+      "reason": "[Ad CPC Rule] صرف الفيديو $1.47 | النقرات: 3 | سعر النقرة CPC = $0.49 (> $0.28)",
+      "paused_at": "2026-10-17 22:05 GMT+3"
+    },
+    "36ffc8f1-923a-4518-bf3c-80081c92ac2e": {
+      "name": "2",
+      "campaign": "باور بانك وينر",
+      "adsquad": "Copy of 16-10 1",
+      "reason": "[Ad CPC Rule] صرف الفيديو $1.71 | النقرات: 5 | سعر النقرة CPC = $0.342 (> $0.28)",
+      "paused_at": "2026-10-17 22:05 GMT+3"
     }
   },
   "tiktok_videos": {
@@ -4359,6 +4379,23 @@
       "spend_2d": 24.15,
       "conv_2d": 3,
       "paused_at": "2026-10-17T18:26:34.966799+00:00"
+    },
+    "7631765070816509959:1879281776361841:1879281776421938": {
+      "aadvid": "7631765070816509959",
+      "account_name": "ROELLINGER RECYCLING2",
+      "ad_id": "1879281776361841",
+      "creative_id": "1879281776420306",
+      "campaign_ad_name": "watch broad tiktok scale 17-10 / watch broad tiktok scale 17-10 - Creative",
+      "video_name": "24_6.mp4",
+      "draft_ids": [
+        "1879281776421938"
+      ],
+      "reason": "Today Spend $1.09 >= $1.00 & CPC $0.55 > $0.35",
+      "spend_1d": 1.09,
+      "conv_1d": 0,
+      "spend_2d": 1.09,
+      "conv_2d": 0,
+      "paused_at": "2026-10-17T19:07:37.117636+00:00"
     }
   },
   "tiktok_ads": {},
@@ -8706,7 +8743,7 @@
       "campaign": "watch suis winners 17-10",
       "date": "2026-10-17",
       "count": 4,
-      "done": false,
+      "done": true,
       "old_bid": 2.25,
       "new_bid": 2.35,
       "last_bump_at": "2026-10-17T18:25:13.173681+00:00",
@@ -8757,7 +8794,7 @@
       "campaign": "car scaling camp ",
       "date": "2026-10-17",
       "count": 4,
-      "done": false,
+      "done": true,
       "old_bid": 3.05,
       "new_bid": 3.15,
       "last_bump_at": "2026-10-17T18:25:13.173681+00:00",
@@ -9038,6 +9075,111 @@
       "done": true,
       "name": "Copy of 16-10 1",
       "campaign": "باور بانك وينر"
+    },
+    "027f93ff-399f-4721-9bfe-557825b46fb1": {
+      "count": 0,
+      "last_bump_at": null,
+      "done": true,
+      "name": "Copy of 16-10 1",
+      "campaign": "باور بانك وينر"
+    },
+    "1f9f7860-b46b-4f5d-a96f-644d7d5e013d": {
+      "count": 0,
+      "last_bump_at": null,
+      "done": true,
+      "name": "Copy of 16-10 1",
+      "campaign": "باور بانك وينر"
+    },
+    "2e5118ca-c515-44fa-80e2-3014b6c7f79e": {
+      "name": "Copy of 16-10 1",
+      "campaign": "باور بانك وينر",
+      "date": "2026-10-17",
+      "count": 1,
+      "done": false,
+      "old_bid": 2.5,
+      "new_bid": 2.6,
+      "last_bump_at": "2026-10-17T19:06:50.694318+00:00",
+      "last_bump_local": "2026-10-17 22:05 GMT+3"
+    },
+    "3b88491b-7946-4ae5-b7fc-bb4fffc44d98": {
+      "name": "Copy of 16-10 1",
+      "campaign": "باور بانك وينر",
+      "date": "2026-10-17",
+      "count": 1,
+      "done": false,
+      "old_bid": 2.5,
+      "new_bid": 2.6,
+      "last_bump_at": "2026-10-17T19:06:50.694318+00:00",
+      "last_bump_local": "2026-10-17 22:05 GMT+3"
+    },
+    "75e2101c-1c8e-45dd-8f79-74fdfd123804": {
+      "count": 0,
+      "last_bump_at": null,
+      "done": true,
+      "name": "Copy of 16-10 1",
+      "campaign": "باور بانك وينر"
+    },
+    "75f4aff1-afc6-4cc7-bfb5-c4cc490f0db0": {
+      "name": "Copy of 16-10 1",
+      "campaign": "باور بانك وينر",
+      "date": "2026-10-17",
+      "count": 1,
+      "done": false,
+      "old_bid": 2.5,
+      "new_bid": 2.6,
+      "last_bump_at": "2026-10-17T19:06:50.694318+00:00",
+      "last_bump_local": "2026-10-17 22:05 GMT+3"
+    },
+    "a66bdf4e-8fd9-4412-a9d1-032e4caf1a80": {
+      "count": 0,
+      "last_bump_at": null,
+      "done": true,
+      "name": "Copy of 16-10 1",
+      "campaign": "باور بانك وينر"
+    },
+    "abab59d6-7772-467e-bab6-0a67864fb724": {
+      "name": "Copy of 16-10 1",
+      "campaign": "باور بانك وينر",
+      "date": "2026-10-17",
+      "count": 1,
+      "done": false,
+      "old_bid": 2.5,
+      "new_bid": 2.6,
+      "last_bump_at": "2026-10-17T19:06:50.694318+00:00",
+      "last_bump_local": "2026-10-17 22:05 GMT+3"
+    },
+    "bd6b1d14-e03d-43f3-bef3-d82dd842ef9b": {
+      "name": "Copy of 16-10 1",
+      "campaign": "باور بانك وينر",
+      "date": "2026-10-17",
+      "count": 1,
+      "done": false,
+      "old_bid": 2.5,
+      "new_bid": 2.6,
+      "last_bump_at": "2026-10-17T19:06:50.694318+00:00",
+      "last_bump_local": "2026-10-17 22:05 GMT+3"
+    },
+    "cedfd816-2a70-479e-ac35-12f213b98286": {
+      "name": "Copy of 16-10 1",
+      "campaign": "باور بانك وينر",
+      "date": "2026-10-17",
+      "count": 1,
+      "done": false,
+      "old_bid": 2.5,
+      "new_bid": 2.6,
+      "last_bump_at": "2026-10-17T19:06:50.694318+00:00",
+      "last_bump_local": "2026-10-17 22:05 GMT+3"
+    },
+    "f467c10d-46e5-496f-b0bd-8c9b2692820a": {
+      "name": "Copy of 16-10 1",
+      "campaign": "باور بانك وينر",
+      "date": "2026-10-17",
+      "count": 1,
+      "done": false,
+      "old_bid": 2.5,
+      "new_bid": 2.6,
+      "last_bump_at": "2026-10-17T19:06:50.694318+00:00",
+      "last_bump_local": "2026-10-17 22:05 GMT+3"
     }
   },
   "tiktok_campaigns": {
