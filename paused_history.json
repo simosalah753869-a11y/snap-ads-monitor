@@ -480,6 +480,24 @@
       "campaign": "car scaling new 2 text",
       "reason": "[Copy Rule] صرفت $5.24 (>= $5) بدون مبيعات",
       "paused_at": "2026-10-17 10:48 GMT+3"
+    },
+    "74c45e66-a517-4cf9-aca2-833e8afdb1d3": {
+      "name": "Copy of Copy of 1.5 | 23.8",
+      "campaign": "car scaling camp ",
+      "reason": "[Copy Rule] صرفت $5.28 (>= $5) بدون مبيعات",
+      "paused_at": "2026-10-17 11:23 GMT+3"
+    },
+    "4e2c01bc-fc59-4a57-a37b-428841a86d3b": {
+      "name": "Copy of Copy of 1.5 | 23.8",
+      "campaign": "car scaling camp ",
+      "reason": "[Copy Rule] صرفت $5.95 (>= $5) بدون مبيعات",
+      "paused_at": "2026-10-17 11:23 GMT+3"
+    },
+    "e9797a44-dfce-4125-ab5d-4aa4daaa9717": {
+      "name": "Copy of Copy of Copy of Copy of Copy of Copy of 1.5 | 23.8",
+      "campaign": "car scaling camp ",
+      "reason": "[Copy Rule] صرفت $5.11 (>= $5) بدون مبيعات",
+      "paused_at": "2026-10-17 11:23 GMT+3"
     }
   },
   "ads": {
@@ -2291,6 +2309,20 @@
       "adsquad": "Copy of 16-10 2",
       "reason": "[Ad CPC Rule] صرف الفيديو $1.15 | النقرات: 4 | سعر النقرة CPC = $0.287 (> $0.28)",
       "paused_at": "2026-10-17 10:48 GMT+3"
+    },
+    "556c0977-db63-4f36-ae9a-40db2ab222a0": {
+      "name": "Copy of Copy of Copy of Copy of Copy of 1",
+      "campaign": "car scaling camp ",
+      "adsquad": "Copy of Copy of Copy of Copy of Copy of 1.5 | 23.8",
+      "reason": "[Saudi Single Video Stop-Loss] صرف الفيديو $6.28 (>= $6.00) بدون مبيعة",
+      "paused_at": "2026-10-17 11:23 GMT+3"
+    },
+    "4bf7ee6c-fba2-4002-a304-7d26e24e9b2b": {
+      "name": "4",
+      "campaign": "باور بانك وينر",
+      "adsquad": "Copy of 16-10 1",
+      "reason": "[Ad CPC Rule] صرف الفيديو $1.0 | النقرات: 2 | سعر النقرة CPC = $0.5 (> $0.28)",
+      "paused_at": "2026-10-17 11:23 GMT+3"
     }
   },
   "tiktok_videos": {
@@ -3346,6 +3378,23 @@
       "spend_2d": 1.26,
       "conv_2d": 0,
       "paused_at": "2026-10-17T07:50:37.162379+00:00"
+    },
+    "7631763556322148369:1879158235413857:1879158235906930": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "ad_id": "1879158235413857",
+      "creative_id": "1879158235422034",
+      "campaign_ad_name": "power bank 16-10 A / power bank 16-10 A - Creative",
+      "video_name": "ola_pb_16_10_4_6-10_4.mp4",
+      "draft_ids": [
+        "1879158235906930"
+      ],
+      "reason": "Today Spend $1.19 >= $1.00 & CPC $0.40 > $0.35",
+      "spend_1d": 1.19,
+      "conv_1d": 0,
+      "spend_2d": 2.19,
+      "conv_2d": 0,
+      "paused_at": "2026-10-17T08:24:47.972620+00:00"
     }
   },
   "tiktok_ads": {},
@@ -4845,7 +4894,8 @@
       "old_bid": 3.2,
       "new_bid": 3.3,
       "last_bump_at": "2026-10-16T09:07:37.191219+00:00",
-      "last_bump_local": "2026-10-16 12:06 GMT+3"
+      "last_bump_local": "2026-10-16 12:06 GMT+3",
+      "done": true
     },
     "561d76e1-665a-484c-afbe-de2379c37b13": {
       "name": "Copy of 15$",
@@ -6486,7 +6536,7 @@
       "campaign": "car scaling new 2 text",
       "date": "2026-10-17",
       "count": 2,
-      "done": false,
+      "done": true,
       "old_bid": 1.9,
       "new_bid": 2.0,
       "last_bump_at": "2026-10-17T06:29:32.723939+00:00",
@@ -6651,7 +6701,7 @@
       "campaign": "باور بانك وينر",
       "date": "2026-10-17",
       "count": 2,
-      "done": false,
+      "done": true,
       "old_bid": 2.0,
       "new_bid": 2.1,
       "last_bump_at": "2026-10-17T06:29:32.723939+00:00",
@@ -6728,7 +6778,7 @@
       "campaign": "باور بانك وينر",
       "date": "2026-10-17",
       "count": 2,
-      "done": false,
+      "done": true,
       "old_bid": 2.1,
       "new_bid": 2.2,
       "last_bump_at": "2026-10-17T06:29:32.723939+00:00",
@@ -6750,7 +6800,7 @@
       "campaign": "باور بانك وينر",
       "date": "2026-10-17",
       "count": 2,
-      "done": false,
+      "done": true,
       "old_bid": 2.0,
       "new_bid": 2.1,
       "last_bump_at": "2026-10-17T06:29:32.723939+00:00",
@@ -6761,7 +6811,7 @@
       "campaign": "باور بانك وينر",
       "date": "2026-10-17",
       "count": 2,
-      "done": false,
+      "done": true,
       "old_bid": 2.0,
       "new_bid": 2.1,
       "last_bump_at": "2026-10-17T06:29:32.723939+00:00",
@@ -6838,7 +6888,7 @@
       "campaign": "car scaling camp ",
       "date": "2026-10-17",
       "count": 2,
-      "done": false,
+      "done": true,
       "old_bid": 1.9,
       "new_bid": 2.0,
       "last_bump_at": "2026-10-17T06:29:32.723939+00:00",
