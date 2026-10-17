@@ -498,6 +498,30 @@
       "campaign": "car scaling camp ",
       "reason": "[Copy Rule] صرفت $5.11 (>= $5) بدون مبيعات",
       "paused_at": "2026-10-17 11:23 GMT+3"
+    },
+    "231b24e2-bfb8-457d-85f5-f58fb15bddbd": {
+      "name": "Copy of Copy of 1.5 | 23.8",
+      "campaign": "car scaling camp ",
+      "reason": "[Copy Rule] صرفت $5.6 (>= $5) بدون مبيعات",
+      "paused_at": "2026-10-17 12:04 GMT+3"
+    },
+    "752090e5-7ea9-4c6d-aed8-b657183f6ab9": {
+      "name": "Copy of Copy of Copy of Copy of Copy of 1.5 | 23.8",
+      "campaign": "car scaling camp ",
+      "reason": "[Copy Rule] صرفت $5.04 (>= $5) بدون مبيعات",
+      "paused_at": "2026-10-17 12:04 GMT+3"
+    },
+    "b43fbc6d-a5a0-46b0-a354-94c5a3a01c1c": {
+      "name": "Copy of Copy of 1.5 | 23.8",
+      "campaign": "car scaling camp ",
+      "reason": "[Copy Rule] سعر البيعة CPA = $8.14 (>= $8) | الصرف: $8.14 | المبيعات: 1",
+      "paused_at": "2026-10-17 12:04 GMT+3"
+    },
+    "9df6ec16-814d-4fb9-bd56-589820bbff62": {
+      "name": "Copy of Copy of Copy of Copy of 1.5 | 23.8",
+      "campaign": "car scaling camp ",
+      "reason": "[Copy Rule] سعر البيعة CPA = $8.21 (>= $8) | الصرف: $8.21 | المبيعات: 1",
+      "paused_at": "2026-10-17 12:04 GMT+3"
     }
   },
   "ads": {
@@ -3395,6 +3419,91 @@
       "spend_2d": 2.19,
       "conv_2d": 0,
       "paused_at": "2026-10-17T08:24:47.972620+00:00"
+    },
+    "7631763556322148369:1879198152040001:1879198154717473": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "ad_id": "1879198152040001",
+      "creative_id": "1879198153997490",
+      "campaign_ad_name": "car armrest 15-10 test 2 (v3-v4-v7) / car armrest 15-10 test 2 (v3-v4-v7) - Creative",
+      "video_name": "15-10_video_7.mp4",
+      "draft_ids": [
+        "1879198154717473"
+      ],
+      "reason": "Today Spend $1.11 >= $1.00 & CPC $1.11 > $0.35",
+      "spend_1d": 1.11,
+      "conv_1d": 0,
+      "spend_2d": 4.09,
+      "conv_2d": 0,
+      "paused_at": "2026-10-17T09:06:07.022749+00:00"
+    },
+    "7631763556322148369:1879156756829313:1879156760400529": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "ad_id": "1879156756829313",
+      "creative_id": "1879156756830465",
+      "campaign_ad_name": "power bank winner 16-10 A / power bank winner 16-10 A - Creative",
+      "video_name": "16-10_pb_winner_4.mp4",
+      "draft_ids": [
+        "1879156760400529"
+      ],
+      "reason": "Today Spend $1.48 >= $1.00 & CPC $0.74 > $0.35",
+      "spend_1d": 1.48,
+      "conv_1d": 0,
+      "spend_2d": 1.59,
+      "conv_2d": 0,
+      "paused_at": "2026-10-17T09:06:07.684815+00:00"
+    },
+    "7631763556322148369:1879234140913234:1879234141882530": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "ad_id": "1879234140913234",
+      "creative_id": "1879234141000386",
+      "campaign_ad_name": "power bank 17-10 B / power bank 17-10 B - Creative",
+      "video_name": "ola_pb_17_10_2_3-10_3.mp4",
+      "draft_ids": [
+        "1879234141882530"
+      ],
+      "reason": "Today Spend $1.26 >= $1.00 & CPC $1.26 > $0.35",
+      "spend_1d": 1.26,
+      "conv_1d": 0,
+      "spend_2d": 1.26,
+      "conv_2d": 0,
+      "paused_at": "2026-10-17T09:06:08.333267+00:00"
+    },
+    "7631765070816509959:1879198886110065:1879198888859473": {
+      "aadvid": "7631765070816509959",
+      "account_name": "ROELLINGER RECYCLING2",
+      "ad_id": "1879198886110065",
+      "creative_id": "1879198888849521",
+      "campaign_ad_name": "car armrest 15-10 test 2 (v3-v4-v7) / car armrest 15-10 test 2 (v3-v4-v7) - Creative",
+      "video_name": "15-10_video_7.mp4",
+      "draft_ids": [
+        "1879198888859473"
+      ],
+      "reason": "Today Spend $1.17 >= $1.00 & CPC $0.59 > $0.35",
+      "spend_1d": 1.17,
+      "conv_1d": 0,
+      "spend_2d": 4.51,
+      "conv_2d": 0,
+      "paused_at": "2026-10-17T09:06:19.156918+00:00"
+    },
+    "7631765070816509959:1879198886110065:1879198888859457": {
+      "aadvid": "7631765070816509959",
+      "account_name": "ROELLINGER RECYCLING2",
+      "ad_id": "1879198886110065",
+      "creative_id": "1879198888849521",
+      "campaign_ad_name": "car armrest 15-10 test 2 (v3-v4-v7) / car armrest 15-10 test 2 (v3-v4-v7) - Creative",
+      "video_name": "15-10_video_4.mp4",
+      "draft_ids": [
+        "1879198888859457"
+      ],
+      "reason": "Today Spend $1.10 >= $1.00 & CPC $0.55 > $0.35",
+      "spend_1d": 1.1,
+      "conv_1d": 0,
+      "spend_2d": 2.31,
+      "conv_2d": 0,
+      "paused_at": "2026-10-17T09:06:19.739611+00:00"
     }
   },
   "tiktok_ads": {},
@@ -7268,23 +7377,23 @@
       "name": "17-10 2",
       "campaign": "باور بانك 16-10",
       "date": "2026-10-17",
-      "count": 1,
+      "count": 2,
       "done": false,
-      "old_bid": 1.8,
-      "new_bid": 1.9,
-      "last_bump_at": "2026-10-17T06:29:32.723939+00:00",
-      "last_bump_local": "2026-10-17 09:28 GMT+3"
+      "old_bid": 1.9,
+      "new_bid": 2.0,
+      "last_bump_at": "2026-10-17T09:05:17.987192+00:00",
+      "last_bump_local": "2026-10-17 12:04 GMT+3"
     },
     "d89692c6-bb3c-4b34-b02d-157db48f64be": {
       "name": "17-10 1",
       "campaign": "باور بانك 16-10",
       "date": "2026-10-17",
-      "count": 1,
+      "count": 2,
       "done": false,
-      "old_bid": 1.8,
-      "new_bid": 1.9,
-      "last_bump_at": "2026-10-17T06:29:32.723939+00:00",
-      "last_bump_local": "2026-10-17 09:28 GMT+3"
+      "old_bid": 1.9,
+      "new_bid": 2.0,
+      "last_bump_at": "2026-10-17T09:05:17.987192+00:00",
+      "last_bump_local": "2026-10-17 12:04 GMT+3"
     },
     "38f07e97-0da3-465e-a073-5dd5d00e8754": {
       "name": "Copy of Copy of 1.5 | 23.8",
@@ -7303,6 +7412,17 @@
       "done": true,
       "name": "Copy of Copy of Copy of Copy of 1.5 | 23.8",
       "campaign": "car scaling camp "
+    },
+    "cc8d6295-333d-4fcb-82ae-5e29a0cec4bb": {
+      "name": "Copy of Copy of 1.5 | 23.8",
+      "campaign": "car scaling camp ",
+      "date": "2026-10-17",
+      "count": 1,
+      "done": false,
+      "old_bid": 2.0,
+      "new_bid": 2.1,
+      "last_bump_at": "2026-10-17T09:05:17.987192+00:00",
+      "last_bump_local": "2026-10-17 12:04 GMT+3"
     }
   },
   "tiktok_campaigns": {
