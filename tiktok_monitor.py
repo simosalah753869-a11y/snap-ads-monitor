@@ -1,6 +1,8 @@
 import json
 import os
+import socket
 import sys
+import urllib.request
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 import requests
@@ -8,6 +10,31 @@ from requests.adapters import HTTPAdapter
 from urllib3.util.retry import Retry
 
 sys.stdout.reconfigure(encoding="utf-8")
+
+_orig_getaddrinfo = socket.getaddrinfo
+_dns_cache = {}
+def _doh_getaddrinfo(host, port, family=0, type=0, proto=0, flags=0):
+    try:
+        return _orig_getaddrinfo(host, port, family, type, proto, flags)
+    except Exception:
+        if host not in _dns_cache:
+            try:
+                req = urllib.request.Request(
+                    f"https://1.1.1.1/dns-query?name={host}&type=A",
+                    headers={"accept": "application/dns-json"},
+                )
+                with urllib.request.urlopen(req, timeout=5) as resp:
+                    r = json.loads(resp.read().decode("utf-8"))
+                ips = [a["data"] for a in r.get("Answer", []) if a.get("type") == 1]
+                if ips:
+                    _dns_cache[host] = ips[0]
+            except Exception:
+                pass
+        if host in _dns_cache:
+            return _orig_getaddrinfo(_dns_cache[host], port, family, type, proto, flags)
+        raise
+
+socket.getaddrinfo = _doh_getaddrinfo
 
 BASE_DIR = Path(__file__).resolve().parent
 COOKIES_FILE = BASE_DIR / "tiktok_cookies.json"
@@ -30,10 +57,13 @@ ACCOUNTS = [
 # 1. Video spend > $6.00 in 1 day (Today) with 0 conversions -> Pause Video
 # 2. Video spend > $6.00 in 2 days (Yesterday + Today) with 0 conversions -> Pause Video
 # 3. Video spend >= $1.00 and CPC > $0.35 (or 0 clicks) -> Pause Video
+#    * EXCEPTION: Never pause for high CPC if the video itself has conversions at a low CPA (< $13.50)
+#      OR if the parent campaign is a low-CPA winning campaign (Campaign CPA <= $10.00, e.g. Hanan + Ola).
 MAX_CAMPAIGN_NO_SALE_SPEND = 18.00
 MAX_CAMPAIGN_CPA = 21.00
 MAX_NO_SALE_SPEND = 6.00
-MAX_VIDEO_CPA = 10.00
+MAX_VIDEO_CPA = 13.50
+LOW_CAMPAIGN_CPA_EXEMPTION = 10.00
 MIN_SPEND_FOR_CPC = 1.00
 MAX_CPC = 0.35
 
@@ -373,26 +403,31 @@ def pause_smart_plus_video(session, headers, aadvid, ad_id, row):
     return ok, json.dumps(r, ensure_ascii=False)
 
 
-def evaluate_video_rules(spend_1d, conv_1d, cpc_1d, clicks_1d, spend_2d, conv_2d, cpc_2d, clicks_2d):
+def evaluate_video_rules(spend_1d, conv_1d, cpc_1d, clicks_1d, spend_2d, conv_2d, cpc_2d, clicks_2d, camp_low_cpa=False):
     reasons = []
-    # Rule 1: Spend > $6 today with 0 conversions
-    if spend_1d > MAX_NO_SALE_SPEND and conv_1d == 0:
+    has_profitable_2d = conv_2d > 0 and (spend_2d / conv_2d) < MAX_VIDEO_CPA
+    has_profitable_1d = conv_1d > 0 and (spend_1d / conv_1d) < MAX_VIDEO_CPA
+    has_profitable_sales = has_profitable_2d or has_profitable_1d
+
+    # Rule 1: Spend > $6 today with 0 conversions (unless 2-day CPA is already profitable)
+    if spend_1d > MAX_NO_SALE_SPEND and conv_1d == 0 and not has_profitable_2d:
         reasons.append(f"Today Spend ${spend_1d:.2f} > ${MAX_NO_SALE_SPEND:.2f} with 0 sales")
     # Rule 2: Spend > $6 over 2 days (Yesterday + Today) with 0 conversions
     if spend_2d > MAX_NO_SALE_SPEND and conv_2d == 0:
         reasons.append(f"2-Day Spend ${spend_2d:.2f} > ${MAX_NO_SALE_SPEND:.2f} with 0 sales")
-    # Rule 3: Video Today CPA >= $10.00 (with >= 1 conversion)
-    if conv_1d > 0 and (spend_1d / conv_1d) >= MAX_VIDEO_CPA:
+    # Rule 3: Video Today CPA >= $13.50 (unless 2-day CPA is profitable)
+    if conv_1d > 0 and (spend_1d / conv_1d) >= MAX_VIDEO_CPA and not has_profitable_2d:
         reasons.append(f"Today Video CPA ${(spend_1d / conv_1d):.2f} >= ${MAX_VIDEO_CPA:.2f} (Spend=${spend_1d:.2f}, Sales={conv_1d})")
-    # Rule 4: Video 2-Day CPA >= $10.00 (with >= 1 conversion)
+    # Rule 4: Video 2-Day CPA >= $13.50 (with >= 1 conversion)
     if conv_2d > 0 and (spend_2d / conv_2d) >= MAX_VIDEO_CPA:
         reasons.append(f"2-Day Video CPA ${(spend_2d / conv_2d):.2f} >= ${MAX_VIDEO_CPA:.2f} (Spend=${spend_2d:.2f}, Sales={conv_2d})")
-    # Rule 5: Spend >= $1 today and CPC > $0.35 (or 0 clicks)
-    if spend_1d >= MIN_SPEND_FOR_CPC and (cpc_1d > MAX_CPC or clicks_1d == 0):
-        reasons.append(f"Today Spend ${spend_1d:.2f} >= ${MIN_SPEND_FOR_CPC:.2f} & CPC ${cpc_1d:.2f} > ${MAX_CPC:.2f}")
-    # Rule 6: Spend >= $1 over 2 days and CPC > $0.35 (or 0 clicks)
-    elif spend_2d >= MIN_SPEND_FOR_CPC and (cpc_2d > MAX_CPC or clicks_2d == 0):
-        reasons.append(f"2-Day Spend ${spend_2d:.2f} >= ${MIN_SPEND_FOR_CPC:.2f} & CPC ${cpc_2d:.2f} > ${MAX_CPC:.2f}")
+
+    # Rule 5 & 6: CPC Cut (EXEMPT if video has profitable sales OR parent campaign has low CPA <= $10.00)
+    if not has_profitable_sales and not camp_low_cpa:
+        if spend_1d >= MIN_SPEND_FOR_CPC and (cpc_1d > MAX_CPC or clicks_1d == 0):
+            reasons.append(f"Today Spend ${spend_1d:.2f} >= ${MIN_SPEND_FOR_CPC:.2f} & CPC ${cpc_1d:.2f} > ${MAX_CPC:.2f}")
+        elif spend_2d >= MIN_SPEND_FOR_CPC and (cpc_2d > MAX_CPC or clicks_2d == 0):
+            reasons.append(f"2-Day Spend ${spend_2d:.2f} >= ${MIN_SPEND_FOR_CPC:.2f} & CPC ${cpc_2d:.2f} > ${MAX_CPC:.2f}")
     return reasons
 
 
@@ -431,6 +466,7 @@ def main():
             f"Active Campaigns: {len(active_camps)} | Active Ads: {len(active_cids)} ==="
         )
 
+        camp_low_cpa_map = {}
         for c2 in active_camps:
             camp_id = str(c2.get("campaign_id") or "")
             camp_name = c2.get("campaign_name") or "Campaign"
@@ -443,9 +479,16 @@ def main():
             c_spend_2d = float(rd2.get("stat_cost") or 0.0)
             c_conv_2d = int(float(rd2.get("time_attr_convert_cnt") or 0))
 
+            is_low_cpa_camp = (
+                (c_conv_2d > 0 and (c_spend_2d / c_conv_2d) <= LOW_CAMPAIGN_CPA_EXEMPTION)
+                or (c_conv_1d > 0 and (c_spend_1d / c_conv_1d) <= LOW_CAMPAIGN_CPA_EXEMPTION)
+                or ("hanan" in camp_name.lower() and "ola" in camp_name.lower())
+            )
+            camp_low_cpa_map[camp_id] = is_low_cpa_camp
+
             if c_spend_2d > 0 or c_spend_1d > 0:
                 print(
-                    f"  * Campaign '{camp_name}' (ID={camp_id}, status={c2.get('primary_status')}) | "
+                    f"  * Campaign '{camp_name}' (ID={camp_id}, status={c2.get('primary_status')}, low_cpa_exempt={is_low_cpa_camp}) | "
                     f"Today: Spend=${c_spend_1d:.2f}, Conv={c_conv_1d} | "
                     f"2-Day: Spend=${c_spend_2d:.2f}, Conv={c_conv_2d}"
                 )
@@ -487,6 +530,10 @@ def main():
             str(a.get("creative_id")): f"{a.get('campaign_name', '')} / {a.get('creative_name', '')}"
             for a in active_ads
         }
+        creative_to_camp_map = {
+            str(a.get("creative_id")): str(a.get("campaign_id") or "")
+            for a in active_ads
+        }
 
         mats_1d = fetch_expanded_materials(session, headers, aadvid, active_cids, today_str, today_str)
         mats_2d = fetch_expanded_materials(session, headers, aadvid, active_cids, yesterday_str, today_str)
@@ -499,7 +546,7 @@ def main():
 
         print(f"  Expanded Smart+ Videos found: {len(mats_2d)}")
         for m2 in mats_2d:
-            key = f"{m2.get('ad_id')}:{m2.get('ad_material_draft_id')}:{m2.get('main_entity_id')}"
+            key = f"{m2.get('ad_id')}:{m2.get('ad_material_draft_id')}:{m.get('main_entity_id')}"
             m1 = map_1d.get(key, {})
 
             opt_status = str(m2.get("mix_material_aco_opt_status") or m1.get("mix_material_aco_opt_status") or "0")
@@ -524,19 +571,22 @@ def main():
             vid_name = (m2.get("main_entity_name") or "Video")[:45]
             cid = str(m2.get("creative_id") or "")
             ad_id = str(m2.get("ad_id") or "")
+            parent_camp_id = creative_to_camp_map.get(cid, "")
+            camp_low_cpa = camp_low_cpa_map.get(parent_camp_id, False)
             draft_ids = parse_draft_ids(m2.get("ad_material_draft_id"))
             draft_str = ",".join(draft_ids)
             hist_key = f"{aadvid}:{ad_id}:{draft_str}"
 
             print(
-                f"  - Video '{vid_name}' (draft={draft_str}, status={prim_status}) | "
+                f"  - Video '{vid_name}' (draft={draft_str}, status={prim_status}, low_cpa_camp={camp_low_cpa}) | "
                 f"Today: Spend=${spend_1d:.2f}, CPC=${cpc_1d:.2f}, Conv={conv_1d} | "
                 f"2-Day: Spend=${spend_2d:.2f}, CPC=${cpc_2d:.2f}, Conv={conv_2d}"
             )
 
             reasons = evaluate_video_rules(
                 spend_1d, conv_1d, cpc_1d, clicks_1d,
-                spend_2d, conv_2d, cpc_2d, clicks_2d
+                spend_2d, conv_2d, cpc_2d, clicks_2d,
+                camp_low_cpa=camp_low_cpa,
             )
             if reasons:
                 if hist_key in history["tiktok_videos"]:
