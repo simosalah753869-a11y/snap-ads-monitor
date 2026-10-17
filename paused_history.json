@@ -2552,6 +2552,34 @@
       "adsquad": "Copy of Copy of Copy of Copy of Copy of text 2 ",
       "reason": "[Saudi Single Video Stop-Loss] صرف الفيديو $6.16 (>= $6.00) بدون مبيعة",
       "paused_at": "2026-10-17 19:22 GMT+3"
+    },
+    "323b0c8a-18a4-4815-a4d7-47ec97a3e9b8": {
+      "name": "Copy of Copy of Copy of Copy of Copy of 1",
+      "campaign": "car scaling camp ",
+      "adsquad": "Copy of Copy of 1.5 | 23.8",
+      "reason": "[Ad CPC Rule] صرف الفيديو $1.11 | النقرات: 3 | سعر النقرة CPC = $0.37 (> $0.28)",
+      "paused_at": "2026-10-17 20:02 GMT+3"
+    },
+    "c6913672-f4fe-4eff-96b6-5edd0af09eb2": {
+      "name": "3",
+      "campaign": "باور بانك وينر",
+      "adsquad": "Copy of 16-10 2",
+      "reason": "[Ad CPC Rule] صرف الفيديو $1.15 | النقرات: 4 | سعر النقرة CPC = $0.287 (> $0.28)",
+      "paused_at": "2026-10-17 20:02 GMT+3"
+    },
+    "fc131455-fff0-4708-a04f-bf595a52a0f4": {
+      "name": "Copy of 4",
+      "campaign": "car scaling camp ",
+      "adsquad": "Copy of Copy of 1.5 | 23.8",
+      "reason": "[Ad CPC Rule] صرف الفيديو $1.07 | النقرات: 3 | سعر النقرة CPC = $0.357 (> $0.28)",
+      "paused_at": "2026-10-17 20:02 GMT+3"
+    },
+    "91481860-f47a-426d-b5fd-cda8a9878b85": {
+      "name": "Copy of Copy of Copy of Copy of Copy of 1",
+      "campaign": "car scaling camp ",
+      "adsquad": "Copy of Copy of Copy of 1.5 | 23.8",
+      "reason": "[Ad CPC Rule] صرف الفيديو $1.02 | النقرات: 3 | سعر النقرة CPC = $0.34 (> $0.28)",
+      "paused_at": "2026-10-17 20:02 GMT+3"
     }
   },
   "tiktok_videos": {
@@ -4049,6 +4077,23 @@
       "spend_2d": 6.06,
       "conv_2d": 0,
       "paused_at": "2026-10-17T16:24:45.929549+00:00"
+    },
+    "7631765070816509959:1879246753691810:1879246753755217": {
+      "aadvid": "7631765070816509959",
+      "account_name": "ROELLINGER RECYCLING2",
+      "ad_id": "1879246753691810",
+      "creative_id": "1879246753752481",
+      "campaign_ad_name": "car armrest 16-10 (Hanan + Ola) / car armrest 16-10 (Hanan + Ola) - Creative",
+      "video_name": "16-10_hanan_1.mp4",
+      "draft_ids": [
+        "1879246753755217"
+      ],
+      "reason": "Today Spend $8.45 > $6.00 with 0 sales | 2-Day Spend $8.45 > $6.00 with 0 sales | Today Spend $8.45 >= $1.00 & CPC $0.38 > $0.35",
+      "spend_1d": 8.45,
+      "conv_1d": 0,
+      "spend_2d": 8.45,
+      "conv_2d": 0,
+      "paused_at": "2026-10-17T17:04:50.529935+00:00"
     }
   },
   "tiktok_ads": {},
@@ -8221,7 +8266,7 @@
       "campaign": "watch suis winners 17-10",
       "date": "2026-10-17",
       "count": 3,
-      "done": false,
+      "done": true,
       "old_bid": 2.05,
       "new_bid": 2.15,
       "last_bump_at": "2026-10-17T15:47:46.933022+00:00",
@@ -8331,7 +8376,7 @@
       "campaign": "watch suis winners 17-10",
       "date": "2026-10-17",
       "count": 3,
-      "done": false,
+      "done": true,
       "old_bid": 2.05,
       "new_bid": 2.15,
       "last_bump_at": "2026-10-17T15:47:46.933022+00:00",
@@ -8479,12 +8524,12 @@
       "name": "Copy of Copy of 1.5 | 23.8",
       "campaign": "car scaling camp ",
       "date": "2026-10-17",
-      "count": 2,
+      "count": 3,
       "done": false,
-      "old_bid": 2.85,
-      "new_bid": 2.95,
-      "last_bump_at": "2026-10-17T15:01:53.815610+00:00",
-      "last_bump_local": "2026-10-17 18:00 GMT+3"
+      "old_bid": 2.95,
+      "new_bid": 3.05,
+      "last_bump_at": "2026-10-17T17:03:20.120094+00:00",
+      "last_bump_local": "2026-10-17 20:02 GMT+3"
     },
     "f68f7106-f712-4073-b0d4-1c2e8ad0df35": {
       "count": 0,
@@ -8512,6 +8557,13 @@
       "last_bump_local": "2026-10-17 19:22 GMT+3"
     },
     "30f4c848-feaa-4500-b769-a00dce9c52a9": {
+      "count": 0,
+      "last_bump_at": null,
+      "done": true,
+      "name": "Copy of Copy of 1.5 | 23.8",
+      "campaign": "car scaling camp "
+    },
+    "cc57590a-22a1-40cb-b3eb-c0502195fc5f": {
       "count": 0,
       "last_bump_at": null,
       "done": true,
