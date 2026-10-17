@@ -102,10 +102,11 @@ def api_put(endpoint: str, token: str, payload: dict) -> dict:
             time.sleep(1.5 * (attempt + 1))
 
 
-def fetch_account_breakdown_stats(token: str, ad_account_id: str, breakdown: str) -> list[dict]:
+def fetch_account_breakdown_stats(token: str, ad_account_id: str, breakdown: str, days_back: int = 0) -> list[dict]:
     now_local = datetime.now(ACCOUNT_TZ)
-    start_local = now_local.replace(hour=0, minute=0, second=0, microsecond=0)
-    end_local = start_local + timedelta(days=1)
+    today_start = now_local.replace(hour=0, minute=0, second=0, microsecond=0)
+    start_local = today_start - timedelta(days=days_back)
+    end_local = today_start + timedelta(days=1)
 
     start_str = start_local.isoformat()
     end_str = end_local.isoformat()
@@ -178,16 +179,22 @@ def evaluate_single_ad_rule(st: dict, campaign_name: str, adsquad_name: str, squ
     spend = st["spend"]
     swipes = st["swipes"]
     purchases = st["purchases"]
+    cpa = st.get("cpa")
     cpc = st["cpc"]
     is_gulf = is_gulf_034_campaign(campaign_name, adsquad_name, squad)
     is_saudi = is_saudi_squad(squad, campaign_name, adsquad_name)
     max_cpc = 0.34 if is_gulf else 0.28
+    max_cpa = 14.0 if is_gulf else 8.0
+
+    # إذا حقق الفيديو مبيعات فعلية وكان سعر البيعة مربحاً (< $8 للسعودية أو < $14 للخليج)، لا نوقفه بسبب الـ CPC
+    if purchases > 0 and cpa is not None and cpa < max_cpa:
+        return False, ""
 
     # 1. قاعدة إيقاف الفيديو في حملات السعودية إذا صرف >= 6$ بدون مبيعة داخل المجموعة
     if is_saudi and spend >= 6.0 and purchases == 0:
         return True, f"[Saudi Single Video Stop-Loss] صرف الفيديو ${spend} (>= $6.00) بدون مبيعة"
 
-    # 2. قاعدة إيقاف الـ CPC المرتفع بعد صرف >= 1$
+    # 2. قاعدة إيقاف الـ CPC المرتفع بعد صرف >= 1$ (بدون مبيعات مربحة)
     if spend >= 1.0:
         if swipes == 0:
             return True, f"[Ad CPC Rule] صرف الفيديو ${spend} بدون أي نقرة (الحد الأقصى ${max_cpc})"
@@ -229,11 +236,69 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
             active_campaigns.append(c)
 
     squad_cache = {}
+    now_local_dt = datetime.now(ACCOUNT_TZ)
+    today_d_str = now_local_dt.strftime("%Y-%m-%d")
+    yesterday_d_str = (now_local_dt - timedelta(days=1)).strftime("%Y-%m-%d")
+    active_camp_ids = {c["id"] for c in active_campaigns}
 
-    # 1. One API call for all Ad Squad stats today
-    squad_stats = fetch_account_breakdown_stats(token, ad_account_id, "adsquad")
+    # 1. One API call for all Ad Squad stats today (+ 2-day stats for delayed attribution check)
+    squad_stats = fetch_account_breakdown_stats(token, ad_account_id, "adsquad", days_back=0)
+    squad_stats_map = {st["id"]: st for st in squad_stats}
+    squad_stats_2d = fetch_account_breakdown_stats(token, ad_account_id, "adsquad", days_back=1)
+    squad_stats_2d_map = {st["id"]: st for st in squad_stats_2d}
     spend_by_squad = {st["id"]: st["spend"] for st in squad_stats}
     print(f"📊 عدد المجموعات الإعلانية (Ad Squads) التي صرفت اليوم: {len(squad_stats)}")
+
+    # 1A. مراجعة المجموعات التي أطفأها البوت مسبقاً: إذا ظهرت مبيعة متأخرة وانخفض سعر المبيعة (CPA) تحت الحد المسموح، يعيد البوت تشغيلها فوراً!
+    for s_id, info in list(history["adsquads"].items()):
+        paused_at_str = str(info.get("paused_at", ""))
+        is_recent_pause = (today_d_str in paused_at_str) or (yesterday_d_str in paused_at_str)
+        if s_id in squad_stats_map:
+            st_check = squad_stats_map[s_id]
+        elif is_recent_pause and s_id in squad_stats_2d_map:
+            st_check = squad_stats_2d_map[s_id]
+        else:
+            continue
+
+        if st_check.get("purchases", 0) <= 0:
+            continue
+
+        if s_id not in squad_cache:
+            try:
+                s_resp = api_get(f"/adsquads/{s_id}", token)
+                squad_cache[s_id] = s_resp.get("adsquads", [{}])[0].get("adsquad", {})
+            except Exception:
+                continue
+        squad = squad_cache.get(s_id, {})
+        if not squad:
+            continue
+        c_id = squad.get("campaign_id", "")
+        if c_id not in active_camp_ids:
+            continue
+
+        s_name = squad.get("name", info.get("name", ""))
+        c_name = camp_names.get(c_id, info.get("campaign", ""))
+        should_pause, _ = evaluate_adsquad_rule(s_name, st_check, c_name, squad)
+        if not should_pause:
+            if squad.get("status") == "PAUSED":
+                if dry_run:
+                    print(
+                        f"🔍 [إعادة تشغيل تلقائي — مبيعة متأخرة] المجموعة: '{s_name}' (حملة: '{c_name}') "
+                        f"| الصرف: ${st_check['spend']} | المبيعات: {st_check['purchases']} | CPA = ${st_check['cpa']}"
+                    )
+                else:
+                    squad["status"] = "ACTIVE"
+                    api_put(f"/campaigns/{c_id}/adsquads", token, {"adsquads": [squad]})
+                    del history["adsquads"][s_id]
+                    save_paused_history(history)
+                    print(
+                        f"♻️🔥 [إعادة تشغيل تلقائي — مبيعة متأخرة] تم إعادة تشغيل المجموعة: '{s_name}' (حملة: '{c_name}') "
+                        f"بعد ظهور مبيعات ({st_check['purchases']}) وانخفاض سعر المبيعة إلى CPA = ${st_check['cpa']} (الصرف: ${st_check['spend']})!"
+                    )
+                    time.sleep(0.3)
+            elif squad.get("status") == "ACTIVE" and not dry_run:
+                del history["adsquads"][s_id]
+                save_paused_history(history)
 
     for st in squad_stats:
         s_id = st["id"]
@@ -288,10 +353,74 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
                     except Exception as e:
                         print(f"⚠️ تعذر إنشاء نسخة فورية مكان '{s_name}': {e}")
 
-    # 2. One API call for all Ad (video) stats today
-    ad_stats = fetch_account_breakdown_stats(token, ad_account_id, "ad")
+    # 2. One API call for all Ad (video) stats today (+ 2-day stats for delayed attribution check)
+    ad_stats = fetch_account_breakdown_stats(token, ad_account_id, "ad", days_back=0)
     ad_stats_map = {st["id"]: st for st in ad_stats}
+    ad_stats_2d = fetch_account_breakdown_stats(token, ad_account_id, "ad", days_back=1)
+    ad_stats_2d_map = {st["id"]: st for st in ad_stats_2d}
     print(f"\n🎬 عدد الفيديوهات الإعلانية (Ads) التي صرفت اليوم: {len(ad_stats)}")
+
+    # 2A. مراجعة الفيديوهات الفردية التي أطفأها البوت: إذا ظهرت مبيعة متأخرة وكان سعر البيعة مربحاً (< $8 للسعودية أو < $14 للخليج)، يعيد تشغيلها!
+    for ad_id, info in list(history["ads"].items()):
+        paused_at_str = str(info.get("paused_at", ""))
+        is_recent_pause = (today_d_str in paused_at_str) or (yesterday_d_str in paused_at_str)
+        if ad_id in ad_stats_map:
+            st_check = ad_stats_map[ad_id]
+        elif is_recent_pause and ad_id in ad_stats_2d_map:
+            st_check = ad_stats_2d_map[ad_id]
+        else:
+            continue
+
+        if st_check.get("purchases", 0) <= 0 or st_check.get("cpa") is None:
+            continue
+
+        try:
+            a_resp = api_get(f"/ads/{ad_id}", token)
+            ad = a_resp.get("ads", [{}])[0].get("ad", {})
+        except Exception:
+            continue
+        if not ad:
+            continue
+        s_id = ad.get("ad_squad_id", "")
+        if not s_id:
+            continue
+        if s_id not in squad_cache:
+            try:
+                s_resp = api_get(f"/adsquads/{s_id}", token)
+                squad_cache[s_id] = s_resp.get("adsquads", [{}])[0].get("adsquad", {})
+            except Exception:
+                continue
+        squad = squad_cache.get(s_id, {})
+        if not squad or squad.get("status") != "ACTIVE":
+            continue
+        c_id = squad.get("campaign_id", "")
+        if c_id not in active_camp_ids:
+            continue
+
+        s_name = squad.get("name", "")
+        c_name = camp_names.get(c_id, info.get("campaign", ""))
+        ad_name = ad.get("name", info.get("name", ""))
+        max_revive_cpa = 14.0 if is_gulf_034_campaign(c_name, s_name, squad) else 8.0
+        if st_check["cpa"] < max_revive_cpa:
+            if ad.get("status") == "PAUSED":
+                if dry_run:
+                    print(
+                        f"🔍 [إعادة تشغيل فيديو — مبيعة متأخرة] الفيديو: '{ad_name}' (مجموعة: '{s_name}' / حملة: '{c_name}') "
+                        f"| الصرف: ${st_check['spend']} | المبيعات: {st_check['purchases']} | CPA = ${st_check['cpa']}"
+                    )
+                else:
+                    ad["status"] = "ACTIVE"
+                    api_put(f"/adsquads/{s_id}/ads", token, {"ads": [ad]})
+                    del history["ads"][ad_id]
+                    save_paused_history(history)
+                    print(
+                        f"♻️🔥 [إعادة تشغيل فيديو — مبيعة متأخرة] تم إعادة تشغيل الفيديو: '{ad_name}' (مجموعة: '{s_name}' / حملة: '{c_name}') "
+                        f"بعد ظهور مبيعات ({st_check['purchases']}) بـ CPA = ${st_check['cpa']} (الصرف: ${st_check['spend']})!"
+                    )
+                    time.sleep(0.3)
+            elif ad.get("status") == "ACTIVE" and not dry_run:
+                del history["ads"][ad_id]
+                save_paused_history(history)
 
     for st in ad_stats:
         ad_id = st["id"]
