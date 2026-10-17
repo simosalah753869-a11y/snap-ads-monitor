@@ -576,6 +576,12 @@
       "campaign": "باور بانك وينر",
       "reason": "[Copy Rule] صرفت $5.01 (>= $5) بدون مبيعات",
       "paused_at": "2026-10-17 17:22 GMT+3"
+    },
+    "8ee84798-e16d-4982-a16f-64b325e3cf17": {
+      "name": "Copy of Copy of 1.5 | 23.8",
+      "campaign": "car scaling camp ",
+      "reason": "[Copy Rule] صرفت $5.52 (>= $5) بدون مبيعات",
+      "paused_at": "2026-10-17 18:00 GMT+3"
     }
   },
   "ads": {
@@ -2478,6 +2484,20 @@
       "adsquad": "Copy of Copy of Copy of text 2 ",
       "reason": "[Ad CPC Rule] صرف الفيديو $1.7 | النقرات: 6 | سعر النقرة CPC = $0.283 (> $0.28)",
       "paused_at": "2026-10-17 16:47 GMT+3"
+    },
+    "f80fde0d-d4be-465b-8a04-ea8cd7afaad0": {
+      "name": "1_6-10_1",
+      "campaign": "باور بانك 16-10",
+      "adsquad": "Copy of 16-10 1",
+      "reason": "[Ad CPC Rule] صرف الفيديو $1.01 | النقرات: 3 | سعر النقرة CPC = $0.337 (> $0.28)",
+      "paused_at": "2026-10-17 18:00 GMT+3"
+    },
+    "04755648-d444-45b1-9ebd-612647d882fc": {
+      "name": "2",
+      "campaign": "باور بانك وينر",
+      "adsquad": "Copy of 16-10 1",
+      "reason": "[Ad CPC Rule] صرف الفيديو $1.14 | النقرات: 4 | سعر النقرة CPC = $0.285 (> $0.28)",
+      "paused_at": "2026-10-17 18:00 GMT+3"
     }
   },
   "tiktok_videos": {
@@ -3822,6 +3842,57 @@
       "spend_2d": 6.13,
       "conv_2d": 0,
       "paused_at": "2026-10-17T13:48:45.907411+00:00"
+    },
+    "7631763556322148369:1879232870091122:1879232889158657": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "ad_id": "1879232870091122",
+      "creative_id": "1879232870093410",
+      "campaign_ad_name": "car armrest super winners 16-10 (3 vids) / car armrest super winners 16-10 (3 vids) - Creative",
+      "video_name": "15-10_video_3.mp4",
+      "draft_ids": [
+        "1879232889158657"
+      ],
+      "reason": "2-Day Spend $1.04 >= $1.00 & CPC $1.04 > $0.35",
+      "spend_1d": 0.79,
+      "conv_1d": 0,
+      "spend_2d": 1.04,
+      "conv_2d": 0,
+      "paused_at": "2026-10-17T15:02:32.639254+00:00"
+    },
+    "7631765070816509959:1879246753691810:1879246753755233": {
+      "aadvid": "7631765070816509959",
+      "account_name": "ROELLINGER RECYCLING2",
+      "ad_id": "1879246753691810",
+      "creative_id": "1879246753752481",
+      "campaign_ad_name": "car armrest 16-10 (Hanan + Ola) / car armrest 16-10 (Hanan + Ola) - Creative",
+      "video_name": "16-10_hanan_2.mp4",
+      "draft_ids": [
+        "1879246753755233"
+      ],
+      "reason": "Today Video CPA $10.74 >= $10.00 (Spend=$10.74, Sales=1) | 2-Day Video CPA $10.74 >= $10.00 (Spend=$10.74, Sales=1)",
+      "spend_1d": 10.74,
+      "conv_1d": 1,
+      "spend_2d": 10.74,
+      "conv_2d": 1,
+      "paused_at": "2026-10-17T15:02:44.441506+00:00"
+    },
+    "7631765070816509959:1879281776361841:1879281776420322": {
+      "aadvid": "7631765070816509959",
+      "account_name": "ROELLINGER RECYCLING2",
+      "ad_id": "1879281776361841",
+      "creative_id": "1879281776420306",
+      "campaign_ad_name": "watch broad tiktok scale 17-10 / watch broad tiktok scale 17-10 - Creative",
+      "video_name": "ققفق_gCMc9G02.mp4",
+      "draft_ids": [
+        "1879281776420322"
+      ],
+      "reason": "Today Spend $3.97 >= $1.00 & CPC $0.40 > $0.35",
+      "spend_1d": 3.97,
+      "conv_1d": 2,
+      "spend_2d": 3.97,
+      "conv_2d": 2,
+      "paused_at": "2026-10-17T15:02:45.040808+00:00"
     }
   },
   "tiktok_ads": {},
@@ -7759,12 +7830,12 @@
       "name": "Copy of 16-10 1",
       "campaign": "باور بانك 16-10",
       "date": "2026-10-17",
-      "count": 2,
+      "count": 3,
       "done": false,
-      "old_bid": 2.3,
-      "new_bid": 2.4,
-      "last_bump_at": "2026-10-17T12:26:59.312252+00:00",
-      "last_bump_local": "2026-10-17 15:26 GMT+3"
+      "old_bid": 2.5,
+      "new_bid": 2.6,
+      "last_bump_at": "2026-10-17T15:01:53.815610+00:00",
+      "last_bump_local": "2026-10-17 18:00 GMT+3"
     },
     "16792c98-06b7-4a00-87ab-58ee7ee6add5": {
       "name": "Copy of 16-10 2",
@@ -7792,52 +7863,52 @@
       "name": "Copy of 16-10 2",
       "campaign": "باور بانك 16-10",
       "date": "2026-10-17",
-      "count": 2,
+      "count": 3,
       "done": false,
-      "old_bid": 2.3,
-      "new_bid": 2.4,
-      "last_bump_at": "2026-10-17T12:26:59.312252+00:00",
-      "last_bump_local": "2026-10-17 15:26 GMT+3"
+      "old_bid": 2.5,
+      "new_bid": 2.6,
+      "last_bump_at": "2026-10-17T15:01:53.815610+00:00",
+      "last_bump_local": "2026-10-17 18:00 GMT+3"
     },
     "558deff8-6b47-4edc-9246-942d06b29a44": {
       "name": "Copy of 16-10 1",
       "campaign": "باور بانك 16-10",
       "date": "2026-10-17",
-      "count": 2,
+      "count": 3,
       "done": false,
-      "old_bid": 2.3,
-      "new_bid": 2.4,
-      "last_bump_at": "2026-10-17T12:26:59.312252+00:00",
-      "last_bump_local": "2026-10-17 15:26 GMT+3"
+      "old_bid": 2.5,
+      "new_bid": 2.6,
+      "last_bump_at": "2026-10-17T15:01:53.815610+00:00",
+      "last_bump_local": "2026-10-17 18:00 GMT+3"
     },
     "83a1e588-762a-45f6-a8db-0264b2139c4c": {
       "name": "Copy of 16-10 2",
       "campaign": "باور بانك 16-10",
       "date": "2026-10-17",
-      "count": 2,
+      "count": 3,
       "done": false,
-      "old_bid": 2.3,
-      "new_bid": 2.4,
-      "last_bump_at": "2026-10-17T12:26:59.312252+00:00",
-      "last_bump_local": "2026-10-17 15:26 GMT+3"
+      "old_bid": 2.5,
+      "new_bid": 2.6,
+      "last_bump_at": "2026-10-17T15:01:53.815610+00:00",
+      "last_bump_local": "2026-10-17 18:00 GMT+3"
     },
     "9516bf09-3516-4fd9-99b5-5d32f87c70fe": {
       "name": "Copy of 16-10 1",
       "campaign": "باور بانك 16-10",
       "date": "2026-10-17",
-      "count": 2,
+      "count": 3,
       "done": false,
-      "old_bid": 2.3,
-      "new_bid": 2.4,
-      "last_bump_at": "2026-10-17T12:26:59.312252+00:00",
-      "last_bump_local": "2026-10-17 15:26 GMT+3"
+      "old_bid": 2.5,
+      "new_bid": 2.6,
+      "last_bump_at": "2026-10-17T15:01:53.815610+00:00",
+      "last_bump_local": "2026-10-17 18:00 GMT+3"
     },
     "a5477f45-991d-4fe4-8d94-c419fb8406ae": {
       "name": "Copy of 16-10 2",
       "campaign": "باور بانك 16-10",
       "date": "2026-10-17",
       "count": 2,
-      "done": false,
+      "done": true,
       "old_bid": 2.3,
       "new_bid": 2.4,
       "last_bump_at": "2026-10-17T12:26:59.312252+00:00",
@@ -7847,23 +7918,23 @@
       "name": "Copy of 16-10 1",
       "campaign": "باور بانك 16-10",
       "date": "2026-10-17",
-      "count": 2,
+      "count": 3,
       "done": false,
-      "old_bid": 2.3,
-      "new_bid": 2.4,
-      "last_bump_at": "2026-10-17T12:26:59.312252+00:00",
-      "last_bump_local": "2026-10-17 15:26 GMT+3"
+      "old_bid": 2.5,
+      "new_bid": 2.6,
+      "last_bump_at": "2026-10-17T15:01:53.815610+00:00",
+      "last_bump_local": "2026-10-17 18:00 GMT+3"
     },
     "be221fe2-9fe9-4562-a4a7-3fe85550ae9c": {
       "name": "Copy of 16-10 1",
       "campaign": "باور بانك 16-10",
       "date": "2026-10-17",
-      "count": 2,
+      "count": 3,
       "done": false,
-      "old_bid": 2.3,
-      "new_bid": 2.4,
-      "last_bump_at": "2026-10-17T12:26:59.312252+00:00",
-      "last_bump_local": "2026-10-17 15:26 GMT+3"
+      "old_bid": 2.5,
+      "new_bid": 2.6,
+      "last_bump_at": "2026-10-17T15:01:53.815610+00:00",
+      "last_bump_local": "2026-10-17 18:00 GMT+3"
     },
     "44eeb30d-3636-41a4-a32a-bf004df67e38": {
       "name": "Copy of Copy of 1.5 | 23.8",
@@ -7909,12 +7980,12 @@
       "name": "Copy of 16-10 1",
       "campaign": "باور بانك 16-10",
       "date": "2026-10-17",
-      "count": 2,
+      "count": 3,
       "done": false,
-      "old_bid": 2.5,
-      "new_bid": 2.6,
-      "last_bump_at": "2026-10-17T12:26:59.312252+00:00",
-      "last_bump_local": "2026-10-17 15:26 GMT+3"
+      "old_bid": 2.7,
+      "new_bid": 2.8,
+      "last_bump_at": "2026-10-17T15:01:53.815610+00:00",
+      "last_bump_local": "2026-10-17 18:00 GMT+3"
     },
     "be00b07f-29fa-4870-941b-2cb78519518d": {
       "name": "Copy of 16-10 1",
@@ -7954,7 +8025,7 @@
       "campaign": "car scaling camp ",
       "date": "2026-10-17",
       "count": 2,
-      "done": false,
+      "done": true,
       "old_bid": 2.85,
       "new_bid": 2.95,
       "last_bump_at": "2026-10-17T12:26:59.312252+00:00",
@@ -8252,12 +8323,12 @@
       "name": "Copy of Copy of 1.5 | 23.8",
       "campaign": "car scaling camp ",
       "date": "2026-10-17",
-      "count": 1,
+      "count": 2,
       "done": false,
-      "old_bid": 2.65,
-      "new_bid": 2.75,
-      "last_bump_at": "2026-10-17T12:26:59.312252+00:00",
-      "last_bump_local": "2026-10-17 15:26 GMT+3"
+      "old_bid": 2.85,
+      "new_bid": 2.95,
+      "last_bump_at": "2026-10-17T15:01:53.815610+00:00",
+      "last_bump_local": "2026-10-17 18:00 GMT+3"
     },
     "f68f7106-f712-4073-b0d4-1c2e8ad0df35": {
       "count": 0,
@@ -8312,6 +8383,18 @@
       "campaign_name": "car armrest leads 15-10 B",
       "reason": "Re-enabled to test the 6 untested videos (video_3, 4, 6, 7, 8, 9)",
       "paused_at": "2026-10-16T09:26:15.448421+00:00"
+    },
+    "7631763556322148369:1879158246855681": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "campaign_id": "1879158246855681",
+      "campaign_name": "power bank 16-10 B",
+      "reason": "Campaign 2-Day CPA $21.35 >= $21.00 (Spend=$21.35, Sales=1)",
+      "spend_1d": 9.77,
+      "conv_1d": 0,
+      "spend_2d": 21.35,
+      "conv_2d": 1,
+      "paused_at": "2026-10-17T15:02:27.734847+00:00"
     }
   },
   "creative_media_map": {
