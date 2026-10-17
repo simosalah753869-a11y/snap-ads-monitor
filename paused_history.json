@@ -2204,6 +2204,27 @@
       "adsquad": "Copy of 14-10",
       "reason": "[Ad CPC Rule] صرف الفيديو $1.0 | النقرات: 2 | سعر النقرة CPC = $0.5 (> $0.28)",
       "paused_at": "2026-10-17 06:52 GMT+3"
+    },
+    "c3ab6370-af43-478a-a8da-32648ddbb3d9": {
+      "name": "Copy of Copy of Copy of Copy of Copy of 1",
+      "campaign": "car scaling camp ",
+      "adsquad": "Copy of Copy of Copy of Copy of Copy of 1.5 | 23.8",
+      "reason": "[Ad CPC Rule] صرف الفيديو $1.04 | النقرات: 3 | سعر النقرة CPC = $0.347 (> $0.28)",
+      "paused_at": "2026-10-17 08:04 GMT+3"
+    },
+    "6fe1b6b8-6883-4328-865d-4fde13f4d445": {
+      "name": "Copy of Copy of Copy of Copy of Copy of Copy of 2",
+      "campaign": "car scaling new 2 text",
+      "adsquad": "Copy of Copy of Copy of text 2 ",
+      "reason": "[Ad CPC Rule] صرف الفيديو $1.17 | النقرات: 3 | سعر النقرة CPC = $0.39 (> $0.28)",
+      "paused_at": "2026-10-17 08:04 GMT+3"
+    },
+    "0e616096-69cd-456f-b7cb-01c1727393e6": {
+      "name": "Copy of Copy of Copy of Copy of Copy of Copy of 2",
+      "campaign": "car scaling new 2 text",
+      "adsquad": "Copy of Copy of Copy of text 2 ",
+      "reason": "[Ad CPC Rule] صرف الفيديو $1.75 | النقرات: 6 | سعر النقرة CPC = $0.292 (> $0.28)",
+      "paused_at": "2026-10-17 08:04 GMT+3"
     }
   },
   "tiktok_videos": {
@@ -3106,6 +3127,40 @@
       "spend_2d": 1.24,
       "conv_2d": 0,
       "paused_at": "2026-10-17T04:25:46.452659+00:00"
+    },
+    "7631763556322148369:1878973125749954:1878990296889377": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "ad_id": "1878973125749954",
+      "creative_id": "1878973173545585",
+      "campaign_ad_name": "car armrest leads  13-10 / Ad name2026-10-13 11:52:19",
+      "video_name": "غطاء مساند ذراع السيارة فاخر مُبطّن بذاكرة فوم مع حافظة مناديل وجوال-Music_Refresh-3-2",
+      "draft_ids": [
+        "1878990296889377"
+      ],
+      "reason": "2-Day Spend $6.01 > $6.00 with 0 sales",
+      "spend_1d": 0.08,
+      "conv_1d": 0,
+      "spend_2d": 6.01,
+      "conv_2d": 0,
+      "paused_at": "2026-10-17T05:05:50.728062+00:00"
+    },
+    "7631763556322148369:1879198163878258:1879198167132754": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "ad_id": "1879198163878258",
+      "creative_id": "1879198165761169",
+      "campaign_ad_name": "car armrest 15-10 winners (v1-v10) / car armrest 15-10 winners (v1-v10) - Creative",
+      "video_name": "15-10_video_1.mp4",
+      "draft_ids": [
+        "1879198167132754"
+      ],
+      "reason": "Today Spend $2.05 >= $1.00 & CPC $0.41 > $0.35",
+      "spend_1d": 2.05,
+      "conv_1d": 0,
+      "spend_2d": 3.41,
+      "conv_2d": 0,
+      "paused_at": "2026-10-17T05:05:51.349338+00:00"
     }
   },
   "tiktok_ads": {},
@@ -6029,7 +6084,7 @@
       "campaign": "car scaling new 2 text",
       "date": "2026-10-17",
       "count": 1,
-      "done": false,
+      "done": true,
       "old_bid": 2.1,
       "new_bid": 2.2,
       "last_bump_at": "2026-10-17T03:06:41.600109+00:00",
@@ -6773,7 +6828,7 @@
       "campaign": "car scaling camp ",
       "date": "2026-10-17",
       "count": 1,
-      "done": false,
+      "done": true,
       "old_bid": 1.75,
       "new_bid": 1.85,
       "last_bump_at": "2026-10-17T03:06:41.600109+00:00",
