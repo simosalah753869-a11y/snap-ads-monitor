@@ -10,8 +10,14 @@ sys.stdout.reconfigure(encoding="utf-8")
 AD_ACCOUNT_ID = "350cb560-ad77-4fb5-9bbf-4c090c9ad081"
 MIN_ACTIVE_COUNT = 20
 
-# الكلمات المفتاحية أو شروط حملات السكالينج والدوبليكيت
-SCALING_KEYWORDS = ("scaling", "car", "qatar", "oman", "قطر", "عمان", "وينر", "winner", "kashaf", "kahsaf")
+# الكلمات المفتاحية لحملات السكالينج السعودية فقط (يُمنع نسخ مجموعات دول الخليج أو الكشاف نهائياً)
+SCALING_KEYWORDS = ("scaling", "car", "وينر", "winner")
+GULF_OR_BANNED_KEYWORDS = (
+    "qatar", "oman", "kuwait", "kwt", "kuwiat", "bahrain", "uae", "emarat",
+    "قطر", "عمان", "كويت", "الكويت", "خليج", "البحرين", "الامارات", "الإمارات",
+    "kashaf", "kahsaf", "كشاف",
+)
+GULF_GEOS = {"qa", "om", "kw", "bh", "ae"}
 
 
 def get_7d_squad_stats(token: str) -> dict:
@@ -41,10 +47,17 @@ def get_7d_squad_stats(token: str) -> dict:
 def is_scaling_or_duplicate_campaign(cname: str, squads: list[dict], active_squads: list[dict]) -> bool:
     if not active_squads:
         return False
+    name_low = cname.lower()
+    if any(k in name_low for k in GULF_OR_BANNED_KEYWORDS):
+        return False
+    for sq in squads:
+        for g in (sq.get("targeting", {}).get("geos") or []):
+            cc = (g.get("country_code") or "").lower()
+            if cc in GULF_GEOS:
+                return False
     has_copy = any("copy" in s.get("name", "").lower() for s in squads)
     if has_copy and len(squads) >= 5:
         return True
-    name_low = cname.lower()
     if any(k in name_low for k in SCALING_KEYWORDS) and len(squads) >= 5:
         return True
     return False
