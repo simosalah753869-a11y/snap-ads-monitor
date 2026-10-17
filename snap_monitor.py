@@ -378,20 +378,26 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
         if not spending_creatives:
             continue
 
-        # ربط كل creative_id بملف الفيديو الأصلي (top_snap_media_id) لتجميع كل نسخ نفس الفيديو في الحملة
+        # ربط كل creative_id صرف اليوم بملف الفيديو الأصلي (top_snap_media_id)
+        name_to_media = {}
         for cr_id in spending_creatives:
-            resolve_video_media_id(cr_id, token, history)
-
-        # أيضاً نربط أي إعلان نشط في الحملة حتى لو لم يصرف بعد لكي نتمكن من إيقافه من جميع الـ AdSquads إذا خسر الفيديو
-        active_creatives = {a.get("creative_id") for a in c_ads if a.get("status") == "ACTIVE" and a.get("creative_id")}
-        for cr_id in active_creatives:
-            resolve_video_media_id(cr_id, token, history)
+            m_id = resolve_video_media_id(cr_id, token, history)
+            for a in c_ads:
+                if a.get("creative_id") == cr_id and a.get("name"):
+                    name_to_media[a["name"].strip()] = m_id
         save_paused_history(history)
 
         video_groups = {}
         for a in c_ads:
             cr_id = a.get("creative_id")
-            v_key = history["creative_media_map"].get(cr_id) or cr_id or a.get("name", "unknown")
+            ad_nm = (a.get("name") or "").strip()
+            v_key = (
+                history["creative_media_map"].get(cr_id)
+                or name_to_media.get(ad_nm)
+                or ad_nm
+                or cr_id
+                or "unknown"
+            )
             grp = video_groups.setdefault(v_key, {
                 "ads": [],
                 "active_ads": [],
