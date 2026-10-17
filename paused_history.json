@@ -2178,6 +2178,13 @@
       "adsquad": "Copy of Copy of Copy of Copy of Copy of Copy of Copy of Copy of text1",
       "reason": "[Aggregated Video Stop-Loss - السعودية] مجموع صرف الفيديو عبر كل الـ AdSquads = $15.73 (>= $15.00) بدون أي مبيعة",
       "paused_at": "2026-10-17 02:22 GMT+3"
+    },
+    "c0bc32d9-1b31-4eba-bb14-f0760fcc4121": {
+      "name": "Copy of Copy of Copy of Copy of 2",
+      "campaign": "car scaling camp ",
+      "adsquad": "14-10",
+      "reason": "[Ad CPC Rule] صرف الفيديو $1.12 | النقرات: 3 | سعر النقرة CPC = $0.373 (> $0.28)",
+      "paused_at": "2026-10-17 04:50 GMT+3"
     }
   },
   "tiktok_videos": {
@@ -5745,6 +5752,27 @@
       "last_bump_at": null,
       "done": true,
       "name": "Copy of Copy of 1.5 | 23.8",
+      "campaign": "car scaling camp "
+    },
+    "sa_2026_10_17:7649aaa4-b74e-461f-9fee-7826c31e9010": {
+      "count": 0,
+      "last_bump_at": null,
+      "done": true,
+      "name": "Copy of Copy of Copy of Copy of Copy of text 2 ",
+      "campaign": "car scaling new 2 text"
+    },
+    "sa_2026_10_17:3b0b018a-e580-42e4-b174-733c1616e685": {
+      "count": 0,
+      "last_bump_at": null,
+      "done": true,
+      "name": "Copy of Copy of Copy of Copy of Copy of 1.5 | 23.8",
+      "campaign": "car scaling camp "
+    },
+    "sa_2026_10_17:d53aefb3-117a-419c-92a0-62da469f7afe": {
+      "count": 0,
+      "last_bump_at": null,
+      "done": true,
+      "name": "14-10",
       "campaign": "car scaling camp "
     }
   },
