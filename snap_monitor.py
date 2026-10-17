@@ -51,6 +51,7 @@ def load_paused_history() -> dict:
             data.setdefault("adsquads", {})
             data.setdefault("ads", {})
             data.setdefault("bid_bumps", {})
+            data.setdefault("night_bid_reductions", {})
             data.setdefault("creative_media_map", {})
             data.setdefault("disabled_videos", {})
             return data
@@ -60,6 +61,7 @@ def load_paused_history() -> dict:
         "adsquads": {},
         "ads": {},
         "bid_bumps": {},
+        "night_bid_reductions": {},
         "creative_media_map": {},
         "disabled_videos": {},
     }
@@ -488,17 +490,126 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
                 save_paused_history(history)
                 print(f"   ✅ تم إيقاف/حذف الفيديو من {closed_cnt} مجموعة إعلانية بنجاح!")
 
-    # 3. Bid Bump Rules for Low-Spend (< $1.00) Active Ad Squads:
-    #    (A) القاعدة الدائمة يومياً لأي AdSquad جديدة (أُنشئت في نفس اليوم / آخر 24 ساعة):
-    #        زيادة +$0.10 كل ساعتين (2h) طالما الصرف < $1.00 بحد أقصى 5 مرات (مرة واحدة مدى الحياة لكل AdSquad جديدة).
-    #    (B) قاعدة الغد فقط (2026-10-17) لحملات السعودية (starting 6:00 AM Saudi time):
-    #        للمجموعات الحالية في حملات السعودية التي تصرف < $1.00 غداً: زيادة +$0.10 كل 3 ساعات بحد أقصى 3 مرات ابتداءً من الساعة 6:00 صباحاً.
+    # 3. Night Bid Reduction (00:00 -> 06:00 GMT+3) & Daytime Bid Bump Rules:
+    #    - في الليل (من 12:00 منتصف الليل حتى 6:00 صباحاً بتوقيت السعودية GMT+3):
+    #      تنخفض المبيعات، لذا يتم تخفيض البيد تلقائياً بمقدار -$0.30 (بحد أدنى $1.50) مرة واحدة كل ليلة
+    #      لجميع المجموعات الإعلانية النشطة (AdSquads) لمنع ارتفاع سعر المبيعة (CPA)، مع إيقاف أي رفع للبيد ليلاً.
+    #    - في النهار (من 6:00 صباحاً حتى 11:59 مساءً بتوقيت السعودية GMT+3):
+    #      زيادة +$0.10 كل ساعتين (2h) لأي AdSquad جديدة (أُنشئت خلال آخر 24 ساعة) طالما الصرف < $1.00 بحد أقصى 5 مرات مدى الحياة.
     now_utc = datetime.now(timezone.utc)
     today_local = datetime.now(ACCOUNT_TZ)
     today_date_str = today_local.strftime("%Y-%m-%d")
+    is_night_window = (0 <= today_local.hour < 6)
+
+    if is_night_window:
+        print(
+            f"\n🌙 الفترة الليلية النشطة الآن ({today_local.strftime('%H:%M')} GMT+3 — بين 12:00 منتصف الليل و 6:00 صباحاً): "
+            f"فحص وتطبيق تخفيض البيد الليلي (-$0.30 بحد أدنى $1.50) لجميع المجموعات النشطة ({len(active_campaigns)} حملة)..."
+        )
+        night_reduced_total = 0
+        for c in active_campaigns:
+            c_id = c["id"]
+            c_name = c.get("name", "")
+            c_squads = camp_squads_cache.get(c_id)
+            if c_squads is None:
+                sq_resp = api_get(f"/campaigns/{c_id}/adsquads", token)
+                c_squads = [sq_w.get("adsquad", {}) for sq_w in sq_resp.get("adsquads", []) if sq_w.get("adsquad")]
+
+            squads_to_update = []
+            pending_records = []
+            for squad in c_squads:
+                if not squad or squad.get("status") != "ACTIVE":
+                    continue
+                s_id = squad["id"]
+                s_name = squad.get("name", "")
+                bid_micro = squad.get("bid_micro")
+                if not bid_micro or bid_micro <= 0:
+                    continue
+
+                night_key = f"{today_date_str}:{s_id}"
+                if night_key in history["night_bid_reductions"]:
+                    continue
+
+                old_bid = round(bid_micro / 1_000_000, 2)
+                if bid_micro <= 1_500_000:
+                    # البيد بالفعل عند الحد الأدنى الآمن ($1.50 أو أقل)، نسجله حتى لا يُفحص مجدداً هذه الليلة
+                    history["night_bid_reductions"][night_key] = {
+                        "name": s_name,
+                        "campaign": c_name,
+                        "date": today_date_str,
+                        "old_bid": old_bid,
+                        "new_bid": old_bid,
+                        "skipped_at_floor": True,
+                        "reduced_at": now_str,
+                    }
+                    continue
+
+                new_bid_micro = max(1_500_000, bid_micro - 300_000)  # -$0.30 مع حد أدنى $1.50
+                new_bid = round(new_bid_micro / 1_000_000, 2)
+
+                if dry_run:
+                    print(
+                        f"🔍 [تخفيض البيد ليلاً] المجموعة: '{s_name}' (حملة: '{c_name}') "
+                        f"| البيد: ${old_bid} -> ${new_bid}"
+                    )
+                else:
+                    squad["bid_micro"] = new_bid_micro
+                    squads_to_update.append(squad)
+                    pending_records.append((night_key, s_name, old_bid, new_bid))
+
+            if not dry_run and squads_to_update:
+                # تحديث المجموعات على دفعات (حتى 20 مجموعة في الطلب الواحد) للسرعة الفائقة
+                for i in range(0, len(squads_to_update), 20):
+                    batch = squads_to_update[i:i + 20]
+                    rec_batch = pending_records[i:i + 20]
+                    try:
+                        api_put(f"/campaigns/{c_id}/adsquads", token, {"adsquads": batch})
+                        for night_key, s_name, old_bid, new_bid in rec_batch:
+                            history["night_bid_reductions"][night_key] = {
+                                "name": s_name,
+                                "campaign": c_name,
+                                "date": today_date_str,
+                                "old_bid": old_bid,
+                                "new_bid": new_bid,
+                                "reduced_at": now_str,
+                            }
+                            night_reduced_total += 1
+                            print(
+                                f"🌙 [تخفيض البيد ليلاً] تم إنقاص البيد (-$0.30) للمجموعة: '{s_name}' (حملة: '{c_name}') "
+                                f"| البيد: ${old_bid} -> ${new_bid}"
+                            )
+                        save_paused_history(history)
+                        time.sleep(0.2)
+                    except Exception:
+                        # في حال رفض التحديث الجماعي، نحدث كل مجموعة على حدة
+                        for sq_item, (night_key, s_name, old_bid, new_bid) in zip(batch, rec_batch):
+                            try:
+                                api_put(f"/campaigns/{c_id}/adsquads", token, {"adsquads": [sq_item]})
+                                history["night_bid_reductions"][night_key] = {
+                                    "name": s_name,
+                                    "campaign": c_name,
+                                    "date": today_date_str,
+                                    "old_bid": old_bid,
+                                    "new_bid": new_bid,
+                                    "reduced_at": now_str,
+                                }
+                                night_reduced_total += 1
+                                print(
+                                    f"🌙 [تخفيض البيد ليلاً] تم إنقاص البيد (-$0.30) للمجموعة: '{s_name}' (حملة: '{c_name}') "
+                                    f"| البيد: ${old_bid} -> ${new_bid}"
+                                )
+                                time.sleep(0.2)
+                            except Exception as inner_e:
+                                print(f"⚠️ تعذر تخفيض البيد للمجموعة '{s_name}': {inner_e}")
+                        save_paused_history(history)
+
+        save_paused_history(history)
+        print(f"✅ اكتمل فحص الفترة الليلية — إجمالي المجموعات التي تم تخفيض البيد لها هذه الليلة: {night_reduced_total} (وتم إيقاف رفع البيد ليلاً).")
+        return
+
     print(
-        f"\n⏱️ فحص زيادة البيد للمجموعات النشطة التي صرفت أقل من $1.00 "
-        f"(الجديدة: كل ساعتين حتى 5 مرات دائماً | غداً 2026-10-17 للسعودية: كل 3 ساعات حتى 3 مرات من 6 صباحاً) "
+        f"\n⏱️ فحص زيادة البيد النهارية للمجموعات النشطة التي صرفت أقل من $1.00 "
+        f"(الجديدة: كل ساعتين حتى 5 مرات دائماً) "
         f"(عدد الحملات النشطة: {len(active_campaigns)})..."
     )
     for c in active_campaigns:
@@ -522,81 +633,8 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
             start_dt = parse_iso_utc(squad.get("start_time", ""))
             candidates = [dt for dt in (created_dt, start_dt) if dt is not None]
             effective_start = max(candidates) if candidates else now_utc
-            effective_start_local_date = effective_start.astimezone(ACCOUNT_TZ).strftime("%Y-%m-%d")
 
             today_spend = spend_by_squad.get(s_id, 0.0)
-            squad_is_saudi = is_saudi_squad(squad, c_name, s_name)
-
-            # تحديد ما إذا كانت هذه المجموعة تندرج تحت قاعدة الغد الاستثنائية (2026-10-17) لحملات السعودية للمجموعات القائمة قبل الغد
-            is_tomorrow_saudi_existing = (
-                today_date_str == "2026-10-17"
-                and squad_is_saudi
-                and effective_start_local_date < "2026-10-17"
-            )
-
-            if is_tomorrow_saudi_existing:
-                # (B) قاعدة الغد (2026-10-17) لحملات السعودية فقط: 3 مرات (+0.10$) كل 3 ساعات يبدأ من 6:00 صباحاً بتوقيت السعودية
-                sa_key = f"sa_2026_10_17:{s_id}"
-                sa_rec = history["bid_bumps"].get(sa_key, {"count": 0, "last_bump_at": None})
-                sa_count = sa_rec.get("count", 0)
-                last_sa_dt = parse_iso_utc(sa_rec.get("last_bump_at", ""))
-
-                if today_spend >= 1.0:
-                    if not sa_rec.get("done"):
-                        sa_rec["done"] = True
-                        sa_rec["name"] = s_name
-                        sa_rec["campaign"] = c_name
-                        history["bid_bumps"][sa_key] = sa_rec
-                        save_paused_history(history)
-                    continue
-
-                if sa_count >= 3 or sa_rec.get("done"):
-                    continue
-
-                # يبدأ من الساعة 6:00 صباحاً بتوقيت السعودية
-                if today_local.hour < 6:
-                    continue
-
-                if sa_count == 0 or last_sa_dt is None:
-                    # الزيادة الأولى تبدأ فور حلول الساعة 6:00 صباحاً
-                    elapsed_hrs = round((today_local.hour * 60 + today_local.minute - 360) / 60, 1)
-                else:
-                    elapsed = now_utc - last_sa_dt
-                    if elapsed < timedelta(hours=3):
-                        continue
-                    elapsed_hrs = round(elapsed.total_seconds() / 3600, 1)
-
-                old_bid = round(bid_micro / 1_000_000, 2)
-                new_bid_micro = bid_micro + 100_000  # +$0.10
-                new_bid = round(new_bid_micro / 1_000_000, 2)
-                new_count = sa_count + 1
-
-                if dry_run:
-                    print(
-                        f"🔍 [زيادة بيد السعودية غداً ({new_count}/3 كل 3 ساعات من 6ص)] المجموعة: '{s_name}' (حملة: '{c_name}') "
-                        f"| الصرف: ${today_spend} (< $1) | البيد: ${old_bid} -> ${new_bid}"
-                    )
-                else:
-                    squad["bid_micro"] = new_bid_micro
-                    api_put(f"/campaigns/{c_id}/adsquads", token, {"adsquads": [squad]})
-                    history["bid_bumps"][sa_key] = {
-                        "name": s_name,
-                        "campaign": c_name,
-                        "date": today_date_str,
-                        "count": new_count,
-                        "done": new_count >= 3,
-                        "old_bid": old_bid,
-                        "new_bid": new_bid,
-                        "last_bump_at": now_utc.isoformat(),
-                        "last_bump_local": now_str,
-                    }
-                    save_paused_history(history)
-                    print(
-                        f"📈 [السعودية غداً 6ص] تم رفع البيد (+$0.10) للمرة ({new_count}/3 كل 3 ساعات) للمجموعة: '{s_name}' (حملة: '{c_name}') "
-                        f"| الصرف: ${today_spend} (انتظار {elapsed_hrs} ساعة) | البيد: ${old_bid} -> ${new_bid}"
-                    )
-                    time.sleep(0.3)
-                continue
 
             # (A) القاعدة الدائمة يومياً لأي AdSquad جديدة (خلال أول 24 ساعة من إنشائها):
             #     زيادة +$0.10 كل ساعتين (2h) طالما الصرف < $1.00 بحد أقصى 5 مرات مدى الحياة.
