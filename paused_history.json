@@ -2225,6 +2225,20 @@
       "adsquad": "Copy of Copy of Copy of text 2 ",
       "reason": "[Ad CPC Rule] صرف الفيديو $1.75 | النقرات: 6 | سعر النقرة CPC = $0.292 (> $0.28)",
       "paused_at": "2026-10-17 08:04 GMT+3"
+    },
+    "780ef250-2006-4056-9514-bb7be9cce8f5": {
+      "name": "1_5-10_5",
+      "campaign": "باور بانك 16-10",
+      "adsquad": "16-10 2",
+      "reason": "[Ad CPC Rule] صرف الفيديو $1.03 بدون أي نقرة (الحد الأقصى $0.28)",
+      "paused_at": "2026-10-17 08:48 GMT+3"
+    },
+    "3d0309e7-8cd0-4f7a-b265-2d7acdadf37d": {
+      "name": "Copy of 4",
+      "campaign": "car scaling camp ",
+      "adsquad": "Copy of Copy of 1.5 | 23.8",
+      "reason": "[Ad CPC Rule] صرف الفيديو $1.93 | النقرات: 6 | سعر النقرة CPC = $0.322 (> $0.28)",
+      "paused_at": "2026-10-17 08:48 GMT+3"
     }
   },
   "tiktok_videos": {
@@ -3161,6 +3175,23 @@
       "spend_2d": 3.41,
       "conv_2d": 0,
       "paused_at": "2026-10-17T05:05:51.349338+00:00"
+    },
+    "7631763556322148369:1874314269673729:1876391326945506": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "ad_id": "1874314269673729",
+      "creative_id": "1874314269673745",
+      "campaign_ad_name": "Copy 1 of car armrest leads  19-9 / Ad name2026-08-21 05:44:45",
+      "video_name": "HighCostBau-v10033g50000d8nue5nog65nl3aki890",
+      "draft_ids": [
+        "1876391326945506"
+      ],
+      "reason": "Today Video CPA $10.77 >= $10.00 (Spend=$21.53, Sales=2)",
+      "spend_1d": 21.53,
+      "conv_1d": 2,
+      "spend_2d": 167.98,
+      "conv_2d": 26,
+      "paused_at": "2026-10-17T05:49:46.032805+00:00"
     }
   },
   "tiktok_ads": {},
@@ -6410,7 +6441,7 @@
       "campaign": "باور بانك 16-10",
       "date": "2026-10-17",
       "count": 1,
-      "done": false,
+      "done": true,
       "old_bid": 2.2,
       "new_bid": 2.3,
       "last_bump_at": "2026-10-17T03:06:41.600109+00:00",
@@ -6509,7 +6540,7 @@
       "campaign": "باور بانك وينر",
       "date": "2026-10-17",
       "count": 1,
-      "done": false,
+      "done": true,
       "old_bid": 1.9,
       "new_bid": 2.0,
       "last_bump_at": "2026-10-17T03:06:41.600109+00:00",
