@@ -2944,6 +2944,40 @@
       "spend_2d": 6.06,
       "conv_2d": 0,
       "paused_at": "2026-10-16T23:24:09.317114+00:00"
+    },
+    "7631763556322148369:1879156756829313:1879156760400561": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "ad_id": "1879156756829313",
+      "creative_id": "1879156756830465",
+      "campaign_ad_name": "power bank winner 16-10 A / power bank winner 16-10 A - Creative",
+      "video_name": "16-10_pb_winner_6.mp4",
+      "draft_ids": [
+        "1879156760400561"
+      ],
+      "reason": "Today Spend $1.16 >= $1.00 & CPC $0.58 > $0.35",
+      "spend_1d": 1.16,
+      "conv_1d": 0,
+      "spend_2d": 3.04,
+      "conv_2d": 0,
+      "paused_at": "2026-10-17T01:18:15.530269+00:00"
+    },
+    "7631763556322148369:1879232870091122:1879232889158689": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "ad_id": "1879232870091122",
+      "creative_id": "1879232870093410",
+      "campaign_ad_name": "car armrest super winners 16-10 (3 vids) / car armrest super winners 16-10 (3 vids) - Creative",
+      "video_name": "15-10_video_10.mp4",
+      "draft_ids": [
+        "1879232889158689"
+      ],
+      "reason": "2-Day Spend $1.09 >= $1.00 & CPC $0.36 > $0.35",
+      "spend_1d": 0.64,
+      "conv_1d": 0,
+      "spend_2d": 1.09,
+      "conv_2d": 0,
+      "paused_at": "2026-10-17T01:18:16.234561+00:00"
     }
   },
   "tiktok_ads": {},
@@ -5697,6 +5731,20 @@
       "last_bump_at": null,
       "done": true,
       "name": "16-10 علا",
+      "campaign": "car scaling camp "
+    },
+    "sa_2026_10_17:231b24e2-bfb8-457d-85f5-f58fb15bddbd": {
+      "count": 0,
+      "last_bump_at": null,
+      "done": true,
+      "name": "Copy of Copy of 1.5 | 23.8",
+      "campaign": "car scaling camp "
+    },
+    "sa_2026_10_17:d9bf6786-7fe1-418b-9454-8d13387db38d": {
+      "count": 0,
+      "last_bump_at": null,
+      "done": true,
+      "name": "Copy of Copy of 1.5 | 23.8",
       "campaign": "car scaling camp "
     }
   },
