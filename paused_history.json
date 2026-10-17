@@ -450,6 +450,12 @@
       "campaign": "car scaling camp ",
       "reason": "[Copy Rule] صرفت $5.69 (>= $5) بدون مبيعات",
       "paused_at": "2026-10-17 06:52 GMT+3"
+    },
+    "fcda7597-cb0d-46dd-a352-daf300277aff": {
+      "name": "Copy of Copy of Copy of Copy of 1.5 | 23.8",
+      "campaign": "car scaling camp ",
+      "reason": "[Copy Rule] صرفت $5.21 (>= $5) بدون مبيعات",
+      "paused_at": "2026-10-17 07:24 GMT+3"
     }
   },
   "ads": {
@@ -3083,6 +3089,23 @@
       "spend_2d": 1.07,
       "conv_2d": 0,
       "paused_at": "2026-10-17T03:53:34.331329+00:00"
+    },
+    "7631763556322148369:1879156756829313:1879156760401121": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "ad_id": "1879156756829313",
+      "creative_id": "1879156756830465",
+      "campaign_ad_name": "power bank winner 16-10 A / power bank winner 16-10 A - Creative",
+      "video_name": "16-10_pb_winner_8.mp4",
+      "draft_ids": [
+        "1879156760401121"
+      ],
+      "reason": "Today Spend $1.12 >= $1.00 & CPC $1.12 > $0.35",
+      "spend_1d": 1.12,
+      "conv_1d": 0,
+      "spend_2d": 1.24,
+      "conv_2d": 0,
+      "paused_at": "2026-10-17T04:25:46.452659+00:00"
     }
   },
   "tiktok_ads": {},
@@ -6321,7 +6344,7 @@
       "campaign": "باور بانك 16-10",
       "date": "2026-10-17",
       "count": 1,
-      "done": false,
+      "done": true,
       "old_bid": 2.3,
       "new_bid": 2.4,
       "last_bump_at": "2026-10-17T03:06:41.600109+00:00",
@@ -6900,7 +6923,7 @@
       "campaign": "car scaling camp ",
       "date": "2026-10-17",
       "count": 1,
-      "done": false,
+      "done": true,
       "old_bid": 1.9,
       "new_bid": 2.0,
       "last_bump_at": "2026-10-17T03:06:41.600109+00:00",
