@@ -198,12 +198,12 @@ def fetch_campaigns(session, headers, aadvid, st_date, et_date):
     return []
 
 
-def pause_campaign(session, headers, aadvid, campaign_id):
+def pause_campaign(session, headers, aadvid, campaign_id, operation="disable"):
     h = dict(headers)
     h["Referer"] = f"https://ads.tiktok.com/i18n/manage/campaign?aadvid={aadvid}"
     payload = {
         "campaign_list": json.dumps([str(campaign_id)]),
-        "operation": "disable",
+        "operation": operation,
         "allow_partial_success": True,
         "ad_channel": 1,
     }
@@ -375,7 +375,7 @@ def fetch_expanded_materials(session, headers, aadvid, creative_ids, st_date, et
     return all_rows
 
 
-def pause_smart_plus_video(session, headers, aadvid, ad_id, row):
+def pause_smart_plus_video(session, headers, aadvid, ad_id, row, operation="disable"):
     h = dict(headers)
     h["Referer"] = f"https://ads.tiktok.com/i18n/manage/creative?aadvid={aadvid}"
     entity_type = row.get("main_entity_type") or ""
@@ -399,7 +399,7 @@ def pause_smart_plus_video(session, headers, aadvid, ad_id, row):
         "ad_id": str(ad_id),
         "material_list": [str(m) for m in material_list],
         "carousel_id_list": [str(c) for c in carousel_id_list],
-        "operation": "disable",
+        "operation": operation,
         "ad_channel": 1,
         "risk_info": {},
     }
@@ -449,6 +449,7 @@ def main():
 
     total_campaigns_paused = 0
     total_paused = 0
+    total_revived = 0
     for acc_name, aadvid, utc_offset in ACCOUNTS:
         now_tz = datetime.now(timezone(timedelta(hours=utc_offset)))
         today_str = now_tz.strftime("%Y-%m-%d")
@@ -458,6 +459,33 @@ def main():
         camps_1d = fetch_campaigns(session, headers, aadvid, today_str, today_str)
         camps_2d = fetch_campaigns(session, headers, aadvid, yesterday_str, today_str)
         camp_1d_map = {str(c.get("campaign_id")): c for c in camps_1d if c.get("campaign_id")}
+
+        # 1A. Delayed-Attribution Auto-Revival for Paused Campaigns:
+        for c_row in camps_2d:
+            cid_chk = str(c_row.get("campaign_id") or "")
+            c_hist_key = f"{aadvid}:{cid_chk}"
+            if c_hist_key not in history["tiktok_campaigns"]:
+                continue
+            c1_chk = camp_1d_map.get(cid_chk, {})
+            rd1_chk = c1_chk.get("row_data") or {}
+            rd2_chk = c_row.get("row_data") or {}
+            sp1 = float(rd1_chk.get("stat_cost") or 0.0)
+            cv1 = int(float(rd1_chk.get("time_attr_convert_cnt") or 0))
+            sp2 = float(rd2_chk.get("stat_cost") or 0.0)
+            cv2 = int(float(rd2_chk.get("time_attr_convert_cnt") or 0))
+            if (cv1 > 0 or cv2 > 0) and not evaluate_campaign_rules(sp1, cv1, sp2, cv2):
+                if str(c_row.get("opt_status")) != "0":
+                    ok_rev, resp_rev = pause_campaign(session, headers, aadvid, cid_chk, operation="enable")
+                    if ok_rev:
+                        print(
+                            f"  ♻️🔥 [REVIVED CAMPAIGN - DELAYED SALE] '{c_row.get('campaign_name')}' (ID={cid_chk}) "
+                            f"| 2-Day Spend=${sp2:.2f}, Sales={cv2} — re-enabled automatically!"
+                        )
+                        del history["tiktok_campaigns"][c_hist_key]
+                        total_revived += 1
+                else:
+                    del history["tiktok_campaigns"][c_hist_key]
+
         active_camps = [
             c for c in camps_2d
             if c.get("primary_status") not in ("disable", "delete")
@@ -544,7 +572,7 @@ def main():
 
         print(f"  Expanded Smart+ Videos found: {len(mats_2d)}")
         for m2 in mats_2d:
-            key = f"{m2.get('ad_id')}:{m2.get('ad_material_draft_id')}:{m.get('main_entity_id')}"
+            key = f"{m2.get('ad_id')}:{m2.get('ad_material_draft_id')}:{m2.get('main_entity_id')}"
             m1 = map_1d.get(key, {})
 
             opt_status = str(m2.get("mix_material_aco_opt_status") or m1.get("mix_material_aco_opt_status") or "0")
@@ -560,18 +588,34 @@ def main():
             clicks_2d = int(float(m2.get("click_cnt") or 0))
             conv_2d = int(float(m2.get("time_attr_convert_cnt") or 0))
 
-            # Only log or act on videos that are enabled (opt_status == "0") and have spend > 0
-            if opt_status != "0" or prim_status in ("disable", "delete"):
-                continue
-            if spend_2d <= 0 and spend_1d <= 0:
-                continue
-
             vid_name = (m2.get("main_entity_name") or "Video")[:45]
             cid = str(m2.get("creative_id") or "")
             ad_id = str(m2.get("ad_id") or "")
             draft_ids = parse_draft_ids(m2.get("ad_material_draft_id"))
             draft_str = ",".join(draft_ids)
             hist_key = f"{aadvid}:{ad_id}:{draft_str}"
+
+            # Delayed-Attribution Auto-Revival for Paused Smart+ Videos:
+            if hist_key in history["tiktok_videos"] and opt_status != "0":
+                if (conv_1d > 0 or conv_2d > 0) and not evaluate_video_rules(
+                    spend_1d, conv_1d, cpc_1d, clicks_1d,
+                    spend_2d, conv_2d, cpc_2d, clicks_2d,
+                ):
+                    ok_rev, _ = pause_smart_plus_video(session, headers, aadvid, ad_id, m2, operation="enable")
+                    if ok_rev:
+                        print(
+                            f"    ♻️🔥 [REVIVED VIDEO - DELAYED SALE] Video '{vid_name}' (draft={draft_str}) "
+                            f"| 2-Day Spend=${spend_2d:.2f}, Sales={conv_2d} — re-enabled automatically!"
+                        )
+                        del history["tiktok_videos"][hist_key]
+                        total_revived += 1
+                continue
+
+            # Only log or act on videos that are enabled (opt_status == "0") and have spend > 0
+            if opt_status != "0" or prim_status in ("disable", "delete"):
+                continue
+            if spend_2d <= 0 and spend_1d <= 0:
+                continue
 
             print(
                 f"  - Video '{vid_name}' (draft={draft_str}, status={prim_status}) | "
@@ -612,7 +656,10 @@ def main():
                     print(f"    [ERROR] Failed to pause video {draft_str}: {resp_txt}")
 
     save_history(history)
-    print(f"\nDone! Total TikTok Campaigns paused: {total_campaigns_paused} | Smart+ videos paused: {total_paused}")
+    print(
+        f"\nDone! Total TikTok Campaigns paused: {total_campaigns_paused} | "
+        f"Smart+ videos paused: {total_paused} | Auto-Revived (delayed sales): {total_revived}"
+    )
 
 
 if __name__ == "__main__":
