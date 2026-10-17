@@ -570,6 +570,12 @@
       "campaign": "car scaling camp ",
       "reason": "[Copy Rule] صرفت $5.27 (>= $5) بدون مبيعات",
       "paused_at": "2026-10-17 16:11 GMT+3"
+    },
+    "e3c6e041-0013-4db6-92ee-0e22cdec3e4d": {
+      "name": "Copy of 16-10 1",
+      "campaign": "باور بانك وينر",
+      "reason": "[Copy Rule] صرفت $5.01 (>= $5) بدون مبيعات",
+      "paused_at": "2026-10-17 17:22 GMT+3"
     }
   },
   "ads": {
@@ -7875,7 +7881,7 @@
       "campaign": "car scaling camp ",
       "date": "2026-10-17",
       "count": 2,
-      "done": false,
+      "done": true,
       "old_bid": 2.75,
       "new_bid": 2.85,
       "last_bump_at": "2026-10-17T12:26:59.312252+00:00",
@@ -7959,7 +7965,7 @@
       "campaign": "car scaling camp ",
       "date": "2026-10-17",
       "count": 2,
-      "done": false,
+      "done": true,
       "old_bid": 2.85,
       "new_bid": 2.95,
       "last_bump_at": "2026-10-17T12:26:59.312252+00:00",
@@ -8277,6 +8283,13 @@
       "new_bid": 2.75,
       "last_bump_at": "2026-10-17T13:47:59.942045+00:00",
       "last_bump_local": "2026-10-17 16:47 GMT+3"
+    },
+    "30f4c848-feaa-4500-b769-a00dce9c52a9": {
+      "count": 0,
+      "last_bump_at": null,
+      "done": true,
+      "name": "Copy of Copy of 1.5 | 23.8",
+      "campaign": "car scaling camp "
     }
   },
   "tiktok_campaigns": {
