@@ -2465,6 +2465,13 @@
       "adsquad": "Copy of 16-10 1",
       "reason": "[Ad CPC Rule] صرف الفيديو $1.17 | النقرات: 4 | سعر النقرة CPC = $0.292 (> $0.28)",
       "paused_at": "2026-10-17 16:11 GMT+3"
+    },
+    "7584a317-eee4-4327-a472-a785f854f510": {
+      "name": "Copy of Copy of Copy of Copy of Copy of Copy of 2",
+      "campaign": "car scaling new 2 text",
+      "adsquad": "Copy of Copy of Copy of text 2 ",
+      "reason": "[Ad CPC Rule] صرف الفيديو $1.7 | النقرات: 6 | سعر النقرة CPC = $0.283 (> $0.28)",
+      "paused_at": "2026-10-17 16:47 GMT+3"
     }
   },
   "tiktok_videos": {
@@ -3792,6 +3799,23 @@
       "spend_2d": 1.14,
       "conv_2d": 0,
       "paused_at": "2026-10-17T13:13:42.473200+00:00"
+    },
+    "7631763556322148369:1879198163878258:1879198167132770": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "ad_id": "1879198163878258",
+      "creative_id": "1879198165761169",
+      "campaign_ad_name": "car armrest 15-10 winners (v1-v10) / car armrest 15-10 winners (v1-v10) - Creative",
+      "video_name": "15-10_video_10.mp4",
+      "draft_ids": [
+        "1879198167132770"
+      ],
+      "reason": "2-Day Spend $6.13 > $6.00 with 0 sales",
+      "spend_1d": 4.67,
+      "conv_1d": 0,
+      "spend_2d": 6.13,
+      "conv_2d": 0,
+      "paused_at": "2026-10-17T13:48:45.907411+00:00"
     }
   },
   "tiktok_ads": {},
@@ -3825,7 +3849,8 @@
       "old_bid": 3.1,
       "new_bid": 3.2,
       "last_bump_at": "2026-10-16T09:07:37.191219+00:00",
-      "last_bump_local": "2026-10-16 12:06 GMT+3"
+      "last_bump_local": "2026-10-16 12:06 GMT+3",
+      "done": true
     },
     "493ecf2e-ddd6-4645-b503-7707e656c478": {
       "name": "Copy of 15$",
@@ -7751,7 +7776,7 @@
       "campaign": "باور بانك 16-10",
       "date": "2026-10-17",
       "count": 2,
-      "done": false,
+      "done": true,
       "old_bid": 2.3,
       "new_bid": 2.4,
       "last_bump_at": "2026-10-17T12:26:59.312252+00:00",
@@ -7839,7 +7864,7 @@
       "campaign": "car scaling camp ",
       "date": "2026-10-17",
       "count": 2,
-      "done": false,
+      "done": true,
       "old_bid": 2.85,
       "new_bid": 2.95,
       "last_bump_at": "2026-10-17T12:26:59.312252+00:00",
@@ -7901,7 +7926,7 @@
       "campaign": "باور بانك 16-10",
       "date": "2026-10-17",
       "count": 2,
-      "done": false,
+      "done": true,
       "old_bid": 2.5,
       "new_bid": 2.6,
       "last_bump_at": "2026-10-17T12:26:59.312252+00:00",
@@ -8051,7 +8076,7 @@
       "campaign": "watch suis winners 17-10",
       "date": "2026-10-17",
       "count": 2,
-      "done": false,
+      "done": true,
       "old_bid": 1.95,
       "new_bid": 2.05,
       "last_bump_at": "2026-10-17T13:12:40.073079+00:00",
@@ -8126,56 +8151,56 @@
       "name": "Copy of 17-10 male winners",
       "campaign": "watch suis winners 17-10",
       "date": "2026-10-17",
-      "count": 1,
+      "count": 2,
       "done": false,
-      "old_bid": 1.75,
-      "new_bid": 1.85,
-      "last_bump_at": "2026-10-17T11:46:26.977519+00:00",
-      "last_bump_local": "2026-10-17 14:45 GMT+3"
+      "old_bid": 1.95,
+      "new_bid": 2.05,
+      "last_bump_at": "2026-10-17T13:47:59.942045+00:00",
+      "last_bump_local": "2026-10-17 16:47 GMT+3"
     },
     "46ff8d6a-e155-49b0-9ba7-d9d929b7b6d9": {
       "name": "Copy of 17-10 male winners",
       "campaign": "watch suis winners 17-10",
       "date": "2026-10-17",
-      "count": 1,
+      "count": 2,
       "done": false,
-      "old_bid": 1.75,
-      "new_bid": 1.85,
-      "last_bump_at": "2026-10-17T11:46:26.977519+00:00",
-      "last_bump_local": "2026-10-17 14:45 GMT+3"
+      "old_bid": 1.95,
+      "new_bid": 2.05,
+      "last_bump_at": "2026-10-17T13:47:59.942045+00:00",
+      "last_bump_local": "2026-10-17 16:47 GMT+3"
     },
     "5a95d666-b7db-4436-8c7e-305cb880db1f": {
       "name": "Copy of 17-10 male winners",
       "campaign": "watch suis winners 17-10",
       "date": "2026-10-17",
-      "count": 1,
+      "count": 2,
       "done": false,
-      "old_bid": 1.75,
-      "new_bid": 1.85,
-      "last_bump_at": "2026-10-17T11:46:26.977519+00:00",
-      "last_bump_local": "2026-10-17 14:45 GMT+3"
+      "old_bid": 1.95,
+      "new_bid": 2.05,
+      "last_bump_at": "2026-10-17T13:47:59.942045+00:00",
+      "last_bump_local": "2026-10-17 16:47 GMT+3"
     },
     "71f95805-9e63-4bab-bf5e-85c26173ddd3": {
       "name": "Copy of 17-10 male winners",
       "campaign": "watch suis winners 17-10",
       "date": "2026-10-17",
-      "count": 1,
+      "count": 2,
       "done": false,
-      "old_bid": 1.75,
-      "new_bid": 1.85,
-      "last_bump_at": "2026-10-17T11:46:26.977519+00:00",
-      "last_bump_local": "2026-10-17 14:45 GMT+3"
+      "old_bid": 1.95,
+      "new_bid": 2.05,
+      "last_bump_at": "2026-10-17T13:47:59.942045+00:00",
+      "last_bump_local": "2026-10-17 16:47 GMT+3"
     },
     "ae1fe049-00b1-497f-9a36-b59d6cfb0e77": {
       "name": "Copy of 17-10 male winners",
       "campaign": "watch suis winners 17-10",
       "date": "2026-10-17",
-      "count": 1,
+      "count": 2,
       "done": false,
-      "old_bid": 1.75,
-      "new_bid": 1.85,
-      "last_bump_at": "2026-10-17T11:46:26.977519+00:00",
-      "last_bump_local": "2026-10-17 14:45 GMT+3"
+      "old_bid": 1.95,
+      "new_bid": 2.05,
+      "last_bump_at": "2026-10-17T13:47:59.942045+00:00",
+      "last_bump_local": "2026-10-17 16:47 GMT+3"
     },
     "b3bdf6e6-99e3-428e-a5d7-ed92404a5666": {
       "count": 0,
@@ -8188,23 +8213,23 @@
       "name": "Copy of Copy of 1.5 | 23.8",
       "campaign": "car scaling camp ",
       "date": "2026-10-17",
-      "count": 1,
+      "count": 2,
       "done": false,
-      "old_bid": 2.65,
-      "new_bid": 2.75,
-      "last_bump_at": "2026-10-17T11:46:26.977519+00:00",
-      "last_bump_local": "2026-10-17 14:45 GMT+3"
+      "old_bid": 2.85,
+      "new_bid": 2.95,
+      "last_bump_at": "2026-10-17T13:47:59.942045+00:00",
+      "last_bump_local": "2026-10-17 16:47 GMT+3"
     },
     "a178e4b3-e8c7-418b-a023-5f57ed46a426": {
       "name": "Copy of Copy of 1.5 | 23.8",
       "campaign": "car scaling camp ",
       "date": "2026-10-17",
-      "count": 1,
+      "count": 2,
       "done": false,
-      "old_bid": 2.65,
-      "new_bid": 2.75,
-      "last_bump_at": "2026-10-17T11:46:26.977519+00:00",
-      "last_bump_local": "2026-10-17 14:45 GMT+3"
+      "old_bid": 2.85,
+      "new_bid": 2.95,
+      "last_bump_at": "2026-10-17T13:47:59.942045+00:00",
+      "last_bump_local": "2026-10-17 16:47 GMT+3"
     },
     "4984a9d7-1012-4a8e-ab4a-6436a1e0391f": {
       "name": "Copy of Copy of Copy of Copy of Copy of text 2 ",
@@ -8234,6 +8259,24 @@
       "done": true,
       "name": "Copy of Copy of Copy of Copy of 1.5 | 23.8",
       "campaign": "car scaling camp "
+    },
+    "8ee84798-e16d-4982-a16f-64b325e3cf17": {
+      "count": 0,
+      "last_bump_at": null,
+      "done": true,
+      "name": "Copy of Copy of 1.5 | 23.8",
+      "campaign": "car scaling camp "
+    },
+    "d368eb2b-54ac-419c-8833-893b6dee1ec3": {
+      "name": "Copy of Copy of 1.5 | 23.8",
+      "campaign": "car scaling camp ",
+      "date": "2026-10-17",
+      "count": 1,
+      "done": false,
+      "old_bid": 2.65,
+      "new_bid": 2.75,
+      "last_bump_at": "2026-10-17T13:47:59.942045+00:00",
+      "last_bump_local": "2026-10-17 16:47 GMT+3"
     }
   },
   "tiktok_campaigns": {
