@@ -582,6 +582,18 @@
       "campaign": "car scaling camp ",
       "reason": "[Copy Rule] صرفت $5.52 (>= $5) بدون مبيعات",
       "paused_at": "2026-10-17 18:00 GMT+3"
+    },
+    "30f4c848-feaa-4500-b769-a00dce9c52a9": {
+      "name": "Copy of Copy of 1.5 | 23.8",
+      "campaign": "car scaling camp ",
+      "reason": "[Copy Rule] صرفت $6.49 (>= $5) بدون مبيعات",
+      "paused_at": "2026-10-17 18:46 GMT+3"
+    },
+    "4984a9d7-1012-4a8e-ab4a-6436a1e0391f": {
+      "name": "Copy of Copy of Copy of Copy of Copy of text 2 ",
+      "campaign": "car scaling new 2 text",
+      "reason": "[Copy Rule] صرفت $5.45 (>= $5) بدون مبيعات",
+      "paused_at": "2026-10-17 18:46 GMT+3"
     }
   },
   "ads": {
@@ -2498,6 +2510,41 @@
       "adsquad": "Copy of 16-10 1",
       "reason": "[Ad CPC Rule] صرف الفيديو $1.14 | النقرات: 4 | سعر النقرة CPC = $0.285 (> $0.28)",
       "paused_at": "2026-10-17 18:00 GMT+3"
+    },
+    "fba20037-e00d-407b-9404-02b61f16d8ff": {
+      "name": "Copy of 4",
+      "campaign": "car scaling camp ",
+      "adsquad": "Copy of Copy of Copy of Copy of Copy of Copy of 1.5 | 23.8",
+      "reason": "[Ad CPC Rule] صرف الفيديو $1.1 | النقرات: 1 | سعر النقرة CPC = $1.1 (> $0.28)",
+      "paused_at": "2026-10-17 18:46 GMT+3"
+    },
+    "ecbcfc4e-4fc8-462e-a539-596751ac7e89": {
+      "name": "5",
+      "campaign": "باور بانك وينر",
+      "adsquad": "16-10 2",
+      "reason": "[Saudi Single Video Stop-Loss] صرف الفيديو $6.06 (>= $6.00) بدون مبيعة",
+      "paused_at": "2026-10-17 18:46 GMT+3"
+    },
+    "82c3ac9e-c6f4-42a3-90af-15940fa760b1": {
+      "name": "Copy of Copy of Copy of Copy of Copy of 1",
+      "campaign": "car scaling camp ",
+      "adsquad": "Copy of Copy of 1.5 | 23.8",
+      "reason": "[Saudi Single Video Stop-Loss] صرف الفيديو $6.22 (>= $6.00) بدون مبيعة",
+      "paused_at": "2026-10-17 18:46 GMT+3"
+    },
+    "533e153d-fd9b-4572-b820-b3f9289729a5": {
+      "name": "Copy of Copy of Copy of Copy of Copy of 1",
+      "campaign": "car scaling camp ",
+      "adsquad": "Copy of Copy of 1.5 | 23.8",
+      "reason": "[Saudi Single Video Stop-Loss] صرف الفيديو $6.19 (>= $6.00) بدون مبيعة",
+      "paused_at": "2026-10-17 18:46 GMT+3"
+    },
+    "c82e36ed-2eef-4ceb-8763-7d8cd3d35eac": {
+      "name": "5_30-9_1",
+      "campaign": "باور بانك 16-10",
+      "adsquad": "17-10 2",
+      "reason": "[Ad CPC Rule] صرف الفيديو $1.13 | النقرات: 4 | سعر النقرة CPC = $0.282 (> $0.28)",
+      "paused_at": "2026-10-17 18:46 GMT+3"
     }
   },
   "tiktok_videos": {
@@ -3893,6 +3940,74 @@
       "spend_2d": 3.97,
       "conv_2d": 2,
       "paused_at": "2026-10-17T15:02:45.040808+00:00"
+    },
+    "7631763556322148369:1879155925019858:1879155925052545": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "ad_id": "1879155925019858",
+      "creative_id": "1879155925019890",
+      "campaign_ad_name": "power bank winner 16-10 A / power bank winner 16-10 A - Creative",
+      "video_name": "16-10_pb_winner_3.mp4",
+      "draft_ids": [
+        "1879155925052545"
+      ],
+      "reason": "Today Spend $1.16 >= $1.00 & CPC $0.39 > $0.35",
+      "spend_1d": 1.16,
+      "conv_1d": 0,
+      "spend_2d": 4.29,
+      "conv_2d": 0,
+      "paused_at": "2026-10-17T15:48:33.867532+00:00"
+    },
+    "7631765070816509959:1879246753691810:1879246753758225": {
+      "aadvid": "7631765070816509959",
+      "account_name": "ROELLINGER RECYCLING2",
+      "ad_id": "1879246753691810",
+      "creative_id": "1879246753752481",
+      "campaign_ad_name": "car armrest 16-10 (Hanan + Ola) / car armrest 16-10 (Hanan + Ola) - Creative",
+      "video_name": "16-10_ola_5.mp4",
+      "draft_ids": [
+        "1879246753758225"
+      ],
+      "reason": "Today Spend $6.57 > $6.00 with 0 sales | 2-Day Spend $6.57 > $6.00 with 0 sales",
+      "spend_1d": 6.57,
+      "conv_1d": 0,
+      "spend_2d": 6.57,
+      "conv_2d": 0,
+      "paused_at": "2026-10-17T15:48:42.853141+00:00"
+    },
+    "7631765070816509959:1879281776361841:1879281776424066": {
+      "aadvid": "7631765070816509959",
+      "account_name": "ROELLINGER RECYCLING2",
+      "ad_id": "1879281776361841",
+      "creative_id": "1879281776420306",
+      "campaign_ad_name": "watch broad tiktok scale 17-10 / watch broad tiktok scale 17-10 - Creative",
+      "video_name": "ساعة_(4)_BNo9p4lP.mp4",
+      "draft_ids": [
+        "1879281776424066"
+      ],
+      "reason": "Today Spend $1.34 >= $1.00 & CPC $0.45 > $0.35",
+      "spend_1d": 1.34,
+      "conv_1d": 1,
+      "spend_2d": 1.34,
+      "conv_2d": 1,
+      "paused_at": "2026-10-17T15:48:43.638179+00:00"
+    },
+    "7631765070816509959:1879281535915041:1879281540032641": {
+      "aadvid": "7631765070816509959",
+      "account_name": "ROELLINGER RECYCLING2",
+      "ad_id": "1879281535915041",
+      "creative_id": "1879281535928786",
+      "campaign_ad_name": "car armrest 15-10 winners scale 17-10 / car armrest 15-10 winners scale 17-10 - Creative",
+      "video_name": "15-10_video_10.mp4",
+      "draft_ids": [
+        "1879281540032641"
+      ],
+      "reason": "Today Spend $1.08 >= $1.00 & CPC $1.08 > $0.35",
+      "spend_1d": 1.08,
+      "conv_1d": 0,
+      "spend_2d": 1.08,
+      "conv_2d": 0,
+      "paused_at": "2026-10-17T15:48:44.355937+00:00"
     }
   },
   "tiktok_ads": {},
@@ -7886,7 +8001,7 @@
       "campaign": "باور بانك 16-10",
       "date": "2026-10-17",
       "count": 3,
-      "done": false,
+      "done": true,
       "old_bid": 2.5,
       "new_bid": 2.6,
       "last_bump_at": "2026-10-17T15:01:53.815610+00:00",
@@ -7981,7 +8096,7 @@
       "campaign": "باور بانك 16-10",
       "date": "2026-10-17",
       "count": 3,
-      "done": false,
+      "done": true,
       "old_bid": 2.7,
       "new_bid": 2.8,
       "last_bump_at": "2026-10-17T15:01:53.815610+00:00",
@@ -8053,23 +8168,23 @@
       "name": "Copy of 17-10 male winners",
       "campaign": "watch suis winners 17-10",
       "date": "2026-10-17",
-      "count": 2,
+      "count": 3,
       "done": false,
-      "old_bid": 1.95,
-      "new_bid": 2.05,
-      "last_bump_at": "2026-10-17T13:12:40.073079+00:00",
-      "last_bump_local": "2026-10-17 16:11 GMT+3"
+      "old_bid": 2.05,
+      "new_bid": 2.15,
+      "last_bump_at": "2026-10-17T15:47:46.933022+00:00",
+      "last_bump_local": "2026-10-17 18:46 GMT+3"
     },
     "20edd231-ed4c-4617-a42d-e8912fae009d": {
       "name": "Copy of 17-10 male winners",
       "campaign": "watch suis winners 17-10",
       "date": "2026-10-17",
-      "count": 2,
+      "count": 3,
       "done": false,
-      "old_bid": 1.95,
-      "new_bid": 2.05,
-      "last_bump_at": "2026-10-17T13:12:40.073079+00:00",
-      "last_bump_local": "2026-10-17 16:11 GMT+3"
+      "old_bid": 2.05,
+      "new_bid": 2.15,
+      "last_bump_at": "2026-10-17T15:47:46.933022+00:00",
+      "last_bump_local": "2026-10-17 18:46 GMT+3"
     },
     "277b8096-8d2e-478b-929c-76073da01902": {
       "name": "Copy of 17-10 male winners",
@@ -8086,63 +8201,63 @@
       "name": "Copy of 17-10 male winners",
       "campaign": "watch suis winners 17-10",
       "date": "2026-10-17",
-      "count": 2,
+      "count": 3,
       "done": false,
-      "old_bid": 1.95,
-      "new_bid": 2.05,
-      "last_bump_at": "2026-10-17T13:12:40.073079+00:00",
-      "last_bump_local": "2026-10-17 16:11 GMT+3"
+      "old_bid": 2.05,
+      "new_bid": 2.15,
+      "last_bump_at": "2026-10-17T15:47:46.933022+00:00",
+      "last_bump_local": "2026-10-17 18:46 GMT+3"
     },
     "3c5408c7-a1d5-40a7-89cf-6ac2b83e09e9": {
       "name": "Copy of 17-10 male winners",
       "campaign": "watch suis winners 17-10",
       "date": "2026-10-17",
-      "count": 2,
+      "count": 3,
       "done": false,
-      "old_bid": 1.95,
-      "new_bid": 2.05,
-      "last_bump_at": "2026-10-17T13:12:40.073079+00:00",
-      "last_bump_local": "2026-10-17 16:11 GMT+3"
+      "old_bid": 2.05,
+      "new_bid": 2.15,
+      "last_bump_at": "2026-10-17T15:47:46.933022+00:00",
+      "last_bump_local": "2026-10-17 18:46 GMT+3"
     },
     "5284d8b9-903d-44c9-9f06-12e32fcb5fcc": {
       "name": "Copy of 17-10 male winners",
       "campaign": "watch suis winners 17-10",
       "date": "2026-10-17",
-      "count": 2,
+      "count": 3,
       "done": false,
-      "old_bid": 1.95,
-      "new_bid": 2.05,
-      "last_bump_at": "2026-10-17T13:12:40.073079+00:00",
-      "last_bump_local": "2026-10-17 16:11 GMT+3"
+      "old_bid": 2.05,
+      "new_bid": 2.15,
+      "last_bump_at": "2026-10-17T15:47:46.933022+00:00",
+      "last_bump_local": "2026-10-17 18:46 GMT+3"
     },
     "56c04062-cec9-4184-ae84-7a11e5572962": {
       "name": "Copy of 17-10 male winners",
       "campaign": "watch suis winners 17-10",
       "date": "2026-10-17",
-      "count": 2,
+      "count": 3,
       "done": false,
-      "old_bid": 1.95,
-      "new_bid": 2.05,
-      "last_bump_at": "2026-10-17T13:12:40.073079+00:00",
-      "last_bump_local": "2026-10-17 16:11 GMT+3"
+      "old_bid": 2.05,
+      "new_bid": 2.15,
+      "last_bump_at": "2026-10-17T15:47:46.933022+00:00",
+      "last_bump_local": "2026-10-17 18:46 GMT+3"
     },
     "59fb729c-de86-44a8-8943-c89df2b512d0": {
       "name": "Copy of 17-10 male winners",
       "campaign": "watch suis winners 17-10",
       "date": "2026-10-17",
-      "count": 2,
+      "count": 3,
       "done": false,
-      "old_bid": 1.95,
-      "new_bid": 2.05,
-      "last_bump_at": "2026-10-17T13:12:40.073079+00:00",
-      "last_bump_local": "2026-10-17 16:11 GMT+3"
+      "old_bid": 2.05,
+      "new_bid": 2.15,
+      "last_bump_at": "2026-10-17T15:47:46.933022+00:00",
+      "last_bump_local": "2026-10-17 18:46 GMT+3"
     },
     "67bd7fb8-c144-41db-923f-216997e33553": {
       "name": "17-10 male winners",
       "campaign": "watch suis winners 17-10",
       "date": "2026-10-17",
       "count": 2,
-      "done": false,
+      "done": true,
       "old_bid": 1.95,
       "new_bid": 2.05,
       "last_bump_at": "2026-10-17T13:12:40.073079+00:00",
@@ -8163,45 +8278,45 @@
       "name": "Copy of 17-10 male winners",
       "campaign": "watch suis winners 17-10",
       "date": "2026-10-17",
-      "count": 2,
+      "count": 3,
       "done": false,
-      "old_bid": 1.95,
-      "new_bid": 2.05,
-      "last_bump_at": "2026-10-17T13:12:40.073079+00:00",
-      "last_bump_local": "2026-10-17 16:11 GMT+3"
+      "old_bid": 2.05,
+      "new_bid": 2.15,
+      "last_bump_at": "2026-10-17T15:47:46.933022+00:00",
+      "last_bump_local": "2026-10-17 18:46 GMT+3"
     },
     "a8289f8c-754e-4eb0-9e9c-161d0e5ba7fb": {
       "name": "Copy of 17-10 male winners",
       "campaign": "watch suis winners 17-10",
       "date": "2026-10-17",
-      "count": 2,
+      "count": 3,
       "done": false,
-      "old_bid": 1.95,
-      "new_bid": 2.05,
-      "last_bump_at": "2026-10-17T13:12:40.073079+00:00",
-      "last_bump_local": "2026-10-17 16:11 GMT+3"
+      "old_bid": 2.05,
+      "new_bid": 2.15,
+      "last_bump_at": "2026-10-17T15:47:46.933022+00:00",
+      "last_bump_local": "2026-10-17 18:46 GMT+3"
     },
     "cb2ca1fc-5bfe-4992-b970-36c85906a71d": {
       "name": "Copy of 17-10 male winners",
       "campaign": "watch suis winners 17-10",
       "date": "2026-10-17",
-      "count": 2,
+      "count": 3,
       "done": false,
-      "old_bid": 1.95,
-      "new_bid": 2.05,
-      "last_bump_at": "2026-10-17T13:12:40.073079+00:00",
-      "last_bump_local": "2026-10-17 16:11 GMT+3"
+      "old_bid": 2.05,
+      "new_bid": 2.15,
+      "last_bump_at": "2026-10-17T15:47:46.933022+00:00",
+      "last_bump_local": "2026-10-17 18:46 GMT+3"
     },
     "ed2ce282-dc53-46b0-82d0-e2037cf8436e": {
       "name": "Copy of 17-10 male winners",
       "campaign": "watch suis winners 17-10",
       "date": "2026-10-17",
-      "count": 2,
+      "count": 3,
       "done": false,
-      "old_bid": 1.95,
-      "new_bid": 2.05,
-      "last_bump_at": "2026-10-17T13:12:40.073079+00:00",
-      "last_bump_local": "2026-10-17 16:11 GMT+3"
+      "old_bid": 2.05,
+      "new_bid": 2.15,
+      "last_bump_at": "2026-10-17T15:47:46.933022+00:00",
+      "last_bump_local": "2026-10-17 18:46 GMT+3"
     },
     "bbefb29a-6d75-4a10-a24f-9b7fec7fa736": {
       "count": 0,
@@ -8395,6 +8510,18 @@
       "spend_2d": 21.35,
       "conv_2d": 1,
       "paused_at": "2026-10-17T15:02:27.734847+00:00"
+    },
+    "7631763556322148369:1879198152038513": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "campaign_id": "1879198152038513",
+      "campaign_name": "car armrest 15-10 test 2 (v3-v4-v7)",
+      "reason": "Campaign 2-Day CPA $21.00 >= $21.00 (Spend=$21.00, Sales=1)",
+      "spend_1d": 5.4,
+      "conv_1d": 0,
+      "spend_2d": 21.0,
+      "conv_2d": 1,
+      "paused_at": "2026-10-17T15:48:26.168752+00:00"
     }
   },
   "creative_media_map": {
