@@ -768,6 +768,18 @@
       "campaign": "باور بانك وينر",
       "reason": "[Copy Rule] صرفت $7.83 (>= $5) بدون مبيعات",
       "paused_at": "2026-10-18 22:42 GMT+3"
+    },
+    "8bac2355-1ab2-4ba0-b33e-54a7a7a5b3e5": {
+      "name": "Copy of Copy of Copy of Copy of 1.5 | 23.8",
+      "campaign": "car scaling camp ",
+      "reason": "[Copy Rule] صرفت $6.3 (>= $5) بدون مبيعات",
+      "paused_at": "2026-10-18 23:20 GMT+3"
+    },
+    "ecc20b5a-2cef-41fd-9a25-e8c3d37524a2": {
+      "name": "Copy of 18-10 حنان (5 فيديوهات)",
+      "campaign": "وسادة السيارة علا وحنان 18-10 (دفعة 13-10)",
+      "reason": "[Copy Rule] سعر البيعة CPA = $10.81 (>= $8) | الصرف: $10.81 | المبيعات: 1",
+      "paused_at": "2026-10-18 23:20 GMT+3"
     }
   },
   "ads": {
@@ -4140,6 +4152,27 @@
       "adsquad": "Copy of SA_Watch Target Cost Men 20+ | 2.8 Bid",
       "reason": "[Aggregated Video High CPA - السعودية] مجموع صرف الفيديو = $18.26 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $18.26 (>= $18.00)",
       "paused_at": "2026-10-18 22:42 GMT+3"
+    },
+    "3913b6f7-e22f-4333-879f-37362cbaf110": {
+      "name": "QA_Car_v8",
+      "campaign": "وسادة السيارة قطر 18-10",
+      "adsquad": "QA_Car Smart+ Broad | 2.6 Bid",
+      "reason": "[Ad CPC Rule] صرف الفيديو $1.05 | النقرات: 2 | سعر النقرة CPC = $0.525 (> $0.34)",
+      "paused_at": "2026-10-18 23:20 GMT+3"
+    },
+    "50c6132c-6db8-4c44-8e24-d0606332e9c6": {
+      "name": "Copy of Copy of Copy of Copy of Copy of 1",
+      "campaign": "car scaling camp ",
+      "adsquad": "Copy of Copy of Copy of Copy of 1.5 | 23.8",
+      "reason": "[Saudi Single Video Stop-Loss] صرف الفيديو $6.3 (>= $6.00) بدون مبيعة",
+      "paused_at": "2026-10-18 23:20 GMT+3"
+    },
+    "57dbfe62-e799-4009-9728-ce166a0632fe": {
+      "name": "QA_PB_v2",
+      "campaign": "باور بانك قطر 18-10",
+      "adsquad": "QA_PB Smart+ Broad | 2.6 Bid",
+      "reason": "[Ad CPC Rule] صرف الفيديو $1.27 | النقرات: 3 | سعر النقرة CPC = $0.423 (> $0.34)",
+      "paused_at": "2026-10-18 23:20 GMT+3"
     }
   },
   "tiktok_videos": {
