@@ -3826,12 +3826,19 @@
       "reason": "[Ad CPC Rule] صرف الفيديو $1.01 | النقرات: 3 | سعر النقرة CPC = $0.337 (> $0.28)",
       "paused_at": "2026-10-18 15:05 GMT+3"
     },
+    "3037d66c-27cc-4922-8ac5-29229441c865": {
+      "name": "Copy of Copy of Copy of Copy of Copy of Copy of 2",
+      "campaign": "car scaling new 2 text",
+      "adsquad": "Copy of Copy of Copy of Copy of Copy of text 2 ",
+      "reason": "[Saudi Single Video Stop-Loss] صرف الفيديو $6.04 (>= $6.00) بدون مبيعة",
+      "paused_at": "2026-10-18 15:48 GMT+3"
+    },
     "107dcad2-fade-4fb5-85d6-8cc71824da8e": {
       "name": "2_winner",
       "campaign": "watch suis winners 17-10",
       "adsquad": "Copy of 17-10 male winners",
-      "reason": "[Aggregated Video High CPA - السعودية] مجموع صرف الفيديو = $18.79 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $18.79 (>= $18.00)",
-      "paused_at": "2026-10-18 15:05 GMT+3"
+      "reason": "[Aggregated Video High CPA - السعودية] مجموع صرف الفيديو = $18.82 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $18.82 (>= $18.00)",
+      "paused_at": "2026-10-18 15:48 GMT+3"
     }
   },
   "tiktok_videos": {
@@ -11043,7 +11050,7 @@
       "campaign": "car scaling camp ",
       "date": "2026-10-18",
       "count": 1,
-      "done": false,
+      "done": true,
       "old_bid": 1.95,
       "new_bid": 2.05,
       "last_bump_at": "2026-10-18T12:09:32.726201+00:00",
@@ -11102,6 +11109,50 @@
       "new_bid": 2.1,
       "last_bump_at": "2026-10-18T12:09:32.726201+00:00",
       "last_bump_local": "2026-10-18 15:05 GMT+3"
+    },
+    "2c7f2bc6-cc68-4955-9108-74cc159115f8": {
+      "name": "SA_PB_Manzilk_Batch2 Smart+ Broad | 2.30 Bid",
+      "campaign": "smart+ power bank MANZILK WINNERS 2 SA 18-10",
+      "date": "2026-10-18",
+      "count": 1,
+      "done": false,
+      "old_bid": 3.0,
+      "new_bid": 3.1,
+      "last_bump_at": "2026-10-18T12:50:37.477307+00:00",
+      "last_bump_local": "2026-10-18 15:48 GMT+3"
+    },
+    "aa5352be-e7da-48a5-8116-5a23feadc992": {
+      "name": "SA_PB_Manzilk_Batch1 Smart+ Broad | 2.30 Bid",
+      "campaign": "smart+ power bank MANZILK WINNERS 2 SA 18-10",
+      "date": "2026-10-18",
+      "count": 1,
+      "done": false,
+      "old_bid": 3.0,
+      "new_bid": 3.1,
+      "last_bump_at": "2026-10-18T12:50:37.477307+00:00",
+      "last_bump_local": "2026-10-18 15:48 GMT+3"
+    },
+    "bc16871e-87be-40a3-a396-1d8566e5ab7b": {
+      "name": "Manzilk Batch 2 Winners 18-10 | 2.25 Bid",
+      "campaign": "باور بانك وينر",
+      "date": "2026-10-18",
+      "count": 1,
+      "done": false,
+      "old_bid": 2.25,
+      "new_bid": 2.35,
+      "last_bump_at": "2026-10-18T12:50:37.477307+00:00",
+      "last_bump_local": "2026-10-18 15:48 GMT+3"
+    },
+    "1233c51a-7c6b-4d15-adf3-87bd004710be": {
+      "name": "Copy of Copy of 1.5 | 23.8",
+      "campaign": "car scaling camp ",
+      "date": "2026-10-18",
+      "count": 1,
+      "done": false,
+      "old_bid": 2.15,
+      "new_bid": 2.25,
+      "last_bump_at": "2026-10-18T12:50:37.477307+00:00",
+      "last_bump_local": "2026-10-18 15:48 GMT+3"
     }
   },
   "tiktok_campaigns": {
@@ -11325,7 +11376,8 @@
     "b54dabd3-a9c3-4be3-89ac-9f6bef99e4ee": "40059fd2-dbf9-473c-8d78-5c99cba86bcb",
     "ead39a06-6de1-42fd-8a8c-f11e29c6fafe": "5abf9654-ba37-479d-baa6-50aa88b30868",
     "7b32f5ea-1fe2-4002-a9a9-cd8ba0d5c5d9": "77355ea6-a755-471d-8a41-1c181407a1c6",
-    "c0fb347d-a4ad-4714-99b6-6ebab84d81ba": "a8aec00d-60ef-402a-ac63-affd16d4f265"
+    "c0fb347d-a4ad-4714-99b6-6ebab84d81ba": "a8aec00d-60ef-402a-ac63-affd16d4f265",
+    "af68890a-120d-4589-bc46-7b9f45a22aad": "8370e43a-697d-4b4f-9b1a-0247212ae040"
   },
   "disabled_videos": {
     "3fd84a83-2854-4330-8e5f-b295e7945562:3a13e534-7b24-47eb-9ffd-0033629623c2": {
@@ -11367,10 +11419,10 @@
       "video_media_id": "7b6cde30-646a-4245-a28e-275a564c6d83",
       "sample_ad_name": "2_winner",
       "closed_instances": 1,
-      "total_spend": 18.79,
+      "total_spend": 18.82,
       "total_purchases": 1,
-      "reason": "[Aggregated Video High CPA - السعودية] مجموع صرف الفيديو = $18.79 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $18.79 (>= $18.00)",
-      "disabled_at": "2026-10-18 15:05 GMT+3"
+      "reason": "[Aggregated Video High CPA - السعودية] مجموع صرف الفيديو = $18.82 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $18.82 (>= $18.00)",
+      "disabled_at": "2026-10-18 15:48 GMT+3"
     }
   },
   "night_bid_reductions": {
