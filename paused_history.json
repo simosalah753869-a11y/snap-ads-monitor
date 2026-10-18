@@ -714,6 +714,12 @@
       "campaign": "car scaling camp ",
       "reason": "[Copy Rule] سعر البيعة CPA = $8.14 (>= $8) | الصرف: $8.14 | المبيعات: 1",
       "paused_at": "2026-10-18 12:04 GMT+3"
+    },
+    "4ce9e28c-2792-445b-b1bc-d0055498f801": {
+      "name": "Copy of Copy of 1.5 | 23.8",
+      "campaign": "car scaling camp ",
+      "reason": "[Copy Rule] صرفت $5.22 (>= $5) بدون مبيعات",
+      "paused_at": "2026-10-18 12:48 GMT+3"
     }
   },
   "ads": {
@@ -3786,19 +3792,12 @@
       "reason": "[Ad CPC Rule] صرف الفيديو $1.02 | النقرات: 1 | سعر النقرة CPC = $1.02 (> $0.28)",
       "paused_at": "2026-10-18 12:04 GMT+3"
     },
-    "6526e83a-aabd-4710-8e86-c8bf6c4aabc3": {
-      "name": "2",
-      "campaign": "باور بانك وينر",
-      "adsquad": "Copy of 16-10 1",
-      "reason": "[Ad CPC Rule] صرف الفيديو $1.45 | النقرات: 5 | سعر النقرة CPC = $0.29 (> $0.28)",
-      "paused_at": "2026-10-18 12:04 GMT+3"
-    },
     "107dcad2-fade-4fb5-85d6-8cc71824da8e": {
       "name": "2_winner",
       "campaign": "watch suis winners 17-10",
       "adsquad": "Copy of 17-10 male winners",
       "reason": "[Aggregated Video High CPA - السعودية] مجموع صرف الفيديو = $18.76 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $18.76 (>= $18.00)",
-      "paused_at": "2026-10-18 12:04 GMT+3"
+      "paused_at": "2026-10-18 12:48 GMT+3"
     }
   },
   "tiktok_videos": {
@@ -10866,12 +10865,12 @@
       "name": "Copy of Copy of 1.5 | 23.8",
       "campaign": "car scaling camp ",
       "date": "2026-10-18",
-      "count": 1,
+      "count": 2,
       "done": false,
-      "old_bid": 2.85,
-      "new_bid": 2.95,
-      "last_bump_at": "2026-10-18T07:49:22.972678+00:00",
-      "last_bump_local": "2026-10-18 10:48 GMT+3"
+      "old_bid": 3.05,
+      "new_bid": 3.15,
+      "last_bump_at": "2026-10-18T09:49:44.844394+00:00",
+      "last_bump_local": "2026-10-18 12:48 GMT+3"
     },
     "8e2aa25f-89a5-4153-bff1-1b56ca142de3": {
       "count": 0,
@@ -10900,6 +10899,31 @@
       "done": true,
       "name": "Copy of 16-10 1",
       "campaign": "باور بانك وينر"
+    },
+    "c35d7d54-7123-481a-afca-381f7b91cd4b": {
+      "count": 0,
+      "last_bump_at": null,
+      "done": true,
+      "name": "Copy of Copy of text 2 ",
+      "campaign": "car scaling new 2 text"
+    },
+    "abb37f38-c1ed-455d-9e48-cef4b1817e5e": {
+      "count": 0,
+      "last_bump_at": null,
+      "done": true,
+      "name": "Copy of 16-10 1",
+      "campaign": "باور بانك وينر"
+    },
+    "b5caa334-3fc9-4b4c-823a-aa0f8f995369": {
+      "name": "Copy of Copy of 1.5 | 23.8",
+      "campaign": "car scaling camp ",
+      "date": "2026-10-18",
+      "count": 1,
+      "done": false,
+      "old_bid": 2.95,
+      "new_bid": 3.05,
+      "last_bump_at": "2026-10-18T09:49:44.844394+00:00",
+      "last_bump_local": "2026-10-18 12:48 GMT+3"
     }
   },
   "tiktok_campaigns": {
@@ -11106,7 +11130,13 @@
     "13590d2a-9b94-4558-b14b-ff69824ba625": "742a6cdf-8ab7-4300-bc0d-6b056fc94ff1",
     "dd38129f-cdbc-468e-8e37-21603dc16712": "157600b5-6d6b-44e9-9bd0-7a19d687722f",
     "51cba2f7-01ba-4d7d-b855-ddf751558ff8": "05d1921b-5c99-4b2d-9102-082aec2e4fbc",
-    "c47a0d1c-4e43-40f0-8d94-6a4ba909da5d": "1d19a8bb-3f56-4256-8b48-7c2fc3f279a5"
+    "c47a0d1c-4e43-40f0-8d94-6a4ba909da5d": "1d19a8bb-3f56-4256-8b48-7c2fc3f279a5",
+    "a2be6df3-3a39-4047-9e70-88597a1e2e0e": "6994e762-fccf-45ab-bef7-b01a4dc19ac6",
+    "eaeee6b7-706c-4af4-984f-bbe8e0b79357": "57d68fe2-0cb4-435f-87f5-5dc950817fc8",
+    "d4bc54b3-2f93-4d37-9cd7-ad2133586cfb": "8dbfedc8-e3b2-4e45-a7a1-2859f07ea708",
+    "56b72824-89f0-4e7e-a8a1-bf311d6d344a": "9ec205c8-8788-43c0-8f6c-3683022e093a",
+    "26e22e6a-d541-4f6d-9c2b-1c175db95a67": "7d843f36-d331-45aa-93e9-16acce3d5b78",
+    "92a33dee-bc3b-46bf-b1f1-2153b2e00f5b": "e3347c37-126d-4ed2-a1e9-b5512108bea4"
   },
   "disabled_videos": {
     "3fd84a83-2854-4330-8e5f-b295e7945562:3a13e534-7b24-47eb-9ffd-0033629623c2": {
@@ -11151,7 +11181,7 @@
       "total_spend": 18.76,
       "total_purchases": 1,
       "reason": "[Aggregated Video High CPA - السعودية] مجموع صرف الفيديو = $18.76 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $18.76 (>= $18.00)",
-      "disabled_at": "2026-10-18 12:04 GMT+3"
+      "disabled_at": "2026-10-18 12:48 GMT+3"
     },
     "8703fd84-bad8-482e-adb5-da1e9c635d13:4341549d-96d6-4b35-aa45-285245718d6e": {
       "campaign_id": "8703fd84-bad8-482e-adb5-da1e9c635d13",
