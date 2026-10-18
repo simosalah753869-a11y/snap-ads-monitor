@@ -3933,27 +3933,6 @@
       "adsquad": "Copy of Copy of Copy of Copy of Copy of Copy of text 2 ",
       "reason": "[Ad CPC Rule] صرف الفيديو $1.34 | النقرات: 4 | سعر النقرة CPC = $0.335 (> $0.28)",
       "paused_at": "2026-10-18 20:41 GMT+3"
-    },
-    "b76b84d1-bea6-4de5-96fe-0c3842b17e00": {
-      "name": "KW_Car_v3",
-      "campaign": "وسادة السيارة الكويت 18-10",
-      "adsquad": "KW_Car Smart+ Broad | 2.8 Bid",
-      "reason": "[Aggregated Video High CPA - غير السعودية/الخليج] مجموع صرف الفيديو = $14.38 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $14.38 (>= $14.00)",
-      "paused_at": "2026-10-18 20:52 GMT+3"
-    },
-    "107dcad2-fade-4fb5-85d6-8cc71824da8e": {
-      "name": "2_winner",
-      "campaign": "watch suis winners 17-10",
-      "adsquad": "Copy of 17-10 male winners",
-      "reason": "[Aggregated Video High CPA - السعودية] مجموع صرف الفيديو = $18.94 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $18.94 (>= $18.00)",
-      "paused_at": "2026-10-18 20:52 GMT+3"
-    },
-    "c3e69763-d85a-43a7-a7e7-5af6b0420779": {
-      "name": "4",
-      "campaign": "باور بانك وينر",
-      "adsquad": "Copy of 16-10 1",
-      "reason": "[Aggregated Video High CPA - السعودية] مجموع صرف الفيديو = $18.22 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $18.22 (>= $18.00)",
-      "paused_at": "2026-10-18 20:52 GMT+3"
     }
   },
   "tiktok_videos": {
@@ -12827,29 +12806,7 @@
       "total_spend": 18.94,
       "total_purchases": 1,
       "reason": "[Aggregated Video High CPA - السعودية] مجموع صرف الفيديو = $18.94 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $18.94 (>= $18.00)",
-      "disabled_at": "2026-10-18 20:52 GMT+3"
-    },
-    "3fb9b26f-7705-4286-b371-4efcd904670c:22d7c271-05ae-4995-b9d5-b18c7c71a6f5": {
-      "campaign_id": "3fb9b26f-7705-4286-b371-4efcd904670c",
-      "campaign_name": "وسادة السيارة الكويت 18-10",
-      "video_media_id": "22d7c271-05ae-4995-b9d5-b18c7c71a6f5",
-      "sample_ad_name": "KW_Car_v3",
-      "closed_instances": 1,
-      "total_spend": 14.38,
-      "total_purchases": 1,
-      "reason": "[Aggregated Video High CPA - غير السعودية/الخليج] مجموع صرف الفيديو = $14.38 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $14.38 (>= $14.00)",
-      "disabled_at": "2026-10-18 20:52 GMT+3"
-    },
-    "e23e7c95-3f15-4945-9844-8bd73e2d79d3:04d7ae2c-e2c4-41ee-a5c9-1a6d3ace7f38": {
-      "campaign_id": "e23e7c95-3f15-4945-9844-8bd73e2d79d3",
-      "campaign_name": "باور بانك وينر",
-      "video_media_id": "04d7ae2c-e2c4-41ee-a5c9-1a6d3ace7f38",
-      "sample_ad_name": "4",
-      "closed_instances": 1,
-      "total_spend": 18.22,
-      "total_purchases": 1,
-      "reason": "[Aggregated Video High CPA - السعودية] مجموع صرف الفيديو = $18.22 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $18.22 (>= $18.00)",
-      "disabled_at": "2026-10-18 20:52 GMT+3"
+      "disabled_at": "2026-10-18 20:23 GMT+3"
     }
   },
   "night_bid_reductions": {
