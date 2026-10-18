@@ -741,11 +741,11 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
         print(f"✅ اكتمل فحص الفترة الليلية — إجمالي المجموعات التي تم تخفيض البيد لها هذه الليلة: {night_reduced_total} (وتم إيقاف رفع البيد ليلاً).")
         return
 
-    is_before_midday_window = (6 <= today_local.hour <= 13)
+    is_before_6pm_window = (6 <= today_local.hour < 18)
 
-    if is_before_midday_window:
+    if is_before_6pm_window:
         print(
-            f"\n⏱️ فحص زيادة البيد النهارية (قبل منتصف اليوم 06:00-13:59) للمجموعات النشطة التي صرفت أقل من $1.00 "
+            f"\n⏱️ فحص زيادة البيد النهارية (قبل 6:00 مساءً 06:00-17:59) للمجموعات النشطة التي صرفت أقل من $1.00 "
             f"(الجديدة: كل ساعتين حتى 5 مرات دائماً) "
             f"(عدد الحملات النشطة: {len(active_campaigns)})..."
         )
@@ -773,7 +773,7 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
 
                 today_spend = spend_by_squad.get(s_id, 0.0)
 
-                # (A) القاعدة الدائمة يومياً لأي AdSquad جديدة (خلال أول 24 ساعة من إنشائها، وقبل منتصف اليوم فقط):
+                # (A) القاعدة الدائمة يومياً لأي AdSquad جديدة (خلال أول 24 ساعة من إنشائها، وقبل 6:00 مساءً فقط):
                 #     زيادة +$0.10 كل ساعتين (2h) طالما الصرف < $1.00 بحد أقصى 5 مرات مدى الحياة.
                 bump_rec = history["bid_bumps"].get(s_id, {"count": 0, "last_bump_at": None})
                 last_bump_dt = parse_iso_utc(bump_rec.get("last_bump_at", ""))
@@ -837,16 +837,16 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
                     time.sleep(0.3)
     else:
         print(
-            f"\n⏸️ خارج فترة الزيادة الصباحية/منتصف اليوم (الساعة الآن {today_local.strftime('%H:%M')} GMT+3 > 13:59): "
-            f"تم إيقاف زيادات البيد والميزانية لتجنب الزيادة في آخر ساعات الـ 24 ساعة."
+            f"\n⏸️ بعد الساعة 6:00 مساءً (الساعة الآن {today_local.strftime('%H:%M')} GMT+3 >= 18:00): "
+            f"تم إيقاف زيادات البيد والميزانية لتجنب الزيادة ليلاً قرب انتهاء الـ 24 ساعة."
         )
 
     # 4. حارس حملات سمارت+ (Smart+ Spend Watchdog & Auto-Scaler) + استعادة البيد الصباحية:
     #    أ) استعادة البيد صباحاً (>= 6:00 ص) للمجموعات التي خُفّضت ليلاً حتى لا يموت صرفها نهاراً.
-    #    ب) إنعاش أي مجموعة داخل حملات سمارت+ (قبل منتصف اليوم فقط 06:00-13:59) إذا انعدم صرفها (< $1.50) أو توقف صرفها برفع البيد +$0.15 تلقائياً.
-    #    ج) زيادة الميزانية اليومية (+30%) تلقائياً (قبل منتصف اليوم فقط 06:00-13:59) لمجموعات سمارت+ الرابحة لمنع الزيادة الكبيرة بالليل قرب انتهاء الـ 24 ساعة.
+    #    ب) إنعاش أي مجموعة داخل حملات سمارت+ (قبل 6:00 مساءً فقط 06:00-17:59) إذا انعدم صرفها (< $1.50) أو توقف صرفها برفع البيد +$0.15 تلقائياً.
+    #    ج) زيادة الميزانية اليومية (+30%) تلقائياً (قبل 6:00 مساءً فقط 06:00-17:59) لمجموعات سمارت+ الرابحة لمنع الزيادة الكبيرة بالليل بعد 6 مساءً.
     history.setdefault("smart_spend_watchdog", {})
-    print(f"\n🛡️ فحص حارس حملات سمارت+ (استعادة البيد الصباحية + توسيع وإنعاش قبل منتصف اليوم فقط)...")
+    print(f"\n🛡️ فحص حارس حملات سمارت+ (استعادة البيد الصباحية + توسيع وإنعاش قبل 6:00 مساءً فقط)...")
     for c in active_campaigns:
         c_id = c["id"]
         c_name = c.get("name", "")
@@ -885,8 +885,8 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
                         except Exception:
                             pass
 
-            # يُمنع تماماً عمل أي زيادة كبيرة في الميزانية أو البيد بعد منتصف اليوم (بعد 13:59) لأن الـ 24 ساعة قاربت على الانتهاء
-            if not is_before_midday_window:
+            # يُمنع تماماً عمل أي زيادة في الميزانية أو البيد بعد الساعة 6:00 مساءً (>= 18:00) لأن الـ 24 ساعة قاربت على الانتهاء
+            if not is_before_6pm_window:
                 continue
 
             # التحقق مما إذا كانت المجموعة أو الحملة من نوع Smart+
@@ -913,7 +913,7 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
                 }
                 history["smart_spend_watchdog"][s_id] = w_rec
 
-            # (ج) التوسع التلقائي للميزانية اليومية (+30%) لمجموعات سمارت+ الرابحة (قبل منتصف اليوم فقط)
+            # (ج) التوسع التلقائي للميزانية اليومية (+30%) لمجموعات سمارت+ الرابحة (قبل 6:00 مساءً فقط)
             daily_budget = budget_micro / 1_000_000 if budget_micro > 0 else 30.0
             if (
                 not w_rec.get("scaled_budget_today")
@@ -931,13 +931,13 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
                         w_rec["scaled_budget_today"] = True
                         save_paused_history(history)
                         print(
-                            f"🚀 [توسيع تلقائي لميزانية سمارت+ الرابحة (قبل منتصف اليوم)] المجموعة '{s_name}' (حملة: '{c_name}') "
+                            f"🚀 [توسيع تلقائي لميزانية سمارت+ الرابحة (قبل 6 مساءً)] المجموعة '{s_name}' (حملة: '{c_name}') "
                             f"| المبيعات: {st_sq['purchases']} بـ CPA=${st_sq['cpa']} | الميزانية: ${daily_budget:.0f} -> ${new_budget_micro/1e6:.0f}"
                         )
                     except Exception:
                         pass
 
-            # (ب) إنعاش مجموعات سمارت+ إذا انعدم الصرف (< $1.50) أو توقف قبل منتصف اليوم (< $0.40 خلال ساعتين)
+            # (ب) إنعاش مجموعات سمارت+ إذا انعدم الصرف (< $1.50) أو توقف قبل 6:00 مساءً (< $0.40 خلال ساعتين)
             created_dt = parse_iso_utc(squad.get("created_at", ""))
             start_dt = parse_iso_utc(squad.get("start_time", ""))
             candidates = [dt for dt in (created_dt, start_dt) if dt is not None]
