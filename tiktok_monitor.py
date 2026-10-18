@@ -571,6 +571,40 @@ def main():
             map_1d[key] = m
 
         print(f"  Expanded Smart+ Videos found: {len(mats_2d)}")
+        # Count active videos per ad_id to prevent starving a Smart+ campaign to 0 active videos
+        active_videos_per_ad = {}
+        paused_candidates_per_ad = {}
+        for m_item in mats_2d:
+            k_item = f"{m_item.get('ad_id')}:{m_item.get('ad_material_draft_id')}:{m_item.get('main_entity_id')}"
+            m1_item = map_1d.get(k_item, {})
+            opt_st = str(m_item.get("mix_material_aco_opt_status") or m1_item.get("mix_material_aco_opt_status") or "0")
+            prim_st = str(m_item.get("material_primary_status") or m1_item.get("material_primary_status") or "")
+            aid_str = str(m_item.get("ad_id") or "")
+            if not aid_str:
+                continue
+            if opt_st == "0" and prim_st not in ("disable", "delete"):
+                active_videos_per_ad[aid_str] = active_videos_per_ad.get(aid_str, 0) + 1
+            else:
+                sp2_i = float(m_item.get("stat_cost") or 0.0)
+                cpc2_i = float(m_item.get("cpc") or 0.0)
+                if sp2_i < MAX_NO_SALE_SPEND:
+                    paused_candidates_per_ad.setdefault(aid_str, []).append((cpc2_i if cpc2_i > 0 else 9.9, sp2_i, m_item))
+
+        # Smart+ Starvation Auto-Recovery: if an active ad_id has 0 active videos left, re-enable its lowest-CPC video
+        for a_obj in active_ads:
+            aid_chk = str(a_obj.get("ad_id") or "")
+            if aid_chk and active_videos_per_ad.get(aid_chk, 0) == 0 and paused_candidates_per_ad.get(aid_chk):
+                paused_candidates_per_ad[aid_chk].sort(key=lambda x: (x[0], x[1]))
+                _, _, best_m = paused_candidates_per_ad[aid_chk][0]
+                ok_starve, _ = pause_smart_plus_video(session, headers, aadvid, aid_chk, best_m, operation="enable")
+                if ok_starve:
+                    active_videos_per_ad[aid_chk] = 1
+                    total_revived += 1
+                    print(
+                        f"    ⚡♻️ [SMART+ STARVATION RECOVERY] Re-enabled video '{best_m.get('main_entity_name')}' "
+                        f"in '{a_obj.get('campaign_name')}' because 0 active videos remained!"
+                    )
+
         for m2 in mats_2d:
             key = f"{m2.get('ad_id')}:{m2.get('ad_material_draft_id')}:{m2.get('main_entity_id')}"
             m1 = map_1d.get(key, {})
@@ -631,10 +665,15 @@ def main():
                 if hist_key in history["tiktok_videos"]:
                     print(f"    [SKIP - SECOND CHANCE] Already paused once before ({history['tiktok_videos'][hist_key].get('paused_at')}), user re-enabled it.")
                     continue
+                # Protect the LAST remaining active video in a Smart+ campaign from early CPC cut (< $4.50 spend) so campaign spend doesn't die
+                if active_videos_per_ad.get(ad_id, 1) <= 1 and spend_2d < 4.50 and conv_2d == 0:
+                    print(f"    🛡️ [SMART+ LAST-VIDEO PROTECTION] Keeping last active video '{vid_name}' in ad_id {ad_id} (Spend=${spend_2d:.2f} < $4.50) so Smart+ campaign does not stall!")
+                    continue
                 reason_str = " | ".join(reasons)
                 print(f"    [PAUSING VIDEO] Reason: {reason_str}")
                 ok, resp_txt = pause_smart_plus_video(session, headers, aadvid, ad_id, m2)
                 if ok:
+                    active_videos_per_ad[ad_id] = max(0, active_videos_per_ad.get(ad_id, 1) - 1)
                     print(f"    [SUCCESS] Paused video {draft_str} in ad_id {ad_id}")
                     history["tiktok_videos"][hist_key] = {
                         "aadvid": aadvid,
