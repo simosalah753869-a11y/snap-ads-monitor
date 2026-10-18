@@ -655,6 +655,11 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
                 if not bid_micro or bid_micro <= 0:
                     continue
 
+                # لا تخفّض البيد ليلاً للمجموعات المجدولة للبدء في المستقبل (مثل 7:00 صباحاً)
+                sq_start_dt = parse_iso_utc(squad.get("start_time", ""))
+                if sq_start_dt and sq_start_dt > now_utc:
+                    continue
+
                 night_key = f"{today_date_str}:{s_id}"
                 if night_key in history["night_bid_reductions"]:
                     continue
@@ -827,6 +832,179 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
                     f"| الصرف: ${today_spend} خلال {hrs_waited} ساعة | البيد: ${old_bid} -> ${new_bid}"
                 )
                 time.sleep(0.3)
+
+    # 4. حارس حملات سمارت+ (Smart+ Spend Watchdog & Auto-Scaler) + استعادة البيد الصباحية:
+    #    أ) استعادة البيد صباحاً (>= 6:00 ص) للمجموعات التي خُفّضت ليلاً حتى لا يموت صرفها نهاراً.
+    #    ب) إنعاش أي مجموعة داخل حملات سمارت+ إذا انعدم صرفها (< $1.50) أو توقف صرفها وسط النهار (أقل من $0.40 خلال ساعتين) برفع البيد +$0.15 تلقائياً (أو تحويلها من Target Cost إلى Max Bid إذا علقت).
+    #    ج) زيادة الميزانية اليومية (+30%) تلقائياً لمجموعات سمارت+ الرابحة (مبيعتان فأكثر بـ CPA <= $9.00 واستهلكت >= 60% من الميزانية) لمنع توقفها بسبب نفاد الميزانية.
+    history.setdefault("smart_spend_watchdog", {})
+    print(f"\n🛡️ فحص حارس حملات سمارت+ (إنعاش انعدام الصرف + توسيع الرابحين + استعادة البيد الصباحية)...")
+    for c in active_campaigns:
+        c_id = c["id"]
+        c_name = c.get("name", "")
+        c_squads = camp_squads_cache.get(c_id)
+        if c_squads is None:
+            sq_resp = api_get(f"/campaigns/{c_id}/adsquads", token)
+            c_squads = [sq_w.get("adsquad", {}) for sq_w in sq_resp.get("adsquads", []) if sq_w.get("adsquad")]
+
+        for squad in c_squads:
+            if not squad or squad.get("status") != "ACTIVE":
+                continue
+            s_id = squad["id"]
+            s_name = squad.get("name", "")
+            bid_micro = squad.get("bid_micro") or 0
+            budget_micro = squad.get("daily_budget_micro") or 0
+            today_spend = spend_by_squad.get(s_id, 0.0)
+            st_sq = squad_stats_map.get(s_id, {"spend": today_spend, "purchases": 0, "cpa": None})
+
+            # (أ) استعادة البيد الصباحية بعد الساعة 6:00 صباحاً للمجموعات المخفّضة ليلاً
+            night_key = f"{today_date_str}:{s_id}"
+            n_rec = history["night_bid_reductions"].get(night_key)
+            if n_rec and not n_rec.get("restored") and not n_rec.get("skipped_at_floor") and bid_micro > 0:
+                target_restore_micro = int(round(float(n_rec.get("old_bid", 2.15)) * 1_000_000))
+                if bid_micro < target_restore_micro:
+                    old_b = round(bid_micro / 1_000_000, 2)
+                    new_b = round(target_restore_micro / 1_000_000, 2)
+                    if not dry_run:
+                        squad["bid_micro"] = target_restore_micro
+                        try:
+                            api_put(f"/campaigns/{c_id}/adsquads", token, {"adsquads": [squad]})
+                            n_rec["restored"] = True
+                            n_rec["restored_at"] = now_str
+                            save_paused_history(history)
+                            bid_micro = target_restore_micro
+                            print(f"☀️ [استعادة البيد صباحاً] المجموعة '{s_name}' (حملة: '{c_name}'): ${old_b} -> ${new_b}")
+                        except Exception:
+                            pass
+
+            # التحقق مما إذا كانت المجموعة أو الحملة من نوع Smart+
+            is_smart_squad = (
+                "smart" in c_name.lower()
+                or "سمارت" in c_name
+                or "smart" in s_name.lower()
+                or "سمارت" in s_name
+            )
+            if not is_smart_squad:
+                continue
+
+            w_rec = history["smart_spend_watchdog"].get(s_id, {})
+            if w_rec.get("date") != today_date_str:
+                w_rec = {
+                    "date": today_date_str,
+                    "name": s_name,
+                    "campaign": c_name,
+                    "bumps_today": 0,
+                    "last_action_at": None,
+                    "last_spend": today_spend,
+                    "last_check_at": now_utc.isoformat(),
+                    "scaled_budget_today": False,
+                }
+                history["smart_spend_watchdog"][s_id] = w_rec
+
+            # (ج) التوسع التلقائي للميزانية اليومية (+30%) لمجموعات سمارت+ الرابحة قبل أن يتوقف صرفها
+            daily_budget = budget_micro / 1_000_000 if budget_micro > 0 else 30.0
+            if (
+                not w_rec.get("scaled_budget_today")
+                and st_sq.get("purchases", 0) >= 2
+                and st_sq.get("cpa") is not None
+                and st_sq["cpa"] <= 9.0
+                and today_spend >= (daily_budget * 0.60)
+                and daily_budget < 100.0
+            ):
+                new_budget_micro = min(100_000_000, int(round(budget_micro * 1.30)))
+                if not dry_run:
+                    squad["daily_budget_micro"] = new_budget_micro
+                    try:
+                        api_put(f"/campaigns/{c_id}/adsquads", token, {"adsquads": [squad]})
+                        w_rec["scaled_budget_today"] = True
+                        save_paused_history(history)
+                        print(
+                            f"🚀 [توسيع تلقائي لميزانية سمارت+ الرابحة] المجموعة '{s_name}' (حملة: '{c_name}') "
+                            f"| المبيعات: {st_sq['purchases']} بـ CPA=${st_sq['cpa']} | الميزانية: ${daily_budget:.0f} -> ${new_budget_micro/1e6:.0f}"
+                        )
+                    except Exception:
+                        pass
+
+            # (ب) إنعاش مجموعات سمارت+ إذا انعدم الصرف (< $1.50) أو توقف وسط النهار (< $0.40 خلال ساعتين)
+            created_dt = parse_iso_utc(squad.get("created_at", ""))
+            start_dt = parse_iso_utc(squad.get("start_time", ""))
+            candidates = [dt for dt in (created_dt, start_dt) if dt is not None]
+            effective_start = max(candidates) if candidates else (now_utc - timedelta(hours=3))
+            if (now_utc - effective_start) < timedelta(hours=1):
+                continue
+
+            last_act_dt = parse_iso_utc(w_rec.get("last_action_at", ""))
+            last_chk_dt = parse_iso_utc(w_rec.get("last_check_at", "")) or effective_start
+            spend_delta = today_spend - float(w_rec.get("last_spend", 0.0))
+            chk_elapsed = now_utc - last_chk_dt
+
+            # تحديث قراءة الصرف الدورية كل ساعتين
+            is_stalled_midday = (
+                today_local.hour >= 8
+                and chk_elapsed >= timedelta(hours=2)
+                and spend_delta < 0.40
+                and today_spend < (daily_budget * 0.70)
+            )
+            is_zero_or_low = (today_spend < 1.50)
+
+            if chk_elapsed >= timedelta(hours=2):
+                w_rec["last_spend"] = today_spend
+                w_rec["last_check_at"] = now_utc.isoformat()
+                save_paused_history(history)
+
+            if not (is_zero_or_low or is_stalled_midday):
+                continue
+
+            if last_act_dt and (now_utc - last_act_dt) < timedelta(hours=2):
+                continue
+            if int(w_rec.get("bumps_today", 0)) >= 4:
+                continue
+
+            is_tc = squad.get("bid_strategy") == "TARGET_COST" or squad.get("target_bid") is True
+            max_allowed_bid = 2_950_000 if is_tc else 2_650_000
+            min_floor_bid = 2_600_000 if is_tc else 2_150_000
+
+            # إذا كانت Target Cost وعلقت لأكثر من رفعتين مع صرف < $0.50، نحوّلها إلى Max Bid ($2.25) لتنطلق فوراً
+            if is_tc and int(w_rec.get("bumps_today", 0)) >= 2 and today_spend < 0.50:
+                if not dry_run:
+                    squad["target_bid"] = False
+                    squad["auto_bid"] = False
+                    squad["bid_strategy"] = "LOWEST_COST_WITH_MAX_BID"
+                    squad["bid_micro"] = 2_250_000
+                    try:
+                        api_put(f"/campaigns/{c_id}/adsquads", token, {"adsquads": [squad]})
+                        w_rec["bumps_today"] = int(w_rec.get("bumps_today", 0)) + 1
+                        w_rec["last_action_at"] = now_utc.isoformat()
+                        save_paused_history(history)
+                        print(
+                            f"⚡ [إنعاش سمارت+ المتوقفة] تحويل '{s_name}' (حملة: '{c_name}') من Target Cost إلى Max Bid ($2.25) لكسر جمود الصرف!"
+                        )
+                    except Exception:
+                        pass
+                continue
+
+            if bid_micro <= 0 or bid_micro >= max_allowed_bid:
+                continue
+
+            new_bid_micro = max(min_floor_bid, min(max_allowed_bid, bid_micro + 150_000))
+            if new_bid_micro <= bid_micro:
+                continue
+
+            old_b = round(bid_micro / 1_000_000, 2)
+            new_b = round(new_bid_micro / 1_000_000, 2)
+            if not dry_run:
+                squad["bid_micro"] = new_bid_micro
+                try:
+                    api_put(f"/campaigns/{c_id}/adsquads", token, {"adsquads": [squad]})
+                    w_rec["bumps_today"] = int(w_rec.get("bumps_today", 0)) + 1
+                    w_rec["last_action_at"] = now_utc.isoformat()
+                    save_paused_history(history)
+                    reason_lbl = "انعدام/ضعف الصرف (<$1.50)" if is_zero_or_low else f"توقف الصرف خلال ساعتين (+${spend_delta:.2f})"
+                    print(
+                        f"⚡ [إنعاش سمارت+] رفع البيد للمجموعة '{s_name}' (حملة: '{c_name}') بسبب {reason_lbl}: ${old_b} -> ${new_b}"
+                    )
+                except Exception:
+                    pass
 
 
 def recheck_gulf_adsquads(token: str):
