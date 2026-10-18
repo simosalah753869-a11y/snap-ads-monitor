@@ -6396,6 +6396,23 @@
       "spend_2d": 1.05,
       "conv_2d": 0,
       "paused_at": "2026-10-18T22:02:48.924937+00:00"
+    },
+    "7631765070816509959:1879390618196354:1879390622577714": {
+      "aadvid": "7631765070816509959",
+      "account_name": "ROELLINGER RECYCLING2",
+      "ad_id": "1879390618196354",
+      "creative_id": "1879390618200369",
+      "campaign_ad_name": "watch broad tiktok FAST SCALE 18-10 / Ad name2026-10-10 08:10:58",
+      "video_name": "ساعة_(4)_BNo9p4lP.mp4",
+      "draft_ids": [
+        "1879390622577714"
+      ],
+      "reason": "2-Day Spend $1.09 >= $1.00 & CPC $0.55 > $0.35",
+      "spend_1d": 0.09,
+      "conv_1d": 0,
+      "spend_2d": 1.09,
+      "conv_2d": 0,
+      "paused_at": "2026-10-18T23:21:04.620916+00:00"
     }
   },
   "tiktok_ads": {},
