@@ -654,6 +654,18 @@
       "campaign": "car scaling camp ",
       "reason": "[Copy Rule] صرفت $5.16 (>= $5) بدون مبيعات",
       "paused_at": "2026-10-18 07:24 GMT+3"
+    },
+    "be14ca17-ebfe-4458-8e41-b12542a6015c": {
+      "name": "Copy of Copy of 1.5 | 23.8",
+      "campaign": "car scaling camp ",
+      "reason": "[Copy Rule] صرفت $5.15 (>= $5) بدون مبيعات",
+      "paused_at": "2026-10-18 08:05 GMT+3"
+    },
+    "cedfd816-2a70-479e-ac35-12f213b98286": {
+      "name": "Copy of 16-10 1",
+      "campaign": "باور بانك وينر",
+      "reason": "[Copy Rule] صرفت $5.33 (>= $5) بدون مبيعات",
+      "paused_at": "2026-10-18 08:05 GMT+3"
     }
   },
   "ads": {
@@ -3654,7 +3666,7 @@
       "campaign": "watch suis winners 17-10",
       "adsquad": "Copy of 17-10 male winners",
       "reason": "[Aggregated Video High CPA - السعودية] مجموع صرف الفيديو = $18.76 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $18.76 (>= $18.00)",
-      "paused_at": "2026-10-18 07:24 GMT+3"
+      "paused_at": "2026-10-18 08:05 GMT+3"
     }
   },
   "tiktok_videos": {
@@ -5543,6 +5555,23 @@
       "spend_2d": 1.04,
       "conv_2d": 0,
       "paused_at": "2026-10-18T04:26:39.796046+00:00"
+    },
+    "7631763556322148369:1879232697466993:1879232708154514": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "ad_id": "1879232697466993",
+      "creative_id": "1879232697471649",
+      "campaign_ad_name": "power bank super winners 16-10 (3 vids) / power bank super winners 16-10 (3 vids) - Creative",
+      "video_name": "16-10_pb_winner_5.mp4",
+      "draft_ids": [
+        "1879232708154514"
+      ],
+      "reason": "2-Day Video CPA $10.18 >= $10.00 (Spend=$10.18, Sales=1) | Today Spend $2.11 >= $1.00 & CPC $0.42 > $0.35",
+      "spend_1d": 2.11,
+      "conv_1d": 0,
+      "spend_2d": 10.18,
+      "conv_2d": 1,
+      "paused_at": "2026-10-18T05:08:06.424227+00:00"
     }
   },
   "tiktok_ads": {},
@@ -9862,177 +9891,177 @@
       "name": "Copy of 16-10 2",
       "campaign": "باور بانك 16-10",
       "date": "2026-10-18",
-      "count": 3,
+      "count": 4,
       "done": false,
-      "old_bid": 2.6,
-      "new_bid": 2.7,
-      "last_bump_at": "2026-10-18T03:06:30.834452+00:00",
-      "last_bump_local": "2026-10-18 06:05 GMT+3"
+      "old_bid": 2.7,
+      "new_bid": 2.8,
+      "last_bump_at": "2026-10-18T05:07:08.054990+00:00",
+      "last_bump_local": "2026-10-18 08:05 GMT+3"
     },
     "329c631d-ab61-4737-a2ce-dd71fd96c572": {
       "name": "Copy of 16-10 2",
       "campaign": "باور بانك 16-10",
       "date": "2026-10-18",
-      "count": 3,
+      "count": 4,
       "done": false,
-      "old_bid": 2.6,
-      "new_bid": 2.7,
-      "last_bump_at": "2026-10-18T03:06:30.834452+00:00",
-      "last_bump_local": "2026-10-18 06:05 GMT+3"
+      "old_bid": 2.7,
+      "new_bid": 2.8,
+      "last_bump_at": "2026-10-18T05:07:08.054990+00:00",
+      "last_bump_local": "2026-10-18 08:05 GMT+3"
     },
     "48881471-987b-4f64-b9d6-b451252627f2": {
       "name": "Copy of 16-10 2",
       "campaign": "باور بانك 16-10",
       "date": "2026-10-18",
-      "count": 3,
+      "count": 4,
       "done": false,
-      "old_bid": 2.6,
-      "new_bid": 2.7,
-      "last_bump_at": "2026-10-18T03:06:30.834452+00:00",
-      "last_bump_local": "2026-10-18 06:05 GMT+3"
+      "old_bid": 2.7,
+      "new_bid": 2.8,
+      "last_bump_at": "2026-10-18T05:07:08.054990+00:00",
+      "last_bump_local": "2026-10-18 08:05 GMT+3"
     },
     "49346aa5-9f30-40d0-abbd-f9b48f413c47": {
       "name": "Copy of 16-10 2",
       "campaign": "باور بانك 16-10",
       "date": "2026-10-18",
-      "count": 3,
+      "count": 4,
       "done": false,
-      "old_bid": 2.6,
-      "new_bid": 2.7,
-      "last_bump_at": "2026-10-18T03:06:30.834452+00:00",
-      "last_bump_local": "2026-10-18 06:05 GMT+3"
+      "old_bid": 2.7,
+      "new_bid": 2.8,
+      "last_bump_at": "2026-10-18T05:07:08.054990+00:00",
+      "last_bump_local": "2026-10-18 08:05 GMT+3"
     },
     "68695e3b-91c2-4463-b1db-269954e1a5dc": {
       "name": "Copy of 16-10 2",
       "campaign": "باور بانك 16-10",
       "date": "2026-10-18",
-      "count": 3,
+      "count": 4,
       "done": false,
-      "old_bid": 2.6,
-      "new_bid": 2.7,
-      "last_bump_at": "2026-10-18T03:06:30.834452+00:00",
-      "last_bump_local": "2026-10-18 06:05 GMT+3"
+      "old_bid": 2.7,
+      "new_bid": 2.8,
+      "last_bump_at": "2026-10-18T05:07:08.054990+00:00",
+      "last_bump_local": "2026-10-18 08:05 GMT+3"
     },
     "84ccc53e-323a-41fb-85ec-b7b8514f84df": {
       "name": "Copy of 16-10 2",
       "campaign": "باور بانك 16-10",
       "date": "2026-10-18",
-      "count": 3,
+      "count": 4,
       "done": false,
-      "old_bid": 2.6,
-      "new_bid": 2.7,
-      "last_bump_at": "2026-10-18T03:06:30.834452+00:00",
-      "last_bump_local": "2026-10-18 06:05 GMT+3"
+      "old_bid": 2.7,
+      "new_bid": 2.8,
+      "last_bump_at": "2026-10-18T05:07:08.054990+00:00",
+      "last_bump_local": "2026-10-18 08:05 GMT+3"
     },
     "86e27939-f74b-4898-b0c9-be4451dfe337": {
       "name": "Copy of 16-10 2",
       "campaign": "باور بانك 16-10",
       "date": "2026-10-18",
-      "count": 3,
+      "count": 4,
       "done": false,
-      "old_bid": 2.6,
-      "new_bid": 2.7,
-      "last_bump_at": "2026-10-18T03:06:30.834452+00:00",
-      "last_bump_local": "2026-10-18 06:05 GMT+3"
+      "old_bid": 2.7,
+      "new_bid": 2.8,
+      "last_bump_at": "2026-10-18T05:07:08.054990+00:00",
+      "last_bump_local": "2026-10-18 08:05 GMT+3"
     },
     "86fc9d1a-7fd8-4e8a-afb2-3b41efe0cd1a": {
       "name": "Copy of 16-10 2",
       "campaign": "باور بانك 16-10",
       "date": "2026-10-18",
-      "count": 3,
+      "count": 4,
       "done": false,
-      "old_bid": 2.6,
-      "new_bid": 2.7,
-      "last_bump_at": "2026-10-18T03:06:30.834452+00:00",
-      "last_bump_local": "2026-10-18 06:05 GMT+3"
+      "old_bid": 2.7,
+      "new_bid": 2.8,
+      "last_bump_at": "2026-10-18T05:07:08.054990+00:00",
+      "last_bump_local": "2026-10-18 08:05 GMT+3"
     },
     "a7d5a035-b9f0-4f02-8547-9693f0d5367f": {
       "name": "Copy of 16-10 2",
       "campaign": "باور بانك 16-10",
       "date": "2026-10-18",
-      "count": 3,
+      "count": 4,
       "done": false,
-      "old_bid": 2.6,
-      "new_bid": 2.7,
-      "last_bump_at": "2026-10-18T03:06:30.834452+00:00",
-      "last_bump_local": "2026-10-18 06:05 GMT+3"
+      "old_bid": 2.7,
+      "new_bid": 2.8,
+      "last_bump_at": "2026-10-18T05:07:08.054990+00:00",
+      "last_bump_local": "2026-10-18 08:05 GMT+3"
     },
     "a7db5766-0600-4536-957f-b8f220a881c2": {
       "name": "Copy of 16-10 2",
       "campaign": "باور بانك 16-10",
       "date": "2026-10-18",
-      "count": 3,
+      "count": 4,
       "done": false,
-      "old_bid": 2.6,
-      "new_bid": 2.7,
-      "last_bump_at": "2026-10-18T03:06:30.834452+00:00",
-      "last_bump_local": "2026-10-18 06:05 GMT+3"
+      "old_bid": 2.7,
+      "new_bid": 2.8,
+      "last_bump_at": "2026-10-18T05:07:08.054990+00:00",
+      "last_bump_local": "2026-10-18 08:05 GMT+3"
     },
     "b070d703-c3a3-4f25-b9d0-b3ecb8dd56a9": {
       "name": "Copy of 16-10 2",
       "campaign": "باور بانك 16-10",
       "date": "2026-10-18",
-      "count": 3,
+      "count": 4,
       "done": false,
-      "old_bid": 2.6,
-      "new_bid": 2.7,
-      "last_bump_at": "2026-10-18T03:06:30.834452+00:00",
-      "last_bump_local": "2026-10-18 06:05 GMT+3"
+      "old_bid": 2.7,
+      "new_bid": 2.8,
+      "last_bump_at": "2026-10-18T05:07:08.054990+00:00",
+      "last_bump_local": "2026-10-18 08:05 GMT+3"
     },
     "bf9a89bf-6078-4aa2-a8b2-449216959128": {
       "name": "Copy of 16-10 2",
       "campaign": "باور بانك 16-10",
       "date": "2026-10-18",
-      "count": 3,
+      "count": 4,
       "done": false,
-      "old_bid": 2.6,
-      "new_bid": 2.7,
-      "last_bump_at": "2026-10-18T03:06:30.834452+00:00",
-      "last_bump_local": "2026-10-18 06:05 GMT+3"
+      "old_bid": 2.7,
+      "new_bid": 2.8,
+      "last_bump_at": "2026-10-18T05:07:08.054990+00:00",
+      "last_bump_local": "2026-10-18 08:05 GMT+3"
     },
     "ce0c9481-c8e8-4093-97d6-7909b7acdc47": {
       "name": "Copy of 16-10 2",
       "campaign": "باور بانك 16-10",
       "date": "2026-10-18",
-      "count": 3,
+      "count": 4,
       "done": false,
-      "old_bid": 2.6,
-      "new_bid": 2.7,
-      "last_bump_at": "2026-10-18T03:06:30.834452+00:00",
-      "last_bump_local": "2026-10-18 06:05 GMT+3"
+      "old_bid": 2.7,
+      "new_bid": 2.8,
+      "last_bump_at": "2026-10-18T05:07:08.054990+00:00",
+      "last_bump_local": "2026-10-18 08:05 GMT+3"
     },
     "cf05151e-0f0b-4e98-8aa0-037bb0c38ce9": {
       "name": "Copy of 16-10 2",
       "campaign": "باور بانك 16-10",
       "date": "2026-10-18",
-      "count": 3,
+      "count": 4,
       "done": false,
-      "old_bid": 2.6,
-      "new_bid": 2.7,
-      "last_bump_at": "2026-10-18T03:06:30.834452+00:00",
-      "last_bump_local": "2026-10-18 06:05 GMT+3"
+      "old_bid": 2.7,
+      "new_bid": 2.8,
+      "last_bump_at": "2026-10-18T05:07:08.054990+00:00",
+      "last_bump_local": "2026-10-18 08:05 GMT+3"
     },
     "d7283731-a021-43ce-8e75-ff80db964c58": {
       "name": "Copy of 16-10 2",
       "campaign": "باور بانك 16-10",
       "date": "2026-10-18",
-      "count": 3,
+      "count": 4,
       "done": false,
-      "old_bid": 2.6,
-      "new_bid": 2.7,
-      "last_bump_at": "2026-10-18T03:06:30.834452+00:00",
-      "last_bump_local": "2026-10-18 06:05 GMT+3"
+      "old_bid": 2.7,
+      "new_bid": 2.8,
+      "last_bump_at": "2026-10-18T05:07:08.054990+00:00",
+      "last_bump_local": "2026-10-18 08:05 GMT+3"
     },
     "fda88894-3359-43ef-baeb-23d68537d046": {
       "name": "Copy of 16-10 2",
       "campaign": "باور بانك 16-10",
       "date": "2026-10-18",
-      "count": 3,
+      "count": 4,
       "done": false,
-      "old_bid": 2.6,
-      "new_bid": 2.7,
-      "last_bump_at": "2026-10-18T03:06:30.834452+00:00",
-      "last_bump_local": "2026-10-18 06:05 GMT+3"
+      "old_bid": 2.7,
+      "new_bid": 2.8,
+      "last_bump_at": "2026-10-18T05:07:08.054990+00:00",
+      "last_bump_local": "2026-10-18 08:05 GMT+3"
     },
     "42958a42-1da5-43d9-97c2-68057391fbfc": {
       "count": 0,
@@ -10190,12 +10219,12 @@
       "name": "Copy of Copy of 1.5 | 23.8",
       "campaign": "car scaling camp ",
       "date": "2026-10-18",
-      "count": 2,
+      "count": 3,
       "done": false,
-      "old_bid": 2.85,
-      "new_bid": 2.95,
-      "last_bump_at": "2026-10-18T03:06:30.834452+00:00",
-      "last_bump_local": "2026-10-18 06:05 GMT+3"
+      "old_bid": 2.95,
+      "new_bid": 3.05,
+      "last_bump_at": "2026-10-18T05:07:08.054990+00:00",
+      "last_bump_local": "2026-10-18 08:05 GMT+3"
     },
     "1077a4d0-77bc-4de1-8b42-d5915493fcda": {
       "count": 0,
@@ -10252,12 +10281,12 @@
       "name": "Copy of Copy of 1.5 | 23.8",
       "campaign": "car scaling camp ",
       "date": "2026-10-18",
-      "count": 2,
+      "count": 3,
       "done": false,
-      "old_bid": 2.85,
-      "new_bid": 2.95,
-      "last_bump_at": "2026-10-18T03:06:30.834452+00:00",
-      "last_bump_local": "2026-10-18 06:05 GMT+3"
+      "old_bid": 2.95,
+      "new_bid": 3.05,
+      "last_bump_at": "2026-10-18T05:07:08.054990+00:00",
+      "last_bump_local": "2026-10-18 08:05 GMT+3"
     },
     "09bdf129-01c1-414a-9382-994add5380b5": {
       "name": "Copy of Copy of 1.5 | 23.8",
@@ -10304,6 +10333,13 @@
       "done": true,
       "name": "Copy of Copy of 1.5 | 23.8",
       "campaign": "car scaling camp "
+    },
+    "e6da3055-e3cf-4a00-9939-9da49a05c95c": {
+      "count": 0,
+      "last_bump_at": null,
+      "done": true,
+      "name": "KW_Car Smart+ Broad | 2.8 Bid",
+      "campaign": "وسادة السيارة الكويت 18-10"
     }
   },
   "tiktok_campaigns": {
@@ -10473,7 +10509,26 @@
     "ff3f7e46-62f4-4d24-813a-935756ed42c8": "264ef03c-57c4-4e7a-a653-d2aaa1246454",
     "d88ac4f5-d650-4ee1-97e3-b7d55891d021": "153b0cd6-ef68-4366-8490-9cfcee874601",
     "f4981feb-989c-42c2-b1e9-df026fad6162": "08e86a33-6d7c-4f4a-8e4f-23b7b49072ff",
-    "0d74393d-81ae-40b9-9056-700922881ab9": "986c61b3-38cf-42d9-a8e2-28eff82d1f7d"
+    "0d74393d-81ae-40b9-9056-700922881ab9": "986c61b3-38cf-42d9-a8e2-28eff82d1f7d",
+    "d389ba92-b0e4-4690-bf49-5ec0546afb31": "c794a530-d468-4896-8b0a-ad7775f180a5",
+    "bf410e28-f73a-4037-89e2-f7d8a0cfdb36": "a5a8ab21-3b00-4ba2-99f8-f866a15b59e1",
+    "d5ee5a4b-d261-45b1-a3a6-1fc22bba3ff2": "3bcd9ff7-ec46-4884-9c93-cd1a04ae60a0",
+    "4ff4f808-8a75-4168-a43f-c3a3c877b490": "986c61b3-38cf-42d9-a8e2-28eff82d1f7d",
+    "314753d8-d106-4cfb-8e22-808bc3befabc": "cfe4d2e7-1414-4c60-aaaa-9752872147b5",
+    "efbb2917-702f-4248-8578-2ada3f4ee2e5": "e6218bf1-3956-4b15-a30f-f39a92528ec9",
+    "e22b257f-e8cd-40c7-93be-040739b85c25": "b5b897f6-9df6-46d6-aac2-55c809257f67",
+    "9b03a198-fe10-42cd-b3c1-7641fb096060": "81d72ecc-1235-49bf-a5c1-451051efa0b2",
+    "c7aaad21-ea9f-4409-b41c-6cd933fac557": "e38f3c01-88a2-46b3-a1e8-09d97b3feb35",
+    "7424c987-ab12-4a11-8954-f7157d3f5c57": "89aba96a-6aa7-4a63-9819-0daca54a74e4",
+    "e6de1f3e-1694-4b7c-9a58-197cfff5a5cf": "986c61b3-38cf-42d9-a8e2-28eff82d1f7d",
+    "9510ac5d-c85f-4fbd-b62d-802959552add": "0f6a2dd9-9955-41ac-a2e9-21cf7f5eebc6",
+    "1ed2a1cd-c7c0-4ab2-b12e-29af8e8913f3": "153b0cd6-ef68-4366-8490-9cfcee874601",
+    "d96e9124-08dc-42fc-8edd-fc14a09b8405": "3bcd9ff7-ec46-4884-9c93-cd1a04ae60a0",
+    "37ebc4cf-3d34-44b5-a46f-ad42e572970f": "cfe4d2e7-1414-4c60-aaaa-9752872147b5",
+    "e3543acb-5228-4b09-b882-04c0df71bfaf": "0f6a2dd9-9955-41ac-a2e9-21cf7f5eebc6",
+    "0024ed2c-19ae-4309-b4d5-15280d76d21b": "e01e0b63-0f9d-4ae8-8b77-2170e5c4fa3d",
+    "0773fb6a-ba97-4039-9ef5-a20fc1b4ecf2": "cfe4d2e7-1414-4c60-aaaa-9752872147b5",
+    "be66da9b-f5fa-4b4b-88a6-6a986cd5217e": "3bcd9ff7-ec46-4884-9c93-cd1a04ae60a0"
   },
   "disabled_videos": {
     "3fd84a83-2854-4330-8e5f-b295e7945562:3a13e534-7b24-47eb-9ffd-0033629623c2": {
@@ -10518,7 +10573,7 @@
       "total_spend": 18.76,
       "total_purchases": 1,
       "reason": "[Aggregated Video High CPA - السعودية] مجموع صرف الفيديو = $18.76 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $18.76 (>= $18.00)",
-      "disabled_at": "2026-10-18 07:24 GMT+3"
+      "disabled_at": "2026-10-18 08:05 GMT+3"
     },
     "8703fd84-bad8-482e-adb5-da1e9c635d13:4341549d-96d6-4b35-aa45-285245718d6e": {
       "campaign_id": "8703fd84-bad8-482e-adb5-da1e9c635d13",
