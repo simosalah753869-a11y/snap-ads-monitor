@@ -6345,6 +6345,57 @@
       "spend_2d": 1.02,
       "conv_2d": 0,
       "paused_at": "2026-10-18T20:51:23.909205+00:00"
+    },
+    "7631763556322148369:1879155925019858:1879155925051425": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "ad_id": "1879155925019858",
+      "creative_id": "1879155925019890",
+      "campaign_ad_name": "power bank winner 16-10 A / power bank winner 16-10 A - Creative",
+      "video_name": "16-10_pb_winner_1.mp4",
+      "draft_ids": [
+        "1879155925051425"
+      ],
+      "reason": "2-Day Spend $7.43 > $6.00 with 0 sales",
+      "spend_1d": 0.0,
+      "conv_1d": 0,
+      "spend_2d": 7.43,
+      "conv_2d": 0,
+      "paused_at": "2026-10-18T22:02:40.080827+00:00"
+    },
+    "7631765070816509959:1878928548528418:1878928684917345": {
+      "aadvid": "7631765070816509959",
+      "account_name": "ROELLINGER RECYCLING2",
+      "ad_id": "1878928548528418",
+      "creative_id": "1878928548528434",
+      "campaign_ad_name": "watch broad tiktok / Ad name2026-10-10 08:10:58",
+      "video_name": "10_10.mov",
+      "draft_ids": [
+        "1878928684917345"
+      ],
+      "reason": "2-Day Spend $11.00 > $6.00 with 0 sales",
+      "spend_1d": 0.0,
+      "conv_1d": 0,
+      "spend_2d": 11.0,
+      "conv_2d": 0,
+      "paused_at": "2026-10-18T22:02:48.336650+00:00"
+    },
+    "7631765070816509959:1879390618196354:1879390622577666": {
+      "aadvid": "7631765070816509959",
+      "account_name": "ROELLINGER RECYCLING2",
+      "ad_id": "1879390618196354",
+      "creative_id": "1879390618200369",
+      "campaign_ad_name": "watch broad tiktok FAST SCALE 18-10 / Ad name2026-10-10 08:10:58",
+      "video_name": "16_9.mp4",
+      "draft_ids": [
+        "1879390622577666"
+      ],
+      "reason": "2-Day Spend $1.05 >= $1.00 & CPC $1.05 > $0.35",
+      "spend_1d": 0.0,
+      "conv_1d": 0,
+      "spend_2d": 1.05,
+      "conv_2d": 0,
+      "paused_at": "2026-10-18T22:02:48.924937+00:00"
     }
   },
   "tiktok_ads": {},
@@ -12872,18 +12923,6 @@
       "name": "Copy 1 of car armrest leads  13-10",
       "paused_at": "2026-10-17T06:00:00Z",
       "note": "Re-enabled for second chance scaling"
-    },
-    "7631763556322148369:1879234140913218": {
-      "aadvid": "7631763556322148369",
-      "account_name": "ROELLINGER RECYCLING",
-      "campaign_id": "1879234140913218",
-      "campaign_name": "power bank 17-10 B",
-      "reason": "Campaign 2-Day CPA $21.84 >= $21.00 (Spend=$21.84, Sales=1)",
-      "spend_1d": 14.6,
-      "conv_1d": 1,
-      "spend_2d": 21.84,
-      "conv_2d": 1,
-      "paused_at": "2026-10-18T13:49:09.404989+00:00"
     },
     "7631765070816509959:1879234274020497": {
       "aadvid": "7631765070816509959",
