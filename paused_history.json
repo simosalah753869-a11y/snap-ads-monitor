@@ -642,6 +642,12 @@
       "campaign": "car scaling camp ",
       "reason": "[Copy Rule] سعر البيعة CPA = $15.11 (>= $8) | الصرف: $15.11 | المبيعات: 1",
       "paused_at": "2026-10-17 23:21 GMT+3"
+    },
+    "09bdf129-01c1-414a-9382-994add5380b5": {
+      "name": "Copy of Copy of 1.5 | 23.8",
+      "campaign": "car scaling camp ",
+      "reason": "[Copy Rule] صرفت $5.04 (>= $5) بدون مبيعات",
+      "paused_at": "2026-10-18 06:52 GMT+3"
     }
   },
   "ads": {
@@ -3497,12 +3503,152 @@
       "reason": "[Ad CPC Rule] صرف الفيديو $1.14 | النقرات: 4 | سعر النقرة CPC = $0.285 (> $0.28)",
       "paused_at": "2026-10-18 04:49 GMT+3"
     },
+    "1877cafc-3189-483d-a468-00bb292d4aaa": {
+      "name": "4",
+      "campaign": "car scaling camp ",
+      "adsquad": "Copy of Copy of 1.5 | 23.8",
+      "reason": "[Ad CPC Rule] صرف الفيديو $1.24 | النقرات: 1 | سعر النقرة CPC = $1.24 (> $0.28)",
+      "paused_at": "2026-10-18 06:52 GMT+3"
+    },
     "107dcad2-fade-4fb5-85d6-8cc71824da8e": {
       "name": "2_winner",
       "campaign": "watch suis winners 17-10",
       "adsquad": "Copy of 17-10 male winners",
-      "reason": "[Aggregated Video High CPA - السعودية] مجموع صرف الفيديو = $18.10 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $18.10 (>= $18.00)",
-      "paused_at": "2026-10-18 06:05 GMT+3"
+      "reason": "[Aggregated Video High CPA - السعودية] مجموع صرف الفيديو = $18.76 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $18.76 (>= $18.00)",
+      "paused_at": "2026-10-18 06:52 GMT+3"
+    },
+    "13e7aa59-4fdf-4700-a755-e7b8c782c6e6": {
+      "name": "3_winner",
+      "campaign": "watch suis winners 17-10",
+      "adsquad": "Copy of 17-10 male winners",
+      "reason": "[Aggregated Video Stop-Loss - السعودية] مجموع صرف الفيديو عبر كل الـ AdSquads = $15.70 (>= $15.00) بدون أي مبيعة",
+      "paused_at": "2026-10-18 06:52 GMT+3"
+    },
+    "1ed6db01-6fe2-4f96-95de-af16d848dff3": {
+      "name": "3_winner",
+      "campaign": "watch suis winners 17-10",
+      "adsquad": "Copy of 17-10 male winners",
+      "reason": "[Aggregated Video Stop-Loss - السعودية] مجموع صرف الفيديو عبر كل الـ AdSquads = $15.70 (>= $15.00) بدون أي مبيعة",
+      "paused_at": "2026-10-18 06:52 GMT+3"
+    },
+    "41e001fa-1246-434b-9935-8c85eac760e3": {
+      "name": "3_winner",
+      "campaign": "watch suis winners 17-10",
+      "adsquad": "Copy of 17-10 male winners",
+      "reason": "[Aggregated Video Stop-Loss - السعودية] مجموع صرف الفيديو عبر كل الـ AdSquads = $15.70 (>= $15.00) بدون أي مبيعة",
+      "paused_at": "2026-10-18 06:52 GMT+3"
+    },
+    "4d446412-6fb6-46e0-82f1-f2ad02a56725": {
+      "name": "3_winner",
+      "campaign": "watch suis winners 17-10",
+      "adsquad": "Copy of 17-10 male winners",
+      "reason": "[Aggregated Video Stop-Loss - السعودية] مجموع صرف الفيديو عبر كل الـ AdSquads = $15.70 (>= $15.00) بدون أي مبيعة",
+      "paused_at": "2026-10-18 06:52 GMT+3"
+    },
+    "4f4f865e-eaff-4143-87a8-ec93d0bdddc1": {
+      "name": "3_winner",
+      "campaign": "watch suis winners 17-10",
+      "adsquad": "17-10 male winners",
+      "reason": "[Aggregated Video Stop-Loss - السعودية] مجموع صرف الفيديو عبر كل الـ AdSquads = $15.70 (>= $15.00) بدون أي مبيعة",
+      "paused_at": "2026-10-18 06:52 GMT+3"
+    },
+    "54fcfdb4-2c80-487d-bab0-6d07d86a045b": {
+      "name": "3_winner",
+      "campaign": "watch suis winners 17-10",
+      "adsquad": "Copy of 17-10 male winners",
+      "reason": "[Aggregated Video Stop-Loss - السعودية] مجموع صرف الفيديو عبر كل الـ AdSquads = $15.70 (>= $15.00) بدون أي مبيعة",
+      "paused_at": "2026-10-18 06:52 GMT+3"
+    },
+    "5f4071d9-1374-492d-9d6e-5c3492a239b3": {
+      "name": "3_winner",
+      "campaign": "watch suis winners 17-10",
+      "adsquad": "Copy of 17-10 male winners",
+      "reason": "[Aggregated Video Stop-Loss - السعودية] مجموع صرف الفيديو عبر كل الـ AdSquads = $15.70 (>= $15.00) بدون أي مبيعة",
+      "paused_at": "2026-10-18 06:52 GMT+3"
+    },
+    "651a7ea5-87e4-4c2c-a9dd-4b4ff121928c": {
+      "name": "3_winner",
+      "campaign": "watch suis winners 17-10",
+      "adsquad": "Copy of 17-10 male winners",
+      "reason": "[Aggregated Video Stop-Loss - السعودية] مجموع صرف الفيديو عبر كل الـ AdSquads = $15.70 (>= $15.00) بدون أي مبيعة",
+      "paused_at": "2026-10-18 06:52 GMT+3"
+    },
+    "73817c3d-215d-4a7d-b3a7-6943d644f9f7": {
+      "name": "3_winner",
+      "campaign": "watch suis winners 17-10",
+      "adsquad": "Copy of 17-10 male winners",
+      "reason": "[Aggregated Video Stop-Loss - السعودية] مجموع صرف الفيديو عبر كل الـ AdSquads = $15.70 (>= $15.00) بدون أي مبيعة",
+      "paused_at": "2026-10-18 06:52 GMT+3"
+    },
+    "96b586f5-2dd0-4600-aa34-1145619afebb": {
+      "name": "3_winner",
+      "campaign": "watch suis winners 17-10",
+      "adsquad": "Copy of 17-10 male winners",
+      "reason": "[Aggregated Video Stop-Loss - السعودية] مجموع صرف الفيديو عبر كل الـ AdSquads = $15.70 (>= $15.00) بدون أي مبيعة",
+      "paused_at": "2026-10-18 06:52 GMT+3"
+    },
+    "97bdd4de-7b05-4f87-923c-787b72964a74": {
+      "name": "3_winner",
+      "campaign": "watch suis winners 17-10",
+      "adsquad": "Copy of 17-10 male winners",
+      "reason": "[Aggregated Video Stop-Loss - السعودية] مجموع صرف الفيديو عبر كل الـ AdSquads = $15.70 (>= $15.00) بدون أي مبيعة",
+      "paused_at": "2026-10-18 06:52 GMT+3"
+    },
+    "98ddf751-6123-4ab5-8e6f-d56ebc8910e4": {
+      "name": "3_winner",
+      "campaign": "watch suis winners 17-10",
+      "adsquad": "Copy of 17-10 male winners",
+      "reason": "[Aggregated Video Stop-Loss - السعودية] مجموع صرف الفيديو عبر كل الـ AdSquads = $15.70 (>= $15.00) بدون أي مبيعة",
+      "paused_at": "2026-10-18 06:52 GMT+3"
+    },
+    "a0332a5a-9a96-42f2-a607-b095b0997e9d": {
+      "name": "3_winner",
+      "campaign": "watch suis winners 17-10",
+      "adsquad": "Copy of 17-10 male winners",
+      "reason": "[Aggregated Video Stop-Loss - السعودية] مجموع صرف الفيديو عبر كل الـ AdSquads = $15.70 (>= $15.00) بدون أي مبيعة",
+      "paused_at": "2026-10-18 06:52 GMT+3"
+    },
+    "b474a9bf-13b2-46c3-b095-dce19a12b470": {
+      "name": "3_winner",
+      "campaign": "watch suis winners 17-10",
+      "adsquad": "Copy of 17-10 male winners",
+      "reason": "[Aggregated Video Stop-Loss - السعودية] مجموع صرف الفيديو عبر كل الـ AdSquads = $15.70 (>= $15.00) بدون أي مبيعة",
+      "paused_at": "2026-10-18 06:52 GMT+3"
+    },
+    "b9255146-3f57-4c0e-b36f-f4cdd348e107": {
+      "name": "3_winner",
+      "campaign": "watch suis winners 17-10",
+      "adsquad": "Copy of 17-10 male winners",
+      "reason": "[Aggregated Video Stop-Loss - السعودية] مجموع صرف الفيديو عبر كل الـ AdSquads = $15.70 (>= $15.00) بدون أي مبيعة",
+      "paused_at": "2026-10-18 06:52 GMT+3"
+    },
+    "bf2f35ac-bbb7-461a-831b-dba7751f5f12": {
+      "name": "3_winner",
+      "campaign": "watch suis winners 17-10",
+      "adsquad": "Copy of 17-10 male winners",
+      "reason": "[Aggregated Video Stop-Loss - السعودية] مجموع صرف الفيديو عبر كل الـ AdSquads = $15.70 (>= $15.00) بدون أي مبيعة",
+      "paused_at": "2026-10-18 06:52 GMT+3"
+    },
+    "c8c435a0-3e9d-4564-a1c8-6545fef324bb": {
+      "name": "3_winner",
+      "campaign": "watch suis winners 17-10",
+      "adsquad": "Copy of 17-10 male winners",
+      "reason": "[Aggregated Video Stop-Loss - السعودية] مجموع صرف الفيديو عبر كل الـ AdSquads = $15.70 (>= $15.00) بدون أي مبيعة",
+      "paused_at": "2026-10-18 06:52 GMT+3"
+    },
+    "d4353a22-7813-48c0-8d2a-7e6835da3af1": {
+      "name": "3_winner",
+      "campaign": "watch suis winners 17-10",
+      "adsquad": "Copy of 17-10 male winners",
+      "reason": "[Aggregated Video Stop-Loss - السعودية] مجموع صرف الفيديو عبر كل الـ AdSquads = $15.70 (>= $15.00) بدون أي مبيعة",
+      "paused_at": "2026-10-18 06:52 GMT+3"
+    },
+    "e516458e-33a6-4ff7-973c-a9179291bc7a": {
+      "name": "3_winner",
+      "campaign": "watch suis winners 17-10",
+      "adsquad": "Copy of 17-10 male winners",
+      "reason": "[Aggregated Video Stop-Loss - السعودية] مجموع صرف الفيديو عبر كل الـ AdSquads = $15.70 (>= $15.00) بدون أي مبيعة",
+      "paused_at": "2026-10-18 06:52 GMT+3"
     }
   },
   "tiktok_videos": {
@@ -10128,6 +10274,13 @@
       "done": true,
       "name": "Copy of Copy of Copy of Copy of Copy of Copy of 1.5 | 23.8",
       "campaign": "car scaling camp "
+    },
+    "060953e5-d2ea-40b1-b230-4f1ea5a976b8": {
+      "count": 0,
+      "last_bump_at": null,
+      "done": true,
+      "name": "Copy of Copy of 1.5 | 23.8",
+      "campaign": "car scaling camp "
     }
   },
   "tiktok_campaigns": {
@@ -10328,10 +10481,21 @@
       "video_media_id": "7b6cde30-646a-4245-a28e-275a564c6d83",
       "sample_ad_name": "2_winner",
       "closed_instances": 1,
-      "total_spend": 18.1,
+      "total_spend": 18.76,
       "total_purchases": 1,
-      "reason": "[Aggregated Video High CPA - السعودية] مجموع صرف الفيديو = $18.10 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $18.10 (>= $18.00)",
-      "disabled_at": "2026-10-18 06:05 GMT+3"
+      "reason": "[Aggregated Video High CPA - السعودية] مجموع صرف الفيديو = $18.76 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $18.76 (>= $18.00)",
+      "disabled_at": "2026-10-18 06:52 GMT+3"
+    },
+    "8703fd84-bad8-482e-adb5-da1e9c635d13:4341549d-96d6-4b35-aa45-285245718d6e": {
+      "campaign_id": "8703fd84-bad8-482e-adb5-da1e9c635d13",
+      "campaign_name": "watch suis winners 17-10",
+      "video_media_id": "4341549d-96d6-4b35-aa45-285245718d6e",
+      "sample_ad_name": "3_winner",
+      "closed_instances": 19,
+      "total_spend": 15.7,
+      "total_purchases": 0,
+      "reason": "[Aggregated Video Stop-Loss - السعودية] مجموع صرف الفيديو عبر كل الـ AdSquads = $15.70 (>= $15.00) بدون أي مبيعة",
+      "disabled_at": "2026-10-18 06:52 GMT+3"
     }
   },
   "night_bid_reductions": {
