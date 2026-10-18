@@ -3894,7 +3894,7 @@
       "campaign": "watch suis winners 17-10",
       "adsquad": "Copy of 17-10 male winners",
       "reason": "[Aggregated Video High CPA - السعودية] مجموع صرف الفيديو = $18.79 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $18.79 (>= $18.00)",
-      "paused_at": "2026-10-18 14:44 GMT+3"
+      "paused_at": "2026-10-18 15:26 GMT+3"
     }
   },
   "tiktok_videos": {
@@ -10831,7 +10831,7 @@
       "campaign": "وسادة السيارة قطر 18-10",
       "date": "2026-10-18",
       "count": 2,
-      "done": false,
+      "done": true,
       "old_bid": 2.6,
       "new_bid": 2.7,
       "last_bump_at": "2026-10-18T11:46:43.926267+00:00",
@@ -10918,7 +10918,7 @@
       "campaign": "باور بانك علا 18-10 (دفعة 30-9)",
       "date": "2026-10-18",
       "count": 2,
-      "done": false,
+      "done": true,
       "old_bid": 2.15,
       "new_bid": 2.25,
       "last_bump_at": "2026-10-18T11:46:43.926267+00:00",
@@ -11192,7 +11192,7 @@
       "campaign": "car scaling camp ",
       "date": "2026-10-18",
       "count": 1,
-      "done": false,
+      "done": true,
       "old_bid": 1.85,
       "new_bid": 1.95,
       "last_bump_at": "2026-10-18T11:46:43.926267+00:00",
@@ -11215,6 +11215,35 @@
       "new_bid": 2.0,
       "last_bump_at": "2026-10-18T11:46:43.926267+00:00",
       "last_bump_local": "2026-10-18 14:44 GMT+3"
+    },
+    "1233c51a-7c6b-4d15-adf3-87bd004710be": {
+      "name": "Copy of Copy of 1.5 | 23.8",
+      "campaign": "car scaling camp ",
+      "date": "2026-10-18",
+      "count": 1,
+      "done": false,
+      "old_bid": 2.05,
+      "new_bid": 2.15,
+      "last_bump_at": "2026-10-18T12:28:01.538923+00:00",
+      "last_bump_local": "2026-10-18 15:26 GMT+3"
+    },
+    "4f0e7b5d-0879-40e3-8765-de244b89f978": {
+      "name": "Copy of Copy of 1.5 | 23.8",
+      "campaign": "car scaling camp ",
+      "date": "2026-10-18",
+      "count": 1,
+      "done": false,
+      "old_bid": 2.45,
+      "new_bid": 2.55,
+      "last_bump_at": "2026-10-18T12:28:01.538923+00:00",
+      "last_bump_local": "2026-10-18 15:26 GMT+3"
+    },
+    "dd0bbce7-80be-4f1f-9aeb-68b9d68385a9": {
+      "count": 0,
+      "last_bump_at": null,
+      "done": true,
+      "name": "Copy of Copy of 1.5 | 23.8",
+      "campaign": "car scaling camp "
     }
   },
   "tiktok_campaigns": {
@@ -11438,7 +11467,8 @@
     "c0fb347d-a4ad-4714-99b6-6ebab84d81ba": "a8aec00d-60ef-402a-ac63-affd16d4f265",
     "b54dabd3-a9c3-4be3-89ac-9f6bef99e4ee": "40059fd2-dbf9-473c-8d78-5c99cba86bcb",
     "ad08bbe2-b788-458f-a57b-903582b41308": "cfbe094a-ae94-4f24-9f67-8ff4f3847442",
-    "2eca6f13-27a2-444e-8cfe-395f190bf344": "74b96056-ebfa-4b77-9c78-ba4958313376"
+    "2eca6f13-27a2-444e-8cfe-395f190bf344": "74b96056-ebfa-4b77-9c78-ba4958313376",
+    "af68890a-120d-4589-bc46-7b9f45a22aad": "8370e43a-697d-4b4f-9b1a-0247212ae040"
   },
   "disabled_videos": {
     "3fd84a83-2854-4330-8e5f-b295e7945562:3a13e534-7b24-47eb-9ffd-0033629623c2": {
@@ -11483,7 +11513,7 @@
       "total_spend": 18.79,
       "total_purchases": 1,
       "reason": "[Aggregated Video High CPA - السعودية] مجموع صرف الفيديو = $18.79 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $18.79 (>= $18.00)",
-      "disabled_at": "2026-10-18 14:44 GMT+3"
+      "disabled_at": "2026-10-18 15:26 GMT+3"
     }
   },
   "night_bid_reductions": {
