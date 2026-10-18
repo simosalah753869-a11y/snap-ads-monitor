@@ -3838,7 +3838,7 @@
       "campaign": "watch suis winners 17-10",
       "adsquad": "Copy of 17-10 male winners",
       "reason": "[Aggregated Video High CPA - السعودية] مجموع صرف الفيديو = $18.82 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $18.82 (>= $18.00)",
-      "paused_at": "2026-10-18 15:48 GMT+3"
+      "paused_at": "2026-10-18 16:12 GMT+3"
     }
   },
   "tiktok_videos": {
@@ -5812,6 +5812,23 @@
       "spend_2d": 1.07,
       "conv_2d": 0,
       "paused_at": "2026-10-18T09:12:52.383748+00:00"
+    },
+    "7631763556322148369:1879340705037553:1879340705192321": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "ad_id": "1879340705037553",
+      "creative_id": "1879340705186321",
+      "campaign_ad_name": "power bank 18-10 (Ola + Hanan 15-10) / power bank 18-10 (Ola + Hanan 15-10) - Creative",
+      "video_name": "18_10_15-10_ola_5.mp4",
+      "draft_ids": [
+        "1879340705192321"
+      ],
+      "reason": "Today Spend $6.16 > $6.00 with 0 sales | 2-Day Spend $6.16 > $6.00 with 0 sales",
+      "spend_1d": 6.16,
+      "conv_1d": 0,
+      "spend_2d": 6.16,
+      "conv_2d": 0,
+      "paused_at": "2026-10-18T13:14:18.819577+00:00"
     }
   },
   "tiktok_ads": {},
@@ -10620,7 +10637,7 @@
       "campaign": "وسادة السيارة علا وحنان 18-10 (دفعة 13-10)",
       "date": "2026-10-18",
       "count": 2,
-      "done": false,
+      "done": true,
       "old_bid": 2.25,
       "new_bid": 2.35,
       "last_bump_at": "2026-10-18T12:09:32.726201+00:00",
@@ -11153,6 +11170,53 @@
       "new_bid": 2.25,
       "last_bump_at": "2026-10-18T12:50:37.477307+00:00",
       "last_bump_local": "2026-10-18 15:48 GMT+3"
+    },
+    "ab5ef8db-4c86-4116-86af-d603f19f56e0": {
+      "name": "Copy of Copy of Copy of Copy of Copy of text 2 ",
+      "campaign": "car scaling new 2 text",
+      "date": "2026-10-18",
+      "count": 1,
+      "done": false,
+      "old_bid": 2.2,
+      "new_bid": 2.3,
+      "last_bump_at": "2026-10-18T13:13:40.527707+00:00",
+      "last_bump_local": "2026-10-18 16:12 GMT+3"
+    },
+    "d81d35f1-5ecc-4a20-b0a7-4ff9bb147573": {
+      "name": "Copy of 16-10 1",
+      "campaign": "باور بانك وينر",
+      "date": "2026-10-18",
+      "count": 1,
+      "done": false,
+      "old_bid": 2.25,
+      "new_bid": 2.35,
+      "last_bump_at": "2026-10-18T13:13:40.527707+00:00",
+      "last_bump_local": "2026-10-18 16:12 GMT+3"
+    },
+    "353641b9-f776-4fc5-8eea-0aa23233951f": {
+      "count": 0,
+      "last_bump_at": null,
+      "done": true,
+      "name": "Copy of Copy of Copy of Copy of 1.5 | 23.8",
+      "campaign": "car scaling camp "
+    },
+    "582bfedf-8488-439b-96f3-e5c42cde447f": {
+      "count": 0,
+      "last_bump_at": null,
+      "done": true,
+      "name": "Copy of Copy of 1.5 | 23.8",
+      "campaign": "car scaling camp "
+    },
+    "da971fed-7848-4a12-b2b7-75f864e86cb9": {
+      "name": "Copy of Copy of 1.5 | 23.8",
+      "campaign": "car scaling camp ",
+      "date": "2026-10-18",
+      "count": 1,
+      "done": false,
+      "old_bid": 2.05,
+      "new_bid": 2.15,
+      "last_bump_at": "2026-10-18T13:13:40.527707+00:00",
+      "last_bump_local": "2026-10-18 16:12 GMT+3"
     }
   },
   "tiktok_campaigns": {
@@ -11422,7 +11486,7 @@
       "total_spend": 18.82,
       "total_purchases": 1,
       "reason": "[Aggregated Video High CPA - السعودية] مجموع صرف الفيديو = $18.82 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $18.82 (>= $18.00)",
-      "disabled_at": "2026-10-18 15:48 GMT+3"
+      "disabled_at": "2026-10-18 16:12 GMT+3"
     }
   },
   "night_bid_reductions": {
