@@ -3840,19 +3840,54 @@
       "reason": "[Ad CPC Rule] صرف الفيديو $1.49 | النقرات: 3 | سعر النقرة CPC = $0.497 (> $0.28)",
       "paused_at": "2026-10-18 18:01 GMT+3"
     },
+    "7fe5d389-da2d-4152-a4c7-9e703503b1a0": {
+      "name": "KW_Car_v3",
+      "campaign": "وسادة السيارة الكويت 18-10",
+      "adsquad": "Copy of KW_Car Smart+ Broad | 2.8 Bid",
+      "reason": "[Aggregated Video High CPA - غير السعودية/الخليج] مجموع صرف الفيديو = $14.19 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $14.19 (>= $14.00)",
+      "paused_at": "2026-10-18 18:46 GMT+3"
+    },
+    "85075d2d-6365-47b4-8e9f-0c454e7152df": {
+      "name": "KW_Car_top_v3",
+      "campaign": "وسادة السيارة الكويت 18-10",
+      "adsquad": "KW_Car Target Cost Men 20+ | 2.8 Bid",
+      "reason": "[Aggregated Video High CPA - غير السعودية/الخليج] مجموع صرف الفيديو = $14.19 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $14.19 (>= $14.00)",
+      "paused_at": "2026-10-18 18:46 GMT+3"
+    },
+    "8f83cd31-c8ea-4807-911a-c282010cc25d": {
+      "name": "KW_Car_v3",
+      "campaign": "وسادة السيارة الكويت 18-10",
+      "adsquad": "Copy of KW_Car Smart+ Broad | 2.8 Bid",
+      "reason": "[Aggregated Video High CPA - غير السعودية/الخليج] مجموع صرف الفيديو = $14.19 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $14.19 (>= $14.00)",
+      "paused_at": "2026-10-18 18:46 GMT+3"
+    },
+    "b76b84d1-bea6-4de5-96fe-0c3842b17e00": {
+      "name": "KW_Car_v3",
+      "campaign": "وسادة السيارة الكويت 18-10",
+      "adsquad": "KW_Car Smart+ Broad | 2.8 Bid",
+      "reason": "[Aggregated Video High CPA - غير السعودية/الخليج] مجموع صرف الفيديو = $14.19 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $14.19 (>= $14.00)",
+      "paused_at": "2026-10-18 18:46 GMT+3"
+    },
+    "f844ff79-94a7-4afa-8c8b-ec02e0f07268": {
+      "name": "kw_smart_v4",
+      "campaign": "وسادة السيارة الكويت 18-10",
+      "adsquad": "KW_Car Smart+ Auto-Expansion | 2.50 Bid",
+      "reason": "[Aggregated Video High CPA - غير السعودية/الخليج] مجموع صرف الفيديو = $14.19 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $14.19 (>= $14.00)",
+      "paused_at": "2026-10-18 18:46 GMT+3"
+    },
     "107dcad2-fade-4fb5-85d6-8cc71824da8e": {
       "name": "2_winner",
       "campaign": "watch suis winners 17-10",
       "adsquad": "Copy of 17-10 male winners",
       "reason": "[Aggregated Video High CPA - السعودية] مجموع صرف الفيديو = $18.94 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $18.94 (>= $18.00)",
-      "paused_at": "2026-10-18 18:01 GMT+3"
+      "paused_at": "2026-10-18 18:46 GMT+3"
     },
     "c3e69763-d85a-43a7-a7e7-5af6b0420779": {
       "name": "4",
       "campaign": "باور بانك وينر",
       "adsquad": "Copy of 16-10 1",
       "reason": "[Aggregated Video High CPA - السعودية] مجموع صرف الفيديو = $18.21 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $18.21 (>= $18.00)",
-      "paused_at": "2026-10-18 18:01 GMT+3"
+      "paused_at": "2026-10-18 18:46 GMT+3"
     }
   },
   "tiktok_videos": {
@@ -4647,12 +4682,16 @@
       "draft_ids": [
         "1879232889158689"
       ],
-      "reason": "2-Day Spend $1.09 >= $1.00 & CPC $0.36 > $0.35",
-      "spend_1d": 0.64,
+      "reason": "[Global Dup Video Stop-Loss 2D] Total 2-Day Spend $20.98 >= $20.00 with 0 sales",
+      "spend_1d": 3.39,
       "conv_1d": 0,
-      "spend_2d": 1.09,
+      "spend_2d": 4.1,
       "conv_2d": 0,
-      "paused_at": "2026-10-17T01:18:16.234561+00:00"
+      "global_spend_1d": 5.31,
+      "global_conv_1d": 0,
+      "global_spend_2d": 20.98,
+      "global_conv_2d": 0,
+      "paused_at": "2026-10-18T15:48:58.534653+00:00"
     },
     "7631763556322148369:1879156756829313:1879156760399073": {
       "aadvid": "7631763556322148369",
@@ -5191,12 +5230,16 @@
       "draft_ids": [
         "1879198167132770"
       ],
-      "reason": "2-Day Spend $6.13 > $6.00 with 0 sales",
-      "spend_1d": 4.67,
+      "reason": "[Global Dup Video Stop-Loss 2D] Total 2-Day Spend $20.98 >= $20.00 with 0 sales",
+      "spend_1d": 1.92,
       "conv_1d": 0,
-      "spend_2d": 6.13,
+      "spend_2d": 6.85,
       "conv_2d": 0,
-      "paused_at": "2026-10-17T13:48:45.907411+00:00"
+      "global_spend_1d": 5.31,
+      "global_conv_1d": 0,
+      "global_spend_2d": 20.98,
+      "global_conv_2d": 0,
+      "paused_at": "2026-10-18T15:48:57.924366+00:00"
     },
     "7631763556322148369:1879232870091122:1879232889158657": {
       "aadvid": "7631763556322148369",
@@ -5843,6 +5886,23 @@
       "spend_2d": 6.16,
       "conv_2d": 0,
       "paused_at": "2026-10-18T13:14:18.819577+00:00"
+    },
+    "7631763556322148369:1879340731438114:1879340739872850": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "ad_id": "1879340731438114",
+      "creative_id": "1879340731438130",
+      "campaign_ad_name": "car armrest 18-10 (Hanan + Ola 13-10) / car armrest 18-10 (Hanan + Ola 13-10) - Creative",
+      "video_name": "18_10_13-10_hanan_5.mp4",
+      "draft_ids": [
+        "1879340739872850"
+      ],
+      "reason": "Today Spend $1.14 >= $1.00 & CPC $0.38 > $0.35",
+      "spend_1d": 1.14,
+      "conv_1d": 0,
+      "spend_2d": 1.14,
+      "conv_2d": 0,
+      "paused_at": "2026-10-18T15:48:46.582825+00:00"
     }
   },
   "tiktok_ads": {},
@@ -11189,23 +11249,23 @@
       "name": "Copy of Copy of Copy of Copy of Copy of text 2 ",
       "campaign": "car scaling new 2 text",
       "date": "2026-10-18",
-      "count": 1,
+      "count": 2,
       "done": false,
-      "old_bid": 2.2,
-      "new_bid": 2.3,
-      "last_bump_at": "2026-10-18T13:13:40.527707+00:00",
-      "last_bump_local": "2026-10-18 16:12 GMT+3"
+      "old_bid": 2.4,
+      "new_bid": 2.5,
+      "last_bump_at": "2026-10-18T15:48:01.557077+00:00",
+      "last_bump_local": "2026-10-18 18:46 GMT+3"
     },
     "d81d35f1-5ecc-4a20-b0a7-4ff9bb147573": {
       "name": "Copy of 16-10 1",
       "campaign": "باور بانك وينر",
       "date": "2026-10-18",
-      "count": 1,
+      "count": 2,
       "done": false,
-      "old_bid": 2.25,
-      "new_bid": 2.35,
-      "last_bump_at": "2026-10-18T13:13:40.527707+00:00",
-      "last_bump_local": "2026-10-18 16:12 GMT+3"
+      "old_bid": 2.45,
+      "new_bid": 2.55,
+      "last_bump_at": "2026-10-18T15:48:01.557077+00:00",
+      "last_bump_local": "2026-10-18 18:46 GMT+3"
     },
     "353641b9-f776-4fc5-8eea-0aa23233951f": {
       "count": 0,
@@ -11225,19 +11285,19 @@
       "name": "Copy of Copy of 1.5 | 23.8",
       "campaign": "car scaling camp ",
       "date": "2026-10-18",
-      "count": 1,
+      "count": 2,
       "done": false,
-      "old_bid": 2.05,
-      "new_bid": 2.15,
-      "last_bump_at": "2026-10-18T13:13:40.527707+00:00",
-      "last_bump_local": "2026-10-18 16:12 GMT+3"
+      "old_bid": 2.25,
+      "new_bid": 2.35,
+      "last_bump_at": "2026-10-18T15:48:01.557077+00:00",
+      "last_bump_local": "2026-10-18 18:46 GMT+3"
     },
     "56f309dd-96f0-4118-9cdb-2db74d843d26": {
       "name": "Copy of 17-10 male winners",
       "campaign": "watch suis winners 17-10",
       "date": "2026-10-18",
       "count": 1,
-      "done": false,
+      "done": true,
       "old_bid": 2.55,
       "new_bid": 2.65,
       "last_bump_at": "2026-10-18T13:48:34.305030+00:00",
@@ -11288,7 +11348,7 @@
       "campaign": "car scaling camp ",
       "date": "2026-10-18",
       "count": 1,
-      "done": false,
+      "done": true,
       "old_bid": 1.95,
       "new_bid": 2.05,
       "last_bump_at": "2026-10-18T14:24:10.272568+00:00",
@@ -11592,7 +11652,7 @@
       "campaign": "watch suis winners 17-10",
       "date": "2026-10-18",
       "count": 1,
-      "done": false,
+      "done": true,
       "old_bid": 2.75,
       "new_bid": 2.85,
       "last_bump_at": "2026-10-18T15:03:17.497669+00:00",
@@ -11636,7 +11696,7 @@
       "campaign": "car scaling new 2 text",
       "date": "2026-10-18",
       "count": 1,
-      "done": false,
+      "done": true,
       "old_bid": 2.45,
       "new_bid": 2.55,
       "last_bump_at": "2026-10-18T15:03:17.497669+00:00",
@@ -11893,6 +11953,50 @@
       "new_bid": 2.1,
       "last_bump_at": "2026-10-18T15:03:17.497669+00:00",
       "last_bump_local": "2026-10-18 18:01 GMT+3"
+    },
+    "25a023ae-d2b9-46fb-bf07-367cd4898fbb": {
+      "name": "Copy of SA_Watch Target Cost Men 20+ | 2.8 Bid",
+      "campaign": "smart+ watch suis SA 18-10",
+      "date": "2026-10-18",
+      "count": 1,
+      "done": false,
+      "old_bid": 2.95,
+      "new_bid": 3.05,
+      "last_bump_at": "2026-10-18T15:48:01.557077+00:00",
+      "last_bump_local": "2026-10-18 18:46 GMT+3"
+    },
+    "7ca39823-2856-4518-9164-aebc4ecba7fd": {
+      "name": "Copy of SA_Watch Target Cost Men 20+ | 2.8 Bid",
+      "campaign": "smart+ watch suis SA 18-10",
+      "date": "2026-10-18",
+      "count": 1,
+      "done": false,
+      "old_bid": 2.95,
+      "new_bid": 3.05,
+      "last_bump_at": "2026-10-18T15:48:01.557077+00:00",
+      "last_bump_local": "2026-10-18 18:46 GMT+3"
+    },
+    "4191e809-c3e2-48cb-ad33-a521201c261a": {
+      "name": "Copy of OM_PB Smart+ Broad | 2.2 Bid",
+      "campaign": "باور بانك عمان 18-10",
+      "date": "2026-10-18",
+      "count": 1,
+      "done": false,
+      "old_bid": 2.5,
+      "new_bid": 2.6,
+      "last_bump_at": "2026-10-18T15:48:01.557077+00:00",
+      "last_bump_local": "2026-10-18 18:46 GMT+3"
+    },
+    "ad03c2d7-05b4-4eb6-a4a2-6fb4989e64c3": {
+      "name": "Copy of OM_PB Smart+ Broad | 2.2 Bid",
+      "campaign": "باور بانك عمان 18-10",
+      "date": "2026-10-18",
+      "count": 1,
+      "done": false,
+      "old_bid": 2.5,
+      "new_bid": 2.6,
+      "last_bump_at": "2026-10-18T15:48:01.557077+00:00",
+      "last_bump_local": "2026-10-18 18:46 GMT+3"
     }
   },
   "tiktok_campaigns": {
@@ -12143,7 +12247,9 @@
     "c0fb347d-a4ad-4714-99b6-6ebab84d81ba": "a8aec00d-60ef-402a-ac63-affd16d4f265",
     "af68890a-120d-4589-bc46-7b9f45a22aad": "8370e43a-697d-4b4f-9b1a-0247212ae040",
     "fd0deb6a-40dd-437a-b3dd-f68e6004601d": "995bd853-e397-4f42-b784-d54be54445eb",
-    "ecff6946-73a1-4add-bd01-e06b32b59507": "25e139b5-2df3-43e5-bc76-cc07f8e81125"
+    "ecff6946-73a1-4add-bd01-e06b32b59507": "25e139b5-2df3-43e5-bc76-cc07f8e81125",
+    "a0a403ff-19a8-466a-87d8-877b6f9f6c7e": "a959f636-d6ed-468c-ad35-2c3b7b496d6e",
+    "98f3517c-42e8-46fd-be44-97fbf52f85e0": "0c32a60a-12ec-41ac-82d0-8e71b144c7f8"
   },
   "disabled_videos": {
     "3fd84a83-2854-4330-8e5f-b295e7945562:3a13e534-7b24-47eb-9ffd-0033629623c2": {
@@ -12188,7 +12294,7 @@
       "total_spend": 18.94,
       "total_purchases": 1,
       "reason": "[Aggregated Video High CPA - السعودية] مجموع صرف الفيديو = $18.94 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $18.94 (>= $18.00)",
-      "disabled_at": "2026-10-18 18:01 GMT+3"
+      "disabled_at": "2026-10-18 18:46 GMT+3"
     },
     "e23e7c95-3f15-4945-9844-8bd73e2d79d3:04d7ae2c-e2c4-41ee-a5c9-1a6d3ace7f38": {
       "campaign_id": "e23e7c95-3f15-4945-9844-8bd73e2d79d3",
@@ -12199,7 +12305,18 @@
       "total_spend": 18.21,
       "total_purchases": 1,
       "reason": "[Aggregated Video High CPA - السعودية] مجموع صرف الفيديو = $18.21 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $18.21 (>= $18.00)",
-      "disabled_at": "2026-10-18 18:01 GMT+3"
+      "disabled_at": "2026-10-18 18:46 GMT+3"
+    },
+    "3fb9b26f-7705-4286-b371-4efcd904670c:22d7c271-05ae-4995-b9d5-b18c7c71a6f5": {
+      "campaign_id": "3fb9b26f-7705-4286-b371-4efcd904670c",
+      "campaign_name": "وسادة السيارة الكويت 18-10",
+      "video_media_id": "22d7c271-05ae-4995-b9d5-b18c7c71a6f5",
+      "sample_ad_name": "KW_Car_v3",
+      "closed_instances": 5,
+      "total_spend": 14.19,
+      "total_purchases": 1,
+      "reason": "[Aggregated Video High CPA - غير السعودية/الخليج] مجموع صرف الفيديو = $14.19 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $14.19 (>= $14.00)",
+      "disabled_at": "2026-10-18 18:46 GMT+3"
     }
   },
   "night_bid_reductions": {
@@ -16251,7 +16368,24 @@
       "scaled_budget_today": false
     }
   },
-  "tiktok_disabled_dup_videos": {},
+  "tiktok_disabled_dup_videos": {
+    "15-10_video_10": {
+      "v_key": "15-10_video_10",
+      "sample_name": "15-10_video_10.mp4",
+      "accounts": [
+        "ROELLINGER RECYCLING",
+        "ROELLINGER RECYCLING2"
+      ],
+      "total_copies": 6,
+      "closed_copies": 2,
+      "spend_1d": 5.31,
+      "conv_1d": 0,
+      "spend_2d": 20.98,
+      "conv_2d": 0,
+      "reason": "[Global Dup Video Stop-Loss 2D] Total 2-Day Spend $20.98 >= $20.00 with 0 sales",
+      "disabled_at": "2026-10-18T15:48:58.534685+00:00"
+    }
+  },
   "proactive_scaled_squads": {},
   "proactive_boosted_squads": {
     "2026-10-18:e4b924d3-595f-40d9-98db-b001a307f736": {
