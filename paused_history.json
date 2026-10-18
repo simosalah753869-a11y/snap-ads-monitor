@@ -648,6 +648,12 @@
       "campaign": "car scaling camp ",
       "reason": "[Copy Rule] صرفت $5.04 (>= $5) بدون مبيعات",
       "paused_at": "2026-10-18 06:52 GMT+3"
+    },
+    "d5ffc5b4-2075-4249-a594-61f8f714f43b": {
+      "name": "Copy of Copy of 1.5 | 23.8",
+      "campaign": "car scaling camp ",
+      "reason": "[Copy Rule] صرفت $5.16 (>= $5) بدون مبيعات",
+      "paused_at": "2026-10-18 07:24 GMT+3"
     }
   },
   "ads": {
@@ -3510,13 +3516,6 @@
       "reason": "[Ad CPC Rule] صرف الفيديو $1.24 | النقرات: 1 | سعر النقرة CPC = $1.24 (> $0.28)",
       "paused_at": "2026-10-18 06:52 GMT+3"
     },
-    "107dcad2-fade-4fb5-85d6-8cc71824da8e": {
-      "name": "2_winner",
-      "campaign": "watch suis winners 17-10",
-      "adsquad": "Copy of 17-10 male winners",
-      "reason": "[Aggregated Video High CPA - السعودية] مجموع صرف الفيديو = $18.76 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $18.76 (>= $18.00)",
-      "paused_at": "2026-10-18 06:52 GMT+3"
-    },
     "13e7aa59-4fdf-4700-a755-e7b8c782c6e6": {
       "name": "3_winner",
       "campaign": "watch suis winners 17-10",
@@ -3649,6 +3648,13 @@
       "adsquad": "Copy of 17-10 male winners",
       "reason": "[Aggregated Video Stop-Loss - السعودية] مجموع صرف الفيديو عبر كل الـ AdSquads = $15.70 (>= $15.00) بدون أي مبيعة",
       "paused_at": "2026-10-18 06:52 GMT+3"
+    },
+    "107dcad2-fade-4fb5-85d6-8cc71824da8e": {
+      "name": "2_winner",
+      "campaign": "watch suis winners 17-10",
+      "adsquad": "Copy of 17-10 male winners",
+      "reason": "[Aggregated Video High CPA - السعودية] مجموع صرف الفيديو = $18.76 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $18.76 (>= $18.00)",
+      "paused_at": "2026-10-18 07:24 GMT+3"
     }
   },
   "tiktok_videos": {
@@ -5520,6 +5526,23 @@
       "spend_2d": 1.0,
       "conv_2d": 0,
       "paused_at": "2026-10-18T01:16:39.274270+00:00"
+    },
+    "7631763556322148369:1879281524132882:1879281531033953": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "ad_id": "1879281524132882",
+      "creative_id": "1879281524156641",
+      "campaign_ad_name": "power bank winner 17-10 scale / power bank winner 17-10 scale - Creative",
+      "video_name": "16-10_pb_winner_1.mp4",
+      "draft_ids": [
+        "1879281531033953"
+      ],
+      "reason": "2-Day Spend $1.04 >= $1.00 & CPC $1.04 > $0.35",
+      "spend_1d": 0.36,
+      "conv_1d": 0,
+      "spend_2d": 1.04,
+      "conv_2d": 0,
+      "paused_at": "2026-10-18T04:26:39.796046+00:00"
     }
   },
   "tiktok_ads": {},
@@ -10439,7 +10462,18 @@
     "9a029244-0300-405b-8d94-88414cfe07de": "54b558a8-547d-4ab1-a900-4a29bae020fc",
     "ba4d88f0-26ef-4590-82f1-fc4fc3438093": "5b20e277-f3dc-42ba-910c-7b348f84d544",
     "ba15271c-1477-4cef-99ad-641528241279": "fb6c08bc-8d29-4d05-9735-6e435bcf54ab",
-    "ea7fd800-e312-4ee2-ac83-45e4e9f27940": "a23f3628-3b89-4382-880a-fe0ad6f56b0c"
+    "ea7fd800-e312-4ee2-ac83-45e4e9f27940": "a23f3628-3b89-4382-880a-fe0ad6f56b0c",
+    "1d016979-ee7e-4a66-87fc-51e0afb1032b": "b5b897f6-9df6-46d6-aac2-55c809257f67",
+    "c0f6b2ce-3e51-4197-bee9-a8196eedd15b": "81d72ecc-1235-49bf-a5c1-451051efa0b2",
+    "a98a627b-8d3e-496a-a82f-03a6423c43ac": "89aba96a-6aa7-4a63-9819-0daca54a74e4",
+    "05250498-3714-45e8-9241-31c5e92cfab7": "207c2a54-97a8-4445-b7b2-1e8cc46f9b14",
+    "86859274-bc06-4694-96e4-ec251c3abc63": "0f6a2dd9-9955-41ac-a2e9-21cf7f5eebc6",
+    "b54cd372-68d2-4924-b9a4-51922c9b1472": "207c2a54-97a8-4445-b7b2-1e8cc46f9b14",
+    "baee6e41-ab96-4bb4-beda-ba2702ff6f70": "fb6c08bc-8d29-4d05-9735-6e435bcf54ab",
+    "ff3f7e46-62f4-4d24-813a-935756ed42c8": "264ef03c-57c4-4e7a-a653-d2aaa1246454",
+    "d88ac4f5-d650-4ee1-97e3-b7d55891d021": "153b0cd6-ef68-4366-8490-9cfcee874601",
+    "f4981feb-989c-42c2-b1e9-df026fad6162": "08e86a33-6d7c-4f4a-8e4f-23b7b49072ff",
+    "0d74393d-81ae-40b9-9056-700922881ab9": "986c61b3-38cf-42d9-a8e2-28eff82d1f7d"
   },
   "disabled_videos": {
     "3fd84a83-2854-4330-8e5f-b295e7945562:3a13e534-7b24-47eb-9ffd-0033629623c2": {
@@ -10484,7 +10518,7 @@
       "total_spend": 18.76,
       "total_purchases": 1,
       "reason": "[Aggregated Video High CPA - السعودية] مجموع صرف الفيديو = $18.76 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $18.76 (>= $18.00)",
-      "disabled_at": "2026-10-18 06:52 GMT+3"
+      "disabled_at": "2026-10-18 07:24 GMT+3"
     },
     "8703fd84-bad8-482e-adb5-da1e9c635d13:4341549d-96d6-4b35-aa45-285245718d6e": {
       "campaign_id": "8703fd84-bad8-482e-adb5-da1e9c635d13",
