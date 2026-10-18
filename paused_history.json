@@ -750,6 +750,12 @@
       "campaign": "car scaling camp ",
       "reason": "[Copy Rule] صرفت $5.01 (>= $5) بدون مبيعات",
       "paused_at": "2026-10-18 20:23 GMT+3"
+    },
+    "0f9c95d5-b1ed-465f-a0ce-5dbafc5070de": {
+      "name": "Copy of Copy of 1.5 | 23.8",
+      "campaign": "car scaling camp ",
+      "reason": "[Copy Rule] سعر البيعة CPA = $8.08 (>= $8) | الصرف: $8.08 | المبيعات: 1",
+      "paused_at": "2026-10-18 22:04 GMT+3"
     }
   },
   "ads": {
@@ -3940,6 +3946,13 @@
       "adsquad": "SA_Car Target Cost Men 20+ | 2.8 Bid",
       "reason": "[Ad CPC Rule] صرف الفيديو $1.02 | النقرات: 1 | سعر النقرة CPC = $1.02 (> $0.28)",
       "paused_at": "2026-10-18 21:23 GMT+3"
+    },
+    "31cc113a-a90f-461e-aa86-f6e6571a4bd2": {
+      "name": "1",
+      "campaign": "باور بانك وينر",
+      "adsquad": "Copy of 16-10 1",
+      "reason": "[Ad CPC Rule] صرف الفيديو $1.31 | النقرات: 1 | سعر النقرة CPC = $1.31 (> $0.28)",
+      "paused_at": "2026-10-18 22:04 GMT+3"
     }
   },
   "tiktok_videos": {
@@ -5091,12 +5104,16 @@
       "draft_ids": [
         "1879198888859457"
       ],
-      "reason": "Today Spend $1.10 >= $1.00 & CPC $0.55 > $0.35",
-      "spend_1d": 1.1,
-      "conv_1d": 0,
-      "spend_2d": 2.31,
-      "conv_2d": 0,
-      "paused_at": "2026-10-17T09:06:19.739611+00:00"
+      "reason": "[Global Dup Video High CPA 1D] Total Today CPA $22.00 >= $22.00 (Total Spend=$22.00, Total Sales=1)",
+      "spend_1d": 6.39,
+      "conv_1d": 1,
+      "spend_2d": 7.55,
+      "conv_2d": 1,
+      "global_spend_1d": 22.0,
+      "global_conv_1d": 1,
+      "global_spend_2d": 72.96,
+      "global_conv_2d": 8,
+      "paused_at": "2026-10-18T19:07:02.897767+00:00"
     },
     "7631763556322148369:1879158246855697:1879158246870465": {
       "aadvid": "7631763556322148369",
@@ -6032,6 +6049,23 @@
       "spend_2d": 5.36,
       "conv_2d": 0,
       "paused_at": "2026-10-18T17:46:02.694843+00:00"
+    },
+    "7631765070816509959:1879390618196354:1879390622577090": {
+      "aadvid": "7631765070816509959",
+      "account_name": "ROELLINGER RECYCLING2",
+      "ad_id": "1879390618196354",
+      "creative_id": "1879390618200369",
+      "campaign_ad_name": "watch broad tiktok FAST SCALE 18-10 / Ad name2026-10-10 08:10:58",
+      "video_name": "ققفق_gCMc9G02.mp4",
+      "draft_ids": [
+        "1879390622577090"
+      ],
+      "reason": "Today Spend $1.42 >= $1.00 & CPC $0.71 > $0.35",
+      "spend_1d": 1.42,
+      "conv_1d": 0,
+      "spend_2d": 1.42,
+      "conv_2d": 0,
+      "paused_at": "2026-10-18T19:07:02.246364+00:00"
     }
   },
   "tiktok_ads": {},
@@ -16926,7 +16960,24 @@
       "scaled_budget_today": false
     }
   },
-  "tiktok_disabled_dup_videos": {},
+  "tiktok_disabled_dup_videos": {
+    "15-10_video_4": {
+      "v_key": "15-10_video_4",
+      "sample_name": "15-10_video_4.mp4",
+      "accounts": [
+        "ROELLINGER RECYCLING",
+        "ROELLINGER RECYCLING2"
+      ],
+      "total_copies": 5,
+      "closed_copies": 1,
+      "spend_1d": 22.0,
+      "conv_1d": 1,
+      "spend_2d": 72.96,
+      "conv_2d": 8,
+      "reason": "[Global Dup Video High CPA 1D] Total Today CPA $22.00 >= $22.00 (Total Spend=$22.00, Total Sales=1)",
+      "disabled_at": "2026-10-18T19:07:02.897799+00:00"
+    }
+  },
   "proactive_scaled_squads": {},
   "proactive_boosted_squads": {
     "2026-10-18:e4b924d3-595f-40d9-98db-b001a307f736": {
