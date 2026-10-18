@@ -3489,6 +3489,13 @@
       "adsquad": "Copy of 16-10 1",
       "reason": "[Aggregated Video Stop-Loss - السعودية] مجموع صرف الفيديو عبر كل الـ AdSquads = $15.76 (>= $15.00) بدون أي مبيعة",
       "paused_at": "2026-10-18 02:40 GMT+3"
+    },
+    "9f4099a1-49e2-402e-914e-e6418fe9381e": {
+      "name": "3",
+      "campaign": "باور بانك وينر",
+      "adsquad": "Copy of 16-10 1",
+      "reason": "[Ad CPC Rule] صرف الفيديو $1.14 | النقرات: 4 | سعر النقرة CPC = $0.285 (> $0.28)",
+      "paused_at": "2026-10-18 04:49 GMT+3"
     }
   },
   "tiktok_videos": {
