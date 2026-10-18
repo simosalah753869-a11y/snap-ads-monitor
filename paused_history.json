@@ -5343,6 +5343,23 @@
       "spend_2d": 1.02,
       "conv_2d": 0,
       "paused_at": "2026-10-17T21:12:31.643087+00:00"
+    },
+    "7631763556322148369:1879158235413857:1879158238287874": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "ad_id": "1879158235413857",
+      "creative_id": "1879158235422034",
+      "campaign_ad_name": "power bank 16-10 A / power bank 16-10 A - Creative",
+      "video_name": "ola_pb_16_10_9_4-10_3.mp4",
+      "draft_ids": [
+        "1879158238287874"
+      ],
+      "reason": "2-Day Spend $1.00 >= $1.00 & CPC $1.00 > $0.35",
+      "spend_1d": 0.19,
+      "conv_1d": 0,
+      "spend_2d": 1.0,
+      "conv_2d": 0,
+      "paused_at": "2026-10-18T01:16:39.274270+00:00"
     }
   },
   "tiktok_ads": {},
