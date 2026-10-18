@@ -732,6 +732,12 @@
       "campaign": "car scaling camp ",
       "reason": "[Copy Rule] سعر البيعة CPA = $8.18 (>= $8) | الصرف: $8.18 | المبيعات: 1",
       "paused_at": "2026-10-18 12:08 GMT+3"
+    },
+    "a178e4b3-e8c7-418b-a023-5f57ed46a426": {
+      "name": "Copy of Copy of 1.5 | 23.8",
+      "campaign": "car scaling camp ",
+      "reason": "[Copy Rule] صرفت $5.09 (>= $5) بدون مبيعات",
+      "paused_at": "2026-10-18 13:22 GMT+3"
     }
   },
   "ads": {
@@ -3844,7 +3850,7 @@
       "campaign": "watch suis winners 17-10",
       "adsquad": "Copy of 17-10 male winners",
       "reason": "[Aggregated Video High CPA - السعودية] مجموع صرف الفيديو = $18.76 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $18.76 (>= $18.00)",
-      "paused_at": "2026-10-18 12:59 GMT+3"
+      "paused_at": "2026-10-18 13:22 GMT+3"
     }
   },
   "tiktok_videos": {
@@ -11173,7 +11179,11 @@
     "d4bc54b3-2f93-4d37-9cd7-ad2133586cfb": "8dbfedc8-e3b2-4e45-a7a1-2859f07ea708",
     "56b72824-89f0-4e7e-a8a1-bf311d6d344a": "9ec205c8-8788-43c0-8f6c-3683022e093a",
     "11990ffe-9bf3-4c75-a667-599543f8587b": "0d8c9038-7537-4cbe-b5df-1f791d8c639a",
-    "7b32f5ea-1fe2-4002-a9a9-cd8ba0d5c5d9": "77355ea6-a755-471d-8a41-1c181407a1c6"
+    "7b32f5ea-1fe2-4002-a9a9-cd8ba0d5c5d9": "77355ea6-a755-471d-8a41-1c181407a1c6",
+    "f5f4bdf9-7a07-4a81-a729-68c13a74d0c1": "02519eae-7853-4294-bae6-c190ed1e5945",
+    "d16a13ed-ee60-46f8-886d-43fe53f0baee": "8d2b165b-f9bc-4204-9eaa-8574c2422f38",
+    "ead39a06-6de1-42fd-8a8c-f11e29c6fafe": "5abf9654-ba37-479d-baa6-50aa88b30868",
+    "78f3c8d2-c48f-45cb-9a03-1b2c137f0313": "9363960b-378c-4f05-a4db-118104a9708c"
   },
   "disabled_videos": {
     "3fd84a83-2854-4330-8e5f-b295e7945562:3a13e534-7b24-47eb-9ffd-0033629623c2": {
@@ -11218,7 +11228,7 @@
       "total_spend": 18.76,
       "total_purchases": 1,
       "reason": "[Aggregated Video High CPA - السعودية] مجموع صرف الفيديو = $18.76 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $18.76 (>= $18.00)",
-      "disabled_at": "2026-10-18 12:59 GMT+3"
+      "disabled_at": "2026-10-18 13:22 GMT+3"
     }
   },
   "night_bid_reductions": {
