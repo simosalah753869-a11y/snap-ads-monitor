@@ -1,5 +1,6 @@
 import json
 import os
+import re
 import socket
 import sys
 import urllib.request
@@ -53,18 +54,23 @@ ACCOUNTS = [
 # Campaign Level:
 # 1. Campaign spend >= $18.00 in 1 day (Today) or 2 days (Yesterday + Today) with 0 conversions -> Pause Campaign
 # 2. Campaign CPA (cost per sale) >= $21.00 in 1 day (Today) or 2 days (Yesterday + Today) -> Pause Campaign
-# Video Level (Smart+):
+# Video Level (Single AdSet / Smart+):
 # 1. Video spend > $6.00 in 1 day (Today) with 0 conversions -> Pause Video
 # 2. Video spend > $6.00 in 2 days (Yesterday + Today) with 0 conversions -> Pause Video
 # 3. Video spend >= $1.00 and CPC > $0.35 (or 0 clicks) -> Pause Video
 #    * EXCEPTION: If the video itself has conversions at a low CPA (< $10.00), do NOT pause it for CPC;
 #      keep it running until its CPA reaches >= $10.00 (MAX_VIDEO_CPA), then pause it.
+# Aggregated Duplicated Video Level (Across ALL Campaigns & ALL Accounts):
+# 1. Duplicated video total spend >= $20.00 (1-day or 2-day) with 0 sales -> Pause video across ALL campaigns & accounts
+# 2. Duplicated video total CPA >= $22.00 (1-day or 2-day, with >= 1 sale) -> Pause video across ALL campaigns & accounts
 MAX_CAMPAIGN_NO_SALE_SPEND = 18.00
 MAX_CAMPAIGN_CPA = 21.00
 MAX_NO_SALE_SPEND = 6.00
 MAX_VIDEO_CPA = 10.00
 MIN_SPEND_FOR_CPC = 1.00
 MAX_CPC = 0.35
+MAX_DUP_VIDEO_NO_SALE_SPEND = 20.00
+MAX_DUP_VIDEO_CPA = 22.00
 
 
 ORIGIN_MATERIAL_TYPES = [
@@ -102,6 +108,7 @@ def load_history():
     data.setdefault("tiktok_campaigns", {})
     data.setdefault("tiktok_videos", {})
     data.setdefault("tiktok_ads", {})
+    data.setdefault("tiktok_disabled_dup_videos", {})
     return data
 
 
@@ -441,6 +448,45 @@ def evaluate_video_rules(spend_1d, conv_1d, cpc_1d, clicks_1d, spend_2d, conv_2d
     return reasons
 
 
+def canonical_video_name(raw_name: str, fallback_id: str = "") -> str:
+    name = (raw_name or "").strip()
+    if not name:
+        return f"id:{fallback_id}"
+    # Strip extension (.mp4, .mov, etc.) and optional trailing timestamp
+    stem = re.sub(r"\.(mp4|mov|m4v|avi|webm)(_\d+)?$", "", name, flags=re.IGNORECASE)
+    # Strip TikTok auto-appended 8-char random hash suffix (e.g. _17CKxSRy, _BNo9p4lP)
+    stem = re.sub(r"_[A-Za-z0-9]{8}$", "", stem)
+    # Strip leading "Copy of "
+    stem = re.sub(r"^copy\s+of\s+", "", stem, flags=re.IGNORECASE)
+    return stem.strip().lower()
+
+
+def evaluate_dup_video_rules(spend_1d: float, conv_1d: int, spend_2d: float, conv_2d: int) -> list[str]:
+    reasons = []
+    # Rule 1: Aggregated Today Spend >= $20.00 across all copies with 0 conversions
+    if spend_1d >= MAX_DUP_VIDEO_NO_SALE_SPEND and conv_1d == 0:
+        reasons.append(
+            f"[Global Dup Video Stop-Loss 1D] Total Today Spend ${spend_1d:.2f} >= ${MAX_DUP_VIDEO_NO_SALE_SPEND:.2f} with 0 sales"
+        )
+    # Rule 2: Aggregated 2-Day Spend >= $20.00 across all copies with 0 conversions
+    if spend_2d >= MAX_DUP_VIDEO_NO_SALE_SPEND and conv_2d == 0:
+        reasons.append(
+            f"[Global Dup Video Stop-Loss 2D] Total 2-Day Spend ${spend_2d:.2f} >= ${MAX_DUP_VIDEO_NO_SALE_SPEND:.2f} with 0 sales"
+        )
+    # Rule 3: Aggregated Today CPA >= $22.00 across all copies (with >= 1 conversion)
+    if conv_1d > 0 and (spend_1d / conv_1d) >= MAX_DUP_VIDEO_CPA:
+        reasons.append(
+            f"[Global Dup Video High CPA 1D] Total Today CPA ${(spend_1d / conv_1d):.2f} >= ${MAX_DUP_VIDEO_CPA:.2f} "
+            f"(Total Spend=${spend_1d:.2f}, Total Sales={conv_1d})"
+        )
+    # Rule 4: Aggregated 2-Day CPA >= $22.00 across all copies (with >= 1 conversion)
+    if conv_2d > 0 and (spend_2d / conv_2d) >= MAX_DUP_VIDEO_CPA:
+        reasons.append(
+            f"[Global Dup Video High CPA 2D] Total 2-Day CPA ${(spend_2d / conv_2d):.2f} >= ${MAX_DUP_VIDEO_CPA:.2f} "
+            f"(Total Spend=${spend_2d:.2f}, Total Sales={conv_2d})"
+        )
+    return reasons
+
 
 def main():
     cookies_raw = load_cookies()
@@ -449,13 +495,18 @@ def main():
 
     total_campaigns_paused = 0
     total_paused = 0
+    total_dup_videos_paused = 0
     total_revived = 0
+
+    # Global tracker for duplicated videos across ALL campaigns & ALL 6 accounts
+    global_dup_videos = {}
+
     for acc_name, aadvid, utc_offset in ACCOUNTS:
         now_tz = datetime.now(timezone(timedelta(hours=utc_offset)))
         today_str = now_tz.strftime("%Y-%m-%d")
         yesterday_str = (now_tz - timedelta(days=1)).strftime("%Y-%m-%d")
 
-        # 1. Campaign-Level Rule Check (Spend >= $18.00 with 0 sales)
+        # 1. Campaign-Level Rule Check (Spend >= $18.00 with 0 sales, or CPA >= $21.00)
         camps_1d = fetch_campaigns(session, headers, aadvid, today_str, today_str)
         camps_2d = fetch_campaigns(session, headers, aadvid, yesterday_str, today_str)
         camp_1d_map = {str(c.get("campaign_id")): c for c in camps_1d if c.get("campaign_id")}
@@ -499,6 +550,18 @@ def main():
             and str(a.get("opt_status")) == "0"
         ]
         active_cids = [str(a.get("creative_id")) for a in active_ads if a.get("creative_id")]
+        active_cid_set = set(active_cids)
+
+        # Also include any creative that had spend in the last 2 days so cross-campaign/account totals are 100% complete
+        relevant_ads = [
+            a for a in ads_2d
+            if a.get("creative_id") and (
+                float((a.get("row_data") or {}).get("stat_cost") or 0) > 0
+                or str(a.get("creative_id")) in active_cid_set
+            )
+        ]
+        relevant_cids = [str(a.get("creative_id")) for a in relevant_ads if a.get("creative_id")]
+
         print(
             f"\n=== [{acc_name}] ({aadvid}) | Date: {yesterday_str} -> {today_str} | "
             f"Active Campaigns: {len(active_camps)} | Active Ads: {len(active_cids)} ==="
@@ -553,16 +616,20 @@ def main():
                 else:
                     print(f"    [ERROR] Failed to pause campaign {camp_id}: {resp_txt}")
 
-        if not active_cids:
+        if not relevant_cids:
             continue
 
         ad_name_map = {
             str(a.get("creative_id")): f"{a.get('campaign_name', '')} / {a.get('creative_name', '')}"
-            for a in active_ads
+            for a in relevant_ads
+        }
+        ad_camp_map = {
+            str(a.get("creative_id")): str(a.get("campaign_name") or "")
+            for a in relevant_ads
         }
 
-        mats_1d = fetch_expanded_materials(session, headers, aadvid, active_cids, today_str, today_str)
-        mats_2d = fetch_expanded_materials(session, headers, aadvid, active_cids, yesterday_str, today_str)
+        mats_1d = fetch_expanded_materials(session, headers, aadvid, relevant_cids, today_str, today_str)
+        mats_2d = fetch_expanded_materials(session, headers, aadvid, relevant_cids, yesterday_str, today_str)
 
         # Index 1d stats by unique material key
         map_1d = {}
@@ -570,11 +637,81 @@ def main():
             key = f"{m.get('ad_id')}:{m.get('ad_material_draft_id')}:{m.get('main_entity_id')}"
             map_1d[key] = m
 
-        print(f"  Expanded Smart+ Videos found: {len(mats_2d)}")
+        # Register ALL video materials into global_dup_videos for cross-campaign & cross-account aggregation
+        for m2_all in mats_2d:
+            k_all = f"{m2_all.get('ad_id')}:{m2_all.get('ad_material_draft_id')}:{m2_all.get('main_entity_id')}"
+            m1_all = map_1d.get(k_all, {})
+            raw_vname = m2_all.get("main_entity_name") or m1_all.get("main_entity_name") or ""
+            v_key = canonical_video_name(raw_vname, str(m2_all.get("main_entity_id") or k_all))
+
+            sp1_v = float(m1_all.get("stat_cost") or 0.0)
+            cv1_v = int(float(m1_all.get("time_attr_convert_cnt") or 0))
+            sp2_v = float(m2_all.get("stat_cost") or 0.0)
+            cv2_v = int(float(m2_all.get("time_attr_convert_cnt") or 0))
+
+            opt_v = str(m2_all.get("mix_material_aco_opt_status") or m1_all.get("mix_material_aco_opt_status") or "0")
+            prim_v = str(m2_all.get("material_primary_status") or m1_all.get("material_primary_status") or "")
+            cid_v = str(m2_all.get("creative_id") or "")
+            aid_v = str(m2_all.get("ad_id") or "")
+            camp_id_v = str(m2_all.get("campaign_id") or "")
+            draft_ids_v = parse_draft_ids(m2_all.get("ad_material_draft_id"))
+            draft_str_v = ",".join(draft_ids_v)
+            hist_key_v = f"{aadvid}:{aid_v}:{draft_str_v}"
+
+            is_inst_active = (
+                cid_v in active_cid_set
+                and opt_v == "0"
+                and prim_v not in ("disable", "delete")
+            )
+
+            grp = global_dup_videos.setdefault(v_key, {
+                "v_key": v_key,
+                "sample_name": raw_vname,
+                "ad_ids": set(),
+                "campaign_ids": set(),
+                "accounts": set(),
+                "spend_1d": 0.0,
+                "conv_1d": 0,
+                "spend_2d": 0.0,
+                "conv_2d": 0,
+                "instances": [],
+            })
+            grp["ad_ids"].add(f"{aadvid}:{aid_v}")
+            grp["campaign_ids"].add(f"{aadvid}:{camp_id_v}")
+            grp["accounts"].add(acc_name)
+            grp["spend_1d"] = round(grp["spend_1d"] + sp1_v, 2)
+            grp["conv_1d"] += cv1_v
+            grp["spend_2d"] = round(grp["spend_2d"] + sp2_v, 2)
+            grp["conv_2d"] += cv2_v
+            grp["instances"].append({
+                "acc_name": acc_name,
+                "aadvid": aadvid,
+                "campaign_id": camp_id_v,
+                "campaign_name": ad_camp_map.get(cid_v, ""),
+                "ad_id": aid_v,
+                "creative_id": cid_v,
+                "campaign_ad_name": ad_name_map.get(cid_v, ""),
+                "raw_name": raw_vname,
+                "draft_ids": draft_ids_v,
+                "draft_str": draft_str_v,
+                "hist_key": hist_key_v,
+                "spend_1d": sp1_v,
+                "conv_1d": cv1_v,
+                "spend_2d": sp2_v,
+                "conv_2d": cv2_v,
+                "is_active": is_inst_active,
+                "row": m2_all,
+            })
+
+        if not active_cids:
+            continue
+
+        active_mats_2d = [m for m in mats_2d if str(m.get("creative_id") or "") in active_cid_set]
+        print(f"  Expanded Smart+ Videos found: {len(active_mats_2d)}")
         # Count active videos per ad_id to prevent starving a Smart+ campaign to 0 active videos
         active_videos_per_ad = {}
         paused_candidates_per_ad = {}
-        for m_item in mats_2d:
+        for m_item in active_mats_2d:
             k_item = f"{m_item.get('ad_id')}:{m_item.get('ad_material_draft_id')}:{m_item.get('main_entity_id')}"
             m1_item = map_1d.get(k_item, {})
             opt_st = str(m_item.get("mix_material_aco_opt_status") or m1_item.get("mix_material_aco_opt_status") or "0")
@@ -582,9 +719,13 @@ def main():
             aid_str = str(m_item.get("ad_id") or "")
             if not aid_str:
                 continue
+            v_key_item = canonical_video_name(m_item.get("main_entity_name") or "", str(m_item.get("main_entity_id") or ""))
             if opt_st == "0" and prim_st not in ("disable", "delete"):
                 active_videos_per_ad[aid_str] = active_videos_per_ad.get(aid_str, 0) + 1
             else:
+                # Never consider a globally disabled duplicated video for starvation recovery
+                if v_key_item in history.get("tiktok_disabled_dup_videos", {}):
+                    continue
                 sp2_i = float(m_item.get("stat_cost") or 0.0)
                 cpc2_i = float(m_item.get("cpc") or 0.0)
                 if sp2_i < MAX_NO_SALE_SPEND:
@@ -605,7 +746,7 @@ def main():
                         f"in '{a_obj.get('campaign_name')}' because 0 active videos remained!"
                     )
 
-        for m2 in mats_2d:
+        for m2 in active_mats_2d:
             key = f"{m2.get('ad_id')}:{m2.get('ad_material_draft_id')}:{m2.get('main_entity_id')}"
             m1 = map_1d.get(key, {})
 
@@ -623,6 +764,7 @@ def main():
             conv_2d = int(float(m2.get("time_attr_convert_cnt") or 0))
 
             vid_name = (m2.get("main_entity_name") or "Video")[:45]
+            v_key_cur = canonical_video_name(m2.get("main_entity_name") or "", str(m2.get("main_entity_id") or ""))
             cid = str(m2.get("creative_id") or "")
             ad_id = str(m2.get("ad_id") or "")
             draft_ids = parse_draft_ids(m2.get("ad_material_draft_id"))
@@ -631,6 +773,9 @@ def main():
 
             # Delayed-Attribution Auto-Revival for Paused Smart+ Videos:
             if hist_key in history["tiktok_videos"] and opt_status != "0":
+                # Do not revive here if it was killed by the global duplicated video rule and still violates it
+                if v_key_cur in history.get("tiktok_disabled_dup_videos", {}):
+                    continue
                 if (conv_1d > 0 or conv_2d > 0) and not evaluate_video_rules(
                     spend_1d, conv_1d, cpc_1d, clicks_1d,
                     spend_2d, conv_2d, cpc_2d, clicks_2d,
@@ -674,6 +819,10 @@ def main():
                 ok, resp_txt = pause_smart_plus_video(session, headers, aadvid, ad_id, m2)
                 if ok:
                     active_videos_per_ad[ad_id] = max(0, active_videos_per_ad.get(ad_id, 1) - 1)
+                    # Update instance active status in global_dup_videos so Phase 2 doesn't double-pause
+                    for inst_g in global_dup_videos.get(v_key_cur, {}).get("instances", []):
+                        if inst_g["hist_key"] == hist_key:
+                            inst_g["is_active"] = False
                     print(f"    [SUCCESS] Paused video {draft_str} in ad_id {ad_id}")
                     history["tiktok_videos"][hist_key] = {
                         "aadvid": aadvid,
@@ -694,10 +843,101 @@ def main():
                 else:
                     print(f"    [ERROR] Failed to pause video {draft_str}: {resp_txt}")
 
+    # =========================================================================
+    # PHASE 2: Cross-Campaign & Cross-Account Duplicated Video Aggregation Rule
+    # - Applies to any duplicated video (present in >= 2 AdSets across campaigns/accounts):
+    #   1) Total Spend >= $20.00 (Today or 2-Day) with 0 sales -> Pause ALL active copies permanently
+    #   2) Total Sales >= 1 and Total CPA >= $22.00 (Today or 2-Day) -> Pause ALL active copies permanently
+    # =========================================================================
+    dup_candidates = [g for g in global_dup_videos.values() if len(g["ad_ids"]) >= 2 and (g["spend_2d"] > 0 or g["spend_1d"] > 0)]
+    print(f"\n🧮 [Phase 2] Checking {len(dup_candidates)} Duplicated Videos across ALL Campaigns & Accounts (Thresholds: >=${MAX_DUP_VIDEO_NO_SALE_SPEND:.0f} w/ 0 sales OR CPA >=${MAX_DUP_VIDEO_CPA:.0f})...")
+
+    for grp in sorted(dup_candidates, key=lambda x: x["spend_2d"], reverse=True):
+        v_key = grp["v_key"]
+        tot_sp1 = grp["spend_1d"]
+        tot_cv1 = grp["conv_1d"]
+        tot_sp2 = grp["spend_2d"]
+        tot_cv2 = grp["conv_2d"]
+
+        dup_reasons = evaluate_dup_video_rules(tot_sp1, tot_cv1, tot_sp2, tot_cv2)
+
+        # Delayed-Attribution Auto-Revival for Globally Disabled Duplicated Videos:
+        if v_key in history["tiktok_disabled_dup_videos"] and not dup_reasons and (tot_cv1 > 0 or tot_cv2 > 0):
+            print(
+                f"  ♻️🔥 [REVIVED GLOBAL DUP VIDEO - DELAYED SALE] '{v_key}' "
+                f"| 2-Day Total Spend=${tot_sp2:.2f}, Total Sales={tot_cv2} (CPA=${(tot_sp2 / tot_cv2):.2f} < ${MAX_DUP_VIDEO_CPA:.2f})"
+            )
+            del history["tiktok_disabled_dup_videos"][v_key]
+
+        if not dup_reasons:
+            continue
+
+        active_insts = [inst for inst in grp["instances"] if inst["is_active"]]
+        if not active_insts:
+            continue
+
+        dup_reason_str = " | ".join(dup_reasons)
+        print(
+            f"  🛑🗑️ [GLOBAL DUPLICATED VIDEO KILL] Video '{v_key}' (Copies={len(grp['ad_ids'])} AdSets across {sorted(grp['accounts'])}) "
+            f"| Active copies to shut down: {len(active_insts)} | {dup_reason_str}"
+        )
+
+        closed_copies = 0
+        for inst in active_insts:
+            h_key = inst["hist_key"]
+            ok_kill, resp_kill = pause_smart_plus_video(
+                session, headers, inst["aadvid"], inst["ad_id"], inst["row"], operation="disable"
+            )
+            if ok_kill:
+                closed_copies += 1
+                total_paused += 1
+                total_dup_videos_paused += 1
+                inst["is_active"] = False
+                history["tiktok_videos"][h_key] = {
+                    "aadvid": inst["aadvid"],
+                    "account_name": inst["acc_name"],
+                    "ad_id": inst["ad_id"],
+                    "creative_id": inst["creative_id"],
+                    "campaign_ad_name": inst["campaign_ad_name"],
+                    "video_name": inst["raw_name"],
+                    "draft_ids": inst["draft_ids"],
+                    "reason": dup_reason_str,
+                    "spend_1d": inst["spend_1d"],
+                    "conv_1d": inst["conv_1d"],
+                    "spend_2d": inst["spend_2d"],
+                    "conv_2d": inst["conv_2d"],
+                    "global_spend_1d": tot_sp1,
+                    "global_conv_1d": tot_cv1,
+                    "global_spend_2d": tot_sp2,
+                    "global_conv_2d": tot_cv2,
+                    "paused_at": datetime.now(timezone.utc).isoformat(),
+                }
+                print(
+                    f"    -> [PAUSED COPY] [{inst['acc_name']}] Camp='{inst['campaign_name']}' "
+                    f"(ad_id={inst['ad_id']}, draft={inst['draft_str']}) | Copy 2D=${inst['spend_2d']:.2f}/{inst['conv_2d']}cv"
+                )
+            else:
+                print(f"    -> [ERROR] Failed to pause copy {inst['draft_str']} in ad_id {inst['ad_id']}: {resp_kill}")
+
+        history["tiktok_disabled_dup_videos"][v_key] = {
+            "v_key": v_key,
+            "sample_name": grp["sample_name"],
+            "accounts": sorted(grp["accounts"]),
+            "total_copies": len(grp["ad_ids"]),
+            "closed_copies": closed_copies,
+            "spend_1d": tot_sp1,
+            "conv_1d": tot_cv1,
+            "spend_2d": tot_sp2,
+            "conv_2d": tot_cv2,
+            "reason": dup_reason_str,
+            "disabled_at": datetime.now(timezone.utc).isoformat(),
+        }
+
     save_history(history)
     print(
         f"\nDone! Total TikTok Campaigns paused: {total_campaigns_paused} | "
-        f"Smart+ videos paused: {total_paused} | Auto-Revived (delayed sales): {total_revived}"
+        f"Smart+ videos paused: {total_paused} (Global Dup Video kills: {total_dup_videos_paused}) | "
+        f"Auto-Revived (delayed sales): {total_revived}"
     )
 
 
