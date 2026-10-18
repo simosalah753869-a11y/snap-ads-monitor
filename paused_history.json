@@ -3804,13 +3804,6 @@
       "reason": "[Ad CPC Rule] صرف الفيديو $1.02 | النقرات: 1 | سعر النقرة CPC = $1.02 (> $0.28)",
       "paused_at": "2026-10-18 12:04 GMT+3"
     },
-    "107dcad2-fade-4fb5-85d6-8cc71824da8e": {
-      "name": "2_winner",
-      "campaign": "watch suis winners 17-10",
-      "adsquad": "Copy of 17-10 male winners",
-      "reason": "[Aggregated Video High CPA - السعودية] مجموع صرف الفيديو = $18.76 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $18.76 (>= $18.00)",
-      "paused_at": "2026-10-18 12:43 GMT+3"
-    },
     "48fb7bbf-5f91-4c80-b49a-9b14c8185251": {
       "name": "Copy of Copy of Copy of 2",
       "campaign": "car scaling new 2 text",
@@ -3845,6 +3838,13 @@
       "adsquad": "Copy of Copy of 1.5 | 23.8",
       "reason": "[Aggregated Video Stop-Loss - السعودية] مجموع صرف الفيديو عبر كل الـ AdSquads = $15.74 (>= $15.00) بدون أي مبيعة",
       "paused_at": "2026-10-18 01:20 GMT+3"
+    },
+    "107dcad2-fade-4fb5-85d6-8cc71824da8e": {
+      "name": "2_winner",
+      "campaign": "watch suis winners 17-10",
+      "adsquad": "Copy of 17-10 male winners",
+      "reason": "[Aggregated Video High CPA - السعودية] مجموع صرف الفيديو = $18.76 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $18.76 (>= $18.00)",
+      "paused_at": "2026-10-18 12:59 GMT+3"
     }
   },
   "tiktok_videos": {
@@ -11171,7 +11171,9 @@
     "a2be6df3-3a39-4047-9e70-88597a1e2e0e": "6994e762-fccf-45ab-bef7-b01a4dc19ac6",
     "eaeee6b7-706c-4af4-984f-bbe8e0b79357": "57d68fe2-0cb4-435f-87f5-5dc950817fc8",
     "d4bc54b3-2f93-4d37-9cd7-ad2133586cfb": "8dbfedc8-e3b2-4e45-a7a1-2859f07ea708",
-    "56b72824-89f0-4e7e-a8a1-bf311d6d344a": "9ec205c8-8788-43c0-8f6c-3683022e093a"
+    "56b72824-89f0-4e7e-a8a1-bf311d6d344a": "9ec205c8-8788-43c0-8f6c-3683022e093a",
+    "11990ffe-9bf3-4c75-a667-599543f8587b": "0d8c9038-7537-4cbe-b5df-1f791d8c639a",
+    "7b32f5ea-1fe2-4002-a9a9-cd8ba0d5c5d9": "77355ea6-a755-471d-8a41-1c181407a1c6"
   },
   "disabled_videos": {
     "3fd84a83-2854-4330-8e5f-b295e7945562:3a13e534-7b24-47eb-9ffd-0033629623c2": {
@@ -11216,7 +11218,7 @@
       "total_spend": 18.76,
       "total_purchases": 1,
       "reason": "[Aggregated Video High CPA - السعودية] مجموع صرف الفيديو = $18.76 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $18.76 (>= $18.00)",
-      "disabled_at": "2026-10-18 12:43 GMT+3"
+      "disabled_at": "2026-10-18 12:59 GMT+3"
     }
   },
   "night_bid_reductions": {
