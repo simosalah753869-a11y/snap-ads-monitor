@@ -780,6 +780,24 @@
       "campaign": "وسادة السيارة علا وحنان 18-10 (دفعة 13-10)",
       "reason": "[Copy Rule] سعر البيعة CPA = $10.81 (>= $8) | الصرف: $10.81 | المبيعات: 1",
       "paused_at": "2026-10-18 23:20 GMT+3"
+    },
+    "4d9bd82e-fe1a-4351-9fa2-19832a6d823c": {
+      "name": "Copy of 18-10 حنان (5 فيديوهات)",
+      "campaign": "وسادة السيارة علا وحنان 18-10 (دفعة 13-10)",
+      "reason": "[Copy Rule] صرفت $5.13 (>= $5) بدون مبيعات",
+      "paused_at": "2026-10-18 23:49 GMT+3"
+    },
+    "bfcfa9f0-b70f-4a83-9a8a-e7651c784365": {
+      "name": "Copy of Copy of 1.5 | 23.8",
+      "campaign": "car scaling camp ",
+      "reason": "[Copy Rule] صرفت $6.19 (>= $5) بدون مبيعات",
+      "paused_at": "2026-10-18 23:49 GMT+3"
+    },
+    "65f20838-8a0f-4475-b83c-4adf5a1f8f16": {
+      "name": "Copy of 16-10 1",
+      "campaign": "باور بانك وينر",
+      "reason": "[Copy Rule] صرفت $5.33 (>= $5) بدون مبيعات",
+      "paused_at": "2026-10-18 23:49 GMT+3"
     }
   },
   "ads": {
@@ -4173,6 +4191,13 @@
       "adsquad": "QA_PB Smart+ Broad | 2.6 Bid",
       "reason": "[Ad CPC Rule] صرف الفيديو $1.27 | النقرات: 3 | سعر النقرة CPC = $0.423 (> $0.34)",
       "paused_at": "2026-10-18 23:20 GMT+3"
+    },
+    "81dcc0c2-3e36-4bc4-a64f-89893689a418": {
+      "name": "Copy of 4",
+      "campaign": "car scaling camp ",
+      "adsquad": "Copy of Copy of 1.5 | 23.8",
+      "reason": "[Ad CPC Rule] صرف الفيديو $1.21 | النقرات: 4 | سعر النقرة CPC = $0.302 (> $0.28)",
+      "paused_at": "2026-10-18 23:49 GMT+3"
     }
   },
   "tiktok_videos": {
@@ -6303,6 +6328,23 @@
       "spend_2d": 1.65,
       "conv_2d": 0,
       "paused_at": "2026-10-18T19:44:54.034358+00:00"
+    },
+    "7631763556322148369:1879340731438114:1879340739872882": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "ad_id": "1879340731438114",
+      "creative_id": "1879340731438130",
+      "campaign_ad_name": "car armrest 18-10 (Hanan + Ola 13-10) / car armrest 18-10 (Hanan + Ola 13-10) - Creative",
+      "video_name": "18_10_13-10_ola_2.mp4",
+      "draft_ids": [
+        "1879340739872882"
+      ],
+      "reason": "Today Spend $1.02 >= $1.00 & CPC $0.00 > $0.35",
+      "spend_1d": 1.02,
+      "conv_1d": 0,
+      "spend_2d": 1.02,
+      "conv_2d": 0,
+      "paused_at": "2026-10-18T20:51:23.909205+00:00"
     }
   },
   "tiktok_ads": {},
