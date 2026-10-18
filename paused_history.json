@@ -720,6 +720,18 @@
       "campaign": "car scaling camp ",
       "reason": "[Copy Rule] سعر البيعة CPA = $8.37 (>= $8) | الصرف: $8.37 | المبيعات: 1",
       "paused_at": "2026-10-18 15:05 GMT+3"
+    },
+    "3f7fd796-1ace-45b5-85a2-7a85fb76f34e": {
+      "name": "Copy of Copy of Copy of Copy of Copy of Copy of Copy of text1",
+      "campaign": "car scaling new 2 text",
+      "reason": "[Copy Rule] صرفت $5.08 (>= $5) بدون مبيعات",
+      "paused_at": "2026-10-18 17:22 GMT+3"
+    },
+    "3ccd4669-f311-4962-81f7-609149b743e2": {
+      "name": "Copy of Copy of Copy of Copy of 1.5 | 23.8",
+      "campaign": "car scaling camp ",
+      "reason": "[Copy Rule] صرفت $5.79 (>= $5) بدون مبيعات",
+      "paused_at": "2026-10-18 17:22 GMT+3"
     }
   },
   "ads": {
@@ -3832,7 +3844,14 @@
       "campaign": "watch suis winners 17-10",
       "adsquad": "Copy of 17-10 male winners",
       "reason": "[Aggregated Video High CPA - السعودية] مجموع صرف الفيديو = $18.94 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $18.94 (>= $18.00)",
-      "paused_at": "2026-10-18 16:47 GMT+3"
+      "paused_at": "2026-10-18 17:22 GMT+3"
+    },
+    "c3e69763-d85a-43a7-a7e7-5af6b0420779": {
+      "name": "4",
+      "campaign": "باور بانك وينر",
+      "adsquad": "Copy of 16-10 1",
+      "reason": "[Aggregated Video High CPA - السعودية] مجموع صرف الفيديو = $18.13 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $18.13 (>= $18.00)",
+      "paused_at": "2026-10-18 17:22 GMT+3"
     }
   },
   "tiktok_videos": {
@@ -10141,177 +10160,177 @@
       "name": "Copy of 16-10 2",
       "campaign": "باور بانك 16-10",
       "date": "2026-10-18",
-      "count": 4,
-      "done": false,
-      "old_bid": 2.25,
-      "new_bid": 2.35,
-      "last_bump_at": "2026-10-18T12:09:32.726201+00:00",
-      "last_bump_local": "2026-10-18 15:05 GMT+3"
+      "count": 5,
+      "done": true,
+      "old_bid": 2.9,
+      "new_bid": 3.0,
+      "last_bump_at": "2026-10-18T14:24:10.272568+00:00",
+      "last_bump_local": "2026-10-18 17:22 GMT+3"
     },
     "329c631d-ab61-4737-a2ce-dd71fd96c572": {
       "name": "Copy of 16-10 2",
       "campaign": "باور بانك 16-10",
       "date": "2026-10-18",
-      "count": 4,
-      "done": false,
-      "old_bid": 2.25,
-      "new_bid": 2.35,
-      "last_bump_at": "2026-10-18T12:09:32.726201+00:00",
-      "last_bump_local": "2026-10-18 15:05 GMT+3"
+      "count": 5,
+      "done": true,
+      "old_bid": 2.9,
+      "new_bid": 3.0,
+      "last_bump_at": "2026-10-18T14:24:10.272568+00:00",
+      "last_bump_local": "2026-10-18 17:22 GMT+3"
     },
     "48881471-987b-4f64-b9d6-b451252627f2": {
       "name": "Copy of 16-10 2",
       "campaign": "باور بانك 16-10",
       "date": "2026-10-18",
-      "count": 4,
-      "done": false,
-      "old_bid": 2.25,
-      "new_bid": 2.35,
-      "last_bump_at": "2026-10-18T12:09:32.726201+00:00",
-      "last_bump_local": "2026-10-18 15:05 GMT+3"
+      "count": 5,
+      "done": true,
+      "old_bid": 2.9,
+      "new_bid": 3.0,
+      "last_bump_at": "2026-10-18T14:24:10.272568+00:00",
+      "last_bump_local": "2026-10-18 17:22 GMT+3"
     },
     "49346aa5-9f30-40d0-abbd-f9b48f413c47": {
       "name": "Copy of 16-10 2",
       "campaign": "باور بانك 16-10",
       "date": "2026-10-18",
-      "count": 4,
-      "done": false,
-      "old_bid": 2.25,
-      "new_bid": 2.35,
-      "last_bump_at": "2026-10-18T12:09:32.726201+00:00",
-      "last_bump_local": "2026-10-18 15:05 GMT+3"
+      "count": 5,
+      "done": true,
+      "old_bid": 2.9,
+      "new_bid": 3.0,
+      "last_bump_at": "2026-10-18T14:24:10.272568+00:00",
+      "last_bump_local": "2026-10-18 17:22 GMT+3"
     },
     "68695e3b-91c2-4463-b1db-269954e1a5dc": {
       "name": "Copy of 16-10 2",
       "campaign": "باور بانك 16-10",
       "date": "2026-10-18",
-      "count": 4,
-      "done": false,
-      "old_bid": 2.25,
-      "new_bid": 2.35,
-      "last_bump_at": "2026-10-18T12:09:32.726201+00:00",
-      "last_bump_local": "2026-10-18 15:05 GMT+3"
+      "count": 5,
+      "done": true,
+      "old_bid": 2.9,
+      "new_bid": 3.0,
+      "last_bump_at": "2026-10-18T14:24:10.272568+00:00",
+      "last_bump_local": "2026-10-18 17:22 GMT+3"
     },
     "84ccc53e-323a-41fb-85ec-b7b8514f84df": {
       "name": "Copy of 16-10 2",
       "campaign": "باور بانك 16-10",
       "date": "2026-10-18",
-      "count": 4,
-      "done": false,
-      "old_bid": 2.25,
-      "new_bid": 2.35,
-      "last_bump_at": "2026-10-18T12:09:32.726201+00:00",
-      "last_bump_local": "2026-10-18 15:05 GMT+3"
+      "count": 5,
+      "done": true,
+      "old_bid": 2.9,
+      "new_bid": 3.0,
+      "last_bump_at": "2026-10-18T14:24:10.272568+00:00",
+      "last_bump_local": "2026-10-18 17:22 GMT+3"
     },
     "86e27939-f74b-4898-b0c9-be4451dfe337": {
       "name": "Copy of 16-10 2",
       "campaign": "باور بانك 16-10",
       "date": "2026-10-18",
-      "count": 4,
-      "done": false,
-      "old_bid": 2.25,
-      "new_bid": 2.35,
-      "last_bump_at": "2026-10-18T12:09:32.726201+00:00",
-      "last_bump_local": "2026-10-18 15:05 GMT+3"
+      "count": 5,
+      "done": true,
+      "old_bid": 2.9,
+      "new_bid": 3.0,
+      "last_bump_at": "2026-10-18T14:24:10.272568+00:00",
+      "last_bump_local": "2026-10-18 17:22 GMT+3"
     },
     "86fc9d1a-7fd8-4e8a-afb2-3b41efe0cd1a": {
       "name": "Copy of 16-10 2",
       "campaign": "باور بانك 16-10",
       "date": "2026-10-18",
-      "count": 4,
-      "done": false,
-      "old_bid": 2.25,
-      "new_bid": 2.35,
-      "last_bump_at": "2026-10-18T12:09:32.726201+00:00",
-      "last_bump_local": "2026-10-18 15:05 GMT+3"
+      "count": 5,
+      "done": true,
+      "old_bid": 2.9,
+      "new_bid": 3.0,
+      "last_bump_at": "2026-10-18T14:24:10.272568+00:00",
+      "last_bump_local": "2026-10-18 17:22 GMT+3"
     },
     "a7d5a035-b9f0-4f02-8547-9693f0d5367f": {
       "name": "Copy of 16-10 2",
       "campaign": "باور بانك 16-10",
       "date": "2026-10-18",
-      "count": 4,
-      "done": false,
-      "old_bid": 2.25,
-      "new_bid": 2.35,
-      "last_bump_at": "2026-10-18T12:09:32.726201+00:00",
-      "last_bump_local": "2026-10-18 15:05 GMT+3"
+      "count": 5,
+      "done": true,
+      "old_bid": 2.9,
+      "new_bid": 3.0,
+      "last_bump_at": "2026-10-18T14:24:10.272568+00:00",
+      "last_bump_local": "2026-10-18 17:22 GMT+3"
     },
     "a7db5766-0600-4536-957f-b8f220a881c2": {
       "name": "Copy of 16-10 2",
       "campaign": "باور بانك 16-10",
       "date": "2026-10-18",
-      "count": 4,
-      "done": false,
-      "old_bid": 2.25,
-      "new_bid": 2.35,
-      "last_bump_at": "2026-10-18T12:09:32.726201+00:00",
-      "last_bump_local": "2026-10-18 15:05 GMT+3"
+      "count": 5,
+      "done": true,
+      "old_bid": 2.9,
+      "new_bid": 3.0,
+      "last_bump_at": "2026-10-18T14:24:10.272568+00:00",
+      "last_bump_local": "2026-10-18 17:22 GMT+3"
     },
     "b070d703-c3a3-4f25-b9d0-b3ecb8dd56a9": {
       "name": "Copy of 16-10 2",
       "campaign": "باور بانك 16-10",
       "date": "2026-10-18",
-      "count": 4,
-      "done": false,
-      "old_bid": 2.25,
-      "new_bid": 2.35,
-      "last_bump_at": "2026-10-18T12:09:32.726201+00:00",
-      "last_bump_local": "2026-10-18 15:05 GMT+3"
+      "count": 5,
+      "done": true,
+      "old_bid": 2.9,
+      "new_bid": 3.0,
+      "last_bump_at": "2026-10-18T14:24:10.272568+00:00",
+      "last_bump_local": "2026-10-18 17:22 GMT+3"
     },
     "bf9a89bf-6078-4aa2-a8b2-449216959128": {
       "name": "Copy of 16-10 2",
       "campaign": "باور بانك 16-10",
       "date": "2026-10-18",
-      "count": 4,
-      "done": false,
-      "old_bid": 2.25,
-      "new_bid": 2.35,
-      "last_bump_at": "2026-10-18T12:09:32.726201+00:00",
-      "last_bump_local": "2026-10-18 15:05 GMT+3"
+      "count": 5,
+      "done": true,
+      "old_bid": 2.9,
+      "new_bid": 3.0,
+      "last_bump_at": "2026-10-18T14:24:10.272568+00:00",
+      "last_bump_local": "2026-10-18 17:22 GMT+3"
     },
     "ce0c9481-c8e8-4093-97d6-7909b7acdc47": {
       "name": "Copy of 16-10 2",
       "campaign": "باور بانك 16-10",
       "date": "2026-10-18",
-      "count": 4,
-      "done": false,
-      "old_bid": 2.25,
-      "new_bid": 2.35,
-      "last_bump_at": "2026-10-18T12:09:32.726201+00:00",
-      "last_bump_local": "2026-10-18 15:05 GMT+3"
+      "count": 5,
+      "done": true,
+      "old_bid": 2.9,
+      "new_bid": 3.0,
+      "last_bump_at": "2026-10-18T14:24:10.272568+00:00",
+      "last_bump_local": "2026-10-18 17:22 GMT+3"
     },
     "cf05151e-0f0b-4e98-8aa0-037bb0c38ce9": {
       "name": "Copy of 16-10 2",
       "campaign": "باور بانك 16-10",
       "date": "2026-10-18",
-      "count": 4,
-      "done": false,
-      "old_bid": 2.25,
-      "new_bid": 2.35,
-      "last_bump_at": "2026-10-18T12:09:32.726201+00:00",
-      "last_bump_local": "2026-10-18 15:05 GMT+3"
+      "count": 5,
+      "done": true,
+      "old_bid": 2.9,
+      "new_bid": 3.0,
+      "last_bump_at": "2026-10-18T14:24:10.272568+00:00",
+      "last_bump_local": "2026-10-18 17:22 GMT+3"
     },
     "d7283731-a021-43ce-8e75-ff80db964c58": {
       "name": "Copy of 16-10 2",
       "campaign": "باور بانك 16-10",
       "date": "2026-10-18",
-      "count": 4,
-      "done": false,
-      "old_bid": 2.25,
-      "new_bid": 2.35,
-      "last_bump_at": "2026-10-18T12:09:32.726201+00:00",
-      "last_bump_local": "2026-10-18 15:05 GMT+3"
+      "count": 5,
+      "done": true,
+      "old_bid": 2.9,
+      "new_bid": 3.0,
+      "last_bump_at": "2026-10-18T14:24:10.272568+00:00",
+      "last_bump_local": "2026-10-18 17:22 GMT+3"
     },
     "fda88894-3359-43ef-baeb-23d68537d046": {
       "name": "Copy of 16-10 2",
       "campaign": "باور بانك 16-10",
       "date": "2026-10-18",
-      "count": 4,
-      "done": false,
-      "old_bid": 2.25,
-      "new_bid": 2.35,
-      "last_bump_at": "2026-10-18T12:09:32.726201+00:00",
-      "last_bump_local": "2026-10-18 15:05 GMT+3"
+      "count": 5,
+      "done": true,
+      "old_bid": 2.9,
+      "new_bid": 3.0,
+      "last_bump_at": "2026-10-18T14:24:10.272568+00:00",
+      "last_bump_local": "2026-10-18 17:22 GMT+3"
     },
     "42958a42-1da5-43d9-97c2-68057391fbfc": {
       "count": 0,
@@ -10641,34 +10660,34 @@
       "name": "18-10 علا (5 فيديوهات)",
       "campaign": "وسادة السيارة علا وحنان 18-10 (دفعة 13-10)",
       "date": "2026-10-18",
-      "count": 2,
+      "count": 3,
       "done": false,
-      "old_bid": 2.25,
-      "new_bid": 2.35,
-      "last_bump_at": "2026-10-18T12:09:32.726201+00:00",
-      "last_bump_local": "2026-10-18 15:05 GMT+3"
+      "old_bid": 2.35,
+      "new_bid": 2.45,
+      "last_bump_at": "2026-10-18T14:24:10.272568+00:00",
+      "last_bump_local": "2026-10-18 17:22 GMT+3"
     },
     "bdd8488b-6289-4959-9fd0-ce3f8c81b441": {
       "name": "Smart+ Broad — كل الـ 10 فيديوهات",
       "campaign": "وسادة السيارة علا وحنان 18-10 (دفعة 13-10)",
       "date": "2026-10-18",
-      "count": 2,
+      "count": 3,
       "done": false,
-      "old_bid": 2.55,
-      "new_bid": 2.65,
-      "last_bump_at": "2026-10-18T12:09:32.726201+00:00",
-      "last_bump_local": "2026-10-18 15:05 GMT+3"
+      "old_bid": 2.65,
+      "new_bid": 2.75,
+      "last_bump_at": "2026-10-18T14:24:10.272568+00:00",
+      "last_bump_local": "2026-10-18 17:22 GMT+3"
     },
     "8c78d67c-9fde-4e3a-acd5-e0ed05b95030": {
       "name": "SA_PB_OldAcc Smart+ Broad | 2.8 Bid",
       "campaign": "باور بانك السعودية سمارت+ (فيديوهات الحساب الثاني) 18-10",
       "date": "2026-10-18",
-      "count": 2,
+      "count": 3,
       "done": false,
-      "old_bid": 2.9,
-      "new_bid": 3.0,
-      "last_bump_at": "2026-10-18T12:09:32.726201+00:00",
-      "last_bump_local": "2026-10-18 15:05 GMT+3"
+      "old_bid": 3.0,
+      "new_bid": 3.1,
+      "last_bump_at": "2026-10-18T14:24:10.272568+00:00",
+      "last_bump_local": "2026-10-18 17:22 GMT+3"
     },
     "e4b924d3-595f-40d9-98db-b001a307f736": {
       "name": "SA_PB_OldAcc Target Cost Men 20+ | 2.8 Bid",
@@ -10685,12 +10704,12 @@
       "name": "SA Male Smart+ Winners | 3.0 Bid",
       "campaign": "smart+ watch suis SA 18-10",
       "date": "2026-10-18",
-      "count": 2,
+      "count": 3,
       "done": false,
-      "old_bid": 3.1,
-      "new_bid": 3.2,
-      "last_bump_at": "2026-10-18T12:09:32.726201+00:00",
-      "last_bump_local": "2026-10-18 15:05 GMT+3"
+      "old_bid": 3.2,
+      "new_bid": 3.3,
+      "last_bump_at": "2026-10-18T14:24:10.272568+00:00",
+      "last_bump_local": "2026-10-18 17:22 GMT+3"
     },
     "b46bd9e6-f018-48a6-bab7-84dc4762e81c": {
       "count": 0,
@@ -10728,12 +10747,12 @@
       "name": "SA Smart+ Winners | 3.0 Bid",
       "campaign": "smart+ power bank SA 18-10",
       "date": "2026-10-18",
-      "count": 2,
+      "count": 3,
       "done": false,
-      "old_bid": 3.1,
-      "new_bid": 3.2,
-      "last_bump_at": "2026-10-18T12:09:32.726201+00:00",
-      "last_bump_local": "2026-10-18 15:05 GMT+3"
+      "old_bid": 3.2,
+      "new_bid": 3.3,
+      "last_bump_at": "2026-10-18T14:24:10.272568+00:00",
+      "last_bump_local": "2026-10-18 17:22 GMT+3"
     },
     "751ee188-b6f4-48fe-99af-b2330c1ccd12": {
       "count": 0,
@@ -10746,12 +10765,12 @@
       "name": "SA Smart+ Old Account Historical Winners | 2.8 Bid",
       "campaign": "smart+ power bank SA 18-10",
       "date": "2026-10-18",
-      "count": 2,
+      "count": 3,
       "done": false,
-      "old_bid": 3.0,
-      "new_bid": 3.1,
-      "last_bump_at": "2026-10-18T12:09:32.726201+00:00",
-      "last_bump_local": "2026-10-18 15:05 GMT+3"
+      "old_bid": 3.1,
+      "new_bid": 3.2,
+      "last_bump_at": "2026-10-18T14:24:10.272568+00:00",
+      "last_bump_local": "2026-10-18 17:22 GMT+3"
     },
     "e0fe7fbc-38ef-48fd-9245-7252655e5f0b": {
       "count": 0,
@@ -10764,12 +10783,12 @@
       "name": "SA Smart+ Winners | 3.0 Bid",
       "campaign": "smart+ cars SA 18-10",
       "date": "2026-10-18",
-      "count": 2,
+      "count": 3,
       "done": false,
-      "old_bid": 3.1,
-      "new_bid": 3.2,
-      "last_bump_at": "2026-10-18T12:09:32.726201+00:00",
-      "last_bump_local": "2026-10-18 15:05 GMT+3"
+      "old_bid": 3.2,
+      "new_bid": 3.3,
+      "last_bump_at": "2026-10-18T14:24:10.272568+00:00",
+      "last_bump_local": "2026-10-18 17:22 GMT+3"
     },
     "61167bda-8524-4231-9ba8-130fd3dda39e": {
       "count": 0,
@@ -10782,23 +10801,23 @@
       "name": "SA Smart+ Winners | 3.0 Bid",
       "campaign": "smart+ cars SA 18-10",
       "date": "2026-10-18",
-      "count": 2,
+      "count": 3,
       "done": false,
-      "old_bid": 3.1,
-      "new_bid": 3.2,
-      "last_bump_at": "2026-10-18T12:09:32.726201+00:00",
-      "last_bump_local": "2026-10-18 15:05 GMT+3"
+      "old_bid": 3.2,
+      "new_bid": 3.3,
+      "last_bump_at": "2026-10-18T14:24:10.272568+00:00",
+      "last_bump_local": "2026-10-18 17:22 GMT+3"
     },
     "3058cddf-0dd1-48b4-9531-4dd48a7abfa0": {
       "name": "Smart+ Broad — كل الـ 10 فيديوهات",
       "campaign": "باور بانك علا 18-10 (دفعة 30-9)",
       "date": "2026-10-18",
-      "count": 2,
+      "count": 3,
       "done": false,
-      "old_bid": 2.55,
-      "new_bid": 2.65,
-      "last_bump_at": "2026-10-18T12:09:32.726201+00:00",
-      "last_bump_local": "2026-10-18 15:05 GMT+3"
+      "old_bid": 2.65,
+      "new_bid": 2.75,
+      "last_bump_at": "2026-10-18T14:24:10.272568+00:00",
+      "last_bump_local": "2026-10-18 17:22 GMT+3"
     },
     "77c76974-487d-4ba6-a782-faec27b55dbb": {
       "name": "18-10 مجموعة 2 (5 فيديوهات)",
@@ -10815,34 +10834,34 @@
       "name": "18-10 مجموعة 1 (5 فيديوهات)",
       "campaign": "باور بانك علا 18-10 (دفعة 30-9)",
       "date": "2026-10-18",
-      "count": 2,
+      "count": 3,
       "done": false,
-      "old_bid": 2.25,
-      "new_bid": 2.35,
-      "last_bump_at": "2026-10-18T12:09:32.726201+00:00",
-      "last_bump_local": "2026-10-18 15:05 GMT+3"
+      "old_bid": 2.35,
+      "new_bid": 2.45,
+      "last_bump_at": "2026-10-18T14:24:10.272568+00:00",
+      "last_bump_local": "2026-10-18 17:22 GMT+3"
     },
     "094039d3-7ca8-4440-b037-fbdb122cd571": {
       "name": "18-10 حنان (5 فيديوهات)",
       "campaign": "باور بانك علا وحنان 18-10 (دفعة 15-10)",
       "date": "2026-10-18",
-      "count": 2,
+      "count": 3,
       "done": false,
-      "old_bid": 2.25,
-      "new_bid": 2.35,
-      "last_bump_at": "2026-10-18T12:09:32.726201+00:00",
-      "last_bump_local": "2026-10-18 15:05 GMT+3"
+      "old_bid": 2.35,
+      "new_bid": 2.45,
+      "last_bump_at": "2026-10-18T14:24:10.272568+00:00",
+      "last_bump_local": "2026-10-18 17:22 GMT+3"
     },
     "15393aa6-1fb3-4967-a0e1-4f1c34ce925a": {
       "name": "Smart+ Broad — كل الـ 10 فيديوهات",
       "campaign": "باور بانك علا وحنان 18-10 (دفعة 15-10)",
       "date": "2026-10-18",
-      "count": 2,
+      "count": 3,
       "done": false,
-      "old_bid": 2.55,
-      "new_bid": 2.65,
-      "last_bump_at": "2026-10-18T12:09:32.726201+00:00",
-      "last_bump_local": "2026-10-18 15:05 GMT+3"
+      "old_bid": 2.65,
+      "new_bid": 2.75,
+      "last_bump_at": "2026-10-18T14:24:10.272568+00:00",
+      "last_bump_local": "2026-10-18 17:22 GMT+3"
     },
     "9de2a259-09b5-4662-811c-b18b2e79be1e": {
       "name": "18-10 علا (5 فيديوهات)",
@@ -10859,12 +10878,12 @@
       "name": "Old Account Mega Winners Smart+ All",
       "campaign": "باور بانك وينر",
       "date": "2026-10-18",
-      "count": 2,
+      "count": 3,
       "done": false,
-      "old_bid": 2.8,
-      "new_bid": 2.9,
-      "last_bump_at": "2026-10-18T12:09:32.726201+00:00",
-      "last_bump_local": "2026-10-18 15:05 GMT+3"
+      "old_bid": 2.9,
+      "new_bid": 3.0,
+      "last_bump_at": "2026-10-18T14:24:10.272568+00:00",
+      "last_bump_local": "2026-10-18 17:22 GMT+3"
     },
     "2d489ed8-eb45-416c-8e0b-c5609c606204": {
       "count": 0,
@@ -10905,12 +10924,12 @@
       "name": "Copy of Copy of 1.5 | 23.8",
       "campaign": "car scaling camp ",
       "date": "2026-10-18",
-      "count": 2,
+      "count": 3,
       "done": false,
-      "old_bid": 2.05,
-      "new_bid": 2.15,
-      "last_bump_at": "2026-10-18T12:09:32.726201+00:00",
-      "last_bump_local": "2026-10-18 15:05 GMT+3"
+      "old_bid": 2.15,
+      "new_bid": 2.25,
+      "last_bump_at": "2026-10-18T14:24:10.272568+00:00",
+      "last_bump_local": "2026-10-18 17:22 GMT+3"
     },
     "8e2aa25f-89a5-4153-bff1-1b56ca142de3": {
       "count": 0,
@@ -10958,19 +10977,19 @@
       "name": "Copy of Copy of 1.5 | 23.8",
       "campaign": "car scaling camp ",
       "date": "2026-10-18",
-      "count": 2,
+      "count": 3,
       "done": false,
-      "old_bid": 2.05,
-      "new_bid": 2.15,
-      "last_bump_at": "2026-10-18T12:09:32.726201+00:00",
-      "last_bump_local": "2026-10-18 15:05 GMT+3"
+      "old_bid": 2.15,
+      "new_bid": 2.25,
+      "last_bump_at": "2026-10-18T14:24:10.272568+00:00",
+      "last_bump_local": "2026-10-18 17:22 GMT+3"
     },
     "4fa63ce2-503e-4673-abd8-5ec3740500d8": {
       "name": "KW_Car Smart+ Auto-Expansion | 2.50 Bid",
       "campaign": "وسادة السيارة الكويت 18-10",
       "date": "2026-10-18",
       "count": 1,
-      "done": false,
+      "done": true,
       "old_bid": 2.75,
       "new_bid": 2.85,
       "last_bump_at": "2026-10-18T12:09:32.726201+00:00",
@@ -10980,56 +10999,56 @@
       "name": "QA_Car Smart+ Auto-Expansion | 2.40 Bid",
       "campaign": "وسادة السيارة قطر 18-10",
       "date": "2026-10-18",
-      "count": 1,
+      "count": 2,
       "done": false,
-      "old_bid": 2.65,
-      "new_bid": 2.75,
-      "last_bump_at": "2026-10-18T12:09:32.726201+00:00",
-      "last_bump_local": "2026-10-18 15:05 GMT+3"
+      "old_bid": 2.75,
+      "new_bid": 2.85,
+      "last_bump_at": "2026-10-18T14:24:10.272568+00:00",
+      "last_bump_local": "2026-10-18 17:22 GMT+3"
     },
     "38e87db4-3fc2-43b6-ab2c-f9285d4100bd": {
       "name": "OM_PB Smart+ Auto-Expansion | 2.20 Bid",
       "campaign": "باور بانك عمان 18-10",
       "date": "2026-10-18",
-      "count": 1,
+      "count": 2,
       "done": false,
-      "old_bid": 2.45,
-      "new_bid": 2.55,
-      "last_bump_at": "2026-10-18T12:09:32.726201+00:00",
-      "last_bump_local": "2026-10-18 15:05 GMT+3"
+      "old_bid": 2.65,
+      "new_bid": 2.75,
+      "last_bump_at": "2026-10-18T14:24:10.272568+00:00",
+      "last_bump_local": "2026-10-18 17:22 GMT+3"
     },
     "808a563b-5b83-4ed6-8283-4251fd45dbe9": {
       "name": "Copy of Copy of 17-10 male winners - Scale 18-10",
       "campaign": "watch suis winners 17-10",
       "date": "2026-10-18",
-      "count": 1,
+      "count": 2,
       "done": false,
-      "old_bid": 2.25,
-      "new_bid": 2.35,
-      "last_bump_at": "2026-10-18T12:09:32.726201+00:00",
-      "last_bump_local": "2026-10-18 15:05 GMT+3"
+      "old_bid": 2.35,
+      "new_bid": 2.45,
+      "last_bump_at": "2026-10-18T14:24:10.272568+00:00",
+      "last_bump_local": "2026-10-18 17:22 GMT+3"
     },
     "4b7dd2df-9f9b-4429-bf12-be6b987b0258": {
       "name": "SA_Car_SuperWinners Smart+ Men 24+ | 2.30 Bid",
       "campaign": "smart+ cars SUPER WINNERS SA 18-10",
       "date": "2026-10-18",
-      "count": 1,
+      "count": 2,
       "done": false,
-      "old_bid": 3.0,
-      "new_bid": 3.1,
-      "last_bump_at": "2026-10-18T12:09:32.726201+00:00",
-      "last_bump_local": "2026-10-18 15:05 GMT+3"
+      "old_bid": 3.1,
+      "new_bid": 3.2,
+      "last_bump_at": "2026-10-18T14:24:10.272568+00:00",
+      "last_bump_local": "2026-10-18 17:22 GMT+3"
     },
     "6db3b649-f96a-4a05-a4c0-d4704f08700e": {
       "name": "SA_Car_SuperWinners Smart+ Broad | 2.25 Bid",
       "campaign": "smart+ cars SUPER WINNERS SA 18-10",
       "date": "2026-10-18",
-      "count": 1,
+      "count": 2,
       "done": false,
-      "old_bid": 3.0,
-      "new_bid": 3.1,
-      "last_bump_at": "2026-10-18T12:09:32.726201+00:00",
-      "last_bump_local": "2026-10-18 15:05 GMT+3"
+      "old_bid": 3.1,
+      "new_bid": 3.2,
+      "last_bump_at": "2026-10-18T14:24:10.272568+00:00",
+      "last_bump_local": "2026-10-18 17:22 GMT+3"
     },
     "e7d73858-98b3-45de-bc4b-4c44d82b9663": {
       "count": 0,
@@ -11049,12 +11068,12 @@
       "name": "Copy of 1.5 | 23.8 - Scale 18-10",
       "campaign": "car scaling camp ",
       "date": "2026-10-18",
-      "count": 1,
+      "count": 2,
       "done": false,
-      "old_bid": 2.25,
-      "new_bid": 2.35,
-      "last_bump_at": "2026-10-18T12:09:32.726201+00:00",
-      "last_bump_local": "2026-10-18 15:05 GMT+3"
+      "old_bid": 2.35,
+      "new_bid": 2.45,
+      "last_bump_at": "2026-10-18T14:24:10.272568+00:00",
+      "last_bump_local": "2026-10-18 17:22 GMT+3"
     },
     "3ccd4669-f311-4962-81f7-609149b743e2": {
       "name": "Copy of Copy of Copy of Copy of 1.5 | 23.8",
@@ -11078,23 +11097,23 @@
       "name": "Copy of Copy of 1.5 | 23.8",
       "campaign": "car scaling camp ",
       "date": "2026-10-18",
-      "count": 1,
+      "count": 2,
       "done": false,
-      "old_bid": 2.35,
-      "new_bid": 2.45,
-      "last_bump_at": "2026-10-18T12:09:32.726201+00:00",
-      "last_bump_local": "2026-10-18 15:05 GMT+3"
+      "old_bid": 2.55,
+      "new_bid": 2.65,
+      "last_bump_at": "2026-10-18T14:24:10.272568+00:00",
+      "last_bump_local": "2026-10-18 17:22 GMT+3"
     },
     "6efd6265-cb3c-447d-b058-44662623b88f": {
       "name": "Copy of Copy of 1.5 | 23.8",
       "campaign": "car scaling camp ",
       "date": "2026-10-18",
-      "count": 1,
+      "count": 2,
       "done": false,
-      "old_bid": 2.05,
-      "new_bid": 2.15,
-      "last_bump_at": "2026-10-18T12:09:32.726201+00:00",
-      "last_bump_local": "2026-10-18 15:05 GMT+3"
+      "old_bid": 2.15,
+      "new_bid": 2.25,
+      "last_bump_at": "2026-10-18T14:24:10.272568+00:00",
+      "last_bump_local": "2026-10-18 17:22 GMT+3"
     },
     "d77d121a-e07b-4b31-b568-48f77723b8c2": {
       "count": 0,
@@ -11114,12 +11133,12 @@
       "name": "Copy of Copy of 1.5 | 23.8",
       "campaign": "car scaling camp ",
       "date": "2026-10-18",
-      "count": 1,
+      "count": 2,
       "done": false,
-      "old_bid": 2.0,
-      "new_bid": 2.1,
-      "last_bump_at": "2026-10-18T12:09:32.726201+00:00",
-      "last_bump_local": "2026-10-18 15:05 GMT+3"
+      "old_bid": 2.1,
+      "new_bid": 2.2,
+      "last_bump_at": "2026-10-18T14:24:10.272568+00:00",
+      "last_bump_local": "2026-10-18 17:22 GMT+3"
     },
     "2c7f2bc6-cc68-4955-9108-74cc159115f8": {
       "name": "SA_PB_Manzilk_Batch2 Smart+ Broad | 2.30 Bid",
@@ -11255,6 +11274,31 @@
       "new_bid": 2.15,
       "last_bump_at": "2026-10-18T13:48:34.305030+00:00",
       "last_bump_local": "2026-10-18 16:47 GMT+3"
+    },
+    "663733c9-8a0f-4aaf-afd8-b43633e9b9a1": {
+      "count": 0,
+      "last_bump_at": null,
+      "done": true,
+      "name": "Copy of Copy of Copy of Copy of Copy of Copy of text 2 ",
+      "campaign": "car scaling new 2 text"
+    },
+    "41ec9807-76c3-4a44-b437-e4e5f27221ba": {
+      "name": "Copy of Copy of Copy of Copy of Copy of 1.5 | 23.8",
+      "campaign": "car scaling camp ",
+      "date": "2026-10-18",
+      "count": 1,
+      "done": false,
+      "old_bid": 1.95,
+      "new_bid": 2.05,
+      "last_bump_at": "2026-10-18T14:24:10.272568+00:00",
+      "last_bump_local": "2026-10-18 17:22 GMT+3"
+    },
+    "d72d34f4-a788-4033-be6f-a60584d38af6": {
+      "count": 0,
+      "last_bump_at": null,
+      "done": true,
+      "name": "Copy of Copy of 1.5 | 23.8",
+      "campaign": "car scaling camp "
     }
   },
   "tiktok_campaigns": {
@@ -11310,6 +11354,18 @@
       "spend_2d": 21.84,
       "conv_2d": 1,
       "paused_at": "2026-10-18T13:49:09.404989+00:00"
+    },
+    "7631765070816509959:1879234274020497": {
+      "aadvid": "7631765070816509959",
+      "account_name": "ROELLINGER RECYCLING2",
+      "campaign_id": "1879234274020497",
+      "campaign_name": "power bank 17-10 B",
+      "reason": "Campaign 2-Day CPA $21.03 >= $21.00 (Spend=$21.03, Sales=1)",
+      "spend_1d": 9.23,
+      "conv_1d": 0,
+      "spend_2d": 21.03,
+      "conv_2d": 1,
+      "paused_at": "2026-10-18T14:26:54.548939+00:00"
     }
   },
   "creative_media_map": {
@@ -11538,7 +11594,18 @@
       "total_spend": 18.94,
       "total_purchases": 1,
       "reason": "[Aggregated Video High CPA - السعودية] مجموع صرف الفيديو = $18.94 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $18.94 (>= $18.00)",
-      "disabled_at": "2026-10-18 16:47 GMT+3"
+      "disabled_at": "2026-10-18 17:22 GMT+3"
+    },
+    "e23e7c95-3f15-4945-9844-8bd73e2d79d3:04d7ae2c-e2c4-41ee-a5c9-1a6d3ace7f38": {
+      "campaign_id": "e23e7c95-3f15-4945-9844-8bd73e2d79d3",
+      "campaign_name": "باور بانك وينر",
+      "video_media_id": "04d7ae2c-e2c4-41ee-a5c9-1a6d3ace7f38",
+      "sample_ad_name": "4",
+      "closed_instances": 1,
+      "total_spend": 18.13,
+      "total_purchases": 1,
+      "reason": "[Aggregated Video High CPA - السعودية] مجموع صرف الفيديو = $18.13 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $18.13 (>= $18.00)",
+      "disabled_at": "2026-10-18 17:22 GMT+3"
     }
   },
   "night_bid_reductions": {
@@ -13496,7 +13563,7 @@
       "bumps_today": 1,
       "last_action_at": "2026-10-18T09:45:35.419586+00:00",
       "last_spend": 0.0,
-      "last_check_at": "2026-10-18T12:09:32.726201+00:00",
+      "last_check_at": "2026-10-18T14:24:10.272568+00:00",
       "scaled_budget_today": false
     },
     "8c78d67c-9fde-4e3a-acd5-e0ed05b95030": {
@@ -13506,7 +13573,7 @@
       "bumps_today": 0,
       "last_action_at": null,
       "last_spend": 0.01,
-      "last_check_at": "2026-10-18T12:09:32.726201+00:00",
+      "last_check_at": "2026-10-18T14:24:10.272568+00:00",
       "scaled_budget_today": false
     },
     "e4b924d3-595f-40d9-98db-b001a307f736": {
@@ -13515,8 +13582,8 @@
       "campaign": "باور بانك السعودية سمارت+ (فيديوهات الحساب الثاني) 18-10",
       "bumps_today": 1,
       "last_action_at": "2026-10-18T09:45:35.419586+00:00",
-      "last_spend": 2.82,
-      "last_check_at": "2026-10-18T12:09:32.726201+00:00",
+      "last_spend": 7.48,
+      "last_check_at": "2026-10-18T14:24:10.272568+00:00",
       "scaled_budget_today": false
     },
     "4fa63ce2-503e-4673-abd8-5ec3740500d8": {
@@ -13525,8 +13592,8 @@
       "campaign": "وسادة السيارة الكويت 18-10",
       "bumps_today": 0,
       "last_action_at": null,
-      "last_spend": 0.57,
-      "last_check_at": "2026-10-18T12:09:32.726201+00:00",
+      "last_spend": 1.07,
+      "last_check_at": "2026-10-18T14:24:10.272568+00:00",
       "scaled_budget_today": false
     },
     "e6da3055-e3cf-4a00-9939-9da49a05c95c": {
@@ -13535,8 +13602,8 @@
       "campaign": "وسادة السيارة الكويت 18-10",
       "bumps_today": 0,
       "last_action_at": null,
-      "last_spend": 9.94,
-      "last_check_at": "2026-10-18T12:09:32.726201+00:00",
+      "last_spend": 14.46,
+      "last_check_at": "2026-10-18T14:24:10.272568+00:00",
       "scaled_budget_today": false
     },
     "439731a3-7fe6-4e4d-9c8b-e83951855ce6": {
@@ -13545,8 +13612,8 @@
       "campaign": "smart+ watch suis SA 18-10",
       "bumps_today": 0,
       "last_action_at": null,
-      "last_spend": 0.11,
-      "last_check_at": "2026-10-18T12:09:32.726201+00:00",
+      "last_spend": 0.14,
+      "last_check_at": "2026-10-18T14:24:10.272568+00:00",
       "scaled_budget_today": false
     },
     "b46bd9e6-f018-48a6-bab7-84dc4762e81c": {
@@ -13555,8 +13622,8 @@
       "campaign": "smart+ watch suis SA 18-10",
       "bumps_today": 0,
       "last_action_at": null,
-      "last_spend": 12.93,
-      "last_check_at": "2026-10-18T12:09:32.726201+00:00",
+      "last_spend": 16.99,
+      "last_check_at": "2026-10-18T14:24:10.272568+00:00",
       "scaled_budget_today": false
     },
     "430ea3c0-b721-402f-94b8-6c2c304ec15c": {
@@ -13565,8 +13632,8 @@
       "campaign": "باور بانك قطر 18-10",
       "bumps_today": 0,
       "last_action_at": null,
-      "last_spend": 5.93,
-      "last_check_at": "2026-10-18T12:09:32.726201+00:00",
+      "last_spend": 7.4,
+      "last_check_at": "2026-10-18T14:24:10.272568+00:00",
       "scaled_budget_today": false
     },
     "4ed2162c-d888-4d56-9b3d-b841a810cac4": {
@@ -13576,7 +13643,7 @@
       "bumps_today": 0,
       "last_action_at": null,
       "last_spend": 0.0,
-      "last_check_at": "2026-10-18T12:09:32.726201+00:00",
+      "last_check_at": "2026-10-18T14:24:10.272568+00:00",
       "scaled_budget_today": false
     },
     "ba7f512c-8d41-4e06-a7cc-95210cca4c81": {
@@ -13585,8 +13652,8 @@
       "campaign": "وسادة السيارة قطر 18-10",
       "bumps_today": 0,
       "last_action_at": null,
-      "last_spend": 8.94,
-      "last_check_at": "2026-10-18T12:09:32.726201+00:00",
+      "last_spend": 12.12,
+      "last_check_at": "2026-10-18T14:24:10.272568+00:00",
       "scaled_budget_today": false
     },
     "61070d79-6175-4b51-b759-95f4ecb32059": {
@@ -13596,7 +13663,7 @@
       "bumps_today": 0,
       "last_action_at": null,
       "last_spend": 0.07,
-      "last_check_at": "2026-10-18T12:09:32.726201+00:00",
+      "last_check_at": "2026-10-18T14:24:10.272568+00:00",
       "scaled_budget_today": false
     },
     "751ee188-b6f4-48fe-99af-b2330c1ccd12": {
@@ -13605,8 +13672,8 @@
       "campaign": "smart+ power bank SA 18-10",
       "bumps_today": 0,
       "last_action_at": null,
-      "last_spend": 12.75,
-      "last_check_at": "2026-10-18T12:09:32.726201+00:00",
+      "last_spend": 15.59,
+      "last_check_at": "2026-10-18T14:24:10.272568+00:00",
       "scaled_budget_today": false
     },
     "75dc5519-9832-45b2-9a99-bb7effe0b1ed": {
@@ -13616,7 +13683,7 @@
       "bumps_today": 0,
       "last_action_at": null,
       "last_spend": 0.01,
-      "last_check_at": "2026-10-18T12:09:32.726201+00:00",
+      "last_check_at": "2026-10-18T14:24:10.272568+00:00",
       "scaled_budget_today": false
     },
     "38e87db4-3fc2-43b6-ab2c-f9285d4100bd": {
@@ -13625,18 +13692,18 @@
       "campaign": "باور بانك عمان 18-10",
       "bumps_today": 1,
       "last_action_at": "2026-10-18T12:09:32.726201+00:00",
-      "last_spend": 0.16,
-      "last_check_at": "2026-10-18T12:09:32.726201+00:00",
+      "last_spend": 0.27,
+      "last_check_at": "2026-10-18T14:24:10.272568+00:00",
       "scaled_budget_today": false
     },
     "7603fb8a-b29e-46fd-addd-af40f55d2e6d": {
       "date": "2026-10-18",
       "name": "OM_PB Smart+ Broad | 2.2 Bid",
       "campaign": "باور بانك عمان 18-10",
-      "bumps_today": 0,
-      "last_action_at": null,
-      "last_spend": 6.85,
-      "last_check_at": "2026-10-18T12:09:32.726201+00:00",
+      "bumps_today": 1,
+      "last_action_at": "2026-10-18T14:24:10.272568+00:00",
+      "last_spend": 6.86,
+      "last_check_at": "2026-10-18T14:24:10.272568+00:00",
       "scaled_budget_today": false
     },
     "041f7a33-3324-4460-b072-ee25b55c6b38": {
@@ -14316,7 +14383,7 @@
       "bumps_today": 0,
       "last_action_at": null,
       "last_spend": 0.0,
-      "last_check_at": "2026-10-18T12:09:32.726201+00:00",
+      "last_check_at": "2026-10-18T14:24:10.272568+00:00",
       "scaled_budget_today": false
     },
     "61167bda-8524-4231-9ba8-130fd3dda39e": {
@@ -14325,8 +14392,8 @@
       "campaign": "smart+ cars SA 18-10",
       "bumps_today": 0,
       "last_action_at": null,
-      "last_spend": 17.81,
-      "last_check_at": "2026-10-18T12:09:32.726201+00:00",
+      "last_spend": 25.69,
+      "last_check_at": "2026-10-18T14:24:10.272568+00:00",
       "scaled_budget_today": false
     },
     "aedc920c-dd26-45c2-b4a4-7336c2e00336": {
@@ -14335,8 +14402,8 @@
       "campaign": "smart+ cars SA 18-10",
       "bumps_today": 0,
       "last_action_at": null,
-      "last_spend": 0.06,
-      "last_check_at": "2026-10-18T12:09:32.726201+00:00",
+      "last_spend": 0.07,
+      "last_check_at": "2026-10-18T14:24:10.272568+00:00",
       "scaled_budget_today": false
     },
     "4b7dd2df-9f9b-4429-bf12-be6b987b0258": {
@@ -14345,8 +14412,8 @@
       "campaign": "smart+ cars SUPER WINNERS SA 18-10",
       "bumps_today": 0,
       "last_action_at": null,
-      "last_spend": 0.0,
-      "last_check_at": "2026-10-18T12:09:32.726201+00:00",
+      "last_spend": 0.01,
+      "last_check_at": "2026-10-18T14:24:10.272568+00:00",
       "scaled_budget_today": false
     },
     "6db3b649-f96a-4a05-a4c0-d4704f08700e": {
@@ -14356,7 +14423,7 @@
       "bumps_today": 0,
       "last_action_at": null,
       "last_spend": 0.0,
-      "last_check_at": "2026-10-18T12:09:32.726201+00:00",
+      "last_check_at": "2026-10-18T14:24:10.272568+00:00",
       "scaled_budget_today": false
     },
     "3058cddf-0dd1-48b4-9531-4dd48a7abfa0": {
@@ -14366,7 +14433,7 @@
       "bumps_today": 1,
       "last_action_at": "2026-10-18T09:45:35.419586+00:00",
       "last_spend": 0.0,
-      "last_check_at": "2026-10-18T12:09:32.726201+00:00",
+      "last_check_at": "2026-10-18T14:24:10.272568+00:00",
       "scaled_budget_today": false
     },
     "15393aa6-1fb3-4967-a0e1-4f1c34ce925a": {
@@ -14376,7 +14443,7 @@
       "bumps_today": 1,
       "last_action_at": "2026-10-18T09:45:35.419586+00:00",
       "last_spend": 0.0,
-      "last_check_at": "2026-10-18T12:09:32.726201+00:00",
+      "last_check_at": "2026-10-18T14:24:10.272568+00:00",
       "scaled_budget_today": false
     },
     "027f93ff-399f-4721-9bfe-557825b46fb1": {
@@ -14496,7 +14563,7 @@
       "bumps_today": 0,
       "last_action_at": null,
       "last_spend": 0.03,
-      "last_check_at": "2026-10-18T12:09:32.726201+00:00",
+      "last_check_at": "2026-10-18T14:24:10.272568+00:00",
       "scaled_budget_today": false
     },
     "8054c90a-4b31-4e84-87b1-7f3505198684": {
@@ -15275,8 +15342,8 @@
       "campaign": "smart+ power bank MANZILK WINNERS 2 SA 18-10",
       "bumps_today": 0,
       "last_action_at": null,
-      "last_spend": 0.0,
-      "last_check_at": "2026-10-18T12:09:32.726201+00:00",
+      "last_spend": 0.02,
+      "last_check_at": "2026-10-18T14:24:10.272568+00:00",
       "scaled_budget_today": false
     },
     "aa5352be-e7da-48a5-8116-5a23feadc992": {
@@ -15286,7 +15353,7 @@
       "bumps_today": 0,
       "last_action_at": null,
       "last_spend": 0.0,
-      "last_check_at": "2026-10-18T12:09:32.726201+00:00",
+      "last_check_at": "2026-10-18T14:24:10.272568+00:00",
       "scaled_budget_today": false
     },
     "0e7cb720-893d-42be-8ae8-2b75b8be2163": {
@@ -15303,8 +15370,8 @@
       "date": "2026-10-18",
       "name": "Copy of SA_Watch Target Cost Men 20+ | 2.8 Bid",
       "campaign": "smart+ watch suis SA 18-10",
-      "bumps_today": 0,
-      "last_action_at": null,
+      "bumps_today": 1,
+      "last_action_at": "2026-10-18T14:24:10.272568+00:00",
       "last_spend": 0.0,
       "last_check_at": "2026-10-18T13:48:34.305030+00:00",
       "scaled_budget_today": false
@@ -15313,8 +15380,8 @@
       "date": "2026-10-18",
       "name": "Copy of SA_Watch Target Cost Men 20+ | 2.8 Bid",
       "campaign": "smart+ watch suis SA 18-10",
-      "bumps_today": 0,
-      "last_action_at": null,
+      "bumps_today": 1,
+      "last_action_at": "2026-10-18T14:24:10.272568+00:00",
       "last_spend": 0.0,
       "last_check_at": "2026-10-18T13:48:34.305030+00:00",
       "scaled_budget_today": false
@@ -15323,8 +15390,8 @@
       "date": "2026-10-18",
       "name": "Copy of SA_Watch Target Cost Men 20+ | 2.8 Bid",
       "campaign": "smart+ watch suis SA 18-10",
-      "bumps_today": 0,
-      "last_action_at": null,
+      "bumps_today": 1,
+      "last_action_at": "2026-10-18T14:24:10.272568+00:00",
       "last_spend": 0.0,
       "last_check_at": "2026-10-18T13:48:34.305030+00:00",
       "scaled_budget_today": false
@@ -15333,8 +15400,8 @@
       "date": "2026-10-18",
       "name": "Copy of SA_Watch Target Cost Men 20+ | 2.8 Bid",
       "campaign": "smart+ watch suis SA 18-10",
-      "bumps_today": 0,
-      "last_action_at": null,
+      "bumps_today": 1,
+      "last_action_at": "2026-10-18T14:24:10.272568+00:00",
       "last_spend": 0.0,
       "last_check_at": "2026-10-18T13:48:34.305030+00:00",
       "scaled_budget_today": false
@@ -15343,8 +15410,8 @@
       "date": "2026-10-18",
       "name": "Copy of SA_Watch Target Cost Men 20+ | 2.8 Bid",
       "campaign": "smart+ watch suis SA 18-10",
-      "bumps_today": 0,
-      "last_action_at": null,
+      "bumps_today": 1,
+      "last_action_at": "2026-10-18T14:24:10.272568+00:00",
       "last_spend": 0.0,
       "last_check_at": "2026-10-18T13:48:34.305030+00:00",
       "scaled_budget_today": false
@@ -15353,8 +15420,8 @@
       "date": "2026-10-18",
       "name": "Copy of SA_Watch Target Cost Men 20+ | 2.8 Bid",
       "campaign": "smart+ watch suis SA 18-10",
-      "bumps_today": 0,
-      "last_action_at": null,
+      "bumps_today": 1,
+      "last_action_at": "2026-10-18T14:24:10.272568+00:00",
       "last_spend": 0.0,
       "last_check_at": "2026-10-18T13:48:34.305030+00:00",
       "scaled_budget_today": false
@@ -15363,8 +15430,8 @@
       "date": "2026-10-18",
       "name": "Copy of SA_Watch Target Cost Men 20+ | 2.8 Bid",
       "campaign": "smart+ watch suis SA 18-10",
-      "bumps_today": 0,
-      "last_action_at": null,
+      "bumps_today": 1,
+      "last_action_at": "2026-10-18T14:24:10.272568+00:00",
       "last_spend": 0.0,
       "last_check_at": "2026-10-18T13:48:34.305030+00:00",
       "scaled_budget_today": false
@@ -15373,8 +15440,8 @@
       "date": "2026-10-18",
       "name": "Copy of SA_Watch Target Cost Men 20+ | 2.8 Bid",
       "campaign": "smart+ watch suis SA 18-10",
-      "bumps_today": 0,
-      "last_action_at": null,
+      "bumps_today": 1,
+      "last_action_at": "2026-10-18T14:24:10.272568+00:00",
       "last_spend": 0.0,
       "last_check_at": "2026-10-18T13:48:34.305030+00:00",
       "scaled_budget_today": false
@@ -15383,8 +15450,8 @@
       "date": "2026-10-18",
       "name": "Copy of SA_Watch Target Cost Men 20+ | 2.8 Bid",
       "campaign": "smart+ watch suis SA 18-10",
-      "bumps_today": 0,
-      "last_action_at": null,
+      "bumps_today": 1,
+      "last_action_at": "2026-10-18T14:24:10.272568+00:00",
       "last_spend": 0.0,
       "last_check_at": "2026-10-18T13:48:34.305030+00:00",
       "scaled_budget_today": false
@@ -15393,8 +15460,8 @@
       "date": "2026-10-18",
       "name": "Copy of SA_Watch Target Cost Men 20+ | 2.8 Bid",
       "campaign": "smart+ watch suis SA 18-10",
-      "bumps_today": 0,
-      "last_action_at": null,
+      "bumps_today": 1,
+      "last_action_at": "2026-10-18T14:24:10.272568+00:00",
       "last_spend": 0.0,
       "last_check_at": "2026-10-18T13:48:34.305030+00:00",
       "scaled_budget_today": false
@@ -15403,8 +15470,8 @@
       "date": "2026-10-18",
       "name": "Copy of SA_Watch Target Cost Men 20+ | 2.8 Bid",
       "campaign": "smart+ watch suis SA 18-10",
-      "bumps_today": 0,
-      "last_action_at": null,
+      "bumps_today": 1,
+      "last_action_at": "2026-10-18T14:24:10.272568+00:00",
       "last_spend": 0.0,
       "last_check_at": "2026-10-18T13:48:34.305030+00:00",
       "scaled_budget_today": false
@@ -15413,8 +15480,8 @@
       "date": "2026-10-18",
       "name": "Copy of SA_Watch Target Cost Men 20+ | 2.8 Bid",
       "campaign": "smart+ watch suis SA 18-10",
-      "bumps_today": 0,
-      "last_action_at": null,
+      "bumps_today": 1,
+      "last_action_at": "2026-10-18T14:24:10.272568+00:00",
       "last_spend": 0.0,
       "last_check_at": "2026-10-18T13:48:34.305030+00:00",
       "scaled_budget_today": false
@@ -15423,8 +15490,8 @@
       "date": "2026-10-18",
       "name": "Copy of SA_Watch Target Cost Men 20+ | 2.8 Bid",
       "campaign": "smart+ watch suis SA 18-10",
-      "bumps_today": 0,
-      "last_action_at": null,
+      "bumps_today": 1,
+      "last_action_at": "2026-10-18T14:24:10.272568+00:00",
       "last_spend": 0.0,
       "last_check_at": "2026-10-18T13:48:34.305030+00:00",
       "scaled_budget_today": false
@@ -15433,8 +15500,8 @@
       "date": "2026-10-18",
       "name": "Copy of SA_Watch Target Cost Men 20+ | 2.8 Bid",
       "campaign": "smart+ watch suis SA 18-10",
-      "bumps_today": 0,
-      "last_action_at": null,
+      "bumps_today": 1,
+      "last_action_at": "2026-10-18T14:24:10.272568+00:00",
       "last_spend": 0.0,
       "last_check_at": "2026-10-18T13:48:34.305030+00:00",
       "scaled_budget_today": false
@@ -15443,8 +15510,8 @@
       "date": "2026-10-18",
       "name": "Copy of SA_Watch Target Cost Men 20+ | 2.8 Bid",
       "campaign": "smart+ watch suis SA 18-10",
-      "bumps_today": 0,
-      "last_action_at": null,
+      "bumps_today": 1,
+      "last_action_at": "2026-10-18T14:24:10.272568+00:00",
       "last_spend": 0.0,
       "last_check_at": "2026-10-18T13:48:34.305030+00:00",
       "scaled_budget_today": false
@@ -15463,8 +15530,8 @@
       "date": "2026-10-18",
       "name": "Copy of SA_Watch Target Cost Men 20+ | 2.8 Bid",
       "campaign": "smart+ watch suis SA 18-10",
-      "bumps_today": 0,
-      "last_action_at": null,
+      "bumps_today": 1,
+      "last_action_at": "2026-10-18T14:24:10.272568+00:00",
       "last_spend": 0.0,
       "last_check_at": "2026-10-18T13:48:34.305030+00:00",
       "scaled_budget_today": false
@@ -15473,8 +15540,8 @@
       "date": "2026-10-18",
       "name": "Copy of SA_Watch Target Cost Men 20+ | 2.8 Bid",
       "campaign": "smart+ watch suis SA 18-10",
-      "bumps_today": 0,
-      "last_action_at": null,
+      "bumps_today": 1,
+      "last_action_at": "2026-10-18T14:24:10.272568+00:00",
       "last_spend": 0.0,
       "last_check_at": "2026-10-18T13:48:34.305030+00:00",
       "scaled_budget_today": false
@@ -15483,8 +15550,8 @@
       "date": "2026-10-18",
       "name": "Copy of SA_Watch Target Cost Men 20+ | 2.8 Bid",
       "campaign": "smart+ watch suis SA 18-10",
-      "bumps_today": 0,
-      "last_action_at": null,
+      "bumps_today": 1,
+      "last_action_at": "2026-10-18T14:24:10.272568+00:00",
       "last_spend": 0.0,
       "last_check_at": "2026-10-18T13:48:34.305030+00:00",
       "scaled_budget_today": false
@@ -15493,8 +15560,8 @@
       "date": "2026-10-18",
       "name": "Copy of OM_PB Smart+ Broad | 2.2 Bid",
       "campaign": "باور بانك عمان 18-10",
-      "bumps_today": 0,
-      "last_action_at": null,
+      "bumps_today": 1,
+      "last_action_at": "2026-10-18T14:24:10.272568+00:00",
       "last_spend": 0.0,
       "last_check_at": "2026-10-18T13:48:34.305030+00:00",
       "scaled_budget_today": false
@@ -15513,8 +15580,8 @@
       "date": "2026-10-18",
       "name": "Copy of OM_PB Smart+ Broad | 2.2 Bid",
       "campaign": "باور بانك عمان 18-10",
-      "bumps_today": 0,
-      "last_action_at": null,
+      "bumps_today": 1,
+      "last_action_at": "2026-10-18T14:24:10.272568+00:00",
       "last_spend": 0.0,
       "last_check_at": "2026-10-18T13:48:34.305030+00:00",
       "scaled_budget_today": false
@@ -15523,8 +15590,8 @@
       "date": "2026-10-18",
       "name": "Copy of OM_PB Smart+ Broad | 2.2 Bid",
       "campaign": "باور بانك عمان 18-10",
-      "bumps_today": 0,
-      "last_action_at": null,
+      "bumps_today": 1,
+      "last_action_at": "2026-10-18T14:24:10.272568+00:00",
       "last_spend": 0.0,
       "last_check_at": "2026-10-18T13:48:34.305030+00:00",
       "scaled_budget_today": false
@@ -15537,6 +15604,16 @@
       "last_action_at": "2026-10-18T13:48:34.305030+00:00",
       "last_spend": 0.0,
       "last_check_at": "2026-10-18T13:48:34.305030+00:00",
+      "scaled_budget_today": false
+    },
+    "dfa498f8-20df-4fab-b4ae-a0143a41060d": {
+      "date": "2026-10-18",
+      "name": "Copy of OM_PB Smart+ Broad | 2.2 Bid",
+      "campaign": "باور بانك عمان 18-10",
+      "bumps_today": 1,
+      "last_action_at": "2026-10-18T14:24:10.272568+00:00",
+      "last_spend": 0.01,
+      "last_check_at": "2026-10-18T14:24:10.272568+00:00",
       "scaled_budget_today": false
     }
   },
