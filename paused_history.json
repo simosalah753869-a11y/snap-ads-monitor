@@ -4198,6 +4198,20 @@
       "adsquad": "Copy of Copy of 1.5 | 23.8",
       "reason": "[Ad CPC Rule] صرف الفيديو $1.21 | النقرات: 4 | سعر النقرة CPC = $0.302 (> $0.28)",
       "paused_at": "2026-10-18 23:49 GMT+3"
+    },
+    "fc482530-dc83-4be4-9b03-3a7a1ce7b0f9": {
+      "name": "2",
+      "campaign": "باور بانك وينر",
+      "adsquad": "Copy of 16-10 1",
+      "reason": "[Ad CPC Rule] صرف الفيديو $1.25 | النقرات: 4 | سعر النقرة CPC = $0.312 (> $0.28)",
+      "paused_at": "2026-10-19 03:33 GMT+3"
+    },
+    "d40e3116-75eb-40e8-98e1-24d89de98558": {
+      "name": "2b_winner",
+      "campaign": "watch suis winners 17-10",
+      "adsquad": "Copy of 17-10 male winners",
+      "reason": "[Ad CPC Rule] صرف الفيديو $1.7 | النقرات: 5 | سعر النقرة CPC = $0.34 (> $0.28)",
+      "paused_at": "2026-10-19 03:33 GMT+3"
     }
   },
   "tiktok_videos": {
@@ -6413,6 +6427,57 @@
       "spend_2d": 1.09,
       "conv_2d": 0,
       "paused_at": "2026-10-18T23:21:04.620916+00:00"
+    },
+    "7631763556322148369:1879234140913234:1879234142645585": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "ad_id": "1879234140913234",
+      "creative_id": "1879234141000386",
+      "campaign_ad_name": "power bank 17-10 B / power bank 17-10 B - Creative",
+      "video_name": "ola_pb_17_10_10_30-9_1.mp4",
+      "draft_ids": [
+        "1879234142645585"
+      ],
+      "reason": "2-Day Video CPA $10.32 >= $10.00 (Spend=$10.32, Sales=1)",
+      "spend_1d": 0.99,
+      "conv_1d": 0,
+      "spend_2d": 10.32,
+      "conv_2d": 1,
+      "paused_at": "2026-10-19T00:35:03.303617+00:00"
+    },
+    "7631763556322148369:1879400070507537:1879400074021281": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "ad_id": "1879400070507537",
+      "creative_id": "1879400070507569",
+      "campaign_ad_name": "power bank winner 16-10 A SCALE 10-18 / power bank winner 16-10 A - Creative",
+      "video_name": "16-10_pb_winner_5.mp4",
+      "draft_ids": [
+        "1879400074021281"
+      ],
+      "reason": "2-Day Spend $1.04 >= $1.00 & CPC $1.04 > $0.35",
+      "spend_1d": 0.37,
+      "conv_1d": 0,
+      "spend_2d": 1.04,
+      "conv_2d": 0,
+      "paused_at": "2026-10-19T00:35:04.054162+00:00"
+    },
+    "7631765070816509959:1879390618196354:1879390622577122": {
+      "aadvid": "7631765070816509959",
+      "account_name": "ROELLINGER RECYCLING2",
+      "ad_id": "1879390618196354",
+      "creative_id": "1879390618200369",
+      "campaign_ad_name": "watch broad tiktok FAST SCALE 18-10 / Ad name2026-10-10 08:10:58",
+      "video_name": "11_9(1)_C05oPyUq.mp4",
+      "draft_ids": [
+        "1879390622577122"
+      ],
+      "reason": "2-Day Video CPA $10.05 >= $10.00 (Spend=$10.05, Sales=1) | 2-Day Spend $10.05 >= $1.00 & CPC $0.37 > $0.35",
+      "spend_1d": 1.52,
+      "conv_1d": 0,
+      "spend_2d": 10.05,
+      "conv_2d": 1,
+      "paused_at": "2026-10-19T00:35:13.311047+00:00"
     }
   },
   "tiktok_ads": {},
