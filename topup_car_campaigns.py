@@ -101,21 +101,38 @@ def main():
         rsq = session.get(f"{API_BASE}/campaigns/{cid}/adsquads", timeout=20)
         rsq.raise_for_status()
         squads = [s["adsquad"] for s in rsq.json().get("adsquads", []) if "adsquad" in s]
-        active_squads = [s for s in squads if s.get("status") == "ACTIVE"]
+        raw_active_squads = [s for s in squads if s.get("status") == "ACTIVE"]
+
+        # Automatically pause any "Zombie" ACTIVE AdSquad that has 0 active ads (INVALID_AD_SQUAD_HAS_NO_ACTIVE_ADS)
+        dead_squads = [
+            s for s in raw_active_squads
+            if "INVALID_AD_SQUAD_HAS_NO_ACTIVE_ADS" in (s.get("delivery_status") or [])
+        ]
+        if dead_squads:
+            for ds in dead_squads:
+                ds["status"] = "PAUSED"
+            for i in range(0, len(dead_squads), 20):
+                session.put(f"{API_BASE}/campaigns/{cid}/adsquads", json={"adsquads": dead_squads[i:i+20]}, timeout=25)
+            print(f"   🛑 تم إيقاف {len(dead_squads)} مجموعة ميتة (بدون إعلانات نشطة) في حملة '{cname}'", flush=True)
+
+        active_squads = [
+            s for s in raw_active_squads
+            if "INVALID_AD_SQUAD_HAS_NO_ACTIVE_ADS" not in (s.get("delivery_status") or [])
+        ]
         active_count = len(active_squads)
 
-        if not is_scaling_or_duplicate_campaign(cname, squads, active_squads):
+        if not is_scaling_or_duplicate_campaign(cname, squads, active_squads or squads):
             continue
 
         print(f"\n=== حملة: '{cname}' (ID: {cid}) ===", flush=True)
-        print(f"   📊 عدد المجموعات النشطة حالياً: {active_count} (الحد الأدنى المطلوب: {MIN_ACTIVE_COUNT})", flush=True)
+        print(f"   📊 عدد المجموعات النشطة الفعّالة حالياً: {active_count} (الحد الأدنى المطلوب: {MIN_ACTIVE_COUNT})", flush=True)
 
         if active_count >= MIN_ACTIVE_COUNT:
-            print(f"   ✅ الحملة تحتوي على {active_count} مجموعة نشطة (>= {MIN_ACTIVE_COUNT}) — لا تحتاج أي إضافة.", flush=True)
+            print(f"   ✅ الحملة تحتوي على {active_count} مجموعة نشطة فعّالة (>= {MIN_ACTIVE_COUNT}) — لا تحتاج أي إضافة.", flush=True)
             continue
 
         needed = MIN_ACTIVE_COUNT - active_count
-        source_squad = pick_best_source_squad(session, active_squads, stats_map)
+        source_squad = pick_best_source_squad(session, active_squads or squads, stats_map)
         if not source_squad:
             print("   ⚠️ لا توجد أي مجموعة إعلانية صالحة للنسخ منها في هذه الحملة.", flush=True)
             continue
