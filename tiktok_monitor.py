@@ -810,9 +810,9 @@ def main():
                 if hist_key in history["tiktok_videos"]:
                     print(f"    [SKIP - SECOND CHANCE] Already paused once before ({history['tiktok_videos'][hist_key].get('paused_at')}), user re-enabled it.")
                     continue
-                # Protect the LAST remaining active video in a Smart+ campaign from early CPC cut (< $4.50 spend) so campaign spend doesn't die
-                if active_videos_per_ad.get(ad_id, 1) <= 1 and spend_2d < 4.50 and conv_2d == 0:
-                    print(f"    🛡️ [SMART+ LAST-VIDEO PROTECTION] Keeping last active video '{vid_name}' in ad_id {ad_id} (Spend=${spend_2d:.2f} < $4.50) so Smart+ campaign does not stall!")
+                # Protect the last 4 remaining active videos in a Smart+ campaign from early CPC cut (< $5.50 spend) so Smart+ algorithm never starves!
+                if active_videos_per_ad.get(ad_id, 1) <= 4 and spend_2d < 5.50 and conv_2d == 0:
+                    print(f"    🛡️ [SMART+ ANTI-STARVATION PROTECTION] Keeping active video '{vid_name}' in ad_id {ad_id} ({active_videos_per_ad.get(ad_id, 1)} active vids left, Spend=${spend_2d:.2f} < $5.50) so Smart+ campaign does not stall!")
                     continue
                 reason_str = " | ".join(reasons)
                 print(f"    [PAUSING VIDEO] Reason: {reason_str}")
