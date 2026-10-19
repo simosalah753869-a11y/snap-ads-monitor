@@ -4924,6 +4924,41 @@
       "adsquad": "Copy of 17-10 male winners",
       "reason": "[Ad CPC Rule] صرف الفيديو $1.19 | النقرات: 4 | سعر النقرة CPC = $0.297 (> $0.28)",
       "paused_at": "2026-10-19 06:09 GMT+3"
+    },
+    "a3069d0c-ad48-4a4c-937b-df755c9dc7a6": {
+      "name": "2_winner",
+      "campaign": "watch suis winners 17-10",
+      "adsquad": "Copy of 17-10 male winners",
+      "reason": "[Ad CPC Rule] صرف الفيديو $1.8 | النقرات: 2 | سعر النقرة CPC = $0.9 (> $0.28)",
+      "paused_at": "2026-10-19 06:58 GMT+3"
+    },
+    "cea255b4-2a73-4bdf-8079-19d520baac03": {
+      "name": "13-10_hanan_5",
+      "campaign": "وسادة السيارة علا وحنان 18-10 (دفعة 13-10)",
+      "adsquad": "Copy of 18-10 حنان (5 فيديوهات)",
+      "reason": "[Ad CPC Rule] صرف الفيديو $1.01 | النقرات: 3 | سعر النقرة CPC = $0.337 (> $0.28)",
+      "paused_at": "2026-10-19 06:58 GMT+3"
+    },
+    "3b606fdc-2660-46e7-98bb-b737fa88fe8c": {
+      "name": "2_winner",
+      "campaign": "watch suis winners 17-10",
+      "adsquad": "Copy of 17-10 male winners",
+      "reason": "[Ad CPC Rule] صرف الفيديو $1.56 | النقرات: 5 | سعر النقرة CPC = $0.312 (> $0.28)",
+      "paused_at": "2026-10-19 06:58 GMT+3"
+    },
+    "61e51d5d-9dd2-483f-a6cc-522eb2e048c6": {
+      "name": "2b_winner",
+      "campaign": "watch suis winners 17-10",
+      "adsquad": "Copy of 17-10 male winners",
+      "reason": "[Ad CPC Rule] صرف الفيديو $1.0 | النقرات: 3 | سعر النقرة CPC = $0.333 (> $0.28)",
+      "paused_at": "2026-10-19 06:58 GMT+3"
+    },
+    "32d8f5fb-0697-4930-b0cc-d9ed7c773fca": {
+      "name": "2_winner",
+      "campaign": "watch suis winners 17-10",
+      "adsquad": "Copy of 17-10 male winners",
+      "reason": "[Ad CPC Rule] صرف الفيديو $1.3 | النقرات: 2 | سعر النقرة CPC = $0.65 (> $0.28)",
+      "paused_at": "2026-10-19 06:58 GMT+3"
     }
   },
   "tiktok_videos": {
@@ -7443,6 +7478,57 @@
       "global_spend_2d": 22.05,
       "global_conv_2d": 1,
       "paused_at": "2026-10-19T02:15:11.642955+00:00"
+    },
+    "7631763556322148369:1879340722698338:1879340722845714": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "ad_id": "1879340722698338",
+      "creative_id": "1879340722698354",
+      "campaign_ad_name": "power bank 18-10 (Ola 30-9 Batch) / power bank 18-10 (Ola 30-9 Batch) - Creative",
+      "video_name": "18_10_30-9_ola_5.mp4",
+      "draft_ids": [
+        "1879340722845714"
+      ],
+      "reason": "Today Spend $1.01 >= $1.00 & CPC $0.51 > $0.35",
+      "spend_1d": 1.01,
+      "conv_1d": 0,
+      "spend_2d": 4.44,
+      "conv_2d": 0,
+      "paused_at": "2026-10-19T03:59:45.436160+00:00"
+    },
+    "7631763556322148369:1879390609489105:1879390609497218": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "ad_id": "1879390609489105",
+      "creative_id": "1879390609489137",
+      "campaign_ad_name": "power bank 18-10 Ola Hanan FAST SCALE / power bank 18-10 (Ola + Hanan 15-10) - Creative",
+      "video_name": "18_10_15-10_ola_3.mp4",
+      "draft_ids": [
+        "1879390609497218"
+      ],
+      "reason": "Today Spend $2.26 >= $1.00 & CPC $0.38 > $0.35",
+      "spend_1d": 2.26,
+      "conv_1d": 0,
+      "spend_2d": 2.61,
+      "conv_2d": 0,
+      "paused_at": "2026-10-19T03:59:46.145463+00:00"
+    },
+    "7631763556322148369:1879390609489105:1879390609497234": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "ad_id": "1879390609489105",
+      "creative_id": "1879390609489137",
+      "campaign_ad_name": "power bank 18-10 Ola Hanan FAST SCALE / power bank 18-10 (Ola + Hanan 15-10) - Creative",
+      "video_name": "18_10_15-10_ola_4.mp4",
+      "draft_ids": [
+        "1879390609497234"
+      ],
+      "reason": "2-Day Spend $1.01 >= $1.00 & CPC $1.01 > $0.35",
+      "spend_1d": 0.26,
+      "conv_1d": 0,
+      "spend_2d": 1.01,
+      "conv_2d": 0,
+      "paused_at": "2026-10-19T03:59:46.775020+00:00"
     }
   },
   "tiktok_ads": {},
@@ -12779,7 +12865,7 @@
       "campaign": "car scaling camp ",
       "date": "2026-10-19",
       "count": 3,
-      "done": false,
+      "done": true,
       "old_bid": 2.65,
       "new_bid": 2.75,
       "last_bump_at": "2026-10-19T03:10:22.884603+00:00",
@@ -13170,7 +13256,7 @@
       "campaign": "watch suis winners 17-10",
       "date": "2026-10-19",
       "count": 2,
-      "done": false,
+      "done": true,
       "old_bid": 2.75,
       "new_bid": 2.85,
       "last_bump_at": "2026-10-19T03:10:22.884603+00:00",
@@ -13199,7 +13285,7 @@
       "campaign": "watch suis winners 17-10",
       "date": "2026-10-19",
       "count": 2,
-      "done": false,
+      "done": true,
       "old_bid": 2.7,
       "new_bid": 2.8,
       "last_bump_at": "2026-10-19T03:10:22.884603+00:00",
@@ -13615,7 +13701,7 @@
       "campaign": "watch suis winners 17-10",
       "date": "2026-10-19",
       "count": 2,
-      "done": false,
+      "done": true,
       "old_bid": 2.8,
       "new_bid": 2.9,
       "last_bump_at": "2026-10-19T03:10:22.884603+00:00",
@@ -13659,7 +13745,7 @@
       "campaign": "watch suis winners 17-10",
       "date": "2026-10-19",
       "count": 2,
-      "done": false,
+      "done": true,
       "old_bid": 2.6,
       "new_bid": 2.7,
       "last_bump_at": "2026-10-19T03:10:22.884603+00:00",
@@ -13878,7 +13964,7 @@
       "campaign": "وسادة السيارة علا وحنان 18-10 (دفعة 13-10)",
       "date": "2026-10-19",
       "count": 2,
-      "done": false,
+      "done": true,
       "old_bid": 2.6,
       "new_bid": 2.7,
       "last_bump_at": "2026-10-19T03:10:22.884603+00:00",
@@ -13933,7 +14019,7 @@
       "campaign": "وسادة السيارة علا وحنان 18-10 (دفعة 13-10)",
       "date": "2026-10-19",
       "count": 1,
-      "done": false,
+      "done": true,
       "old_bid": 2.6,
       "new_bid": 2.7,
       "last_bump_at": "2026-10-19T03:10:22.884603+00:00",
@@ -14050,7 +14136,7 @@
       "campaign": "watch suis winners 17-10",
       "date": "2026-10-19",
       "count": 1,
-      "done": false,
+      "done": true,
       "old_bid": 2.6,
       "new_bid": 2.7,
       "last_bump_at": "2026-10-19T03:10:22.884603+00:00",
@@ -14101,7 +14187,7 @@
       "campaign": "car scaling new 2 text",
       "date": "2026-10-19",
       "count": 1,
-      "done": false,
+      "done": true,
       "old_bid": 2.55,
       "new_bid": 2.65,
       "last_bump_at": "2026-10-19T03:10:22.884603+00:00",
