@@ -4555,6 +4555,13 @@
       "adsquad": "Copy of Copy of 14-10",
       "reason": "Manual second-chance restore",
       "paused_at": "2026-10-18"
+    },
+    "29b97027-3bea-44fb-a486-f89e6a647268": {
+      "name": "Copy of Copy of Copy of Copy of Copy of 1",
+      "campaign": "car scaling camp ",
+      "adsquad": "Copy of Copy of 1.5 | 23.8",
+      "reason": "[Ad CPC Rule] صرف الفيديو $1.19 | النقرات: 4 | سعر النقرة CPC = $0.297 (> $0.28)",
+      "paused_at": "2026-10-19 05:27 GMT+3"
     }
   },
   "tiktok_videos": {
@@ -5715,7 +5722,7 @@
       "global_conv_1d": 0,
       "global_spend_2d": 22.28,
       "global_conv_2d": 1,
-      "paused_at": "2026-10-19T02:01:42.588060+00:00"
+      "paused_at": "2026-10-19T02:28:45.179850+00:00"
     },
     "7631763556322148369:1879158246855697:1879158246870465": {
       "aadvid": "7631763556322148369",
@@ -13807,7 +13814,16 @@
     "ecff6946-73a1-4add-bd01-e06b32b59507": "25e139b5-2df3-43e5-bc76-cc07f8e81125",
     "a0a403ff-19a8-466a-87d8-877b6f9f6c7e": "a959f636-d6ed-468c-ad35-2c3b7b496d6e",
     "98f3517c-42e8-46fd-be44-97fbf52f85e0": "0c32a60a-12ec-41ac-82d0-8e71b144c7f8",
-    "daf7703d-df7f-4f87-a115-acc41bb3a85a": "b5b897f6-9df6-46d6-aac2-55c809257f67"
+    "daf7703d-df7f-4f87-a115-acc41bb3a85a": "b5b897f6-9df6-46d6-aac2-55c809257f67",
+    "cba9d7ca-c6c4-44bf-a1f2-d1e7dc1e2c6a": "225ed86c-4c11-4b30-a901-934f42262069",
+    "2211d3e1-b35f-4558-a8bd-552cce479780": "4b80880f-b25e-449f-a33d-2a8a798bfbeb",
+    "94e1b608-8007-4ef8-b96c-9efd5f276747": "6d77577a-cc80-4ac5-b027-bacb2f4624a4",
+    "91d55ebd-3768-431c-af24-cfcef747f270": "5b20e277-f3dc-42ba-910c-7b348f84d544",
+    "1bc188ee-4a86-4b84-9f1e-2bea49fd7e07": "7ca0d53c-bf68-4a50-a5ff-ff634495daf8",
+    "a1c4b538-1657-411f-9f7d-1cbcbf57a142": "e84a0e3c-61ad-4044-bbe3-d17593fc557c",
+    "c7fe84a2-892e-48ec-9237-90b8f85c1faa": "e9815d13-40e4-4458-937c-4c417ae9f8c1",
+    "ac1157e9-efb9-4968-9316-43d969a42316": "2373897b-e85b-4d91-8fe3-57d5a674bf57",
+    "bbd8ced1-6c8b-4e13-9e67-bf84adf0abcf": "5e3a909a-eb7e-4376-818f-ceef00715235"
   },
   "disabled_videos": {},
   "night_bid_reductions": {
@@ -20956,13 +20972,13 @@
         "ROELLINGER RECYCLING2"
       ],
       "total_copies": 4,
-      "closed_copies": 3,
+      "closed_copies": 1,
       "spend_1d": 0.0,
       "conv_1d": 0,
       "spend_2d": 22.28,
       "conv_2d": 1,
       "reason": "[Global Dup Video High CPA 2D] Total 2-Day CPA $22.28 >= $22.00 (Total Spend=$22.28, Total Sales=1)",
-      "disabled_at": "2026-10-19T02:01:42.588089+00:00"
+      "disabled_at": "2026-10-19T02:28:45.179879+00:00"
     }
   },
   "proactive_scaled_squads": {},
