@@ -1129,6 +1129,30 @@
       "campaign": "باور بانك وينر",
       "reason": "[Copy Rule] صرفت $5.18 (>= $5) بدون مبيعات",
       "paused_at": "2026-10-19 13:34 GMT+3"
+    },
+    "56f309dd-96f0-4118-9cdb-2db74d843d26": {
+      "name": "Copy of 17-10 male winners",
+      "campaign": "watch suis winners 17-10",
+      "reason": "[Copy Rule] سعر البيعة CPA = $8.07 (>= $8) | الصرف: $8.07 | المبيعات: 1",
+      "paused_at": "2026-10-19 14:10 GMT+3"
+    },
+    "e4da2e8c-412f-45cf-81af-7885ae7806c6": {
+      "name": "Copy of Copy of 1.5 | 23.8",
+      "campaign": "car scaling camp ",
+      "reason": "[Copy Rule] صرفت $5.02 (>= $5) بدون مبيعات",
+      "paused_at": "2026-10-19 14:10 GMT+3"
+    },
+    "a561b633-1be0-4d8d-a1eb-5a6ad0af38cc": {
+      "name": "Copy of 17-10 male winners",
+      "campaign": "watch suis winners 17-10",
+      "reason": "[Copy Rule] سعر البيعة CPA = $8.22 (>= $8) | الصرف: $8.22 | المبيعات: 1",
+      "paused_at": "2026-10-19 14:10 GMT+3"
+    },
+    "0e7cb720-893d-42be-8ae8-2b75b8be2163": {
+      "name": "Copy of SA_Watch Target Cost Men 20+ | 2.8 Bid",
+      "campaign": "smart+ watch suis SA 18-10",
+      "reason": "[Copy Rule] سعر البيعة CPA = $8.18 (>= $8) | الصرف: $8.18 | المبيعات: 1",
+      "paused_at": "2026-10-19 14:10 GMT+3"
     }
   },
   "ads": {
@@ -7113,12 +7137,19 @@
       "reason": "[Aggregated Video Stop-Loss - السعودية] مجموع صرف الفيديو عبر كل الـ AdSquads = $16.50 (>= $15.00) بدون أي مبيعة",
       "paused_at": "2026-10-19 13:34 GMT+3"
     },
+    "487ca969-b25d-4e1b-a201-a8b475501278": {
+      "name": "hist_tc_4_13_205sales",
+      "campaign": "باور بانك السعودية سمارت+ (فيديوهات الحساب الثاني) 18-10",
+      "adsquad": "Copy of SA_PB_OldAcc Target Cost Men 20+ | 2.8 Bid",
+      "reason": "[Ad CPC Rule] صرف الفيديو $1.33 | النقرات: 1 | سعر النقرة CPC = $1.33 (> $0.28)",
+      "paused_at": "2026-10-19 14:10 GMT+3"
+    },
     "6526e83a-aabd-4710-8e86-c8bf6c4aabc3": {
       "name": "2",
       "campaign": "باور بانك وينر",
       "adsquad": "Copy of 16-10 1",
       "reason": "[Aggregated Video Stop-Loss - السعودية] مجموع صرف الفيديو عبر كل الـ AdSquads = $18.15 (>= $15.00) بدون أي مبيعة",
-      "paused_at": "2026-10-19 13:34 GMT+3"
+      "paused_at": "2026-10-19 14:10 GMT+3"
     }
   },
   "tiktok_videos": {
@@ -9944,6 +9975,23 @@
       "spend_2d": 1.23,
       "conv_2d": 0,
       "paused_at": "2026-10-19T10:40:26.986902+00:00"
+    },
+    "7631763556322148369:1879340731438114:1879340739874850": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "ad_id": "1879340731438114",
+      "creative_id": "1879340731438130",
+      "campaign_ad_name": "car armrest 18-10 (Hanan + Ola 13-10) / car armrest 18-10 (Hanan + Ola 13-10) - Creative",
+      "video_name": "18_10_13-10_ola_5.mp4",
+      "draft_ids": [
+        "1879340739874850"
+      ],
+      "reason": "2-Day Spend $1.09 >= $1.00 & CPC $1.09 > $0.35",
+      "spend_1d": 0.95,
+      "conv_1d": 0,
+      "spend_2d": 1.09,
+      "conv_2d": 0,
+      "paused_at": "2026-10-19T11:13:28.580410+00:00"
     }
   },
   "tiktok_ads": {},
@@ -16573,7 +16621,7 @@
       "campaign": "watch suis winners 17-10",
       "date": "2026-10-19",
       "count": 4,
-      "done": false,
+      "done": true,
       "old_bid": 2.7,
       "new_bid": 2.8,
       "last_bump_at": "2026-10-19T09:45:15.007666+00:00",
@@ -16714,7 +16762,7 @@
       "campaign": "car scaling camp ",
       "date": "2026-10-19",
       "count": 4,
-      "done": false,
+      "done": true,
       "old_bid": 2.35,
       "new_bid": 2.45,
       "last_bump_at": "2026-10-19T09:45:15.007666+00:00",
@@ -16893,13 +16941,69 @@
       "campaign": "car scaling new 2 text",
       "date": "2026-10-19",
       "count": 1,
-      "done": false,
+      "done": true,
       "old_bid": 2.3,
       "new_bid": 2.4,
       "last_bump_at": "2026-10-19T10:38:15.747133+00:00",
       "last_bump_local": "2026-10-19 13:34 GMT+3"
     },
     "2c9198a8-f9b6-4024-9142-43e80f4827ba": {
+      "count": 0,
+      "last_bump_at": null,
+      "done": true,
+      "name": "Copy of Copy of 1.5 | 23.8",
+      "campaign": "car scaling camp "
+    },
+    "9496d93b-c72d-46e2-b1f7-b07cb2cc2afb": {
+      "count": 0,
+      "last_bump_at": null,
+      "done": true,
+      "name": "KW_Car Top 4 Winners Scale 19-10 (Target Cost)",
+      "campaign": "وسادة السيارة الكويت 18-10"
+    },
+    "08da3da5-a7db-4be1-95db-cbda2d9407c1": {
+      "count": 0,
+      "last_bump_at": null,
+      "done": true,
+      "name": "Copy of Copy of Copy of Copy of Copy of text 2 ",
+      "campaign": "car scaling new 2 text"
+    },
+    "1096aa24-a1ff-4620-8bfa-2e51f49d94b4": {
+      "count": 0,
+      "last_bump_at": null,
+      "done": true,
+      "name": "Copy of Copy of Copy of Copy of Copy of Copy of text 2 ",
+      "campaign": "car scaling new 2 text"
+    },
+    "e02bca6c-389b-44d0-a5a3-eff1254d7f0d": {
+      "count": 0,
+      "last_bump_at": null,
+      "done": true,
+      "name": "Copy of Copy of Copy of Copy of Copy of Copy of text 2 ",
+      "campaign": "car scaling new 2 text"
+    },
+    "157d2b45-1646-46f5-8e24-af8f77eaed3f": {
+      "count": 0,
+      "last_bump_at": null,
+      "done": true,
+      "name": "Copy of 16-10 1",
+      "campaign": "باور بانك وينر"
+    },
+    "6bccbe1e-18df-4432-8705-d8d6cb81abe8": {
+      "count": 0,
+      "last_bump_at": null,
+      "done": true,
+      "name": "Copy of Copy of 1.5 | 23.8",
+      "campaign": "car scaling camp "
+    },
+    "82fecc48-a2f0-4359-83de-a805702d3aab": {
+      "count": 0,
+      "last_bump_at": null,
+      "done": true,
+      "name": "Copy of Copy of 1.5 | 23.8",
+      "campaign": "car scaling camp "
+    },
+    "88ffbe99-2e80-4e09-a63d-3971560da211": {
       "count": 0,
       "last_bump_at": null,
       "done": true,
@@ -17189,7 +17293,9 @@
     "315856a9-cd63-4318-a230-291af08d93f0": "26872e77-096b-4914-9104-eaeacf15d81f",
     "c7fe84a2-892e-48ec-9237-90b8f85c1faa": "e9815d13-40e4-4458-937c-4c417ae9f8c1",
     "29cd0633-26dc-4c82-aea9-f16f83cbcbf3": "22d7c271-05ae-4995-b9d5-b18c7c71a6f5",
-    "41c2c16e-4a7d-49e3-9cff-c38095c92230": "e38f3c01-88a2-46b3-a1e8-09d97b3feb35"
+    "41c2c16e-4a7d-49e3-9cff-c38095c92230": "e38f3c01-88a2-46b3-a1e8-09d97b3feb35",
+    "2adce1b2-ffbe-42ef-b38c-4d1806f40108": "54b558a8-547d-4ab1-a900-4a29bae020fc",
+    "c7898224-05db-41d2-8f46-f05cc5ee4b9c": "d92f0016-81e4-473e-9b02-37f2feb2e12e"
   },
   "disabled_videos": {
     "062e2cba-fecb-488e-940e-75b50eca766d:9edae80d-dbd4-4253-b227-8bdcee74c4a6": {
@@ -17223,7 +17329,7 @@
       "total_spend": 18.15,
       "total_purchases": 0,
       "reason": "[Aggregated Video Stop-Loss - السعودية] مجموع صرف الفيديو عبر كل الـ AdSquads = $18.15 (>= $15.00) بدون أي مبيعة",
-      "disabled_at": "2026-10-19 13:34 GMT+3"
+      "disabled_at": "2026-10-19 14:10 GMT+3"
     },
     "e23e7c95-3f15-4945-9844-8bd73e2d79d3:04d7ae2c-e2c4-41ee-a5c9-1a6d3ace7f38": {
       "campaign_id": "e23e7c95-3f15-4945-9844-8bd73e2d79d3",
@@ -24596,6 +24702,196 @@
       "last_action_at": null,
       "last_spend": 0.0,
       "last_check_at": "2026-10-19T09:45:15.007666+00:00",
+      "scaled_budget_today": false
+    },
+    "0278a935-003c-4bf0-bd9d-460a8f5dd59b": {
+      "date": "2026-10-19",
+      "name": "Copy of SA_Watch Target Cost Men 20+ | 2.8 Bid",
+      "campaign": "smart+ watch suis SA 18-10",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.0,
+      "last_check_at": "2026-10-19T11:12:54.316486+00:00",
+      "scaled_budget_today": false
+    },
+    "062fc3fe-1299-496b-956c-c0ed5e11ef72": {
+      "date": "2026-10-19",
+      "name": "Copy of SA_Watch Target Cost Men 20+ | 2.8 Bid",
+      "campaign": "smart+ watch suis SA 18-10",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.0,
+      "last_check_at": "2026-10-19T11:12:54.316486+00:00",
+      "scaled_budget_today": false
+    },
+    "25fb75fe-9eda-4e1f-a3fe-c98e6dd2e6fd": {
+      "date": "2026-10-19",
+      "name": "Copy of SA_Watch Target Cost Men 20+ | 2.8 Bid",
+      "campaign": "smart+ watch suis SA 18-10",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.0,
+      "last_check_at": "2026-10-19T11:12:54.316486+00:00",
+      "scaled_budget_today": false
+    },
+    "395c15f9-53ec-4510-9a38-0011d7e165f0": {
+      "date": "2026-10-19",
+      "name": "Copy of SA_Watch Target Cost Men 20+ | 2.8 Bid",
+      "campaign": "smart+ watch suis SA 18-10",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.0,
+      "last_check_at": "2026-10-19T11:12:54.316486+00:00",
+      "scaled_budget_today": false
+    },
+    "3f873867-ca4e-480c-9ff2-6b4474672a35": {
+      "date": "2026-10-19",
+      "name": "Copy of SA_Watch Target Cost Men 20+ | 2.8 Bid",
+      "campaign": "smart+ watch suis SA 18-10",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.0,
+      "last_check_at": "2026-10-19T11:12:54.316486+00:00",
+      "scaled_budget_today": false
+    },
+    "4748e846-dee2-4e73-a702-bcd70f3d264b": {
+      "date": "2026-10-19",
+      "name": "Copy of SA_Watch Target Cost Men 20+ | 2.8 Bid",
+      "campaign": "smart+ watch suis SA 18-10",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.0,
+      "last_check_at": "2026-10-19T11:12:54.316486+00:00",
+      "scaled_budget_today": false
+    },
+    "4bb855ee-8ccc-4f56-ad36-a1016d805841": {
+      "date": "2026-10-19",
+      "name": "Copy of SA_Watch Target Cost Men 20+ | 2.8 Bid",
+      "campaign": "smart+ watch suis SA 18-10",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.0,
+      "last_check_at": "2026-10-19T11:12:54.316486+00:00",
+      "scaled_budget_today": false
+    },
+    "4fc182af-f3ef-460b-bcf3-1b18f1105f58": {
+      "date": "2026-10-19",
+      "name": "Copy of SA_Watch Target Cost Men 20+ | 2.8 Bid",
+      "campaign": "smart+ watch suis SA 18-10",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.0,
+      "last_check_at": "2026-10-19T11:12:54.316486+00:00",
+      "scaled_budget_today": false
+    },
+    "6960bca2-074d-4f3e-af3a-bac3a6d3fcdc": {
+      "date": "2026-10-19",
+      "name": "Copy of SA_Watch Target Cost Men 20+ | 2.8 Bid",
+      "campaign": "smart+ watch suis SA 18-10",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.0,
+      "last_check_at": "2026-10-19T11:12:54.316486+00:00",
+      "scaled_budget_today": false
+    },
+    "7014f28f-efea-470b-8f5d-03d4726dc640": {
+      "date": "2026-10-19",
+      "name": "Copy of SA_Watch Target Cost Men 20+ | 2.8 Bid",
+      "campaign": "smart+ watch suis SA 18-10",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.0,
+      "last_check_at": "2026-10-19T11:12:54.316486+00:00",
+      "scaled_budget_today": false
+    },
+    "7f4cdb37-85d9-449b-9816-0ec977e0be50": {
+      "date": "2026-10-19",
+      "name": "Copy of SA_Watch Target Cost Men 20+ | 2.8 Bid",
+      "campaign": "smart+ watch suis SA 18-10",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.0,
+      "last_check_at": "2026-10-19T11:12:54.316486+00:00",
+      "scaled_budget_today": false
+    },
+    "986dea34-6c22-4067-91e8-be540a4ad048": {
+      "date": "2026-10-19",
+      "name": "Copy of SA_Watch Target Cost Men 20+ | 2.8 Bid",
+      "campaign": "smart+ watch suis SA 18-10",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.0,
+      "last_check_at": "2026-10-19T11:12:54.316486+00:00",
+      "scaled_budget_today": false
+    },
+    "aedff022-6628-4495-8da2-ca46c7cce639": {
+      "date": "2026-10-19",
+      "name": "Copy of SA_Watch Target Cost Men 20+ | 2.8 Bid",
+      "campaign": "smart+ watch suis SA 18-10",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.0,
+      "last_check_at": "2026-10-19T11:12:54.316486+00:00",
+      "scaled_budget_today": false
+    },
+    "b68ff0c0-ab34-4abd-b51d-04ce9315730b": {
+      "date": "2026-10-19",
+      "name": "Copy of SA_Watch Target Cost Men 20+ | 2.8 Bid",
+      "campaign": "smart+ watch suis SA 18-10",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.0,
+      "last_check_at": "2026-10-19T11:12:54.316486+00:00",
+      "scaled_budget_today": false
+    },
+    "df0591be-cc4d-4d91-bb65-44dbc1f8f1cb": {
+      "date": "2026-10-19",
+      "name": "Copy of SA_Watch Target Cost Men 20+ | 2.8 Bid",
+      "campaign": "smart+ watch suis SA 18-10",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.0,
+      "last_check_at": "2026-10-19T11:12:54.316486+00:00",
+      "scaled_budget_today": false
+    },
+    "df94ba54-be9a-436a-bfd4-222e394cbf1d": {
+      "date": "2026-10-19",
+      "name": "Copy of SA_Watch Target Cost Men 20+ | 2.8 Bid",
+      "campaign": "smart+ watch suis SA 18-10",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.0,
+      "last_check_at": "2026-10-19T11:12:54.316486+00:00",
+      "scaled_budget_today": false
+    },
+    "e1add47f-a35a-49f1-a8e6-e4bf36b0f060": {
+      "date": "2026-10-19",
+      "name": "Copy of SA_Watch Target Cost Men 20+ | 2.8 Bid",
+      "campaign": "smart+ watch suis SA 18-10",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.0,
+      "last_check_at": "2026-10-19T11:12:54.316486+00:00",
+      "scaled_budget_today": false
+    },
+    "964fb883-58b7-4e22-ad61-850511dfd707": {
+      "date": "2026-10-19",
+      "name": "SA_Car Elite Mega-Winners 19-10 (Target Cost Men 20+)",
+      "campaign": "smart+ cars SA 18-10",
+      "bumps_today": 1,
+      "last_action_at": "2026-10-19T11:12:54.316486+00:00",
+      "last_spend": 0.01,
+      "last_check_at": "2026-10-19T11:12:54.316486+00:00",
+      "scaled_budget_today": false
+    },
+    "f46d8a38-9e6d-446b-bc38-ab73aa366447": {
+      "date": "2026-10-19",
+      "name": "SA_Car Elite Mega-Winners 19-10 (Smart+ Broad)",
+      "campaign": "smart+ cars SA 18-10",
+      "bumps_today": 1,
+      "last_action_at": "2026-10-19T11:12:54.316486+00:00",
+      "last_spend": 0.0,
+      "last_check_at": "2026-10-19T11:12:54.316486+00:00",
       "scaled_budget_today": false
     }
   },
