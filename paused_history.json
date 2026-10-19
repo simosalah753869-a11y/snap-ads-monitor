@@ -1093,6 +1093,42 @@
       "campaign": "باور بانك وينر",
       "reason": "[Copy Rule] صرفت $5.16 (>= $5) بدون مبيعات",
       "paused_at": "2026-10-19 12:58 GMT+3"
+    },
+    "68cc1257-9ab3-44ea-821d-054945030121": {
+      "name": "Copy of 17-10 male winners",
+      "campaign": "watch suis winners 17-10",
+      "reason": "[Copy Rule] سعر البيعة CPA = $8.22 (>= $8) | الصرف: $8.22 | المبيعات: 1",
+      "paused_at": "2026-10-19 13:34 GMT+3"
+    },
+    "4e079c05-03c7-487e-948d-bc03ad745536": {
+      "name": "Copy of 17-10 male winners",
+      "campaign": "watch suis winners 17-10",
+      "reason": "[Copy Rule] سعر البيعة CPA = $8.0 (>= $8) | الصرف: $8.0 | المبيعات: 1",
+      "paused_at": "2026-10-19 13:34 GMT+3"
+    },
+    "38bc655c-81e0-4660-9eb2-cf4a467e6a7e": {
+      "name": "Copy of Copy of Copy of Copy of Copy of Copy of text 2 ",
+      "campaign": "car scaling new 2 text",
+      "reason": "[Copy Rule] صرفت $5.65 (>= $5) بدون مبيعات",
+      "paused_at": "2026-10-19 13:34 GMT+3"
+    },
+    "6fda8466-71ff-4669-b382-e71169e4d6be": {
+      "name": "Copy of Copy of Copy of Copy of Copy of Copy of text 2 ",
+      "campaign": "car scaling new 2 text",
+      "reason": "[Copy Rule] صرفت $5.34 (>= $5) بدون مبيعات",
+      "paused_at": "2026-10-19 13:34 GMT+3"
+    },
+    "83f0934a-52a7-4e4d-bdc1-052333064f54": {
+      "name": "Copy of SA_Watch Target Cost Men 20+ | 2.8 Bid",
+      "campaign": "smart+ watch suis SA 18-10",
+      "reason": "[Copy Rule] صرفت $5.15 (>= $5) بدون مبيعات",
+      "paused_at": "2026-10-19 13:34 GMT+3"
+    },
+    "e68d35ba-1188-45dd-bcb4-3676892470cd": {
+      "name": "Copy of 16-10 1",
+      "campaign": "باور بانك وينر",
+      "reason": "[Copy Rule] صرفت $5.18 (>= $5) بدون مبيعات",
+      "paused_at": "2026-10-19 13:34 GMT+3"
     }
   },
   "ads": {
@@ -3184,13 +3220,6 @@
       "adsquad": "Copy of 16-10 1",
       "reason": "[Ad CPC Rule] صرف الفيديو $1.14 | النقرات: 4 | سعر النقرة CPC = $0.285 (> $0.28)",
       "paused_at": "2026-10-17 22:42 GMT+3"
-    },
-    "fd3b67d8-771e-42d6-be45-2b08c94ce3e4": {
-      "name": "4",
-      "campaign": "باور بانك وينر",
-      "adsquad": "Copy of 16-10 1",
-      "reason": "[Aggregated Video High CPA - السعودية] مجموع صرف الفيديو = $18.06 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $18.06 (>= $18.00)",
-      "paused_at": "2026-10-19 12:43 GMT+3"
     },
     "8f508990-bcc2-460a-b7d7-43f3264dfcc0": {
       "name": "3_winner",
@@ -6524,13 +6553,6 @@
       "reason": "[Aggregated Video Stop-Loss - السعودية] مجموع صرف الفيديو عبر كل الـ AdSquads = $15.26 (>= $15.00) بدون أي مبيعة",
       "paused_at": "2026-10-19 12:58 GMT+3"
     },
-    "2b757b43-4f72-4b48-82b1-d691a275ec71": {
-      "name": "2b_winner",
-      "campaign": "watch suis winners 17-10",
-      "adsquad": "Copy of 17-10 male winners",
-      "reason": "[Aggregated Video Stop-Loss - السعودية] مجموع صرف الفيديو عبر كل الـ AdSquads = $15.26 (>= $15.00) بدون أي مبيعة",
-      "paused_at": "2026-10-19 12:58 GMT+3"
-    },
     "2c66d66e-e8df-467b-982d-8044e0e731da": {
       "name": "2b_winner",
       "campaign": "watch suis winners 17-10",
@@ -6776,19 +6798,327 @@
       "reason": "[Aggregated Video Stop-Loss - السعودية] مجموع صرف الفيديو عبر كل الـ AdSquads = $16.25 (>= $15.00) بدون أي مبيعة",
       "paused_at": "2026-10-19 12:58 GMT+3"
     },
+    "4558f832-154d-4822-84a0-0926f9df2c9c": {
+      "name": "Copy of Copy of Copy of Copy of 2",
+      "campaign": "car scaling new 2 text",
+      "adsquad": "Copy of Copy of Copy of Copy of Copy of Copy of text 2 ",
+      "reason": "[Ad CPC Rule] صرف الفيديو $1.72 | النقرات: 6 | سعر النقرة CPC = $0.287 (> $0.28)",
+      "paused_at": "2026-10-19 13:34 GMT+3"
+    },
+    "4ccde2d2-92b8-40eb-92b0-dd0a4bb723ed": {
+      "name": "3_winner",
+      "campaign": "watch suis winners 17-10",
+      "adsquad": "Copy of 17-10 male winners",
+      "reason": "[Ad CPC Rule] صرف الفيديو $1.06 | النقرات: 2 | سعر النقرة CPC = $0.53 (> $0.28)",
+      "paused_at": "2026-10-19 13:34 GMT+3"
+    },
+    "9c0e8061-c6e0-4265-97e2-db020ec6065f": {
+      "name": "3",
+      "campaign": "باور بانك وينر",
+      "adsquad": "Copy of 16-10 1",
+      "reason": "[Ad CPC Rule] صرف الفيديو $1.12 | النقرات: 1 | سعر النقرة CPC = $1.12 (> $0.28)",
+      "paused_at": "2026-10-19 13:34 GMT+3"
+    },
+    "4a7bcb59-38e1-4db6-9af7-f689163905d2": {
+      "name": "3",
+      "campaign": "باور بانك وينر",
+      "adsquad": "Copy of 16-10 1",
+      "reason": "[Ad CPC Rule] صرف الفيديو $1.06 | النقرات: 1 | سعر النقرة CPC = $1.06 (> $0.28)",
+      "paused_at": "2026-10-19 13:34 GMT+3"
+    },
+    "db9483b8-8c9d-4ba8-8ffa-06ec75253f04": {
+      "name": "3",
+      "campaign": "باور بانك وينر",
+      "adsquad": "Copy of 16-10 1",
+      "reason": "[Ad CPC Rule] صرف الفيديو $1.09 | النقرات: 2 | سعر النقرة CPC = $0.545 (> $0.28)",
+      "paused_at": "2026-10-19 13:34 GMT+3"
+    },
+    "64ca8186-4dd6-4064-bbb5-5abc59b449f4": {
+      "name": "SA_Watch_tc_v5",
+      "campaign": "smart+ watch suis SA 18-10",
+      "adsquad": "Copy of SA_Watch Target Cost Men 20+ | 2.8 Bid",
+      "reason": "[Ad CPC Rule] صرف الفيديو $1.35 | النقرات: 3 | سعر النقرة CPC = $0.45 (> $0.28)",
+      "paused_at": "2026-10-19 13:34 GMT+3"
+    },
+    "8ee7f294-0c34-49cd-bd67-b7ba0ac34259": {
+      "name": "2",
+      "campaign": "car scaling new 2 text",
+      "adsquad": "Copy of Copy of Copy of Copy of Copy of text 2 ",
+      "reason": "[Ad CPC Rule] صرف الفيديو $1.12 | النقرات: 3 | سعر النقرة CPC = $0.373 (> $0.28)",
+      "paused_at": "2026-10-19 13:34 GMT+3"
+    },
+    "478df6a8-d071-477e-8263-2ee31ce5f57e": {
+      "name": "SA_Watch_tc_v2",
+      "campaign": "smart+ watch suis SA 18-10",
+      "adsquad": "Copy of SA_Watch Target Cost Men 20+ | 2.8 Bid",
+      "reason": "[Ad CPC Rule] صرف الفيديو $1.78 | النقرات: 5 | سعر النقرة CPC = $0.356 (> $0.28)",
+      "paused_at": "2026-10-19 13:34 GMT+3"
+    },
+    "55003275-5a3b-415e-b620-55795c7bb4b0": {
+      "name": "SA_Watch_tc_v2",
+      "campaign": "smart+ watch suis SA 18-10",
+      "adsquad": "Copy of SA_Watch Target Cost Men 20+ | 2.8 Bid",
+      "reason": "[Ad CPC Rule] صرف الفيديو $1.25 | النقرات: 2 | سعر النقرة CPC = $0.625 (> $0.28)",
+      "paused_at": "2026-10-19 13:34 GMT+3"
+    },
+    "6b4ed298-45b7-40c7-be6e-e2a371ffc6c7": {
+      "name": "SA_Watch_tc_v1",
+      "campaign": "smart+ watch suis SA 18-10",
+      "adsquad": "Copy of SA_Watch Target Cost Men 20+ | 2.8 Bid",
+      "reason": "[Aggregated Video Stop-Loss - السعودية] مجموع صرف الفيديو عبر كل الـ AdSquads = $18.72 (>= $15.00) بدون أي مبيعة",
+      "paused_at": "2026-10-19 13:34 GMT+3"
+    },
+    "22fd9e46-e6c0-4bd4-8311-eef2ce45dfb6": {
+      "name": "W5_2",
+      "campaign": "smart+ watch suis SA 18-10",
+      "adsquad": "SA Male Smart+ Winners | 3.0 Bid",
+      "reason": "[Aggregated Video High CPA - السعودية] مجموع صرف الفيديو = $19.27 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $19.27 (>= $18.00)",
+      "paused_at": "2026-10-19 13:34 GMT+3"
+    },
+    "356fab73-4bbc-4c1b-a193-2bde4ccee27e": {
+      "name": "SA_Watch_tc_v2",
+      "campaign": "smart+ watch suis SA 18-10",
+      "adsquad": "Copy of SA_Watch Target Cost Men 20+ | 2.8 Bid",
+      "reason": "[Aggregated Video High CPA - السعودية] مجموع صرف الفيديو = $19.27 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $19.27 (>= $18.00)",
+      "paused_at": "2026-10-19 13:34 GMT+3"
+    },
+    "38b9bbd3-af9e-4f39-a7d1-f9c5a10b86ff": {
+      "name": "SA_Watch_tc_v2",
+      "campaign": "smart+ watch suis SA 18-10",
+      "adsquad": "Copy of SA_Watch Target Cost Men 20+ | 2.8 Bid",
+      "reason": "[Aggregated Video High CPA - السعودية] مجموع صرف الفيديو = $19.27 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $19.27 (>= $18.00)",
+      "paused_at": "2026-10-19 13:34 GMT+3"
+    },
+    "3faa91d3-1d41-4ac0-83e0-6b7020da1a69": {
+      "name": "SA_Watch_tc_v2",
+      "campaign": "smart+ watch suis SA 18-10",
+      "adsquad": "Copy of SA_Watch Target Cost Men 20+ | 2.8 Bid",
+      "reason": "[Aggregated Video High CPA - السعودية] مجموع صرف الفيديو = $19.27 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $19.27 (>= $18.00)",
+      "paused_at": "2026-10-19 13:34 GMT+3"
+    },
+    "443f85c4-4a19-48ce-a874-a96ffcb87110": {
+      "name": "SA_Watch_tc_v2",
+      "campaign": "smart+ watch suis SA 18-10",
+      "adsquad": "Copy of SA_Watch Target Cost Men 20+ | 2.8 Bid",
+      "reason": "[Aggregated Video High CPA - السعودية] مجموع صرف الفيديو = $19.27 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $19.27 (>= $18.00)",
+      "paused_at": "2026-10-19 13:34 GMT+3"
+    },
+    "4bbb4655-9984-4192-a715-fde4b8ffd104": {
+      "name": "SA_Watch_tc_v2",
+      "campaign": "smart+ watch suis SA 18-10",
+      "adsquad": "Copy of SA_Watch Target Cost Men 20+ | 2.8 Bid",
+      "reason": "[Aggregated Video High CPA - السعودية] مجموع صرف الفيديو = $19.27 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $19.27 (>= $18.00)",
+      "paused_at": "2026-10-19 13:34 GMT+3"
+    },
+    "4be50048-5766-4ed4-9e26-b5e6f4aaca44": {
+      "name": "SA_Watch_tc_v2",
+      "campaign": "smart+ watch suis SA 18-10",
+      "adsquad": "Copy of SA_Watch Target Cost Men 20+ | 2.8 Bid",
+      "reason": "[Aggregated Video High CPA - السعودية] مجموع صرف الفيديو = $19.27 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $19.27 (>= $18.00)",
+      "paused_at": "2026-10-19 13:34 GMT+3"
+    },
+    "54100e9c-658d-4bce-9a4e-ab8f47e99758": {
+      "name": "SA_Watch_tc_v2",
+      "campaign": "smart+ watch suis SA 18-10",
+      "adsquad": "Copy of SA_Watch Target Cost Men 20+ | 2.8 Bid",
+      "reason": "[Aggregated Video High CPA - السعودية] مجموع صرف الفيديو = $19.27 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $19.27 (>= $18.00)",
+      "paused_at": "2026-10-19 13:34 GMT+3"
+    },
+    "704caab6-dc88-4c1e-a8e3-f5bf1f900da2": {
+      "name": "SA_Watch_tc_v2",
+      "campaign": "smart+ watch suis SA 18-10",
+      "adsquad": "Copy of SA_Watch Target Cost Men 20+ | 2.8 Bid",
+      "reason": "[Aggregated Video High CPA - السعودية] مجموع صرف الفيديو = $19.27 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $19.27 (>= $18.00)",
+      "paused_at": "2026-10-19 13:34 GMT+3"
+    },
+    "73027312-212b-4dc3-a2e0-089938d11a00": {
+      "name": "SA_Watch_tc_v2",
+      "campaign": "smart+ watch suis SA 18-10",
+      "adsquad": "Copy of SA_Watch Target Cost Men 20+ | 2.8 Bid",
+      "reason": "[Aggregated Video High CPA - السعودية] مجموع صرف الفيديو = $19.27 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $19.27 (>= $18.00)",
+      "paused_at": "2026-10-19 13:34 GMT+3"
+    },
+    "8724d878-43ab-4027-9736-1e86cccd31c8": {
+      "name": "SA_Watch_tc_v2",
+      "campaign": "smart+ watch suis SA 18-10",
+      "adsquad": "Copy of SA_Watch Target Cost Men 20+ | 2.8 Bid",
+      "reason": "[Aggregated Video High CPA - السعودية] مجموع صرف الفيديو = $19.27 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $19.27 (>= $18.00)",
+      "paused_at": "2026-10-19 13:34 GMT+3"
+    },
+    "8db99938-c2b2-4ee0-857f-dd64b66c5856": {
+      "name": "SA_Watch_tc_v2",
+      "campaign": "smart+ watch suis SA 18-10",
+      "adsquad": "Copy of SA_Watch Target Cost Men 20+ | 2.8 Bid",
+      "reason": "[Aggregated Video High CPA - السعودية] مجموع صرف الفيديو = $19.27 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $19.27 (>= $18.00)",
+      "paused_at": "2026-10-19 13:34 GMT+3"
+    },
+    "92bb04c1-6c1a-4b24-90fd-bf54fca5f51d": {
+      "name": "SA_Watch_tc_v2",
+      "campaign": "smart+ watch suis SA 18-10",
+      "adsquad": "Copy of SA_Watch Target Cost Men 20+ | 2.8 Bid",
+      "reason": "[Aggregated Video High CPA - السعودية] مجموع صرف الفيديو = $19.27 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $19.27 (>= $18.00)",
+      "paused_at": "2026-10-19 13:34 GMT+3"
+    },
+    "aa03180f-0e32-4465-bc2e-bbcc25e796a1": {
+      "name": "SA_Watch_tc_v2",
+      "campaign": "smart+ watch suis SA 18-10",
+      "adsquad": "Copy of SA_Watch Target Cost Men 20+ | 2.8 Bid",
+      "reason": "[Aggregated Video High CPA - السعودية] مجموع صرف الفيديو = $19.27 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $19.27 (>= $18.00)",
+      "paused_at": "2026-10-19 13:34 GMT+3"
+    },
+    "c65330dc-9fe8-4c09-8608-d8a31af66b3c": {
+      "name": "SA_Watch_tc_v2",
+      "campaign": "smart+ watch suis SA 18-10",
+      "adsquad": "Copy of SA_Watch Target Cost Men 20+ | 2.8 Bid",
+      "reason": "[Aggregated Video High CPA - السعودية] مجموع صرف الفيديو = $19.27 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $19.27 (>= $18.00)",
+      "paused_at": "2026-10-19 13:34 GMT+3"
+    },
+    "f09def9b-9231-4309-823d-bf3e15818c9e": {
+      "name": "SA_Watch_tc_v2",
+      "campaign": "smart+ watch suis SA 18-10",
+      "adsquad": "Copy of SA_Watch Target Cost Men 20+ | 2.8 Bid",
+      "reason": "[Aggregated Video High CPA - السعودية] مجموع صرف الفيديو = $19.27 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $19.27 (>= $18.00)",
+      "paused_at": "2026-10-19 13:34 GMT+3"
+    },
+    "02e92523-c853-475b-bdca-882b9df57aad": {
+      "name": "SA_Watch_tc_v5",
+      "campaign": "smart+ watch suis SA 18-10",
+      "adsquad": "Copy of SA_Watch Target Cost Men 20+ | 2.8 Bid",
+      "reason": "[Aggregated Video Stop-Loss - السعودية] مجموع صرف الفيديو عبر كل الـ AdSquads = $16.50 (>= $15.00) بدون أي مبيعة",
+      "paused_at": "2026-10-19 13:34 GMT+3"
+    },
+    "0a73663c-1c0e-4319-b248-39e11acc1c3f": {
+      "name": "SA_Watch_tc_v5",
+      "campaign": "smart+ watch suis SA 18-10",
+      "adsquad": "Copy of SA_Watch Target Cost Men 20+ | 2.8 Bid",
+      "reason": "[Aggregated Video Stop-Loss - السعودية] مجموع صرف الفيديو عبر كل الـ AdSquads = $16.50 (>= $15.00) بدون أي مبيعة",
+      "paused_at": "2026-10-19 13:34 GMT+3"
+    },
+    "0cf67370-f13c-4918-8d75-831d54516f96": {
+      "name": "SA_Watch_tc_v5",
+      "campaign": "smart+ watch suis SA 18-10",
+      "adsquad": "SA_Watch Target Cost Men 20+ | 2.8 Bid",
+      "reason": "[Aggregated Video Stop-Loss - السعودية] مجموع صرف الفيديو عبر كل الـ AdSquads = $16.50 (>= $15.00) بدون أي مبيعة",
+      "paused_at": "2026-10-19 13:34 GMT+3"
+    },
+    "1df549df-23dd-416a-8215-38d0c0ec7915": {
+      "name": "SA_Watch_tc_v5",
+      "campaign": "smart+ watch suis SA 18-10",
+      "adsquad": "Copy of SA_Watch Target Cost Men 20+ | 2.8 Bid",
+      "reason": "[Aggregated Video Stop-Loss - السعودية] مجموع صرف الفيديو عبر كل الـ AdSquads = $16.50 (>= $15.00) بدون أي مبيعة",
+      "paused_at": "2026-10-19 13:34 GMT+3"
+    },
+    "21a0d138-79c8-4c63-9816-81b8133d6b0a": {
+      "name": "SA_Watch_tc_v5",
+      "campaign": "smart+ watch suis SA 18-10",
+      "adsquad": "Copy of SA_Watch Target Cost Men 20+ | 2.8 Bid",
+      "reason": "[Aggregated Video Stop-Loss - السعودية] مجموع صرف الفيديو عبر كل الـ AdSquads = $16.50 (>= $15.00) بدون أي مبيعة",
+      "paused_at": "2026-10-19 13:34 GMT+3"
+    },
+    "462c84a4-4488-49d7-b21c-08c60aff2cf1": {
+      "name": "SA_Watch_tc_v5",
+      "campaign": "smart+ watch suis SA 18-10",
+      "adsquad": "Copy of SA_Watch Target Cost Men 20+ | 2.8 Bid",
+      "reason": "[Aggregated Video Stop-Loss - السعودية] مجموع صرف الفيديو عبر كل الـ AdSquads = $16.50 (>= $15.00) بدون أي مبيعة",
+      "paused_at": "2026-10-19 13:34 GMT+3"
+    },
+    "4b403462-4873-4f04-9d0c-f276034912d4": {
+      "name": "SA_Watch_tc_v5",
+      "campaign": "smart+ watch suis SA 18-10",
+      "adsquad": "Copy of SA_Watch Target Cost Men 20+ | 2.8 Bid",
+      "reason": "[Aggregated Video Stop-Loss - السعودية] مجموع صرف الفيديو عبر كل الـ AdSquads = $16.50 (>= $15.00) بدون أي مبيعة",
+      "paused_at": "2026-10-19 13:34 GMT+3"
+    },
+    "58439a40-447d-451c-bd52-fa062b0589d6": {
+      "name": "SA_Watch_tc_v5",
+      "campaign": "smart+ watch suis SA 18-10",
+      "adsquad": "Copy of SA_Watch Target Cost Men 20+ | 2.8 Bid",
+      "reason": "[Aggregated Video Stop-Loss - السعودية] مجموع صرف الفيديو عبر كل الـ AdSquads = $16.50 (>= $15.00) بدون أي مبيعة",
+      "paused_at": "2026-10-19 13:34 GMT+3"
+    },
+    "74beb369-d6fe-48e0-ad9b-7964448c5ad8": {
+      "name": "SA_Watch_tc_v5",
+      "campaign": "smart+ watch suis SA 18-10",
+      "adsquad": "Copy of SA_Watch Target Cost Men 20+ | 2.8 Bid",
+      "reason": "[Aggregated Video Stop-Loss - السعودية] مجموع صرف الفيديو عبر كل الـ AdSquads = $16.50 (>= $15.00) بدون أي مبيعة",
+      "paused_at": "2026-10-19 13:34 GMT+3"
+    },
+    "74ef1346-8119-4c6e-8c3f-beca44444c28": {
+      "name": "SA_Watch_tc_v5",
+      "campaign": "smart+ watch suis SA 18-10",
+      "adsquad": "Copy of SA_Watch Target Cost Men 20+ | 2.8 Bid",
+      "reason": "[Aggregated Video Stop-Loss - السعودية] مجموع صرف الفيديو عبر كل الـ AdSquads = $16.50 (>= $15.00) بدون أي مبيعة",
+      "paused_at": "2026-10-19 13:34 GMT+3"
+    },
+    "7537b995-1e69-4bbc-9b81-3623498e8a19": {
+      "name": "W9_1",
+      "campaign": "smart+ watch suis SA 18-10",
+      "adsquad": "SA Male Smart+ Winners | 3.0 Bid",
+      "reason": "[Aggregated Video Stop-Loss - السعودية] مجموع صرف الفيديو عبر كل الـ AdSquads = $16.50 (>= $15.00) بدون أي مبيعة",
+      "paused_at": "2026-10-19 13:34 GMT+3"
+    },
+    "8a685ac8-85a7-4bd8-bc32-7921b97cecfb": {
+      "name": "SA_Watch_tc_v5",
+      "campaign": "smart+ watch suis SA 18-10",
+      "adsquad": "Copy of SA_Watch Target Cost Men 20+ | 2.8 Bid",
+      "reason": "[Aggregated Video Stop-Loss - السعودية] مجموع صرف الفيديو عبر كل الـ AdSquads = $16.50 (>= $15.00) بدون أي مبيعة",
+      "paused_at": "2026-10-19 13:34 GMT+3"
+    },
+    "a9fc26bd-820e-4f8b-951d-a4cd03c36886": {
+      "name": "SA_Watch_tc_v5",
+      "campaign": "smart+ watch suis SA 18-10",
+      "adsquad": "Copy of SA_Watch Target Cost Men 20+ | 2.8 Bid",
+      "reason": "[Aggregated Video Stop-Loss - السعودية] مجموع صرف الفيديو عبر كل الـ AdSquads = $16.50 (>= $15.00) بدون أي مبيعة",
+      "paused_at": "2026-10-19 13:34 GMT+3"
+    },
+    "b597c111-8446-4cc5-be21-2d9ece604651": {
+      "name": "SA_Watch_tc_v5",
+      "campaign": "smart+ watch suis SA 18-10",
+      "adsquad": "Copy of SA_Watch Target Cost Men 20+ | 2.8 Bid",
+      "reason": "[Aggregated Video Stop-Loss - السعودية] مجموع صرف الفيديو عبر كل الـ AdSquads = $16.50 (>= $15.00) بدون أي مبيعة",
+      "paused_at": "2026-10-19 13:34 GMT+3"
+    },
+    "c1627460-1cfb-4dfc-b138-e4b6863a6bc3": {
+      "name": "SA_Watch_tc_v5",
+      "campaign": "smart+ watch suis SA 18-10",
+      "adsquad": "Copy of SA_Watch Target Cost Men 20+ | 2.8 Bid",
+      "reason": "[Aggregated Video Stop-Loss - السعودية] مجموع صرف الفيديو عبر كل الـ AdSquads = $16.50 (>= $15.00) بدون أي مبيعة",
+      "paused_at": "2026-10-19 13:34 GMT+3"
+    },
+    "d613e2e6-f793-499b-8c47-c6faf824e2d8": {
+      "name": "SA_Watch_tc_v5",
+      "campaign": "smart+ watch suis SA 18-10",
+      "adsquad": "Copy of SA_Watch Target Cost Men 20+ | 2.8 Bid",
+      "reason": "[Aggregated Video Stop-Loss - السعودية] مجموع صرف الفيديو عبر كل الـ AdSquads = $16.50 (>= $15.00) بدون أي مبيعة",
+      "paused_at": "2026-10-19 13:34 GMT+3"
+    },
+    "dce0378e-cf42-43dc-90db-7176a52de980": {
+      "name": "SA_Watch_tc_v5",
+      "campaign": "smart+ watch suis SA 18-10",
+      "adsquad": "Copy of SA_Watch Target Cost Men 20+ | 2.8 Bid",
+      "reason": "[Aggregated Video Stop-Loss - السعودية] مجموع صرف الفيديو عبر كل الـ AdSquads = $16.50 (>= $15.00) بدون أي مبيعة",
+      "paused_at": "2026-10-19 13:34 GMT+3"
+    },
+    "e2e91206-fc5d-484b-8c41-6a320a50d1e6": {
+      "name": "SA_Watch_tc_v5",
+      "campaign": "smart+ watch suis SA 18-10",
+      "adsquad": "Copy of SA_Watch Target Cost Men 20+ | 2.8 Bid",
+      "reason": "[Aggregated Video Stop-Loss - السعودية] مجموع صرف الفيديو عبر كل الـ AdSquads = $16.50 (>= $15.00) بدون أي مبيعة",
+      "paused_at": "2026-10-19 13:34 GMT+3"
+    },
+    "e4324997-fa37-46eb-a8f1-df49fd0136ff": {
+      "name": "SA_Watch_tc_v5",
+      "campaign": "smart+ watch suis SA 18-10",
+      "adsquad": "Copy of SA_Watch Target Cost Men 20+ | 2.8 Bid",
+      "reason": "[Aggregated Video Stop-Loss - السعودية] مجموع صرف الفيديو عبر كل الـ AdSquads = $16.50 (>= $15.00) بدون أي مبيعة",
+      "paused_at": "2026-10-19 13:34 GMT+3"
+    },
     "6526e83a-aabd-4710-8e86-c8bf6c4aabc3": {
       "name": "2",
       "campaign": "باور بانك وينر",
       "adsquad": "Copy of 16-10 1",
       "reason": "[Aggregated Video Stop-Loss - السعودية] مجموع صرف الفيديو عبر كل الـ AdSquads = $18.15 (>= $15.00) بدون أي مبيعة",
-      "paused_at": "2026-10-19 12:58 GMT+3"
-    },
-    "62eb8cb4-d8c0-49dc-a393-5a951b198716": {
-      "name": "4",
-      "campaign": "باور بانك وينر",
-      "adsquad": "Copy of 16-10 1",
-      "reason": "[Aggregated Video High CPA - السعودية] مجموع صرف الفيديو = $18.87 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $18.87 (>= $18.00)",
-      "paused_at": "2026-10-19 12:58 GMT+3"
+      "paused_at": "2026-10-19 13:34 GMT+3"
     }
   },
   "tiktok_videos": {
@@ -9563,6 +9893,57 @@
       "spend_2d": 1.15,
       "conv_2d": 0,
       "paused_at": "2026-10-19T09:46:42.364640+00:00"
+    },
+    "7631763556322148369:1879380380473922:1879380383362081": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "ad_id": "1879380380473922",
+      "creative_id": "1879380381355010",
+      "campaign_ad_name": "power bank 18-10 (Ola + Hanan 15-10) SCALE / power bank 18-10 (Ola + Hanan 15-10) - Creative",
+      "video_name": "18_10_15-10_hanan_1.mp4",
+      "draft_ids": [
+        "1879380383362081"
+      ],
+      "reason": "Today Spend $1.03 >= $1.00 & CPC $0.52 > $0.35",
+      "spend_1d": 1.03,
+      "conv_1d": 0,
+      "spend_2d": 1.31,
+      "conv_2d": 0,
+      "paused_at": "2026-10-19T10:40:18.139673+00:00"
+    },
+    "7631763556322148369:1879340722698338:1879340722845746": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "ad_id": "1879340722698338",
+      "creative_id": "1879340722698354",
+      "campaign_ad_name": "power bank 18-10 (Ola 30-9 Batch) / power bank 18-10 (Ola 30-9 Batch) - Creative",
+      "video_name": "18_10_30-9_ola_7.mp4",
+      "draft_ids": [
+        "1879340722845746"
+      ],
+      "reason": "Today Spend $1.16 >= $1.00 & CPC $0.39 > $0.35",
+      "spend_1d": 1.16,
+      "conv_1d": 0,
+      "spend_2d": 1.19,
+      "conv_2d": 0,
+      "paused_at": "2026-10-19T10:40:18.735760+00:00"
+    },
+    "7631765070816509959:1879410108772370:1879410108800017": {
+      "aadvid": "7631765070816509959",
+      "account_name": "ROELLINGER RECYCLING2",
+      "ad_id": "1879410108772370",
+      "creative_id": "1879410108772402",
+      "campaign_ad_name": "car armrest 16-10 (Hanan + Ola) SCALE 18-10 / car armrest 16-10 (Hanan + Ola) - Creative",
+      "video_name": "16-10_ola_5.mp4",
+      "draft_ids": [
+        "1879410108800017"
+      ],
+      "reason": "Today Spend $1.21 >= $1.00 & CPC $1.21 > $0.35",
+      "spend_1d": 1.21,
+      "conv_1d": 0,
+      "spend_2d": 1.23,
+      "conv_2d": 0,
+      "paused_at": "2026-10-19T10:40:26.986902+00:00"
     }
   },
   "tiktok_ads": {},
@@ -16469,7 +16850,7 @@
       "campaign": "car scaling camp ",
       "date": "2026-10-19",
       "count": 1,
-      "done": false,
+      "done": true,
       "old_bid": 2.05,
       "new_bid": 2.15,
       "last_bump_at": "2026-10-19T09:18:45.801662+00:00",
@@ -16499,6 +16880,31 @@
       "new_bid": 2.15,
       "last_bump_at": "2026-10-19T09:45:15.007666+00:00",
       "last_bump_local": "2026-10-19 12:43 GMT+3"
+    },
+    "2ba6032b-5bf1-4038-91fb-09a52dbefaa7": {
+      "count": 0,
+      "last_bump_at": null,
+      "done": true,
+      "name": "Copy of 17-10 male winners",
+      "campaign": "watch suis winners 17-10"
+    },
+    "c78b577a-888b-4d8a-ad62-9d6055f0b94c": {
+      "name": "Copy of Copy of Copy of text 2 ",
+      "campaign": "car scaling new 2 text",
+      "date": "2026-10-19",
+      "count": 1,
+      "done": false,
+      "old_bid": 2.3,
+      "new_bid": 2.4,
+      "last_bump_at": "2026-10-19T10:38:15.747133+00:00",
+      "last_bump_local": "2026-10-19 13:34 GMT+3"
+    },
+    "2c9198a8-f9b6-4024-9142-43e80f4827ba": {
+      "count": 0,
+      "last_bump_at": null,
+      "done": true,
+      "name": "Copy of Copy of 1.5 | 23.8",
+      "campaign": "car scaling camp "
     }
   },
   "tiktok_campaigns": {
@@ -16566,6 +16972,18 @@
       "spend_2d": 21.3,
       "conv_2d": 1,
       "paused_at": "2026-10-19T01:55:09.062060+00:00"
+    },
+    "7631763556322148369:1874314269672753": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "campaign_id": "1874314269672753",
+      "campaign_name": "Copy 1 of car armrest leads  19-9",
+      "reason": "Campaign Today CPA $22.49 >= $21.00 (Spend=$22.49, Sales=1)",
+      "spend_1d": 22.49,
+      "conv_1d": 1,
+      "spend_2d": 124.02,
+      "conv_2d": 16,
+      "paused_at": "2026-10-19T10:40:07.138463+00:00"
     }
   },
   "creative_media_map": {
@@ -16769,7 +17187,9 @@
     "7150daa7-f2b0-46bb-837e-75023902c828": "0ae5a8a8-02f0-443a-8065-d8ef2db2c5da",
     "ac1157e9-efb9-4968-9316-43d969a42316": "2373897b-e85b-4d91-8fe3-57d5a674bf57",
     "315856a9-cd63-4318-a230-291af08d93f0": "26872e77-096b-4914-9104-eaeacf15d81f",
-    "c7fe84a2-892e-48ec-9237-90b8f85c1faa": "e9815d13-40e4-4458-937c-4c417ae9f8c1"
+    "c7fe84a2-892e-48ec-9237-90b8f85c1faa": "e9815d13-40e4-4458-937c-4c417ae9f8c1",
+    "29cd0633-26dc-4c82-aea9-f16f83cbcbf3": "22d7c271-05ae-4995-b9d5-b18c7c71a6f5",
+    "41c2c16e-4a7d-49e3-9cff-c38095c92230": "e38f3c01-88a2-46b3-a1e8-09d97b3feb35"
   },
   "disabled_videos": {
     "062e2cba-fecb-488e-940e-75b50eca766d:9edae80d-dbd4-4253-b227-8bdcee74c4a6": {
@@ -16803,7 +17223,7 @@
       "total_spend": 18.15,
       "total_purchases": 0,
       "reason": "[Aggregated Video Stop-Loss - السعودية] مجموع صرف الفيديو عبر كل الـ AdSquads = $18.15 (>= $15.00) بدون أي مبيعة",
-      "disabled_at": "2026-10-19 12:58 GMT+3"
+      "disabled_at": "2026-10-19 13:34 GMT+3"
     },
     "e23e7c95-3f15-4945-9844-8bd73e2d79d3:04d7ae2c-e2c4-41ee-a5c9-1a6d3ace7f38": {
       "campaign_id": "e23e7c95-3f15-4945-9844-8bd73e2d79d3",
@@ -16837,6 +17257,39 @@
       "total_purchases": 0,
       "reason": "[Aggregated Video Stop-Loss - السعودية] مجموع صرف الفيديو عبر كل الـ AdSquads = $16.25 (>= $15.00) بدون أي مبيعة",
       "disabled_at": "2026-10-19 12:58 GMT+3"
+    },
+    "4504af26-5609-4e7b-aeca-e11cf9e03846:255b492f-ddf5-4a77-8f57-caeb198164e7": {
+      "campaign_id": "4504af26-5609-4e7b-aeca-e11cf9e03846",
+      "campaign_name": "smart+ watch suis SA 18-10",
+      "video_media_id": "255b492f-ddf5-4a77-8f57-caeb198164e7",
+      "sample_ad_name": "W8_1",
+      "closed_instances": 1,
+      "total_spend": 18.72,
+      "total_purchases": 0,
+      "reason": "[Aggregated Video Stop-Loss - السعودية] مجموع صرف الفيديو عبر كل الـ AdSquads = $18.72 (>= $15.00) بدون أي مبيعة",
+      "disabled_at": "2026-10-19 13:34 GMT+3"
+    },
+    "4504af26-5609-4e7b-aeca-e11cf9e03846:54b1ffd8-8076-4ec2-8ab2-954490af4a0a": {
+      "campaign_id": "4504af26-5609-4e7b-aeca-e11cf9e03846",
+      "campaign_name": "smart+ watch suis SA 18-10",
+      "video_media_id": "54b1ffd8-8076-4ec2-8ab2-954490af4a0a",
+      "sample_ad_name": "SA_Watch_tc_v2",
+      "closed_instances": 16,
+      "total_spend": 19.27,
+      "total_purchases": 1,
+      "reason": "[Aggregated Video High CPA - السعودية] مجموع صرف الفيديو = $19.27 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $19.27 (>= $18.00)",
+      "disabled_at": "2026-10-19 13:34 GMT+3"
+    },
+    "4504af26-5609-4e7b-aeca-e11cf9e03846:dea1d65c-e100-4acb-bcfe-06c5e49b528e": {
+      "campaign_id": "4504af26-5609-4e7b-aeca-e11cf9e03846",
+      "campaign_name": "smart+ watch suis SA 18-10",
+      "video_media_id": "dea1d65c-e100-4acb-bcfe-06c5e49b528e",
+      "sample_ad_name": "SA_Watch_tc_v5",
+      "closed_instances": 19,
+      "total_spend": 16.5,
+      "total_purchases": 0,
+      "reason": "[Aggregated Video Stop-Loss - السعودية] مجموع صرف الفيديو عبر كل الـ AdSquads = $16.50 (>= $15.00) بدون أي مبيعة",
+      "disabled_at": "2026-10-19 13:34 GMT+3"
     }
   },
   "night_bid_reductions": {
