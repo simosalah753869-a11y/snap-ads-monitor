@@ -8651,6 +8651,27 @@
       "adsquad": "Copy of Copy of Copy of Copy of Copy of Copy of text 2 ",
       "reason": "[Ad CPC Rule] صرف الفيديو $1.33 | النقرات: 1 | سعر النقرة CPC = $1.33 (> $0.28)",
       "paused_at": "2026-10-20 01:26 GMT+3"
+    },
+    "1a46ad0a-038d-4e94-a072-f477483969fd": {
+      "name": "W3_2",
+      "campaign": "smart+ watch suis SA 18-10",
+      "adsquad": "Copy of SA_Watch Target Cost Men 20+ | 2.8 Bid",
+      "reason": "[Ad CPC Rule] صرف الفيديو $1.34 | النقرات: 4 | سعر النقرة CPC = $0.335 (> $0.28)",
+      "paused_at": "2026-10-20 02:50 GMT+3"
+    },
+    "84616cb7-09b7-4475-8245-72642e4ccabb": {
+      "name": "hist_tc_2_8_5_1_488sales",
+      "campaign": "باور بانك السعودية سمارت+ (فيديوهات الحساب الثاني) 18-10",
+      "adsquad": "Copy of SA_PB_OldAcc Target Cost Men 20+ | 2.8 Bid",
+      "reason": "[Ad CPC Rule] صرف الفيديو $1.01 | النقرات: 3 | سعر النقرة CPC = $0.337 (> $0.28)",
+      "paused_at": "2026-10-20 02:50 GMT+3"
+    },
+    "17d6434b-6f33-4b97-b71f-af2020950855": {
+      "name": "SA_Watch_tc_v6",
+      "campaign": "smart+ watch suis SA 18-10",
+      "adsquad": "Copy of SA_Watch Target Cost Men 20+ | 2.8 Bid",
+      "reason": "[Ad CPC Rule] صرف الفيديو $1.82 | النقرات: 5 | سعر النقرة CPC = $0.364 (> $0.28)",
+      "paused_at": "2026-10-20 02:50 GMT+3"
     }
   },
   "tiktok_videos": {
@@ -19391,7 +19412,8 @@
     "699dd52f-58a5-4b8d-884f-2c4d43d8f301": "6a63ff39-b6e7-46eb-934b-b26bf690c6d5",
     "690480e9-859b-42e0-8695-ee0682cb5069": "777bb18d-6382-411a-8f8b-9efce11b9db7",
     "e32d059d-5c28-474b-8be4-11f5c24f5370": "33bf9d79-bfa8-4947-be16-887d9c1de937",
-    "ecaee4f8-ac08-4071-8cb7-59a8403d75ad": "75d1c757-6a69-4d20-809e-f0dbfe101e1a"
+    "ecaee4f8-ac08-4071-8cb7-59a8403d75ad": "75d1c757-6a69-4d20-809e-f0dbfe101e1a",
+    "0aca2515-d6e0-45e5-8574-fa95d3e341fd": "2d848ffe-e86a-4e50-8ec6-bd61295e6343"
   },
   "disabled_videos": {
     "062e2cba-fecb-488e-940e-75b50eca766d:9edae80d-dbd4-4253-b227-8bdcee74c4a6": {
