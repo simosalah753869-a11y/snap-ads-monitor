@@ -8644,6 +8644,13 @@
       "adsquad": "Copy of Copy of 1.5 | 23.8",
       "reason": "[Saudi Single Video Stop-Loss] صرف الفيديو $6.22 (>= $6.00) بدون مبيعة",
       "paused_at": "2026-10-19 22:54 GMT+3"
+    },
+    "b4d5d222-5e0b-4e7a-81d0-bd994540dc9e": {
+      "name": "Copy of Copy of Copy of Copy of Copy of Copy of 2",
+      "campaign": "car scaling new 2 text",
+      "adsquad": "Copy of Copy of Copy of Copy of Copy of Copy of text 2 ",
+      "reason": "[Ad CPC Rule] صرف الفيديو $1.33 | النقرات: 1 | سعر النقرة CPC = $1.33 (> $0.28)",
+      "paused_at": "2026-10-20 01:26 GMT+3"
     }
   },
   "tiktok_videos": {
@@ -19381,7 +19388,10 @@
     "c377f354-04b4-4bf0-a91d-81a9143eee81": "6ffb14a8-a4a8-44b3-b7aa-999207a30792",
     "256a35db-71e8-4efa-8fc9-c8c76eae826e": "035da2f9-02c7-4541-95ac-d23546a99084",
     "83fba647-4195-479c-a1e8-240df237c20f": "8367b7fd-d270-42d3-a8bd-e906a4e5f6cc",
-    "699dd52f-58a5-4b8d-884f-2c4d43d8f301": "6a63ff39-b6e7-46eb-934b-b26bf690c6d5"
+    "699dd52f-58a5-4b8d-884f-2c4d43d8f301": "6a63ff39-b6e7-46eb-934b-b26bf690c6d5",
+    "690480e9-859b-42e0-8695-ee0682cb5069": "777bb18d-6382-411a-8f8b-9efce11b9db7",
+    "e32d059d-5c28-474b-8be4-11f5c24f5370": "33bf9d79-bfa8-4947-be16-887d9c1de937",
+    "ecaee4f8-ac08-4071-8cb7-59a8403d75ad": "75d1c757-6a69-4d20-809e-f0dbfe101e1a"
   },
   "disabled_videos": {
     "062e2cba-fecb-488e-940e-75b50eca766d:9edae80d-dbd4-4253-b227-8bdcee74c4a6": {
