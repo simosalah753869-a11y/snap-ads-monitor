@@ -50,15 +50,17 @@ def is_scaling_or_duplicate_campaign(cname: str, squads: list[dict], active_squa
     name_low = cname.lower()
     if any(k in name_low for k in GULF_OR_BANNED_KEYWORDS):
         return False
+    if any(k in name_low for k in ("علا وحنان", "دفعة", "super winners", "gems")):
+        return False
     for sq in squads:
         for g in (sq.get("targeting", {}).get("geos") or []):
             cc = (g.get("country_code") or "").lower()
             if cc in GULF_GEOS:
                 return False
-    has_copy = any("copy" in s.get("name", "").lower() for s in squads)
-    if has_copy and len(squads) >= 5:
+    has_copy = any("copy" in s.get("name", "").lower() for s in active_squads)
+    if has_copy and len(active_squads) >= 5:
         return True
-    if any(k in name_low for k in SCALING_KEYWORDS) and len(squads) >= 5:
+    if any(k in name_low for k in SCALING_KEYWORDS) and len(active_squads) >= 5:
         return True
     return False
 
