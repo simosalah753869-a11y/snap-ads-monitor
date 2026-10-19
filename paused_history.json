@@ -5701,13 +5701,21 @@
       "account_name": "ROELLINGER RECYCLING2",
       "ad_id": "1879198886110065",
       "creative_id": "1879198888849521",
-      "campaign_ad_name": "car armrest 15-10 test 2 (v3-v4-v7)",
+      "campaign_ad_name": "car armrest 15-10 test 2 (v3-v4-v7) / car armrest 15-10 test 2 (v3-v4-v7) - Creative",
       "video_name": "15-10_video_4.mp4",
       "draft_ids": [
         "1879198888859457"
       ],
-      "reason": "Manual second-chance restore",
-      "paused_at": "2026-10-19T01:55:51.520222+00:00"
+      "reason": "[Global Dup Video High CPA 2D] Total 2-Day CPA $22.28 >= $22.00 (Total Spend=$22.28, Total Sales=1)",
+      "spend_1d": 0.0,
+      "conv_1d": 0,
+      "spend_2d": 6.58,
+      "conv_2d": 1,
+      "global_spend_1d": 0.0,
+      "global_conv_1d": 0,
+      "global_spend_2d": 22.28,
+      "global_conv_2d": 1,
+      "paused_at": "2026-10-19T02:01:42.588060+00:00"
     },
     "7631763556322148369:1879158246855697:1879158246870465": {
       "aadvid": "7631763556322148369",
@@ -5804,12 +5812,16 @@
       "draft_ids": [
         "1879232889158673"
       ],
-      "reason": "Today Spend $6.14 > $6.00 with 0 sales | 2-Day Spend $6.38 > $6.00 with 0 sales",
-      "spend_1d": 6.14,
+      "reason": "[Global Dup Video High CPA 2D] Total 2-Day CPA $22.28 >= $22.00 (Total Spend=$22.28, Total Sales=1)",
+      "spend_1d": 0.0,
       "conv_1d": 0,
-      "spend_2d": 6.38,
+      "spend_2d": 0.0,
       "conv_2d": 0,
-      "paused_at": "2026-10-17T11:47:02.650656+00:00"
+      "global_spend_1d": 0.0,
+      "global_conv_1d": 0,
+      "global_spend_2d": 22.28,
+      "global_conv_2d": 1,
+      "paused_at": "2026-10-19T02:01:41.979700+00:00"
     },
     "7631763556322148369:1879158235413857:1879158235906898": {
       "aadvid": "7631763556322148369",
@@ -6144,12 +6156,16 @@
       "draft_ids": [
         "1879119546182898"
       ],
-      "reason": "Today Spend $9.24 > $6.00 with 0 sales | 2-Day Spend $9.39 > $6.00 with 0 sales",
-      "spend_1d": 9.24,
+      "reason": "[Global Dup Video High CPA 2D] Total 2-Day CPA $22.28 >= $22.00 (Total Spend=$22.28, Total Sales=1)",
+      "spend_1d": 0.0,
       "conv_1d": 0,
-      "spend_2d": 9.39,
+      "spend_2d": 0.0,
       "conv_2d": 0,
-      "paused_at": "2026-10-17T18:26:26.610714+00:00"
+      "global_spend_1d": 0.0,
+      "global_conv_1d": 0,
+      "global_spend_2d": 22.28,
+      "global_conv_2d": 1,
+      "paused_at": "2026-10-19T02:01:40.811531+00:00"
     },
     "7631765070816509959:1879246753691810:1879246753757281": {
       "aadvid": "7631765070816509959",
@@ -7020,6 +7036,40 @@
       ],
       "reason": "Manual second-chance restore",
       "paused_at": "2026-10-19T01:55:49.139454+00:00"
+    },
+    "7631763556322148369:1874314269673729:1876391326944306": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "ad_id": "1874314269673729",
+      "creative_id": "1874314269673745",
+      "campaign_ad_name": "Copy 1 of car armrest leads  19-9 / Ad name2026-08-21 05:44:45",
+      "video_name": "2 (1).mp4",
+      "draft_ids": [
+        "1876391326944306"
+      ],
+      "reason": "2-Day Video CPA $10.02 >= $10.00 (Spend=$50.12, Sales=5) | Today Spend $3.25 >= $1.00 & CPC $0.65 > $0.35",
+      "spend_1d": 3.25,
+      "conv_1d": 0,
+      "spend_2d": 50.12,
+      "conv_2d": 5,
+      "paused_at": "2026-10-19T02:01:31.201492+00:00"
+    },
+    "7631763556322148369:1879119542754066:1879119546183906": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "ad_id": "1879119542754066",
+      "creative_id": "1879119543983698",
+      "campaign_ad_name": "car armrest leads 15-10 B / car armrest leads 15-10 B - Creative",
+      "video_name": "15-10_video_7.mp4",
+      "draft_ids": [
+        "1879119546183906"
+      ],
+      "reason": "2-Day Spend $4.12 >= $1.00 & CPC $0.41 > $0.35",
+      "spend_1d": 0.36,
+      "conv_1d": 0,
+      "spend_2d": 4.12,
+      "conv_2d": 0,
+      "paused_at": "2026-10-19T02:01:31.856239+00:00"
     }
   },
   "tiktok_ads": {},
@@ -13756,7 +13806,8 @@
     "fd0deb6a-40dd-437a-b3dd-f68e6004601d": "995bd853-e397-4f42-b784-d54be54445eb",
     "ecff6946-73a1-4add-bd01-e06b32b59507": "25e139b5-2df3-43e5-bc76-cc07f8e81125",
     "a0a403ff-19a8-466a-87d8-877b6f9f6c7e": "a959f636-d6ed-468c-ad35-2c3b7b496d6e",
-    "98f3517c-42e8-46fd-be44-97fbf52f85e0": "0c32a60a-12ec-41ac-82d0-8e71b144c7f8"
+    "98f3517c-42e8-46fd-be44-97fbf52f85e0": "0c32a60a-12ec-41ac-82d0-8e71b144c7f8",
+    "daf7703d-df7f-4f87-a115-acc41bb3a85a": "b5b897f6-9df6-46d6-aac2-55c809257f67"
   },
   "disabled_videos": {},
   "night_bid_reductions": {
@@ -20896,7 +20947,24 @@
       "scaled_budget_today": false
     }
   },
-  "tiktok_disabled_dup_videos": {},
+  "tiktok_disabled_dup_videos": {
+    "15-10_video_4": {
+      "v_key": "15-10_video_4",
+      "sample_name": "15-10_video_4.mp4",
+      "accounts": [
+        "ROELLINGER RECYCLING",
+        "ROELLINGER RECYCLING2"
+      ],
+      "total_copies": 4,
+      "closed_copies": 3,
+      "spend_1d": 0.0,
+      "conv_1d": 0,
+      "spend_2d": 22.28,
+      "conv_2d": 1,
+      "reason": "[Global Dup Video High CPA 2D] Total 2-Day CPA $22.28 >= $22.00 (Total Spend=$22.28, Total Sales=1)",
+      "disabled_at": "2026-10-19T02:01:42.588089+00:00"
+    }
+  },
   "proactive_scaled_squads": {},
   "proactive_boosted_squads": {
     "2026-10-18:e4b924d3-595f-40d9-98db-b001a307f736": {
