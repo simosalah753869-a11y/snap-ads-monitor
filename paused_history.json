@@ -1027,6 +1027,48 @@
       "campaign": "car scaling new 2 text",
       "reason": "[Copy Rule] صرفت $5.04 (>= $5) بدون مبيعات",
       "paused_at": "2026-10-19 11:21 GMT+3"
+    },
+    "b3bdf6e6-99e3-428e-a5d7-ed92404a5666": {
+      "name": "Copy of Copy of Copy of Copy of Copy of text 2 ",
+      "campaign": "car scaling new 2 text",
+      "reason": "[Copy Rule] صرفت $5.42 (>= $5) بدون مبيعات",
+      "paused_at": "2026-10-19 12:16 GMT+3"
+    },
+    "ab5ef8db-4c86-4116-86af-d603f19f56e0": {
+      "name": "Copy of Copy of Copy of Copy of Copy of text 2 ",
+      "campaign": "car scaling new 2 text",
+      "reason": "[Copy Rule] سعر البيعة CPA = $8.37 (>= $8) | الصرف: $8.37 | المبيعات: 1",
+      "paused_at": "2026-10-19 12:16 GMT+3"
+    },
+    "30b0ea54-e875-41dd-adeb-0ecaaface37b": {
+      "name": "Copy of 16-10 1",
+      "campaign": "باور بانك وينر",
+      "reason": "[Copy Rule] سعر البيعة CPA = $8.44 (>= $8) | الصرف: $8.44 | المبيعات: 1",
+      "paused_at": "2026-10-19 12:16 GMT+3"
+    },
+    "e887474b-526a-4192-b22f-bf5e21ccc6a3": {
+      "name": "Copy of Copy of 1.5 | 23.8",
+      "campaign": "car scaling camp ",
+      "reason": "[Copy Rule] سعر البيعة CPA = $8.2 (>= $8) | الصرف: $8.2 | المبيعات: 1",
+      "paused_at": "2026-10-19 12:16 GMT+3"
+    },
+    "cb21d1d7-0972-477c-9f53-dd4bf5480d36": {
+      "name": "Copy of Copy of 1.5 | 23.8",
+      "campaign": "car scaling camp ",
+      "reason": "[Copy Rule] سعر البيعة CPA = $8.42 (>= $8) | الصرف: $8.42 | المبيعات: 1",
+      "paused_at": "2026-10-19 12:16 GMT+3"
+    },
+    "de4499e3-7fb5-426b-acdf-02afe6745faf": {
+      "name": "Copy of Copy of 1.5 | 23.8",
+      "campaign": "car scaling camp ",
+      "reason": "[Copy Rule] سعر البيعة CPA = $8.48 (>= $8) | الصرف: $8.48 | المبيعات: 1",
+      "paused_at": "2026-10-19 12:16 GMT+3"
+    },
+    "8c5bc2ff-6b5f-4867-b8d2-575f91965495": {
+      "name": "Copy of Copy of Copy of Copy of Copy of Copy of text 2 ",
+      "campaign": "car scaling new 2 text",
+      "reason": "[Copy Rule] سعر البيعة CPA = $8.3 (>= $8) | الصرف: $8.3 | المبيعات: 1",
+      "paused_at": "2026-10-19 12:16 GMT+3"
     }
   },
   "ads": {
@@ -6206,13 +6248,6 @@
       "reason": "[Ad CPC Rule] صرف الفيديو $1.02 | النقرات: 3 | سعر النقرة CPC = $0.34 (> $0.28)",
       "paused_at": "2026-10-19 11:21 GMT+3"
     },
-    "032331b2-5a01-47ee-a8dc-e2e4ed16bc99": {
-      "name": "13-10_hanan_5",
-      "campaign": "وسادة السيارة علا وحنان 18-10 (دفعة 13-10)",
-      "adsquad": "Copy of 18-10 حنان (5 فيديوهات)",
-      "reason": "[Aggregated Video High CPA - السعودية] مجموع صرف الفيديو = $18.68 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $18.68 (>= $18.00)",
-      "paused_at": "2026-10-19 11:21 GMT+3"
-    },
     "00d0e2d8-ce8b-422a-a8ec-9402d37a0825": {
       "name": "SA_Watch_tc_v6",
       "campaign": "smart+ watch suis SA 18-10",
@@ -6290,13 +6325,6 @@
       "reason": "[Aggregated Video High CPA - السعودية] مجموع صرف الفيديو = $20.49 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $20.49 (>= $18.00)",
       "paused_at": "2026-10-19 11:21 GMT+3"
     },
-    "e10318f5-78f1-4580-923c-1b4ebeeb7082": {
-      "name": "SA_Watch_tc_v6",
-      "campaign": "smart+ watch suis SA 18-10",
-      "adsquad": "Copy of SA_Watch Target Cost Men 20+ | 2.8 Bid",
-      "reason": "[Aggregated Video High CPA - السعودية] مجموع صرف الفيديو = $20.49 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $20.49 (>= $18.00)",
-      "paused_at": "2026-10-19 11:21 GMT+3"
-    },
     "e4361e67-ac29-4cb4-9912-506eb933f1fa": {
       "name": "SA_Watch_tc_v6",
       "campaign": "smart+ watch suis SA 18-10",
@@ -6311,19 +6339,61 @@
       "reason": "[Aggregated Video High CPA - السعودية] مجموع صرف الفيديو = $20.49 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $20.49 (>= $18.00)",
       "paused_at": "2026-10-19 11:21 GMT+3"
     },
+    "e24e3229-21c1-4c62-ac70-97bb9e95f1fb": {
+      "name": "SA_Watch_tc_v2",
+      "campaign": "smart+ watch suis SA 18-10",
+      "adsquad": "Copy of SA_Watch Target Cost Men 20+ | 2.8 Bid",
+      "reason": "[Ad CPC Rule] صرف الفيديو $1.18 | النقرات: 4 | سعر النقرة CPC = $0.295 (> $0.28)",
+      "paused_at": "2026-10-19 12:16 GMT+3"
+    },
+    "6d47bfee-0547-406a-ac67-261e01258b5f": {
+      "name": "Copy of 4",
+      "campaign": "car scaling camp ",
+      "adsquad": "Copy of Copy of 1.5 | 23.8",
+      "reason": "[Ad CPC Rule] صرف الفيديو $1.18 | النقرات: 3 | سعر النقرة CPC = $0.393 (> $0.28)",
+      "paused_at": "2026-10-19 12:16 GMT+3"
+    },
+    "f5b8eba2-f32b-4114-85e6-bd6a8d49f596": {
+      "name": "hist_tc_7_2_109sales",
+      "campaign": "باور بانك السعودية سمارت+ (فيديوهات الحساب الثاني) 18-10",
+      "adsquad": "Copy of SA_PB_OldAcc Target Cost Men 20+ | 2.8 Bid",
+      "reason": "[Ad CPC Rule] صرف الفيديو $1.1 | النقرات: 3 | سعر النقرة CPC = $0.367 (> $0.28)",
+      "paused_at": "2026-10-19 12:16 GMT+3"
+    },
+    "0ecd794f-7860-44fd-993a-51c273e8abcf": {
+      "name": "13-10_hanan_2",
+      "campaign": "وسادة السيارة علا وحنان 18-10 (دفعة 13-10)",
+      "adsquad": "Copy of 18-10 حنان (5 فيديوهات)",
+      "reason": "[Ad CPC Rule] صرف الفيديو $1.3 | النقرات: 1 | سعر النقرة CPC = $1.3 (> $0.28)",
+      "paused_at": "2026-10-19 12:16 GMT+3"
+    },
+    "032331b2-5a01-47ee-a8dc-e2e4ed16bc99": {
+      "name": "13-10_hanan_5",
+      "campaign": "وسادة السيارة علا وحنان 18-10 (دفعة 13-10)",
+      "adsquad": "Copy of 18-10 حنان (5 فيديوهات)",
+      "reason": "[Aggregated Video High CPA - السعودية] مجموع صرف الفيديو = $18.68 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $18.68 (>= $18.00)",
+      "paused_at": "2026-10-19 12:16 GMT+3"
+    },
+    "e10318f5-78f1-4580-923c-1b4ebeeb7082": {
+      "name": "SA_Watch_tc_v6",
+      "campaign": "smart+ watch suis SA 18-10",
+      "adsquad": "Copy of SA_Watch Target Cost Men 20+ | 2.8 Bid",
+      "reason": "[Aggregated Video High CPA - السعودية] مجموع صرف الفيديو = $22.80 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $22.80 (>= $18.00)",
+      "paused_at": "2026-10-19 12:16 GMT+3"
+    },
     "63fe4493-efe1-4927-a1db-82ae0489ec20": {
       "name": "2_winner",
       "campaign": "watch suis winners 17-10",
       "adsquad": "Copy of 17-10 male winners",
-      "reason": "[Aggregated Video High CPA - السعودية] مجموع صرف الفيديو = $31.73 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $31.73 (>= $18.00)",
-      "paused_at": "2026-10-19 11:21 GMT+3"
+      "reason": "[Aggregated Video High CPA - السعودية] مجموع صرف الفيديو = $31.74 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $31.74 (>= $18.00)",
+      "paused_at": "2026-10-19 12:16 GMT+3"
     },
     "6526e83a-aabd-4710-8e86-c8bf6c4aabc3": {
       "name": "2",
       "campaign": "باور بانك وينر",
       "adsquad": "Copy of 16-10 1",
       "reason": "[Aggregated Video Stop-Loss - السعودية] مجموع صرف الفيديو عبر كل الـ AdSquads = $18.15 (>= $15.00) بدون أي مبيعة",
-      "paused_at": "2026-10-19 11:21 GMT+3"
+      "paused_at": "2026-10-19 12:16 GMT+3"
     }
   },
   "tiktok_videos": {
@@ -14769,7 +14839,7 @@
       "campaign": "watch suis winners 17-10",
       "date": "2026-10-19",
       "count": 4,
-      "done": false,
+      "done": true,
       "old_bid": 2.75,
       "new_bid": 2.85,
       "last_bump_at": "2026-10-19T07:33:38.112059+00:00",
@@ -15924,6 +15994,57 @@
       "done": true,
       "name": "Copy of Copy of Copy of Copy of Copy of Copy of text 2 ",
       "campaign": "car scaling new 2 text"
+    },
+    "758f36b8-7844-4ec5-ade7-744bb828acbe": {
+      "count": 0,
+      "last_bump_at": null,
+      "done": true,
+      "name": "Copy of Copy of Copy of Copy of Copy of Copy of text 2 ",
+      "campaign": "car scaling new 2 text"
+    },
+    "170f514a-9aef-473e-aba8-b707d14b276f": {
+      "name": "Copy of Copy of 1.5 | 23.8",
+      "campaign": "car scaling camp ",
+      "date": "2026-10-19",
+      "count": 1,
+      "done": false,
+      "old_bid": 2.75,
+      "new_bid": 2.85,
+      "last_bump_at": "2026-10-19T09:18:45.801662+00:00",
+      "last_bump_local": "2026-10-19 12:16 GMT+3"
+    },
+    "1ccb261c-5466-43cf-9959-23d016124233": {
+      "name": "Copy of Copy of 1.5 | 23.8",
+      "campaign": "car scaling camp ",
+      "date": "2026-10-19",
+      "count": 1,
+      "done": false,
+      "old_bid": 2.05,
+      "new_bid": 2.15,
+      "last_bump_at": "2026-10-19T09:18:45.801662+00:00",
+      "last_bump_local": "2026-10-19 12:16 GMT+3"
+    },
+    "6c165093-f5ff-43bc-9afe-d9df428b9c1b": {
+      "name": "Copy of Copy of 1.5 | 23.8",
+      "campaign": "car scaling camp ",
+      "date": "2026-10-19",
+      "count": 1,
+      "done": false,
+      "old_bid": 2.95,
+      "new_bid": 3.0,
+      "last_bump_at": "2026-10-19T09:18:45.801662+00:00",
+      "last_bump_local": "2026-10-19 12:16 GMT+3"
+    },
+    "7d275a4b-6244-4631-9f37-dc20cf021843": {
+      "name": "Copy of Copy of Copy of Copy of Copy of Copy of 1.5 | 23.8",
+      "campaign": "car scaling camp ",
+      "date": "2026-10-19",
+      "count": 1,
+      "done": false,
+      "old_bid": 2.05,
+      "new_bid": 2.15,
+      "last_bump_at": "2026-10-19T09:18:45.801662+00:00",
+      "last_bump_local": "2026-10-19 12:16 GMT+3"
     }
   },
   "tiktok_campaigns": {
@@ -16193,7 +16314,8 @@
     "ac1157e9-efb9-4968-9316-43d969a42316": "2373897b-e85b-4d91-8fe3-57d5a674bf57",
     "2b0651d4-5b54-4145-a288-00aedc61c79d": "4cacea84-e9d5-424b-8c3b-7f5f25a16c52",
     "d062ec03-c9d8-42c3-ae57-54f76447f7a2": "95c6df68-9561-4edc-8d2e-a54719cc0ffb",
-    "9826d464-028a-42a1-b085-d8a3a0c128a4": "ac445b38-5171-4d07-a6d3-357f3e77c2f7"
+    "9826d464-028a-42a1-b085-d8a3a0c128a4": "ac445b38-5171-4d07-a6d3-357f3e77c2f7",
+    "629169b9-a6f5-4a2d-9df5-4c4b20d1a907": "1e57d5c0-41d7-43fc-b274-691005b04a8f"
   },
   "disabled_videos": {
     "9be45a26-06ac-4716-8e7b-2fb3a4d65e4c:1de62189-1cb3-4527-bc95-6390a9e79b9b": {
@@ -16213,10 +16335,10 @@
       "video_media_id": "7b6cde30-646a-4245-a28e-275a564c6d83",
       "sample_ad_name": "2_winner",
       "closed_instances": 1,
-      "total_spend": 31.73,
+      "total_spend": 31.74,
       "total_purchases": 1,
-      "reason": "[Aggregated Video High CPA - السعودية] مجموع صرف الفيديو = $31.73 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $31.73 (>= $18.00)",
-      "disabled_at": "2026-10-19 11:21 GMT+3"
+      "reason": "[Aggregated Video High CPA - السعودية] مجموع صرف الفيديو = $31.74 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $31.74 (>= $18.00)",
+      "disabled_at": "2026-10-19 12:16 GMT+3"
     },
     "e23e7c95-3f15-4945-9844-8bd73e2d79d3:89aba96a-6aa7-4a63-9819-0daca54a74e4": {
       "campaign_id": "e23e7c95-3f15-4945-9844-8bd73e2d79d3",
@@ -16227,7 +16349,7 @@
       "total_spend": 18.15,
       "total_purchases": 0,
       "reason": "[Aggregated Video Stop-Loss - السعودية] مجموع صرف الفيديو عبر كل الـ AdSquads = $18.15 (>= $15.00) بدون أي مبيعة",
-      "disabled_at": "2026-10-19 11:21 GMT+3"
+      "disabled_at": "2026-10-19 12:16 GMT+3"
     },
     "062e2cba-fecb-488e-940e-75b50eca766d:9edae80d-dbd4-4253-b227-8bdcee74c4a6": {
       "campaign_id": "062e2cba-fecb-488e-940e-75b50eca766d",
@@ -16238,7 +16360,7 @@
       "total_spend": 18.68,
       "total_purchases": 1,
       "reason": "[Aggregated Video High CPA - السعودية] مجموع صرف الفيديو = $18.68 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $18.68 (>= $18.00)",
-      "disabled_at": "2026-10-19 11:21 GMT+3"
+      "disabled_at": "2026-10-19 12:16 GMT+3"
     },
     "4504af26-5609-4e7b-aeca-e11cf9e03846:255b492f-ddf5-4a77-8f57-caeb198164e7": {
       "campaign_id": "4504af26-5609-4e7b-aeca-e11cf9e03846",
@@ -16267,11 +16389,11 @@
       "campaign_name": "smart+ watch suis SA 18-10",
       "video_media_id": "9f255310-68b8-4d02-b31c-b6544b56675c",
       "sample_ad_name": "SA_Watch_tc_v6",
-      "closed_instances": 14,
-      "total_spend": 20.49,
+      "closed_instances": 1,
+      "total_spend": 22.8,
       "total_purchases": 1,
-      "reason": "[Aggregated Video High CPA - السعودية] مجموع صرف الفيديو = $20.49 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $20.49 (>= $18.00)",
-      "disabled_at": "2026-10-19 11:21 GMT+3"
+      "reason": "[Aggregated Video High CPA - السعودية] مجموع صرف الفيديو = $22.80 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $22.80 (>= $18.00)",
+      "disabled_at": "2026-10-19 12:16 GMT+3"
     }
   },
   "night_bid_reductions": {
