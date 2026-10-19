@@ -1237,6 +1237,18 @@
       "campaign": "باور بانك السعودية سمارت+ (فيديوهات الحساب الثاني) 18-10",
       "reason": "[Copy Rule] صرفت $5.12 (>= $5) بدون مبيعات",
       "paused_at": "2026-10-19 18:17 GMT+3"
+    },
+    "4d871c15-f303-44a0-bf78-c6f08eeb2b83": {
+      "name": "Copy of Copy of Copy of Copy of Copy of Copy of text 2 ",
+      "campaign": "car scaling new 2 text",
+      "reason": "[Copy Rule] سعر البيعة CPA = $8.21 (>= $8) | الصرف: $8.21 | المبيعات: 1",
+      "paused_at": "2026-10-19 18:54 GMT+3"
+    },
+    "75e2101c-1c8e-45dd-8f79-74fdfd123804": {
+      "name": "Copy of 16-10 1",
+      "campaign": "باور بانك وينر",
+      "reason": "[Copy Rule] سعر البيعة CPA = $8.15 (>= $8) | الصرف: $8.15 | المبيعات: 1",
+      "paused_at": "2026-10-19 18:54 GMT+3"
     }
   },
   "ads": {
@@ -7550,19 +7562,61 @@
       "reason": "[Ad CPC Rule] صرف الفيديو $1.01 | النقرات: 3 | سعر النقرة CPC = $0.337 (> $0.28)",
       "paused_at": "2026-10-19 18:17 GMT+3"
     },
+    "af73c698-ac0f-42a7-b4e3-8041e9324147": {
+      "name": "3_winner",
+      "campaign": "watch suis winners 17-10",
+      "adsquad": "Copy of 17-10 male winners",
+      "reason": "[Saudi Single Video Stop-Loss] صرف الفيديو $6.0 (>= $6.00) بدون مبيعة",
+      "paused_at": "2026-10-19 18:54 GMT+3"
+    },
+    "53b62932-231f-4e10-ac00-98e3bf9b9fec": {
+      "name": "3_winner",
+      "campaign": "watch suis winners 17-10",
+      "adsquad": "Copy of 17-10 male winners",
+      "reason": "[Ad CPC Rule] صرف الفيديو $1.55 | النقرات: 1 | سعر النقرة CPC = $1.55 (> $0.28)",
+      "paused_at": "2026-10-19 18:54 GMT+3"
+    },
+    "216493bc-b253-4878-a8ab-0ff85cd2b2e6": {
+      "name": "KW_Winner_v6_1sale",
+      "campaign": "وسادة السيارة الكويت 18-10",
+      "adsquad": "KW_Car Top 4 Winners Scale 19-10 (Target Cost)",
+      "reason": "[Ad CPC Rule] صرف الفيديو $1.39 | النقرات: 4 | سعر النقرة CPC = $0.347 (> $0.34)",
+      "paused_at": "2026-10-19 18:54 GMT+3"
+    },
+    "c85e9d7a-1db2-4885-86b8-969e46dbdbfe": {
+      "name": "QA_Car_top_v1",
+      "campaign": "وسادة السيارة قطر 18-10",
+      "adsquad": "Copy of QA_Car Target Cost Men 20+ | 2.6 Bid",
+      "reason": "[Ad CPC Rule] صرف الفيديو $1.0 | النقرات: 2 | سعر النقرة CPC = $0.5 (> $0.34)",
+      "paused_at": "2026-10-19 18:54 GMT+3"
+    },
+    "6fbbe510-065b-4dc2-9d30-9430c7d21754": {
+      "name": "hist_tc_2_8_5_1_488sales",
+      "campaign": "باور بانك السعودية سمارت+ (فيديوهات الحساب الثاني) 18-10",
+      "adsquad": "Copy of SA_PB_OldAcc Target Cost Men 20+ | 2.8 Bid",
+      "reason": "[Ad CPC Rule] صرف الفيديو $1.04 | النقرات: 3 | سعر النقرة CPC = $0.347 (> $0.28)",
+      "paused_at": "2026-10-19 18:54 GMT+3"
+    },
+    "9cb4144e-62b0-4662-9912-0c7c87dfbc68": {
+      "name": "sw_car_3",
+      "campaign": "smart+ cars SUPER WINNERS SA 18-10",
+      "adsquad": "SA_Car_SuperWinners Smart+ Broad | 2.25 Bid",
+      "reason": "[Saudi Single Video Stop-Loss] صرف الفيديو $7.39 (>= $6.00) بدون مبيعة",
+      "paused_at": "2026-10-19 18:54 GMT+3"
+    },
     "2b757b43-4f72-4b48-82b1-d691a275ec71": {
       "name": "2b_winner",
       "campaign": "watch suis winners 17-10",
       "adsquad": "Copy of 17-10 male winners",
       "reason": "[Aggregated Video High CPA - السعودية] مجموع صرف الفيديو = $18.51 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $18.51 (>= $18.00)",
-      "paused_at": "2026-10-19 18:17 GMT+3"
+      "paused_at": "2026-10-19 18:54 GMT+3"
     },
     "6526e83a-aabd-4710-8e86-c8bf6c4aabc3": {
       "name": "2",
       "campaign": "باور بانك وينر",
       "adsquad": "Copy of 16-10 1",
       "reason": "[Aggregated Video Stop-Loss - السعودية] مجموع صرف الفيديو عبر كل الـ AdSquads = $18.15 (>= $15.00) بدون أي مبيعة",
-      "paused_at": "2026-10-19 18:17 GMT+3"
+      "paused_at": "2026-10-19 18:54 GMT+3"
     }
   },
   "tiktok_videos": {
@@ -10575,6 +10629,23 @@
       "spend_2d": 1.1,
       "conv_2d": 0,
       "paused_at": "2026-10-19T15:20:42.802527+00:00"
+    },
+    "7631763556322148369:1879380380473922:1879380383364593": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "ad_id": "1879380380473922",
+      "creative_id": "1879380381355010",
+      "campaign_ad_name": "power bank 18-10 (Ola + Hanan 15-10) SCALE / power bank 18-10 (Ola + Hanan 15-10) - Creative",
+      "video_name": "18_10_15-10_ola_4.mp4",
+      "draft_ids": [
+        "1879380383364593"
+      ],
+      "reason": "Today Spend $1.54 >= $1.00 & CPC $0.39 > $0.35",
+      "spend_1d": 1.54,
+      "conv_1d": 0,
+      "spend_2d": 2.22,
+      "conv_2d": 0,
+      "paused_at": "2026-10-19T15:57:33.004336+00:00"
     }
   },
   "tiktok_ads": {},
@@ -18096,7 +18167,8 @@
     "e1b7d6cf-3495-41d2-88cc-2e7eed39084c": "3bb38a88-9808-44f1-a8d4-2e7b742b2047",
     "7b40b55d-289e-4a07-a9d0-cd5410d159db": "ac2c9da4-8f85-45f8-aa19-4aa04b9cde19",
     "1416779e-265a-46a1-a591-f628656d4be1": "b61c2a14-b00b-4316-95d8-f8c8ad7ee5b2",
-    "dc18b98c-764a-49b3-82b3-2f016252a6bc": "87367cbf-dfa4-433e-9cbd-8bb593f33e0a"
+    "dc18b98c-764a-49b3-82b3-2f016252a6bc": "87367cbf-dfa4-433e-9cbd-8bb593f33e0a",
+    "920087b9-fc1f-4b94-b793-29f75d6bd23a": "f7d64e7f-4b04-4795-8e64-92d16f7a82d4"
   },
   "disabled_videos": {
     "062e2cba-fecb-488e-940e-75b50eca766d:9edae80d-dbd4-4253-b227-8bdcee74c4a6": {
@@ -18130,7 +18202,7 @@
       "total_spend": 18.15,
       "total_purchases": 0,
       "reason": "[Aggregated Video Stop-Loss - السعودية] مجموع صرف الفيديو عبر كل الـ AdSquads = $18.15 (>= $15.00) بدون أي مبيعة",
-      "disabled_at": "2026-10-19 18:17 GMT+3"
+      "disabled_at": "2026-10-19 18:54 GMT+3"
     },
     "e23e7c95-3f15-4945-9844-8bd73e2d79d3:04d7ae2c-e2c4-41ee-a5c9-1a6d3ace7f38": {
       "campaign_id": "e23e7c95-3f15-4945-9844-8bd73e2d79d3",
@@ -18152,7 +18224,7 @@
       "total_spend": 18.51,
       "total_purchases": 1,
       "reason": "[Aggregated Video High CPA - السعودية] مجموع صرف الفيديو = $18.51 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $18.51 (>= $18.00)",
-      "disabled_at": "2026-10-19 18:17 GMT+3"
+      "disabled_at": "2026-10-19 18:54 GMT+3"
     },
     "e23e7c95-3f15-4945-9844-8bd73e2d79d3:207c2a54-97a8-4445-b7b2-1e8cc46f9b14": {
       "campaign_id": "e23e7c95-3f15-4945-9844-8bd73e2d79d3",
