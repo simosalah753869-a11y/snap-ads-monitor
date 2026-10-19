@@ -1279,6 +1279,24 @@
       "campaign": "watch suis winners 17-10",
       "reason": "[Copy Rule] سعر البيعة CPA = $8.02 (>= $8) | الصرف: $8.02 | المبيعات: 1",
       "paused_at": "2026-10-19 21:29 GMT+3"
+    },
+    "2bb9355a-65aa-4c25-80bb-fb0fc95e4aa2": {
+      "name": "Copy of 16-10 1",
+      "campaign": "باور بانك وينر",
+      "reason": "[Copy Rule] سعر البيعة CPA = $8.08 (>= $8) | الصرف: $8.08 | المبيعات: 1",
+      "paused_at": "2026-10-19 22:15 GMT+3"
+    },
+    "101f213d-f3ac-4724-8661-3bbe0e9d3656": {
+      "name": "Copy of 17-10 male winners",
+      "campaign": "watch suis winners 17-10",
+      "reason": "[Copy Rule] سعر البيعة CPA = $8.14 (>= $8) | الصرف: $8.14 | المبيعات: 1",
+      "paused_at": "2026-10-19 22:15 GMT+3"
+    },
+    "aedc920c-dd26-45c2-b4a4-7336c2e00336": {
+      "name": "SA Smart+ Winners | 3.0 Bid",
+      "campaign": "smart+ cars SA 18-10",
+      "reason": "[Normal Rule] سعر البيعة CPA = $21.11 (>= $20) | الصرف: $21.11 | المبيعات: 1",
+      "paused_at": "2026-10-19 22:15 GMT+3"
     }
   },
   "ads": {
@@ -4691,8 +4709,8 @@
       "name": "Copy of Copy of 2",
       "campaign": "car scaling new 2 text",
       "adsquad": "Copy of Copy of Copy of Copy of Copy of text 2 ",
-      "reason": "Manual second-chance restore",
-      "paused_at": "2026-10-18"
+      "reason": "[Aggregated Video Stop-Loss - السعودية] مجموع صرف الفيديو عبر كل الـ AdSquads = $15.16 (>= $15.00) بدون أي مبيعة",
+      "paused_at": "2026-10-19 22:15 GMT+3"
     },
     "802550c0-b036-451a-8c00-1c7866207892": {
       "name": "Copy of Copy of Copy of Copy of 2",
@@ -4754,8 +4772,8 @@
       "name": "Copy of Copy of 2",
       "campaign": "car scaling new 2 text",
       "adsquad": "Copy of Copy of Copy of Copy of Copy of Copy of text 2 ",
-      "reason": "Manual second-chance restore",
-      "paused_at": "2026-10-18"
+      "reason": "[Aggregated Video Stop-Loss - السعودية] مجموع صرف الفيديو عبر كل الـ AdSquads = $15.16 (>= $15.00) بدون أي مبيعة",
+      "paused_at": "2026-10-19 22:15 GMT+3"
     },
     "bbe5cc14-c0f5-48e6-8333-74cbeeb6c413": {
       "name": "Copy of Copy of Copy of Copy of 2",
@@ -4789,8 +4807,8 @@
       "name": "Copy of Copy of 2",
       "campaign": "car scaling new 2 text",
       "adsquad": "Copy of Copy of text 2 ",
-      "reason": "Manual second-chance restore",
-      "paused_at": "2026-10-18"
+      "reason": "[Aggregated Video Stop-Loss - السعودية] مجموع صرف الفيديو عبر كل الـ AdSquads = $15.16 (>= $15.00) بدون أي مبيعة",
+      "paused_at": "2026-10-19 22:15 GMT+3"
     },
     "de4707b9-dd95-422f-920a-25b510dd1b0e": {
       "name": "Copy of Copy of Copy of 2",
@@ -8278,13 +8296,6 @@
       "reason": "[Aggregated Video Stop-Loss - السعودية] مجموع صرف الفيديو عبر كل الـ AdSquads = $16.16 (>= $15.00) بدون أي مبيعة",
       "paused_at": "2026-10-19 21:29 GMT+3"
     },
-    "2b757b43-4f72-4b48-82b1-d691a275ec71": {
-      "name": "2b_winner",
-      "campaign": "watch suis winners 17-10",
-      "adsquad": "Copy of 17-10 male winners",
-      "reason": "[Aggregated Video High CPA - السعودية] مجموع صرف الفيديو = $18.51 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $18.51 (>= $18.00)",
-      "paused_at": "2026-10-19 21:29 GMT+3"
-    },
     "44a9b1b3-cca8-4c8e-a9a4-76a890307de2": {
       "name": "SA_Car_tc_v5",
       "campaign": "smart+ cars SA 18-10",
@@ -8312,6 +8323,328 @@
       "adsquad": "Copy of 16-10 1",
       "reason": "[Aggregated Video Stop-Loss - السعودية] مجموع صرف الفيديو عبر كل الـ AdSquads = $15.15 (>= $15.00) بدون أي مبيعة",
       "paused_at": "2026-10-19 21:29 GMT+3"
+    },
+    "2b757b43-4f72-4b48-82b1-d691a275ec71": {
+      "name": "2b_winner",
+      "campaign": "watch suis winners 17-10",
+      "adsquad": "Copy of 17-10 male winners",
+      "reason": "[Aggregated Video High CPA - السعودية] مجموع صرف الفيديو = $18.51 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $18.51 (>= $18.00)",
+      "paused_at": "2026-10-19 22:15 GMT+3"
+    },
+    "04d3e048-034b-47d7-8f2f-7c36039aa384": {
+      "name": "Copy of Copy of 2",
+      "campaign": "car scaling new 2 text",
+      "adsquad": "Copy of Copy of Copy of Copy of Copy of Copy of text 2 ",
+      "reason": "[Aggregated Video Stop-Loss - السعودية] مجموع صرف الفيديو عبر كل الـ AdSquads = $15.16 (>= $15.00) بدون أي مبيعة",
+      "paused_at": "2026-10-19 22:15 GMT+3"
+    },
+    "0d76c3ae-54c0-4093-b49a-033098c748cf": {
+      "name": "Copy of Copy of 2",
+      "campaign": "car scaling new 2 text",
+      "adsquad": "Copy of Copy of Copy of Copy of Copy of Copy of text 2 ",
+      "reason": "[Aggregated Video Stop-Loss - السعودية] مجموع صرف الفيديو عبر كل الـ AdSquads = $15.16 (>= $15.00) بدون أي مبيعة",
+      "paused_at": "2026-10-19 22:15 GMT+3"
+    },
+    "10c88c96-d1c1-4e2d-b8e1-2491eb9b9050": {
+      "name": "Copy of Copy of 2",
+      "campaign": "car scaling new 2 text",
+      "adsquad": "Copy of Copy of Copy of Copy of Copy of Copy of text 2 ",
+      "reason": "[Aggregated Video Stop-Loss - السعودية] مجموع صرف الفيديو عبر كل الـ AdSquads = $15.16 (>= $15.00) بدون أي مبيعة",
+      "paused_at": "2026-10-19 22:15 GMT+3"
+    },
+    "1229c0ae-d53c-4124-91c5-ae8e756ae587": {
+      "name": "Copy of Copy of 2",
+      "campaign": "car scaling new 2 text",
+      "adsquad": "Copy of Copy of Copy of Copy of Copy of text 2 ",
+      "reason": "[Aggregated Video Stop-Loss - السعودية] مجموع صرف الفيديو عبر كل الـ AdSquads = $15.16 (>= $15.00) بدون أي مبيعة",
+      "paused_at": "2026-10-19 22:15 GMT+3"
+    },
+    "12db4449-e5a5-4c6d-9705-d2b12d71a501": {
+      "name": "Copy of Copy of 2",
+      "campaign": "car scaling new 2 text",
+      "adsquad": "Copy of Copy of Copy of Copy of Copy of Copy of text 2 ",
+      "reason": "[Aggregated Video Stop-Loss - السعودية] مجموع صرف الفيديو عبر كل الـ AdSquads = $15.16 (>= $15.00) بدون أي مبيعة",
+      "paused_at": "2026-10-19 22:15 GMT+3"
+    },
+    "24ac56d1-63fe-4083-a7eb-14e1b7fe81ff": {
+      "name": "Copy of Copy of 2",
+      "campaign": "car scaling new 2 text",
+      "adsquad": "Copy of Copy of text 2 ",
+      "reason": "[Aggregated Video Stop-Loss - السعودية] مجموع صرف الفيديو عبر كل الـ AdSquads = $15.16 (>= $15.00) بدون أي مبيعة",
+      "paused_at": "2026-10-19 22:15 GMT+3"
+    },
+    "29904c3a-bb8c-4505-b0d1-06bd3e5a897f": {
+      "name": "Copy of Copy of 2",
+      "campaign": "car scaling new 2 text",
+      "adsquad": "Copy of Copy of Copy of Copy of Copy of Copy of text 2 ",
+      "reason": "[Aggregated Video Stop-Loss - السعودية] مجموع صرف الفيديو عبر كل الـ AdSquads = $15.16 (>= $15.00) بدون أي مبيعة",
+      "paused_at": "2026-10-19 22:15 GMT+3"
+    },
+    "2f2b4863-0407-4641-875c-53c09f117f9c": {
+      "name": "Copy of Copy of 2",
+      "campaign": "car scaling new 2 text",
+      "adsquad": "Copy of Copy of Copy of Copy of Copy of text 2 ",
+      "reason": "[Aggregated Video Stop-Loss - السعودية] مجموع صرف الفيديو عبر كل الـ AdSquads = $15.16 (>= $15.00) بدون أي مبيعة",
+      "paused_at": "2026-10-19 22:15 GMT+3"
+    },
+    "3eb6b3ce-c8fb-461b-b6db-f4fc3863cc41": {
+      "name": "Copy of Copy of 2",
+      "campaign": "car scaling new 2 text",
+      "adsquad": "Copy of Copy of Copy of Copy of Copy of Copy of text 2 ",
+      "reason": "[Aggregated Video Stop-Loss - السعودية] مجموع صرف الفيديو عبر كل الـ AdSquads = $15.16 (>= $15.00) بدون أي مبيعة",
+      "paused_at": "2026-10-19 22:15 GMT+3"
+    },
+    "468833b5-eafc-47ec-a73d-0d0c486c9558": {
+      "name": "Copy of Copy of 2",
+      "campaign": "car scaling new 2 text",
+      "adsquad": "Copy of Copy of Copy of Copy of Copy of Copy of text 2 ",
+      "reason": "[Aggregated Video Stop-Loss - السعودية] مجموع صرف الفيديو عبر كل الـ AdSquads = $15.16 (>= $15.00) بدون أي مبيعة",
+      "paused_at": "2026-10-19 22:15 GMT+3"
+    },
+    "47fba97c-9209-4498-889d-a903caa7c83b": {
+      "name": "Copy of Copy of 2",
+      "campaign": "car scaling new 2 text",
+      "adsquad": "Copy of Copy of Copy of Copy of Copy of text 2 ",
+      "reason": "[Aggregated Video Stop-Loss - السعودية] مجموع صرف الفيديو عبر كل الـ AdSquads = $15.16 (>= $15.00) بدون أي مبيعة",
+      "paused_at": "2026-10-19 22:15 GMT+3"
+    },
+    "4826cbdb-0314-4176-89f9-b4a82550d61c": {
+      "name": "Copy of Copy of 2",
+      "campaign": "car scaling new 2 text",
+      "adsquad": "Copy of Copy of Copy of Copy of Copy of Copy of text 2 ",
+      "reason": "[Aggregated Video Stop-Loss - السعودية] مجموع صرف الفيديو عبر كل الـ AdSquads = $15.16 (>= $15.00) بدون أي مبيعة",
+      "paused_at": "2026-10-19 22:15 GMT+3"
+    },
+    "51ffa0d2-67ba-43b7-be91-f992fc6d79ba": {
+      "name": "Copy of Copy of 2",
+      "campaign": "car scaling new 2 text",
+      "adsquad": "Copy of Copy of Copy of Copy of Copy of Copy of text 2 ",
+      "reason": "[Aggregated Video Stop-Loss - السعودية] مجموع صرف الفيديو عبر كل الـ AdSquads = $15.16 (>= $15.00) بدون أي مبيعة",
+      "paused_at": "2026-10-19 22:15 GMT+3"
+    },
+    "52864c39-5d15-4bd6-8b55-06af00145e3e": {
+      "name": "Copy of Copy of 2",
+      "campaign": "car scaling new 2 text",
+      "adsquad": "Copy of Copy of text 2 ",
+      "reason": "[Aggregated Video Stop-Loss - السعودية] مجموع صرف الفيديو عبر كل الـ AdSquads = $15.16 (>= $15.00) بدون أي مبيعة",
+      "paused_at": "2026-10-19 22:15 GMT+3"
+    },
+    "566b4eb0-a890-4786-be09-bf8adc8d4ac9": {
+      "name": "Copy of Copy of 2",
+      "campaign": "car scaling new 2 text",
+      "adsquad": "Copy of Copy of Copy of Copy of Copy of text 2 ",
+      "reason": "[Aggregated Video Stop-Loss - السعودية] مجموع صرف الفيديو عبر كل الـ AdSquads = $15.16 (>= $15.00) بدون أي مبيعة",
+      "paused_at": "2026-10-19 22:15 GMT+3"
+    },
+    "58cafc7f-fc0c-4503-8c75-2bb5c587e042": {
+      "name": "Copy of Copy of 2",
+      "campaign": "car scaling new 2 text",
+      "adsquad": "Copy of Copy of Copy of Copy of Copy of Copy of text 2 ",
+      "reason": "[Aggregated Video Stop-Loss - السعودية] مجموع صرف الفيديو عبر كل الـ AdSquads = $15.16 (>= $15.00) بدون أي مبيعة",
+      "paused_at": "2026-10-19 22:15 GMT+3"
+    },
+    "5fa58777-bf3f-431f-9793-d7e365535d36": {
+      "name": "Copy of Copy of 2",
+      "campaign": "car scaling new 2 text",
+      "adsquad": "Copy of Copy of Copy of Copy of Copy of Copy of text 2 ",
+      "reason": "[Aggregated Video Stop-Loss - السعودية] مجموع صرف الفيديو عبر كل الـ AdSquads = $15.16 (>= $15.00) بدون أي مبيعة",
+      "paused_at": "2026-10-19 22:15 GMT+3"
+    },
+    "61606283-22b8-46c0-be8c-d41667701506": {
+      "name": "Copy of Copy of 2",
+      "campaign": "car scaling new 2 text",
+      "adsquad": "Copy of Copy of Copy of Copy of Copy of Copy of text 2 ",
+      "reason": "[Aggregated Video Stop-Loss - السعودية] مجموع صرف الفيديو عبر كل الـ AdSquads = $15.16 (>= $15.00) بدون أي مبيعة",
+      "paused_at": "2026-10-19 22:15 GMT+3"
+    },
+    "672ad4f6-7c72-4b04-a946-7ae18546ae27": {
+      "name": "Copy of Copy of 2",
+      "campaign": "car scaling new 2 text",
+      "adsquad": "Copy of Copy of Copy of Copy of Copy of Copy of text 2 ",
+      "reason": "[Aggregated Video Stop-Loss - السعودية] مجموع صرف الفيديو عبر كل الـ AdSquads = $15.16 (>= $15.00) بدون أي مبيعة",
+      "paused_at": "2026-10-19 22:15 GMT+3"
+    },
+    "67cc3da1-a3a1-4088-bc75-e6f77419fbf6": {
+      "name": "Copy of Copy of 2",
+      "campaign": "car scaling new 2 text",
+      "adsquad": "Copy of Copy of Copy of Copy of Copy of Copy of text 2 ",
+      "reason": "[Aggregated Video Stop-Loss - السعودية] مجموع صرف الفيديو عبر كل الـ AdSquads = $15.16 (>= $15.00) بدون أي مبيعة",
+      "paused_at": "2026-10-19 22:15 GMT+3"
+    },
+    "6d730cad-ddfc-4a42-a1c8-28a65b9cad74": {
+      "name": "Copy of Copy of 2",
+      "campaign": "car scaling new 2 text",
+      "adsquad": "Copy of Copy of Copy of Copy of Copy of Copy of text 2 ",
+      "reason": "[Aggregated Video Stop-Loss - السعودية] مجموع صرف الفيديو عبر كل الـ AdSquads = $15.16 (>= $15.00) بدون أي مبيعة",
+      "paused_at": "2026-10-19 22:15 GMT+3"
+    },
+    "6de38a5d-a9bd-4216-881f-3ae5492ac1a0": {
+      "name": "Copy of Copy of 2",
+      "campaign": "car scaling new 2 text",
+      "adsquad": "Copy of Copy of Copy of Copy of Copy of text 2 ",
+      "reason": "[Aggregated Video Stop-Loss - السعودية] مجموع صرف الفيديو عبر كل الـ AdSquads = $15.16 (>= $15.00) بدون أي مبيعة",
+      "paused_at": "2026-10-19 22:15 GMT+3"
+    },
+    "7cc88705-ca68-4e10-859b-34efbe18bd96": {
+      "name": "Copy of Copy of 2",
+      "campaign": "car scaling new 2 text",
+      "adsquad": "Copy of Copy of Copy of Copy of Copy of Copy of text 2 ",
+      "reason": "[Aggregated Video Stop-Loss - السعودية] مجموع صرف الفيديو عبر كل الـ AdSquads = $15.16 (>= $15.00) بدون أي مبيعة",
+      "paused_at": "2026-10-19 22:15 GMT+3"
+    },
+    "8655051e-9f6a-4ecd-9af2-49035ba90d15": {
+      "name": "Copy of Copy of 2",
+      "campaign": "car scaling new 2 text",
+      "adsquad": "Copy of Copy of Copy of Copy of Copy of Copy of text 2 ",
+      "reason": "[Aggregated Video Stop-Loss - السعودية] مجموع صرف الفيديو عبر كل الـ AdSquads = $15.16 (>= $15.00) بدون أي مبيعة",
+      "paused_at": "2026-10-19 22:15 GMT+3"
+    },
+    "8739e074-9301-41d9-8ec3-25b1c03b3af2": {
+      "name": "Copy of Copy of 2",
+      "campaign": "car scaling new 2 text",
+      "adsquad": "Copy of Copy of Copy of text 2 ",
+      "reason": "[Aggregated Video Stop-Loss - السعودية] مجموع صرف الفيديو عبر كل الـ AdSquads = $15.16 (>= $15.00) بدون أي مبيعة",
+      "paused_at": "2026-10-19 22:15 GMT+3"
+    },
+    "8cb629be-c65b-4e60-ae0f-250e7b3f6471": {
+      "name": "Copy of Copy of 2",
+      "campaign": "car scaling new 2 text",
+      "adsquad": "Copy of Copy of Copy of Copy of Copy of text 2 ",
+      "reason": "[Aggregated Video Stop-Loss - السعودية] مجموع صرف الفيديو عبر كل الـ AdSquads = $15.16 (>= $15.00) بدون أي مبيعة",
+      "paused_at": "2026-10-19 22:15 GMT+3"
+    },
+    "8db7aee0-b520-4aa5-9dae-d37c39164504": {
+      "name": "Copy of Copy of 2",
+      "campaign": "car scaling new 2 text",
+      "adsquad": "Copy of Copy of Copy of Copy of Copy of Copy of text 2 ",
+      "reason": "[Aggregated Video Stop-Loss - السعودية] مجموع صرف الفيديو عبر كل الـ AdSquads = $15.16 (>= $15.00) بدون أي مبيعة",
+      "paused_at": "2026-10-19 22:15 GMT+3"
+    },
+    "8f580b6a-735e-420d-98d4-0634c2de6437": {
+      "name": "Copy of Copy of 2",
+      "campaign": "car scaling new 2 text",
+      "adsquad": "Copy of Copy of Copy of Copy of Copy of Copy of text 2 ",
+      "reason": "[Aggregated Video Stop-Loss - السعودية] مجموع صرف الفيديو عبر كل الـ AdSquads = $15.16 (>= $15.00) بدون أي مبيعة",
+      "paused_at": "2026-10-19 22:15 GMT+3"
+    },
+    "96aa0ede-bbf1-4158-8818-c40e512a1f2d": {
+      "name": "Copy of Copy of 2",
+      "campaign": "car scaling new 2 text",
+      "adsquad": "Copy of Copy of Copy of Copy of Copy of Copy of text 2 ",
+      "reason": "[Aggregated Video Stop-Loss - السعودية] مجموع صرف الفيديو عبر كل الـ AdSquads = $15.16 (>= $15.00) بدون أي مبيعة",
+      "paused_at": "2026-10-19 22:15 GMT+3"
+    },
+    "9a560e30-faa9-49d3-b10f-d1f22e5dcb28": {
+      "name": "Copy of Copy of 2",
+      "campaign": "car scaling new 2 text",
+      "adsquad": "Copy of Copy of Copy of Copy of Copy of Copy of text 2 ",
+      "reason": "[Aggregated Video Stop-Loss - السعودية] مجموع صرف الفيديو عبر كل الـ AdSquads = $15.16 (>= $15.00) بدون أي مبيعة",
+      "paused_at": "2026-10-19 22:15 GMT+3"
+    },
+    "9bd3edd0-443c-4835-a5b7-1f0c62b84b2f": {
+      "name": "Copy of Copy of 2",
+      "campaign": "car scaling new 2 text",
+      "adsquad": "Copy of Copy of Copy of Copy of Copy of Copy of text 2 ",
+      "reason": "[Aggregated Video Stop-Loss - السعودية] مجموع صرف الفيديو عبر كل الـ AdSquads = $15.16 (>= $15.00) بدون أي مبيعة",
+      "paused_at": "2026-10-19 22:15 GMT+3"
+    },
+    "9da21e82-ce1d-414f-813c-ede638d055cf": {
+      "name": "Copy of Copy of 2",
+      "campaign": "car scaling new 2 text",
+      "adsquad": "Copy of Copy of Copy of Copy of Copy of Copy of text 2 ",
+      "reason": "[Aggregated Video Stop-Loss - السعودية] مجموع صرف الفيديو عبر كل الـ AdSquads = $15.16 (>= $15.00) بدون أي مبيعة",
+      "paused_at": "2026-10-19 22:15 GMT+3"
+    },
+    "9f53fd02-7f66-4a43-9c91-c4b984d36ed0": {
+      "name": "Copy of Copy of 2",
+      "campaign": "car scaling new 2 text",
+      "adsquad": "Copy of Copy of Copy of Copy of Copy of Copy of text 2 ",
+      "reason": "[Aggregated Video Stop-Loss - السعودية] مجموع صرف الفيديو عبر كل الـ AdSquads = $15.16 (>= $15.00) بدون أي مبيعة",
+      "paused_at": "2026-10-19 22:15 GMT+3"
+    },
+    "b178f6b3-9bb3-42ac-a35b-bc2d0063fbd0": {
+      "name": "Copy of Copy of 2",
+      "campaign": "car scaling new 2 text",
+      "adsquad": "Copy of Copy of Copy of Copy of Copy of Copy of text 2 ",
+      "reason": "[Aggregated Video Stop-Loss - السعودية] مجموع صرف الفيديو عبر كل الـ AdSquads = $15.16 (>= $15.00) بدون أي مبيعة",
+      "paused_at": "2026-10-19 22:15 GMT+3"
+    },
+    "bb0231f2-25cc-4ca3-8499-eebf8ce52383": {
+      "name": "Copy of Copy of 2",
+      "campaign": "car scaling new 2 text",
+      "adsquad": "Copy of Copy of Copy of Copy of Copy of Copy of text 2 ",
+      "reason": "[Aggregated Video Stop-Loss - السعودية] مجموع صرف الفيديو عبر كل الـ AdSquads = $15.16 (>= $15.00) بدون أي مبيعة",
+      "paused_at": "2026-10-19 22:15 GMT+3"
+    },
+    "c85c69c8-5137-48bc-ab36-43af1277d492": {
+      "name": "Copy of Copy of 2",
+      "campaign": "car scaling new 2 text",
+      "adsquad": "Copy of Copy of Copy of Copy of Copy of Copy of text 2 ",
+      "reason": "[Aggregated Video Stop-Loss - السعودية] مجموع صرف الفيديو عبر كل الـ AdSquads = $15.16 (>= $15.00) بدون أي مبيعة",
+      "paused_at": "2026-10-19 22:15 GMT+3"
+    },
+    "cc008f3a-83a5-4cd4-bbe9-30df06910151": {
+      "name": "Copy of Copy of 2",
+      "campaign": "car scaling new 2 text",
+      "adsquad": "Copy of Copy of Copy of Copy of Copy of Copy of text 2 ",
+      "reason": "[Aggregated Video Stop-Loss - السعودية] مجموع صرف الفيديو عبر كل الـ AdSquads = $15.16 (>= $15.00) بدون أي مبيعة",
+      "paused_at": "2026-10-19 22:15 GMT+3"
+    },
+    "cc810f20-f870-4bc8-888f-d1b36d06a194": {
+      "name": "Copy of Copy of 2",
+      "campaign": "car scaling new 2 text",
+      "adsquad": "Copy of Copy of Copy of Copy of Copy of Copy of text 2 ",
+      "reason": "[Aggregated Video Stop-Loss - السعودية] مجموع صرف الفيديو عبر كل الـ AdSquads = $15.16 (>= $15.00) بدون أي مبيعة",
+      "paused_at": "2026-10-19 22:15 GMT+3"
+    },
+    "d0a919cd-41dc-4ad0-8d51-f0258964944f": {
+      "name": "Copy of Copy of 2",
+      "campaign": "car scaling new 2 text",
+      "adsquad": "Copy of Copy of Copy of Copy of Copy of Copy of text 2 ",
+      "reason": "[Aggregated Video Stop-Loss - السعودية] مجموع صرف الفيديو عبر كل الـ AdSquads = $15.16 (>= $15.00) بدون أي مبيعة",
+      "paused_at": "2026-10-19 22:15 GMT+3"
+    },
+    "d23c09a6-f082-4336-a160-81439aeea5c1": {
+      "name": "Copy of Copy of 2",
+      "campaign": "car scaling new 2 text",
+      "adsquad": "Copy of Copy of Copy of Copy of Copy of Copy of text 2 ",
+      "reason": "[Aggregated Video Stop-Loss - السعودية] مجموع صرف الفيديو عبر كل الـ AdSquads = $15.16 (>= $15.00) بدون أي مبيعة",
+      "paused_at": "2026-10-19 22:15 GMT+3"
+    },
+    "eb27428f-cde6-48fb-b16f-0fd84ea62cc0": {
+      "name": "Copy of Copy of 2",
+      "campaign": "car scaling new 2 text",
+      "adsquad": "Copy of Copy of Copy of Copy of Copy of Copy of text 2 ",
+      "reason": "[Aggregated Video Stop-Loss - السعودية] مجموع صرف الفيديو عبر كل الـ AdSquads = $15.16 (>= $15.00) بدون أي مبيعة",
+      "paused_at": "2026-10-19 22:15 GMT+3"
+    },
+    "ee80a4f0-051a-4504-84ba-d2df20e596d3": {
+      "name": "Copy of Copy of 2",
+      "campaign": "car scaling new 2 text",
+      "adsquad": "Copy of Copy of Copy of Copy of Copy of Copy of text 2 ",
+      "reason": "[Aggregated Video Stop-Loss - السعودية] مجموع صرف الفيديو عبر كل الـ AdSquads = $15.16 (>= $15.00) بدون أي مبيعة",
+      "paused_at": "2026-10-19 22:15 GMT+3"
+    },
+    "ef4c8803-b55c-475f-8773-d48e64f48f31": {
+      "name": "Copy of Copy of 2",
+      "campaign": "car scaling new 2 text",
+      "adsquad": "Copy of Copy of Copy of Copy of Copy of text 2 ",
+      "reason": "[Aggregated Video Stop-Loss - السعودية] مجموع صرف الفيديو عبر كل الـ AdSquads = $15.16 (>= $15.00) بدون أي مبيعة",
+      "paused_at": "2026-10-19 22:15 GMT+3"
+    },
+    "f7db85ac-9795-4147-9e3c-6907d5a58749": {
+      "name": "Copy of Copy of 2",
+      "campaign": "car scaling new 2 text",
+      "adsquad": "Copy of Copy of Copy of text 2 ",
+      "reason": "[Aggregated Video Stop-Loss - السعودية] مجموع صرف الفيديو عبر كل الـ AdSquads = $15.16 (>= $15.00) بدون أي مبيعة",
+      "paused_at": "2026-10-19 22:15 GMT+3"
+    },
+    "fbd65177-65bf-4398-b70b-f1b1f9c1156c": {
+      "name": "Copy of Copy of 2",
+      "campaign": "car scaling new 2 text",
+      "adsquad": "Copy of Copy of Copy of Copy of Copy of Copy of text 2 ",
+      "reason": "[Aggregated Video Stop-Loss - السعودية] مجموع صرف الفيديو عبر كل الـ AdSquads = $15.16 (>= $15.00) بدون أي مبيعة",
+      "paused_at": "2026-10-19 22:15 GMT+3"
     }
   },
   "tiktok_videos": {
@@ -11460,6 +11793,57 @@
       "spend_2d": 1.34,
       "conv_2d": 0,
       "paused_at": "2026-10-19T18:32:42.420579+00:00"
+    },
+    "7631765070816509959:1879471497002418:1879471499178082": {
+      "aadvid": "7631765070816509959",
+      "account_name": "ROELLINGER RECYCLING2",
+      "ad_id": "1879471497002418",
+      "creative_id": "1879471498074481",
+      "campaign_ad_name": "car armrest 16-10 (Hanan + Ola) FAST SCALE 19-10 / car armrest 16-10 (Hanan + Ola) FAST SCALE 19-10 - Creative",
+      "video_name": "16-10_ola_4.mp4",
+      "draft_ids": [
+        "1879471499178082"
+      ],
+      "reason": "Today Spend $2.04 >= $1.00 & CPC $0.41 > $0.35",
+      "spend_1d": 2.04,
+      "conv_1d": 0,
+      "spend_2d": 2.04,
+      "conv_2d": 0,
+      "paused_at": "2026-10-19T19:20:13.986100+00:00"
+    },
+    "7631765070816509959:1879471497002418:1879471499178098": {
+      "aadvid": "7631765070816509959",
+      "account_name": "ROELLINGER RECYCLING2",
+      "ad_id": "1879471497002418",
+      "creative_id": "1879471498074481",
+      "campaign_ad_name": "car armrest 16-10 (Hanan + Ola) FAST SCALE 19-10 / car armrest 16-10 (Hanan + Ola) FAST SCALE 19-10 - Creative",
+      "video_name": "16-10_ola_5.mp4",
+      "draft_ids": [
+        "1879471499178098"
+      ],
+      "reason": "Today Spend $1.84 >= $1.00 & CPC $0.92 > $0.35",
+      "spend_1d": 1.84,
+      "conv_1d": 0,
+      "spend_2d": 1.84,
+      "conv_2d": 0,
+      "paused_at": "2026-10-19T19:20:14.670777+00:00"
+    },
+    "7631765070816509959:1879471497002418:1879471499177090": {
+      "aadvid": "7631765070816509959",
+      "account_name": "ROELLINGER RECYCLING2",
+      "ad_id": "1879471497002418",
+      "creative_id": "1879471498074481",
+      "campaign_ad_name": "car armrest 16-10 (Hanan + Ola) FAST SCALE 19-10 / car armrest 16-10 (Hanan + Ola) FAST SCALE 19-10 - Creative",
+      "video_name": "16-10_hanan_3.mp4",
+      "draft_ids": [
+        "1879471499177090"
+      ],
+      "reason": "Today Spend $1.14 >= $1.00 & CPC $1.14 > $0.35",
+      "spend_1d": 1.14,
+      "conv_1d": 0,
+      "spend_2d": 1.14,
+      "conv_2d": 0,
+      "paused_at": "2026-10-19T19:20:15.286199+00:00"
     }
   },
   "tiktok_ads": {},
@@ -19038,7 +19422,7 @@
       "total_spend": 18.51,
       "total_purchases": 1,
       "reason": "[Aggregated Video High CPA - السعودية] مجموع صرف الفيديو = $18.51 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $18.51 (>= $18.00)",
-      "disabled_at": "2026-10-19 21:29 GMT+3"
+      "disabled_at": "2026-10-19 22:15 GMT+3"
     },
     "e23e7c95-3f15-4945-9844-8bd73e2d79d3:207c2a54-97a8-4445-b7b2-1e8cc46f9b14": {
       "campaign_id": "e23e7c95-3f15-4945-9844-8bd73e2d79d3",
@@ -19138,6 +19522,17 @@
       "total_purchases": 0,
       "reason": "[Aggregated Video Stop-Loss - السعودية] مجموع صرف الفيديو عبر كل الـ AdSquads = $15.15 (>= $15.00) بدون أي مبيعة",
       "disabled_at": "2026-10-19 21:29 GMT+3"
+    },
+    "9be45a26-06ac-4716-8e7b-2fb3a4d65e4c:7ca0d53c-bf68-4a50-a5ff-ff634495daf8": {
+      "campaign_id": "9be45a26-06ac-4716-8e7b-2fb3a4d65e4c",
+      "campaign_name": "car scaling new 2 text",
+      "video_media_id": "7ca0d53c-bf68-4a50-a5ff-ff634495daf8",
+      "sample_ad_name": "Copy of Copy of 2",
+      "closed_instances": 48,
+      "total_spend": 15.16,
+      "total_purchases": 0,
+      "reason": "[Aggregated Video Stop-Loss - السعودية] مجموع صرف الفيديو عبر كل الـ AdSquads = $15.16 (>= $15.00) بدون أي مبيعة",
+      "disabled_at": "2026-10-19 22:15 GMT+3"
     }
   },
   "night_bid_reductions": {
