@@ -53,13 +53,42 @@ def clone_adsquad_exact(session: requests.Session, src: dict, copies_count: int)
         return f"{campaign_id}:{v_key}" not in disabled_keys and f"{campaign_id}:{cr_id}" not in disabled_keys
 
     allowed_all = [a for a in all_ads if is_ad_allowed(a)]
-    ads_to_copy = [a for a in allowed_all if a.get("status") == "ACTIVE"] or allowed_all
+    # Always include ALL allowed creatives in a new AdSquad clone (not just the 1 surviving active ad!)
+    seen_creatives = set()
+    ads_to_copy = []
+    for a in allowed_all:
+        cid_k = a.get("creative_id")
+        if cid_k and cid_k not in seen_creatives:
+            seen_creatives.add(cid_k)
+            ads_to_copy.append(a)
+
+    # If the source squad itself was created with fewer than 4 ads, pull the rest of the campaign's allowed creatives
+    if len(ads_to_copy) < 4:
+        try:
+            rc_ads = session.get(f"{API_BASE}/campaigns/{campaign_id}/ads", timeout=20)
+            if rc_ads.ok:
+                camp_ads = [x["ad"] for x in rc_ads.json().get("ads", []) if "ad" in x]
+                for a in camp_ads:
+                    cid_k = a.get("creative_id")
+                    if cid_k and cid_k not in seen_creatives and is_ad_allowed(a):
+                        seen_creatives.add(cid_k)
+                        ads_to_copy.append(a)
+                        if len(ads_to_copy) >= 10:
+                            break
+        except Exception:
+            pass
+
     if not ads_to_copy:
         print(f"   ⚠️ تخطي نسخ '{src_name}': جميع الفيديوهات بداخلها تم إيقافها/حذفها.", flush=True)
         return
 
+    raw_bid_micro = src.get("bid_micro") or 2_050_000
+    if raw_bid_micro < 1_950_000:
+        raw_bid_micro = 2_050_000
+    bid_dollars = round(raw_bid_micro / 1_000_000, 2)
+
     print(
-        f"   📋 نسخ '{src_name}' عدد {copies_count} مرات | نفس الـ Bid (${bid_dollars}) | الإعلانات النشطة المسموحة: {len(ads_to_copy)}...",
+        f"   📋 نسخ '{src_name}' عدد {copies_count} مرات | نفس الـ Bid (${bid_dollars}) | الإعلانات المسموحة الكاملة: {len(ads_to_copy)}...",
         flush=True,
     )
 
@@ -81,6 +110,7 @@ def clone_adsquad_exact(session: requests.Session, src: dict, copies_count: int)
         new_squad = {k: v for k, v in src.items() if k not in exclude_keys}
         new_squad["name"] = new_name
         new_squad["status"] = "ACTIVE"
+        new_squad["bid_micro"] = raw_bid_micro
         new_squad["start_time"] = now_iso
         if "placement_v2" not in new_squad:
             new_squad["placement_v2"] = {"config": "AUTOMATIC"}
