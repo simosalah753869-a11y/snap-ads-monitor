@@ -2,8 +2,9 @@
   "adsquads": {
     "036257b8-c553-44cc-97ef-021ed38bc1a8": {
       "name": "Copy of 14-10",
-      "reason": "تم إيقافها سابقاً وأعاد المستخدم تشغيلها لإعطائها فرصة أخرى",
-      "paused_at": "2026-10-14 19:03 UTC"
+      "campaign": "car scaling camp ",
+      "reason": "صرفت $15.38 بدون أي مبيعة (تجاوزت حد $5.50)",
+      "paused_at": "2026-10-15 Manual Expensive Cut"
     },
     "5162252f-4edd-4520-b121-0a6296b372bb": {
       "name": "Copy of Copy of Copy of Copy of Copy of Copy of Copy of text1",
@@ -798,6 +799,108 @@
       "campaign": "باور بانك وينر",
       "reason": "[Copy Rule] صرفت $5.33 (>= $5) بدون مبيعات",
       "paused_at": "2026-10-18 23:49 GMT+3"
+    },
+    "83cd389d-b44e-46a3-a43a-73f5f9068691": {
+      "name": "KW_Car Target Cost Men 20+ | 2.8 Bid",
+      "campaign": "وسادة السيارة الكويت 18-10",
+      "reason": "تكلفة المبيعة CPA=$11.11 أعلى من البريك إيفن ($10.52) | الصرف=$22.21 | المبيعات=2",
+      "paused_at": "2026-10-15 Manual Expensive Cut"
+    },
+    "751ee188-b6f4-48fe-99af-b2330c1ccd12": {
+      "name": "SA_PB Target Cost Men 20+ | 2.8 Bid",
+      "campaign": "smart+ power bank SA 18-10",
+      "reason": "تكلفة المبيعة CPA=$12.64 أعلى من البريك إيفن ($9.47) | الصرف=$25.28 | المبيعات=2",
+      "paused_at": "2026-10-15 Manual Expensive Cut"
+    },
+    "e0fe7fbc-38ef-48fd-9245-7252655e5f0b": {
+      "name": "OM_PB Target Cost Men 20+ | 2.2 Bid",
+      "campaign": "باور بانك عمان 18-10",
+      "reason": "تكلفة المبيعة CPA=$11.69 أعلى من البريك إيفن ($9.47) | الصرف=$11.69 | المبيعات=1",
+      "paused_at": "2026-10-15 Manual Expensive Cut"
+    },
+    "1287a097-5ba7-4733-ace1-692c554a71ee": {
+      "name": "Copy of 17-10 male winners",
+      "campaign": "watch suis winners 17-10",
+      "reason": "صرفت $6.29 بدون أي مبيعة (تجاوزت حد $6.00)",
+      "paused_at": "2026-10-15 Manual Expensive Cut"
+    },
+    "281e5cd5-5031-4004-84b0-39714113cffe": {
+      "name": "Copy of 17-10 male winners",
+      "campaign": "watch suis winners 17-10",
+      "reason": "صرفت $8.91 بدون أي مبيعة (تجاوزت حد $6.00)",
+      "paused_at": "2026-10-15 Manual Expensive Cut"
+    },
+    "41de78c0-fb15-424a-84b5-e4fe9c9c3228": {
+      "name": "Copy of 17-10 male winners",
+      "campaign": "watch suis winners 17-10",
+      "reason": "صرفت $7.08 بدون أي مبيعة (تجاوزت حد $6.00)",
+      "paused_at": "2026-10-15 Manual Expensive Cut"
+    },
+    "8f5cdc5f-2abd-4e83-b7ce-26f44d1fd839": {
+      "name": "Copy of Copy of Copy of Copy of Copy of text 2 ",
+      "campaign": "car scaling new 2 text",
+      "reason": "صرفت $5.87 بدون أي مبيعة (تجاوزت حد $5.50)",
+      "paused_at": "2026-10-15 Manual Expensive Cut"
+    },
+    "b9de3ec2-212c-4461-97e0-1b905a61c6be": {
+      "name": "Copy of Copy of Copy of Copy of Copy of Copy of text 2 ",
+      "campaign": "car scaling new 2 text",
+      "reason": "تكلفة المبيعة CPA=$14.24 أعلى من البريك إيفن ($10.52) | الصرف=$14.24 | المبيعات=1",
+      "paused_at": "2026-10-15 Manual Expensive Cut"
+    },
+    "4a08a81b-f318-4848-aafe-b11b17ba1d57": {
+      "name": "Copy of 16-10 1",
+      "campaign": "باور بانك وينر",
+      "reason": "صرفت $6.70 بدون أي مبيعة (تجاوزت حد $5.00)",
+      "paused_at": "2026-10-15 Manual Expensive Cut"
+    },
+    "62ca2223-fa32-4489-9309-d79d93c5480f": {
+      "name": "Copy of 16-10 1",
+      "campaign": "باور بانك وينر",
+      "reason": "تكلفة المبيعة CPA=$12.08 أعلى من البريك إيفن ($9.47) | الصرف=$12.08 | المبيعات=1",
+      "paused_at": "2026-10-15 Manual Expensive Cut"
+    },
+    "abab59d6-7772-467e-bab6-0a67864fb724": {
+      "name": "Copy of 16-10 1",
+      "campaign": "باور بانك وينر",
+      "reason": "صرفت $7.99 بدون أي مبيعة (تجاوزت حد $5.00)",
+      "paused_at": "2026-10-15 Manual Expensive Cut"
+    },
+    "dfcfd196-f8d6-43cb-87d0-10fd80fe2df7": {
+      "name": "Copy of 16-10 1",
+      "campaign": "باور بانك وينر",
+      "reason": "صرفت $5.97 بدون أي مبيعة (تجاوزت حد $5.00)",
+      "paused_at": "2026-10-15 Manual Expensive Cut"
+    },
+    "f467c10d-46e5-496f-b0bd-8c9b2692820a": {
+      "name": "Copy of 16-10 1",
+      "campaign": "باور بانك وينر",
+      "reason": "صرفت $6.01 بدون أي مبيعة (تجاوزت حد $5.00)",
+      "paused_at": "2026-10-15 Manual Expensive Cut"
+    },
+    "0d70a259-e6ee-4f5e-88d8-446b8821af6e": {
+      "name": "16-10 حنان",
+      "campaign": "car scaling camp ",
+      "reason": "صرفت $15.49 بدون أي مبيعة (تجاوزت حد $5.50)",
+      "paused_at": "2026-10-15 Manual Expensive Cut"
+    },
+    "44767642-60d2-44d6-a364-b54c2ff166d5": {
+      "name": "Copy of Copy of 1.5 | 23.8",
+      "campaign": "car scaling camp ",
+      "reason": "صرفت $15.35 بدون أي مبيعة (تجاوزت حد $5.50)",
+      "paused_at": "2026-10-15 Manual Expensive Cut"
+    },
+    "d72d34f4-a788-4033-be6f-a60584d38af6": {
+      "name": "Copy of Copy of 1.5 | 23.8",
+      "campaign": "car scaling camp ",
+      "reason": "صرفت $6.29 بدون أي مبيعة (تجاوزت حد $5.50)",
+      "paused_at": "2026-10-15 Manual Expensive Cut"
+    },
+    "f0734ba4-268f-4e79-a70d-f2b7c5042c53": {
+      "name": "Copy of Copy of 14-10",
+      "campaign": "car scaling camp ",
+      "reason": "صرفت $6.00 بدون أي مبيعة (تجاوزت حد $5.50)",
+      "paused_at": "2026-10-15 Manual Expensive Cut"
     }
   },
   "ads": {
@@ -3867,8 +3970,8 @@
       "name": "Copy of Copy of Copy of Copy of Copy of Copy of 2",
       "campaign": "car scaling new 2 text",
       "adsquad": "Copy of Copy of Copy of text 2 ",
-      "reason": "[Ad CPC Rule] صرف الفيديو $1.75 | النقرات: 6 | سعر النقرة CPC = $0.292 (> $0.28)",
-      "paused_at": "2026-10-17 08:04 GMT+3"
+      "reason": "[Aggregated Video High CPA - السعودية] مجموع صرف الفيديو = $18.27 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $18.27 (>= $18.00)",
+      "paused_at": "2026-10-19 05:11 GMT+3"
     },
     "1e3addf6-a2ba-4498-9efe-0d1a3066c739": {
       "name": "5",
@@ -4556,12 +4659,278 @@
       "reason": "Manual second-chance restore",
       "paused_at": "2026-10-18"
     },
-    "29b97027-3bea-44fb-a486-f89e6a647268": {
-      "name": "Copy of Copy of Copy of Copy of Copy of 1",
-      "campaign": "car scaling camp ",
-      "adsquad": "Copy of Copy of 1.5 | 23.8",
-      "reason": "[Ad CPC Rule] صرف الفيديو $1.19 | النقرات: 4 | سعر النقرة CPC = $0.297 (> $0.28)",
-      "paused_at": "2026-10-19 05:27 GMT+3"
+    "00a69a87-5bb5-4461-ba6a-968896c4bea8": {
+      "name": "Copy of Copy of Copy of Copy of Copy of Copy of 2",
+      "campaign": "car scaling new 2 text",
+      "adsquad": "Copy of Copy of Copy of Copy of text 2 ",
+      "reason": "[Aggregated Video High CPA - السعودية] مجموع صرف الفيديو = $18.27 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $18.27 (>= $18.00)",
+      "paused_at": "2026-10-19 05:11 GMT+3"
+    },
+    "088ea8d5-edee-4d8f-873d-d5af34097ce0": {
+      "name": "Copy of Copy of Copy of Copy of Copy of Copy of 2",
+      "campaign": "car scaling new 2 text",
+      "adsquad": "Copy of Copy of Copy of Copy of Copy of Copy of text 2 ",
+      "reason": "[Aggregated Video High CPA - السعودية] مجموع صرف الفيديو = $18.27 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $18.27 (>= $18.00)",
+      "paused_at": "2026-10-19 05:11 GMT+3"
+    },
+    "089023b0-22ce-4171-a1e2-d3cccf16cfc7": {
+      "name": "Copy of Copy of Copy of Copy of Copy of Copy of 2",
+      "campaign": "car scaling new 2 text",
+      "adsquad": "Copy of Copy of Copy of Copy of Copy of text 2 ",
+      "reason": "[Aggregated Video High CPA - السعودية] مجموع صرف الفيديو = $18.27 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $18.27 (>= $18.00)",
+      "paused_at": "2026-10-19 05:11 GMT+3"
+    },
+    "093126d6-aae4-4931-b442-3b0ce9a3844f": {
+      "name": "Copy of Copy of Copy of Copy of Copy of Copy of 2",
+      "campaign": "car scaling new 2 text",
+      "adsquad": "Copy of Copy of Copy of Copy of Copy of Copy of text 2 ",
+      "reason": "[Aggregated Video High CPA - السعودية] مجموع صرف الفيديو = $18.27 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $18.27 (>= $18.00)",
+      "paused_at": "2026-10-19 05:11 GMT+3"
+    },
+    "0f91cead-2080-41bb-880d-d1d55d190f5e": {
+      "name": "Copy of Copy of Copy of Copy of Copy of Copy of 2",
+      "campaign": "car scaling new 2 text",
+      "adsquad": "Copy of Copy of Copy of Copy of Copy of text 2 ",
+      "reason": "[Aggregated Video High CPA - السعودية] مجموع صرف الفيديو = $18.27 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $18.27 (>= $18.00)",
+      "paused_at": "2026-10-19 05:11 GMT+3"
+    },
+    "14456a5e-28b9-4a9c-b2d3-5f1cd40d7257": {
+      "name": "Copy of Copy of Copy of Copy of Copy of Copy of 2",
+      "campaign": "car scaling new 2 text",
+      "adsquad": "Copy of Copy of Copy of Copy of Copy of Copy of text 2 ",
+      "reason": "[Aggregated Video High CPA - السعودية] مجموع صرف الفيديو = $18.27 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $18.27 (>= $18.00)",
+      "paused_at": "2026-10-19 05:11 GMT+3"
+    },
+    "14e84bc5-72f9-44a7-8fd2-db0d313c0322": {
+      "name": "Copy of Copy of Copy of Copy of Copy of Copy of 2",
+      "campaign": "car scaling new 2 text",
+      "adsquad": "Copy of text 2 ",
+      "reason": "[Aggregated Video High CPA - السعودية] مجموع صرف الفيديو = $18.27 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $18.27 (>= $18.00)",
+      "paused_at": "2026-10-19 05:11 GMT+3"
+    },
+    "3037d66c-27cc-4922-8ac5-29229441c865": {
+      "name": "Copy of Copy of Copy of Copy of Copy of Copy of 2",
+      "campaign": "car scaling new 2 text",
+      "adsquad": "Copy of Copy of Copy of Copy of Copy of text 2 ",
+      "reason": "[Aggregated Video High CPA - السعودية] مجموع صرف الفيديو = $18.27 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $18.27 (>= $18.00)",
+      "paused_at": "2026-10-19 05:11 GMT+3"
+    },
+    "38df9edd-f826-4606-a439-b502e5af60f7": {
+      "name": "Copy of Copy of Copy of Copy of Copy of Copy of 2",
+      "campaign": "car scaling new 2 text",
+      "adsquad": "Copy of Copy of Copy of Copy of Copy of Copy of text 2 ",
+      "reason": "[Aggregated Video High CPA - السعودية] مجموع صرف الفيديو = $18.27 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $18.27 (>= $18.00)",
+      "paused_at": "2026-10-19 05:11 GMT+3"
+    },
+    "43aba9e3-9512-4f78-aadf-9aa62fb392b7": {
+      "name": "Copy of Copy of Copy of Copy of Copy of Copy of 2",
+      "campaign": "car scaling new 2 text",
+      "adsquad": "Copy of Copy of Copy of Copy of text 2 ",
+      "reason": "[Aggregated Video High CPA - السعودية] مجموع صرف الفيديو = $18.27 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $18.27 (>= $18.00)",
+      "paused_at": "2026-10-19 05:11 GMT+3"
+    },
+    "5c2f3d21-6ddd-4a6b-9454-6cba1731bac8": {
+      "name": "Copy of Copy of Copy of Copy of Copy of Copy of 2",
+      "campaign": "car scaling new 2 text",
+      "adsquad": "Copy of Copy of Copy of Copy of Copy of text 2 ",
+      "reason": "[Aggregated Video High CPA - السعودية] مجموع صرف الفيديو = $18.27 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $18.27 (>= $18.00)",
+      "paused_at": "2026-10-19 05:11 GMT+3"
+    },
+    "634b36d0-683b-400d-879f-588e30ebdc6c": {
+      "name": "Copy of Copy of Copy of Copy of Copy of Copy of 2",
+      "campaign": "car scaling new 2 text",
+      "adsquad": "Copy of Copy of Copy of text 2 ",
+      "reason": "[Aggregated Video High CPA - السعودية] مجموع صرف الفيديو = $18.27 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $18.27 (>= $18.00)",
+      "paused_at": "2026-10-19 05:11 GMT+3"
+    },
+    "66f3caba-c235-48f2-8c3d-3ac0f4814052": {
+      "name": "Copy of Copy of Copy of Copy of Copy of Copy of 2",
+      "campaign": "car scaling new 2 text",
+      "adsquad": "Copy of Copy of Copy of Copy of Copy of text 2 ",
+      "reason": "[Aggregated Video High CPA - السعودية] مجموع صرف الفيديو = $18.27 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $18.27 (>= $18.00)",
+      "paused_at": "2026-10-19 05:11 GMT+3"
+    },
+    "6a7b7dfb-11e6-4c8b-b9e6-6d2006a0156f": {
+      "name": "Copy of Copy of Copy of Copy of Copy of Copy of 2",
+      "campaign": "car scaling new 2 text",
+      "adsquad": "Copy of Copy of Copy of Copy of Copy of Copy of text 2 ",
+      "reason": "[Aggregated Video High CPA - السعودية] مجموع صرف الفيديو = $18.27 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $18.27 (>= $18.00)",
+      "paused_at": "2026-10-19 05:11 GMT+3"
+    },
+    "6c97cbab-5ef1-44cb-8df7-89aaf64e9407": {
+      "name": "Copy of Copy of Copy of Copy of Copy of Copy of 2",
+      "campaign": "car scaling new 2 text",
+      "adsquad": "Copy of text 2 ",
+      "reason": "[Aggregated Video High CPA - السعودية] مجموع صرف الفيديو = $18.27 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $18.27 (>= $18.00)",
+      "paused_at": "2026-10-19 05:11 GMT+3"
+    },
+    "70551392-6dee-4e84-b4d7-24573e10dd0c": {
+      "name": "Copy of Copy of Copy of Copy of Copy of Copy of 2",
+      "campaign": "car scaling new 2 text",
+      "adsquad": "Copy of Copy of Copy of Copy of Copy of text 2 ",
+      "reason": "[Aggregated Video High CPA - السعودية] مجموع صرف الفيديو = $18.27 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $18.27 (>= $18.00)",
+      "paused_at": "2026-10-19 05:11 GMT+3"
+    },
+    "74786e28-e3f8-49bb-a5f9-f5b6b7818c39": {
+      "name": "Copy of Copy of Copy of Copy of Copy of Copy of 2",
+      "campaign": "car scaling new 2 text",
+      "adsquad": "Copy of Copy of Copy of Copy of Copy of Copy of text 2 ",
+      "reason": "[Aggregated Video High CPA - السعودية] مجموع صرف الفيديو = $18.27 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $18.27 (>= $18.00)",
+      "paused_at": "2026-10-19 05:11 GMT+3"
+    },
+    "80e08703-aa7f-478d-86e8-e92aa42dcef3": {
+      "name": "Copy of Copy of Copy of Copy of Copy of Copy of 2",
+      "campaign": "car scaling new 2 text",
+      "adsquad": "Copy of Copy of Copy of text 2 ",
+      "reason": "[Aggregated Video High CPA - السعودية] مجموع صرف الفيديو = $18.27 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $18.27 (>= $18.00)",
+      "paused_at": "2026-10-19 05:11 GMT+3"
+    },
+    "8408eb22-41c7-4454-8c8e-d1ce32fdf4b2": {
+      "name": "Copy of Copy of Copy of Copy of Copy of Copy of 2",
+      "campaign": "car scaling new 2 text",
+      "adsquad": "Copy of Copy of Copy of Copy of Copy of text 2 ",
+      "reason": "[Aggregated Video High CPA - السعودية] مجموع صرف الفيديو = $18.27 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $18.27 (>= $18.00)",
+      "paused_at": "2026-10-19 05:11 GMT+3"
+    },
+    "8652943a-53c8-4bc6-a44e-254b0f89b7ec": {
+      "name": "Copy of Copy of Copy of Copy of Copy of Copy of 2",
+      "campaign": "car scaling new 2 text",
+      "adsquad": "Copy of Copy of Copy of Copy of Copy of Copy of text 2 ",
+      "reason": "[Aggregated Video High CPA - السعودية] مجموع صرف الفيديو = $18.27 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $18.27 (>= $18.00)",
+      "paused_at": "2026-10-19 05:11 GMT+3"
+    },
+    "9257109f-0c40-473d-a28a-dc29107a7db5": {
+      "name": "Copy of Copy of Copy of Copy of Copy of Copy of 2",
+      "campaign": "car scaling new 2 text",
+      "adsquad": "Copy of Copy of Copy of Copy of Copy of Copy of text 2 ",
+      "reason": "[Aggregated Video High CPA - السعودية] مجموع صرف الفيديو = $18.27 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $18.27 (>= $18.00)",
+      "paused_at": "2026-10-19 05:11 GMT+3"
+    },
+    "9b9d3054-64c4-494f-ad71-7617337f770f": {
+      "name": "Copy of Copy of Copy of Copy of Copy of Copy of 2",
+      "campaign": "car scaling new 2 text",
+      "adsquad": "Copy of Copy of Copy of Copy of Copy of Copy of text 2 ",
+      "reason": "[Aggregated Video High CPA - السعودية] مجموع صرف الفيديو = $18.27 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $18.27 (>= $18.00)",
+      "paused_at": "2026-10-19 05:11 GMT+3"
+    },
+    "9eae3a0b-59b5-47fd-8974-da1440745b60": {
+      "name": "Copy of Copy of Copy of Copy of Copy of Copy of 2",
+      "campaign": "car scaling new 2 text",
+      "adsquad": "Copy of Copy of Copy of Copy of Copy of Copy of text 2 ",
+      "reason": "[Aggregated Video High CPA - السعودية] مجموع صرف الفيديو = $18.27 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $18.27 (>= $18.00)",
+      "paused_at": "2026-10-19 05:11 GMT+3"
+    },
+    "b142a203-f51e-4a91-91cc-e4c33cb40bdf": {
+      "name": "Copy of Copy of Copy of Copy of Copy of Copy of 2",
+      "campaign": "car scaling new 2 text",
+      "adsquad": "Copy of Copy of Copy of Copy of Copy of Copy of text 2 ",
+      "reason": "[Aggregated Video High CPA - السعودية] مجموع صرف الفيديو = $18.27 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $18.27 (>= $18.00)",
+      "paused_at": "2026-10-19 05:11 GMT+3"
+    },
+    "b4c257c1-0950-44f4-8ad8-1903aa5ebd6b": {
+      "name": "Copy of Copy of Copy of Copy of Copy of Copy of 2",
+      "campaign": "car scaling new 2 text",
+      "adsquad": "Copy of Copy of text 2 ",
+      "reason": "[Aggregated Video High CPA - السعودية] مجموع صرف الفيديو = $18.27 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $18.27 (>= $18.00)",
+      "paused_at": "2026-10-19 05:11 GMT+3"
+    },
+    "b6b7b68f-ee01-4239-9269-78ca7bace824": {
+      "name": "Copy of Copy of Copy of Copy of Copy of Copy of 2",
+      "campaign": "car scaling new 2 text",
+      "adsquad": "Copy of Copy of Copy of Copy of text 2 ",
+      "reason": "[Aggregated Video High CPA - السعودية] مجموع صرف الفيديو = $18.27 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $18.27 (>= $18.00)",
+      "paused_at": "2026-10-19 05:11 GMT+3"
+    },
+    "c212d2f0-b998-44d5-aa00-88fd73b8b37c": {
+      "name": "Copy of Copy of Copy of Copy of Copy of Copy of 2",
+      "campaign": "car scaling new 2 text",
+      "adsquad": "Copy of Copy of Copy of Copy of Copy of Copy of text 2 ",
+      "reason": "[Aggregated Video High CPA - السعودية] مجموع صرف الفيديو = $18.27 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $18.27 (>= $18.00)",
+      "paused_at": "2026-10-19 05:11 GMT+3"
+    },
+    "c4772f47-bb66-4b4b-8468-d09a8335e9d8": {
+      "name": "Copy of Copy of Copy of Copy of Copy of Copy of 2",
+      "campaign": "car scaling new 2 text",
+      "adsquad": "Copy of Copy of Copy of Copy of Copy of text 2 ",
+      "reason": "[Aggregated Video High CPA - السعودية] مجموع صرف الفيديو = $18.27 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $18.27 (>= $18.00)",
+      "paused_at": "2026-10-19 05:11 GMT+3"
+    },
+    "c4dcf1d2-cf1d-43b1-90f9-f7ca1c806465": {
+      "name": "Copy of Copy of Copy of Copy of Copy of Copy of 2",
+      "campaign": "car scaling new 2 text",
+      "adsquad": "Copy of Copy of Copy of Copy of Copy of text 2 ",
+      "reason": "[Aggregated Video High CPA - السعودية] مجموع صرف الفيديو = $18.27 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $18.27 (>= $18.00)",
+      "paused_at": "2026-10-19 05:11 GMT+3"
+    },
+    "c62e1287-768e-4dbc-84f1-3c62b9461e3f": {
+      "name": "Copy of Copy of Copy of Copy of Copy of Copy of 2",
+      "campaign": "car scaling new 2 text",
+      "adsquad": "Copy of Copy of text 2 ",
+      "reason": "[Aggregated Video High CPA - السعودية] مجموع صرف الفيديو = $18.27 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $18.27 (>= $18.00)",
+      "paused_at": "2026-10-19 05:11 GMT+3"
+    },
+    "cb5d3e36-88b6-4df5-911e-54fdcf2a7714": {
+      "name": "Copy of Copy of Copy of Copy of Copy of Copy of 2",
+      "campaign": "car scaling new 2 text",
+      "adsquad": "Copy of Copy of Copy of Copy of Copy of text 2 ",
+      "reason": "[Aggregated Video High CPA - السعودية] مجموع صرف الفيديو = $18.27 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $18.27 (>= $18.00)",
+      "paused_at": "2026-10-19 05:11 GMT+3"
+    },
+    "d32c316d-fb30-4610-9ee7-665f60ec4aaa": {
+      "name": "Copy of Copy of Copy of Copy of Copy of Copy of 2",
+      "campaign": "car scaling new 2 text",
+      "adsquad": "Copy of Copy of Copy of Copy of Copy of Copy of text 2 ",
+      "reason": "[Aggregated Video High CPA - السعودية] مجموع صرف الفيديو = $18.27 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $18.27 (>= $18.00)",
+      "paused_at": "2026-10-19 05:11 GMT+3"
+    },
+    "d3484780-30b8-45aa-842b-87fc9e19e9bd": {
+      "name": "Copy of Copy of Copy of Copy of Copy of Copy of 2",
+      "campaign": "car scaling new 2 text",
+      "adsquad": "Copy of Copy of Copy of Copy of Copy of Copy of text 2 ",
+      "reason": "[Aggregated Video High CPA - السعودية] مجموع صرف الفيديو = $18.27 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $18.27 (>= $18.00)",
+      "paused_at": "2026-10-19 05:11 GMT+3"
+    },
+    "db093d57-a6d1-4f51-9d8a-cd40c6b9246f": {
+      "name": "Copy of Copy of Copy of Copy of Copy of Copy of 2",
+      "campaign": "car scaling new 2 text",
+      "adsquad": "Copy of Copy of Copy of Copy of Copy of Copy of Copy of text1",
+      "reason": "[Aggregated Video High CPA - السعودية] مجموع صرف الفيديو = $18.27 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $18.27 (>= $18.00)",
+      "paused_at": "2026-10-19 05:11 GMT+3"
+    },
+    "dfcc72d9-bd75-4964-905e-f5fe1b7a8b7c": {
+      "name": "Copy of Copy of Copy of Copy of Copy of Copy of 2",
+      "campaign": "car scaling new 2 text",
+      "adsquad": "text 2 ",
+      "reason": "[Aggregated Video High CPA - السعودية] مجموع صرف الفيديو = $18.27 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $18.27 (>= $18.00)",
+      "paused_at": "2026-10-19 05:11 GMT+3"
+    },
+    "e72357d5-b023-4029-9bcd-b5d398e7fb08": {
+      "name": "Copy of Copy of Copy of Copy of Copy of Copy of 2",
+      "campaign": "car scaling new 2 text",
+      "adsquad": "Copy of Copy of Copy of Copy of Copy of text 2 ",
+      "reason": "[Aggregated Video High CPA - السعودية] مجموع صرف الفيديو = $18.27 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $18.27 (>= $18.00)",
+      "paused_at": "2026-10-19 05:11 GMT+3"
+    },
+    "ef28e664-5707-4278-a352-eff69eb79ac5": {
+      "name": "Copy of Copy of Copy of Copy of Copy of Copy of 2",
+      "campaign": "car scaling new 2 text",
+      "adsquad": "Copy of Copy of Copy of Copy of Copy of text 2 ",
+      "reason": "[Aggregated Video High CPA - السعودية] مجموع صرف الفيديو = $18.27 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $18.27 (>= $18.00)",
+      "paused_at": "2026-10-19 05:11 GMT+3"
+    },
+    "f48f3a99-42ee-4028-9c06-86fffb8be75b": {
+      "name": "Copy of Copy of Copy of Copy of Copy of Copy of 2",
+      "campaign": "car scaling new 2 text",
+      "adsquad": "Copy of Copy of Copy of Copy of Copy of Copy of text 2 ",
+      "reason": "[Aggregated Video High CPA - السعودية] مجموع صرف الفيديو = $18.27 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $18.27 (>= $18.00)",
+      "paused_at": "2026-10-19 05:11 GMT+3"
+    },
+    "f55f4245-043c-48ef-acef-23ca8fe1c704": {
+      "name": "Copy of Copy of Copy of Copy of Copy of Copy of 2",
+      "campaign": "car scaling new 2 text",
+      "adsquad": "Copy of text 2 ",
+      "reason": "[Aggregated Video High CPA - السعودية] مجموع صرف الفيديو = $18.27 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $18.27 (>= $18.00)",
+      "paused_at": "2026-10-19 05:11 GMT+3"
     }
   },
   "tiktok_videos": {
@@ -5543,12 +5912,16 @@
       "draft_ids": [
         "1879156760401105"
       ],
-      "reason": "Today Spend $6.59 >= $1.00 & CPC $0.37 > $0.35",
-      "spend_1d": 6.59,
-      "conv_1d": 1,
-      "spend_2d": 7.39,
+      "reason": "[Global Dup Video High CPA 2D] Total 2-Day CPA $22.05 >= $22.00 (Total Spend=$22.05, Total Sales=1)",
+      "spend_1d": 0.88,
+      "conv_1d": 0,
+      "spend_2d": 14.43,
       "conv_2d": 1,
-      "paused_at": "2026-10-17T07:16:53.005684+00:00"
+      "global_spend_1d": 1.11,
+      "global_conv_1d": 0,
+      "global_spend_2d": 22.05,
+      "global_conv_2d": 1,
+      "paused_at": "2026-10-19T02:15:10.158088+00:00"
     },
     "7631763556322148369:1879119542754066:1879119546183890": {
       "aadvid": "7631763556322148369",
@@ -5703,27 +6076,6 @@
       "conv_2d": 0,
       "paused_at": "2026-10-17T09:06:19.156918+00:00"
     },
-    "7631765070816509959:1879198886110065:1879198888859457": {
-      "aadvid": "7631765070816509959",
-      "account_name": "ROELLINGER RECYCLING2",
-      "ad_id": "1879198886110065",
-      "creative_id": "1879198888849521",
-      "campaign_ad_name": "car armrest 15-10 test 2 (v3-v4-v7) / car armrest 15-10 test 2 (v3-v4-v7) - Creative",
-      "video_name": "15-10_video_4.mp4",
-      "draft_ids": [
-        "1879198888859457"
-      ],
-      "reason": "[Global Dup Video High CPA 2D] Total 2-Day CPA $22.28 >= $22.00 (Total Spend=$22.28, Total Sales=1)",
-      "spend_1d": 0.0,
-      "conv_1d": 0,
-      "spend_2d": 6.58,
-      "conv_2d": 1,
-      "global_spend_1d": 0.0,
-      "global_conv_1d": 0,
-      "global_spend_2d": 22.28,
-      "global_conv_2d": 1,
-      "paused_at": "2026-10-19T02:28:45.179850+00:00"
-    },
     "7631763556322148369:1879158246855697:1879158246870465": {
       "aadvid": "7631763556322148369",
       "account_name": "ROELLINGER RECYCLING",
@@ -5819,16 +6171,12 @@
       "draft_ids": [
         "1879232889158673"
       ],
-      "reason": "[Global Dup Video High CPA 2D] Total 2-Day CPA $22.28 >= $22.00 (Total Spend=$22.28, Total Sales=1)",
-      "spend_1d": 0.0,
+      "reason": "Today Spend $6.14 > $6.00 with 0 sales | 2-Day Spend $6.38 > $6.00 with 0 sales",
+      "spend_1d": 6.14,
       "conv_1d": 0,
-      "spend_2d": 0.0,
+      "spend_2d": 6.38,
       "conv_2d": 0,
-      "global_spend_1d": 0.0,
-      "global_conv_1d": 0,
-      "global_spend_2d": 22.28,
-      "global_conv_2d": 1,
-      "paused_at": "2026-10-19T02:01:41.979700+00:00"
+      "paused_at": "2026-10-17T11:47:02.650656+00:00"
     },
     "7631763556322148369:1879158235413857:1879158235906898": {
       "aadvid": "7631763556322148369",
@@ -6163,16 +6511,12 @@
       "draft_ids": [
         "1879119546182898"
       ],
-      "reason": "[Global Dup Video High CPA 2D] Total 2-Day CPA $22.28 >= $22.00 (Total Spend=$22.28, Total Sales=1)",
-      "spend_1d": 0.0,
+      "reason": "Today Spend $9.24 > $6.00 with 0 sales | 2-Day Spend $9.39 > $6.00 with 0 sales",
+      "spend_1d": 9.24,
       "conv_1d": 0,
-      "spend_2d": 0.0,
+      "spend_2d": 9.39,
       "conv_2d": 0,
-      "global_spend_1d": 0.0,
-      "global_conv_1d": 0,
-      "global_spend_2d": 22.28,
-      "global_conv_2d": 1,
-      "paused_at": "2026-10-19T02:01:40.811531+00:00"
+      "paused_at": "2026-10-17T18:26:26.610714+00:00"
     },
     "7631765070816509959:1879246753691810:1879246753757281": {
       "aadvid": "7631765070816509959",
@@ -6252,12 +6596,16 @@
       "draft_ids": [
         "1879155925053505"
       ],
-      "reason": "Today Video CPA $11.40 >= $10.00 (Spend=$22.80, Sales=2) | 2-Day Video CPA $11.63 >= $10.00 (Spend=$23.26, Sales=2)",
-      "spend_1d": 22.8,
-      "conv_1d": 2,
-      "spend_2d": 23.26,
-      "conv_2d": 2,
-      "paused_at": "2026-10-17T20:23:25.879657+00:00"
+      "reason": "[Global Dup Video High CPA 2D] Total 2-Day CPA $22.05 >= $22.00 (Total Spend=$22.05, Total Sales=1)",
+      "spend_1d": 0.0,
+      "conv_1d": 0,
+      "spend_2d": 0.01,
+      "conv_2d": 0,
+      "global_spend_1d": 1.11,
+      "global_conv_1d": 0,
+      "global_spend_2d": 22.05,
+      "global_conv_2d": 1,
+      "paused_at": "2026-10-19T02:15:12.411203+00:00"
     },
     "7631763556322148369:1879155925019858:1879155925053537": {
       "aadvid": "7631763556322148369",
@@ -7044,39 +7392,64 @@
       "reason": "Manual second-chance restore",
       "paused_at": "2026-10-19T01:55:49.139454+00:00"
     },
-    "7631763556322148369:1874314269673729:1876391326944306": {
+    "7631763556322148369:1879380387524193:1879380388018257": {
       "aadvid": "7631763556322148369",
       "account_name": "ROELLINGER RECYCLING",
-      "ad_id": "1874314269673729",
-      "creative_id": "1874314269673745",
-      "campaign_ad_name": "Copy 1 of car armrest leads  19-9 / Ad name2026-08-21 05:44:45",
-      "video_name": "2 (1).mp4",
+      "ad_id": "1879380387524193",
+      "creative_id": "1879380387979953",
+      "campaign_ad_name": "power bank winner 16-10 A SCALE 18-10 / power bank winner 16-10 A - Creative",
+      "video_name": "16-10_pb_winner_2.mp4",
       "draft_ids": [
-        "1876391326944306"
+        "1879380388018257"
       ],
-      "reason": "2-Day Video CPA $10.02 >= $10.00 (Spend=$50.12, Sales=5) | Today Spend $3.25 >= $1.00 & CPC $0.65 > $0.35",
-      "spend_1d": 3.25,
+      "reason": "2-Day Spend $1.04 >= $1.00 & CPC $0.00 > $0.35",
+      "spend_1d": 0.47,
       "conv_1d": 0,
-      "spend_2d": 50.12,
-      "conv_2d": 5,
-      "paused_at": "2026-10-19T02:01:31.201492+00:00"
-    },
-    "7631763556322148369:1879119542754066:1879119546183906": {
-      "aadvid": "7631763556322148369",
-      "account_name": "ROELLINGER RECYCLING",
-      "ad_id": "1879119542754066",
-      "creative_id": "1879119543983698",
-      "campaign_ad_name": "car armrest leads 15-10 B / car armrest leads 15-10 B - Creative",
-      "video_name": "15-10_video_7.mp4",
-      "draft_ids": [
-        "1879119546183906"
-      ],
-      "reason": "2-Day Spend $4.12 >= $1.00 & CPC $0.41 > $0.35",
-      "spend_1d": 0.36,
-      "conv_1d": 0,
-      "spend_2d": 4.12,
+      "spend_2d": 1.04,
       "conv_2d": 0,
-      "paused_at": "2026-10-19T02:01:31.856239+00:00"
+      "paused_at": "2026-10-19T02:14:58.845175+00:00"
+    },
+    "7631763556322148369:1879390610190401:1879390610197714": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "ad_id": "1879390610190401",
+      "creative_id": "1879390610190449",
+      "campaign_ad_name": "power bank winner 16-10 A FAST SCALE 18-10 / power bank winner 16-10 A - Creative",
+      "video_name": "16-10_pb_winner_7.mp4",
+      "draft_ids": [
+        "1879390610197714"
+      ],
+      "reason": "[Global Dup Video High CPA 2D] Total 2-Day CPA $22.05 >= $22.00 (Total Spend=$22.05, Total Sales=1)",
+      "spend_1d": 0.02,
+      "conv_1d": 0,
+      "spend_2d": 0.35,
+      "conv_2d": 0,
+      "global_spend_1d": 1.11,
+      "global_conv_1d": 0,
+      "global_spend_2d": 22.05,
+      "global_conv_2d": 1,
+      "paused_at": "2026-10-19T02:15:10.875918+00:00"
+    },
+    "7631763556322148369:1879400070507537:1879400074022977": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "ad_id": "1879400070507537",
+      "creative_id": "1879400070507569",
+      "campaign_ad_name": "power bank winner 16-10 A SCALE 10-18 / power bank winner 16-10 A - Creative",
+      "video_name": "16-10_pb_winner_7.mp4",
+      "draft_ids": [
+        "1879400074022977"
+      ],
+      "reason": "[Global Dup Video High CPA 2D] Total 2-Day CPA $22.05 >= $22.00 (Total Spend=$22.05, Total Sales=1)",
+      "spend_1d": 0.21,
+      "conv_1d": 0,
+      "spend_2d": 0.34,
+      "conv_2d": 0,
+      "global_spend_1d": 1.11,
+      "global_conv_1d": 0,
+      "global_spend_2d": 22.05,
+      "global_conv_2d": 1,
+      "paused_at": "2026-10-19T02:15:11.642955+00:00"
     }
   },
   "tiktok_ads": {},
@@ -13814,18 +14187,21 @@
     "ecff6946-73a1-4add-bd01-e06b32b59507": "25e139b5-2df3-43e5-bc76-cc07f8e81125",
     "a0a403ff-19a8-466a-87d8-877b6f9f6c7e": "a959f636-d6ed-468c-ad35-2c3b7b496d6e",
     "98f3517c-42e8-46fd-be44-97fbf52f85e0": "0c32a60a-12ec-41ac-82d0-8e71b144c7f8",
-    "daf7703d-df7f-4f87-a115-acc41bb3a85a": "b5b897f6-9df6-46d6-aac2-55c809257f67",
-    "cba9d7ca-c6c4-44bf-a1f2-d1e7dc1e2c6a": "225ed86c-4c11-4b30-a901-934f42262069",
-    "2211d3e1-b35f-4558-a8bd-552cce479780": "4b80880f-b25e-449f-a33d-2a8a798bfbeb",
-    "94e1b608-8007-4ef8-b96c-9efd5f276747": "6d77577a-cc80-4ac5-b027-bacb2f4624a4",
-    "91d55ebd-3768-431c-af24-cfcef747f270": "5b20e277-f3dc-42ba-910c-7b348f84d544",
-    "1bc188ee-4a86-4b84-9f1e-2bea49fd7e07": "7ca0d53c-bf68-4a50-a5ff-ff634495daf8",
-    "a1c4b538-1657-411f-9f7d-1cbcbf57a142": "e84a0e3c-61ad-4044-bbe3-d17593fc557c",
-    "c7fe84a2-892e-48ec-9237-90b8f85c1faa": "e9815d13-40e4-4458-937c-4c417ae9f8c1",
-    "ac1157e9-efb9-4968-9316-43d969a42316": "2373897b-e85b-4d91-8fe3-57d5a674bf57",
-    "bbd8ced1-6c8b-4e13-9e67-bf84adf0abcf": "5e3a909a-eb7e-4376-818f-ceef00715235"
+    "daf7703d-df7f-4f87-a115-acc41bb3a85a": "b5b897f6-9df6-46d6-aac2-55c809257f67"
   },
-  "disabled_videos": {},
+  "disabled_videos": {
+    "9be45a26-06ac-4716-8e7b-2fb3a4d65e4c:1de62189-1cb3-4527-bc95-6390a9e79b9b": {
+      "campaign_id": "9be45a26-06ac-4716-8e7b-2fb3a4d65e4c",
+      "campaign_name": "car scaling new 2 text",
+      "video_media_id": "1de62189-1cb3-4527-bc95-6390a9e79b9b",
+      "sample_ad_name": "Copy of Copy of Copy of Copy of Copy of Copy of 2",
+      "closed_instances": 40,
+      "total_spend": 18.27,
+      "total_purchases": 1,
+      "reason": "[Aggregated Video High CPA - السعودية] مجموع صرف الفيديو = $18.27 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $18.27 (>= $18.00)",
+      "disabled_at": "2026-10-19 05:11 GMT+3"
+    }
+  },
   "night_bid_reductions": {
     "2026-10-18:8c78d67c-9fde-4e3a-acd5-e0ed05b95030": {
       "name": "SA_PB_OldAcc Smart+ Broad | 2.8 Bid",
@@ -20964,21 +21340,20 @@
     }
   },
   "tiktok_disabled_dup_videos": {
-    "15-10_video_4": {
-      "v_key": "15-10_video_4",
-      "sample_name": "15-10_video_4.mp4",
+    "16-10_pb_winner_7": {
+      "v_key": "16-10_pb_winner_7",
+      "sample_name": "16-10_pb_winner_7.mp4",
       "accounts": [
-        "ROELLINGER RECYCLING",
-        "ROELLINGER RECYCLING2"
+        "ROELLINGER RECYCLING"
       ],
-      "total_copies": 4,
-      "closed_copies": 1,
-      "spend_1d": 0.0,
+      "total_copies": 6,
+      "closed_copies": 4,
+      "spend_1d": 1.11,
       "conv_1d": 0,
-      "spend_2d": 22.28,
+      "spend_2d": 22.05,
       "conv_2d": 1,
-      "reason": "[Global Dup Video High CPA 2D] Total 2-Day CPA $22.28 >= $22.00 (Total Spend=$22.28, Total Sales=1)",
-      "disabled_at": "2026-10-19T02:28:45.179879+00:00"
+      "reason": "[Global Dup Video High CPA 2D] Total 2-Day CPA $22.05 >= $22.00 (Total Spend=$22.05, Total Sales=1)",
+      "disabled_at": "2026-10-19T02:15:12.411203+00:00"
     }
   },
   "proactive_scaled_squads": {},
