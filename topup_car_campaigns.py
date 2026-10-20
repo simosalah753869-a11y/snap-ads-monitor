@@ -54,7 +54,8 @@ def is_scaling_or_duplicate_campaign(cname: str, squads: list[dict], active_squa
     name_low = cname.lower()
     if is_banned_saudi_kashaf(name_low):
         return False
-    if any(k in name_low for k in ("علا وحنان", "دفعة", "super winners", "gems")):
+    # استثناء حملات الخليج الصغرى وحملات الاختبار من التوب-أب إلى 20 مجموعة لمنع التزاحم والخسارة
+    if any(k in name_low for k in ("عمان", "قطر", "كويت", "بحرين", "oman", "qatar", "kuwait", "bahrain", "علا وحنان", "دفعة", "super winners", "gems")):
         return False
     has_copy = any("copy" in s.get("name", "").lower() for s in active_squads)
     if has_copy and len(active_squads) >= 5:
@@ -98,13 +99,17 @@ def main():
     campaigns = [c["campaign"] for c in rc.json().get("campaigns", []) if "campaign" in c]
     active_camps = [c for c in campaigns if c.get("status") == "ACTIVE"]
 
-    print(f"🔍 فحص حملات السكالينج والدوبليكيت النشطة للتأكد من أن عدد المجموعات النشطة لا يقل عن {MIN_ACTIVE_COUNT}:", flush=True)
+    now_sa = datetime.now(ACCOUNT_TZ)
+    allow_topup_window = (6 <= now_sa.hour < 17)
+    print(f"🔍 فحص حملات السكالينج النشطة (التوقيت: {now_sa.strftime('%H:%M')} GMT+3 | التوسع الهادئ قبل 5 مساءً: {'مفعل ✅' if allow_topup_window else 'موقوف لحماية الربح ليلاً ⏸️'}):", flush=True)
     for c in active_camps:
         cid = c["id"]
         cname = c["name"]
         cst3 = camp_3d_stats.get(cid, {"spend": 0.0, "purchases": 0, "cpa": None})
         is_cpa_over_8 = (
-            cst3["spend"] >= 25.0 and cst3["purchases"] == 0
+            cid in no_dup_camps
+            or (cst3["spend"] >= 12.0 and cst3["purchases"] == 0)
+            or (cst3["purchases"] > 0 and cst3["cpa"] is not None and cst3["cpa"] > 8.0)
         )
         rsq = session.get(f"{API_BASE}/campaigns/{cid}/adsquads", timeout=20)
         rsq.raise_for_status()
@@ -133,25 +138,34 @@ def main():
             continue
 
         print(f"\n=== حملة: '{cname}' (ID: {cid}) ===", flush=True)
-        print(f"   📊 عدد المجموعات النشطة الفعّالة حالياً: {active_count} (الحد الأدنى المطلوب: {MIN_ACTIVE_COUNT})", flush=True)
+        print(f"   📊 عدد المجموعات النشطة الفعّالة حالياً: {active_count} (الحد المستهدف: {MIN_ACTIVE_COUNT})", flush=True)
 
         if is_cpa_over_8:
             print(f"   🚫 منع تكرار الدوبليكيت في هذه الحملة لأن سعر البيعة فيها لآخر 3 أيام متعدي $8.00 (CPA=${cst3.get('cpa')}) — لن يتم عمل أي Duplicate جديد هنا.", flush=True)
+            continue
+
+        if not allow_topup_window:
+            print("   ⏸️ خارج نافذة التوسع النهارية (بعد 5:00 مساءً) — لا يتم إضافة مجموعات جديدة ليلاً لمنع الخسارة.", flush=True)
             continue
 
         if active_count >= MIN_ACTIVE_COUNT:
             print(f"   ✅ الحملة تحتوي على {active_count} مجموعة نشطة فعّالة (>= {MIN_ACTIVE_COUNT}) — لا تحتاج أي إضافة.", flush=True)
             continue
 
-        needed = MIN_ACTIVE_COUNT - active_count
+        # إضافة هادئة بحد أقصى نسختين فقط في كل دورة (كل ساعتين) لمنع صدمة المزاد
+        needed = min(2, MIN_ACTIVE_COUNT - active_count)
         source_squad = pick_best_source_squad(session, active_squads or squads, stats_map)
         if not source_squad:
             print("   ⚠️ لا توجد أي مجموعة إعلانية صالحة للنسخ منها في هذه الحملة.", flush=True)
             continue
 
         st = stats_map.get(source_squad["id"], {"spend": 0.0, "purchases": 0, "cpa": None})
+        if st.get("purchases", 0) < 1 or (st.get("cpa") is not None and st["cpa"] > 8.0):
+            print(f"   ⏸️ تخطي الاستنساخ في '{cname}' لأن أفضل مجموعة متاحة ليس لديها مبيعات رابحة <= $8.00 (CPA=${st.get('cpa')}).", flush=True)
+            continue
+
         print(
-            f"   🚀 جاري استنساخ {needed} مجموعة من أفضل مجموعة رابحة ('{source_squad['name']}', مبيعات: {st['purchases']}, CPA: ${st['cpa']}) للوصول إلى {MIN_ACTIVE_COUNT} مجموعة نشطة...",
+            f"   🚀 جاري استنساخ {needed} مجموعة بهدوء من أفضل مجموعة رابحة ('{source_squad['name']}', مبيعات: {st['purchases']}, CPA: ${st['cpa']})...",
             flush=True,
         )
         clone_adsquad_exact(session, source_squad, needed)
