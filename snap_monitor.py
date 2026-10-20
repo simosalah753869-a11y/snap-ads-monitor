@@ -174,9 +174,15 @@ def evaluate_single_ad_rule(st: dict, campaign_name: str, adsquad_name: str, squ
     purchases = st["purchases"]
     cpa = st.get("cpa")
     cpc = st["cpc"]
+    is_cross_prod = is_cross_monitored_product_campaign(campaign_name, adsquad_name)
     is_gulf = is_gulf_034_campaign(campaign_name, adsquad_name, squad)
-    max_cpc = 0.34 if is_gulf else 0.28
+    max_cpc = 0.30 if is_cross_prod else (0.34 if is_gulf else 0.28)
+    min_cpc_spend = 0.80 if is_cross_prod else 1.0
     max_cpa = 8.0
+
+    # في حملات مايباخ و TIME X: إذا جاب الفيديو بيعة نخليه وما نطفيه بسبب الـ CPC ("الا في حالة جاب بيعة يخليه")
+    if is_cross_prod and purchases >= 1:
+        return False, ""
 
     # إذا حقق الفيديو مبيعات فعلية وكان سعر البيعة مربحاً (<= $8.00 في السعودية والخليج)، لا نوقفه بسبب الـ CPC
     if purchases > 0 and cpa is not None and cpa <= max_cpa:
@@ -186,16 +192,16 @@ def evaluate_single_ad_rule(st: dict, campaign_name: str, adsquad_name: str, squ
     if purchases > 0 and cpa is not None and cpa > max_cpa:
         return True, f"[Single Video Max $8 CPA Rule] صرف الفيديو ${spend} | المبيعات: {purchases} | CPA = ${cpa} (> $8.00)"
 
-    # 2. قاعدة إيقاف الفيديو الموحدة (السعودية والخليج) إذا صرف >= 6$ بدون مبيعة داخل المجموعة
-    if spend >= 6.0 and purchases == 0:
+    # 2. قاعدة إيقاف الفيديو الموحدة (السعودية والخليج) إذا صرف >= 6$ بدون مبيعة داخل المجموعة (تُدار عبر cross_product_monitor لحملتي مايباخ و TIME X)
+    if not is_cross_prod and spend >= 6.0 and purchases == 0:
         return True, f"[Single Video Stop-Loss] صرف الفيديو ${spend} (>= $6.00) بدون مبيعة"
 
-    # 3. قاعدة إيقاف الـ CPC المرتفع بعد صرف >= 1$ (بدون مبيعات مربحة)
-    if spend >= 1.0:
+    # 3. قاعدة إيقاف الـ CPC المرتفع بعد صرف >= 0.80$ لحملتي مايباخ و TIME X (أو >= 1.00$ لباقي الحملات) بدون مبيعات
+    if spend >= min_cpc_spend:
         if swipes == 0:
-            return True, f"[Ad CPC Rule] صرف الفيديو ${spend} بدون أي نقرة (الحد الأقصى ${max_cpc})"
+            return True, f"[Ad CPC Rule] صرف الفيديو ${spend} (>= ${min_cpc_spend:.2f}) بدون أي نقرة (الحد الأقصى ${max_cpc:.2f})"
         if cpc > max_cpc:
-            return True, f"[Ad CPC Rule] صرف الفيديو ${spend} | النقرات: {swipes} | سعر النقرة CPC = ${cpc} (> ${max_cpc})"
+            return True, f"[Ad CPC Rule] صرف الفيديو ${spend} (>= ${min_cpc_spend:.2f}) | النقرات: {swipes} | سعر النقرة CPC = ${cpc} (> ${max_cpc:.2f})"
     return False, ""
 
 
@@ -213,6 +219,11 @@ def resolve_video_media_id(creative_id: str, token: str, history: dict) -> str:
         return media_id
     except Exception:
         return creative_id
+
+
+def is_cross_monitored_product_campaign(campaign_name: str, adsquad_name: str = "") -> bool:
+    combined = f"{campaign_name} {adsquad_name}".lower()
+    return any(k in combined for k in ("مايباخ", "maybach", "time x", "timex", "تايم إكس", "دفاتر"))
 
 
 def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
@@ -249,6 +260,8 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
 
     no_dup_camps = history.setdefault("no_duplicate_campaigns", {})
     for cid in list(no_dup_camps.keys()):
+        if is_cross_monitored_product_campaign(camp_names.get(cid, "") or no_dup_camps[cid].get("name", "")):
+            continue
         cst_chk = camp_stats_3d_map.get(cid)
         if not cst_chk:
             del no_dup_camps[cid]
@@ -256,6 +269,13 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
             del no_dup_camps[cid]
         elif cst_chk.get("purchases", 0) == 0 and cst_chk.get("spend", 0) < 12.0:
             del no_dup_camps[cid]
+    for cid, cname_val in camp_names.items():
+        if is_cross_monitored_product_campaign(cname_val):
+            no_dup_camps[cid] = {
+                "name": cname_val,
+                "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
+                "updated_at": now_str,
+            }
     for cid, cst in camp_stats_3d_map.items():
         if (cst["spend"] >= 12.0 and cst["purchases"] == 0) or (cst["purchases"] > 0 and cst["cpa"] is not None and cst["cpa"] > 8.0):
             no_dup_camps[cid] = {
@@ -350,6 +370,10 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
 
         if s_id in history["adsquads"]:
             print(f"⏭️ تجاهل المجموعة '{s_name}' — أعدتَ تشغيلها يدوياً (فرصة أخرى).")
+            continue
+
+        if is_cross_monitored_product_campaign(c_name, s_name):
+            # هذه الحملات (وسادة مايباخ ودفاتر TIME X) يراقبها cross_product_monitor.py بمجموع الصرف في سناب وتيكتوك معاً (20$)
             continue
 
         should_pause_1d, reason_1d = evaluate_adsquad_rule(s_name, st_1d, c_name, squad) if st_1d["spend"] >= 5.0 else (False, "")
@@ -500,12 +524,13 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
         c_id = squad.get("campaign_id", "")
         c_name = camp_names.get(c_id, "")
 
-        should_pause, reason = evaluate_single_ad_rule(st, c_name, s_name, squad) if st["spend"] >= 1.0 else (False, "")
-        if not should_pause and st3["spend"] >= 6.0:
+        min_spend_chk = 0.80 if is_cross_monitored_product_campaign(c_name, s_name) else 1.0
+        should_pause, reason = evaluate_single_ad_rule(st, c_name, s_name, squad) if st["spend"] >= min_spend_chk else (False, "")
+        if not should_pause and st3["spend"] >= min_spend_chk:
             should_pause, reason = evaluate_single_ad_rule(st3, c_name, s_name, squad)
             if should_pause:
                 reason = f"[3-Day Audit] {reason}"
-        if not should_pause and st7["spend"] >= 6.0 and st7["purchases"] == 0:
+        if not should_pause and st7["spend"] >= min_spend_chk and st7["purchases"] == 0:
             should_pause, reason = evaluate_single_ad_rule(st7, c_name, s_name, squad)
             if should_pause:
                 reason = f"[7-Day Audit] {reason}"
