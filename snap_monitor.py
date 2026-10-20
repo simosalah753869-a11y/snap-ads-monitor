@@ -248,8 +248,12 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
     camp_stats_3d_map = {st["id"]: st for st in camp_stats_3d}
 
     no_dup_camps = history.setdefault("no_duplicate_campaigns", {})
+    for cid in list(no_dup_camps.keys()):
+        cst_chk = camp_stats_3d_map.get(cid)
+        if not cst_chk or cst_chk.get("purchases", 0) > 0 or cst_chk.get("spend", 0) < 25.0:
+            del no_dup_camps[cid]
     for cid, cst in camp_stats_3d_map.items():
-        if (cst["spend"] > 8.0 and cst["purchases"] == 0) or (cst["purchases"] > 0 and cst["cpa"] is not None and cst["cpa"] > 8.0):
+        if cst["spend"] >= 25.0 and cst["purchases"] == 0:
             no_dup_camps[cid] = {
                 "name": camp_names.get(cid, cid),
                 "spend_3d": cst["spend"],
@@ -257,8 +261,6 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
                 "cpa_3d": cst["cpa"],
                 "updated_at": now_str,
             }
-        elif cid in no_dup_camps and cst["purchases"] > 0 and cst["cpa"] is not None and cst["cpa"] <= 8.0:
-            del no_dup_camps[cid]
     save_paused_history(history)
 
     spend_by_squad = {st["id"]: st["spend"] for st in squad_stats}
@@ -531,8 +533,8 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
             continue
 
         camp_is_saudi = is_saudi_squad(c_squads[0], c_name, c_squads[0].get("name", ""))
-        no_sale_limit = 14.0
-        max_cpa_limit = 16.0
+        no_sale_limit = 25.0
+        max_cpa_limit = 22.0
         region_label = "السعودية" if camp_is_saudi else "الخليج"
 
         c_ads = camp_ads_cache.get(c_id, [])
@@ -622,6 +624,14 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
             tot_cpa = round(tot_spend / tot_purch, 2) if tot_purch > 0 else None
             cpa3 = round(sp3 / pu3, 2) if pu3 > 0 else None
             cpa7 = round(sp7 / pu7, 2) if pu7 > 0 else None
+
+            # حماية الفيديوهات الرابحة: لا نعدم فيديو على مستوى كل المجموعات إذا كان محققاً لمبيعات رابحة في آخر 3 أو 7 أيام
+            if (pu7 >= 2 and cpa7 is not None and cpa7 <= 14.0) or (pu3 >= 1 and cpa3 is not None and cpa3 <= 14.0) or (tot_purch >= 1 and tot_cpa is not None and tot_cpa <= 14.0):
+                if f"{c_id}:{v_key}" in history.get("disabled_videos", {}):
+                    del history["disabled_videos"][f"{c_id}:{v_key}"]
+                    save_paused_history(history)
+                continue
+
             kill_video = False
             kill_reason = ""
             if already_permanently_disabled:
@@ -630,13 +640,13 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
                     f"[Permanent Disabled Video Lock - {region_label}] هذا الفيديو موقوف نهائياً في هذه الحملة ولن يُسمح بإعادة تشغيله في أي AdSquad"
                 )
 
-            if tot_spend >= no_sale_limit and tot_purch == 0:
+            if tot_spend >= no_sale_limit and tot_purch == 0 and pu3 == 0 and pu7 == 0:
                 kill_video = True
                 kill_reason = (
                     f"[Aggregated Video Stop-Loss 1D - {region_label}] مجموع صرف الفيديو اليوم عبر كل الـ AdSquads = "
                     f"${tot_spend:.2f} (>= ${no_sale_limit:.2f}) بدون أي مبيعة"
                 )
-            elif sp3 >= no_sale_limit and pu3 == 0:
+            elif sp3 >= no_sale_limit and pu3 == 0 and pu7 == 0:
                 kill_video = True
                 kill_reason = (
                     f"[Aggregated Video Stop-Loss 3D - {region_label}] مجموع صرف الفيديو لـ 3 أيام عبر كل الـ AdSquads = "
@@ -647,24 +657,6 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
                 kill_reason = (
                     f"[Aggregated Video Stop-Loss 7D - {region_label}] مجموع صرف الفيديو لـ 7 أيام عبر كل الـ AdSquads = "
                     f"${sp7:.2f} (>= ${no_sale_limit:.2f}) بدون أي مبيعة"
-                )
-            elif tot_purch > 0 and tot_cpa is not None and tot_cpa >= max_cpa_limit:
-                kill_video = True
-                kill_reason = (
-                    f"[Aggregated Video High CPA 1D - {region_label}] مجموع صرف الفيديو اليوم = ${tot_spend:.2f} | "
-                    f"المبيعات = {tot_purch} | سعر البيعة الإجمالي CPA = ${tot_cpa:.2f} (>= ${max_cpa_limit:.2f})"
-                )
-            elif pu3 > 0 and cpa3 is not None and cpa3 >= max_cpa_limit:
-                kill_video = True
-                kill_reason = (
-                    f"[Aggregated Video High CPA 3D - {region_label}] مجموع صرف الفيديو لـ 3 أيام = ${sp3:.2f} | "
-                    f"المبيعات = {pu3} | سعر البيعة الإجمالي CPA = ${cpa3:.2f} (>= ${max_cpa_limit:.2f})"
-                )
-            elif pu7 > 0 and cpa7 is not None and cpa7 >= max_cpa_limit and (pu3 == 0 or (cpa3 and cpa3 > 8.5)):
-                kill_video = True
-                kill_reason = (
-                    f"[Aggregated Video High CPA 7D - {region_label}] مجموع صرف الفيديو لـ 7 أيام = ${sp7:.2f} | "
-                    f"المبيعات = {pu7} | سعر البيعة الإجمالي CPA = ${cpa7:.2f} (>= ${max_cpa_limit:.2f})"
                 )
 
             if not kill_video:
@@ -751,7 +743,7 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
         )
         return
 
-    is_before_6pm_window = (6 <= today_local.hour < 18)
+    is_before_6pm_window = (6 <= today_local.hour <= 23)
 
     if is_before_6pm_window:
         print(
