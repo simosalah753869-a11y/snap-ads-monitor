@@ -1399,6 +1399,30 @@
       "campaign": "car scaling camp ",
       "reason": "[Copy Rule] صرفت $5.37 (>= $5) بدون مبيعات",
       "paused_at": "2026-10-20 11:56 GMT+3"
+    },
+    "06fbd70b-3473-438f-ba9b-f4385454491f": {
+      "name": "Copy of SA_PB_OldAcc Target Cost Men 20+ | 2.8 Bid",
+      "campaign": "باور بانك السعودية سمارت+ (فيديوهات الحساب الثاني) 18-10",
+      "reason": "[Copy Rule] صرفت $5.23 (>= $5) بدون مبيعات",
+      "paused_at": "2026-10-20 12:32 GMT+3"
+    },
+    "b99930c5-6c88-4a7e-9c57-898aa6275ffa": {
+      "name": "Copy of SA_Car Target Cost Men 20+ | 2.8 Bid",
+      "campaign": "smart+ cars SA 18-10",
+      "reason": "[Copy Rule] صرفت $5.01 (>= $5) بدون مبيعات",
+      "paused_at": "2026-10-20 12:32 GMT+3"
+    },
+    "65e7e36e-667d-4a84-a5c7-73d0818733a0": {
+      "name": "Copy of 16-10 1",
+      "campaign": "باور بانك وينر",
+      "reason": "[Copy Rule] صرفت $5.69 (>= $5) بدون مبيعات",
+      "paused_at": "2026-10-20 12:32 GMT+3"
+    },
+    "6fdf8d5a-9e8f-4c65-a4f5-704cbd781cee": {
+      "name": "Copy of Copy of Copy of Copy of Copy of Copy of text 2 ",
+      "campaign": "car scaling new 2 text",
+      "reason": "[Copy Rule] صرفت $5.04 (>= $5) بدون مبيعات",
+      "paused_at": "2026-10-20 12:32 GMT+3"
     }
   },
   "ads": {
@@ -9454,6 +9478,27 @@
       "adsquad": "Copy of Copy of Copy of Copy of Copy of Copy of text 2 ",
       "reason": "[Ad CPC Rule] صرف الفيديو $1.07 | النقرات: 3 | سعر النقرة CPC = $0.357 (> $0.28)",
       "paused_at": "2026-10-20 11:56 GMT+3"
+    },
+    "23430b48-e525-42f5-8733-60f2e31ecfe9": {
+      "name": "Copy of Copy of Copy of Copy of Copy of 1",
+      "campaign": "car scaling camp ",
+      "adsquad": "Copy of Copy of 1.5 | 23.8",
+      "reason": "[Ad CPC Rule] صرف الفيديو $1.14 | النقرات: 4 | سعر النقرة CPC = $0.285 (> $0.28)",
+      "paused_at": "2026-10-20 12:32 GMT+3"
+    },
+    "45c304cd-7f3b-4d2f-a089-2fe797a08001": {
+      "name": "W7_3",
+      "campaign": "smart+ watch suis SA 18-10",
+      "adsquad": "Copy of SA_Watch Target Cost Men 20+ | 2.8 Bid",
+      "reason": "[Ad CPC Rule] صرف الفيديو $1.19 | النقرات: 1 | سعر النقرة CPC = $1.19 (> $0.28)",
+      "paused_at": "2026-10-20 12:32 GMT+3"
+    },
+    "cde93964-c630-424c-a0a4-fcd54dc8387e": {
+      "name": "hist_tc_3_25_5_3_244sales",
+      "campaign": "باور بانك السعودية سمارت+ (فيديوهات الحساب الثاني) 18-10",
+      "adsquad": "Copy of SA_PB_OldAcc Target Cost Men 20+ | 2.8 Bid",
+      "reason": "[Ad CPC Rule] صرف الفيديو $1.02 | النقرات: 3 | سعر النقرة CPC = $0.34 (> $0.28)",
+      "paused_at": "2026-10-20 12:32 GMT+3"
     }
   },
   "tiktok_videos": {
@@ -20497,7 +20542,7 @@
       "campaign": "باور بانك وينر",
       "date": "2026-10-20",
       "count": 3,
-      "done": false,
+      "done": true,
       "old_bid": 2.85,
       "new_bid": 2.95,
       "last_bump_at": "2026-10-20T08:16:12.042724+00:00",
@@ -20731,6 +20776,20 @@
       "last_bump_at": null,
       "done": true,
       "name": "Copy of Copy of Copy of Copy of 1.5 | 23.8",
+      "campaign": "car scaling camp "
+    },
+    "2975bacf-cfbc-4942-bbb7-5686b01c3d40": {
+      "count": 0,
+      "last_bump_at": null,
+      "done": true,
+      "name": "Copy of Copy of 1.5 | 23.8",
+      "campaign": "car scaling camp "
+    },
+    "61c906e0-dfbb-4df5-8672-5689c9b32bfe": {
+      "count": 0,
+      "last_bump_at": null,
+      "done": true,
+      "name": "Copy of Copy of 1.5 | 23.8",
       "campaign": "car scaling camp "
     }
   },
