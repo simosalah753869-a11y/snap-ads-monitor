@@ -8735,6 +8735,13 @@
       "adsquad": "Copy of 17-10 male winners",
       "reason": "[Ad CPC Rule] صرف الفيديو $1.09 | النقرات: 2 | سعر النقرة CPC = $0.545 (> $0.28)",
       "paused_at": "2026-10-20 04:54 GMT+3"
+    },
+    "50f0b59b-0d83-4d69-b48a-ff78abce15c7": {
+      "name": "3_winner",
+      "campaign": "watch suis winners 17-10",
+      "adsquad": "Copy of 17-10 male winners",
+      "reason": "[Ad CPC Rule] صرف الفيديو $1.22 | النقرات: 4 | سعر النقرة CPC = $0.305 (> $0.28)",
+      "paused_at": "2026-10-20 05:26 GMT+3"
     }
   },
   "tiktok_videos": {
@@ -11040,19 +11047,6 @@
       "conv_2d": 0,
       "paused_at": "2026-10-18T21:19:26.984979+00:00"
     },
-    "7631763556322148369:1879156756829313:1879156760400545": {
-      "aadvid": "7631763556322148369",
-      "account_name": "ROELLINGER RECYCLING",
-      "ad_id": "1879156756829313",
-      "creative_id": "1879156756830465",
-      "campaign_ad_name": "power bank winner 16-10 A",
-      "video_name": "16-10_pb_winner_5.mp4",
-      "draft_ids": [
-        "1879156760400545"
-      ],
-      "reason": "Manual second-chance restore",
-      "paused_at": "2026-10-19T01:55:18.420362+00:00"
-    },
     "7631763556322148369:1877741275901986:1877741606232289": {
       "aadvid": "7631763556322148369",
       "account_name": "ROELLINGER RECYCLING",
@@ -11951,6 +11945,23 @@
       "spend_2d": 2.21,
       "conv_2d": 0,
       "paused_at": "2026-10-20T01:55:57.060974+00:00"
+    },
+    "7631763556322148369:1879340705037553:1879340705190225": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "ad_id": "1879340705037553",
+      "creative_id": "1879340705186321",
+      "campaign_ad_name": "power bank 18-10 (Ola + Hanan 15-10) / power bank 18-10 (Ola + Hanan 15-10) - Creative",
+      "video_name": "18_10_15-10_ola_2.mp4",
+      "draft_ids": [
+        "1879340705190225"
+      ],
+      "reason": "2-Day Spend $1.07 >= $1.00 & CPC $0.36 > $0.35",
+      "spend_1d": 0.16,
+      "conv_1d": 0,
+      "spend_2d": 1.07,
+      "conv_2d": 0,
+      "paused_at": "2026-10-20T02:28:25.340661+00:00"
     }
   },
   "tiktok_ads": {},
