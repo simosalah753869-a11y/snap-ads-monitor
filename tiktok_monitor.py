@@ -163,6 +163,11 @@ def is_gulf_campaign(campaign_name: str) -> bool:
     return any(k in cname for k in GULF_KEYWORDS)
 
 
+def is_cross_monitored_product_campaign(campaign_name: str, video_name: str = "") -> bool:
+    combined = f"{campaign_name} {video_name}".lower()
+    return any(k in combined for k in ("مايباخ", "maybach", "time x", "timex", "تايم إكس", "دفاتر"))
+
+
 def fetch_campaigns(session, headers, aadvid, st_date, et_date):
     h = dict(headers)
     h["Referer"] = f"https://ads.tiktok.com/i18n/manage/campaign?aadvid={aadvid}"
@@ -843,8 +848,10 @@ def main():
                 if sp3_i < MAX_NO_SALE_SPEND and sp7_i < MAX_NO_SALE_SPEND:
                     paused_candidates_per_ad.setdefault(aid_str, []).append((cpc3_i if cpc3_i > 0 else 9.9, sp3_i, m_item))
 
-        # Smart+ Starvation Auto-Recovery: if an active ad_id has 0 active videos left, re-enable its lowest-CPC video
+        # Smart+ Starvation Auto-Recovery: if an active ad_id has 0 active videos left, re-enable its lowest-CPC video (skip Maybach & TIME X campaigns which are managed by cross_product_monitor.py)
         for a_obj in active_ads:
+            if is_cross_monitored_product_campaign(str(a_obj.get("campaign_name") or "")):
+                continue
             aid_chk = str(a_obj.get("ad_id") or "")
             if aid_chk and active_videos_per_ad.get(aid_chk, 0) == 0 and paused_candidates_per_ad.get(aid_chk):
                 paused_candidates_per_ad[aid_chk].sort(key=lambda x: (x[0], x[1]))
@@ -889,6 +896,9 @@ def main():
             v_key_cur = canonical_video_name(m3.get("main_entity_name") or "", str(m3.get("main_entity_id") or ""))
             cid = str(m3.get("creative_id") or "")
             ad_id = str(m3.get("ad_id") or "")
+            if is_cross_monitored_product_campaign(ad_camp_map.get(cid, ""), m3.get("main_entity_name") or ""):
+                # Maybach & TIME X campaigns are monitored with exact combined rules in cross_product_monitor.py
+                continue
             draft_ids = parse_draft_ids(m3.get("ad_material_draft_id"))
             draft_str = ",".join(draft_ids)
             hist_key = f"{aadvid}:{ad_id}:{draft_str}"
