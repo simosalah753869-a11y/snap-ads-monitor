@@ -6746,6 +6746,64 @@
       "spend_7d": 1.0,
       "conv_7d": 0,
       "paused_at": "2026-10-20T17:52:11.698388+00:00"
+    },
+    "7631765070816509959:1879487306606177:1879487311698018": {
+      "aadvid": "7631765070816509959",
+      "account_name": "ROELLINGER RECYCLING2",
+      "ad_id": "1879487306606177",
+      "creative_id": "1879487308832962",
+      "campaign_ad_name": "car armrest 16-10 (Hanan + Ola) SCALE 10-19 / car armrest 16-10 (Hanan + Ola) - Creative",
+      "video_name": "16-10_hanan_3.mp4",
+      "draft_ids": [
+        "1879487311698018"
+      ],
+      "reason": "[Global Dup Video Stop-Loss 7D] Total 7-Day Spend $12.11 >= $12.00 with 0 sales",
+      "spend_1d": 1.58,
+      "conv_1d": 0,
+      "spend_2d": 1.75,
+      "conv_2d": 0,
+      "spend_3d": 1.75,
+      "conv_3d": 0,
+      "spend_7d": 1.75,
+      "conv_7d": 0,
+      "global_spend_1d": 1.83,
+      "global_conv_1d": 0,
+      "global_spend_2d": 5.72,
+      "global_conv_2d": 0,
+      "global_spend_3d": 5.73,
+      "global_conv_3d": 0,
+      "global_spend_7d": 12.11,
+      "global_conv_7d": 0,
+      "paused_at": "2026-10-20T18:32:44.950254+00:00"
+    },
+    "7631765070816509959:1879571585159410:1879571588954449": {
+      "aadvid": "7631765070816509959",
+      "account_name": "ROELLINGER RECYCLING2",
+      "ad_id": "1879571585159410",
+      "creative_id": "1879571586896961",
+      "campaign_ad_name": "car armrest 16-10 (Hanan + Ola) BOOST 20-10 / car armrest 16-10 (Hanan + Ola) - Creative",
+      "video_name": "16-10_hanan_3.mp4",
+      "draft_ids": [
+        "1879571588954449"
+      ],
+      "reason": "[Global Dup Video Stop-Loss 7D] Total 7-Day Spend $12.11 >= $12.00 with 0 sales",
+      "spend_1d": 0.25,
+      "conv_1d": 0,
+      "spend_2d": 0.25,
+      "conv_2d": 0,
+      "spend_3d": 0.25,
+      "conv_3d": 0,
+      "spend_7d": 0.25,
+      "conv_7d": 0,
+      "global_spend_1d": 1.83,
+      "global_conv_1d": 0,
+      "global_spend_2d": 5.72,
+      "global_conv_2d": 0,
+      "global_spend_3d": 5.73,
+      "global_conv_3d": 0,
+      "global_spend_7d": 12.11,
+      "global_conv_7d": 0,
+      "paused_at": "2026-10-20T18:32:45.556278+00:00"
     }
   },
   "tiktok_ads": {},
@@ -6939,15 +6997,34 @@
       "conv_7d": 0,
       "reason": "7-Day Accumulated Spend $7.44 > $6.00 with 0 sales",
       "disabled_at": "2026-10-20T17:21:46.687093+00:00"
+    },
+    "16-10_hanan_3": {
+      "v_key": "16-10_hanan_3",
+      "sample_name": "16-10_hanan_3.mp4",
+      "accounts": [
+        "ROELLINGER RECYCLING2"
+      ],
+      "total_copies": 5,
+      "closed_copies": 2,
+      "spend_1d": 1.83,
+      "conv_1d": 0,
+      "spend_2d": 5.72,
+      "conv_2d": 0,
+      "spend_3d": 5.73,
+      "conv_3d": 0,
+      "spend_7d": 12.11,
+      "conv_7d": 0,
+      "reason": "[Global Dup Video Stop-Loss 7D] Total 7-Day Spend $12.11 >= $12.00 with 0 sales",
+      "disabled_at": "2026-10-20T18:32:45.556310+00:00"
     }
   },
   "no_duplicate_campaigns": {
     "1879390609489089": {
       "name": "power bank 18-10 Ola Hanan FAST SCALE",
       "aadvid": "7631763556322148369",
-      "spend_3d": 39.05,
+      "spend_3d": 39.06,
       "purchases_3d": 2,
-      "cpa_3d": 19.52,
+      "cpa_3d": 19.53,
       "reason": "3-Day CPA > $8.00 — Duplication Blocked (AdSet/Material pause only)"
     }
   },
