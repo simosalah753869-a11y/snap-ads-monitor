@@ -8959,6 +8959,20 @@
       "adsquad": "Copy of SA_Car Target Cost Men 20+ | 2.8 Bid",
       "reason": "[Aggregated Video High CPA - السعودية] مجموع صرف الفيديو = $24.25 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $24.25 (>= $18.00)",
       "paused_at": "2026-10-20 06:55 GMT+3"
+    },
+    "5f24b2e6-6bcf-4ed8-aaa7-9e71d0fda283": {
+      "name": "Winner_13_10_hanan_5",
+      "campaign": "smart+ cars SA 18-10",
+      "adsquad": "Copy of SA_Car Elite Mega-Winners 19-10 (Target Cost Men 20+)",
+      "reason": "[Ad CPC Rule] صرف الفيديو $1.09 | النقرات: 2 | سعر النقرة CPC = $0.545 (> $0.28)",
+      "paused_at": "2026-10-20 07:28 GMT+3"
+    },
+    "c11ad202-47c6-4307-97c5-6ced6e5e26a1": {
+      "name": "hist_tc_2_8_5_1_488sales",
+      "campaign": "باور بانك السعودية سمارت+ (فيديوهات الحساب الثاني) 18-10",
+      "adsquad": "Copy of SA_PB_OldAcc Target Cost Men 20+ | 2.8 Bid",
+      "reason": "[Ad CPC Rule] صرف الفيديو $1.42 | النقرات: 5 | سعر النقرة CPC = $0.284 (> $0.28)",
+      "paused_at": "2026-10-20 07:28 GMT+3"
     }
   },
   "tiktok_videos": {
@@ -12179,6 +12193,23 @@
       "spend_2d": 1.07,
       "conv_2d": 0,
       "paused_at": "2026-10-20T02:28:25.340661+00:00"
+    },
+    "7631763556322148369:1879471505909170:1879471509430594": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "ad_id": "1879471505909170",
+      "creative_id": "1879471507036193",
+      "campaign_ad_name": "car armrest 18-10 (Hanan + Ola 13-10) FAST SCALE 19-10 / car armrest 18-10 (Hanan + Ola 13-10) FAST SCALE 19-10 - Creative",
+      "video_name": "18_10_13-10_ola_4.mp4",
+      "draft_ids": [
+        "1879471509430594"
+      ],
+      "reason": "2-Day Spend $1.02 >= $1.00 & CPC $1.02 > $0.35",
+      "spend_1d": 0.16,
+      "conv_1d": 0,
+      "spend_2d": 1.02,
+      "conv_2d": 0,
+      "paused_at": "2026-10-20T04:29:53.201764+00:00"
     }
   },
   "tiktok_ads": {},
@@ -19328,7 +19359,7 @@
       "campaign": "car scaling camp ",
       "date": "2026-10-20",
       "count": 2,
-      "done": false,
+      "done": true,
       "old_bid": 2.75,
       "new_bid": 2.85,
       "last_bump_at": "2026-10-20T03:12:01.939094+00:00",
@@ -19357,7 +19388,7 @@
       "campaign": "car scaling camp ",
       "date": "2026-10-20",
       "count": 2,
-      "done": false,
+      "done": true,
       "old_bid": 2.4,
       "new_bid": 2.5,
       "last_bump_at": "2026-10-20T03:12:01.939094+00:00",
@@ -19939,7 +19970,7 @@
       "campaign": "car scaling camp ",
       "date": "2026-10-20",
       "count": 1,
-      "done": false,
+      "done": true,
       "old_bid": 2.5,
       "new_bid": 2.6,
       "last_bump_at": "2026-10-20T03:12:01.939094+00:00",
@@ -20021,6 +20052,17 @@
       "new_bid": 2.6,
       "last_bump_at": "2026-10-20T03:56:06.725891+00:00",
       "last_bump_local": "2026-10-20 06:55 GMT+3"
+    },
+    "6f1fed26-cecf-43f7-a8a7-305b72ceb2f1": {
+      "name": "Copy of 16-10 1",
+      "campaign": "باور بانك وينر",
+      "date": "2026-10-20",
+      "count": 1,
+      "done": false,
+      "old_bid": 2.55,
+      "new_bid": 2.65,
+      "last_bump_at": "2026-10-20T04:29:20.651497+00:00",
+      "last_bump_local": "2026-10-20 07:28 GMT+3"
     }
   },
   "tiktok_campaigns": {
