@@ -8924,6 +8924,41 @@
       "adsquad": "SA_Car Elite Mega-Winners 19-10 (Target Cost Men 20+)",
       "reason": "[Aggregated Video High CPA - السعودية] مجموع صرف الفيديو = $21.17 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $21.17 (>= $18.00)",
       "paused_at": "2026-10-20 06:10 GMT+3"
+    },
+    "48c1cba3-9060-4c40-80ec-5c90e1986e78": {
+      "name": "4",
+      "campaign": "باور بانك وينر",
+      "adsquad": "Copy of 16-10 1",
+      "reason": "[Ad CPC Rule] صرف الفيديو $1.03 | النقرات: 2 | سعر النقرة CPC = $0.515 (> $0.28)",
+      "paused_at": "2026-10-20 06:55 GMT+3"
+    },
+    "e27d12f8-8426-42ec-a5f7-e58e97f3031c": {
+      "name": "hist_tc_2_8_5_1_488sales",
+      "campaign": "باور بانك السعودية سمارت+ (فيديوهات الحساب الثاني) 18-10",
+      "adsquad": "Copy of SA_PB_OldAcc Target Cost Men 20+ | 2.8 Bid",
+      "reason": "[Ad CPC Rule] صرف الفيديو $1.0 | النقرات: 1 | سعر النقرة CPC = $1.0 (> $0.28)",
+      "paused_at": "2026-10-20 06:55 GMT+3"
+    },
+    "94ea1be1-6607-453f-9b02-5a5f4071c48c": {
+      "name": "hist_tc_6_ad9_122sales",
+      "campaign": "باور بانك السعودية سمارت+ (فيديوهات الحساب الثاني) 18-10",
+      "adsquad": "Copy of SA_PB_OldAcc Target Cost Men 20+ | 2.8 Bid",
+      "reason": "[Ad CPC Rule] صرف الفيديو $1.01 | النقرات: 3 | سعر النقرة CPC = $0.337 (> $0.28)",
+      "paused_at": "2026-10-20 06:55 GMT+3"
+    },
+    "0e5b0f1d-0cc9-486f-bc90-477a5d3a83dd": {
+      "name": "SA_Car_tc_v1",
+      "campaign": "smart+ cars SA 18-10",
+      "adsquad": "Copy of SA_Car Target Cost Men 20+ | 2.8 Bid",
+      "reason": "[Aggregated Video High CPA - السعودية] مجموع صرف الفيديو = $24.25 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $24.25 (>= $18.00)",
+      "paused_at": "2026-10-20 06:55 GMT+3"
+    },
+    "9e1e87f5-9980-459f-a0c3-f9e19069ccf6": {
+      "name": "SA_Car_tc_v1",
+      "campaign": "smart+ cars SA 18-10",
+      "adsquad": "Copy of SA_Car Target Cost Men 20+ | 2.8 Bid",
+      "reason": "[Aggregated Video High CPA - السعودية] مجموع صرف الفيديو = $24.25 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $24.25 (>= $18.00)",
+      "paused_at": "2026-10-20 06:55 GMT+3"
     }
   },
   "tiktok_videos": {
@@ -19185,7 +19220,7 @@
       "campaign": "car scaling new 2 text",
       "date": "2026-10-20",
       "count": 3,
-      "done": false,
+      "done": true,
       "old_bid": 2.4,
       "new_bid": 2.5,
       "last_bump_at": "2026-10-20T03:12:01.939094+00:00",
@@ -19446,7 +19481,7 @@
       "campaign": "watch suis winners 17-10",
       "date": "2026-10-20",
       "count": 1,
-      "done": false,
+      "done": true,
       "old_bid": 2.7,
       "new_bid": 2.8,
       "last_bump_at": "2026-10-20T03:12:01.939094+00:00",
@@ -19518,7 +19553,7 @@
       "campaign": "smart+ cars SA 18-10",
       "date": "2026-10-20",
       "count": 1,
-      "done": false,
+      "done": true,
       "old_bid": 2.8,
       "new_bid": 2.9,
       "last_bump_at": "2026-10-20T03:12:01.939094+00:00",
@@ -19975,6 +20010,17 @@
       "new_bid": 2.35,
       "last_bump_at": "2026-10-20T03:12:01.939094+00:00",
       "last_bump_local": "2026-10-20 06:10 GMT+3"
+    },
+    "d4cf983b-c404-416c-88db-6f09c0eaad14": {
+      "name": "Copy of 17-10 male winners",
+      "campaign": "watch suis winners 17-10",
+      "date": "2026-10-20",
+      "count": 1,
+      "done": false,
+      "old_bid": 2.5,
+      "new_bid": 2.6,
+      "last_bump_at": "2026-10-20T03:56:06.725891+00:00",
+      "last_bump_local": "2026-10-20 06:55 GMT+3"
     }
   },
   "tiktok_campaigns": {
@@ -20302,7 +20348,11 @@
     "b839714f-19a0-460c-a624-f3abf93b4b1a": "77c238bb-949e-4746-885a-2c735e3f3bfd",
     "365fd9f8-2344-464e-bb3b-7ecc871fb9bb": "77a6c07c-0c65-4633-9a9f-09089168e6eb",
     "fc04e507-a269-48ee-b2e5-87c7468d2d32": "f1d9a693-2187-4342-afe1-f3bc9b3a083b",
-    "dd4d55db-c8f4-490b-9208-30cb58fb5bde": "154e98a2-047b-4acc-9af1-708e0084531d"
+    "dd4d55db-c8f4-490b-9208-30cb58fb5bde": "154e98a2-047b-4acc-9af1-708e0084531d",
+    "1f37ee43-723d-4546-a710-3dced9dc922d": "bbfac4ae-7d50-4132-a96a-1b3d95e735e7",
+    "4a5be40c-644a-43a6-92a7-d7931f5c593e": "c95f9067-7a52-44d3-8faf-bd15f2a07961",
+    "a05e8c5c-5297-4118-a1c2-d05b6f88895f": "fcf49f8f-c36e-46bb-9997-70f20dd1bf28",
+    "f0eb0a63-0fda-4952-b2dd-f7b35034089e": "1a01e217-7d43-409e-9020-18f1e8c558d3"
   },
   "disabled_videos": {
     "062e2cba-fecb-488e-940e-75b50eca766d:9edae80d-dbd4-4253-b227-8bdcee74c4a6": {
@@ -20475,11 +20525,11 @@
       "campaign_name": "smart+ cars SA 18-10",
       "video_media_id": "5b20e277-f3dc-42ba-910c-7b348f84d544",
       "sample_ad_name": "SA_Car_tc_v1",
-      "closed_instances": 25,
-      "total_spend": 21.17,
+      "closed_instances": 2,
+      "total_spend": 24.25,
       "total_purchases": 1,
-      "reason": "[Aggregated Video High CPA - السعودية] مجموع صرف الفيديو = $21.17 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $21.17 (>= $18.00)",
-      "disabled_at": "2026-10-20 06:10 GMT+3"
+      "reason": "[Aggregated Video High CPA - السعودية] مجموع صرف الفيديو = $24.25 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $24.25 (>= $18.00)",
+      "disabled_at": "2026-10-20 06:55 GMT+3"
     }
   },
   "night_bid_reductions": {
