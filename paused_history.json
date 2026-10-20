@@ -1370,12 +1370,6 @@
       "reason": "[Copy Rule] صرفت $5.42 (>= $5) بدون مبيعات",
       "paused_at": "2026-10-20 11:13 GMT+3"
     },
-    "9f12312f-7398-4de4-a2dc-819e40db52ea": {
-      "name": "Copy of SA_PB_OldAcc Target Cost Men 20+ | 2.8 Bid",
-      "campaign": "باور بانك السعودية سمارت+ (فيديوهات الحساب الثاني) 18-10",
-      "reason": "[Copy Rule] صرفت $6.24 (>= $5) بدون مبيعات",
-      "paused_at": "2026-10-20 11:13 GMT+3"
-    },
     "0278a935-003c-4bf0-bd9d-460a8f5dd59b": {
       "name": "Copy of SA_Watch Target Cost Men 20+ | 2.8 Bid",
       "campaign": "smart+ watch suis SA 18-10",
@@ -1393,6 +1387,18 @@
       "campaign": "car scaling camp ",
       "reason": "[Copy Rule] صرفت $5.5 (>= $5) بدون مبيعات",
       "paused_at": "2026-10-20 11:13 GMT+3"
+    },
+    "6c165093-f5ff-43bc-9afe-d9df428b9c1b": {
+      "name": "Copy of Copy of 1.5 | 23.8",
+      "campaign": "car scaling camp ",
+      "reason": "[Copy Rule] صرفت $5.06 (>= $5) بدون مبيعات",
+      "paused_at": "2026-10-20 11:56 GMT+3"
+    },
+    "ded80dda-ae7f-45de-b03c-e0e57932fd3a": {
+      "name": "Copy of Copy of 1.5 | 23.8",
+      "campaign": "car scaling camp ",
+      "reason": "[Copy Rule] صرفت $5.37 (>= $5) بدون مبيعات",
+      "paused_at": "2026-10-20 11:56 GMT+3"
     }
   },
   "ads": {
@@ -9427,6 +9433,27 @@
       "adsquad": "Copy of SA_Car Target Cost Men 20+ | 2.8 Bid",
       "reason": "[Saudi Single Video Stop-Loss] صرف الفيديو $6.01 (>= $6.00) بدون مبيعة",
       "paused_at": "2026-10-20 11:13 GMT+3"
+    },
+    "0ff07044-2ab9-4e7f-b73a-2086ac44238e": {
+      "name": "SA_Car_tc_v4",
+      "campaign": "smart+ cars SA 18-10",
+      "adsquad": "Copy of SA_Car Target Cost Men 20+ | 2.8 Bid",
+      "reason": "[Ad CPC Rule] صرف الفيديو $2.26 | النقرات: 8 | سعر النقرة CPC = $0.282 (> $0.28)",
+      "paused_at": "2026-10-20 11:56 GMT+3"
+    },
+    "bed8f14d-d502-4832-afc8-49b5fb396e18": {
+      "name": "SA_Watch_tc_v6",
+      "campaign": "smart+ watch suis SA 18-10",
+      "adsquad": "Copy of SA_Watch Target Cost Men 20+ | 2.8 Bid",
+      "reason": "[Ad CPC Rule] صرف الفيديو $1.26 | النقرات: 3 | سعر النقرة CPC = $0.42 (> $0.28)",
+      "paused_at": "2026-10-20 11:56 GMT+3"
+    },
+    "3292a982-d789-449a-b842-8b63053a70ef": {
+      "name": "Copy of Copy of Copy of Copy of Copy of 2",
+      "campaign": "car scaling new 2 text",
+      "adsquad": "Copy of Copy of Copy of Copy of Copy of Copy of text 2 ",
+      "reason": "[Ad CPC Rule] صرف الفيديو $1.07 | النقرات: 3 | سعر النقرة CPC = $0.357 (> $0.28)",
+      "paused_at": "2026-10-20 11:56 GMT+3"
     }
   },
   "tiktok_videos": {
@@ -12766,6 +12793,23 @@
       "spend_2d": 1.02,
       "conv_2d": 0,
       "paused_at": "2026-10-20T06:35:33.098672+00:00"
+    },
+    "7631765070816509959:1879487306606177:1879487311698034": {
+      "aadvid": "7631765070816509959",
+      "account_name": "ROELLINGER RECYCLING2",
+      "ad_id": "1879487306606177",
+      "creative_id": "1879487308832962",
+      "campaign_ad_name": "car armrest 16-10 (Hanan + Ola) SCALE 10-19 / car armrest 16-10 (Hanan + Ola) - Creative",
+      "video_name": "16-10_hanan_4.mp4",
+      "draft_ids": [
+        "1879487311698034"
+      ],
+      "reason": "2-Day Spend $1.07 >= $1.00 & CPC $0.54 > $0.35",
+      "spend_1d": 0.8,
+      "conv_1d": 0,
+      "spend_2d": 1.07,
+      "conv_2d": 0,
+      "paused_at": "2026-10-20T08:59:13.591677+00:00"
     }
   },
   "tiktok_ads": {},
@@ -20322,7 +20366,7 @@
       "campaign": "باور بانك وينر",
       "date": "2026-10-20",
       "count": 3,
-      "done": false,
+      "done": true,
       "old_bid": 2.85,
       "new_bid": 2.95,
       "last_bump_at": "2026-10-20T08:16:12.042724+00:00",
@@ -20613,12 +20657,12 @@
       "name": "Copy of 16-10 1",
       "campaign": "باور بانك وينر",
       "date": "2026-10-20",
-      "count": 2,
+      "count": 3,
       "done": false,
-      "old_bid": 2.65,
-      "new_bid": 2.75,
-      "last_bump_at": "2026-10-20T06:34:39.849234+00:00",
-      "last_bump_local": "2026-10-20 09:32 GMT+3"
+      "old_bid": 2.75,
+      "new_bid": 2.85,
+      "last_bump_at": "2026-10-20T08:58:29.394953+00:00",
+      "last_bump_local": "2026-10-20 11:56 GMT+3"
     },
     "2f7714d2-d04d-477a-bebc-8923c21c048d": {
       "name": "Copy of 17-10 male winners",
@@ -20657,23 +20701,37 @@
       "name": "Copy of 16-10 1",
       "campaign": "باور بانك وينر",
       "date": "2026-10-20",
-      "count": 1,
+      "count": 2,
       "done": false,
-      "old_bid": 2.55,
-      "new_bid": 2.65,
-      "last_bump_at": "2026-10-20T06:34:39.849234+00:00",
-      "last_bump_local": "2026-10-20 09:32 GMT+3"
+      "old_bid": 2.65,
+      "new_bid": 2.75,
+      "last_bump_at": "2026-10-20T08:58:29.394953+00:00",
+      "last_bump_local": "2026-10-20 11:56 GMT+3"
     },
     "dde680d4-3e0f-4838-935b-cbd0bb9bc2ea": {
       "name": "Copy of 16-10 1",
       "campaign": "باور بانك وينر",
       "date": "2026-10-20",
-      "count": 1,
+      "count": 2,
       "done": false,
-      "old_bid": 2.55,
-      "new_bid": 2.65,
-      "last_bump_at": "2026-10-20T06:34:39.849234+00:00",
-      "last_bump_local": "2026-10-20 09:32 GMT+3"
+      "old_bid": 2.65,
+      "new_bid": 2.75,
+      "last_bump_at": "2026-10-20T08:58:29.394953+00:00",
+      "last_bump_local": "2026-10-20 11:56 GMT+3"
+    },
+    "d025bc9e-5d01-4973-94d9-5ec17057dc31": {
+      "count": 0,
+      "last_bump_at": null,
+      "done": true,
+      "name": "Copy of Copy of Copy of Copy of Copy of Copy of text 2 ",
+      "campaign": "car scaling new 2 text"
+    },
+    "dffd2188-2345-4164-9e7e-f8407cfe9687": {
+      "count": 0,
+      "last_bump_at": null,
+      "done": true,
+      "name": "Copy of Copy of Copy of Copy of 1.5 | 23.8",
+      "campaign": "car scaling camp "
     }
   },
   "tiktok_campaigns": {
@@ -21010,7 +21068,8 @@
     "dd948078-0495-42ba-8fc1-dbda315ea995": "16db9870-3d3b-436e-bd65-e049cc9498c0",
     "b7a5ae03-fa58-4916-abca-891436348f00": "0b76507b-b3a7-43f2-9a01-0683cf2639fe",
     "7c5c365f-cf25-4891-9606-7a1f0b3a6b73": "d159aa6a-cf76-452d-aeb6-2aff5577e336",
-    "60628396-d016-4ab5-b769-2e955172f118": "078375d2-814d-439d-bc0f-826bfa88e4f0"
+    "60628396-d016-4ab5-b769-2e955172f118": "078375d2-814d-439d-bc0f-826bfa88e4f0",
+    "8f1c0183-7348-4507-8389-2f8483a9bf5c": "d36cb2f0-f580-43d6-bbdc-6c86c05d4995"
   },
   "disabled_videos": {
     "062e2cba-fecb-488e-940e-75b50eca766d:9edae80d-dbd4-4253-b227-8bdcee74c4a6": {
@@ -28424,8 +28483,8 @@
       "campaign": "باور بانك السعودية سمارت+ (فيديوهات الحساب الثاني) 18-10",
       "bumps_today": 0,
       "last_action_at": null,
-      "last_spend": 4.4,
-      "last_check_at": "2026-10-20T05:55:19.189229+00:00",
+      "last_spend": 6.63,
+      "last_check_at": "2026-10-20T08:58:29.394953+00:00",
       "scaled_budget_today": false
     },
     "ac005eb4-956d-4a55-a6de-b66a9d29789c": {
