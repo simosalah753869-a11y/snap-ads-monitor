@@ -67,8 +67,8 @@ MAX_CAMPAIGN_NO_SALE_SPEND = 18.00
 MAX_CAMPAIGN_CPA = 21.00
 MAX_NO_SALE_SPEND = 6.00
 MAX_VIDEO_CPA = 8.00
-MIN_SPEND_FOR_CPC = 1.00
-MAX_CPC = 0.35
+MIN_SPEND_FOR_CPC = 1.80
+MAX_CPC = 0.45
 MAX_DUP_VIDEO_NO_SALE_SPEND = 20.00
 MAX_DUP_VIDEO_CPA = 22.00
 
@@ -610,7 +610,7 @@ def main():
         )
 
         now_sa = datetime.now(timezone(timedelta(hours=3)))
-        is_before_6pm_sa = (6 <= now_sa.hour < 18)
+        is_before_6pm_sa = (6 <= now_sa.hour <= 23)
         tt_scaled_today = history.setdefault("proactive_scaled_tiktok", {})
 
         for c3 in active_camps:
@@ -638,8 +638,8 @@ def main():
                     f"3-Day: ${c_spend_3d:.2f} ({c_conv_3d} sales, CPA=${c_cpa_3d})"
                 )
 
-            # Never pause the whole campaign: if 3-Day CPA > $8.00 (or >$8 w/ 0 sales), block duplication in this campaign (Saudi & Gulf unified)
-            if (c_spend_3d > 8.0 and c_conv_3d == 0) or (c_conv_3d > 0 and c_cpa_3d is not None and c_cpa_3d > 8.0):
+            # Never pause the whole campaign: only block duplication if 3-Day spend >= $20 w/ 0 sales or 3-Day CPA > $14.00
+            if (c_spend_3d >= 20.0 and c_conv_3d == 0) or (c_conv_3d > 0 and c_cpa_3d is not None and c_cpa_3d > 14.0):
                 no_dup_camps[camp_id] = {
                     "name": camp_name,
                     "aadvid": aadvid,
@@ -649,7 +649,7 @@ def main():
                     "reason": "3-Day CPA > $8.00 — Duplication Blocked (AdSet/Material pause only)",
                 }
                 print(f"    🚫 [NO-DUPLICATE LOCK] Campaign '{camp_name}' 3-Day CPA=${c_cpa_3d} (> $8.00) — Campaign kept ACTIVE, duplication blocked, pausing high-cost items inside it.")
-            elif camp_id in no_dup_camps and c_conv_3d > 0 and c_cpa_3d is not None and c_cpa_3d <= 8.0:
+            elif camp_id in no_dup_camps and c_conv_3d > 0 and c_cpa_3d is not None and c_cpa_3d <= 14.0:
                 del no_dup_camps[camp_id]
 
             # Unified Auto-Scale (+30% budget before 6:00 PM SA time) for ALL winning campaigns (Saudi & Non-Saudi/Gulf) with >=2 sales today and CPA <= $8.00
@@ -659,8 +659,8 @@ def main():
                 and camp_id not in no_dup_camps
                 and c_conv_1d >= 2
                 and c_cpa_1d is not None
-                and c_cpa_1d <= 8.0
-                and (c_cpa_3d is None or c_cpa_3d <= 8.0)
+                and c_cpa_1d <= 9.5
+                and (c_cpa_3d is None or c_cpa_3d <= 10.5)
                 and scale_key not in tt_scaled_today
             ):
                 try:
