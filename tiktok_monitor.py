@@ -610,7 +610,7 @@ def main():
         )
 
         now_sa = datetime.now(timezone(timedelta(hours=3)))
-        is_before_6pm_sa = (6 <= now_sa.hour <= 23)
+        is_before_6pm_sa = (6 <= now_sa.hour < 17)
         tt_scaled_today = history.setdefault("proactive_scaled_tiktok", {})
 
         for c3 in active_camps:
@@ -638,8 +638,8 @@ def main():
                     f"3-Day: ${c_spend_3d:.2f} ({c_conv_3d} sales, CPA=${c_cpa_3d})"
                 )
 
-            # Never pause the whole campaign: only block duplication if 3-Day spend >= $20 w/ 0 sales or 3-Day CPA > $14.00
-            if (c_spend_3d >= 20.0 and c_conv_3d == 0) or (c_conv_3d > 0 and c_cpa_3d is not None and c_cpa_3d > 14.0):
+            # Never pause the whole campaign: block duplication if 3-Day spend >= $10 w/ 0 sales or 3-Day CPA > $8.00
+            if (c_spend_3d >= 10.0 and c_conv_3d == 0) or (c_conv_3d > 0 and c_cpa_3d is not None and c_cpa_3d > 8.0):
                 no_dup_camps[camp_id] = {
                     "name": camp_name,
                     "aadvid": aadvid,
@@ -649,26 +649,26 @@ def main():
                     "reason": "3-Day CPA > $8.00 — Duplication Blocked (AdSet/Material pause only)",
                 }
                 print(f"    🚫 [NO-DUPLICATE LOCK] Campaign '{camp_name}' 3-Day CPA=${c_cpa_3d} (> $8.00) — Campaign kept ACTIVE, duplication blocked, pausing high-cost items inside it.")
-            elif camp_id in no_dup_camps and c_conv_3d > 0 and c_cpa_3d is not None and c_cpa_3d <= 14.0:
+            elif camp_id in no_dup_camps and c_conv_3d > 0 and c_cpa_3d is not None and c_cpa_3d <= 8.0:
                 del no_dup_camps[camp_id]
 
-            # Unified Auto-Scale (+30% budget before 6:00 PM SA time) for ALL winning campaigns (Saudi & Non-Saudi/Gulf) with >=2 sales today and CPA <= $8.00
+            # Controlled Auto-Scale (+20% budget before 5:00 PM SA time ONLY) for strong winning campaigns (>=3 sales today at CPA <= $6.50 and 3D CPA <= $7.50)
             scale_key = f"{now_sa.strftime('%Y-%m-%d')}:{aadvid}:{camp_id}"
             if (
                 is_before_6pm_sa
                 and camp_id not in no_dup_camps
-                and c_conv_1d >= 2
+                and c_conv_1d >= 3
                 and c_cpa_1d is not None
-                and c_cpa_1d <= 9.5
-                and (c_cpa_3d is None or c_cpa_3d <= 10.5)
+                and c_cpa_1d <= 6.50
+                and (c_cpa_3d is None or c_cpa_3d <= 7.50)
                 and scale_key not in tt_scaled_today
             ):
                 try:
                     cur_bdg = float(str(rd1.get("budget") or rd3.get("budget") or 50.0).replace(",", "").replace("$", ""))
                 except Exception:
                     cur_bdg = 50.0
-                if 20.0 <= cur_bdg < 250.0:
-                    new_bdg = min(300, int(round(cur_bdg * 1.30)))
+                if 20.0 <= cur_bdg < 150.0:
+                    new_bdg = min(180, int(round(cur_bdg * 1.20)))
                     try:
                         h_b = dict(headers)
                         h_b["Referer"] = f"https://ads.tiktok.com/i18n/manage/campaign?aadvid={aadvid}"
@@ -688,7 +688,7 @@ def main():
                                 "scaled_at": now_sa.isoformat(),
                             }
                             print(
-                                f"    🚀 [AUTO-SCALE +30%] Campaign '{camp_name}' ({c_conv_1d} sales @ CPA=${c_cpa_1d}) -> Budget: ${cur_bdg:.0f} -> ${new_bdg}"
+                                f"    🚀 [CONTROLLED AUTO-SCALE +20%] Campaign '{camp_name}' ({c_conv_1d} sales @ CPA=${c_cpa_1d}) -> Budget: ${cur_bdg:.0f} -> ${new_bdg}"
                             )
                     except Exception:
                         pass
