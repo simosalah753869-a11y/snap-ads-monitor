@@ -1423,6 +1423,30 @@
       "campaign": "car scaling new 2 text",
       "reason": "[Copy Rule] صرفت $5.04 (>= $5) بدون مبيعات",
       "paused_at": "2026-10-20 12:32 GMT+3"
+    },
+    "9e9f1b93-3e89-4b92-adc2-ef5e6093e65f": {
+      "name": "Copy of SA_Car Target Cost Men 20+ | 2.8 Bid",
+      "campaign": "smart+ cars SA 18-10",
+      "reason": "[Copy Rule] صرفت $5.21 (>= $5) بدون مبيعات",
+      "paused_at": "2026-10-20 13:09 GMT+3"
+    },
+    "1e70fbeb-724d-4755-b2f7-13b8e6147eac": {
+      "name": "Copy of Copy of Copy of Copy of Copy of Copy of text 2 ",
+      "campaign": "car scaling new 2 text",
+      "reason": "[Copy Rule] صرفت $5.35 (>= $5) بدون مبيعات",
+      "paused_at": "2026-10-20 13:09 GMT+3"
+    },
+    "aedff022-6628-4495-8da2-ca46c7cce639": {
+      "name": "Copy of SA_Watch Target Cost Men 20+ | 2.8 Bid",
+      "campaign": "smart+ watch suis SA 18-10",
+      "reason": "[Copy Rule] صرفت $5.16 (>= $5) بدون مبيعات",
+      "paused_at": "2026-10-20 13:09 GMT+3"
+    },
+    "8f0e1d5c-82f8-4ce7-9fcb-153249206d97": {
+      "name": "Copy of SA_Car Target Cost Men 20+ | 2.8 Bid",
+      "campaign": "smart+ cars SA 18-10",
+      "reason": "[Copy Rule] سعر البيعة CPA = $8.11 (>= $8) | الصرف: $8.11 | المبيعات: 1",
+      "paused_at": "2026-10-20 13:09 GMT+3"
     }
   },
   "ads": {
@@ -9499,6 +9523,20 @@
       "adsquad": "Copy of SA_PB_OldAcc Target Cost Men 20+ | 2.8 Bid",
       "reason": "[Ad CPC Rule] صرف الفيديو $1.02 | النقرات: 3 | سعر النقرة CPC = $0.34 (> $0.28)",
       "paused_at": "2026-10-20 12:32 GMT+3"
+    },
+    "8e80b0b4-3793-4441-8c88-6d1f91ca4a17": {
+      "name": "hist_tc_3_25_5_3_244sales",
+      "campaign": "باور بانك السعودية سمارت+ (فيديوهات الحساب الثاني) 18-10",
+      "adsquad": "Copy of SA_PB_OldAcc Target Cost Men 20+ | 2.8 Bid",
+      "reason": "[Ad CPC Rule] صرف الفيديو $1.44 | النقرات: 5 | سعر النقرة CPC = $0.288 (> $0.28)",
+      "paused_at": "2026-10-20 13:09 GMT+3"
+    },
+    "b8d6c61e-9c7c-4d74-b7e1-7b1215fcb08c": {
+      "name": "SA_Car_tc_v3",
+      "campaign": "smart+ cars SA 18-10",
+      "adsquad": "Copy of SA_Car Target Cost Men 20+ | 2.8 Bid",
+      "reason": "[Ad CPC Rule] صرف الفيديو $1.09 | النقرات: 3 | سعر النقرة CPC = $0.363 (> $0.28)",
+      "paused_at": "2026-10-20 13:09 GMT+3"
     }
   },
   "tiktok_videos": {
@@ -20703,7 +20741,7 @@
       "campaign": "باور بانك وينر",
       "date": "2026-10-20",
       "count": 3,
-      "done": false,
+      "done": true,
       "old_bid": 2.75,
       "new_bid": 2.85,
       "last_bump_at": "2026-10-20T08:58:29.394953+00:00",
@@ -20786,6 +20824,20 @@
       "campaign": "car scaling camp "
     },
     "61c906e0-dfbb-4df5-8672-5689c9b32bfe": {
+      "count": 0,
+      "last_bump_at": null,
+      "done": true,
+      "name": "Copy of Copy of 1.5 | 23.8",
+      "campaign": "car scaling camp "
+    },
+    "1f1369a8-9240-4215-9dee-891e8be4804f": {
+      "count": 0,
+      "last_bump_at": null,
+      "done": true,
+      "name": "Copy of Copy of 1.5 | 23.8",
+      "campaign": "car scaling camp "
+    },
+    "2f0d0317-e94c-4256-90a6-9011c513db2f": {
       "count": 0,
       "last_bump_at": null,
       "done": true,
