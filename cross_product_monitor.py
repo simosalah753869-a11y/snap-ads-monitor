@@ -69,15 +69,27 @@ def load_product_campaign_ids() -> dict:
     return {}
 
 
-def match_snap_campaigns(all_snap_camps: list[dict], prod_def: dict, saved_cfg: dict) -> list[dict]:
+def match_snap_campaigns(all_snap_camps: list[dict], prod_def: dict, saved_cfg: dict, snap_token: str = "") -> list[dict]:
     key = prod_def["key"]
     saved_snap_id = str(saved_cfg.get(key, {}).get("snapchat", {}).get("campaign_id") or "")
     matched = []
+    seen_ids = set()
     for c in all_snap_camps:
+        if c.get("status") != "ACTIVE":
+            continue
         cid = str(c.get("id") or "")
         cname = (c.get("name") or "").lower()
         if (saved_snap_id and cid == saved_snap_id) or any(k in cname for k in prod_def["snap_keywords"]):
             matched.append(c)
+            seen_ids.add(cid)
+    if saved_snap_id and saved_snap_id not in seen_ids and snap_token:
+        try:
+            r_c = api_get(f"/campaigns/{saved_snap_id}", snap_token)
+            c_obj = r_c.get("campaigns", [{}])[0].get("campaign", {})
+            if c_obj and c_obj.get("id") and c_obj.get("status") == "ACTIVE":
+                matched.append(c_obj)
+        except Exception:
+            pass
     return matched
 
 
@@ -157,8 +169,12 @@ def run_cross_product_monitor(dry_run: bool = False):
     # 1. Authenticate & Fetch Snapchat Data (Today + 3-Day + 7-Day)
     snap_cfg = load_config()
     snap_token = refresh_access_token(snap_cfg)
-    camps_resp = api_get(f"/adaccounts/{TARGET_ACCOUNT_ID}/campaigns?limit=200", snap_token)
-    all_snap_camps = [w.get("campaign", {}) for w in camps_resp.get("campaigns", []) if w.get("campaign")]
+    all_snap_camps = []
+    next_url = f"/adaccounts/{TARGET_ACCOUNT_ID}/campaigns?limit=1000"
+    while next_url:
+        camps_resp = api_get(next_url, snap_token)
+        all_snap_camps.extend([w.get("campaign", {}) for w in camps_resp.get("campaigns", []) if w.get("campaign")])
+        next_url = camps_resp.get("paging", {}).get("next_link") or ""
 
     snap_camp_1d = {x["id"]: x for x in fetch_account_breakdown_stats(snap_token, TARGET_ACCOUNT_ID, "campaign", days_back=0)}
     snap_camp_3d = {x["id"]: x for x in fetch_account_breakdown_stats(snap_token, TARGET_ACCOUNT_ID, "campaign", days_back=2)}
@@ -188,7 +204,7 @@ def run_cross_product_monitor(dry_run: bool = False):
     for prod_def in PRODUCT_DEFS:
         pkey = prod_def["key"]
         plabel = prod_def["label"]
-        snap_camps = match_snap_campaigns(all_snap_camps, prod_def, saved_cfg)
+        snap_camps = match_snap_campaigns(all_snap_camps, prod_def, saved_cfg, snap_token=snap_token)
         tt_camps = match_tiktok_campaigns(tt_camps_7d_list or tt_camps_3d_list, prod_def, saved_cfg)
 
         print(f"\n📦 المنتج: {plabel} ({pkey})")
