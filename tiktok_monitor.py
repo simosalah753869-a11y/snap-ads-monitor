@@ -152,57 +152,73 @@ def parse_draft_ids(raw_val):
     return [x.strip().strip("\"'") for x in cleaned.split(",") if x.strip().strip("\"'")]
 
 
+GULF_KEYWORDS = (
+    "oman", "qatar", "qat", "bahrain", "kuwait", "kuwiat", "kwt", "uae", "emarat",
+    "عمان", "قطر", "البحرين", "بحرين", "كويت", "الكويت", "الامارات", "الإمارات",
+)
+
+
+def is_gulf_campaign(campaign_name: str) -> bool:
+    cname = (campaign_name or "").lower()
+    return any(k in cname for k in GULF_KEYWORDS)
+
+
 def fetch_campaigns(session, headers, aadvid, st_date, et_date):
     h = dict(headers)
     h["Referer"] = f"https://ads.tiktok.com/i18n/manage/campaign?aadvid={aadvid}"
-    body = {
-        "common_req": {
-            "compare_et": "",
-            "compare_st": "",
-            "dimensions": ["campaign_id"],
-            "filters": [
-                {"field": "campaign_status", "in_field_values": ["delete"], "filter_type": 10},
-                {"field": "campaign_system_origin", "in_field_values": ["100000"], "filter_type": 0},
-            ],
-            "metrics": [
-                "stat_cost",
-                "cpc",
-                "cpm",
-                "show_cnt",
-                "click_cnt",
-                "ctr",
-                "time_attr_convert_cnt",
-                "time_attr_conversion_cost",
-            ],
-            "sort_stat": "stat_cost",
-            "sort_order": 1,
-            "st": st_date,
-            "et": et_date,
-            "lifetime": 0,
-            "page": 1,
-            "page_size": 100,
-        },
-        "extra": {
-            "ab_primary_status": "v2",
-            "get_compare_diff": "0",
-            "get_compare_rate": "0",
-            "get_compare_value": "0",
-            "list_version": "v2",
-            "region_schedule": "1",
-        },
-    }
-    try:
-        r = session.post(
-            f"https://ads.tiktok.com/api/v4/i18n/statistics/op/campaign/list/?aadvid={aadvid}&req_src=bidding",
-            headers=h,
-            json=body,
-            timeout=20,
-        ).json()
-        if isinstance(r, dict):
-            return r.get("data", {}).get("table", []) or []
-    except Exception as e:
-        print(f"    [WARN] fetch_campaigns error: {e}")
-    return []
+    all_rows = []
+    for page in range(1, 6):
+        body = {
+            "common_req": {
+                "compare_et": "",
+                "compare_st": "",
+                "dimensions": ["campaign_id"],
+                "filters": [
+                    {"field": "campaign_status", "in_field_values": ["delete"], "filter_type": 10},
+                    {"field": "campaign_system_origin", "in_field_values": ["100000"], "filter_type": 0},
+                ],
+                "metrics": [
+                    "stat_cost",
+                    "cpc",
+                    "cpm",
+                    "show_cnt",
+                    "click_cnt",
+                    "ctr",
+                    "time_attr_convert_cnt",
+                    "time_attr_conversion_cost",
+                ],
+                "sort_stat": "stat_cost",
+                "sort_order": 1,
+                "st": st_date,
+                "et": et_date,
+                "lifetime": 0,
+                "page": page,
+                "page_size": 100,
+            },
+            "extra": {
+                "ab_primary_status": "v2",
+                "get_compare_diff": "0",
+                "get_compare_rate": "0",
+                "get_compare_value": "0",
+                "list_version": "v2",
+                "region_schedule": "1",
+            },
+        }
+        try:
+            r = session.post(
+                f"https://ads.tiktok.com/api/v4/i18n/statistics/op/campaign/list/?aadvid={aadvid}&req_src=bidding",
+                headers=h,
+                json=body,
+                timeout=20,
+            ).json()
+            rows = (r.get("data", {}) if isinstance(r, dict) else {}).get("table", []) or []
+            all_rows.extend(rows)
+            if len(rows) < 100:
+                break
+        except Exception as e:
+            print(f"    [WARN] fetch_campaigns page {page} error: {e}")
+            break
+    return all_rows
 
 
 def pause_campaign(session, headers, aadvid, campaign_id, operation="disable"):
@@ -250,54 +266,59 @@ def evaluate_campaign_rules(spend_1d, conv_1d, spend_2d, conv_2d):
 def fetch_ads(session, headers, aadvid, st_date, et_date):
     h = dict(headers)
     h["Referer"] = f"https://ads.tiktok.com/i18n/manage/creative?aadvid={aadvid}"
-    body = {
-        "common_req": {
-            "compare_et": "",
-            "compare_st": "",
-            "dimensions": ["creative_id"],
-            "filters": [
-                {"field": "creative_status", "in_field_values": ["delete"], "filter_type": 10},
-                {"field": "campaign_system_origin", "in_field_values": ["100000"], "filter_type": 0},
-            ],
-            "metrics": [
-                "stat_cost",
-                "cpc",
-                "cpm",
-                "show_cnt",
-                "click_cnt",
-                "ctr",
-                "time_attr_convert_cnt",
-                "time_attr_conversion_cost",
-            ],
-            "sort_stat": "stat_cost",
-            "sort_order": 1,
-            "st": st_date,
-            "et": et_date,
-            "lifetime": 0,
-            "page": 1,
-            "page_size": 100,
-        },
-        "extra": {
-            "ab_primary_status": "v2",
-            "get_compare_diff": "0",
-            "get_compare_rate": "0",
-            "get_compare_value": "0",
-            "list_version": "v2",
-            "region_schedule": "1",
-        },
-    }
-    try:
-        r = session.post(
-            f"https://ads.tiktok.com/api/v4/i18n/statistics/op/ad/list/?aadvid={aadvid}&req_src=bidding",
-            headers=h,
-            json=body,
-            timeout=20,
-        ).json()
-        if isinstance(r, dict):
-            return r.get("data", {}).get("table", []) or []
-    except Exception as e:
-        print(f"    [WARN] fetch_ads error: {e}")
-    return []
+    all_rows = []
+    for page in range(1, 6):
+        body = {
+            "common_req": {
+                "compare_et": "",
+                "compare_st": "",
+                "dimensions": ["creative_id"],
+                "filters": [
+                    {"field": "creative_status", "in_field_values": ["delete"], "filter_type": 10},
+                    {"field": "campaign_system_origin", "in_field_values": ["100000"], "filter_type": 0},
+                ],
+                "metrics": [
+                    "stat_cost",
+                    "cpc",
+                    "cpm",
+                    "show_cnt",
+                    "click_cnt",
+                    "ctr",
+                    "time_attr_convert_cnt",
+                    "time_attr_conversion_cost",
+                ],
+                "sort_stat": "stat_cost",
+                "sort_order": 1,
+                "st": st_date,
+                "et": et_date,
+                "lifetime": 0,
+                "page": page,
+                "page_size": 100,
+            },
+            "extra": {
+                "ab_primary_status": "v2",
+                "get_compare_diff": "0",
+                "get_compare_rate": "0",
+                "get_compare_value": "0",
+                "list_version": "v2",
+                "region_schedule": "1",
+            },
+        }
+        try:
+            r = session.post(
+                f"https://ads.tiktok.com/api/v4/i18n/statistics/op/ad/list/?aadvid={aadvid}&req_src=bidding",
+                headers=h,
+                json=body,
+                timeout=20,
+            ).json()
+            rows = (r.get("data", {}) if isinstance(r, dict) else {}).get("table", []) or []
+            all_rows.extend(rows)
+            if len(rows) < 100:
+                break
+        except Exception as e:
+            print(f"    [WARN] fetch_ads page {page} error: {e}")
+            break
+    return all_rows
 
 
 def fetch_expanded_materials(session, headers, aadvid, creative_ids, st_date, et_date):
@@ -588,6 +609,10 @@ def main():
             f"Active Campaigns: {len(active_camps)} | Active AdSets: {len(active_cids)} ==="
         )
 
+        now_sa = datetime.now(timezone(timedelta(hours=3)))
+        is_before_6pm_sa = (6 <= now_sa.hour < 18)
+        tt_scaled_today = history.setdefault("proactive_scaled_tiktok", {})
+
         for c3 in active_camps:
             camp_id = str(c3.get("campaign_id") or "")
             camp_name = c3.get("campaign_name") or "Campaign"
@@ -603,6 +628,7 @@ def main():
             c_conv_2d = int(float(rd2.get("time_attr_convert_cnt") or 0))
             c_spend_3d = float(rd3.get("stat_cost") or 0.0)
             c_conv_3d = int(float(rd3.get("time_attr_convert_cnt") or 0))
+            c_cpa_1d = round(c_spend_1d / c_conv_1d, 2) if c_conv_1d > 0 else None
             c_cpa_3d = round(c_spend_3d / c_conv_3d, 2) if c_conv_3d > 0 else None
 
             if c_spend_3d > 0 or c_spend_1d > 0:
@@ -612,7 +638,7 @@ def main():
                     f"3-Day: ${c_spend_3d:.2f} ({c_conv_3d} sales, CPA=${c_cpa_3d})"
                 )
 
-            # Never pause the whole campaign: if 3-Day CPA > $8.00 (or >$8 w/ 0 sales), block duplication in this campaign
+            # Never pause the whole campaign: if 3-Day CPA > $8.00 (or >$8 w/ 0 sales), block duplication in this campaign (Saudi & Gulf unified)
             if (c_spend_3d > 8.0 and c_conv_3d == 0) or (c_conv_3d > 0 and c_cpa_3d is not None and c_cpa_3d > 8.0):
                 no_dup_camps[camp_id] = {
                     "name": camp_name,
@@ -625,6 +651,47 @@ def main():
                 print(f"    🚫 [NO-DUPLICATE LOCK] Campaign '{camp_name}' 3-Day CPA=${c_cpa_3d} (> $8.00) — Campaign kept ACTIVE, duplication blocked, pausing high-cost items inside it.")
             elif camp_id in no_dup_camps and c_conv_3d > 0 and c_cpa_3d is not None and c_cpa_3d <= 8.0:
                 del no_dup_camps[camp_id]
+
+            # Unified Auto-Scale (+30% budget before 6:00 PM SA time) for ALL winning campaigns (Saudi & Non-Saudi/Gulf) with >=2 sales today and CPA <= $8.00
+            scale_key = f"{now_sa.strftime('%Y-%m-%d')}:{aadvid}:{camp_id}"
+            if (
+                is_before_6pm_sa
+                and camp_id not in no_dup_camps
+                and c_conv_1d >= 2
+                and c_cpa_1d is not None
+                and c_cpa_1d <= 8.0
+                and (c_cpa_3d is None or c_cpa_3d <= 8.0)
+                and scale_key not in tt_scaled_today
+            ):
+                try:
+                    cur_bdg = float(str(rd1.get("budget") or rd3.get("budget") or 50.0).replace(",", "").replace("$", ""))
+                except Exception:
+                    cur_bdg = 50.0
+                if 20.0 <= cur_bdg < 250.0:
+                    new_bdg = min(300, int(round(cur_bdg * 1.30)))
+                    try:
+                        h_b = dict(headers)
+                        h_b["Referer"] = f"https://ads.tiktok.com/i18n/manage/campaign?aadvid={aadvid}"
+                        rb_resp = session.post(
+                            f"https://ads.tiktok.com/api/v2/i18n/overture/campaign/update_budget/?aadvid={aadvid}&req_src=bidding",
+                            headers=h_b,
+                            json={"campaign_id": camp_id, "budget": new_bdg, "budget_mode": 1, "ad_channel": 1},
+                            timeout=15,
+                        )
+                        if rb_resp.text.strip() and rb_resp.json().get("code") == 0:
+                            tt_scaled_today[scale_key] = {
+                                "name": camp_name,
+                                "old_budget": cur_bdg,
+                                "new_budget": new_bdg,
+                                "conv_today": c_conv_1d,
+                                "cpa_today": c_cpa_1d,
+                                "scaled_at": now_sa.isoformat(),
+                            }
+                            print(
+                                f"    🚀 [AUTO-SCALE +30%] Campaign '{camp_name}' ({c_conv_1d} sales @ CPA=${c_cpa_1d}) -> Budget: ${cur_bdg:.0f} -> ${new_bdg}"
+                            )
+                    except Exception:
+                        pass
 
         if not relevant_cids:
             continue
@@ -954,7 +1021,12 @@ def main():
         if not dup_reasons:
             continue
 
-        active_insts = [inst for inst in grp["instances"] if inst["is_active"]]
+        active_insts = [
+            inst for inst in grp["instances"]
+            if inst["is_active"]
+            and not (inst["conv_3d"] > 0 and (inst["spend_3d"] / inst["conv_3d"]) <= MAX_VIDEO_CPA)
+            and not (inst["conv_7d"] >= 3 and (inst["spend_7d"] / inst["conv_7d"]) <= MAX_VIDEO_CPA)
+        ]
         if not active_insts:
             continue
 
