@@ -1321,6 +1321,18 @@
       "campaign": "car scaling camp ",
       "reason": "[Copy Rule] صرفت $6.53 (>= $5) بدون مبيعات",
       "paused_at": "2026-10-20 08:52 GMT+3"
+    },
+    "5284a77d-9c27-40e5-9d61-9ffaf6284da6": {
+      "name": "Copy of Copy of Copy of Copy of Copy of Copy of text 2 ",
+      "campaign": "car scaling new 2 text",
+      "reason": "[Copy Rule] صرفت $5.2 (>= $5) بدون مبيعات",
+      "paused_at": "2026-10-20 09:32 GMT+3"
+    },
+    "8370d8c1-276c-43db-9819-b77f9ba17cd6": {
+      "name": "Copy of Copy of Copy of Copy of 1.5 | 23.8",
+      "campaign": "car scaling camp ",
+      "reason": "[Copy Rule] صرفت $5.0 (>= $5) بدون مبيعات",
+      "paused_at": "2026-10-20 09:32 GMT+3"
     }
   },
   "ads": {
@@ -9313,6 +9325,13 @@
       "adsquad": "Copy of 17-10 male winners",
       "reason": "[Aggregated Video High CPA - السعودية] مجموع صرف الفيديو = $19.28 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $19.28 (>= $18.00)",
       "paused_at": "2026-10-20 08:52 GMT+3"
+    },
+    "05eaf2f8-b725-4f2d-a642-281b7dababa7": {
+      "name": "W3_2",
+      "campaign": "smart+ watch suis SA 18-10",
+      "adsquad": "Copy of SA_Watch Target Cost Men 20+ | 2.8 Bid",
+      "reason": "[Ad CPC Rule] صرف الفيديو $1.13 | النقرات: 1 | سعر النقرة CPC = $1.13 (> $0.28)",
+      "paused_at": "2026-10-20 09:32 GMT+3"
     }
   },
   "tiktok_videos": {
@@ -12584,6 +12603,74 @@
       "spend_2d": 1.0,
       "conv_2d": 0,
       "paused_at": "2026-10-20T05:57:11.235570+00:00"
+    },
+    "7631763556322148369:1879471505909170:1879471509429346": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "ad_id": "1879471505909170",
+      "creative_id": "1879471507036193",
+      "campaign_ad_name": "car armrest 18-10 (Hanan + Ola 13-10) FAST SCALE 19-10 / car armrest 18-10 (Hanan + Ola 13-10) FAST SCALE 19-10 - Creative",
+      "video_name": "18_10_13-10_hanan_4.mp4",
+      "draft_ids": [
+        "1879471509429346"
+      ],
+      "reason": "Today Spend $1.08 >= $1.00 & CPC $0.36 > $0.35",
+      "spend_1d": 1.08,
+      "conv_1d": 0,
+      "spend_2d": 2.75,
+      "conv_2d": 0,
+      "paused_at": "2026-10-20T06:35:21.071920+00:00"
+    },
+    "7631763556322148369:1879390609489105:1879390609496322": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "ad_id": "1879390609489105",
+      "creative_id": "1879390609489137",
+      "campaign_ad_name": "power bank 18-10 Ola Hanan FAST SCALE / power bank 18-10 (Ola + Hanan 15-10) - Creative",
+      "video_name": "18_10_15-10_ola_2.mp4",
+      "draft_ids": [
+        "1879390609496322"
+      ],
+      "reason": "2-Day Spend $1.29 >= $1.00 & CPC $0.65 > $0.35",
+      "spend_1d": 0.96,
+      "conv_1d": 0,
+      "spend_2d": 1.29,
+      "conv_2d": 0,
+      "paused_at": "2026-10-20T06:35:21.831599+00:00"
+    },
+    "7631765070816509959:1879380389237874:1879380389265586": {
+      "aadvid": "7631765070816509959",
+      "account_name": "ROELLINGER RECYCLING2",
+      "ad_id": "1879380389237874",
+      "creative_id": "1879380389239874",
+      "campaign_ad_name": "watch broad tiktok WINNERS SCALE 18-10 / Ad name2026-10-10 08:10:58",
+      "video_name": "24_6.mp4",
+      "draft_ids": [
+        "1879380389265586"
+      ],
+      "reason": "2-Day Spend $1.24 >= $1.00 & CPC $0.41 > $0.35",
+      "spend_1d": 0.82,
+      "conv_1d": 0,
+      "spend_2d": 1.24,
+      "conv_2d": 0,
+      "paused_at": "2026-10-20T06:35:32.504774+00:00"
+    },
+    "7631765070816509959:1879487306606177:1879487311699314": {
+      "aadvid": "7631765070816509959",
+      "account_name": "ROELLINGER RECYCLING2",
+      "ad_id": "1879487306606177",
+      "creative_id": "1879487308832962",
+      "campaign_ad_name": "car armrest 16-10 (Hanan + Ola) SCALE 10-19 / car armrest 16-10 (Hanan + Ola) - Creative",
+      "video_name": "16-10_ola_4.mp4",
+      "draft_ids": [
+        "1879487311699314"
+      ],
+      "reason": "2-Day Spend $1.02 >= $1.00 & CPC $0.51 > $0.35",
+      "spend_1d": 0.4,
+      "conv_1d": 0,
+      "spend_2d": 1.02,
+      "conv_2d": 0,
+      "paused_at": "2026-10-20T06:35:33.098672+00:00"
     }
   },
   "tiktok_ads": {},
@@ -20162,7 +20249,7 @@
       "campaign": "باور بانك وينر",
       "date": "2026-10-20",
       "count": 2,
-      "done": false,
+      "done": true,
       "old_bid": 2.75,
       "new_bid": 2.85,
       "last_bump_at": "2026-10-20T05:55:19.189229+00:00",
@@ -20431,12 +20518,12 @@
       "name": "Copy of 16-10 1",
       "campaign": "باور بانك وينر",
       "date": "2026-10-20",
-      "count": 1,
+      "count": 2,
       "done": false,
-      "old_bid": 2.55,
-      "new_bid": 2.65,
-      "last_bump_at": "2026-10-20T04:29:20.651497+00:00",
-      "last_bump_local": "2026-10-20 07:28 GMT+3"
+      "old_bid": 2.65,
+      "new_bid": 2.75,
+      "last_bump_at": "2026-10-20T06:34:39.849234+00:00",
+      "last_bump_local": "2026-10-20 09:32 GMT+3"
     },
     "2f7714d2-d04d-477a-bebc-8923c21c048d": {
       "name": "Copy of 17-10 male winners",
@@ -20470,6 +20557,28 @@
       "new_bid": 3.0,
       "last_bump_at": "2026-10-20T05:55:19.189229+00:00",
       "last_bump_local": "2026-10-20 08:52 GMT+3"
+    },
+    "43533e81-fcd9-4bd1-9df3-89cb2c75f0fc": {
+      "name": "Copy of 16-10 1",
+      "campaign": "باور بانك وينر",
+      "date": "2026-10-20",
+      "count": 1,
+      "done": false,
+      "old_bid": 2.55,
+      "new_bid": 2.65,
+      "last_bump_at": "2026-10-20T06:34:39.849234+00:00",
+      "last_bump_local": "2026-10-20 09:32 GMT+3"
+    },
+    "dde680d4-3e0f-4838-935b-cbd0bb9bc2ea": {
+      "name": "Copy of 16-10 1",
+      "campaign": "باور بانك وينر",
+      "date": "2026-10-20",
+      "count": 1,
+      "done": false,
+      "old_bid": 2.55,
+      "new_bid": 2.65,
+      "last_bump_at": "2026-10-20T06:34:39.849234+00:00",
+      "last_bump_local": "2026-10-20 09:32 GMT+3"
     }
   },
   "tiktok_campaigns": {
