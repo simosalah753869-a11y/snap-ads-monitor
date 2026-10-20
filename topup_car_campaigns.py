@@ -2,7 +2,7 @@ from datetime import datetime, timedelta
 import sys
 import urllib.parse
 from snap_auth import API_BASE, load_config, refresh_access_token, api_get
-from snap_monitor import ACCOUNT_TZ, TARGET_ACCOUNT_ID
+from snap_monitor import ACCOUNT_TZ, TARGET_ACCOUNT_ID, load_paused_history, fetch_account_breakdown_stats
 from duplicate_gulf_campaigns import clone_adsquad_exact, make_session
 
 sys.stdout.reconfigure(encoding="utf-8")
@@ -10,14 +10,18 @@ sys.stdout.reconfigure(encoding="utf-8")
 AD_ACCOUNT_ID = "350cb560-ad77-4fb5-9bbf-4c090c9ad081"
 MIN_ACTIVE_COUNT = 20
 
-# الكلمات المفتاحية لحملات السكالينج السعودية فقط (يُمنع نسخ مجموعات دول الخليج أو الكشاف نهائياً)
-SCALING_KEYWORDS = ("scaling", "car", "وينر", "winner")
-GULF_OR_BANNED_KEYWORDS = (
-    "qatar", "oman", "kuwait", "kwt", "kuwiat", "bahrain", "uae", "emarat",
-    "قطر", "عمان", "كويت", "الكويت", "خليج", "البحرين", "الامارات", "الإمارات",
-    "kashaf", "kahsaf", "كشاف",
-)
-GULF_GEOS = {"qa", "om", "kw", "bh", "ae"}
+# الكلمات المفتاحية لحملات السكالينج والدوبليكيت (السعودية + دول الخليج بنفس الطريقة، مع حظر كشاف السعودية فقط)
+SCALING_KEYWORDS = ("scaling", "car", "وينر", "winner", "kashaf qatar", "كشاف قطر")
+BANNED_KASHAF = ("kashaf", "kahsaf", "كشاف")
+
+
+def is_banned_saudi_kashaf(cname: str) -> bool:
+    low = (cname or "").lower()
+    if any(b in low for b in BANNED_KASHAF):
+        if "qatar" in low or "قطر" in low or "qat" in low:
+            return False
+        return True
+    return False
 
 
 def get_7d_squad_stats(token: str) -> dict:
@@ -48,15 +52,10 @@ def is_scaling_or_duplicate_campaign(cname: str, squads: list[dict], active_squa
     if not active_squads:
         return False
     name_low = cname.lower()
-    if any(k in name_low for k in GULF_OR_BANNED_KEYWORDS):
+    if is_banned_saudi_kashaf(name_low):
         return False
     if any(k in name_low for k in ("علا وحنان", "دفعة", "super winners", "gems")):
         return False
-    for sq in squads:
-        for g in (sq.get("targeting", {}).get("geos") or []):
-            cc = (g.get("country_code") or "").lower()
-            if cc in GULF_GEOS:
-                return False
     has_copy = any("copy" in s.get("name", "").lower() for s in active_squads)
     if has_copy and len(active_squads) >= 5:
         return True
@@ -90,6 +89,9 @@ def main():
     token = refresh_access_token(load_config())
     session = make_session(token)
     stats_map = get_7d_squad_stats(token)
+    history = load_paused_history()
+    no_dup_camps = history.get("no_duplicate_campaigns", {})
+    camp_3d_stats = {x["id"]: x for x in fetch_account_breakdown_stats(token, AD_ACCOUNT_ID, "campaign", days_back=2)}
 
     rc = session.get(f"{API_BASE}/adaccounts/{AD_ACCOUNT_ID}/campaigns", timeout=20)
     rc.raise_for_status()
@@ -100,6 +102,12 @@ def main():
     for c in active_camps:
         cid = c["id"]
         cname = c["name"]
+        cst3 = camp_3d_stats.get(cid, {"spend": 0.0, "purchases": 0, "cpa": None})
+        is_cpa_over_8 = (
+            cid in no_dup_camps
+            or (cst3["spend"] > 8.0 and cst3["purchases"] == 0)
+            or (cst3["purchases"] > 0 and cst3["cpa"] is not None and cst3["cpa"] > 8.0)
+        )
         rsq = session.get(f"{API_BASE}/campaigns/{cid}/adsquads", timeout=20)
         rsq.raise_for_status()
         squads = [s["adsquad"] for s in rsq.json().get("adsquads", []) if "adsquad" in s]
@@ -128,6 +136,10 @@ def main():
 
         print(f"\n=== حملة: '{cname}' (ID: {cid}) ===", flush=True)
         print(f"   📊 عدد المجموعات النشطة الفعّالة حالياً: {active_count} (الحد الأدنى المطلوب: {MIN_ACTIVE_COUNT})", flush=True)
+
+        if is_cpa_over_8:
+            print(f"   🚫 منع تكرار الدوبليكيت في هذه الحملة لأن سعر البيعة فيها لآخر 3 أيام متعدي $8.00 (CPA=${cst3.get('cpa')}) — لن يتم عمل أي Duplicate جديد هنا.", flush=True)
+            continue
 
         if active_count >= MIN_ACTIVE_COUNT:
             print(f"   ✅ الحملة تحتوي على {active_count} مجموعة نشطة فعّالة (>= {MIN_ACTIVE_COUNT}) — لا تحتاج أي إضافة.", flush=True)
