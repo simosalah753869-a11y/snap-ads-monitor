@@ -293,6 +293,12 @@
       "campaign": "car scaling new 2 text",
       "reason": "[Copy Rule] صرفت $5.09 (>= $5.00) بدون مبيعات",
       "paused_at": "2026-10-20 17:36 GMT+3"
+    },
+    "75685b0f-657a-46b3-8b56-ce63662fe345": {
+      "name": "Copy of Copy of 1.5 | 23.8",
+      "campaign": "car scaling camp ",
+      "reason": "[Copy Rule] صرفت $5.11 (>= $5.00) بدون مبيعات",
+      "paused_at": "2026-10-20 18:15 GMT+3"
     }
   },
   "ads": {
@@ -2654,6 +2660,384 @@
       "adsquad": "Copy of 16-10 1",
       "reason": "[Permanent Disabled Video Lock - السعودية] هذا الفيديو موقوف نهائياً في هذه الحملة ولن يُسمح بإعادة تشغيله في أي AdSquad",
       "paused_at": "2026-10-20 17:36 GMT+3"
+    },
+    "fe4ffdbc-d74e-4bc3-bee8-b95c858fedc7": {
+      "name": "W3_2",
+      "campaign": "smart+ watch suis SA 18-10",
+      "adsquad": "Copy of SA_Watch Target Cost Men 20+ | 2.8 Bid",
+      "reason": "[Single Video Max $8 CPA Rule] صرف الفيديو $8.7 | المبيعات: 1 | CPA = $8.7 (> $8.00)",
+      "paused_at": "2026-10-20 18:15 GMT+3"
+    },
+    "07029a7b-c203-4676-bccf-7effbc28ad8d": {
+      "name": "Copy of Copy of Copy of 4",
+      "campaign": "Copy of kashaf qatar",
+      "adsquad": "Copy of Copy of male",
+      "reason": "[Aggregated Video Stop-Loss 7D - الخليج] مجموع صرف الفيديو لـ 7 أيام عبر كل الـ AdSquads = $19.94 (>= $14.00) بدون أي مبيعة",
+      "paused_at": "2026-10-20 18:15 GMT+3"
+    },
+    "0a6d7609-07b7-41f8-99d6-78b0b11e7218": {
+      "name": "Copy of Copy of Copy of 4",
+      "campaign": "Copy of kashaf qatar",
+      "adsquad": "Copy of Copy of male",
+      "reason": "[Aggregated Video Stop-Loss 7D - الخليج] مجموع صرف الفيديو لـ 7 أيام عبر كل الـ AdSquads = $19.94 (>= $14.00) بدون أي مبيعة",
+      "paused_at": "2026-10-20 18:15 GMT+3"
+    },
+    "0f21dd49-6e45-4d28-b797-60c114ebff7d": {
+      "name": "Copy of Copy of Copy of 4",
+      "campaign": "Copy of kashaf qatar",
+      "adsquad": "Copy of Copy of male",
+      "reason": "[Aggregated Video Stop-Loss 7D - الخليج] مجموع صرف الفيديو لـ 7 أيام عبر كل الـ AdSquads = $19.94 (>= $14.00) بدون أي مبيعة",
+      "paused_at": "2026-10-20 18:15 GMT+3"
+    },
+    "422e4641-4046-4dba-9c47-60c571b5f850": {
+      "name": "Copy of Copy of Copy of 4",
+      "campaign": "Copy of kashaf qatar",
+      "adsquad": "Copy of Copy of male",
+      "reason": "[Aggregated Video Stop-Loss 7D - الخليج] مجموع صرف الفيديو لـ 7 أيام عبر كل الـ AdSquads = $19.94 (>= $14.00) بدون أي مبيعة",
+      "paused_at": "2026-10-20 18:15 GMT+3"
+    },
+    "0fa6f818-5872-48ea-866b-dffc8637b81e": {
+      "name": "Copy of Copy of Copy of 4",
+      "campaign": "Copy of kashaf qatar",
+      "adsquad": "Copy of Copy of Copy of male",
+      "reason": "[Aggregated Video Stop-Loss 7D - الخليج] مجموع صرف الفيديو لـ 7 أيام عبر كل الـ AdSquads = $19.94 (>= $14.00) بدون أي مبيعة",
+      "paused_at": "2026-10-20 18:15 GMT+3"
+    },
+    "c7656e2a-636b-487e-8b83-159b2050f73f": {
+      "name": "Copy of Copy of Copy of 4",
+      "campaign": "Copy of kashaf qatar",
+      "adsquad": "Copy of Copy of Copy of male",
+      "reason": "[Aggregated Video Stop-Loss 7D - الخليج] مجموع صرف الفيديو لـ 7 أيام عبر كل الـ AdSquads = $19.94 (>= $14.00) بدون أي مبيعة",
+      "paused_at": "2026-10-20 18:15 GMT+3"
+    },
+    "1046c39e-e05b-42cb-8e4a-3409d716801d": {
+      "name": "Copy of Copy of Copy of 4",
+      "campaign": "Copy of kashaf qatar",
+      "adsquad": "Copy of 15$",
+      "reason": "[Aggregated Video Stop-Loss 7D - الخليج] مجموع صرف الفيديو لـ 7 أيام عبر كل الـ AdSquads = $19.94 (>= $14.00) بدون أي مبيعة",
+      "paused_at": "2026-10-20 18:15 GMT+3"
+    },
+    "1905b906-a166-4145-8e0e-7e4778cb7ad2": {
+      "name": "Copy of Copy of Copy of 4",
+      "campaign": "Copy of kashaf qatar",
+      "adsquad": "Copy of male",
+      "reason": "[Aggregated Video Stop-Loss 7D - الخليج] مجموع صرف الفيديو لـ 7 أيام عبر كل الـ AdSquads = $19.94 (>= $14.00) بدون أي مبيعة",
+      "paused_at": "2026-10-20 18:15 GMT+3"
+    },
+    "1aca654a-d917-4694-a196-923887736161": {
+      "name": "Copy of Copy of Copy of 4",
+      "campaign": "Copy of kashaf qatar",
+      "adsquad": "Copy of 15$",
+      "reason": "[Aggregated Video Stop-Loss 7D - الخليج] مجموع صرف الفيديو لـ 7 أيام عبر كل الـ AdSquads = $19.94 (>= $14.00) بدون أي مبيعة",
+      "paused_at": "2026-10-20 18:15 GMT+3"
+    },
+    "1de6b6ac-3424-4bb7-ac2b-0fede270b48b": {
+      "name": "Copy of Copy of Copy of 4",
+      "campaign": "Copy of kashaf qatar",
+      "adsquad": "Copy of 15$",
+      "reason": "[Aggregated Video Stop-Loss 7D - الخليج] مجموع صرف الفيديو لـ 7 أيام عبر كل الـ AdSquads = $19.94 (>= $14.00) بدون أي مبيعة",
+      "paused_at": "2026-10-20 18:15 GMT+3"
+    },
+    "3518ce0b-bbc5-47bb-8852-d0029b01d5b6": {
+      "name": "Copy of Copy of Copy of 4",
+      "campaign": "Copy of kashaf qatar",
+      "adsquad": "Copy of 15$",
+      "reason": "[Aggregated Video Stop-Loss 7D - الخليج] مجموع صرف الفيديو لـ 7 أيام عبر كل الـ AdSquads = $19.94 (>= $14.00) بدون أي مبيعة",
+      "paused_at": "2026-10-20 18:15 GMT+3"
+    },
+    "363cdf52-bf3f-4366-91aa-10539248c381": {
+      "name": "Copy of Copy of Copy of 4",
+      "campaign": "Copy of kashaf qatar",
+      "adsquad": "male",
+      "reason": "[Aggregated Video Stop-Loss 7D - الخليج] مجموع صرف الفيديو لـ 7 أيام عبر كل الـ AdSquads = $19.94 (>= $14.00) بدون أي مبيعة",
+      "paused_at": "2026-10-20 18:15 GMT+3"
+    },
+    "9177f986-edd0-4cb5-bda8-b89dee5560d1": {
+      "name": "Copy of Copy of Copy of 4",
+      "campaign": "Copy of kashaf qatar",
+      "adsquad": "male",
+      "reason": "[Aggregated Video Stop-Loss 7D - الخليج] مجموع صرف الفيديو لـ 7 أيام عبر كل الـ AdSquads = $19.94 (>= $14.00) بدون أي مبيعة",
+      "paused_at": "2026-10-20 18:15 GMT+3"
+    },
+    "3b54ac0a-d0f0-4853-8fcc-4a232ebfaa86": {
+      "name": "Copy of Copy of Copy of 4",
+      "campaign": "Copy of kashaf qatar",
+      "adsquad": "Copy of male",
+      "reason": "[Aggregated Video Stop-Loss 7D - الخليج] مجموع صرف الفيديو لـ 7 أيام عبر كل الـ AdSquads = $19.94 (>= $14.00) بدون أي مبيعة",
+      "paused_at": "2026-10-20 18:15 GMT+3"
+    },
+    "45ff9b3d-930b-49c9-9280-1b40cb161fa3": {
+      "name": "Copy of Copy of Copy of 4",
+      "campaign": "Copy of kashaf qatar",
+      "adsquad": "Copy of 15$",
+      "reason": "[Aggregated Video Stop-Loss 7D - الخليج] مجموع صرف الفيديو لـ 7 أيام عبر كل الـ AdSquads = $19.94 (>= $14.00) بدون أي مبيعة",
+      "paused_at": "2026-10-20 18:15 GMT+3"
+    },
+    "ad6d7ff3-6bce-4b32-be34-47315323e32d": {
+      "name": "Copy of Copy of Copy of 4",
+      "campaign": "Copy of kashaf qatar",
+      "adsquad": "Copy of 15$",
+      "reason": "[Aggregated Video Stop-Loss 7D - الخليج] مجموع صرف الفيديو لـ 7 أيام عبر كل الـ AdSquads = $19.94 (>= $14.00) بدون أي مبيعة",
+      "paused_at": "2026-10-20 18:15 GMT+3"
+    },
+    "484d04fe-6f9d-4295-aed1-721b211385e9": {
+      "name": "Copy of Copy of Copy of 4",
+      "campaign": "Copy of kashaf qatar",
+      "adsquad": "Copy of Copy of male",
+      "reason": "[Aggregated Video Stop-Loss 7D - الخليج] مجموع صرف الفيديو لـ 7 أيام عبر كل الـ AdSquads = $19.94 (>= $14.00) بدون أي مبيعة",
+      "paused_at": "2026-10-20 18:15 GMT+3"
+    },
+    "79186c69-04a5-4729-928e-161cf5abb800": {
+      "name": "Copy of Copy of Copy of 4",
+      "campaign": "Copy of kashaf qatar",
+      "adsquad": "Copy of Copy of male",
+      "reason": "[Aggregated Video Stop-Loss 7D - الخليج] مجموع صرف الفيديو لـ 7 أيام عبر كل الـ AdSquads = $19.94 (>= $14.00) بدون أي مبيعة",
+      "paused_at": "2026-10-20 18:15 GMT+3"
+    },
+    "4a06208a-c508-4096-bec3-75473d89429f": {
+      "name": "Copy of Copy of Copy of 4",
+      "campaign": "Copy of kashaf qatar",
+      "adsquad": "Copy of male",
+      "reason": "[Aggregated Video Stop-Loss 7D - الخليج] مجموع صرف الفيديو لـ 7 أيام عبر كل الـ AdSquads = $19.94 (>= $14.00) بدون أي مبيعة",
+      "paused_at": "2026-10-20 18:15 GMT+3"
+    },
+    "a3d0111e-abcf-48dc-8258-f7439fa9d6f7": {
+      "name": "Copy of Copy of Copy of 4",
+      "campaign": "Copy of kashaf qatar",
+      "adsquad": "Copy of male",
+      "reason": "[Aggregated Video Stop-Loss 7D - الخليج] مجموع صرف الفيديو لـ 7 أيام عبر كل الـ AdSquads = $19.94 (>= $14.00) بدون أي مبيعة",
+      "paused_at": "2026-10-20 18:15 GMT+3"
+    },
+    "51a50fe6-6846-47fa-8c44-0de1a047707e": {
+      "name": "Copy of Copy of Copy of 4",
+      "campaign": "Copy of kashaf qatar",
+      "adsquad": "Copy of Copy of male",
+      "reason": "[Aggregated Video Stop-Loss 7D - الخليج] مجموع صرف الفيديو لـ 7 أيام عبر كل الـ AdSquads = $19.94 (>= $14.00) بدون أي مبيعة",
+      "paused_at": "2026-10-20 18:15 GMT+3"
+    },
+    "6bb1ca1a-94a8-49d9-b27b-6d9bef7d8ac6": {
+      "name": "Copy of Copy of Copy of 4",
+      "campaign": "Copy of kashaf qatar",
+      "adsquad": "Copy of Copy of male",
+      "reason": "[Aggregated Video Stop-Loss 7D - الخليج] مجموع صرف الفيديو لـ 7 أيام عبر كل الـ AdSquads = $19.94 (>= $14.00) بدون أي مبيعة",
+      "paused_at": "2026-10-20 18:15 GMT+3"
+    },
+    "63a08596-45ce-41a3-8d8b-b995d65bc48a": {
+      "name": "Copy of Copy of Copy of 4",
+      "campaign": "Copy of kashaf qatar",
+      "adsquad": "Copy of Copy of male",
+      "reason": "[Aggregated Video Stop-Loss 7D - الخليج] مجموع صرف الفيديو لـ 7 أيام عبر كل الـ AdSquads = $19.94 (>= $14.00) بدون أي مبيعة",
+      "paused_at": "2026-10-20 18:15 GMT+3"
+    },
+    "6cb8c7fd-eb87-49d2-9960-017132e3dd1d": {
+      "name": "Copy of Copy of Copy of 4",
+      "campaign": "Copy of kashaf qatar",
+      "adsquad": "Copy of Copy of 15$",
+      "reason": "[Aggregated Video Stop-Loss 7D - الخليج] مجموع صرف الفيديو لـ 7 أيام عبر كل الـ AdSquads = $19.94 (>= $14.00) بدون أي مبيعة",
+      "paused_at": "2026-10-20 18:15 GMT+3"
+    },
+    "772aa7d1-2fd1-4464-8b2b-a5edb1f46299": {
+      "name": "Copy of Copy of Copy of 4",
+      "campaign": "Copy of kashaf qatar",
+      "adsquad": "Copy of Copy of male",
+      "reason": "[Aggregated Video Stop-Loss 7D - الخليج] مجموع صرف الفيديو لـ 7 أيام عبر كل الـ AdSquads = $19.94 (>= $14.00) بدون أي مبيعة",
+      "paused_at": "2026-10-20 18:15 GMT+3"
+    },
+    "a9943df1-1a83-4bcb-80fc-6414071be325": {
+      "name": "Copy of Copy of Copy of 4",
+      "campaign": "Copy of kashaf qatar",
+      "adsquad": "Copy of Copy of male",
+      "reason": "[Aggregated Video Stop-Loss 7D - الخليج] مجموع صرف الفيديو لـ 7 أيام عبر كل الـ AdSquads = $19.94 (>= $14.00) بدون أي مبيعة",
+      "paused_at": "2026-10-20 18:15 GMT+3"
+    },
+    "7e4aebbb-9f66-453c-a5ab-50670ed5aef9": {
+      "name": "Copy of Copy of Copy of 4",
+      "campaign": "Copy of kashaf qatar",
+      "adsquad": "15$",
+      "reason": "[Aggregated Video Stop-Loss 7D - الخليج] مجموع صرف الفيديو لـ 7 أيام عبر كل الـ AdSquads = $19.94 (>= $14.00) بدون أي مبيعة",
+      "paused_at": "2026-10-20 18:15 GMT+3"
+    },
+    "93558444-7191-4339-ae7d-6fa61825f847": {
+      "name": "Copy of Copy of Copy of 4",
+      "campaign": "Copy of kashaf qatar",
+      "adsquad": "Copy of 15$",
+      "reason": "[Aggregated Video Stop-Loss 7D - الخليج] مجموع صرف الفيديو لـ 7 أيام عبر كل الـ AdSquads = $19.94 (>= $14.00) بدون أي مبيعة",
+      "paused_at": "2026-10-20 18:15 GMT+3"
+    },
+    "a6243b27-044c-4360-bd45-01e3ed9ca7a9": {
+      "name": "Copy of Copy of Copy of 4",
+      "campaign": "Copy of kashaf qatar",
+      "adsquad": "15$",
+      "reason": "[Aggregated Video Stop-Loss 7D - الخليج] مجموع صرف الفيديو لـ 7 أيام عبر كل الـ AdSquads = $19.94 (>= $14.00) بدون أي مبيعة",
+      "paused_at": "2026-10-20 18:15 GMT+3"
+    },
+    "be39df7a-6464-454b-87a1-6b6a91b78081": {
+      "name": "Copy of Copy of Copy of 4",
+      "campaign": "Copy of kashaf qatar",
+      "adsquad": "15$",
+      "reason": "[Aggregated Video Stop-Loss 7D - الخليج] مجموع صرف الفيديو لـ 7 أيام عبر كل الـ AdSquads = $19.94 (>= $14.00) بدون أي مبيعة",
+      "paused_at": "2026-10-20 18:15 GMT+3"
+    },
+    "a7875756-6937-435f-b23b-f3ff32380632": {
+      "name": "Copy of Copy of Copy of 4",
+      "campaign": "Copy of kashaf qatar",
+      "adsquad": "Copy of male",
+      "reason": "[Aggregated Video Stop-Loss 7D - الخليج] مجموع صرف الفيديو لـ 7 أيام عبر كل الـ AdSquads = $19.94 (>= $14.00) بدون أي مبيعة",
+      "paused_at": "2026-10-20 18:15 GMT+3"
+    },
+    "a9bb10eb-d0c1-4696-b783-3d18e13ee09a": {
+      "name": "Copy of Copy of Copy of 4",
+      "campaign": "Copy of kashaf qatar",
+      "adsquad": "Copy of male",
+      "reason": "[Aggregated Video Stop-Loss 7D - الخليج] مجموع صرف الفيديو لـ 7 أيام عبر كل الـ AdSquads = $19.94 (>= $14.00) بدون أي مبيعة",
+      "paused_at": "2026-10-20 18:15 GMT+3"
+    },
+    "bff00da3-0964-4b74-b288-ce9b88414e0f": {
+      "name": "Copy of Copy of Copy of 4",
+      "campaign": "Copy of kashaf qatar",
+      "adsquad": "Copy of Copy of male",
+      "reason": "[Aggregated Video Stop-Loss 7D - الخليج] مجموع صرف الفيديو لـ 7 أيام عبر كل الـ AdSquads = $19.94 (>= $14.00) بدون أي مبيعة",
+      "paused_at": "2026-10-20 18:15 GMT+3"
+    },
+    "035c825e-dcab-4507-be72-f5fd267dc63c": {
+      "name": "3_winner",
+      "campaign": "watch suis winners 17-10",
+      "adsquad": "Copy of 17-10 male winners",
+      "reason": "[Aggregated Video High CPA 1D - السعودية] مجموع صرف الفيديو اليوم = $20.44 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $20.44 (>= $16.00)",
+      "paused_at": "2026-10-20 18:15 GMT+3"
+    },
+    "0f6bea16-cca7-40f4-96a8-ac0cd1616891": {
+      "name": "3_winner",
+      "campaign": "watch suis winners 17-10",
+      "adsquad": "Copy of 17-10 male winners",
+      "reason": "[Aggregated Video High CPA 1D - السعودية] مجموع صرف الفيديو اليوم = $20.44 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $20.44 (>= $16.00)",
+      "paused_at": "2026-10-20 18:15 GMT+3"
+    },
+    "10a8a3de-113b-4e4a-a2d0-20796416343a": {
+      "name": "3_winner",
+      "campaign": "watch suis winners 17-10",
+      "adsquad": "Copy of 17-10 male winners",
+      "reason": "[Aggregated Video High CPA 1D - السعودية] مجموع صرف الفيديو اليوم = $20.44 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $20.44 (>= $16.00)",
+      "paused_at": "2026-10-20 18:15 GMT+3"
+    },
+    "213bc344-bbce-4c02-b23d-bb203a38391b": {
+      "name": "3_winner",
+      "campaign": "watch suis winners 17-10",
+      "adsquad": "Copy of 17-10 male winners",
+      "reason": "[Aggregated Video High CPA 1D - السعودية] مجموع صرف الفيديو اليوم = $20.44 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $20.44 (>= $16.00)",
+      "paused_at": "2026-10-20 18:15 GMT+3"
+    },
+    "23de6b71-eef7-4f16-b60e-72f6e4a04bd1": {
+      "name": "3_winner",
+      "campaign": "watch suis winners 17-10",
+      "adsquad": "Copy of 17-10 male winners",
+      "reason": "[Aggregated Video High CPA 1D - السعودية] مجموع صرف الفيديو اليوم = $20.44 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $20.44 (>= $16.00)",
+      "paused_at": "2026-10-20 18:15 GMT+3"
+    },
+    "29df4ab2-28f8-435a-a789-039c1083aa59": {
+      "name": "3_winner",
+      "campaign": "watch suis winners 17-10",
+      "adsquad": "Copy of 17-10 male winners",
+      "reason": "[Aggregated Video High CPA 1D - السعودية] مجموع صرف الفيديو اليوم = $20.44 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $20.44 (>= $16.00)",
+      "paused_at": "2026-10-20 18:15 GMT+3"
+    },
+    "33a9a51a-a697-4abb-be7f-b15e6956a1f7": {
+      "name": "3_winner",
+      "campaign": "watch suis winners 17-10",
+      "adsquad": "Copy of 17-10 male winners",
+      "reason": "[Aggregated Video High CPA 1D - السعودية] مجموع صرف الفيديو اليوم = $20.44 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $20.44 (>= $16.00)",
+      "paused_at": "2026-10-20 18:15 GMT+3"
+    },
+    "3a3df528-edbd-43ff-9555-c6dc3aaf56e8": {
+      "name": "3_winner",
+      "campaign": "watch suis winners 17-10",
+      "adsquad": "Copy of 17-10 male winners",
+      "reason": "[Aggregated Video High CPA 1D - السعودية] مجموع صرف الفيديو اليوم = $20.44 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $20.44 (>= $16.00)",
+      "paused_at": "2026-10-20 18:15 GMT+3"
+    },
+    "40e409ac-b786-4b85-a730-04df4caa2af0": {
+      "name": "3_winner",
+      "campaign": "watch suis winners 17-10",
+      "adsquad": "Copy of 17-10 male winners",
+      "reason": "[Aggregated Video High CPA 1D - السعودية] مجموع صرف الفيديو اليوم = $20.44 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $20.44 (>= $16.00)",
+      "paused_at": "2026-10-20 18:15 GMT+3"
+    },
+    "718410be-10d3-4796-a765-b3cb253c7b20": {
+      "name": "3_winner",
+      "campaign": "watch suis winners 17-10",
+      "adsquad": "Copy of 17-10 male winners",
+      "reason": "[Aggregated Video High CPA 1D - السعودية] مجموع صرف الفيديو اليوم = $20.44 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $20.44 (>= $16.00)",
+      "paused_at": "2026-10-20 18:15 GMT+3"
+    },
+    "7c6cbe41-46ea-4ffc-9770-a0b98b6a9cdf": {
+      "name": "3_winner",
+      "campaign": "watch suis winners 17-10",
+      "adsquad": "Copy of 17-10 male winners",
+      "reason": "[Aggregated Video High CPA 1D - السعودية] مجموع صرف الفيديو اليوم = $20.44 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $20.44 (>= $16.00)",
+      "paused_at": "2026-10-20 18:15 GMT+3"
+    },
+    "85715123-33e7-4d63-bec7-c335f4e0ba04": {
+      "name": "3_winner",
+      "campaign": "watch suis winners 17-10",
+      "adsquad": "Copy of 17-10 male winners",
+      "reason": "[Aggregated Video High CPA 1D - السعودية] مجموع صرف الفيديو اليوم = $20.44 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $20.44 (>= $16.00)",
+      "paused_at": "2026-10-20 18:15 GMT+3"
+    },
+    "b7645be8-36a5-4c0e-b3c5-3f693a900e08": {
+      "name": "3_winner",
+      "campaign": "watch suis winners 17-10",
+      "adsquad": "Copy of 17-10 male winners",
+      "reason": "[Aggregated Video High CPA 1D - السعودية] مجموع صرف الفيديو اليوم = $20.44 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $20.44 (>= $16.00)",
+      "paused_at": "2026-10-20 18:15 GMT+3"
+    },
+    "c16cd094-9b75-4141-ba74-cca8299e4ab8": {
+      "name": "3_winner",
+      "campaign": "watch suis winners 17-10",
+      "adsquad": "Copy of 17-10 male winners",
+      "reason": "[Aggregated Video High CPA 1D - السعودية] مجموع صرف الفيديو اليوم = $20.44 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $20.44 (>= $16.00)",
+      "paused_at": "2026-10-20 18:15 GMT+3"
+    },
+    "c61b1e4b-13d2-4b3b-af96-22e739a65fd4": {
+      "name": "3_winner",
+      "campaign": "watch suis winners 17-10",
+      "adsquad": "Copy of 17-10 male winners",
+      "reason": "[Aggregated Video High CPA 1D - السعودية] مجموع صرف الفيديو اليوم = $20.44 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $20.44 (>= $16.00)",
+      "paused_at": "2026-10-20 18:15 GMT+3"
+    },
+    "d407e1a4-d1a1-4c90-bd23-2e0eddab3e12": {
+      "name": "3_winner",
+      "campaign": "watch suis winners 17-10",
+      "adsquad": "Copy of 17-10 male winners",
+      "reason": "[Aggregated Video High CPA 1D - السعودية] مجموع صرف الفيديو اليوم = $20.44 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $20.44 (>= $16.00)",
+      "paused_at": "2026-10-20 18:15 GMT+3"
+    },
+    "da29fb8e-d72b-4044-a2cf-c0ee09df6c95": {
+      "name": "3_winner",
+      "campaign": "watch suis winners 17-10",
+      "adsquad": "Copy of 17-10 male winners",
+      "reason": "[Aggregated Video High CPA 1D - السعودية] مجموع صرف الفيديو اليوم = $20.44 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $20.44 (>= $16.00)",
+      "paused_at": "2026-10-20 18:15 GMT+3"
+    },
+    "ec9c027e-0b5e-420c-aab8-8d624f3b5625": {
+      "name": "3_winner",
+      "campaign": "watch suis winners 17-10",
+      "adsquad": "Copy of 17-10 male winners",
+      "reason": "[Aggregated Video High CPA 1D - السعودية] مجموع صرف الفيديو اليوم = $20.44 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $20.44 (>= $16.00)",
+      "paused_at": "2026-10-20 18:15 GMT+3"
+    },
+    "edaa7b2a-c2b6-426d-92bf-0cd22b889a4e": {
+      "name": "3_winner",
+      "campaign": "watch suis winners 17-10",
+      "adsquad": "Copy of 17-10 male winners",
+      "reason": "[Aggregated Video High CPA 1D - السعودية] مجموع صرف الفيديو اليوم = $20.44 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $20.44 (>= $16.00)",
+      "paused_at": "2026-10-20 18:15 GMT+3"
+    },
+    "f7f74a8d-dab0-4b15-a8a0-6a032f56dfc9": {
+      "name": "3_winner",
+      "campaign": "watch suis winners 17-10",
+      "adsquad": "Copy of 17-10 male winners",
+      "reason": "[Aggregated Video High CPA 1D - السعودية] مجموع صرف الفيديو اليوم = $20.44 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $20.44 (>= $16.00)",
+      "paused_at": "2026-10-20 18:15 GMT+3"
     }
   },
   "bid_bumps": {
@@ -4042,7 +4426,9 @@
     "dbf074ff-4b2f-459b-b00b-3dce8a0390cd": "59cb047a-9656-4d62-93b0-f8fda20016ef",
     "5ebc6182-9e54-4e9f-ab09-ff67636ae224": "d484b7de-0700-46c2-b752-610cb7ddff8e",
     "403d0439-1682-438a-993b-235ff7ebef42": "b6472b14-f37e-4b76-a350-0ce89ebe75db",
-    "e6527488-5d78-479a-addf-951e26b458c8": "af66758c-9310-4ec7-bbcc-272a4e95ede9"
+    "e6527488-5d78-479a-addf-951e26b458c8": "af66758c-9310-4ec7-bbcc-272a4e95ede9",
+    "76008270-dd8d-4ad0-859c-69acc8358cd5": "c2bfe546-26c6-4229-8f48-7fcc04d4cd93",
+    "06f0c6b5-4435-4c49-8170-a7f112b82349": "e64fc144-a425-45fa-a32c-a72791fe744c"
   },
   "disabled_videos": {
     "8703fd84-bad8-482e-adb5-da1e9c635d13:5f7adecd-57a1-4ff8-8cb0-c6904e9c6232": {
@@ -4260,10 +4646,10 @@
       "video_media_id": "4341549d-96d6-4b35-aa45-285245718d6e",
       "sample_ad_name": "3_winner",
       "closed_instances": 20,
-      "total_spend": 20.14,
+      "total_spend": 20.44,
       "total_purchases": 1,
-      "reason": "[Aggregated Video High CPA 1D - السعودية] مجموع صرف الفيديو اليوم = $20.14 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $20.14 (>= $18.00)",
-      "disabled_at": "2026-10-20 16:07 GMT+3"
+      "reason": "[Aggregated Video High CPA 1D - السعودية] مجموع صرف الفيديو اليوم = $20.44 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $20.44 (>= $16.00)",
+      "disabled_at": "2026-10-20 18:15 GMT+3"
     },
     "9be45a26-06ac-4716-8e7b-2fb3a4d65e4c:6567a067-ce9f-461e-ab3d-44b9a44125f7": {
       "campaign_id": "9be45a26-06ac-4716-8e7b-2fb3a4d65e4c",
@@ -4325,11 +4711,11 @@
       "campaign_name": "Copy of kashaf qatar",
       "video_media_id": "c2bfe546-26c6-4229-8f48-7fcc04d4cd93",
       "sample_ad_name": "Copy of Copy of Copy of Copy of Copy of Copy of Copy of 4",
-      "closed_instances": 45,
-      "total_spend": 0.0,
+      "closed_instances": 33,
+      "total_spend": 0.02,
       "total_purchases": 0,
-      "reason": "[Aggregated Video Stop-Loss 7D - غير السعودية/الخليج] مجموع صرف الفيديو لـ 7 أيام عبر كل الـ AdSquads = $19.92 (>= $13.00) بدون أي مبيعة",
-      "disabled_at": "2026-10-20 16:47 GMT+3"
+      "reason": "[Aggregated Video Stop-Loss 7D - الخليج] مجموع صرف الفيديو لـ 7 أيام عبر كل الـ AdSquads = $19.94 (>= $14.00) بدون أي مبيعة",
+      "disabled_at": "2026-10-20 18:15 GMT+3"
     },
     "e23e7c95-3f15-4945-9844-8bd73e2d79d3:04d7ae2c-e2c4-41ee-a5c9-1a6d3ace7f38": {
       "campaign_id": "e23e7c95-3f15-4945-9844-8bd73e2d79d3",
@@ -5495,6 +5881,27 @@
       "global_spend_7d": 16.04,
       "global_conv_7d": 0,
       "paused_at": "2026-10-20T11:51:51.190980+00:00"
+    },
+    "7631765070816509959:1879487306606177:1879487311700226": {
+      "aadvid": "7631765070816509959",
+      "account_name": "ROELLINGER RECYCLING2",
+      "ad_id": "1879487306606177",
+      "creative_id": "1879487308832962",
+      "campaign_ad_name": "car armrest 16-10 (Hanan + Ola) SCALE 10-19 / car armrest 16-10 (Hanan + Ola) - Creative",
+      "video_name": "16-10_ola_5.mp4",
+      "draft_ids": [
+        "1879487311700226"
+      ],
+      "reason": "2-Day Spend $1.02 >= $1.00 & CPC $1.02 > $0.35",
+      "spend_1d": 0.91,
+      "conv_1d": 0,
+      "spend_2d": 1.02,
+      "conv_2d": 0,
+      "spend_3d": 1.02,
+      "conv_3d": 0,
+      "spend_7d": 1.02,
+      "conv_7d": 0,
+      "paused_at": "2026-10-20T15:19:50.311638+00:00"
     }
   },
   "tiktok_ads": {},
@@ -5680,59 +6087,59 @@
   "no_duplicate_campaigns": {
     "16b7aaf3-7526-49d7-8e68-33df1e0872a7": {
       "name": "باور بانك السعودية سمارت+ (فيديوهات الحساب الثاني) 18-10",
-      "spend_3d": 156.28,
+      "spend_3d": 157.5,
       "purchases_3d": 13,
-      "cpa_3d": 12.02,
-      "updated_at": "2026-10-20 17:36 GMT+3"
+      "cpa_3d": 12.12,
+      "updated_at": "2026-10-20 18:15 GMT+3"
     },
     "4504af26-5609-4e7b-aeca-e11cf9e03846": {
       "name": "smart+ watch suis SA 18-10",
-      "spend_3d": 293.81,
+      "spend_3d": 295.93,
       "purchases_3d": 24,
-      "cpa_3d": 12.24,
-      "updated_at": "2026-10-20 17:36 GMT+3"
+      "cpa_3d": 12.33,
+      "updated_at": "2026-10-20 18:15 GMT+3"
     },
     "71cba38f-9c4c-44dc-9c70-c231eb9a963b": {
       "name": "وسادة السيارة قطر 18-10",
       "spend_3d": 51.2,
       "purchases_3d": 4,
       "cpa_3d": 12.8,
-      "updated_at": "2026-10-20 17:36 GMT+3"
+      "updated_at": "2026-10-20 18:15 GMT+3"
     },
     "7976c6e7-376f-441d-8e34-ed11c341dbb1": {
       "name": "smart+ power bank SA 18-10",
       "spend_3d": 25.96,
       "purchases_3d": 3,
       "cpa_3d": 8.65,
-      "updated_at": "2026-10-20 17:36 GMT+3"
+      "updated_at": "2026-10-20 18:15 GMT+3"
     },
     "9be45a26-06ac-4716-8e7b-2fb3a4d65e4c": {
       "name": "car scaling new 2 text",
-      "spend_3d": 471.34,
+      "spend_3d": 475.04,
       "purchases_3d": 45,
-      "cpa_3d": 10.47,
-      "updated_at": "2026-10-20 17:36 GMT+3"
+      "cpa_3d": 10.56,
+      "updated_at": "2026-10-20 18:15 GMT+3"
     },
     "e23e7c95-3f15-4945-9844-8bd73e2d79d3": {
       "name": "باور بانك وينر",
-      "spend_3d": 364.69,
+      "spend_3d": 365.23,
       "purchases_3d": 24,
-      "cpa_3d": 15.2,
-      "updated_at": "2026-10-20 17:36 GMT+3"
+      "cpa_3d": 15.22,
+      "updated_at": "2026-10-20 18:15 GMT+3"
     },
     "f8372cfb-ae46-44d0-bbb4-f39790ecc648": {
       "name": "car scaling camp ",
-      "spend_3d": 782.38,
+      "spend_3d": 787.45,
       "purchases_3d": 72,
-      "cpa_3d": 10.87,
-      "updated_at": "2026-10-20 17:36 GMT+3"
+      "cpa_3d": 10.94,
+      "updated_at": "2026-10-20 18:15 GMT+3"
     },
     "1879340705037537": {
       "name": "power bank 18-10 (Ola + Hanan 15-10)",
       "aadvid": "7631763556322148369",
-      "spend_3d": 52.5,
+      "spend_3d": 52.72,
       "purchases_3d": 6,
-      "cpa_3d": 8.75,
+      "cpa_3d": 8.79,
       "reason": "3-Day CPA > $8.00 — Duplication Blocked (AdSet/Material pause only)"
     },
     "1879390609489089": {
@@ -5796,42 +6203,42 @@
       "spend_3d": 17.48,
       "purchases_3d": 0,
       "cpa_3d": null,
-      "updated_at": "2026-10-20 17:36 GMT+3"
+      "updated_at": "2026-10-20 18:15 GMT+3"
     },
     "062e2cba-fecb-488e-940e-75b50eca766d": {
       "name": "وسادة السيارة علا وحنان 18-10 (دفعة 13-10)",
       "spend_3d": 65.96,
       "purchases_3d": 4,
       "cpa_3d": 16.49,
-      "updated_at": "2026-10-20 17:36 GMT+3"
+      "updated_at": "2026-10-20 18:15 GMT+3"
     },
     "f1eca678-e241-4401-91c2-85bf4d51be3e": {
       "name": "smart+ cars GEMS (2-5$ CPA) SA 18-10",
       "spend_3d": 12.24,
       "purchases_3d": 0,
       "cpa_3d": null,
-      "updated_at": "2026-10-20 17:36 GMT+3"
+      "updated_at": "2026-10-20 18:15 GMT+3"
     },
     "ac1ee929-247b-4b57-9be8-30158a55953f": {
       "name": "باور بانك 16-10",
       "spend_3d": 11.16,
       "purchases_3d": 0,
       "cpa_3d": null,
-      "updated_at": "2026-10-20 17:36 GMT+3"
+      "updated_at": "2026-10-20 18:15 GMT+3"
     },
     "8703fd84-bad8-482e-adb5-da1e9c635d13": {
       "name": "watch suis winners 17-10",
       "spend_3d": 266.06,
       "purchases_3d": 18,
       "cpa_3d": 14.78,
-      "updated_at": "2026-10-20 17:36 GMT+3"
+      "updated_at": "2026-10-20 18:15 GMT+3"
     },
     "67de1daa-7ffb-4194-9c44-00dcb7163d4d": {
       "name": "باور بانك قطر 18-10",
-      "spend_3d": 16.51,
+      "spend_3d": 16.54,
       "purchases_3d": 0,
       "cpa_3d": null,
-      "updated_at": "2026-10-20 17:36 GMT+3"
+      "updated_at": "2026-10-20 18:15 GMT+3"
     },
     "1879383262178849": {
       "name": "power bank MANZILK WINNERS 18-10 B",
@@ -5860,9 +6267,9 @@
     "1879471497002402": {
       "name": "car armrest 16-10 (Hanan + Ola) FAST SCALE 19-10",
       "aadvid": "7631765070816509959",
-      "spend_3d": 20.72,
+      "spend_3d": 20.76,
       "purchases_3d": 2,
-      "cpa_3d": 10.36,
+      "cpa_3d": 10.38,
       "reason": "3-Day CPA > $8.00 — Duplication Blocked (AdSet/Material pause only)"
     },
     "1879380389237858": {
@@ -5875,10 +6282,10 @@
     },
     "baa69314-505c-4b3a-851e-883c10034935": {
       "name": "smart+ cars SA 18-10",
-      "spend_3d": 373.22,
+      "spend_3d": 375.52,
       "purchases_3d": 38,
-      "cpa_3d": 9.82,
-      "updated_at": "2026-10-20 17:36 GMT+3"
+      "cpa_3d": 9.88,
+      "updated_at": "2026-10-20 18:15 GMT+3"
     },
     "1879246753691794": {
       "name": "car armrest 16-10 (Hanan + Ola)",
@@ -5891,15 +6298,15 @@
     "1879156756827185": {
       "name": "power bank winner 16-10 A",
       "aadvid": "7631763556322148369",
-      "spend_3d": 37.62,
-      "purchases_3d": 3,
-      "cpa_3d": 12.54,
+      "spend_3d": 38.26,
+      "purchases_3d": 4,
+      "cpa_3d": 9.56,
       "reason": "3-Day CPA > $8.00 — Duplication Blocked (AdSet/Material pause only)"
     },
     "1879198129859250": {
       "name": "car armrest 15-10 test 1 (v6-v8-v9)",
       "aadvid": "7631763556322148369",
-      "spend_3d": 14.1,
+      "spend_3d": 14.12,
       "purchases_3d": 0,
       "cpa_3d": null,
       "reason": "3-Day CPA > $8.00 — Duplication Blocked (AdSet/Material pause only)"
