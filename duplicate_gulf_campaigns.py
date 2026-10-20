@@ -36,21 +36,39 @@ def clone_adsquad_exact(session: requests.Session, src: dict, copies_count: int)
     ra.raise_for_status()
     all_ads = [a["ad"] for a in ra.json().get("ads", []) if "ad" in a]
 
-    # استبعاد أي فيديو تم إيقافه/حذفه نهائياً على مستوى الحملة بالكامل (disabled_videos)
+    # استبعاد أي فيديو تم إيقافه/حذفه نهائياً على مستوى الحملة بالكامل (disabled_videos) أو إيقافه مجمّعاً
     disabled_keys = set()
+    disabled_names_for_camp = set()
+    paused_ads_map = {}
     cmap = {}
     if HISTORY_FILE.exists():
         try:
             hist = json.loads(HISTORY_FILE.read_text(encoding="utf-8"))
-            disabled_keys = set((hist.get("disabled_videos") or {}).keys())
+            disabled_vids_dict = hist.get("disabled_videos") or {}
+            disabled_keys = set(disabled_vids_dict.keys())
+            for dv in disabled_vids_dict.values():
+                if dv.get("campaign_id") == campaign_id and dv.get("sample_ad_name"):
+                    disabled_names_for_camp.add(dv["sample_ad_name"].strip())
+            paused_ads_map = hist.get("ads") or {}
             cmap = hist.get("creative_media_map") or {}
         except Exception:
             pass
 
     def is_ad_allowed(a: dict) -> bool:
         cr_id = a.get("creative_id")
+        ad_nm = (a.get("name") or "").strip()
         v_key = cmap.get(cr_id) or cr_id
-        return f"{campaign_id}:{v_key}" not in disabled_keys and f"{campaign_id}:{cr_id}" not in disabled_keys
+        if (
+            f"{campaign_id}:{v_key}" in disabled_keys
+            or f"{campaign_id}:{cr_id}" in disabled_keys
+            or f"{campaign_id}:{ad_nm}" in disabled_keys
+            or ad_nm in disabled_names_for_camp
+        ):
+            return False
+        p_info = paused_ads_map.get(a.get("id", ""))
+        if p_info and ("Aggregated Video" in str(p_info.get("reason", "")) or "Permanent Disabled" in str(p_info.get("reason", ""))):
+            return False
+        return True
 
     allowed_all = [a for a in all_ads if is_ad_allowed(a)]
     # Always include ALL allowed creatives in a new AdSquad clone (not just the 1 surviving active ad!)
