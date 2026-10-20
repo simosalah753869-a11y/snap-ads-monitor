@@ -6373,16 +6373,24 @@
       "draft_ids": [
         "1879246753755233"
       ],
-      "reason": "7-Day Video CPA $12.40 > $8.00 (Spend=$12.40, Sales=1)",
-      "spend_1d": 0.01,
+      "reason": "[Global Dup Video High CPA 7D] Total 7-Day CPA $18.01 >= $18.00 (Total Spend=$18.01, Total Sales=1)",
+      "spend_1d": 0.03,
       "conv_1d": 0,
-      "spend_2d": 0.72,
+      "spend_2d": 0.74,
       "conv_2d": 0,
-      "spend_3d": 0.72,
+      "spend_3d": 0.74,
       "conv_3d": 0,
-      "spend_7d": 12.4,
+      "spend_7d": 12.42,
       "conv_7d": 1,
-      "paused_at": "2026-10-20T11:51:36.385866+00:00"
+      "global_spend_1d": 1.24,
+      "global_conv_1d": 0,
+      "global_spend_2d": 4.68,
+      "global_conv_2d": 0,
+      "global_spend_3d": 6.33,
+      "global_conv_3d": 0,
+      "global_spend_7d": 18.01,
+      "global_conv_7d": 1,
+      "paused_at": "2026-10-20T19:54:30.002589+00:00"
     },
     "7631765070816509959:1879471497002418:1879471499177122": {
       "aadvid": "7631765070816509959",
@@ -6804,6 +6812,56 @@
       "global_spend_7d": 12.11,
       "global_conv_7d": 0,
       "paused_at": "2026-10-20T18:32:45.556278+00:00"
+    },
+    "7631763556322148369:1874314269673729:1876781356750082": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "ad_id": "1874314269673729",
+      "creative_id": "1874314269673745",
+      "campaign_ad_name": "Copy 1 of car armrest leads  19-9 / Ad name2026-08-21 05:44:45",
+      "video_name": "15_9.mp4",
+      "draft_ids": [
+        "1876781356750082"
+      ],
+      "reason": "2-Day Spend $1.14 >= $1.00 & CPC $0.38 > $0.35",
+      "spend_1d": 0.7,
+      "conv_1d": 0,
+      "spend_2d": 1.14,
+      "conv_2d": 0,
+      "spend_3d": 1.52,
+      "conv_3d": 0,
+      "spend_7d": 1.93,
+      "conv_7d": 0,
+      "paused_at": "2026-10-20T19:53:49.586142+00:00"
+    },
+    "7631765070816509959:1879571585159410:1879571588954433": {
+      "aadvid": "7631765070816509959",
+      "account_name": "ROELLINGER RECYCLING2",
+      "ad_id": "1879571585159410",
+      "creative_id": "1879571586896961",
+      "campaign_ad_name": "car armrest 16-10 (Hanan + Ola) BOOST 20-10 / car armrest 16-10 (Hanan + Ola) - Creative",
+      "video_name": "16-10_hanan_2.mp4",
+      "draft_ids": [
+        "1879571588954433"
+      ],
+      "reason": "[Global Dup Video High CPA 7D] Total 7-Day CPA $18.01 >= $18.00 (Total Spend=$18.01, Total Sales=1)",
+      "spend_1d": 0.54,
+      "conv_1d": 0,
+      "spend_2d": 0.54,
+      "conv_2d": 0,
+      "spend_3d": 0.54,
+      "conv_3d": 0,
+      "spend_7d": 0.54,
+      "conv_7d": 0,
+      "global_spend_1d": 1.24,
+      "global_conv_1d": 0,
+      "global_spend_2d": 4.68,
+      "global_conv_2d": 0,
+      "global_spend_3d": 6.33,
+      "global_conv_3d": 0,
+      "global_spend_7d": 18.01,
+      "global_conv_7d": 1,
+      "paused_at": "2026-10-20T19:54:29.293978+00:00"
     }
   },
   "tiktok_ads": {},
@@ -7016,6 +7074,26 @@
       "conv_7d": 0,
       "reason": "[Global Dup Video Stop-Loss 7D] Total 7-Day Spend $12.11 >= $12.00 with 0 sales",
       "disabled_at": "2026-10-20T18:32:45.556310+00:00"
+    },
+    "16-10_hanan_2": {
+      "v_key": "16-10_hanan_2",
+      "sample_name": "16-10_hanan_2.mp4",
+      "accounts": [
+        "ROELLINGER RECYCLING",
+        "ROELLINGER RECYCLING2"
+      ],
+      "total_copies": 7,
+      "closed_copies": 2,
+      "spend_1d": 1.24,
+      "conv_1d": 0,
+      "spend_2d": 4.68,
+      "conv_2d": 0,
+      "spend_3d": 6.33,
+      "conv_3d": 0,
+      "spend_7d": 18.01,
+      "conv_7d": 1,
+      "reason": "[Global Dup Video High CPA 7D] Total 7-Day CPA $18.01 >= $18.00 (Total Spend=$18.01, Total Sales=1)",
+      "disabled_at": "2026-10-20T19:54:30.002627+00:00"
     }
   },
   "no_duplicate_campaigns": {
