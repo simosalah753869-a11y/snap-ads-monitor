@@ -1,0 +1,35 @@
+{
+  "maybach": {
+    "snapchat": {
+      "campaign_id": "a171c141-a6d5-403e-8357-5c8f6c01bce0",
+      "campaign_name": "وسادة مايباخ 21-10"
+    },
+    "tiktok": {
+      "campaign_id": "",
+      "campaign_name": "maybach pillow 21-10",
+      "aadvid": "7631763556322148369"
+    }
+  },
+  "timex": {
+    "snapchat": {
+      "campaign_id": "4eefa50f-9008-4aea-b159-d370150b60cf",
+      "campaign_name": "صندوق دفاتر TIME X 21-10",
+      "adsquad_id": "197f0741-b4e3-4285-9db8-a287bb2b230d",
+      "ad_ids": [
+        "0414be51-8d78-4970-8a4d-bb1ceb262f71",
+        "ac41c88c-caf9-48ed-9183-a27c549742b0",
+        "b9e3ac83-e2c4-4d19-af63-aee68ab816f8",
+        "8fcee217-7bb0-40b0-bd49-7a5e20fe19ae",
+        "bc8787b4-0a07-4b41-9176-b216de6ed3b1",
+        "96279896-d7e6-49e7-8df6-83b4d220434a",
+        "27c9e5db-6639-4a1b-a639-0d08cb2ee61a",
+        "9871b859-3e93-4500-ae3b-9ded7053a97f"
+      ]
+    },
+    "tiktok": {
+      "campaign_id": "",
+      "campaign_name": "timex books 21-10",
+      "aadvid": "7631763556322148369"
+    }
+  }
+}
