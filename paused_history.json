@@ -8679,6 +8679,20 @@
       "adsquad": "Copy of SA_Watch Target Cost Men 20+ | 2.8 Bid",
       "reason": "[Ad CPC Rule] صرف الفيديو $1.01 بدون أي نقرة (الحد الأقصى $0.28)",
       "paused_at": "2026-10-20 03:35 GMT+3"
+    },
+    "b7cc04c3-aa38-4142-94c1-972245a5f7c8": {
+      "name": "SA_Watch_tc_v4",
+      "campaign": "smart+ watch suis SA 18-10",
+      "adsquad": "Copy of SA_Watch Target Cost Men 20+ | 2.8 Bid",
+      "reason": "[Ad CPC Rule] صرف الفيديو $2.39 | النقرات: 1 | سعر النقرة CPC = $2.39 (> $0.28)",
+      "paused_at": "2026-10-20 04:17 GMT+3"
+    },
+    "f27f2832-7617-4b99-bbdb-ffbc7f720341": {
+      "name": "3_winner",
+      "campaign": "watch suis winners 17-10",
+      "adsquad": "Copy of 17-10 male winners",
+      "reason": "[Ad CPC Rule] صرف الفيديو $1.37 | النقرات: 3 | سعر النقرة CPC = $0.457 (> $0.28)",
+      "paused_at": "2026-10-20 04:17 GMT+3"
     }
   },
   "tiktok_videos": {
