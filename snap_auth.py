@@ -41,7 +41,7 @@ API_BASE = "https://adsapi.snapchat.com/v1"
 
 def load_config():
     if CONFIG_FILE.exists():
-        return json.loads(CONFIG_FILE.read_text(encoding="utf-8"))
+        return json.loads(CONFIG_FILE.read_text(encoding="utf-8-sig"))
     return {}
 
 
@@ -63,23 +63,28 @@ def exchange_code_for_token(client_id: str, client_secret: str, code: str) -> di
 
 
 def refresh_access_token(cfg: dict) -> str:
-    import time
-    data = urllib.parse.urlencode({
+    import time, requests
+    payload = {
         "client_id": cfg["client_id"],
         "client_secret": cfg["client_secret"],
         "refresh_token": cfg["refresh_token"],
         "grant_type": "refresh_token",
-    }).encode("utf-8")
+    }
+    tokens = None
     for attempt in range(4):
         try:
-            req = urllib.request.Request(TOKEN_URL, data=data, method="POST")
-            with urllib.request.urlopen(req, timeout=25) as resp:
-                tokens = json.loads(resp.read().decode("utf-8"))
-            break
+            r = requests.post(TOKEN_URL, data=payload, timeout=25)
+            if r.status_code == 200:
+                tokens = r.json()
+                break
         except Exception:
-            if attempt == 3:
-                raise
+            if attempt == 3 and cfg.get("access_token"):
+                return cfg["access_token"]
             time.sleep(1.5 * (attempt + 1))
+    if not tokens:
+        if cfg.get("access_token"):
+            return cfg["access_token"]
+        raise RuntimeError("Failed to refresh Snapchat token")
     cfg["access_token"] = tokens["access_token"]
     if "refresh_token" in tokens:
         cfg["refresh_token"] = tokens["refresh_token"]
@@ -88,17 +93,18 @@ def refresh_access_token(cfg: dict) -> str:
 
 
 def api_get(endpoint: str, token: str) -> dict:
-    import time
+    import time, requests
     url = f"{API_BASE}{endpoint}" if endpoint.startswith("/") else endpoint
     for attempt in range(4):
         try:
-            req = urllib.request.Request(url, headers={"Authorization": f"Bearer {token}"})
-            with urllib.request.urlopen(req, timeout=25) as resp:
-                return json.loads(resp.read().decode("utf-8"))
+            r = requests.get(url, headers={"Authorization": f"Bearer {token}"}, timeout=25)
+            if r.status_code == 200:
+                return r.json()
         except Exception:
             if attempt == 3:
                 raise
             time.sleep(1.5 * (attempt + 1))
+    return {}
 
 
 
