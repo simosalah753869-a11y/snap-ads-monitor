@@ -104,9 +104,7 @@ def main():
         cname = c["name"]
         cst3 = camp_3d_stats.get(cid, {"spend": 0.0, "purchases": 0, "cpa": None})
         is_cpa_over_8 = (
-            cid in no_dup_camps
-            or (cst3["spend"] > 8.0 and cst3["purchases"] == 0)
-            or (cst3["purchases"] > 0 and cst3["cpa"] is not None and cst3["cpa"] > 8.0)
+            cst3["spend"] >= 25.0 and cst3["purchases"] == 0
         )
         rsq = session.get(f"{API_BASE}/campaigns/{cid}/adsquads", timeout=20)
         rsq.raise_for_status()
