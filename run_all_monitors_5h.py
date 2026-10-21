@@ -893,49 +893,21 @@ def run_google_ads_check():
                                 const effConv = Math.max(uiConv, sheetConv);
                                 const effCpa = effConv >= 1 ? (spend / effConv) : 999;
                                 if ((spend >= 8.00 && effConv < 0.5) || (spend >= 12.00 && effCpa > 9.50)) {{
-                                    const fireClick = (el) => {{
-                                        if (!el) return;
-                                        for (const evType of ['mousedown', 'mouseup', 'click']) {{
-                                            el.dispatchEvent(new MouseEvent(evType, {{ bubbles: true, cancelable: true, view: window }}));
-                                        }}
-                                    }};
-                                    let pausedOk = false;
-                                    const statusBtn = r.querySelector('status-picker [role="button"], status-menu [role="button"], ess-cell[essfield*="status"] [role="button"], [aria-label*="Status"], .status-icon');
+                                    let btnCoords = null;
+                                    const statusBtn = r.querySelector('status-picker [role="button"], status-menu [role="button"], ess-cell[essfield*="status"] [role="button"], [aria-label*="Status"], .status-icon, status-picker, status-menu');
                                     if (statusBtn) {{
-                                        fireClick(statusBtn);
-                                        await new Promise(res => setTimeout(res, 750));
-                                        const items = Array.from(document.querySelectorAll('material-select-item, [role="menuitem"], [role="option"]'));
-                                        const pauseItem = items.find(el => (el.innerText || '').trim() === 'Pause' || (el.innerText || '').includes('Pause'));
-                                        if (pauseItem) {{
-                                            fireClick(pauseItem);
-                                            await new Promise(res => setTimeout(res, 1100));
-                                            pausedOk = true;
+                                        statusBtn.scrollIntoView({{block: 'center'}});
+                                        const rect = statusBtn.getBoundingClientRect();
+                                        if (rect.width > 0 && rect.height > 0) {{
+                                            btnCoords = {{x: Math.round(rect.left + rect.width / 2), y: Math.round(rect.top + rect.height / 2)}};
                                         }}
                                     }}
-                                    if (!pausedOk) {{
-                                        const cb = r.querySelector('material-checkbox, [role="checkbox"]');
-                                        if (cb && cb.getAttribute('aria-checked') !== 'true') {{
-                                            fireClick(cb);
-                                            await new Promise(res => setTimeout(res, 650));
-                                        }}
-                                        const editBtns = Array.from(document.querySelectorAll('material-button, [role="button"]')).filter(b => (b.innerText || '').trim().startsWith('Edit'));
-                                        if (editBtns.length > 0) {{
-                                            fireClick(editBtns[0]);
-                                            await new Promise(res => setTimeout(res, 750));
-                                            const items = Array.from(document.querySelectorAll('material-select-item, [role="menuitem"], [role="option"]'));
-                                            const pauseItem = items.find(el => (el.innerText || '').trim() === 'Pause');
-                                            if (pauseItem) {{
-                                                fireClick(pauseItem);
-                                                await new Promise(res => setTimeout(res, 1200));
-                                                pausedOk = true;
-                                            }}
-                                        }}
-                                    }}
-                                    if (pausedOk) {{
-                                        pausedActions.push(`تم إيقاف حملة جوجل أدز الخاسرة فوراً: ${{rowName}} (الصرف=${{spend.toFixed(2)}}$, المبيعات=${{effConv.toFixed(2)}})`);
-                                    }} else {{
-                                        pausedActions.push(`رصد حملة جوجل أدز خاسرة: ${{rowName}} (الصرف=${{spend.toFixed(2)}}$, المبيعات=${{effConv.toFixed(2)}})`);
-                                    }}
+                                    pausedActions.push({{
+                                        rowName: rowName,
+                                        spend: spend,
+                                        effConv: effConv,
+                                        btnCoords: btnCoords
+                                    }});
                                 }}
                             }}
                         }}
@@ -955,8 +927,52 @@ def run_google_ads_check():
                 for r_txt in val.get("rows", [])[:12]:
                     if "Paused" not in r_txt or "Total" in r_txt or "Eligible" in r_txt:
                         log_msg(f"    • {r_txt[:200]}")
+                msg_id = 10
                 for flg in val.get("flagged", []):
-                    log_msg(f"    🛑 [Google Ads Auto-Action Flag] رصد صرف مرتفع بدون مبيعات: {flg}")
+                    if isinstance(flg, dict):
+                        rname = flg.get("rowName", "")
+                        sp_v = flg.get("spend", 0.0)
+                        cv_v = flg.get("effConv", 0.0)
+                        bcoords = flg.get("btnCoords")
+                        paused_done = False
+                        if bcoords:
+                            for ev_t in ("mousePressed", "mouseReleased"):
+                                msg_id += 1
+                                ws.send(json.dumps({"id": msg_id, "method": "Input.dispatchMouseEvent", "params": {"type": ev_t, "x": bcoords["x"], "y": bcoords["y"], "button": "left", "clickCount": 1}}))
+                                ws.recv()
+                            time.sleep(0.8)
+                            find_pause_js = """
+                            (() => {
+                                const items = Array.from(document.querySelectorAll('material-select-item, [role="menuitem"], [role="option"]'));
+                                const p = items.find(el => {
+                                    const t = (el.innerText || '').trim();
+                                    const r = el.getBoundingClientRect();
+                                    return (t === 'Pause' || t.startsWith('Pause')) && r.width > 0 && r.height > 0;
+                                });
+                                if (p) {
+                                    const r = p.getBoundingClientRect();
+                                    return {x: Math.round(r.left + r.width / 2), y: Math.round(r.top + r.height / 2)};
+                                }
+                                return null;
+                            })()
+                            """
+                            msg_id += 1
+                            ws.send(json.dumps({"id": msg_id, "method": "Runtime.evaluate", "params": {"expression": find_pause_js, "returnByValue": True}}))
+                            p_resp = json.loads(ws.recv())
+                            pcoords = p_resp.get("result", {}).get("result", {}).get("value")
+                            if pcoords:
+                                for ev_t in ("mousePressed", "mouseReleased"):
+                                    msg_id += 1
+                                    ws.send(json.dumps({"id": msg_id, "method": "Input.dispatchMouseEvent", "params": {"type": ev_t, "x": pcoords["x"], "y": pcoords["y"], "button": "left", "clickCount": 1}}))
+                                    ws.recv()
+                                time.sleep(1.2)
+                                paused_done = True
+                        if paused_done:
+                            log_msg(f"    🛑 [Google Ads Auto-Action] تم إيقاف حملة/إعلان جوجل أدز الخاسر فوراً: {rname} (الصرف=${sp_v:.2f}, المبيعات={cv_v:.2f})")
+                        else:
+                            log_msg(f"    🛑 [Google Ads Auto-Action Flag] رصد حملة/إعلان جوجل أدز خاسر: {rname} (الصرف=${sp_v:.2f}, المبيعات={cv_v:.2f})")
+                    else:
+                        log_msg(f"    🛑 [Google Ads Auto-Action Flag] رصد صرف مرتفع بدون مبيعات: {flg}")
                 ws.close()
                 keep_adspower_in_bg()
         except Exception as e:
@@ -1056,11 +1072,46 @@ def sync_latest_memory_files():
         import shutil
         global_skill = Path(r"C:\Users\salah\.gemini\config\skills\snap-tiktok-ads-manager\SKILL.md")
         local_skill = BASE_DIR / ".agents" / "skills" / "snap-tiktok-ads-manager" / "SKILL.md"
+        if global_skill.exists():
+            stxt = global_skill.read_text(encoding="utf-8")
+            if "## 10. تحديثات الاستراتيجية الشاملة والأتمتة الذاتية" not in stxt:
+                sec10 = (
+                    "\n\n---\n\n"
+                    "## 10. تحديثات الاستراتيجية الشاملة والأتمتة الذاتية (`2026-10-21`)\n"
+                    "1. **حماية المجموعات الأصلية بدون `Copy` (`Non-Copy AdSquad Protection`):**\n"
+                    "   - يُمنع إيقاف أي `AdSquad` لا يحتوي اسمها على `Copy`؛ يتم إيقاف الفيديوهات الخاسرة داخلها فقط (`Spend >= $5.00` بدون مبيعات، أو `CPC` مرتفع، أو `CPA > $8.00`).\n"
+                    "2. **قواعد الفيديوهات المستنسخة المحدثة (`Duplicated Video $12.00 / $9.50 CPA Rule`):**\n"
+                    "   - في سناب شات وتيك توك: إذا وصل مجموع صرف الفيديو المستنسخ عبر المجموعات أو الحملات إلى **`>= $12.00` بـ `0` مبيعات** ⬅️ يُطفأ من جميع النسخ فوراً ويُحظر نهائياً في `disabled_videos` / `tiktok_disabled_dup_videos`.\n"
+                    "   - إذا حقق الفيديو مبيعة واحدة أو أكثر وتجاوز صرفه التراكمي `$12.00` بـ **`CPA` تراكمي `>= $9.50`** ⬅️ **تبقى النسخ الفردية المربحة (`CPA <= $8.00`) شغالة فقط**، وتُطفأ جميع النسخ الأخرى الصفرية أو الخاسرة فوراً.\n"
+                    "3. **سلّم البيدات الآمن (`$2.05 – $2.35` SA / `$2.15 – $2.45` Gulf) + السكيل العمودي (`$20 ⬅️ $35 ⬅️ $50`) + الكشّاف (`Scout`) للحملات المتجمدة:**\n"
+                    "   - توزيع النسخ الـ 15 على سلّم بيدات متدرج (`$2.05 / $2.15 / $2.25 / $2.35`) لمنع تزاحمها في نفس المزاد، مع تهدئة أي بيد متضخم فوق السقف تلقائياً.\n"
+                    "   - إذا تجمدت النسخ الـ 15 (إجمالي صرف الحملة `< $2.00` اليوم): يرفع البوت البيد `+$0.10` لأعلى مجموعتين اثنتين فقط في الظهور (`2 Scout Squads`) ولا يرفع البيد للـ 15 مجموعة معاً أبداً.\n"
+                    "   - إذا ذهبت النسخ لجمهور خاسر (`Copy`): يتم قطع أي نسخة `Copy` مبكراً عند صرف `>= $1.50` بدون مبيعات و`CPC > $0.18` (أو عند `$5.00` بدون مبيعات)، ولا تُستبدل إلا باستنساخ المجموعة الفائزة فعلياً (`CPA <= $8.00`) أو تتوقف عملية الاستبدال تلقائياً إذا لم توجد مجموعة رابحة.\n"
+                    "   - السكيل العمودي للميزانية اليومية (`$20 ⬅️ $35` عند مبيعتين بـ `CPA <= $7.00`، و`$35 ⬅️ $50` عند 3 مبيعات بـ `CPA <= $6.50`).\n"
+                    "4. **الأتمتة الذاتية الشاملة كل ساعتين (`Autonomous Anomaly Doctor & Action Engine`):**\n"
+                    "   - يراقب `run_all_monitors_5h.py` كل ساعتين جميع الحسابات الإعلانية في **سناب شات (`CSP9860`)** و**تيك توك (الحسابات الـ 6)** و**جوجل أدز (`AdsPower` + شيت `Lightfunnels`)**، ويتخذ أكشن فوري على أي خلل أو نزيف في الصرف ويبلغ المستخدم بالتشخيص ومقترحات التحسين.\n"
+                )
+                global_skill.write_text(stxt.rstrip() + sec10, encoding="utf-8")
         if global_skill.exists() and local_skill.exists():
             if global_skill.stat().st_mtime >= local_skill.stat().st_mtime:
                 shutil.copy2(global_skill, local_skill)
             else:
                 shutil.copy2(local_skill, global_skill)
+        for g_p in [Path(r"C:\Users\salah\.gemini\GEMINI.md"), Path(r"C:\Users\salah\.gemini\config\GEMINI.md")]:
+            if g_p.exists():
+                gt = g_p.read_text(encoding="utf-8")
+                if "Proactive 5-Hour Sales Action Engine" in gt and "Autonomous 2-Hour Action & Anomaly Doctor Engine" not in gt:
+                    lines = [
+                        (
+                            "   4. **المبادرة الاستباقية وأخذ الأكشن الفوري كل ساعتين في جميع الحسابات الإعلانية (`Autonomous 2-Hour Action & Anomaly Doctor Engine`):** "
+                            "في كل دورة فحص (كل ساعتين عبر `run_all_monitors_5h.py` و `schedule` cron)، يراقب البوت جميع التحسينات في **سناب شات (`CSP9860`)** و**تيك توك (الحسابات الـ 6)** و**جوجل أدز (`AdsPower` + شيت `Lightfunnels`)** "
+                            "بصلاحية كاملة لاتخاذ الأكشن الفوري (حماية المجموعات بدون `Copy`، إيقاف الفيديوهات المستنسخة عند `$12.00` بدون مبيعات أو إيقاف النسخ الخاسرة عند `CPA >= $9.50` مع إبقاء النسخة الفردية الرابحة، "
+                            "ضبط سلم البيدات `$2.05–$2.35`، والسكيل العمودي `$20 ⬅️ $35 ⬅️ $50` للمجموعات الفائزة بـ `CPA <= $7.00`)، ويبلغ المستخدم بأي خلل مرصود وماذا يعمل لتحسينه."
+                        )
+                        if "Proactive 5-Hour Sales Action Engine" in ln else ln
+                        for ln in gt.splitlines()
+                    ]
+                    g_p.write_text("\n".join(lines) + "\n", encoding="utf-8")
         log_msg("🧠 تم التحقق من مزامنة وقراءة أحدث ملفات الذاكرة والمهارة (GEMINI.md + SKILL.md + PROJECT_DOCUMENTATION.md).")
     except Exception as e:
         log_msg(f"⚠️ تنبيه مزامنة الذاكرة: {e}")
