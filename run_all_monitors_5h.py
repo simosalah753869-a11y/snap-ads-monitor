@@ -1080,6 +1080,187 @@ def run_autonomous_anomaly_doctor(sales_3d: dict = None, sales_today: dict = Non
         log_msg("💡 [توصيات التحسين للمستخدم]: " + " | ".join(recommendations))
 
 
+GUARDIAN_REPORT_FILE = BASE_DIR / "guardian_latest_report.md"
+TT_COPY_KEYS = ("copy", "scale", "boost", "turbo")
+
+
+def run_improvements_guardian(sales_3d: dict = None, sales_today: dict = None):
+    """حارس التحسينات (كل ساعتين): يتحقق فعلياً من تطبيق كل التحسينات في سناب + تيك توك + جوجل أدز،
+    ويتخذ أكشن فوري (حماية/قطع نزيف) ويكتب تقريراً للمستخدم بالخلل وماذا نعمل لتحسينه."""
+    log_msg("=== 🛡️ حارس التحسينات: فحص تطبيق القواعد + أكشن فوري (Snapchat + TikTok + Google Ads) ===")
+    anomalies, actions, recs = [], [], []
+    now_sa = datetime.now(SA_TZ)
+
+    # ---------------- 1) Snapchat CSP9860 ----------------
+    try:
+        from snap_auth import load_config, refresh_access_token
+        from snap_monitor import (TARGET_ACCOUNT_ID, api_put, api_get_paginated,
+                                  fetch_account_breakdown_stats, get_squad_countries, GULF_COUNTRY_CODES,
+                                  is_cross_monitored_product_campaign)
+        tok = refresh_access_token(load_config())
+        camps = api_get_paginated(f"/adaccounts/{TARGET_ACCOUNT_ID}/campaigns", tok, "campaigns", "campaign")
+        squads = api_get_paginated(f"/adaccounts/{TARGET_ACCOUNT_ID}/adsquads", tok, "adsquads", "adsquad", max_pages=40)
+        st1 = {x["id"]: x for x in fetch_account_breakdown_stats(tok, TARGET_ACCOUNT_ID, "adsquad", days_back=0)}
+        st3 = {x["id"]: x for x in fetch_account_breakdown_stats(tok, TARGET_ACCOUNT_ID, "adsquad", days_back=2)}
+        empty = {"spend": 0.0, "purchases": 0, "cpa": None, "cpc": 0.0, "swipes": 0}
+
+        def put_squad(sq):
+            api_put(f"/campaigns/{sq['campaign_id']}/adsquads", tok, {"adsquads": [sq]})
+
+        for camp in camps:
+            if camp.get("status") != "ACTIVE" or is_banned_kashaf(camp.get("name", "")):
+                continue
+            if is_cross_monitored_product_campaign(camp.get("name", "")):
+                continue  # مايباخ/تايم إكس لها مراقب مستقل (cross_product_monitor.py) وبيدات خاصة
+            cid, cname = camp["id"], camp.get("name", "")
+            act = [s for s in squads if s.get("campaign_id") == cid and s.get("status") == "ACTIVE"]
+            if not act:
+                continue
+            countries = set()
+            for s in act:
+                countries |= get_squad_countries(s)
+            is_gulf = bool(countries & GULF_COUNTRY_CODES) and "sa" not in countries
+            bid_cap = 2.45 if is_gulf else 2.35
+            max_copies = 5 if is_gulf else 15
+            nosale_cut, cpa_cut = (10.0, 13.0) if is_gulf else (5.0, 8.0)
+
+            c_sp1 = round(sum(st1.get(s["id"], empty)["spend"] for s in act), 2)
+            c_pu1 = sum(st1.get(s["id"], empty)["purchases"] for s in act)
+            c_sp3 = round(sum(st3.get(s["id"], empty)["spend"] for s in act), 2)
+            c_pu3 = sum(st3.get(s["id"], empty)["purchases"] for s in act)
+            c_cpa3 = round(c_sp3 / c_pu3, 2) if c_pu3 else None
+
+            # (A) قطع نسخ Copy الخاسرة التي فاتت المراقب (جمهور خاسر / لا يصرف بربح)
+            still_active = []
+            for s in act:
+                nm = s.get("name", "")
+                st = st1.get(s["id"], empty)
+                if "copy" in nm.lower():
+                    reason = None
+                    if st["purchases"] == 0 and st["spend"] >= 1.50 and st["cpc"] > 0.18:
+                        reason = f"صرف ${st['spend']} بدون مبيعة و CPC=${st['cpc']} > $0.18"
+                    elif st["purchases"] == 0 and st["spend"] >= nosale_cut:
+                        reason = f"صرف ${st['spend']} بدون مبيعة (>= ${nosale_cut})"
+                    elif st["cpa"] is not None and st["cpa"] > cpa_cut:
+                        reason = f"CPA=${st['cpa']} > ${cpa_cut}"
+                    if reason:
+                        s["status"] = "PAUSED"
+                        put_squad(s)
+                        actions.append(f"سناب: إيقاف نسخة خاسرة '{nm}' ({cname}) — {reason}")
+                        continue
+                still_active.append(s)
+
+            # (B) سقف عدد النسخ 15 سعودي / 5 خليج — إيقاف الزائد الأضعف
+            copies = [s for s in still_active if "copy" in s.get("name", "").lower()]
+            if len(copies) > max_copies:
+                def rank(s):
+                    st = st1.get(s["id"], empty)
+                    return (st["purchases"], -(st["cpa"] or 99), -st["spend"])
+                copies.sort(key=rank, reverse=True)
+                for s in copies[max_copies:]:
+                    s["status"] = "PAUSED"
+                    put_squad(s)
+                    still_active.remove(s)
+                    actions.append(f"سناب: تجاوز سقف {max_copies} نسخة في '{cname}' — إيقاف الأضعف '{s.get('name','')}'")
+
+            # (C) سلّم البيدات: تهدئة أي بيد فوق السقف (عدا الفائز CPA<=5 اليوم)
+            for s in still_active:
+                bid = (s.get("bid_micro") or 0) / 1e6
+                st = st1.get(s["id"], empty)
+                is_winner = st["purchases"] >= 1 and (st["cpa"] or 99) <= 5.0
+                if bid > bid_cap + 0.001 and not is_winner:
+                    s["bid_micro"] = int(bid_cap * 1_000_000)
+                    put_squad(s)
+                    actions.append(f"سناب: تهدئة بيد '{s.get('name','')}' من ${bid:.2f} إلى ${bid_cap:.2f}")
+
+            # (D) حماية الميزانية: إرجاع السكيل العمودي خطوة عند تدهور CPA 3 أيام
+            for s in still_active:
+                bud = (s.get("daily_budget_micro") or 0) / 1e6
+                s3 = st3.get(s["id"], empty)
+                s3_cpa = s3["cpa"] if s3["purchases"] else None
+                bad = (s3["spend"] >= 30 and s3["purchases"] == 0) or (s3_cpa is not None and s3_cpa > 9.50 and s3["spend"] >= 30)
+                if bud > 20.0 and bad:
+                    new_bud = 35.0 if bud > 35.0 else 20.0
+                    s["daily_budget_micro"] = int(new_bud * 1_000_000)
+                    put_squad(s)
+                    actions.append(f"سناب: إرجاع ميزانية '{s.get('name','')}' من ${bud:.0f} إلى ${new_bud:.0f} (3D: صرف ${s3['spend']}, CPA=${s3_cpa})")
+
+            # (E) تشخيصات تحتاج قرار المستخدم
+            if c_sp1 >= 25 and c_pu1 == 0:
+                anomalies.append(f"سناب '{cname}': صرف اليوم ${c_sp1} بدون أي مبيعة.")
+                recs.append(f"'{cname}': الجمهور مشبع — ارفع 3–5 فيديوهات فائزة بـ Media ID جديد في حملة نظيفة بدل الاستنساخ.")
+            if c_cpa3 is not None and c_cpa3 > 9.50 and c_sp3 >= 30:
+                anomalies.append(f"سناب '{cname}': CPA آخر 3 أيام ${c_cpa3} (> $9.50).")
+                recs.append(f"'{cname}': أوقف الاستبدال من غير الفائزين وجرب زاوية/هوك جديد.")
+            if now_sa.hour >= 12 and c_sp1 < 2.0 and len(still_active) >= 3:
+                anomalies.append(f"سناب '{cname}': متجمدة (صرف ${c_sp1} حتى الآن) — الكشّاف يرفع بيد مجموعتين فقط.")
+                recs.append(f"'{cname}': إذا بقيت متجمدة لليوم التالي — الكرييتف/الجمهور ضعيف؛ أطفئها ووجّه الميزانية للحملات الرابحة أو ارفع فيديوهات جديدة بدل رفع البيد للجميع.")
+    except Exception as e:
+        anomalies.append(f"سناب: تعذر فحص حارس التحسينات ({e}).")
+        recs.append("تحقق من صلاحية توكن سناب (snap_config.json) أو سقف الصرف.")
+
+    # ---------------- 2) TikTok (6 accounts) ----------------
+    try:
+        from tiktok_monitor import ACCOUNTS, load_cookies, build_session, fetch_campaigns, pause_campaign
+        session, headers = build_session(load_cookies())
+        today_d = now_sa.strftime("%Y-%m-%d")
+        two_d = (now_sa - timedelta(days=2)).strftime("%Y-%m-%d")
+        for acc_name, aadvid, _tz in ACCOUNTS:
+            c1 = fetch_campaigns(session, headers, aadvid, today_d, today_d)
+            c3 = {str(x.get("campaign_id")): x for x in fetch_campaigns(session, headers, aadvid, two_d, today_d)}
+            for x in c1:
+                if x.get("primary_status") in ("disable", "delete") or str(x.get("opt_status")) != "0":
+                    continue
+                cn = (x.get("campaign_name") or "").strip()
+                if is_banned_kashaf(cn):
+                    continue
+                rd = x.get("row_data") or {}
+                sp = float(rd.get("stat_cost") or 0)
+                cv = max(int(float(rd.get("time_attr_convert_cnt") or 0)), (sales_today or {}).get(cn.lower(), 0))
+                rd3 = (c3.get(str(x.get("campaign_id"))) or {}).get("row_data") or {}
+                sp3 = float(rd3.get("stat_cost") or 0)
+                cv3 = max(int(float(rd3.get("time_attr_convert_cnt") or 0)), (sales_3d or {}).get(cn.lower(), 0))
+                cpa3 = round(sp3 / cv3, 2) if cv3 else None
+                is_copy = any(k in cn.lower() for k in TT_COPY_KEYS)
+                if is_copy and ((sp >= 15 and cv == 0) or (cpa3 is not None and cpa3 > 12.0 and sp3 >= 15)):
+                    ok, _ = pause_campaign(session, headers, aadvid, x.get("campaign_id"))
+                    actions.append(f"تيك توك ({acc_name}): {'إيقاف' if ok else 'فشل إيقاف'} حملة مستنسخة خاسرة '{cn}' (اليوم ${sp:.2f}/{cv} مبيعة، 3D CPA=${cpa3})")
+                elif not is_copy and sp >= 20 and cv == 0:
+                    anomalies.append(f"تيك توك ({acc_name}) '{cn}': صرف ${sp:.2f} اليوم بدون مبيعة.")
+                    recs.append(f"'{cn}': الحملة الأصلية محمية — راجع الفيديوهات (يتم قصّ الخاسر تلقائياً) وأضف كرييتف جديد.")
+    except Exception as e:
+        anomalies.append(f"تيك توك: تعذر الفحص ({e}).")
+        recs.append("جدد كوكيز تيك توك (tiktok_cookies.json) بتسجيل الدخول من جديد.")
+
+    # ---------------- 3) Google Ads (AdsPower + Sheet) ----------------
+    try:
+        ports = find_open_adspower_ports()
+        if not ports:
+            anomalies.append("جوجل أدز: لا يوجد متصفح AdsPower مفتوح — حسابات جوجل غير مراقبة في هذه الدورة.")
+            recs.append("افتح بروفايلات AdsPower (k1dh2jyf / k1cekgik) ليطبق البوت قواعد الـ 3 أيام ($8 بدون مبيعة / CPA >= $8.30).")
+        if not sales_3d:
+            anomalies.append("شيت Lightfunnels: لم تُقرأ أي مبيعات لآخر 3 أيام — تحقق من الشيت.")
+    except Exception as e:
+        anomalies.append(f"جوجل أدز: تعذر الفحص ({e}).")
+
+    # ---------------- Report ----------------
+    for a in actions:
+        log_msg("⚡ [حارس] " + a)
+    for a in anomalies:
+        log_msg("🚨 [حارس] " + a)
+    for r in recs:
+        log_msg("💡 [حارس] " + r)
+    lines = [f"# 🛡️ تقرير حارس التحسينات — {now_sa:%Y-%m-%d %H:%M} (GMT+3)", "",
+             "## ⚡ الأكشن الفوري المنفذ"] + ([f"- {a}" for a in actions] or ["- لا يوجد"]) + \
+            ["", "## 🚨 الخلل المرصود"] + ([f"- {a}" for a in anomalies] or ["- لا يوجد خلل ✅"]) + \
+            ["", "## 💡 ماذا نعمل لتحسينها"] + ([f"- {r}" for r in dict.fromkeys(recs)] or ["- لا شيء حالياً"])
+    try:
+        GUARDIAN_REPORT_FILE.write_text("\n".join(lines) + "\n", encoding="utf-8")
+    except Exception:
+        pass
+    return anomalies, actions, recs
+
+
 def sync_latest_memory_files():
     try:
         import shutil
@@ -1140,6 +1321,10 @@ def main():
     sales_3d, sales_today = run_google_ads_check()
     run_proactive_sales_scaling(sales_3d, sales_today)
     run_autonomous_anomaly_doctor(sales_3d, sales_today)
+    try:
+        run_improvements_guardian(sales_3d, sales_today)
+    except Exception as e:
+        log_msg(f"⚠️ حارس التحسينات: {e}")
     log_msg("🏁 اكتملت دورة المراقبة الذاتية والأكشن الفوري بنجاح.\n")
 
 
