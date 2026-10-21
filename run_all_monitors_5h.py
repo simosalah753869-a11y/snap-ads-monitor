@@ -868,42 +868,68 @@ def run_google_ads_check():
                         if (txt.length <= 10) continue;
                         parsedRows.push(txt);
                         if ((txt.includes('Eligible') || txt.includes('Enabled')) && !txt.includes('Total:')) {{
-                            // Extract dollar amounts: first is usually budget, last/second is Cost
                             const costMatches = Array.from(txt.matchAll(/\\$([0-9,]+\\.[0-9]{{2}})/g)).map(m => parseFloat(m[1].replace(/,/g, '')));
                             if (costMatches.length >= 2) {{
-                                // In Google Ads table: Budget is first $ amount, Cost is the last $ amount (or second if CPC is present)
-                                const rowName = txt.split(/\\$[0-9]/)[0].trim();
-                                // Check if any sheet UTM matches rowName
+                                const rowName = txt.split(/\\$[0-9]/)[0].replace(/\\bsettings\\b/gi, '').trim();
                                 let sheetConv = 0;
                                 const rnLow = rowName.toLowerCase();
                                 for (const [k, v] of Object.entries(sheetSales)) {{
                                     if (k && rnLow.includes(k.toLowerCase())) sheetConv = Math.max(sheetConv, v);
                                 }}
-                                // Find cost & conversions in text after 'Eligible' or 'Enabled'
                                 const afterStatus = txt.split(/Eligible|Enabled/).slice(1).join(' ');
                                 const afterDollars = Array.from(afterStatus.matchAll(/\\$([0-9,]+\\.[0-9]{{2}})/g)).map(m => parseFloat(m[1].replace(/,/g, '')));
-                                const spend = afterDollars.length > 0 ? Math.max(...afterDollars) : 0;
-                                // Conversions appear right before Cost or after Interactions
-                                const convMatch = afterStatus.match(/\\b([0-9]+\\.[0-9]{{2}})\\s+\\$[0-9,]+\\.[0-9]{{2}}/);
-                                const uiConv = convMatch ? parseFloat(convMatch[1]) : 0;
+                                // Actual Cost in Campaigns table is the last dollar value; in Ads table it is the 2nd dollar value (after Avg. CPC)
+                                const isCampaignsTab = document.title.includes('Campaigns');
+                                const spend = afterDollars.length > 0 ? (isCampaignsTab ? afterDollars[afterDollars.length - 1] : afterDollars[1] || afterDollars[0]) : 0;
+                                // Extract conversions: in Campaigns tab, right after 'Demand Gen' or at end before last 0.00
+                                let uiConv = 0;
+                                const dgMatch = afterStatus.match(/Demand Gen\\s+([0-9]+\\.[0-9]{{2}})/);
+                                if (dgMatch) {{
+                                    uiConv = parseFloat(dgMatch[1]);
+                                }} else {{
+                                    const convMatch = afterStatus.match(/\\b([0-9]+\\.[0-9]{{2}})\\s+(?:US)?\\$[0-9,]+\\.[0-9]{{2}}/);
+                                    if (convMatch) uiConv = parseFloat(convMatch[1]);
+                                }}
                                 const effConv = Math.max(uiConv, sheetConv);
                                 const effCpa = effConv >= 1 ? (spend / effConv) : 999;
                                 if ((spend >= 8.00 && effConv < 0.5) || (spend >= 12.00 && effCpa > 9.50)) {{
-                                    const btn = r.querySelector('ess-cell[essfield="status"] material-button, status-menu material-button, [aria-label*="Enabled"], [aria-label*="Eligible"], .status-icon, material-icon');
-                                    if (btn) {{
-                                        btn.click();
-                                        await new Promise(res => setTimeout(res, 650));
+                                    // Try clicking status-picker / status-menu button or row checkbox + Edit -> Pause
+                                    let pausedOk = false;
+                                    const statusBtn = r.querySelector('status-picker [role="button"], status-menu [role="button"], ess-cell[essfield*="status"] [role="button"], [aria-label*="Status"], .status-icon');
+                                    if (statusBtn) {{
+                                        statusBtn.click();
+                                        await new Promise(res => setTimeout(res, 700));
                                         const items = Array.from(document.querySelectorAll('material-select-item, [role="menuitem"], [role="option"]'));
                                         const pauseItem = items.find(el => (el.innerText || '').trim() === 'Pause' || (el.innerText || '').includes('Pause'));
                                         if (pauseItem) {{
                                             pauseItem.click();
-                                            await new Promise(res => setTimeout(res, 750));
-                                            pausedActions.push(`تم إيقاف حملة جوجل أدز الخاسرة تلقائياً: ${{rowName}} (الصرف=${{spend.toFixed(2)}}$, المبيعات=${{effConv}}, CPA=${{effCpa === 999 ? 'بدون مبيعات' : effCpa.toFixed(2)}})`);
-                                        }} else {{
-                                            pausedActions.push(`رصد حملة جوجل أدز خاسرة: ${{rowName}} (الصرف=${{spend.toFixed(2)}}$, المبيعات=${{effConv}})`);
+                                            await new Promise(res => setTimeout(res, 800));
+                                            pausedOk = true;
                                         }}
+                                    }}
+                                    if (!pausedOk) {{
+                                        const cb = r.querySelector('material-checkbox, [role="checkbox"]');
+                                        if (cb && cb.getAttribute('aria-checked') !== 'true') {{
+                                            cb.click();
+                                            await new Promise(res => setTimeout(res, 600));
+                                        }}
+                                        const editBtns = Array.from(document.querySelectorAll('material-button, [role="button"]')).filter(b => (b.innerText || '').trim().startsWith('Edit'));
+                                        if (editBtns.length > 0) {{
+                                            editBtns[0].click();
+                                            await new Promise(res => setTimeout(res, 700));
+                                            const items = Array.from(document.querySelectorAll('material-select-item, [role="menuitem"], [role="option"]'));
+                                            const pauseItem = items.find(el => (el.innerText || '').trim() === 'Pause');
+                                            if (pauseItem) {{
+                                                pauseItem.click();
+                                                await new Promise(res => setTimeout(res, 900));
+                                                pausedOk = true;
+                                            }}
+                                        }}
+                                    }}
+                                    if (pausedOk) {{
+                                        pausedActions.push(`تم إيقاف حملة جوجل أدز الخاسرة فوراً: ${{rowName}} (الصرف=${{spend.toFixed(2)}}$, المبيعات=${{effConv.toFixed(2)}})`);
                                     }} else {{
-                                        pausedActions.push(`رصد حملة جوجل أدز خاسرة: ${{rowName}} (الصرف=${{spend.toFixed(2)}}$, المبيعات=${{effConv}})`);
+                                        pausedActions.push(`رصد حملة جوجل أدز خاسرة: ${{rowName}} (الصرف=${{spend.toFixed(2)}}$, المبيعات=${{effConv.toFixed(2)}})`);
                                     }}
                                 }}
                             }}
