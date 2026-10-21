@@ -16608,14 +16608,14 @@
       "spend_3d": 167.84,
       "purchases_3d": 11,
       "cpa_3d": 15.26,
-      "updated_at": "2026-10-21 15:14 GMT+3"
+      "updated_at": "2026-10-21T15:28:21.149600+03:00"
     },
     "4504af26-5609-4e7b-aeca-e11cf9e03846": {
       "name": "smart+ watch suis SA 18-10",
-      "spend_3d": 289.04,
+      "spend_3d": 289.2,
       "purchases_3d": 22,
-      "cpa_3d": 13.14,
-      "updated_at": "2026-10-21 15:14 GMT+3"
+      "cpa_3d": 13.15,
+      "updated_at": "2026-10-21T15:29:05.907514+03:00"
     },
     "8703fd84-bad8-482e-adb5-da1e9c635d13": {
       "name": "watch suis winners 17-10",
@@ -16682,13 +16682,13 @@
     },
     "4eefa50f-9008-4aea-b159-d370150b60cf": {
       "name": "صندوق دفاتر TIME X 21-10",
-      "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-21 15:14 GMT+3"
+      "reason": "Single-AdSquad Cross-Platform Monitored Product Campaign",
+      "updated_at": "2026-10-21 15:24 GMT+3"
     },
     "a171c141-a6d5-403e-8357-5c8f6c01bce0": {
       "name": "وسادة مايباخ 21-10",
-      "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-21 15:14 GMT+3"
+      "reason": "Single-AdSquad Cross-Platform Monitored Product Campaign",
+      "updated_at": "2026-10-21 15:24 GMT+3"
     },
     "c5a7cade-6ec3-4c47-b3a2-c5f08bcf8da0": {
       "name": "وسادة مايباخ 21-10",
@@ -16699,13 +16699,13 @@
       "name": "maybach pillow 21-10",
       "aadvid": "7631763556322148369",
       "reason": "Single-Campaign Cross-Platform Monitored Product Campaign",
-      "updated_at": "2026-10-21 14:09 GMT+3"
+      "updated_at": "2026-10-21 15:24 GMT+3"
     },
     "1879653126110545": {
       "name": "timex books 21-10",
       "aadvid": "7631763556322148369",
       "reason": "Single-Campaign Cross-Platform Monitored Product Campaign",
-      "updated_at": "2026-10-21 14:09 GMT+3"
+      "updated_at": "2026-10-21 15:24 GMT+3"
     },
     "1879155925017650": {
       "name": "power bank winner 16-10 A",
@@ -16746,6 +16746,13 @@
       "purchases_3d": 1,
       "cpa_3d": 13.81,
       "reason": "3-Day CPA > $8.00 — Duplication Blocked"
+    },
+    "1cc8e4b0-2289-4838-a057-4a9c01166e22": {
+      "name": "Copy of kashaf qatar",
+      "spend_3d": 23.69,
+      "purchases_3d": 2,
+      "cpa_3d": 11.85,
+      "updated_at": "2026-10-21T15:28:25.863403+03:00"
     }
   },
   "proactive_scaled_squads": {},
@@ -16989,6 +16996,22 @@
       "new_bid": 3.0,
       "reason": "low_cpa_winner",
       "boosted_at": "2026-10-20T22:13:32.923473+03:00"
+    },
+    "2026-10-21:1b39f541-4134-41a5-a324-faa5a22f810a": {
+      "name": "Copy of SA_Watch Target Cost Men 20+ | 2.8 Bid",
+      "campaign": "smart+ watch suis SA 18-10",
+      "old_bid": 2.05,
+      "new_bid": 2.13,
+      "reason": "low_cpa_winner",
+      "boosted_at": "2026-10-21T15:29:11.891174+03:00"
+    },
+    "2026-10-21:430ea3c0-b721-402f-94b8-6c2c304ec15c": {
+      "name": "QA_PB Smart+ Broad | 2.6 Bid",
+      "campaign": "باور بانك قطر 18-10",
+      "old_bid": 2.35,
+      "new_bid": 2.43,
+      "reason": "low_cpa_winner",
+      "boosted_at": "2026-10-21T15:29:24.773231+03:00"
     }
   },
   "proactive_revived_squads": {
