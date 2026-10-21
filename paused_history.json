@@ -11252,14 +11252,6 @@
       "reason": "Today $62.64 (CPA $10.44) | 3D $94.98 (CPA $13.57)",
       "paused_at": "2026-10-21T10:44:47.268440+00:00"
     },
-    "7631763556322148369:1879578235015697": {
-      "account_name": "ROELLINGER RECYCLING",
-      "aadvid": "7631763556322148369",
-      "campaign_id": "1879578235015697",
-      "campaign_name": "oman power bank 20-10 (Turbo OpenBid 16.0)",
-      "reason": "Today Spend $22.26, 2 sales, CPA $11.13",
-      "paused_at": "2026-10-21T10:44:47.936025+00:00"
-    },
     "7631763556322148369:1879577456037921": {
       "account_name": "ROELLINGER RECYCLING",
       "aadvid": "7631763556322148369",
@@ -11283,22 +11275,6 @@
       "campaign_name": "kuwait car armrest 20-10 (Accel CC 11.0)",
       "reason": "Today Spend $9.64, 0 sales",
       "paused_at": "2026-10-21T10:44:50.139449+00:00"
-    },
-    "7631763556322148369:1879577430883393": {
-      "account_name": "ROELLINGER RECYCLING",
-      "aadvid": "7631763556322148369",
-      "campaign_id": "1879577430883393",
-      "campaign_name": "qatar kashaf 20-10 (Accel CC 11.5)",
-      "reason": "Today Spend $8.95, 0 sales",
-      "paused_at": "2026-10-21T10:44:50.831157+00:00"
-    },
-    "7631763556322148369:1879577375941873": {
-      "account_name": "ROELLINGER RECYCLING",
-      "aadvid": "7631763556322148369",
-      "campaign_id": "1879577375941873",
-      "campaign_name": "oman power bank 20-10 (Accel CC 11.5)",
-      "reason": "Today Spend $8.67, 0 sales",
-      "paused_at": "2026-10-21T10:44:51.489661+00:00"
     },
     "7631763556322148369:1879198129859250": {
       "account_name": "ROELLINGER RECYCLING",
@@ -13163,27 +13139,6 @@
       "conv_7d": 0,
       "paused_at": "2026-10-21T10:39:34.340616+00:00"
     },
-    "7631763556322148369:1879578235015713:1879578238338481": {
-      "aadvid": "7631763556322148369",
-      "account_name": "ROELLINGER RECYCLING",
-      "ad_id": "1879578235015713",
-      "creative_id": "1879578235923698",
-      "campaign_ad_name": "oman power bank 20-10 (Turbo OpenBid 16.0) / oman power bank 20-10 (Turbo OpenBid 16.0) - Creative",
-      "video_name": "18_10_15-10_ola_5.mp4",
-      "draft_ids": [
-        "1879578238338481"
-      ],
-      "reason": "3-Day Video CPA $11.14 > $8.00 (Spend=$11.14, Sales=1)",
-      "spend_1d": 11.13,
-      "conv_1d": 1,
-      "spend_2d": 11.13,
-      "conv_2d": 1,
-      "spend_3d": 11.14,
-      "conv_3d": 1,
-      "spend_7d": 11.16,
-      "conv_7d": 1,
-      "paused_at": "2026-10-21T10:39:35.145478+00:00"
-    },
     "7631763556322148369:1879578246586065:1879578250067602": {
       "aadvid": "7631763556322148369",
       "account_name": "ROELLINGER RECYCLING",
@@ -13246,27 +13201,6 @@
       "spend_7d": 4.26,
       "conv_7d": 0,
       "paused_at": "2026-10-21T10:39:38.005539+00:00"
-    },
-    "7631763556322148369:1879577430883409:1879577436295298": {
-      "aadvid": "7631763556322148369",
-      "account_name": "ROELLINGER RECYCLING",
-      "ad_id": "1879577430883409",
-      "creative_id": "1879577433051713",
-      "campaign_ad_name": "qatar kashaf 20-10 (Accel CC 11.5) / qatar kashaf 20-10 (Accel CC 11.5) - Creative",
-      "video_name": "كشاف رأس-New_Hook-7-9",
-      "draft_ids": [
-        "1879577436295298"
-      ],
-      "reason": "Blacklisted Multi-Day Non-Converting Video ('كشاف رأس-new_hook-7-9')",
-      "spend_1d": 3.58,
-      "conv_1d": 0,
-      "spend_2d": 3.58,
-      "conv_2d": 0,
-      "spend_3d": 3.58,
-      "conv_3d": 0,
-      "spend_7d": 3.58,
-      "conv_7d": 0,
-      "paused_at": "2026-10-21T10:39:38.653292+00:00"
     },
     "7631763556322148369:1879568464217298:1879578939341842": {
       "aadvid": "7631763556322148369",
@@ -14417,35 +14351,6 @@
       "global_conv_7d": 9,
       "paused_at": "2026-10-21T10:49:42.380699+00:00"
     },
-    "7631763556322148369:1879577400149361:1879577403804129": {
-      "aadvid": "7631763556322148369",
-      "account_name": "ROELLINGER RECYCLING",
-      "ad_id": "1879577400149361",
-      "creative_id": "1879577402168449",
-      "campaign_ad_name": "qatar power bank 20-10 (Accel CC 11.5) / qatar power bank 20-10 (Accel CC 11.5) - Creative",
-      "video_name": "18_10_15-10_ola_4.mp4",
-      "draft_ids": [
-        "1879577403804129"
-      ],
-      "reason": "[Global Dup Video High CPA 3D] Total 3-Day CPA $9.91 >= $9.00 (Total Spend=$9.91, Total Sales=1)",
-      "spend_1d": 0.6,
-      "conv_1d": 0,
-      "spend_2d": 0.6,
-      "conv_2d": 0,
-      "spend_3d": 0.6,
-      "conv_3d": 0,
-      "spend_7d": 0.6,
-      "conv_7d": 0,
-      "global_spend_1d": 0.99,
-      "global_conv_1d": 0,
-      "global_spend_2d": 2.17,
-      "global_conv_2d": 0,
-      "global_spend_3d": 9.91,
-      "global_conv_3d": 1,
-      "global_spend_7d": 14.13,
-      "global_conv_7d": 1,
-      "paused_at": "2026-10-21T10:49:43.078775+00:00"
-    },
     "7631763556322148369:1878973125749954:1878996905620737": {
       "aadvid": "7631763556322148369",
       "account_name": "ROELLINGER RECYCLING",
@@ -14771,6 +14676,846 @@
       "spend_7d": 0.02,
       "conv_7d": 0,
       "paused_at": "2026-10-21T11:08:20.913202+00:00"
+    },
+    "7631763556322148369:1879577400149361:1879577403803121": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "ad_id": "1879577400149361",
+      "creative_id": "1879577402168449",
+      "campaign_ad_name": "qatar power bank 20-10 (Accel CC 11.5)",
+      "video_name": "18_10_15-10_ola_1.mp4",
+      "draft_ids": [
+        "1879577403803121"
+      ],
+      "reason": "[Gulf Optimization] Filtered non-winner / CPC>$0.61 / CPA>$None",
+      "spend_3d": 1.21,
+      "conv_3d": 0,
+      "paused_at": "2026-10-21T12:00:30.606867+00:00"
+    },
+    "7631763556322148369:1879577400149361:1879577403800577": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "ad_id": "1879577400149361",
+      "creative_id": "1879577402168449",
+      "campaign_ad_name": "qatar power bank 20-10 (Accel CC 11.5)",
+      "video_name": "19_10_26-9_ola_5.mp4",
+      "draft_ids": [
+        "1879577403800577"
+      ],
+      "reason": "[Gulf Optimization] Filtered non-winner / CPC>$0.40 / CPA>$None",
+      "spend_3d": 0.8,
+      "conv_3d": 0,
+      "paused_at": "2026-10-21T12:00:31.530765+00:00"
+    },
+    "7631763556322148369:1879577400149361:1879577403804097": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "ad_id": "1879577400149361",
+      "creative_id": "1879577402168449",
+      "campaign_ad_name": "qatar power bank 20-10 (Accel CC 11.5)",
+      "video_name": "18_10_15-10_ola_2.mp4",
+      "draft_ids": [
+        "1879577403804097"
+      ],
+      "reason": "[Gulf Optimization] Filtered non-winner / CPC>$0.00 / CPA>$None",
+      "spend_3d": 0.24,
+      "conv_3d": 0,
+      "paused_at": "2026-10-21T12:00:33.018449+00:00"
+    },
+    "7631763556322148369:1879577400149361:1879577403795633": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "ad_id": "1879577400149361",
+      "creative_id": "1879577402168449",
+      "campaign_ad_name": "qatar power bank 20-10 (Accel CC 11.5)",
+      "video_name": "19_10_27-9_ola_5.mp4",
+      "draft_ids": [
+        "1879577403795633"
+      ],
+      "reason": "[Gulf Optimization] Filtered non-winner / CPC>$0.00 / CPA>$None",
+      "spend_3d": 0.2,
+      "conv_3d": 0,
+      "paused_at": "2026-10-21T12:00:33.686975+00:00"
+    },
+    "7631763556322148369:1879577400149361:1879577403799057": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "ad_id": "1879577400149361",
+      "creative_id": "1879577402168449",
+      "campaign_ad_name": "qatar power bank 20-10 (Accel CC 11.5)",
+      "video_name": "19_10_26-9_ola_1.mp4",
+      "draft_ids": [
+        "1879577403799057"
+      ],
+      "reason": "[Gulf Optimization] Filtered non-winner / CPC>$0.16 / CPA>$None",
+      "spend_3d": 0.16,
+      "conv_3d": 0,
+      "paused_at": "2026-10-21T12:00:34.440973+00:00"
+    },
+    "7631763556322148369:1879577400149361:1879577403795617": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "ad_id": "1879577400149361",
+      "creative_id": "1879577402168449",
+      "campaign_ad_name": "qatar power bank 20-10 (Accel CC 11.5)",
+      "video_name": "19_10_27-9_ola_4.mp4",
+      "draft_ids": [
+        "1879577403795617"
+      ],
+      "reason": "[Gulf Optimization] Filtered non-winner / CPC>$0.12 / CPA>$None",
+      "spend_3d": 0.12,
+      "conv_3d": 0,
+      "paused_at": "2026-10-21T12:00:35.087910+00:00"
+    },
+    "7631763556322148369:1879577400149361:1879577403799073": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "ad_id": "1879577400149361",
+      "creative_id": "1879577402168449",
+      "campaign_ad_name": "qatar power bank 20-10 (Accel CC 11.5)",
+      "video_name": "19_10_26-9_ola_2.mp4",
+      "draft_ids": [
+        "1879577403799073"
+      ],
+      "reason": "[Gulf Optimization] Filtered non-winner / CPC>$0.10 / CPA>$None",
+      "spend_3d": 0.1,
+      "conv_3d": 0,
+      "paused_at": "2026-10-21T12:00:36.019418+00:00"
+    },
+    "7631763556322148369:1879577400149361:1879577403799105": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "ad_id": "1879577400149361",
+      "creative_id": "1879577402168449",
+      "campaign_ad_name": "qatar power bank 20-10 (Accel CC 11.5)",
+      "video_name": "19_10_26-9_ola_4.mp4",
+      "draft_ids": [
+        "1879577403799105"
+      ],
+      "reason": "[Gulf Optimization] Filtered non-winner / CPC>$0.06 / CPA>$None",
+      "spend_3d": 0.06,
+      "conv_3d": 0,
+      "paused_at": "2026-10-21T12:00:36.760518+00:00"
+    },
+    "7631763556322148369:1879577400149361:1879577403800625": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "ad_id": "1879577400149361",
+      "creative_id": "1879577402168449",
+      "campaign_ad_name": "qatar power bank 20-10 (Accel CC 11.5)",
+      "video_name": "18_10_15-10_hanan_2.mp4",
+      "draft_ids": [
+        "1879577403800625"
+      ],
+      "reason": "[Gulf Optimization] Filtered non-winner / CPC>$0.00 / CPA>$None",
+      "spend_3d": 0.05,
+      "conv_3d": 0,
+      "paused_at": "2026-10-21T12:00:37.544612+00:00"
+    },
+    "7631763556322148369:1879577400149361:1879577403799089": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "ad_id": "1879577400149361",
+      "creative_id": "1879577402168449",
+      "campaign_ad_name": "qatar power bank 20-10 (Accel CC 11.5)",
+      "video_name": "19_10_26-9_ola_3.mp4",
+      "draft_ids": [
+        "1879577403799089"
+      ],
+      "reason": "[Gulf Optimization] Filtered non-winner / CPC>$0.00 / CPA>$None",
+      "spend_3d": 0.02,
+      "conv_3d": 0,
+      "paused_at": "2026-10-21T12:00:38.470292+00:00"
+    },
+    "7631763556322148369:1879578235015713:1879578238336081": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "ad_id": "1879578235015713",
+      "creative_id": "1879578235923698",
+      "campaign_ad_name": "oman power bank 20-10 (Turbo OpenBid 16.0)",
+      "video_name": "19_10_26-9_ola_6.mp4",
+      "draft_ids": [
+        "1879578238336081"
+      ],
+      "reason": "[Gulf Optimization] Filtered non-winner / CPC>$0.89 / CPA>$None",
+      "spend_3d": 0.89,
+      "conv_3d": 0,
+      "paused_at": "2026-10-21T12:00:41.077860+00:00"
+    },
+    "7631763556322148369:1879578235015713:1879578238332066": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "ad_id": "1879578235015713",
+      "creative_id": "1879578235923698",
+      "campaign_ad_name": "oman power bank 20-10 (Turbo OpenBid 16.0)",
+      "video_name": "19_10_26-9_ola_2.mp4",
+      "draft_ids": [
+        "1879578238332066"
+      ],
+      "reason": "[Gulf Optimization] Filtered non-winner / CPC>$0.00 / CPA>$None",
+      "spend_3d": 0.33,
+      "conv_3d": 0,
+      "paused_at": "2026-10-21T12:00:42.253111+00:00"
+    },
+    "7631763556322148369:1879578235015713:1879578238336065": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "ad_id": "1879578235015713",
+      "creative_id": "1879578235923698",
+      "campaign_ad_name": "oman power bank 20-10 (Turbo OpenBid 16.0)",
+      "video_name": "19_10_26-9_ola_5.mp4",
+      "draft_ids": [
+        "1879578238336065"
+      ],
+      "reason": "[Gulf Optimization] Filtered non-winner / CPC>$0.18 / CPA>$None",
+      "spend_3d": 0.18,
+      "conv_3d": 0,
+      "paused_at": "2026-10-21T12:00:43.360028+00:00"
+    },
+    "7631763556322148369:1879578235015713:1879578238330098": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "ad_id": "1879578235015713",
+      "creative_id": "1879578235923698",
+      "campaign_ad_name": "oman power bank 20-10 (Turbo OpenBid 16.0)",
+      "video_name": "19_10_27-9_ola_5.mp4",
+      "draft_ids": [
+        "1879578238330098"
+      ],
+      "reason": "[Gulf Optimization] Filtered non-winner / CPC>$0.16 / CPA>$None",
+      "spend_3d": 0.16,
+      "conv_3d": 0,
+      "paused_at": "2026-10-21T12:00:44.043731+00:00"
+    },
+    "7631763556322148369:1879578235015713:1879578238330050": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "ad_id": "1879578235015713",
+      "creative_id": "1879578235923698",
+      "campaign_ad_name": "oman power bank 20-10 (Turbo OpenBid 16.0)",
+      "video_name": "19_10_27-9_ola_2.mp4",
+      "draft_ids": [
+        "1879578238330050"
+      ],
+      "reason": "[Gulf Optimization] Filtered non-winner / CPC>$0.00 / CPA>$None",
+      "spend_3d": 0.14,
+      "conv_3d": 0,
+      "paused_at": "2026-10-21T12:00:44.824553+00:00"
+    },
+    "7631763556322148369:1879578235015713:1879578238336113": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "ad_id": "1879578235015713",
+      "creative_id": "1879578235923698",
+      "campaign_ad_name": "oman power bank 20-10 (Turbo OpenBid 16.0)",
+      "video_name": "18_10_15-10_hanan_2.mp4",
+      "draft_ids": [
+        "1879578238336113"
+      ],
+      "reason": "[Gulf Optimization] Filtered non-winner / CPC>$0.00 / CPA>$None",
+      "spend_3d": 0.11,
+      "conv_3d": 0,
+      "paused_at": "2026-10-21T12:00:45.553085+00:00"
+    },
+    "7631763556322148369:1879578235015713:1879578238336097": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "ad_id": "1879578235015713",
+      "creative_id": "1879578235923698",
+      "campaign_ad_name": "oman power bank 20-10 (Turbo OpenBid 16.0)",
+      "video_name": "18_10_15-10_hanan_1.mp4",
+      "draft_ids": [
+        "1879578238336097"
+      ],
+      "reason": "[Gulf Optimization] Filtered non-winner / CPC>$0.09 / CPA>$None",
+      "spend_3d": 0.09,
+      "conv_3d": 0,
+      "paused_at": "2026-10-21T12:00:46.466577+00:00"
+    },
+    "7631763556322148369:1879578235015713:1879578238330082": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "ad_id": "1879578235015713",
+      "creative_id": "1879578235923698",
+      "campaign_ad_name": "oman power bank 20-10 (Turbo OpenBid 16.0)",
+      "video_name": "19_10_27-9_ola_4.mp4",
+      "draft_ids": [
+        "1879578238330082"
+      ],
+      "reason": "[Gulf Optimization] Filtered non-winner / CPC>$0.05 / CPA>$None",
+      "spend_3d": 0.05,
+      "conv_3d": 0,
+      "paused_at": "2026-10-21T12:00:47.326980+00:00"
+    },
+    "7631763556322148369:1879578235015713:1879578238332050": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "ad_id": "1879578235015713",
+      "creative_id": "1879578235923698",
+      "campaign_ad_name": "oman power bank 20-10 (Turbo OpenBid 16.0)",
+      "video_name": "19_10_26-9_ola_1.mp4",
+      "draft_ids": [
+        "1879578238332050"
+      ],
+      "reason": "[Gulf Optimization] Filtered non-winner / CPC>$0.00 / CPA>$None",
+      "spend_3d": 0.04,
+      "conv_3d": 0,
+      "paused_at": "2026-10-21T12:00:48.039819+00:00"
+    },
+    "7631763556322148369:1879578235015713:1879578238338433": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "ad_id": "1879578235015713",
+      "creative_id": "1879578235923698",
+      "campaign_ad_name": "oman power bank 20-10 (Turbo OpenBid 16.0)",
+      "video_name": "18_10_15-10_ola_2.mp4",
+      "draft_ids": [
+        "1879578238338433"
+      ],
+      "reason": "[Gulf Optimization] Filtered non-winner / CPC>$0.00 / CPA>$None",
+      "spend_3d": 0.03,
+      "conv_3d": 0,
+      "paused_at": "2026-10-21T12:00:48.917568+00:00"
+    },
+    "7631763556322148369:1879578235015713:1879578238337137": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "ad_id": "1879578235015713",
+      "creative_id": "1879578235923698",
+      "campaign_ad_name": "oman power bank 20-10 (Turbo OpenBid 16.0)",
+      "video_name": "18_10_15-10_hanan_5.mp4",
+      "draft_ids": [
+        "1879578238337137"
+      ],
+      "reason": "[Gulf Optimization] Filtered non-winner / CPC>$0.00 / CPA>$None",
+      "spend_3d": 0.02,
+      "conv_3d": 0,
+      "paused_at": "2026-10-21T12:00:49.631322+00:00"
+    },
+    "7631763556322148369:1879578235015713:1879578238332082": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "ad_id": "1879578235015713",
+      "creative_id": "1879578235923698",
+      "campaign_ad_name": "oman power bank 20-10 (Turbo OpenBid 16.0)",
+      "video_name": "19_10_26-9_ola_3.mp4",
+      "draft_ids": [
+        "1879578238332082"
+      ],
+      "reason": "[Gulf Optimization] Filtered non-winner / CPC>$0.00 / CPA>$None",
+      "spend_3d": 0.01,
+      "conv_3d": 0,
+      "paused_at": "2026-10-21T12:00:50.285890+00:00"
+    },
+    "7631763556322148369:1879578235015713:1879578238332098": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "ad_id": "1879578235015713",
+      "creative_id": "1879578235923698",
+      "campaign_ad_name": "oman power bank 20-10 (Turbo OpenBid 16.0)",
+      "video_name": "19_10_26-9_ola_4.mp4",
+      "draft_ids": [
+        "1879578238332098"
+      ],
+      "reason": "[Gulf Optimization] Filtered non-winner / CPC>$0.00 / CPA>$None",
+      "spend_3d": 0.01,
+      "conv_3d": 0,
+      "paused_at": "2026-10-21T12:00:51.015059+00:00"
+    },
+    "7631763556322148369:1879577375942785:1879577380401393": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "ad_id": "1879577375942785",
+      "creative_id": "1879577378034193",
+      "campaign_ad_name": "oman power bank 20-10 (Accel CC 11.5)",
+      "video_name": "19_10_26-9_ola_4.mp4",
+      "draft_ids": [
+        "1879577380401393"
+      ],
+      "reason": "[Gulf Optimization] Filtered non-winner / CPC>$0.08 / CPA>$None",
+      "spend_3d": 0.08,
+      "conv_3d": 0,
+      "paused_at": "2026-10-21T12:00:52.604150+00:00"
+    },
+    "7631763556322148369:1879577375942785:1879577380400129": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "ad_id": "1879577375942785",
+      "creative_id": "1879577378034193",
+      "campaign_ad_name": "oman power bank 20-10 (Accel CC 11.5)",
+      "video_name": "19_10_27-9_ola_2.mp4",
+      "draft_ids": [
+        "1879577380400129"
+      ],
+      "reason": "[Gulf Optimization] Filtered non-winner / CPC>$0.00 / CPA>$None",
+      "spend_3d": 0.08,
+      "conv_3d": 0,
+      "paused_at": "2026-10-21T12:00:53.360139+00:00"
+    },
+    "7631763556322148369:1879577375942785:1879577380400177": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "ad_id": "1879577375942785",
+      "creative_id": "1879577378034193",
+      "campaign_ad_name": "oman power bank 20-10 (Accel CC 11.5)",
+      "video_name": "19_10_27-9_ola_5.mp4",
+      "draft_ids": [
+        "1879577380400177"
+      ],
+      "reason": "[Gulf Optimization] Filtered non-winner / CPC>$0.00 / CPA>$None",
+      "spend_3d": 0.08,
+      "conv_3d": 0,
+      "paused_at": "2026-10-21T12:00:54.017857+00:00"
+    },
+    "7631763556322148369:1879577375942785:1879577380402369": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "ad_id": "1879577375942785",
+      "creative_id": "1879577378034193",
+      "campaign_ad_name": "oman power bank 20-10 (Accel CC 11.5)",
+      "video_name": "19_10_26-9_ola_5.mp4",
+      "draft_ids": [
+        "1879577380402369"
+      ],
+      "reason": "[Gulf Optimization] Filtered non-winner / CPC>$0.08 / CPA>$None",
+      "spend_3d": 0.08,
+      "conv_3d": 0,
+      "paused_at": "2026-10-21T12:00:55.303212+00:00"
+    },
+    "7631763556322148369:1879577375942785:1879577380402401": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "ad_id": "1879577375942785",
+      "creative_id": "1879577378034193",
+      "campaign_ad_name": "oman power bank 20-10 (Accel CC 11.5)",
+      "video_name": "18_10_15-10_hanan_1.mp4",
+      "draft_ids": [
+        "1879577380402401"
+      ],
+      "reason": "[Gulf Optimization] Filtered non-winner / CPC>$0.00 / CPA>$None",
+      "spend_3d": 0.04,
+      "conv_3d": 0,
+      "paused_at": "2026-10-21T12:00:56.000927+00:00"
+    },
+    "7631763556322148369:1879577375942785:1879577380401377": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "ad_id": "1879577375942785",
+      "creative_id": "1879577378034193",
+      "campaign_ad_name": "oman power bank 20-10 (Accel CC 11.5)",
+      "video_name": "19_10_26-9_ola_3.mp4",
+      "draft_ids": [
+        "1879577380401377"
+      ],
+      "reason": "[Gulf Optimization] Filtered non-winner / CPC>$0.00 / CPA>$None",
+      "spend_3d": 0.03,
+      "conv_3d": 0,
+      "paused_at": "2026-10-21T12:00:56.911523+00:00"
+    },
+    "7631763556322148369:1879577375942785:1879577380400161": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "ad_id": "1879577375942785",
+      "creative_id": "1879577378034193",
+      "campaign_ad_name": "oman power bank 20-10 (Accel CC 11.5)",
+      "video_name": "19_10_27-9_ola_4.mp4",
+      "draft_ids": [
+        "1879577380400161"
+      ],
+      "reason": "[Gulf Optimization] Filtered non-winner / CPC>$0.00 / CPA>$None",
+      "spend_3d": 0.03,
+      "conv_3d": 0,
+      "paused_at": "2026-10-21T12:00:57.736776+00:00"
+    },
+    "7631763556322148369:1879577375942785:1879577380401361": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "ad_id": "1879577375942785",
+      "creative_id": "1879577378034193",
+      "campaign_ad_name": "oman power bank 20-10 (Accel CC 11.5)",
+      "video_name": "19_10_26-9_ola_2.mp4",
+      "draft_ids": [
+        "1879577380401361"
+      ],
+      "reason": "[Gulf Optimization] Filtered non-winner / CPC>$0.00 / CPA>$None",
+      "spend_3d": 0.03,
+      "conv_3d": 0,
+      "paused_at": "2026-10-21T12:00:58.587234+00:00"
+    },
+    "7631763556322148369:1879577375942785:1879577380401345": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "ad_id": "1879577375942785",
+      "creative_id": "1879577378034193",
+      "campaign_ad_name": "oman power bank 20-10 (Accel CC 11.5)",
+      "video_name": "19_10_26-9_ola_1.mp4",
+      "draft_ids": [
+        "1879577380401345"
+      ],
+      "reason": "[Gulf Optimization] Filtered non-winner / CPC>$0.00 / CPA>$None",
+      "spend_3d": 0.03,
+      "conv_3d": 0,
+      "paused_at": "2026-10-21T12:00:59.380482+00:00"
+    },
+    "7631763556322148369:1879577375942785:1879577380402417": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "ad_id": "1879577375942785",
+      "creative_id": "1879577378034193",
+      "campaign_ad_name": "oman power bank 20-10 (Accel CC 11.5)",
+      "video_name": "18_10_15-10_hanan_2.mp4",
+      "draft_ids": [
+        "1879577380402417"
+      ],
+      "reason": "[Gulf Optimization] Filtered non-winner / CPC>$0.00 / CPA>$None",
+      "spend_3d": 0.02,
+      "conv_3d": 0,
+      "paused_at": "2026-10-21T12:01:00.651136+00:00"
+    },
+    "7631763556322148369:1879577375942785:1879577380403361": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "ad_id": "1879577375942785",
+      "creative_id": "1879577378034193",
+      "campaign_ad_name": "oman power bank 20-10 (Accel CC 11.5)",
+      "video_name": "18_10_15-10_hanan_5.mp4",
+      "draft_ids": [
+        "1879577380403361"
+      ],
+      "reason": "[Gulf Optimization] Filtered non-winner / CPC>$0.00 / CPA>$None",
+      "spend_3d": 0.01,
+      "conv_3d": 0,
+      "paused_at": "2026-10-21T12:01:02.036962+00:00"
+    },
+    "7631763556322148369:1879577375942785:1879577380405697": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "ad_id": "1879577375942785",
+      "creative_id": "1879577378034193",
+      "campaign_ad_name": "oman power bank 20-10 (Accel CC 11.5)",
+      "video_name": "18_10_15-10_ola_2.mp4",
+      "draft_ids": [
+        "1879577380405697"
+      ],
+      "reason": "[Gulf Optimization] Filtered non-winner / CPC>$0.00 / CPA>$None",
+      "spend_3d": 0.01,
+      "conv_3d": 0,
+      "paused_at": "2026-10-21T12:01:02.770154+00:00"
+    },
+    "7631763556322148369:1879577430883409:1879577436291106": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "ad_id": "1879577430883409",
+      "creative_id": "1879577433051713",
+      "campaign_ad_name": "qatar kashaf 20-10 (Accel CC 11.5)",
+      "video_name": "HighCostBau-v10033g50000daei43vog65kvblqrfv0",
+      "draft_ids": [
+        "1879577436291106"
+      ],
+      "reason": "[Gulf Optimization] Filtered non-winner / CPC>$0.26 / CPA>$None",
+      "spend_3d": 0.79,
+      "conv_3d": 0,
+      "paused_at": "2026-10-21T12:01:05.426646+00:00"
+    },
+    "7631763556322148369:1879577430883409:1879577436363778": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "ad_id": "1879577430883409",
+      "creative_id": "1879577433051713",
+      "campaign_ad_name": "qatar kashaf 20-10 (Accel CC 11.5)",
+      "video_name": "كشاف رأس-Music_Refresh-5-6",
+      "draft_ids": [
+        "1879577436363778"
+      ],
+      "reason": "[Gulf Optimization] Filtered non-winner / CPC>$0.08 / CPA>$None",
+      "spend_3d": 0.25,
+      "conv_3d": 0,
+      "paused_at": "2026-10-21T12:01:06.409917+00:00"
+    },
+    "7631763556322148369:1879577430883409:1879577436292210": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "ad_id": "1879577430883409",
+      "creative_id": "1879577433051713",
+      "campaign_ad_name": "qatar kashaf 20-10 (Accel CC 11.5)",
+      "video_name": "كشاف رأس-New_Hook-7-8",
+      "draft_ids": [
+        "1879577436292210"
+      ],
+      "reason": "[Gulf Optimization] Filtered non-winner / CPC>$0.00 / CPA>$None",
+      "spend_3d": 0.17,
+      "conv_3d": 0,
+      "paused_at": "2026-10-21T12:01:07.197482+00:00"
+    },
+    "7631763556322148369:1879577430883409:1879577436294578": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "ad_id": "1879577430883409",
+      "creative_id": "1879577433051713",
+      "campaign_ad_name": "qatar kashaf 20-10 (Accel CC 11.5)",
+      "video_name": "كشاف رأس-Music_Refresh-3-4",
+      "draft_ids": [
+        "1879577436294578"
+      ],
+      "reason": "[Gulf Optimization] Filtered non-winner / CPC>$0.00 / CPA>$None",
+      "spend_3d": 0.14,
+      "conv_3d": 0,
+      "paused_at": "2026-10-21T12:01:08.062495+00:00"
+    },
+    "7631763556322148369:1879577430883409:1879577436295266": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "ad_id": "1879577430883409",
+      "creative_id": "1879577433051713",
+      "campaign_ad_name": "qatar kashaf 20-10 (Accel CC 11.5)",
+      "video_name": "كشاف رأس-Music_Refresh-0-1",
+      "draft_ids": [
+        "1879577436295266"
+      ],
+      "reason": "[Gulf Optimization] Filtered non-winner / CPC>$0.00 / CPA>$None",
+      "spend_3d": 0.07,
+      "conv_3d": 0,
+      "paused_at": "2026-10-21T12:01:08.751957+00:00"
+    },
+    "7631763556322148369:1879577430883409:1879577436277154": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "ad_id": "1879577430883409",
+      "creative_id": "1879577433051713",
+      "campaign_ad_name": "qatar kashaf 20-10 (Accel CC 11.5)",
+      "video_name": "3_CZDTMI6J.mp4",
+      "draft_ids": [
+        "1879577436277154"
+      ],
+      "reason": "[Gulf Optimization] Filtered non-winner / CPC>$0.00 / CPA>$None",
+      "spend_3d": 0.06,
+      "conv_3d": 0,
+      "paused_at": "2026-10-21T12:01:09.608393+00:00"
+    },
+    "7631763556322148369:1879577430883409:1879577436292194": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "ad_id": "1879577430883409",
+      "creative_id": "1879577433051713",
+      "campaign_ad_name": "qatar kashaf 20-10 (Accel CC 11.5)",
+      "video_name": "كشاف رأس-Music_Refresh-1-2",
+      "draft_ids": [
+        "1879577436292194"
+      ],
+      "reason": "[Gulf Optimization] Filtered non-winner / CPC>$0.05 / CPA>$None",
+      "spend_3d": 0.05,
+      "conv_3d": 0,
+      "paused_at": "2026-10-21T12:01:10.316080+00:00"
+    },
+    "7631763556322148369:1879577430883409:1879577436277170": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "ad_id": "1879577430883409",
+      "creative_id": "1879577433051713",
+      "campaign_ad_name": "qatar kashaf 20-10 (Accel CC 11.5)",
+      "video_name": "4_PfDEwa6Q.mp4",
+      "draft_ids": [
+        "1879577436277170"
+      ],
+      "reason": "[Gulf Optimization] Filtered non-winner / CPC>$0.00 / CPA>$None",
+      "spend_3d": 0.04,
+      "conv_3d": 0,
+      "paused_at": "2026-10-21T12:01:11.050747+00:00"
+    },
+    "7631763556322148369:1879577430883409:1879577436292162": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "ad_id": "1879577430883409",
+      "creative_id": "1879577433051713",
+      "campaign_ad_name": "qatar kashaf 20-10 (Accel CC 11.5)",
+      "video_name": "كشاف رأس-Music_Refresh-4-3",
+      "draft_ids": [
+        "1879577436292162"
+      ],
+      "reason": "[Gulf Optimization] Filtered non-winner / CPC>$0.00 / CPA>$None",
+      "spend_3d": 0.03,
+      "conv_3d": 0,
+      "paused_at": "2026-10-21T12:01:11.894012+00:00"
+    },
+    "7631763556322148369:1879577430883409:1879577436294546": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "ad_id": "1879577430883409",
+      "creative_id": "1879577433051713",
+      "campaign_ad_name": "qatar kashaf 20-10 (Accel CC 11.5)",
+      "video_name": "كشاف رأس-Music_Refresh-6-9",
+      "draft_ids": [
+        "1879577436294546"
+      ],
+      "reason": "[Gulf Optimization] Filtered non-winner / CPC>$0.00 / CPA>$None",
+      "spend_3d": 0.03,
+      "conv_3d": 0,
+      "paused_at": "2026-10-21T12:01:12.882564+00:00"
+    },
+    "7631763556322148369:1879577430883409:1879577436295282": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "ad_id": "1879577430883409",
+      "creative_id": "1879577433051713",
+      "campaign_ad_name": "qatar kashaf 20-10 (Accel CC 11.5)",
+      "video_name": "4_PfDEwa6Q.mp4",
+      "draft_ids": [
+        "1879577436295282"
+      ],
+      "reason": "[Gulf Optimization] Filtered non-winner / CPC>$0.00 / CPA>$None",
+      "spend_3d": 0.02,
+      "conv_3d": 0,
+      "paused_at": "2026-10-21T12:01:13.727006+00:00"
+    },
+    "7631763556322148369:1879577430883409:1879577436294530": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "ad_id": "1879577430883409",
+      "creative_id": "1879577433051713",
+      "campaign_ad_name": "qatar kashaf 20-10 (Accel CC 11.5)",
+      "video_name": "كشاف رأس-Music_Refresh-2-3",
+      "draft_ids": [
+        "1879577436294530"
+      ],
+      "reason": "[Gulf Optimization] Filtered non-winner / CPC>$0.00 / CPA>$None",
+      "spend_3d": 0.02,
+      "conv_3d": 0,
+      "paused_at": "2026-10-21T12:01:14.569441+00:00"
+    },
+    "7631763556322148369:1879577430883409:1879577436291090": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "ad_id": "1879577430883409",
+      "creative_id": "1879577433051713",
+      "campaign_ad_name": "qatar kashaf 20-10 (Accel CC 11.5)",
+      "video_name": "3_CZDTMI6J.mp4",
+      "draft_ids": [
+        "1879577436291090"
+      ],
+      "reason": "[Gulf Optimization] Filtered non-winner / CPC>$0.00 / CPA>$None",
+      "spend_3d": 0.01,
+      "conv_3d": 0,
+      "paused_at": "2026-10-21T12:01:15.252366+00:00"
+    },
+    "7631763556322148369:1879577430883409:1879577436290066": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "ad_id": "1879577430883409",
+      "creative_id": "1879577433051713",
+      "campaign_ad_name": "qatar kashaf 20-10 (Accel CC 11.5)",
+      "video_name": "55_6p1ZVdAt.mp4",
+      "draft_ids": [
+        "1879577436290066"
+      ],
+      "reason": "[Gulf Optimization] Filtered non-winner / CPC>$0.00 / CPA>$None",
+      "spend_3d": 0.01,
+      "conv_3d": 0,
+      "paused_at": "2026-10-21T12:01:16.102032+00:00"
+    },
+    "7631763556322148369:1879577430883409:1879577436290082": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "ad_id": "1879577430883409",
+      "creative_id": "1879577433051713",
+      "campaign_ad_name": "qatar kashaf 20-10 (Accel CC 11.5)",
+      "video_name": "0903(3)_qIYnCefL.mp4",
+      "draft_ids": [
+        "1879577436290082"
+      ],
+      "reason": "[Gulf Optimization] Filtered non-winner / CPC>$0.00 / CPA>$None",
+      "spend_3d": 0.01,
+      "conv_3d": 0,
+      "paused_at": "2026-10-21T12:01:16.921558+00:00"
+    },
+    "7631763556322148369:1879577430883409:1879577436294562": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "ad_id": "1879577430883409",
+      "creative_id": "1879577433051713",
+      "campaign_ad_name": "qatar kashaf 20-10 (Accel CC 11.5)",
+      "video_name": "كشاف رأس-Music_Refresh-2-2",
+      "draft_ids": [
+        "1879577436294562"
+      ],
+      "reason": "[Gulf Optimization] Filtered non-winner / CPC>$0.00 / CPA>$None",
+      "spend_3d": 0.01,
+      "conv_3d": 0,
+      "paused_at": "2026-10-21T12:01:17.873143+00:00"
+    },
+    "7631763556322148369:1879577430883409:1879577436290098": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "ad_id": "1879577430883409",
+      "creative_id": "1879577433051713",
+      "campaign_ad_name": "qatar kashaf 20-10 (Accel CC 11.5)",
+      "video_name": "1_vjwOcEKt.mp4",
+      "draft_ids": [
+        "1879577436290098"
+      ],
+      "reason": "[Gulf Optimization] Filtered non-winner / CPC>$0.00 / CPA>$None",
+      "spend_3d": 0.0,
+      "conv_3d": 0,
+      "paused_at": "2026-10-21T12:01:18.906943+00:00"
+    },
+    "7631763556322148369:1879577430883409:1879577436295250": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "ad_id": "1879577430883409",
+      "creative_id": "1879577433051713",
+      "campaign_ad_name": "qatar kashaf 20-10 (Accel CC 11.5)",
+      "video_name": "كشاف رأس-Music_Refresh-0-5",
+      "draft_ids": [
+        "1879577436295250"
+      ],
+      "reason": "[Gulf Optimization] Filtered non-winner / CPC>$0.00 / CPA>$None",
+      "spend_3d": 0.0,
+      "conv_3d": 0,
+      "paused_at": "2026-10-21T12:01:19.656712+00:00"
+    },
+    "7631763556322148369:1879577430883409:1879577436291122": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "ad_id": "1879577430883409",
+      "creative_id": "1879577433051713",
+      "campaign_ad_name": "qatar kashaf 20-10 (Accel CC 11.5)",
+      "video_name": "كشاف رأس-Music_Refresh-5-7",
+      "draft_ids": [
+        "1879577436291122"
+      ],
+      "reason": "[Gulf Optimization] Filtered non-winner / CPC>$0.00 / CPA>$None",
+      "spend_3d": 0.0,
+      "conv_3d": 0,
+      "paused_at": "2026-10-21T12:01:20.435808+00:00"
+    },
+    "7631763556322148369:1879577430883409:1879577436277122": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "ad_id": "1879577430883409",
+      "creative_id": "1879577433051713",
+      "campaign_ad_name": "qatar kashaf 20-10 (Accel CC 11.5)",
+      "video_name": "1_vjwOcEKt.mp4",
+      "draft_ids": [
+        "1879577436277122"
+      ],
+      "reason": "[Gulf Optimization] Filtered non-winner / CPC>$0.00 / CPA>$None",
+      "spend_3d": 0.0,
+      "conv_3d": 0,
+      "paused_at": "2026-10-21T12:01:21.168392+00:00"
+    },
+    "7631763556322148369:1879577430883409:1879577436291074": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "ad_id": "1879577430883409",
+      "creative_id": "1879577433051713",
+      "campaign_ad_name": "qatar kashaf 20-10 (Accel CC 11.5)",
+      "video_name": "0903(3)_qIYnCefL.mp4",
+      "draft_ids": [
+        "1879577436291074"
+      ],
+      "reason": "[Gulf Optimization] Filtered non-winner / CPC>$0.00 / CPA>$None",
+      "spend_3d": 0.0,
+      "conv_3d": 0,
+      "paused_at": "2026-10-21T12:01:21.881140+00:00"
     }
   },
   "tiktok_ads": {},
@@ -16593,13 +17338,13 @@
       "scaled_budget_today": false
     },
     "4523fc36-0c37-430a-8491-a6283b5a7837": {
-      "date": "2026-10-20",
+      "date": "2026-10-21",
       "name": "Copy of SA_Car Target Cost Men 20+ | 2.8 Bid",
       "campaign": "smart+ cars SA 18-10",
       "bumps_today": 0,
       "last_action_at": null,
-      "last_spend": 13.88,
-      "last_check_at": "2026-10-20T17:22:29.237707+00:00",
+      "last_spend": 0.0,
+      "last_check_at": "2026-10-21T11:45:28.922827+00:00",
       "scaled_budget_today": false
     },
     "50881dff-4297-4f46-bd60-2cb90ff60307": {
@@ -16653,13 +17398,13 @@
       "scaled_budget_today": false
     },
     "7f8d55af-46b0-4b7a-b8f8-76c63ea00c51": {
-      "date": "2026-10-20",
+      "date": "2026-10-21",
       "name": "Copy of SA_Car Target Cost Men 20+ | 2.8 Bid",
       "campaign": "smart+ cars SA 18-10",
       "bumps_today": 0,
       "last_action_at": null,
-      "last_spend": 6.34,
-      "last_check_at": "2026-10-20T17:22:29.237707+00:00",
+      "last_spend": 0.01,
+      "last_check_at": "2026-10-21T11:45:28.922827+00:00",
       "scaled_budget_today": false
     },
     "843984de-6e98-4ca2-915f-001ddfc505e6": {
@@ -16723,53 +17468,53 @@
       "scaled_budget_today": false
     },
     "c932d30c-d4d8-4667-a567-bc418c4096d8": {
-      "date": "2026-10-20",
+      "date": "2026-10-21",
       "name": "Copy of SA_Car Target Cost Men 20+ | 2.8 Bid",
       "campaign": "smart+ cars SA 18-10",
       "bumps_today": 0,
       "last_action_at": null,
-      "last_spend": 33.11,
-      "last_check_at": "2026-10-20T17:22:29.237707+00:00",
+      "last_spend": 0.28,
+      "last_check_at": "2026-10-21T11:45:28.922827+00:00",
       "scaled_budget_today": false
     },
     "15393aa6-1fb3-4967-a0e1-4f1c34ce925a": {
-      "date": "2026-10-20",
+      "date": "2026-10-21",
       "name": "Smart+ Broad — كل الـ 10 فيديوهات",
       "campaign": "باور بانك علا وحنان 18-10 (دفعة 15-10)",
-      "bumps_today": 0,
-      "last_action_at": null,
-      "last_spend": 0.01,
-      "last_check_at": "2026-10-20T17:22:29.237707+00:00",
+      "bumps_today": 1,
+      "last_action_at": "2026-10-21T11:45:28.922827+00:00",
+      "last_spend": 0.0,
+      "last_check_at": "2026-10-21T11:45:28.922827+00:00",
       "scaled_budget_today": false
     },
     "009fe361-1781-4e87-9044-6bb02818998b": {
-      "date": "2026-10-20",
+      "date": "2026-10-21",
       "name": "Smart+ Broad 19-10 (دفعة 27-9 و 26-9 — 10 فيديوهات)",
       "campaign": "باور بانك وينر",
       "bumps_today": 1,
-      "last_action_at": "2026-10-20T03:48:45.459561+00:00",
+      "last_action_at": "2026-10-21T11:45:28.922827+00:00",
       "last_spend": 0.0,
-      "last_check_at": "2026-10-20T17:22:29.237707+00:00",
+      "last_check_at": "2026-10-21T11:45:28.922827+00:00",
       "scaled_budget_today": false
     },
     "7d913b86-ca31-4196-9aba-f943b26f76c3": {
-      "date": "2026-10-20",
+      "date": "2026-10-21",
       "name": "Old Account Mega Winners Smart+ All",
       "campaign": "باور بانك وينر",
       "bumps_today": 0,
       "last_action_at": null,
-      "last_spend": 0.03,
-      "last_check_at": "2026-10-20T17:22:29.237707+00:00",
+      "last_spend": 0.0,
+      "last_check_at": "2026-10-21T11:45:28.922827+00:00",
       "scaled_budget_today": false
     },
     "91e0637e-87be-4671-b34d-14f917d64281": {
-      "date": "2026-10-20",
+      "date": "2026-10-21",
       "name": "Smart+ Broad — كل الـ 10 فيديوهات",
       "campaign": "وسادة السيارة علا وحنان 19-10 (دفعة 17-10)",
       "bumps_today": 1,
-      "last_action_at": "2026-10-20T03:48:45.459561+00:00",
-      "last_spend": 0.01,
-      "last_check_at": "2026-10-20T17:22:29.237707+00:00",
+      "last_action_at": "2026-10-21T11:45:28.922827+00:00",
+      "last_spend": 0.0,
+      "last_check_at": "2026-10-21T11:45:28.922827+00:00",
       "scaled_budget_today": false
     },
     "bce7dbdf-2558-436a-9494-2923268b59a6": {
@@ -16873,63 +17618,63 @@
       "scaled_budget_today": false
     },
     "162ce17e-8b16-430b-be36-b34bc22b0d6a": {
-      "date": "2026-10-20",
+      "date": "2026-10-21",
       "name": "Copy of SA_Car Target Cost Men 20+ | 2.8 Bid",
       "campaign": "smart+ cars SA 18-10",
-      "bumps_today": 0,
-      "last_action_at": null,
-      "last_spend": 0.17,
-      "last_check_at": "2026-10-20T17:22:29.237707+00:00",
+      "bumps_today": 1,
+      "last_action_at": "2026-10-21T11:45:28.922827+00:00",
+      "last_spend": 0.04,
+      "last_check_at": "2026-10-21T11:45:28.922827+00:00",
       "scaled_budget_today": false
     },
     "30911f5f-84be-454b-b17e-98fbd0866f70": {
-      "date": "2026-10-20",
+      "date": "2026-10-21",
       "name": "Copy of SA Smart+ Winners | 3.0 Bid",
       "campaign": "smart+ cars SA 18-10",
       "bumps_today": 0,
       "last_action_at": null,
-      "last_spend": 0.27,
-      "last_check_at": "2026-10-20T17:22:29.237707+00:00",
+      "last_spend": 0.04,
+      "last_check_at": "2026-10-21T11:45:28.922827+00:00",
       "scaled_budget_today": false
     },
     "3ae8b76a-632f-42f8-8ad4-9754cecbd0ac": {
-      "date": "2026-10-20",
+      "date": "2026-10-21",
       "name": "Copy of SA_Car Elite Mega-Winners 19-10 (Target Cost Men 20+)",
       "campaign": "smart+ cars SA 18-10",
       "bumps_today": 0,
       "last_action_at": null,
-      "last_spend": 4.5,
-      "last_check_at": "2026-10-20T17:22:29.237707+00:00",
+      "last_spend": 0.15,
+      "last_check_at": "2026-10-21T11:45:28.922827+00:00",
       "scaled_budget_today": false
     },
     "3b494de6-e53c-420b-8efc-46d5cc1ae04f": {
-      "date": "2026-10-20",
+      "date": "2026-10-21",
       "name": "Copy of SA_Car Target Cost Men 20+ | 2.8 Bid",
       "campaign": "smart+ cars SA 18-10",
       "bumps_today": 0,
       "last_action_at": null,
       "last_spend": 0.0,
-      "last_check_at": "2026-10-20T17:22:29.237707+00:00",
+      "last_check_at": "2026-10-21T11:45:28.922827+00:00",
       "scaled_budget_today": false
     },
     "4829c5fb-6513-4e7a-89ba-b04a6dd5b90d": {
-      "date": "2026-10-20",
+      "date": "2026-10-21",
       "name": "Copy of SA_Car Target Cost Men 20+ | 2.8 Bid",
       "campaign": "smart+ cars SA 18-10",
       "bumps_today": 0,
       "last_action_at": null,
-      "last_spend": 0.62,
-      "last_check_at": "2026-10-20T17:22:29.237707+00:00",
+      "last_spend": 0.17,
+      "last_check_at": "2026-10-21T11:45:28.922827+00:00",
       "scaled_budget_today": false
     },
     "81bd4fa1-3fa9-4b8e-a4d4-682d5f924d5f": {
-      "date": "2026-10-20",
+      "date": "2026-10-21",
       "name": "Copy of SA_Car Target Cost Men 20+ | 2.8 Bid",
       "campaign": "smart+ cars SA 18-10",
       "bumps_today": 0,
       "last_action_at": null,
-      "last_spend": 0.11,
-      "last_check_at": "2026-10-20T17:22:29.237707+00:00",
+      "last_spend": 0.02,
+      "last_check_at": "2026-10-21T11:45:28.922827+00:00",
       "scaled_budget_today": false
     },
     "ad023be5-ca6f-4c0f-8d87-5ef7041619bc": {
@@ -16943,13 +17688,13 @@
       "scaled_budget_today": false
     },
     "bc3845d3-a74f-41c8-ab0c-0bbfcbcd10b9": {
-      "date": "2026-10-20",
+      "date": "2026-10-21",
       "name": "Copy of SA_Car Target Cost Men 20+ | 2.8 Bid",
       "campaign": "smart+ cars SA 18-10",
       "bumps_today": 0,
       "last_action_at": null,
-      "last_spend": 0.02,
-      "last_check_at": "2026-10-20T17:22:29.237707+00:00",
+      "last_spend": 0.14,
+      "last_check_at": "2026-10-21T11:45:28.922827+00:00",
       "scaled_budget_today": false
     },
     "a1994a14-2bda-4f73-9ff8-53b92d2a2a08": {
@@ -17183,93 +17928,93 @@
       "scaled_budget_today": false
     },
     "23f426ec-80a1-4f9a-8cc5-31eb38e3c995": {
-      "date": "2026-10-20",
+      "date": "2026-10-21",
       "name": "Copy of SA_Car Target Cost Men 20+ | 2.8 Bid",
       "campaign": "smart+ cars SA 18-10",
       "bumps_today": 0,
       "last_action_at": null,
       "last_spend": 0.0,
-      "last_check_at": "2026-10-20T17:22:29.237707+00:00",
+      "last_check_at": "2026-10-21T11:45:28.922827+00:00",
       "scaled_budget_today": false
     },
     "2bffe2e8-485e-4394-b9c9-df590b39ce37": {
-      "date": "2026-10-20",
+      "date": "2026-10-21",
       "name": "Copy of SA_Car Target Cost Men 20+ | 2.8 Bid",
       "campaign": "smart+ cars SA 18-10",
-      "bumps_today": 0,
-      "last_action_at": null,
-      "last_spend": 0.02,
-      "last_check_at": "2026-10-20T17:22:29.237707+00:00",
+      "bumps_today": 1,
+      "last_action_at": "2026-10-21T11:45:28.922827+00:00",
+      "last_spend": 0.03,
+      "last_check_at": "2026-10-21T11:45:28.922827+00:00",
       "scaled_budget_today": false
     },
     "31adebc5-5982-428a-ad88-7bf82f0c719e": {
-      "date": "2026-10-20",
+      "date": "2026-10-21",
       "name": "Copy of SA_Car Target Cost Men 20+ | 2.8 Bid",
       "campaign": "smart+ cars SA 18-10",
       "bumps_today": 0,
       "last_action_at": null,
       "last_spend": 0.0,
-      "last_check_at": "2026-10-20T17:22:29.237707+00:00",
+      "last_check_at": "2026-10-21T11:45:28.922827+00:00",
       "scaled_budget_today": false
     },
     "343ccb4a-bc00-402e-b362-6b288d92a2fd": {
-      "date": "2026-10-20",
+      "date": "2026-10-21",
       "name": "Smart+ Broad 20-10 (دفعة 18-10 — 10 فيديوهات)",
       "campaign": "smart+ cars SA 18-10",
       "bumps_today": 0,
       "last_action_at": null,
       "last_spend": 0.0,
-      "last_check_at": "2026-10-20T17:22:29.237707+00:00",
+      "last_check_at": "2026-10-21T11:45:28.922827+00:00",
       "scaled_budget_today": false
     },
     "56b9125a-d677-459d-8cdb-d1fefc7cac00": {
-      "date": "2026-10-20",
+      "date": "2026-10-21",
       "name": "Copy of SA_Car Target Cost Men 20+ | 2.8 Bid",
       "campaign": "smart+ cars SA 18-10",
       "bumps_today": 0,
       "last_action_at": null,
       "last_spend": 0.0,
-      "last_check_at": "2026-10-20T17:22:29.237707+00:00",
+      "last_check_at": "2026-10-21T11:45:28.922827+00:00",
       "scaled_budget_today": false
     },
     "620c7403-fbbd-43cb-883c-0199eafa792c": {
-      "date": "2026-10-20",
+      "date": "2026-10-21",
       "name": "20-10 علا (دفعة 18-10)",
       "campaign": "smart+ cars SA 18-10",
       "bumps_today": 0,
       "last_action_at": null,
-      "last_spend": 0.48,
-      "last_check_at": "2026-10-20T17:22:29.237707+00:00",
+      "last_spend": 0.02,
+      "last_check_at": "2026-10-21T11:45:28.922827+00:00",
       "scaled_budget_today": false
     },
     "8efee0a9-8dd3-4377-b307-87a4ffeff806": {
-      "date": "2026-10-20",
-      "name": "Copy of SA_Car Target Cost Men 20+ | 2.8 Bid",
-      "campaign": "smart+ cars SA 18-10",
-      "bumps_today": 0,
-      "last_action_at": null,
-      "last_spend": 0.0,
-      "last_check_at": "2026-10-20T17:22:29.237707+00:00",
-      "scaled_budget_today": false
-    },
-    "8f7edb32-9dfa-4518-a3b2-62ce55490010": {
-      "date": "2026-10-20",
-      "name": "Copy of SA_Car Target Cost Men 20+ | 2.8 Bid",
-      "campaign": "smart+ cars SA 18-10",
-      "bumps_today": 0,
-      "last_action_at": null,
-      "last_spend": 0.0,
-      "last_check_at": "2026-10-20T17:22:29.237707+00:00",
-      "scaled_budget_today": false
-    },
-    "9eec35dc-a86f-4c72-90e9-1079b22c4496": {
-      "date": "2026-10-20",
+      "date": "2026-10-21",
       "name": "Copy of SA_Car Target Cost Men 20+ | 2.8 Bid",
       "campaign": "smart+ cars SA 18-10",
       "bumps_today": 0,
       "last_action_at": null,
       "last_spend": 0.01,
-      "last_check_at": "2026-10-20T17:22:29.237707+00:00",
+      "last_check_at": "2026-10-21T11:45:28.922827+00:00",
+      "scaled_budget_today": false
+    },
+    "8f7edb32-9dfa-4518-a3b2-62ce55490010": {
+      "date": "2026-10-21",
+      "name": "Copy of SA_Car Target Cost Men 20+ | 2.8 Bid",
+      "campaign": "smart+ cars SA 18-10",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.01,
+      "last_check_at": "2026-10-21T11:45:28.922827+00:00",
+      "scaled_budget_today": false
+    },
+    "9eec35dc-a86f-4c72-90e9-1079b22c4496": {
+      "date": "2026-10-21",
+      "name": "Copy of SA_Car Target Cost Men 20+ | 2.8 Bid",
+      "campaign": "smart+ cars SA 18-10",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.02,
+      "last_check_at": "2026-10-21T11:45:28.922827+00:00",
       "scaled_budget_today": false
     },
     "c64f004d-1f2e-4b76-9356-3d2b3d72d23d": {
@@ -17363,113 +18108,113 @@
       "scaled_budget_today": false
     },
     "3aa66af1-2ccc-4bba-b928-7d8856d71d2e": {
-      "date": "2026-10-20",
+      "date": "2026-10-21",
       "name": "Copy of SA_Car Target Cost Men 20+ | 2.8 Bid",
       "campaign": "smart+ cars SA 18-10",
       "bumps_today": 0,
       "last_action_at": null,
       "last_spend": 0.0,
-      "last_check_at": "2026-10-20T17:22:29.237707+00:00",
+      "last_check_at": "2026-10-21T11:45:28.922827+00:00",
       "scaled_budget_today": false
     },
     "9eb22e98-66d0-4c09-a1e7-5b6ebb87e132": {
-      "date": "2026-10-20",
+      "date": "2026-10-21",
       "name": "Copy of SA_Car Target Cost Men 20+ | 2.8 Bid",
       "campaign": "smart+ cars SA 18-10",
       "bumps_today": 0,
       "last_action_at": null,
-      "last_spend": 0.0,
-      "last_check_at": "2026-10-20T17:22:29.237707+00:00",
+      "last_spend": 0.04,
+      "last_check_at": "2026-10-21T11:45:28.922827+00:00",
       "scaled_budget_today": false
     },
     "a9b1646d-23ff-4050-9396-4f354cec39de": {
-      "date": "2026-10-20",
+      "date": "2026-10-21",
       "name": "Copy of SA_Car Target Cost Men 20+ | 2.8 Bid",
       "campaign": "smart+ cars SA 18-10",
       "bumps_today": 0,
       "last_action_at": null,
       "last_spend": 0.0,
-      "last_check_at": "2026-10-20T17:22:29.237707+00:00",
+      "last_check_at": "2026-10-21T11:45:28.922827+00:00",
       "scaled_budget_today": false
     },
     "c449c839-4dfb-49e0-9f2a-398fab8c9e7d": {
-      "date": "2026-10-20",
+      "date": "2026-10-21",
       "name": "Copy of SA_Car Target Cost Men 20+ | 2.8 Bid",
       "campaign": "smart+ cars SA 18-10",
       "bumps_today": 0,
       "last_action_at": null,
       "last_spend": 0.0,
-      "last_check_at": "2026-10-20T17:22:29.237707+00:00",
+      "last_check_at": "2026-10-21T11:45:28.922827+00:00",
       "scaled_budget_today": false
     },
     "c6f9b152-95f0-4ac2-94f9-9b3a66ae8e62": {
-      "date": "2026-10-20",
+      "date": "2026-10-21",
       "name": "Copy of SA_Car Target Cost Men 20+ | 2.8 Bid",
       "campaign": "smart+ cars SA 18-10",
       "bumps_today": 0,
       "last_action_at": null,
       "last_spend": 0.0,
-      "last_check_at": "2026-10-20T17:22:29.237707+00:00",
+      "last_check_at": "2026-10-21T11:45:28.922827+00:00",
       "scaled_budget_today": false
     },
     "dd4533d0-8b36-4e67-9ad8-5d0d06d5aef6": {
-      "date": "2026-10-20",
+      "date": "2026-10-21",
       "name": "Copy of SA_Car Target Cost Men 20+ | 2.8 Bid",
       "campaign": "smart+ cars SA 18-10",
       "bumps_today": 0,
       "last_action_at": null,
       "last_spend": 0.0,
-      "last_check_at": "2026-10-20T17:22:29.237707+00:00",
+      "last_check_at": "2026-10-21T11:45:28.922827+00:00",
       "scaled_budget_today": false
     },
     "eb8b6fd1-227c-4451-baf3-a1223123704f": {
-      "date": "2026-10-20",
+      "date": "2026-10-21",
       "name": "Copy of SA_Car Target Cost Men 20+ | 2.8 Bid",
       "campaign": "smart+ cars SA 18-10",
       "bumps_today": 0,
       "last_action_at": null,
       "last_spend": 0.0,
-      "last_check_at": "2026-10-20T17:22:29.237707+00:00",
+      "last_check_at": "2026-10-21T11:45:28.922827+00:00",
       "scaled_budget_today": false
     },
     "f0e6ee58-f35e-4fb4-9691-6a2dd5ea9485": {
-      "date": "2026-10-20",
+      "date": "2026-10-21",
       "name": "20-10 حنان (دفعة 18-10)",
       "campaign": "smart+ cars SA 18-10",
       "bumps_today": 0,
       "last_action_at": null,
-      "last_spend": 0.7,
-      "last_check_at": "2026-10-20T17:22:29.237707+00:00",
+      "last_spend": 0.0,
+      "last_check_at": "2026-10-21T11:45:28.922827+00:00",
       "scaled_budget_today": false
     },
     "f7c654df-a9c5-40b9-a948-38f57bb59f5a": {
-      "date": "2026-10-20",
+      "date": "2026-10-21",
       "name": "Copy of SA_Car Target Cost Men 20+ | 2.8 Bid",
       "campaign": "smart+ cars SA 18-10",
       "bumps_today": 0,
       "last_action_at": null,
       "last_spend": 0.0,
-      "last_check_at": "2026-10-20T17:22:29.237707+00:00",
+      "last_check_at": "2026-10-21T11:45:28.922827+00:00",
       "scaled_budget_today": false
     },
     "fcc381ce-f5e8-4609-9b89-9022844c87aa": {
-      "date": "2026-10-20",
+      "date": "2026-10-21",
       "name": "Copy of SA_Car Target Cost Men 20+ | 2.8 Bid",
       "campaign": "smart+ cars SA 18-10",
       "bumps_today": 0,
       "last_action_at": null,
       "last_spend": 0.0,
-      "last_check_at": "2026-10-20T17:22:29.237707+00:00",
+      "last_check_at": "2026-10-21T11:45:28.922827+00:00",
       "scaled_budget_today": false
     },
     "1a45241d-bfe4-4613-9ba8-983a051e6978": {
-      "date": "2026-10-20",
+      "date": "2026-10-21",
       "name": "Smart+ Broad — كل الـ 10 فيديوهات",
       "campaign": "وسادة السيارة علا وحنان 20-10 (دفعة 18-10)",
-      "bumps_today": 0,
-      "last_action_at": null,
+      "bumps_today": 1,
+      "last_action_at": "2026-10-21T11:45:28.922827+00:00",
       "last_spend": 0.0,
-      "last_check_at": "2026-10-20T17:22:29.237707+00:00",
+      "last_check_at": "2026-10-21T11:45:28.922827+00:00",
       "scaled_budget_today": false
     },
     "b2f8ae5e-42c8-46ed-b220-a6f93af9822f": {
@@ -17793,43 +18538,43 @@
       "scaled_budget_today": false
     },
     "80429dee-1195-4a3d-8aeb-751e3de46caf": {
-      "date": "2026-10-20",
+      "date": "2026-10-21",
       "name": "Smart+ Broad 20-10 (8 فيديوهات الوسادة الجديدة)",
       "campaign": "smart+ cars SA 18-10",
       "bumps_today": 0,
       "last_action_at": null,
       "last_spend": 0.0,
-      "last_check_at": "2026-10-20T17:22:29.237707+00:00",
+      "last_check_at": "2026-10-21T11:45:28.922827+00:00",
       "scaled_budget_today": false
     },
     "8d922eea-691f-49ff-affa-0bb6f97bd33a": {
-      "date": "2026-10-20",
+      "date": "2026-10-21",
       "name": "20-10 (5 فيديوهات الوسادة)",
       "campaign": "smart+ cars SA 18-10",
       "bumps_today": 0,
       "last_action_at": null,
-      "last_spend": 0.05,
-      "last_check_at": "2026-10-20T17:22:29.237707+00:00",
+      "last_spend": 0.0,
+      "last_check_at": "2026-10-21T11:45:28.922827+00:00",
       "scaled_budget_today": false
     },
     "bebab42f-9762-45f6-8288-9d09ae818aa2": {
-      "date": "2026-10-20",
+      "date": "2026-10-21",
       "name": "20-10 وسادة جديد B (فيديوهات 5-8)",
       "campaign": "smart+ cars SA 18-10",
-      "bumps_today": 1,
-      "last_action_at": "2026-10-20T17:22:29.237707+00:00",
+      "bumps_today": 0,
+      "last_action_at": null,
       "last_spend": 0.0,
-      "last_check_at": "2026-10-20T17:22:29.237707+00:00",
+      "last_check_at": "2026-10-21T11:45:28.922827+00:00",
       "scaled_budget_today": false
     },
     "e4022c04-8275-4f2e-ab04-9d3b3a77fb10": {
-      "date": "2026-10-20",
+      "date": "2026-10-21",
       "name": "20-10 وسادة جديد A (فيديوهات 1-4)",
       "campaign": "smart+ cars SA 18-10",
-      "bumps_today": 1,
-      "last_action_at": "2026-10-20T17:22:29.237707+00:00",
+      "bumps_today": 0,
+      "last_action_at": null,
       "last_spend": 0.0,
-      "last_check_at": "2026-10-20T17:22:29.237707+00:00",
+      "last_check_at": "2026-10-21T11:45:28.922827+00:00",
       "scaled_budget_today": false
     },
     "c4830b38-fa9c-4c59-a57f-842bf390d8f8": {
@@ -18296,6 +19041,286 @@
       "date": "2026-10-21",
       "name": "maybach 21-10 AdSet",
       "campaign": "وسادة مايباخ 21-10",
+      "bumps_today": 1,
+      "last_action_at": "2026-10-21T11:45:28.922827+00:00",
+      "last_spend": 0.0,
+      "last_check_at": "2026-10-21T11:45:28.922827+00:00",
+      "scaled_budget_today": false
+    },
+    "492aff55-7d59-4817-ab5b-d1fd26842f5a": {
+      "date": "2026-10-21",
+      "name": "Copy of SA_Car Target Cost Men 20+ | 2.8 Bid",
+      "campaign": "smart+ cars SA 18-10",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.0,
+      "last_check_at": "2026-10-21T11:45:28.922827+00:00",
+      "scaled_budget_today": false
+    },
+    "964fb883-58b7-4e22-ad61-850511dfd707": {
+      "date": "2026-10-21",
+      "name": "SA_Car Elite Mega-Winners 19-10 (Target Cost Men 20+)",
+      "campaign": "smart+ cars SA 18-10",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.0,
+      "last_check_at": "2026-10-21T11:45:28.922827+00:00",
+      "scaled_budget_today": false
+    },
+    "a2d7c9e1-ac09-47c4-8444-c084a4d75806": {
+      "date": "2026-10-21",
+      "name": "Copy of SA_Car Elite Mega-Winners 19-10 (Target Cost Men 20+)",
+      "campaign": "smart+ cars SA 18-10",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.0,
+      "last_check_at": "2026-10-21T11:45:28.922827+00:00",
+      "scaled_budget_today": false
+    },
+    "c3e23e13-5c81-4d68-9257-5a63e9337ab4": {
+      "date": "2026-10-21",
+      "name": "20-10 هوكات فلو الجديدة (7 فيديوهات)",
+      "campaign": "smart+ cars SA 18-10",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.0,
+      "last_check_at": "2026-10-21T11:45:28.922827+00:00",
+      "scaled_budget_today": false
+    },
+    "f46d8a38-9e6d-446b-bc38-ab73aa366447": {
+      "date": "2026-10-21",
+      "name": "SA_Car Elite Mega-Winners 19-10 (Smart+ Broad)",
+      "campaign": "smart+ cars SA 18-10",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.0,
+      "last_check_at": "2026-10-21T11:45:28.922827+00:00",
+      "scaled_budget_today": false
+    },
+    "094039d3-7ca8-4440-b037-fbdb122cd571": {
+      "date": "2026-10-21",
+      "name": "18-10 حنان (5 فيديوهات)",
+      "campaign": "باور بانك علا وحنان 18-10 (دفعة 15-10)",
+      "bumps_today": 1,
+      "last_action_at": "2026-10-21T11:45:28.922827+00:00",
+      "last_spend": 0.0,
+      "last_check_at": "2026-10-21T11:45:28.922827+00:00",
+      "scaled_budget_today": false
+    },
+    "9de2a259-09b5-4662-811c-b18b2e79be1e": {
+      "date": "2026-10-21",
+      "name": "18-10 علا (5 فيديوهات)",
+      "campaign": "باور بانك علا وحنان 18-10 (دفعة 15-10)",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.0,
+      "last_check_at": "2026-10-21T11:45:28.922827+00:00",
+      "scaled_budget_today": false
+    },
+    "1177c390-427a-46d0-9a0b-235276b9dde6": {
+      "date": "2026-10-21",
+      "name": "Copy of 16-10 1",
+      "campaign": "باور بانك وينر",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.0,
+      "last_check_at": "2026-10-21T11:45:28.922827+00:00",
+      "scaled_budget_today": false
+    },
+    "1aa4f211-640e-4ac5-b748-13147327dc72": {
+      "date": "2026-10-21",
+      "name": "Copy of 16-10 1",
+      "campaign": "باور بانك وينر",
+      "bumps_today": 1,
+      "last_action_at": "2026-10-21T11:45:28.922827+00:00",
+      "last_spend": 0.0,
+      "last_check_at": "2026-10-21T11:45:28.922827+00:00",
+      "scaled_budget_today": false
+    },
+    "2dc0349b-f465-45df-ac5c-78c7ce7dfdda": {
+      "date": "2026-10-21",
+      "name": "19-10 علا مجموعة 1 (دفعة 27-9)",
+      "campaign": "باور بانك وينر",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.01,
+      "last_check_at": "2026-10-21T11:45:28.922827+00:00",
+      "scaled_budget_today": false
+    },
+    "43533e81-fcd9-4bd1-9df3-89cb2c75f0fc": {
+      "date": "2026-10-21",
+      "name": "Copy of 16-10 1",
+      "campaign": "باور بانك وينر",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.0,
+      "last_check_at": "2026-10-21T11:45:28.922827+00:00",
+      "scaled_budget_today": false
+    },
+    "6f1fed26-cecf-43f7-a8a7-305b72ceb2f1": {
+      "date": "2026-10-21",
+      "name": "Copy of 16-10 1",
+      "campaign": "باور بانك وينر",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.01,
+      "last_check_at": "2026-10-21T11:45:28.922827+00:00",
+      "scaled_budget_today": false
+    },
+    "7fe0647c-cdf8-4a73-a582-00baaa61ddd7": {
+      "date": "2026-10-21",
+      "name": "Copy of 16-10 1",
+      "campaign": "باور بانك وينر",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.0,
+      "last_check_at": "2026-10-21T11:45:28.922827+00:00",
+      "scaled_budget_today": false
+    },
+    "8de6349c-cf74-4e1b-b989-b2ca7b10bd83": {
+      "date": "2026-10-21",
+      "name": "Copy of 16-10 1",
+      "campaign": "باور بانك وينر",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.0,
+      "last_check_at": "2026-10-21T11:45:28.922827+00:00",
+      "scaled_budget_today": false
+    },
+    "9aa99ac3-7437-4b53-bf0e-1e1d42e3d865": {
+      "date": "2026-10-21",
+      "name": "19-10 علا مجموعة 2 (دفعة 26-9)",
+      "campaign": "باور بانك وينر",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.0,
+      "last_check_at": "2026-10-21T11:45:28.922827+00:00",
+      "scaled_budget_today": false
+    },
+    "a66f074f-4274-4083-89e5-77f72b59d07c": {
+      "date": "2026-10-21",
+      "name": "Copy of 16-10 1",
+      "campaign": "باور بانك وينر",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.0,
+      "last_check_at": "2026-10-21T11:45:28.922827+00:00",
+      "scaled_budget_today": false
+    },
+    "bc16871e-87be-40a3-a396-1d8566e5ab7b": {
+      "date": "2026-10-21",
+      "name": "Manzilk Batch 2 Winners 18-10 | 2.25 Bid",
+      "campaign": "باور بانك وينر",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.0,
+      "last_check_at": "2026-10-21T11:45:28.922827+00:00",
+      "scaled_budget_today": false
+    },
+    "d9c93c32-8795-4a05-b093-a3fd6b185130": {
+      "date": "2026-10-21",
+      "name": "Copy of 16-10 1",
+      "campaign": "باور بانك وينر",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.0,
+      "last_check_at": "2026-10-21T11:45:28.922827+00:00",
+      "scaled_budget_today": false
+    },
+    "dc2a818c-5b6d-4e87-b216-ee12262ee4aa": {
+      "date": "2026-10-21",
+      "name": "Copy of 16-10 1",
+      "campaign": "باور بانك وينر",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.0,
+      "last_check_at": "2026-10-21T11:45:28.922827+00:00",
+      "scaled_budget_today": false
+    },
+    "dde680d4-3e0f-4838-935b-cbd0bb9bc2ea": {
+      "date": "2026-10-21",
+      "name": "Copy of 16-10 1",
+      "campaign": "باور بانك وينر",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.01,
+      "last_check_at": "2026-10-21T11:45:28.922827+00:00",
+      "scaled_budget_today": false
+    },
+    "e11b7d92-a8d6-47d8-82ee-d0a0fc1b1330": {
+      "date": "2026-10-21",
+      "name": "Copy of 16-10 1",
+      "campaign": "باور بانك وينر",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.0,
+      "last_check_at": "2026-10-21T11:45:28.922827+00:00",
+      "scaled_budget_today": false
+    },
+    "f25bf2c7-3046-4c0a-96de-c561b11675fc": {
+      "date": "2026-10-21",
+      "name": "Copy of 16-10 1",
+      "campaign": "باور بانك وينر",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.0,
+      "last_check_at": "2026-10-21T11:45:28.922827+00:00",
+      "scaled_budget_today": false
+    },
+    "f7987e41-6a91-4717-a7c8-aafada54cea2": {
+      "date": "2026-10-21",
+      "name": "Copy of 16-10 1",
+      "campaign": "باور بانك وينر",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.0,
+      "last_check_at": "2026-10-21T11:45:28.922827+00:00",
+      "scaled_budget_today": false
+    },
+    "f82be97f-da96-43f5-a759-ea2ca09e6880": {
+      "date": "2026-10-21",
+      "name": "Copy of 16-10 1",
+      "campaign": "باور بانك وينر",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.0,
+      "last_check_at": "2026-10-21T11:45:28.922827+00:00",
+      "scaled_budget_today": false
+    },
+    "fbd7c0d0-4f7c-4a09-90f9-97773f9cf245": {
+      "date": "2026-10-21",
+      "name": "Copy of 16-10 1",
+      "campaign": "باور بانك وينر",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.0,
+      "last_check_at": "2026-10-21T11:45:28.922827+00:00",
+      "scaled_budget_today": false
+    },
+    "a16d7bb6-89d0-432d-9618-ee1fe4230fbb": {
+      "date": "2026-10-21",
+      "name": "19-10 حنان (5 فيديوهات)",
+      "campaign": "وسادة السيارة علا وحنان 19-10 (دفعة 17-10)",
+      "bumps_today": 1,
+      "last_action_at": "2026-10-21T11:45:28.922827+00:00",
+      "last_spend": 0.0,
+      "last_check_at": "2026-10-21T11:45:28.922827+00:00",
+      "scaled_budget_today": false
+    },
+    "ca13feed-6366-4f8b-bcee-20dc56c753fa": {
+      "date": "2026-10-21",
+      "name": "19-10 علا (5 فيديوهات)",
+      "campaign": "وسادة السيارة علا وحنان 19-10 (دفعة 17-10)",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.0,
+      "last_check_at": "2026-10-21T11:45:28.922827+00:00",
+      "scaled_budget_today": false
+    },
+    "6b926889-f350-4540-8522-a6a4abd2ab8c": {
+      "date": "2026-10-21",
+      "name": "20-10 وسادة جديد B (فيديوهات 5-8)",
+      "campaign": "وسادة السيارة علا وحنان 20-10 (دفعة 18-10)",
       "bumps_today": 1,
       "last_action_at": "2026-10-21T11:45:28.922827+00:00",
       "last_spend": 0.0,
