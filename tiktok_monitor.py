@@ -61,16 +61,16 @@ ACCOUNTS = [
 #    * EXCEPTION: If the video itself has conversions at a low CPA (< $10.00), do NOT pause it for CPC;
 #      keep it running until its CPA reaches >= $10.00 (MAX_VIDEO_CPA), then pause it.
 # Aggregated Duplicated Video Level (Across ALL Campaigns & ALL Accounts):
-# 1. Duplicated video total spend >= $20.00 (1-day or 2-day) with 0 sales -> Pause video across ALL campaigns & accounts
-# 2. Duplicated video total CPA >= $22.00 (1-day or 2-day, with >= 1 sale) -> Pause video across ALL campaigns & accounts
+# 1. Duplicated video total spend >= $10.00 (1D/2D/3D/7D) with 0 sales -> Pause video across ALL campaigns & accounts
+# 2. Duplicated video total CPA >= $12.00 (1D/2D/3D/7D, with >= 1 sale) -> Pause video across ALL campaigns & accounts
 MAX_CAMPAIGN_NO_SALE_SPEND = 8.00
 MAX_CAMPAIGN_CPA = 9.00
 MAX_NO_SALE_SPEND = 6.00
 MAX_VIDEO_CPA = 8.00
 MIN_SPEND_FOR_CPC = 1.00
 MAX_CPC = 0.35
-MAX_DUP_VIDEO_NO_SALE_SPEND = 8.00
-MAX_DUP_VIDEO_CPA = 9.00
+MAX_DUP_VIDEO_NO_SALE_SPEND = 10.00
+MAX_DUP_VIDEO_CPA = 12.00
 
 
 ORIGIN_MATERIAL_TYPES = [
