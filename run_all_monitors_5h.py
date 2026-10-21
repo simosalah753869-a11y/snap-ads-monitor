@@ -870,11 +870,10 @@ def run_google_ads_check():
                         if ((txt.includes('Eligible') || txt.includes('Enabled')) && !txt.includes('Total:')) {{
                             const costMatches = Array.from(txt.matchAll(/\\$([0-9,]+\\.[0-9]{{2}})/g)).map(m => parseFloat(m[1].replace(/,/g, '')));
                             if (costMatches.length >= 2) {{
-                                const rowName = txt.split(/\\$[0-9]/)[0].replace(/\\bsettings\\b/gi, '').trim();
+                                const rowName = txt.split(/(?:US)?\\$[0-9]/)[0].replace(/\\bsettings\\b/gi, '').trim();
                                 const rnLow = rowName.toLowerCase();
-                                const seasonedCampaigns = ['cars', 'watch', 'watch 9-10', 'watch ksa', 'watch ksa 9-10', 'car lesds 14-10', 'cars gems winners 18-10'];
                                 const isCampaignsTab = document.title.includes('Campaigns');
-                                if (isCampaignsTab && seasonedCampaigns.includes(rnLow)) continue;
+                                if (isCampaignsTab) continue; // لا توقف الحملات أبداً في جدول Campaigns — يتم إيقاف الفيديوهات الخاسرة الفردية فقط في جدول Ads
                                 let sheetConv = 0;
                                 for (const [k, v] of Object.entries(sheetSales)) {{
                                     if (k && rnLow.includes(k.toLowerCase())) sheetConv = Math.max(sheetConv, v);
