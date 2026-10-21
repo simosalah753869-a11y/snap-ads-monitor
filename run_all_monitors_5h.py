@@ -872,16 +872,17 @@ def run_google_ads_check():
                             if (costMatches.length >= 2) {{
                                 const rowName = txt.split(/(?:US)?\\$[0-9]/)[0].replace(/\\bsettings\\b/gi, '').trim();
                                 const rnLow = rowName.toLowerCase();
-                                const isCampaignsTab = document.title.includes('Campaigns');
-                                if (isCampaignsTab) continue; // لا توقف الحملات أبداً في جدول Campaigns — يتم إيقاف الفيديوهات الخاسرة الفردية فقط في جدول Ads
+                                const isAdsTab = location.href.includes('/aw/ads');
+                                if (!isAdsTab) continue; // لا توقف الحملات أبداً في جدول Campaigns أو Overview — يتم إيقاف الفيديوهات الخاسرة الفردية فقط في جدول Ads (/aw/ads)
                                 let sheetConv = 0;
                                 for (const [k, v] of Object.entries(sheetSales)) {{
                                     if (k && rnLow.includes(k.toLowerCase())) sheetConv = Math.max(sheetConv, v);
                                 }}
                                 const afterStatus = txt.split(/Eligible|Enabled/).slice(1).join(' ');
                                 const afterDollars = Array.from(afterStatus.matchAll(/\\$([0-9,]+\\.[0-9]{{2}})/g)).map(m => parseFloat(m[1].replace(/,/g, '')));
-                                // Actual Cost in Campaigns table is the last dollar value; in Ads table it is the 2nd dollar value (after Avg. CPC)
-                                const spend = afterDollars.length > 0 ? (isCampaignsTab ? afterDollars[afterDollars.length - 1] : afterDollars[1] || afterDollars[0]) : 0;
+                                // Actual Cost in Ads table is 1st dollar value when Avg. CPC is '—' (0 clicks), else 2nd dollar value (after Avg. CPC)
+                                const hasDashCpc = /%\\s+—\\s+(?:US)?\\$/.test(afterStatus);
+                                const spend = afterDollars.length > 0 ? (hasDashCpc ? afterDollars[0] : (afterDollars[1] || afterDollars[0])) : 0;
                                 // Extract conversions: check 'Target CPA 0.00 <conv>', 'Demand Gen <conv>', or number right after Cost
                                 let uiConv = 0;
                                 const tcpaMatch = afterStatus.match(/Target CPA\\s+[0-9,]+\\.[0-9]{{2}}\\s+([0-9,]+\\.[0-9]{{2}})/);
