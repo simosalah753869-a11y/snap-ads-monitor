@@ -134,6 +134,31 @@ def main():
         ]
         active_count = len(active_squads)
 
+        name_low = cname.lower()
+        is_gulf_camp = any(k in name_low for k in ("عمان", "قطر", "كويت", "بحرين", "oman", "qatar", "kuwait", "bahrain"))
+        max_cap = 5 if is_gulf_camp else MIN_ACTIVE_COUNT
+
+        if active_count > max_cap:
+            sorted_keep = sorted(
+                active_squads,
+                key=lambda s: (
+                    stats_map.get(s["id"], {}).get("purchases", 0),
+                    -stats_map.get(s["id"], {}).get("cpa", 999999.0),
+                    "copy" not in s.get("name", "").lower(),
+                    stats_map.get(s["id"], {}).get("spend", 0.0),
+                ),
+                reverse=True,
+            )
+            excess = [s for s in sorted_keep[max_cap:] if stats_map.get(s["id"], {}).get("purchases", 0) == 0]
+            if excess:
+                for ex in excess:
+                    ex["status"] = "PAUSED"
+                for i in range(0, len(excess), 20):
+                    session.put(f"{API_BASE}/campaigns/{cid}/adsquads", json={"adsquads": excess[i:i+20]}, timeout=25)
+                print(f"   ✂️ تم تقليص {len(excess)} مجموعة زائدة في '{cname}' للالتزام بالسقف ({max_cap} مجموعة).", flush=True)
+                active_squads = [s for s in active_squads if s.get("status") == "ACTIVE"]
+                active_count = len(active_squads)
+
         if not is_scaling_or_duplicate_campaign(cname, squads, active_squads or squads):
             continue
 
