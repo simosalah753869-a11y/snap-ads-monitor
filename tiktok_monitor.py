@@ -63,8 +63,8 @@ ACCOUNTS = [
 # Aggregated Duplicated Video Level (Across ALL Campaigns & ALL Accounts):
 # 1. Duplicated video total spend >= $10.00 (1D/2D/3D/7D) with 0 sales -> Pause video across ALL campaigns & accounts
 # 2. Duplicated video total CPA >= $12.00 (1D/2D/3D/7D, with >= 1 sale) -> Pause video across ALL campaigns & accounts
-MAX_CAMPAIGN_NO_SALE_SPEND = 15.00
-MAX_CAMPAIGN_CPA = 12.00
+MAX_CAMPAIGN_NO_SALE_SPEND = 8.00
+MAX_CAMPAIGN_CPA = 9.00
 MAX_NO_SALE_SPEND = 5.00
 MAX_VIDEO_CPA = 8.00
 GULF_MAX_NO_SALE_SPEND = 10.00
@@ -1077,6 +1077,24 @@ def main():
             )
         ]
         if not active_insts:
+            if v_key not in history.get("tiktok_disabled_dup_videos", {}):
+                history["tiktok_disabled_dup_videos"][v_key] = {
+                    "v_key": v_key,
+                    "sample_name": grp["sample_name"],
+                    "accounts": sorted(grp["accounts"]),
+                    "total_copies": len(grp["ad_ids"]),
+                    "closed_copies": 0,
+                    "spend_1d": tot_sp1,
+                    "conv_1d": tot_cv1,
+                    "spend_2d": tot_sp2,
+                    "conv_2d": tot_cv2,
+                    "spend_3d": tot_sp3,
+                    "conv_3d": tot_cv3,
+                    "spend_7d": tot_sp7,
+                    "conv_7d": tot_cv7,
+                    "reason": " | ".join(dup_reasons),
+                    "disabled_at": datetime.now(timezone.utc).isoformat(),
+                }
             continue
 
         dup_reason_str = " | ".join(dup_reasons)
