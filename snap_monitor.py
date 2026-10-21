@@ -102,7 +102,7 @@ def api_put(endpoint: str, token: str, payload: dict) -> dict:
             time.sleep(1.5 * (attempt + 1))
 
 
-def api_get_paginated(endpoint: str, token: str, list_key: str, item_key: str, max_pages: int = 12) -> list[dict]:
+def api_get_paginated(endpoint: str, token: str, list_key: str, item_key: str, max_pages: int = 30) -> list[dict]:
     items = []
     next_url = endpoint
     for _ in range(max_pages):
@@ -467,6 +467,29 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
                 ad_cache[a["id"]] = a
         except Exception:
             camp_ads_cache[c_id] = []
+
+        # تلقائياً: إطفاء أي مجموعة AdSquad نشطة أصبحت فارغة تماماً (0 إعلانات نشطة بداخلها) حتى لا تحجز خانة من الـ 15 مجموعة بدون فائدة
+        if not dry_run and camp_ads_cache.get(c_id) is not None:
+            active_ad_squad_ids = {
+                a.get("ad_squad_id") for a in camp_ads_cache[c_id] if a.get("status") == "ACTIVE"
+            }
+            empty_active_squads = [
+                sq for sq in camp_squads_cache.get(c_id, [])
+                if sq.get("status") == "ACTIVE"
+                and (
+                    sq["id"] not in active_ad_squad_ids
+                    or "INVALID_AD_SQUAD_HAS_NO_ACTIVE_ADS" in (sq.get("delivery_status") or [])
+                )
+            ]
+            if empty_active_squads:
+                for esq in empty_active_squads:
+                    esq["status"] = "PAUSED"
+                for i in range(0, len(empty_active_squads), 20):
+                    try:
+                        api_put(f"/campaigns/{c_id}/adsquads", token, {"adsquads": empty_active_squads[i:i+20]})
+                    except Exception:
+                        pass
+                print(f"🧹 تم إيقاف {len(empty_active_squads)} مجموعة فارغة (0 إعلانات نشطة) تلقائياً في حملة '{c.get('name', '')}'")
 
     # 2A. مراجعة الفيديوهات الفردية التي أطفأها البوت: إذا ظهرت مبيعة متأخرة وكان سعر البيعة مربحاً (< $8 للسعودية أو < $14 للخليج)، يعيد تشغيلها!
     for ad_id, info in list(history["ads"].items()):
