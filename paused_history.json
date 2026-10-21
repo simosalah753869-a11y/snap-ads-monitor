@@ -371,6 +371,18 @@
       "campaign": "car scaling camp ",
       "reason": "[3-Day Audit] [Copy Rule] سعر البيعة CPA = $8.38 (> $8.00) | الصرف: $8.38 | المبيعات: 1",
       "paused_at": "2026-10-21 17:37 GMT+3"
+    },
+    "25fb75fe-9eda-4e1f-a3fe-c98e6dd2e6fd": {
+      "name": "Copy of SA_Watch Target Cost Men 20+ | 2.8 Bid",
+      "campaign": "smart+ watch suis SA 18-10",
+      "reason": "[3-Day Audit] [Copy Rule] سعر البيعة CPA = $8.08 (> $8.00) | الصرف: $24.25 | المبيعات: 3",
+      "paused_at": "2026-10-21 17:59 GMT+3"
+    },
+    "7f8d55af-46b0-4b7a-b8f8-76c63ea00c51": {
+      "name": "Copy of SA_Car Target Cost Men 20+ | 2.8 Bid",
+      "campaign": "smart+ cars SA 18-10",
+      "reason": "[3-Day Audit] [Copy Rule] سعر البيعة CPA = $8.14 (> $8.00) | الصرف: $8.14 | المبيعات: 1",
+      "paused_at": "2026-10-21 17:59 GMT+3"
     }
   },
   "ads": {
@@ -1715,8 +1727,8 @@
       "name": "Copy of Copy of Copy of Copy of Copy of 1",
       "campaign": "car scaling camp ",
       "adsquad": "Copy of Copy of 1.5 | 23.8",
-      "reason": "[Aggregated Video High CPA 3D - السعودية] مجموع صرف الفيديو لـ 3 أيام = $84.66 | المبيعات = 4 | سعر البيعة الإجمالي CPA = $21.16 (>= $18.00)",
-      "paused_at": "2026-10-20 14:47 GMT+3"
+      "reason": "[Global Cross-Campaign High CPA 3D] مجموع صرف الفيديو لـ 3 أيام = $742.89 | المبيعات = 63 | CPA = $11.79 (> $9.50)",
+      "paused_at": "2026-10-21 17:59 GMT+3"
     },
     "111c30c5-89d1-420b-a025-a4e6e8809980": {
       "name": "Copy of Copy of Copy of Copy of Copy of 1",
@@ -1729,8 +1741,8 @@
       "name": "Copy of Copy of Copy of Copy of Copy of 1",
       "campaign": "car scaling camp ",
       "adsquad": "Copy of Copy of 1.5 | 23.8",
-      "reason": "[Aggregated Video High CPA 3D - السعودية] مجموع صرف الفيديو لـ 3 أيام = $84.66 | المبيعات = 4 | سعر البيعة الإجمالي CPA = $21.16 (>= $18.00)",
-      "paused_at": "2026-10-20 14:47 GMT+3"
+      "reason": "[Global Cross-Campaign High CPA 3D] مجموع صرف الفيديو لـ 3 أيام = $742.89 | المبيعات = 63 | CPA = $11.79 (> $9.50)",
+      "paused_at": "2026-10-21 17:59 GMT+3"
     },
     "29b1c3e1-d3ce-4d95-9368-c0d29d8707f7": {
       "name": "Copy of Copy of Copy of Copy of Copy of 1",
@@ -2128,8 +2140,8 @@
       "name": "Copy of Copy of Copy of Copy of Copy of 1",
       "campaign": "car scaling camp ",
       "adsquad": "Copy of Copy of 1.5 | 23.8",
-      "reason": "[Aggregated Video High CPA 3D - السعودية] مجموع صرف الفيديو لـ 3 أيام = $70.14 | المبيعات = 3 | سعر البيعة الإجمالي CPA = $23.38 (>= $18.00)",
-      "paused_at": "2026-10-20 16:07 GMT+3"
+      "reason": "[Global Cross-Campaign High CPA 3D] مجموع صرف الفيديو لـ 3 أيام = $742.89 | المبيعات = 63 | CPA = $11.79 (> $9.50)",
+      "paused_at": "2026-10-21 17:59 GMT+3"
     },
     "152f50f5-d539-44f8-8006-5b50db816e92": {
       "name": "hist_tc_6_ad9_122sales",
@@ -9242,6 +9254,720 @@
       "adsquad": "Copy of SA_Watch Target Cost Men 20+ | 2.8 Bid",
       "reason": "[Copy Early High-CPC Cut] نسخة Copy دخلت جمهوراً غالياً: صرفت $2.96 (>= $1.50) بدون مبيعات بـ CPC=$0.211 (> $0.165)",
       "paused_at": "2026-10-21 17:37 GMT+3"
+    },
+    "442a08ad-85b1-4499-83ac-ac746d4a379a": {
+      "name": "W6_2",
+      "campaign": "smart+ watch suis SA 18-10",
+      "adsquad": "Copy of SA_Watch Target Cost Men 20+ | 2.8 Bid",
+      "reason": "[Copy Early High-CPC Cut] نسخة Copy دخلت جمهوراً غالياً: صرفت $2.07 (>= $1.50) بدون مبيعات بـ CPC=$0.296 (> $0.165)",
+      "paused_at": "2026-10-21 17:59 GMT+3"
+    },
+    "b9534720-a20a-4a34-abcd-074bd0acf451": {
+      "name": "hist_tc_3_25_5_3_244sales",
+      "campaign": "باور بانك السعودية سمارت+ (فيديوهات الحساب الثاني) 18-10",
+      "adsquad": "Copy of SA_PB_OldAcc Target Cost Men 20+ | 2.8 Bid",
+      "reason": "[Copy Early High-CPC Cut] نسخة Copy دخلت جمهوراً غالياً: صرفت $1.51 (>= $1.50) بدون مبيعات بـ CPC=$0.302 (> $0.165)",
+      "paused_at": "2026-10-21 17:59 GMT+3"
+    },
+    "1b5bebeb-1493-42c0-95e2-9de376bd1975": {
+      "name": "Copy of Copy of Copy of Copy of Copy of 1",
+      "campaign": "car scaling camp ",
+      "adsquad": "Copy of Copy of Copy of Copy of 1.5 | 23.8",
+      "reason": "[Global Cross-Campaign High CPA 3D] مجموع صرف الفيديو لـ 3 أيام = $742.89 | المبيعات = 63 | CPA = $11.79 (> $9.50)",
+      "paused_at": "2026-10-21 17:59 GMT+3"
+    },
+    "3de73d7d-080b-4c52-9b34-f88c730e6bbb": {
+      "name": "Copy of Copy of Copy of Copy of Copy of 1",
+      "campaign": "car scaling camp ",
+      "adsquad": "Copy of Copy of 1.5 | 23.8",
+      "reason": "[Global Cross-Campaign High CPA 3D] مجموع صرف الفيديو لـ 3 أيام = $742.89 | المبيعات = 63 | CPA = $11.79 (> $9.50)",
+      "paused_at": "2026-10-21 17:59 GMT+3"
+    },
+    "41957cce-a53d-4d40-bc64-cc4c9b7d8e24": {
+      "name": "Copy of Copy of Copy of Copy of Copy of 1",
+      "campaign": "car scaling camp ",
+      "adsquad": "Copy of Copy of 1.5 | 23.8",
+      "reason": "[Global Cross-Campaign High CPA 3D] مجموع صرف الفيديو لـ 3 أيام = $742.89 | المبيعات = 63 | CPA = $11.79 (> $9.50)",
+      "paused_at": "2026-10-21 17:59 GMT+3"
+    },
+    "41cea51d-7ff1-4908-9b59-87c49c8d0482": {
+      "name": "Copy of Copy of Copy of Copy of Copy of 1",
+      "campaign": "car scaling camp ",
+      "adsquad": "Copy of Copy of 1.5 | 23.8",
+      "reason": "[Global Cross-Campaign High CPA 3D] مجموع صرف الفيديو لـ 3 أيام = $742.89 | المبيعات = 63 | CPA = $11.79 (> $9.50)",
+      "paused_at": "2026-10-21 17:59 GMT+3"
+    },
+    "44864b7d-4809-48c0-8aac-b9c409230607": {
+      "name": "Copy of Copy of Copy of Copy of Copy of 1",
+      "campaign": "car scaling camp ",
+      "adsquad": "Copy of Copy of Copy of Copy of Copy of Copy of 1.5 | 23.8",
+      "reason": "[Global Cross-Campaign High CPA 3D] مجموع صرف الفيديو لـ 3 أيام = $742.89 | المبيعات = 63 | CPA = $11.79 (> $9.50)",
+      "paused_at": "2026-10-21 17:59 GMT+3"
+    },
+    "44ccbb6d-f557-48ee-810e-1dddb7c3498d": {
+      "name": "Copy of Copy of Copy of Copy of Copy of 1",
+      "campaign": "car scaling camp ",
+      "adsquad": "Copy of Copy of 1.5 | 23.8",
+      "reason": "[Global Cross-Campaign High CPA 3D] مجموع صرف الفيديو لـ 3 أيام = $742.89 | المبيعات = 63 | CPA = $11.79 (> $9.50)",
+      "paused_at": "2026-10-21 17:59 GMT+3"
+    },
+    "4862db2a-6a10-4137-b5c4-4d1d451ddaae": {
+      "name": "Copy of Copy of Copy of Copy of Copy of 1",
+      "campaign": "car scaling camp ",
+      "adsquad": "Copy of Copy of 1.5 | 23.8",
+      "reason": "[Global Cross-Campaign High CPA 3D] مجموع صرف الفيديو لـ 3 أيام = $742.89 | المبيعات = 63 | CPA = $11.79 (> $9.50)",
+      "paused_at": "2026-10-21 17:59 GMT+3"
+    },
+    "4e80f7fb-e063-465c-99e3-e1afcdb5d19b": {
+      "name": "Copy of Copy of Copy of Copy of Copy of 1",
+      "campaign": "car scaling camp ",
+      "adsquad": "Copy of Copy of 1.5 | 23.8",
+      "reason": "[Global Cross-Campaign High CPA 3D] مجموع صرف الفيديو لـ 3 أيام = $742.89 | المبيعات = 63 | CPA = $11.79 (> $9.50)",
+      "paused_at": "2026-10-21 17:59 GMT+3"
+    },
+    "61eba36c-3bb3-4df1-a5e6-d1ff352e8396": {
+      "name": "Copy of Copy of Copy of Copy of Copy of 1",
+      "campaign": "car scaling camp ",
+      "adsquad": "Copy of Copy of 1.5 | 23.8",
+      "reason": "[Global Cross-Campaign High CPA 3D] مجموع صرف الفيديو لـ 3 أيام = $742.89 | المبيعات = 63 | CPA = $11.79 (> $9.50)",
+      "paused_at": "2026-10-21 17:59 GMT+3"
+    },
+    "c829c6a2-3a6b-4b2f-9b34-2d8c76d75178": {
+      "name": "Copy of Copy of Copy of Copy of Copy of 1",
+      "campaign": "car scaling camp ",
+      "adsquad": "Copy of Copy of 1.5 | 23.8",
+      "reason": "[Global Cross-Campaign High CPA 3D] مجموع صرف الفيديو لـ 3 أيام = $742.89 | المبيعات = 63 | CPA = $11.79 (> $9.50)",
+      "paused_at": "2026-10-21 17:59 GMT+3"
+    },
+    "6504fd07-2791-4aea-8856-d079180278f0": {
+      "name": "Copy of Copy of Copy of Copy of Copy of 1",
+      "campaign": "car scaling camp ",
+      "adsquad": "Copy of Copy of 1.5 | 23.8",
+      "reason": "[Global Cross-Campaign High CPA 3D] مجموع صرف الفيديو لـ 3 أيام = $742.89 | المبيعات = 63 | CPA = $11.79 (> $9.50)",
+      "paused_at": "2026-10-21 17:59 GMT+3"
+    },
+    "663e5eb2-f8ab-4fc3-8dcf-84973d95cf7c": {
+      "name": "Copy of Copy of Copy of Copy of Copy of 1",
+      "campaign": "car scaling camp ",
+      "adsquad": "Copy of Copy of 1.5 | 23.8",
+      "reason": "[Global Cross-Campaign High CPA 3D] مجموع صرف الفيديو لـ 3 أيام = $742.89 | المبيعات = 63 | CPA = $11.79 (> $9.50)",
+      "paused_at": "2026-10-21 17:59 GMT+3"
+    },
+    "6731c718-25a3-48fb-9a5e-0e1ef1577166": {
+      "name": "Copy of Copy of Copy of Copy of Copy of 1",
+      "campaign": "car scaling camp ",
+      "adsquad": "Copy of Copy of 1.5 | 23.8",
+      "reason": "[Global Cross-Campaign High CPA 3D] مجموع صرف الفيديو لـ 3 أيام = $742.89 | المبيعات = 63 | CPA = $11.79 (> $9.50)",
+      "paused_at": "2026-10-21 17:59 GMT+3"
+    },
+    "6d8af784-e60f-43a9-9317-0eafe2ee2b31": {
+      "name": "Copy of Copy of Copy of Copy of Copy of 1",
+      "campaign": "car scaling camp ",
+      "adsquad": "Copy of Copy of 1.5 | 23.8",
+      "reason": "[Global Cross-Campaign High CPA 3D] مجموع صرف الفيديو لـ 3 أيام = $742.89 | المبيعات = 63 | CPA = $11.79 (> $9.50)",
+      "paused_at": "2026-10-21 17:59 GMT+3"
+    },
+    "75d823fc-8965-4f42-89fd-0910805bd706": {
+      "name": "Copy of Copy of Copy of Copy of Copy of 1",
+      "campaign": "car scaling camp ",
+      "adsquad": "Copy of Copy of 1.5 | 23.8",
+      "reason": "[Global Cross-Campaign High CPA 3D] مجموع صرف الفيديو لـ 3 أيام = $742.89 | المبيعات = 63 | CPA = $11.79 (> $9.50)",
+      "paused_at": "2026-10-21 17:59 GMT+3"
+    },
+    "75d96cc6-19c3-401f-8607-e0c0176566a4": {
+      "name": "Copy of Copy of Copy of Copy of Copy of 1",
+      "campaign": "car scaling camp ",
+      "adsquad": "Copy of Copy of Copy of Copy of 1.5 | 23.8",
+      "reason": "[Global Cross-Campaign High CPA 3D] مجموع صرف الفيديو لـ 3 أيام = $742.89 | المبيعات = 63 | CPA = $11.79 (> $9.50)",
+      "paused_at": "2026-10-21 17:59 GMT+3"
+    },
+    "793f80a7-cbe2-4bb0-923b-acf1fb0b29a8": {
+      "name": "Copy of Copy of Copy of Copy of Copy of 1",
+      "campaign": "car scaling camp ",
+      "adsquad": "Copy of Copy of 1.5 | 23.8",
+      "reason": "[Global Cross-Campaign High CPA 3D] مجموع صرف الفيديو لـ 3 أيام = $742.89 | المبيعات = 63 | CPA = $11.79 (> $9.50)",
+      "paused_at": "2026-10-21 17:59 GMT+3"
+    },
+    "79adc253-e6c5-43e5-b6e6-b157899307c5": {
+      "name": "Copy of Copy of Copy of Copy of Copy of 1",
+      "campaign": "car scaling camp ",
+      "adsquad": "Copy of Copy of Copy of Copy of 1.5 | 23.8",
+      "reason": "[Global Cross-Campaign High CPA 3D] مجموع صرف الفيديو لـ 3 أيام = $742.89 | المبيعات = 63 | CPA = $11.79 (> $9.50)",
+      "paused_at": "2026-10-21 17:59 GMT+3"
+    },
+    "8070af07-a37c-4f36-8662-99ba9f66b707": {
+      "name": "Copy of Copy of Copy of Copy of Copy of 1",
+      "campaign": "car scaling camp ",
+      "adsquad": "Copy of Copy of 1.5 | 23.8",
+      "reason": "[Global Cross-Campaign High CPA 3D] مجموع صرف الفيديو لـ 3 أيام = $742.89 | المبيعات = 63 | CPA = $11.79 (> $9.50)",
+      "paused_at": "2026-10-21 17:59 GMT+3"
+    },
+    "8324f6ca-2cd2-4714-9d12-ad1844fb0061": {
+      "name": "Copy of Copy of Copy of Copy of Copy of 1",
+      "campaign": "car scaling camp ",
+      "adsquad": "Copy of Copy of 1.5 | 23.8",
+      "reason": "[Global Cross-Campaign High CPA 3D] مجموع صرف الفيديو لـ 3 أيام = $742.89 | المبيعات = 63 | CPA = $11.79 (> $9.50)",
+      "paused_at": "2026-10-21 17:59 GMT+3"
+    },
+    "855dead3-33a6-453e-b1c5-c920f36b8a86": {
+      "name": "Copy of Copy of Copy of Copy of Copy of 1",
+      "campaign": "car scaling camp ",
+      "adsquad": "Copy of Copy of 1.5 | 23.8",
+      "reason": "[Global Cross-Campaign High CPA 3D] مجموع صرف الفيديو لـ 3 أيام = $742.89 | المبيعات = 63 | CPA = $11.79 (> $9.50)",
+      "paused_at": "2026-10-21 17:59 GMT+3"
+    },
+    "85adfd96-4852-47b7-a3c1-a25829eadcb9": {
+      "name": "Copy of Copy of Copy of Copy of Copy of 1",
+      "campaign": "car scaling camp ",
+      "adsquad": "Copy of Copy of 1.5 | 23.8",
+      "reason": "[Global Cross-Campaign High CPA 3D] مجموع صرف الفيديو لـ 3 أيام = $742.89 | المبيعات = 63 | CPA = $11.79 (> $9.50)",
+      "paused_at": "2026-10-21 17:59 GMT+3"
+    },
+    "85ce3ab6-1d9f-45d1-9c26-b151fd68a108": {
+      "name": "Copy of Copy of Copy of Copy of Copy of 1",
+      "campaign": "car scaling camp ",
+      "adsquad": "Copy of Copy of 1.5 | 23.8",
+      "reason": "[Global Cross-Campaign High CPA 3D] مجموع صرف الفيديو لـ 3 أيام = $742.89 | المبيعات = 63 | CPA = $11.79 (> $9.50)",
+      "paused_at": "2026-10-21 17:59 GMT+3"
+    },
+    "93bfdf70-6140-4de6-b3f3-96eed51d4004": {
+      "name": "Copy of Copy of Copy of Copy of Copy of 1",
+      "campaign": "car scaling camp ",
+      "adsquad": "Copy of 1.5 | 23.8",
+      "reason": "[Global Cross-Campaign High CPA 3D] مجموع صرف الفيديو لـ 3 أيام = $742.89 | المبيعات = 63 | CPA = $11.79 (> $9.50)",
+      "paused_at": "2026-10-21 17:59 GMT+3"
+    },
+    "93eaf5d6-fe41-49f4-8e9b-7c2c18f9205a": {
+      "name": "Copy of Copy of Copy of Copy of Copy of 1",
+      "campaign": "car scaling camp ",
+      "adsquad": "Copy of Copy of 1.5 | 23.8",
+      "reason": "[Global Cross-Campaign High CPA 3D] مجموع صرف الفيديو لـ 3 أيام = $742.89 | المبيعات = 63 | CPA = $11.79 (> $9.50)",
+      "paused_at": "2026-10-21 17:59 GMT+3"
+    },
+    "95b2a023-d886-4d0f-afa1-7e482787efaf": {
+      "name": "Copy of Copy of Copy of Copy of Copy of 1",
+      "campaign": "car scaling camp ",
+      "adsquad": "Copy of Copy of 1.5 | 23.8",
+      "reason": "[Global Cross-Campaign High CPA 3D] مجموع صرف الفيديو لـ 3 أيام = $742.89 | المبيعات = 63 | CPA = $11.79 (> $9.50)",
+      "paused_at": "2026-10-21 17:59 GMT+3"
+    },
+    "979de94d-8b19-4605-a898-4ae4adc9dc13": {
+      "name": "Copy of Copy of Copy of Copy of Copy of 1",
+      "campaign": "car scaling camp ",
+      "adsquad": "Copy of Copy of 1.5 | 23.8",
+      "reason": "[Global Cross-Campaign High CPA 3D] مجموع صرف الفيديو لـ 3 أيام = $742.89 | المبيعات = 63 | CPA = $11.79 (> $9.50)",
+      "paused_at": "2026-10-21 17:59 GMT+3"
+    },
+    "98920562-6e25-427f-b5d6-072fe66aeccb": {
+      "name": "Copy of Copy of Copy of Copy of Copy of 1",
+      "campaign": "car scaling camp ",
+      "adsquad": "Copy of Copy of 1.5 | 23.8",
+      "reason": "[Global Cross-Campaign High CPA 3D] مجموع صرف الفيديو لـ 3 أيام = $742.89 | المبيعات = 63 | CPA = $11.79 (> $9.50)",
+      "paused_at": "2026-10-21 17:59 GMT+3"
+    },
+    "990d02b0-db7f-4fc0-b5b9-6f007e11f3c9": {
+      "name": "Copy of Copy of Copy of Copy of Copy of 1",
+      "campaign": "car scaling camp ",
+      "adsquad": "Copy of Copy of 1.5 | 23.8",
+      "reason": "[Global Cross-Campaign High CPA 3D] مجموع صرف الفيديو لـ 3 أيام = $742.89 | المبيعات = 63 | CPA = $11.79 (> $9.50)",
+      "paused_at": "2026-10-21 17:59 GMT+3"
+    },
+    "99aaa1b6-9ad7-46aa-a965-8142929c25b3": {
+      "name": "Copy of Copy of Copy of Copy of Copy of 1",
+      "campaign": "car scaling camp ",
+      "adsquad": "Copy of Copy of 1.5 | 23.8",
+      "reason": "[Global Cross-Campaign High CPA 3D] مجموع صرف الفيديو لـ 3 أيام = $742.89 | المبيعات = 63 | CPA = $11.79 (> $9.50)",
+      "paused_at": "2026-10-21 17:59 GMT+3"
+    },
+    "9a59bdbc-f60d-4134-9e45-9442d3286bbd": {
+      "name": "Copy of Copy of Copy of Copy of Copy of 1",
+      "campaign": "car scaling camp ",
+      "adsquad": "Copy of Copy of Copy of Copy of Copy of 1.5 | 23.8",
+      "reason": "[Global Cross-Campaign High CPA 3D] مجموع صرف الفيديو لـ 3 أيام = $742.89 | المبيعات = 63 | CPA = $11.79 (> $9.50)",
+      "paused_at": "2026-10-21 17:59 GMT+3"
+    },
+    "9b3e65f3-80a6-4b20-bbf4-18f39acc19b1": {
+      "name": "Copy of Copy of Copy of Copy of Copy of 1",
+      "campaign": "car scaling camp ",
+      "adsquad": "Copy of Copy of Copy of Copy of 1.5 | 23.8",
+      "reason": "[Global Cross-Campaign High CPA 3D] مجموع صرف الفيديو لـ 3 أيام = $742.89 | المبيعات = 63 | CPA = $11.79 (> $9.50)",
+      "paused_at": "2026-10-21 17:59 GMT+3"
+    },
+    "9b8d3358-bfbf-40da-a14e-a69588367802": {
+      "name": "Copy of Copy of Copy of Copy of Copy of 1",
+      "campaign": "car scaling camp ",
+      "adsquad": "Copy of Copy of Copy of Copy of Copy of 1.5 | 23.8",
+      "reason": "[Global Cross-Campaign High CPA 3D] مجموع صرف الفيديو لـ 3 أيام = $742.89 | المبيعات = 63 | CPA = $11.79 (> $9.50)",
+      "paused_at": "2026-10-21 17:59 GMT+3"
+    },
+    "9e72c095-ea57-43df-9201-e30b894ea4cc": {
+      "name": "Copy of Copy of Copy of Copy of Copy of 1",
+      "campaign": "car scaling camp ",
+      "adsquad": "Copy of Copy of 1.5 | 23.8",
+      "reason": "[Global Cross-Campaign High CPA 3D] مجموع صرف الفيديو لـ 3 أيام = $742.89 | المبيعات = 63 | CPA = $11.79 (> $9.50)",
+      "paused_at": "2026-10-21 17:59 GMT+3"
+    },
+    "9ec07ced-5741-4845-a115-b9153688fa5b": {
+      "name": "Copy of Copy of Copy of Copy of Copy of 1",
+      "campaign": "car scaling camp ",
+      "adsquad": "Copy of Copy of 1.5 | 23.8",
+      "reason": "[Global Cross-Campaign High CPA 3D] مجموع صرف الفيديو لـ 3 أيام = $742.89 | المبيعات = 63 | CPA = $11.79 (> $9.50)",
+      "paused_at": "2026-10-21 17:59 GMT+3"
+    },
+    "a0c2ab20-2ccb-4852-8be8-4e6a98a4188a": {
+      "name": "Copy of Copy of Copy of Copy of Copy of 1",
+      "campaign": "car scaling camp ",
+      "adsquad": "Copy of Copy of 1.5 | 23.8",
+      "reason": "[Global Cross-Campaign High CPA 3D] مجموع صرف الفيديو لـ 3 أيام = $742.89 | المبيعات = 63 | CPA = $11.79 (> $9.50)",
+      "paused_at": "2026-10-21 17:59 GMT+3"
+    },
+    "a0d7910a-7772-4f18-8704-0417929fd8ee": {
+      "name": "Copy of Copy of Copy of Copy of Copy of 1",
+      "campaign": "car scaling camp ",
+      "adsquad": "Copy of Copy of 1.5 | 23.8",
+      "reason": "[Global Cross-Campaign High CPA 3D] مجموع صرف الفيديو لـ 3 أيام = $742.89 | المبيعات = 63 | CPA = $11.79 (> $9.50)",
+      "paused_at": "2026-10-21 17:59 GMT+3"
+    },
+    "a3666a15-f425-4885-a189-2c31e36e0e2b": {
+      "name": "Copy of Copy of Copy of Copy of Copy of 1",
+      "campaign": "car scaling camp ",
+      "adsquad": "Copy of Copy of 1.5 | 23.8",
+      "reason": "[Global Cross-Campaign High CPA 3D] مجموع صرف الفيديو لـ 3 أيام = $742.89 | المبيعات = 63 | CPA = $11.79 (> $9.50)",
+      "paused_at": "2026-10-21 17:59 GMT+3"
+    },
+    "a39d4776-2b85-4a84-81f3-ecde0a8cb10d": {
+      "name": "Copy of Copy of Copy of Copy of Copy of 1",
+      "campaign": "car scaling camp ",
+      "adsquad": "Copy of Copy of 1.5 | 23.8",
+      "reason": "[Global Cross-Campaign High CPA 3D] مجموع صرف الفيديو لـ 3 أيام = $742.89 | المبيعات = 63 | CPA = $11.79 (> $9.50)",
+      "paused_at": "2026-10-21 17:59 GMT+3"
+    },
+    "a520a352-599c-47b1-97b4-433cce994fb0": {
+      "name": "Copy of Copy of Copy of Copy of Copy of 1",
+      "campaign": "car scaling camp ",
+      "adsquad": "Copy of Copy of Copy of Copy of Copy of Copy of 1.5 | 23.8",
+      "reason": "[Global Cross-Campaign High CPA 3D] مجموع صرف الفيديو لـ 3 أيام = $742.89 | المبيعات = 63 | CPA = $11.79 (> $9.50)",
+      "paused_at": "2026-10-21 17:59 GMT+3"
+    },
+    "a7d2583e-5ad6-4234-9d02-a5e55ac4645b": {
+      "name": "Copy of Copy of Copy of Copy of Copy of 1",
+      "campaign": "car scaling camp ",
+      "adsquad": "Copy of Copy of 1.5 | 23.8",
+      "reason": "[Global Cross-Campaign High CPA 3D] مجموع صرف الفيديو لـ 3 أيام = $742.89 | المبيعات = 63 | CPA = $11.79 (> $9.50)",
+      "paused_at": "2026-10-21 17:59 GMT+3"
+    },
+    "a92b453c-4839-4add-99f3-dd1e2cfaabbe": {
+      "name": "Copy of Copy of Copy of Copy of Copy of 1",
+      "campaign": "car scaling camp ",
+      "adsquad": "Copy of Copy of Copy of Copy of 1.5 | 23.8",
+      "reason": "[Global Cross-Campaign High CPA 3D] مجموع صرف الفيديو لـ 3 أيام = $742.89 | المبيعات = 63 | CPA = $11.79 (> $9.50)",
+      "paused_at": "2026-10-21 17:59 GMT+3"
+    },
+    "a9a349d5-edc5-466d-9958-ab1969914c2e": {
+      "name": "Copy of Copy of Copy of Copy of Copy of 1",
+      "campaign": "car scaling camp ",
+      "adsquad": "Copy of 2.9",
+      "reason": "[Global Cross-Campaign High CPA 3D] مجموع صرف الفيديو لـ 3 أيام = $742.89 | المبيعات = 63 | CPA = $11.79 (> $9.50)",
+      "paused_at": "2026-10-21 17:59 GMT+3"
+    },
+    "aa5fe4b9-f585-4a10-8276-4994f523b6f2": {
+      "name": "Copy of Copy of Copy of Copy of Copy of 1",
+      "campaign": "car scaling camp ",
+      "adsquad": "Copy of Copy of 1.5 | 23.8",
+      "reason": "[Global Cross-Campaign High CPA 3D] مجموع صرف الفيديو لـ 3 أيام = $742.89 | المبيعات = 63 | CPA = $11.79 (> $9.50)",
+      "paused_at": "2026-10-21 17:59 GMT+3"
+    },
+    "ab242f9c-3d46-44f0-9ef8-a9fb9a5a343c": {
+      "name": "Copy of Copy of Copy of Copy of Copy of 1",
+      "campaign": "car scaling camp ",
+      "adsquad": "Copy of Copy of Copy of Copy of 1.5 | 23.8",
+      "reason": "[Global Cross-Campaign High CPA 3D] مجموع صرف الفيديو لـ 3 أيام = $742.89 | المبيعات = 63 | CPA = $11.79 (> $9.50)",
+      "paused_at": "2026-10-21 17:59 GMT+3"
+    },
+    "abebf2db-4324-400c-8e9e-de1a75396cc0": {
+      "name": "Copy of Copy of Copy of Copy of Copy of 1",
+      "campaign": "car scaling camp ",
+      "adsquad": "Copy of Copy of 1.5 | 23.8",
+      "reason": "[Global Cross-Campaign High CPA 3D] مجموع صرف الفيديو لـ 3 أيام = $742.89 | المبيعات = 63 | CPA = $11.79 (> $9.50)",
+      "paused_at": "2026-10-21 17:59 GMT+3"
+    },
+    "ac8b292e-a07d-441a-a4f2-68d9f6ea2ff1": {
+      "name": "Copy of Copy of Copy of Copy of Copy of 1",
+      "campaign": "car scaling camp ",
+      "adsquad": "Copy of Copy of 1.5 | 23.8",
+      "reason": "[Global Cross-Campaign High CPA 3D] مجموع صرف الفيديو لـ 3 أيام = $742.89 | المبيعات = 63 | CPA = $11.79 (> $9.50)",
+      "paused_at": "2026-10-21 17:59 GMT+3"
+    },
+    "acfbe279-505b-416d-8458-f391a377c485": {
+      "name": "Copy of Copy of Copy of Copy of Copy of 1",
+      "campaign": "car scaling camp ",
+      "adsquad": "Copy of Copy of 1.5 | 23.8",
+      "reason": "[Global Cross-Campaign High CPA 3D] مجموع صرف الفيديو لـ 3 أيام = $742.89 | المبيعات = 63 | CPA = $11.79 (> $9.50)",
+      "paused_at": "2026-10-21 17:59 GMT+3"
+    },
+    "b07074af-f0d2-4866-9a44-afd9fc4e96f3": {
+      "name": "Copy of Copy of Copy of Copy of Copy of 1",
+      "campaign": "car scaling camp ",
+      "adsquad": "Copy of Copy of 1.5 | 23.8",
+      "reason": "[Global Cross-Campaign High CPA 3D] مجموع صرف الفيديو لـ 3 أيام = $742.89 | المبيعات = 63 | CPA = $11.79 (> $9.50)",
+      "paused_at": "2026-10-21 17:59 GMT+3"
+    },
+    "b118b259-5ce4-4079-aafa-7de5cde97df2": {
+      "name": "Copy of Copy of Copy of Copy of Copy of 1",
+      "campaign": "car scaling camp ",
+      "adsquad": "Copy of Copy of Copy of Copy of 1.5 | 23.8",
+      "reason": "[Global Cross-Campaign High CPA 3D] مجموع صرف الفيديو لـ 3 أيام = $742.89 | المبيعات = 63 | CPA = $11.79 (> $9.50)",
+      "paused_at": "2026-10-21 17:59 GMT+3"
+    },
+    "b23e091b-9a4b-46fa-9194-6576ed19b1fb": {
+      "name": "Copy of Copy of Copy of Copy of Copy of 1",
+      "campaign": "car scaling camp ",
+      "adsquad": "Copy of Copy of Copy of Copy of Copy of Copy of 1.5 | 23.8",
+      "reason": "[Global Cross-Campaign High CPA 3D] مجموع صرف الفيديو لـ 3 أيام = $742.89 | المبيعات = 63 | CPA = $11.79 (> $9.50)",
+      "paused_at": "2026-10-21 17:59 GMT+3"
+    },
+    "b2bb9c40-d5fe-427c-9e1a-a4b0675a60d2": {
+      "name": "Copy of Copy of Copy of Copy of Copy of 1",
+      "campaign": "car scaling camp ",
+      "adsquad": "Copy of 1.5 | 23.8",
+      "reason": "[Global Cross-Campaign High CPA 3D] مجموع صرف الفيديو لـ 3 أيام = $742.89 | المبيعات = 63 | CPA = $11.79 (> $9.50)",
+      "paused_at": "2026-10-21 17:59 GMT+3"
+    },
+    "b2d8f737-4568-42e4-890d-25af19803e01": {
+      "name": "Copy of Copy of Copy of Copy of Copy of 1",
+      "campaign": "car scaling camp ",
+      "adsquad": "Copy of Copy of 1.5 | 23.8",
+      "reason": "[Global Cross-Campaign High CPA 3D] مجموع صرف الفيديو لـ 3 أيام = $742.89 | المبيعات = 63 | CPA = $11.79 (> $9.50)",
+      "paused_at": "2026-10-21 17:59 GMT+3"
+    },
+    "b5e20d72-e2ce-4eba-b965-0e87b9bccbc5": {
+      "name": "Copy of Copy of Copy of Copy of Copy of 1",
+      "campaign": "car scaling camp ",
+      "adsquad": "Copy of Copy of 1.5 | 23.8",
+      "reason": "[Global Cross-Campaign High CPA 3D] مجموع صرف الفيديو لـ 3 أيام = $742.89 | المبيعات = 63 | CPA = $11.79 (> $9.50)",
+      "paused_at": "2026-10-21 17:59 GMT+3"
+    },
+    "b912e181-bf99-4ba6-8dd2-a7bfbbaffec5": {
+      "name": "Copy of Copy of Copy of Copy of Copy of 1",
+      "campaign": "car scaling camp ",
+      "adsquad": "Copy of Copy of Copy of Copy of Copy of Copy of 1.5 | 23.8",
+      "reason": "[Global Cross-Campaign High CPA 3D] مجموع صرف الفيديو لـ 3 أيام = $742.89 | المبيعات = 63 | CPA = $11.79 (> $9.50)",
+      "paused_at": "2026-10-21 17:59 GMT+3"
+    },
+    "ba27d58c-403b-4c76-baeb-06beb60aa009": {
+      "name": "Copy of Copy of Copy of Copy of Copy of 1",
+      "campaign": "car scaling camp ",
+      "adsquad": "Copy of Copy of 1.5 | 23.8",
+      "reason": "[Global Cross-Campaign High CPA 3D] مجموع صرف الفيديو لـ 3 أيام = $742.89 | المبيعات = 63 | CPA = $11.79 (> $9.50)",
+      "paused_at": "2026-10-21 17:59 GMT+3"
+    },
+    "ba3962ea-50e0-48e9-9b1f-7a69e2c11b72": {
+      "name": "Copy of Copy of Copy of Copy of Copy of 1",
+      "campaign": "car scaling camp ",
+      "adsquad": "Copy of Copy of 1.5 | 23.8",
+      "reason": "[Global Cross-Campaign High CPA 3D] مجموع صرف الفيديو لـ 3 أيام = $742.89 | المبيعات = 63 | CPA = $11.79 (> $9.50)",
+      "paused_at": "2026-10-21 17:59 GMT+3"
+    },
+    "ba86a391-b2a6-4dc6-9981-8de9f1811fa4": {
+      "name": "Copy of Copy of Copy of Copy of Copy of 1",
+      "campaign": "car scaling camp ",
+      "adsquad": "Copy of 1.5 | 23.8",
+      "reason": "[Global Cross-Campaign High CPA 3D] مجموع صرف الفيديو لـ 3 أيام = $742.89 | المبيعات = 63 | CPA = $11.79 (> $9.50)",
+      "paused_at": "2026-10-21 17:59 GMT+3"
+    },
+    "bbd8569a-6d66-4d9f-b1f3-bf6cdf051767": {
+      "name": "Copy of Copy of Copy of Copy of Copy of 1",
+      "campaign": "car scaling camp ",
+      "adsquad": "Copy of Copy of 1.5 | 23.8",
+      "reason": "[Global Cross-Campaign High CPA 3D] مجموع صرف الفيديو لـ 3 أيام = $742.89 | المبيعات = 63 | CPA = $11.79 (> $9.50)",
+      "paused_at": "2026-10-21 17:59 GMT+3"
+    },
+    "bc096f80-d8d9-4711-bc57-324af8ca1a25": {
+      "name": "Copy of Copy of Copy of Copy of Copy of 1",
+      "campaign": "car scaling camp ",
+      "adsquad": "Copy of Copy of Copy of Copy of 1.5 | 23.8",
+      "reason": "[Global Cross-Campaign High CPA 3D] مجموع صرف الفيديو لـ 3 أيام = $742.89 | المبيعات = 63 | CPA = $11.79 (> $9.50)",
+      "paused_at": "2026-10-21 17:59 GMT+3"
+    },
+    "bc367b04-d6b5-473b-896b-ea79c821a990": {
+      "name": "Copy of Copy of Copy of Copy of Copy of 1",
+      "campaign": "car scaling camp ",
+      "adsquad": "Copy of Copy of 1.5 | 23.8",
+      "reason": "[Global Cross-Campaign High CPA 3D] مجموع صرف الفيديو لـ 3 أيام = $742.89 | المبيعات = 63 | CPA = $11.79 (> $9.50)",
+      "paused_at": "2026-10-21 17:59 GMT+3"
+    },
+    "c07c38b4-2ca0-49c8-8ef8-7fbbbb548abd": {
+      "name": "Copy of Copy of Copy of Copy of Copy of 1",
+      "campaign": "car scaling camp ",
+      "adsquad": "Copy of Copy of Copy of Copy of Copy of Copy of 1.5 | 23.8",
+      "reason": "[Global Cross-Campaign High CPA 3D] مجموع صرف الفيديو لـ 3 أيام = $742.89 | المبيعات = 63 | CPA = $11.79 (> $9.50)",
+      "paused_at": "2026-10-21 17:59 GMT+3"
+    },
+    "c0910cbf-1853-46c9-af1b-14ec759056d1": {
+      "name": "Copy of Copy of Copy of Copy of Copy of 1",
+      "campaign": "car scaling camp ",
+      "adsquad": "Copy of Copy of 1.5 | 23.8",
+      "reason": "[Global Cross-Campaign High CPA 3D] مجموع صرف الفيديو لـ 3 أيام = $742.89 | المبيعات = 63 | CPA = $11.79 (> $9.50)",
+      "paused_at": "2026-10-21 17:59 GMT+3"
+    },
+    "c136b9c7-8a31-4b65-907a-fe6a35438151": {
+      "name": "Copy of Copy of Copy of Copy of Copy of 1",
+      "campaign": "car scaling camp ",
+      "adsquad": "Copy of Copy of 1.5 | 23.8",
+      "reason": "[Global Cross-Campaign High CPA 3D] مجموع صرف الفيديو لـ 3 أيام = $742.89 | المبيعات = 63 | CPA = $11.79 (> $9.50)",
+      "paused_at": "2026-10-21 17:59 GMT+3"
+    },
+    "c1c80594-d012-4575-9c12-f5524638eb56": {
+      "name": "Copy of Copy of Copy of Copy of Copy of 1",
+      "campaign": "car scaling camp ",
+      "adsquad": "Copy of Copy of Copy of 1.5 | 23.8",
+      "reason": "[Global Cross-Campaign High CPA 3D] مجموع صرف الفيديو لـ 3 أيام = $742.89 | المبيعات = 63 | CPA = $11.79 (> $9.50)",
+      "paused_at": "2026-10-21 17:59 GMT+3"
+    },
+    "c3ac65e7-f0cd-454c-b670-4beed54587c0": {
+      "name": "Copy of Copy of Copy of Copy of Copy of 1",
+      "campaign": "car scaling camp ",
+      "adsquad": "Copy of Copy of Copy of Copy of 1.5 | 23.8",
+      "reason": "[Global Cross-Campaign High CPA 3D] مجموع صرف الفيديو لـ 3 أيام = $742.89 | المبيعات = 63 | CPA = $11.79 (> $9.50)",
+      "paused_at": "2026-10-21 17:59 GMT+3"
+    },
+    "c61e409f-50c1-4120-a64e-22b9b308edf9": {
+      "name": "Copy of Copy of Copy of Copy of Copy of 1",
+      "campaign": "car scaling camp ",
+      "adsquad": "Copy of Copy of Copy of Copy of Copy of Copy of 1.5 | 23.8",
+      "reason": "[Global Cross-Campaign High CPA 3D] مجموع صرف الفيديو لـ 3 أيام = $742.89 | المبيعات = 63 | CPA = $11.79 (> $9.50)",
+      "paused_at": "2026-10-21 17:59 GMT+3"
+    },
+    "cb12c6f1-b14a-421c-9610-117ff6ec0b8b": {
+      "name": "Copy of Copy of Copy of Copy of Copy of 1",
+      "campaign": "car scaling camp ",
+      "adsquad": "Copy of Copy of 1.5 | 23.8",
+      "reason": "[Global Cross-Campaign High CPA 3D] مجموع صرف الفيديو لـ 3 أيام = $742.89 | المبيعات = 63 | CPA = $11.79 (> $9.50)",
+      "paused_at": "2026-10-21 17:59 GMT+3"
+    },
+    "cd22e0b7-f463-4b10-8989-832e6637abab": {
+      "name": "Copy of Copy of Copy of Copy of Copy of 1",
+      "campaign": "car scaling camp ",
+      "adsquad": "Copy of Copy of 1.5 | 23.8",
+      "reason": "[Global Cross-Campaign High CPA 3D] مجموع صرف الفيديو لـ 3 أيام = $742.89 | المبيعات = 63 | CPA = $11.79 (> $9.50)",
+      "paused_at": "2026-10-21 17:59 GMT+3"
+    },
+    "cd66ae54-cc4c-4351-9a9e-5042301c7f80": {
+      "name": "Copy of Copy of Copy of Copy of Copy of 1",
+      "campaign": "car scaling camp ",
+      "adsquad": "Copy of Copy of 1.5 | 23.8",
+      "reason": "[Global Cross-Campaign High CPA 3D] مجموع صرف الفيديو لـ 3 أيام = $742.89 | المبيعات = 63 | CPA = $11.79 (> $9.50)",
+      "paused_at": "2026-10-21 17:59 GMT+3"
+    },
+    "cee58525-cace-4868-b7b1-6441dc70f21e": {
+      "name": "Copy of Copy of Copy of Copy of Copy of 1",
+      "campaign": "car scaling camp ",
+      "adsquad": "Copy of Copy of 1.5 | 23.8",
+      "reason": "[Global Cross-Campaign High CPA 3D] مجموع صرف الفيديو لـ 3 أيام = $742.89 | المبيعات = 63 | CPA = $11.79 (> $9.50)",
+      "paused_at": "2026-10-21 17:59 GMT+3"
+    },
+    "ceecd33c-f1c8-4cd6-9914-23048288072c": {
+      "name": "Copy of Copy of Copy of Copy of Copy of 1",
+      "campaign": "car scaling camp ",
+      "adsquad": "Copy of Copy of Copy of Copy of Copy of 1.5 | 23.8",
+      "reason": "[Global Cross-Campaign High CPA 3D] مجموع صرف الفيديو لـ 3 أيام = $742.89 | المبيعات = 63 | CPA = $11.79 (> $9.50)",
+      "paused_at": "2026-10-21 17:59 GMT+3"
+    },
+    "cf420adc-8f45-49d8-87dd-07f497651871": {
+      "name": "Copy of Copy of Copy of Copy of Copy of 1",
+      "campaign": "car scaling camp ",
+      "adsquad": "Copy of Copy of 1.5 | 23.8",
+      "reason": "[Global Cross-Campaign High CPA 3D] مجموع صرف الفيديو لـ 3 أيام = $742.89 | المبيعات = 63 | CPA = $11.79 (> $9.50)",
+      "paused_at": "2026-10-21 17:59 GMT+3"
+    },
+    "d13dec08-1fad-4aec-8b7e-f9d457091c90": {
+      "name": "Copy of Copy of Copy of Copy of Copy of 1",
+      "campaign": "car scaling camp ",
+      "adsquad": "Copy of Copy of Copy of Copy of Copy of Copy of 1.5 | 23.8",
+      "reason": "[Global Cross-Campaign High CPA 3D] مجموع صرف الفيديو لـ 3 أيام = $742.89 | المبيعات = 63 | CPA = $11.79 (> $9.50)",
+      "paused_at": "2026-10-21 17:59 GMT+3"
+    },
+    "d1e5219e-12e5-4589-b963-b043732422dd": {
+      "name": "Copy of Copy of Copy of Copy of Copy of 1",
+      "campaign": "car scaling camp ",
+      "adsquad": "Copy of Copy of 1.5 | 23.8",
+      "reason": "[Global Cross-Campaign High CPA 3D] مجموع صرف الفيديو لـ 3 أيام = $742.89 | المبيعات = 63 | CPA = $11.79 (> $9.50)",
+      "paused_at": "2026-10-21 17:59 GMT+3"
+    },
+    "d2610c5a-d133-48f0-94e6-ac64ce147e0a": {
+      "name": "Copy of Copy of Copy of Copy of Copy of 1",
+      "campaign": "car scaling camp ",
+      "adsquad": "Copy of Copy of 1.5 | 23.8",
+      "reason": "[Global Cross-Campaign High CPA 3D] مجموع صرف الفيديو لـ 3 أيام = $742.89 | المبيعات = 63 | CPA = $11.79 (> $9.50)",
+      "paused_at": "2026-10-21 17:59 GMT+3"
+    },
+    "d4dd5bcc-2aa1-489e-934f-7f652b697095": {
+      "name": "Copy of Copy of Copy of Copy of Copy of 1",
+      "campaign": "car scaling camp ",
+      "adsquad": "Copy of Copy of 1.5 | 23.8",
+      "reason": "[Global Cross-Campaign High CPA 3D] مجموع صرف الفيديو لـ 3 أيام = $742.89 | المبيعات = 63 | CPA = $11.79 (> $9.50)",
+      "paused_at": "2026-10-21 17:59 GMT+3"
+    },
+    "d677d052-0ab3-44fc-9264-cb954bbd390e": {
+      "name": "Copy of Copy of Copy of Copy of Copy of 1",
+      "campaign": "car scaling camp ",
+      "adsquad": "Copy of Copy of 1.5 | 23.8",
+      "reason": "[Global Cross-Campaign High CPA 3D] مجموع صرف الفيديو لـ 3 أيام = $742.89 | المبيعات = 63 | CPA = $11.79 (> $9.50)",
+      "paused_at": "2026-10-21 17:59 GMT+3"
+    },
+    "d8c7a6f5-ca69-49a4-9206-90f8df384dbd": {
+      "name": "Copy of Copy of Copy of Copy of Copy of 1",
+      "campaign": "car scaling camp ",
+      "adsquad": "Copy of 2.9",
+      "reason": "[Global Cross-Campaign High CPA 3D] مجموع صرف الفيديو لـ 3 أيام = $742.89 | المبيعات = 63 | CPA = $11.79 (> $9.50)",
+      "paused_at": "2026-10-21 17:59 GMT+3"
+    },
+    "d91e5a6b-60c3-4578-a60b-e06ee52d1b05": {
+      "name": "Copy of Copy of Copy of Copy of Copy of 1",
+      "campaign": "car scaling camp ",
+      "adsquad": "Copy of Copy of 1.5 | 23.8",
+      "reason": "[Global Cross-Campaign High CPA 3D] مجموع صرف الفيديو لـ 3 أيام = $742.89 | المبيعات = 63 | CPA = $11.79 (> $9.50)",
+      "paused_at": "2026-10-21 17:59 GMT+3"
+    },
+    "d9964d73-76b5-4efb-b3e4-143a3df76218": {
+      "name": "Copy of Copy of Copy of Copy of Copy of 1",
+      "campaign": "car scaling camp ",
+      "adsquad": "Copy of Copy of 1.5 | 23.8",
+      "reason": "[Global Cross-Campaign High CPA 3D] مجموع صرف الفيديو لـ 3 أيام = $742.89 | المبيعات = 63 | CPA = $11.79 (> $9.50)",
+      "paused_at": "2026-10-21 17:59 GMT+3"
+    },
+    "da27b00c-088c-462a-92df-27dbe2e9c860": {
+      "name": "Copy of Copy of Copy of Copy of Copy of 1",
+      "campaign": "car scaling camp ",
+      "adsquad": "Copy of Copy of 1.5 | 23.8",
+      "reason": "[Global Cross-Campaign High CPA 3D] مجموع صرف الفيديو لـ 3 أيام = $742.89 | المبيعات = 63 | CPA = $11.79 (> $9.50)",
+      "paused_at": "2026-10-21 17:59 GMT+3"
+    },
+    "da6c3671-c5bc-4104-bc77-1b8717142f56": {
+      "name": "Copy of Copy of Copy of Copy of Copy of 1",
+      "campaign": "car scaling camp ",
+      "adsquad": "Copy of Copy of 1.5 | 23.8",
+      "reason": "[Global Cross-Campaign High CPA 3D] مجموع صرف الفيديو لـ 3 أيام = $742.89 | المبيعات = 63 | CPA = $11.79 (> $9.50)",
+      "paused_at": "2026-10-21 17:59 GMT+3"
+    },
+    "dc93c331-63af-4321-90b8-63e19f8c429a": {
+      "name": "Copy of Copy of Copy of Copy of Copy of 1",
+      "campaign": "car scaling camp ",
+      "adsquad": "Copy of Copy of Copy of Copy of 1.5 | 23.8",
+      "reason": "[Global Cross-Campaign High CPA 3D] مجموع صرف الفيديو لـ 3 أيام = $742.89 | المبيعات = 63 | CPA = $11.79 (> $9.50)",
+      "paused_at": "2026-10-21 17:59 GMT+3"
+    },
+    "dcd48ab4-66f3-4e5d-b85b-353b08052d46": {
+      "name": "Copy of Copy of Copy of Copy of Copy of 1",
+      "campaign": "car scaling camp ",
+      "adsquad": "Copy of Copy of 1.5 | 23.8",
+      "reason": "[Global Cross-Campaign High CPA 3D] مجموع صرف الفيديو لـ 3 أيام = $742.89 | المبيعات = 63 | CPA = $11.79 (> $9.50)",
+      "paused_at": "2026-10-21 17:59 GMT+3"
+    },
+    "e146c219-a124-4843-81e4-084e82ade115": {
+      "name": "Copy of Copy of Copy of Copy of Copy of 1",
+      "campaign": "car scaling camp ",
+      "adsquad": "Copy of Copy of 1.5 | 23.8",
+      "reason": "[Global Cross-Campaign High CPA 3D] مجموع صرف الفيديو لـ 3 أيام = $742.89 | المبيعات = 63 | CPA = $11.79 (> $9.50)",
+      "paused_at": "2026-10-21 17:59 GMT+3"
+    },
+    "e1d7db36-08e8-478d-81ea-a1d12e75b571": {
+      "name": "Copy of Copy of Copy of Copy of Copy of 1",
+      "campaign": "car scaling camp ",
+      "adsquad": "Copy of Copy of 1.5 | 23.8",
+      "reason": "[Global Cross-Campaign High CPA 3D] مجموع صرف الفيديو لـ 3 أيام = $742.89 | المبيعات = 63 | CPA = $11.79 (> $9.50)",
+      "paused_at": "2026-10-21 17:59 GMT+3"
+    },
+    "e9b25687-af15-4e41-b5e7-51ef5e5aa54c": {
+      "name": "Copy of Copy of Copy of Copy of Copy of 1",
+      "campaign": "car scaling camp ",
+      "adsquad": "Copy of Copy of Copy of Copy of Copy of 1.5 | 23.8",
+      "reason": "[Global Cross-Campaign High CPA 3D] مجموع صرف الفيديو لـ 3 أيام = $742.89 | المبيعات = 63 | CPA = $11.79 (> $9.50)",
+      "paused_at": "2026-10-21 17:59 GMT+3"
+    },
+    "ebb376a2-ca61-4e80-a066-fb0721c0d930": {
+      "name": "Copy of Copy of Copy of Copy of Copy of 1",
+      "campaign": "car scaling camp ",
+      "adsquad": "Copy of Copy of 1.5 | 23.8",
+      "reason": "[Global Cross-Campaign High CPA 3D] مجموع صرف الفيديو لـ 3 أيام = $742.89 | المبيعات = 63 | CPA = $11.79 (> $9.50)",
+      "paused_at": "2026-10-21 17:59 GMT+3"
+    },
+    "ebd02bb0-73e0-46ce-a272-d32645c33bbf": {
+      "name": "Copy of Copy of Copy of Copy of Copy of 1",
+      "campaign": "car scaling camp ",
+      "adsquad": "Copy of Copy of Copy of Copy of Copy of 1.5 | 23.8",
+      "reason": "[Global Cross-Campaign High CPA 3D] مجموع صرف الفيديو لـ 3 أيام = $742.89 | المبيعات = 63 | CPA = $11.79 (> $9.50)",
+      "paused_at": "2026-10-21 17:59 GMT+3"
+    },
+    "ec074857-092f-4700-8cd5-087a9364ad5f": {
+      "name": "Copy of Copy of Copy of Copy of Copy of 1",
+      "campaign": "car scaling camp ",
+      "adsquad": "Copy of Copy of 1.5 | 23.8",
+      "reason": "[Global Cross-Campaign High CPA 3D] مجموع صرف الفيديو لـ 3 أيام = $742.89 | المبيعات = 63 | CPA = $11.79 (> $9.50)",
+      "paused_at": "2026-10-21 17:59 GMT+3"
+    },
+    "ef59114e-9969-4121-99f2-2a2804570f01": {
+      "name": "Copy of Copy of Copy of Copy of Copy of 1",
+      "campaign": "car scaling camp ",
+      "adsquad": "Copy of Copy of Copy of 1.5 | 23.8",
+      "reason": "[Global Cross-Campaign High CPA 3D] مجموع صرف الفيديو لـ 3 أيام = $742.89 | المبيعات = 63 | CPA = $11.79 (> $9.50)",
+      "paused_at": "2026-10-21 17:59 GMT+3"
+    },
+    "f0408e8d-1791-43b5-aaeb-7495644d668b": {
+      "name": "Copy of Copy of Copy of Copy of Copy of 1",
+      "campaign": "car scaling camp ",
+      "adsquad": "Copy of Copy of Copy of Copy of 1.5 | 23.8",
+      "reason": "[Global Cross-Campaign High CPA 3D] مجموع صرف الفيديو لـ 3 أيام = $742.89 | المبيعات = 63 | CPA = $11.79 (> $9.50)",
+      "paused_at": "2026-10-21 17:59 GMT+3"
+    },
+    "f1bd06f3-0862-418d-a1f9-176b2f583f70": {
+      "name": "Copy of Copy of Copy of Copy of Copy of 1",
+      "campaign": "car scaling camp ",
+      "adsquad": "Copy of Copy of Copy of 1.5 | 23.8",
+      "reason": "[Global Cross-Campaign High CPA 3D] مجموع صرف الفيديو لـ 3 أيام = $742.89 | المبيعات = 63 | CPA = $11.79 (> $9.50)",
+      "paused_at": "2026-10-21 17:59 GMT+3"
+    },
+    "f29fe379-8114-41ef-918e-d9bb46dfe929": {
+      "name": "Copy of Copy of Copy of Copy of Copy of 1",
+      "campaign": "car scaling camp ",
+      "adsquad": "Copy of Copy of Copy of Copy of Copy of 1.5 | 23.8",
+      "reason": "[Global Cross-Campaign High CPA 3D] مجموع صرف الفيديو لـ 3 أيام = $742.89 | المبيعات = 63 | CPA = $11.79 (> $9.50)",
+      "paused_at": "2026-10-21 17:59 GMT+3"
+    },
+    "f5bf5f81-05b5-4e87-8551-6922a506fa9d": {
+      "name": "Copy of Copy of Copy of Copy of Copy of 1",
+      "campaign": "car scaling camp ",
+      "adsquad": "Copy of Copy of 1.5 | 23.8",
+      "reason": "[Global Cross-Campaign High CPA 3D] مجموع صرف الفيديو لـ 3 أيام = $742.89 | المبيعات = 63 | CPA = $11.79 (> $9.50)",
+      "paused_at": "2026-10-21 17:59 GMT+3"
+    },
+    "f920c111-7a79-477b-8eaa-7eb04a1fc6fb": {
+      "name": "Copy of Copy of Copy of Copy of Copy of 1",
+      "campaign": "car scaling camp ",
+      "adsquad": "Copy of Copy of 1.5 | 23.8",
+      "reason": "[Global Cross-Campaign High CPA 3D] مجموع صرف الفيديو لـ 3 أيام = $742.89 | المبيعات = 63 | CPA = $11.79 (> $9.50)",
+      "paused_at": "2026-10-21 17:59 GMT+3"
+    },
+    "f9337da3-4014-495c-b447-ebd277f5c83e": {
+      "name": "Copy of Copy of Copy of Copy of Copy of 1",
+      "campaign": "car scaling camp ",
+      "adsquad": "Copy of Copy of Copy of Copy of Copy of 1.5 | 23.8",
+      "reason": "[Global Cross-Campaign High CPA 3D] مجموع صرف الفيديو لـ 3 أيام = $742.89 | المبيعات = 63 | CPA = $11.79 (> $9.50)",
+      "paused_at": "2026-10-21 17:59 GMT+3"
+    },
+    "fac40b3e-5e82-4164-9591-c8e71a4aed38": {
+      "name": "Copy of Copy of Copy of Copy of Copy of 1",
+      "campaign": "car scaling camp ",
+      "adsquad": "Copy of Copy of 1.5 | 23.8",
+      "reason": "[Global Cross-Campaign High CPA 3D] مجموع صرف الفيديو لـ 3 أيام = $742.89 | المبيعات = 63 | CPA = $11.79 (> $9.50)",
+      "paused_at": "2026-10-21 17:59 GMT+3"
+    },
+    "fe5934ce-6e8d-4079-80b1-750fc739ee2e": {
+      "name": "Copy of Copy of Copy of Copy of Copy of 1",
+      "campaign": "car scaling camp ",
+      "adsquad": "Copy of Copy of 1.5 | 23.8",
+      "reason": "[Global Cross-Campaign High CPA 3D] مجموع صرف الفيديو لـ 3 أيام = $742.89 | المبيعات = 63 | CPA = $11.79 (> $9.50)",
+      "paused_at": "2026-10-21 17:59 GMT+3"
     }
   },
   "bid_bumps": {
@@ -16859,139 +17585,139 @@
   "no_duplicate_campaigns": {
     "16b7aaf3-7526-49d7-8e68-33df1e0872a7": {
       "name": "باور بانك السعودية سمارت+ (فيديوهات الحساب الثاني) 18-10",
-      "spend_3d": 169.23,
+      "spend_3d": 170.03,
       "purchases_3d": 11,
-      "cpa_3d": 15.38,
-      "updated_at": "2026-10-21T17:24:26.092915+03:00"
+      "cpa_3d": 15.46,
+      "updated_at": "2026-10-21 17:59 GMT+3"
     },
     "4504af26-5609-4e7b-aeca-e11cf9e03846": {
       "name": "smart+ watch suis SA 18-10",
-      "spend_3d": 301.67,
+      "spend_3d": 306.67,
       "purchases_3d": 23,
-      "cpa_3d": 13.12,
-      "updated_at": "2026-10-21T17:24:47.507739+03:00"
+      "cpa_3d": 13.33,
+      "updated_at": "2026-10-21 17:59 GMT+3"
     },
     "8703fd84-bad8-482e-adb5-da1e9c635d13": {
       "name": "watch suis winners 17-10",
-      "spend_3d": 190.19,
+      "spend_3d": 190.7,
       "purchases_3d": 12,
-      "cpa_3d": 15.85,
-      "updated_at": "2026-10-21T17:25:08.254825+03:00"
+      "cpa_3d": 15.89,
+      "updated_at": "2026-10-21 17:59 GMT+3"
     },
     "9be45a26-06ac-4716-8e7b-2fb3a4d65e4c": {
       "name": "car scaling new 2 text",
-      "spend_3d": 369.33,
+      "spend_3d": 370.58,
       "purchases_3d": 33,
-      "cpa_3d": 11.19,
-      "updated_at": "2026-10-21T17:25:10.210739+03:00"
+      "cpa_3d": 11.23,
+      "updated_at": "2026-10-21 17:59 GMT+3"
     },
     "baa69314-505c-4b3a-851e-883c10034935": {
       "name": "smart+ cars SA 18-10",
-      "spend_3d": 374.5,
-      "purchases_3d": 34,
-      "cpa_3d": 11.01,
-      "updated_at": "2026-10-21T17:25:21.938443+03:00"
+      "spend_3d": 375.94,
+      "purchases_3d": 36,
+      "cpa_3d": 10.44,
+      "updated_at": "2026-10-21 17:59 GMT+3"
     },
     "e23e7c95-3f15-4945-9844-8bd73e2d79d3": {
       "name": "باور بانك وينر",
-      "spend_3d": 216.97,
+      "spend_3d": 217.11,
       "purchases_3d": 11,
-      "cpa_3d": 19.72,
-      "updated_at": "2026-10-21T17:25:41.210592+03:00"
+      "cpa_3d": 19.74,
+      "updated_at": "2026-10-21 17:59 GMT+3"
     },
     "f8372cfb-ae46-44d0-bbb4-f39790ecc648": {
       "name": "car scaling camp ",
-      "spend_3d": 507.4,
+      "spend_3d": 510.18,
       "purchases_3d": 49,
-      "cpa_3d": 10.36,
-      "updated_at": "2026-10-21T17:26:05.472760+03:00"
+      "cpa_3d": 10.41,
+      "updated_at": "2026-10-21 17:59 GMT+3"
     },
     "ca81dc33-724e-4191-9225-6a72b2ca019d": {
       "name": "smart+ cars SUPER WINNERS SA 18-10",
       "spend_3d": 17.41,
       "purchases_3d": 0,
       "cpa_3d": null,
-      "updated_at": "2026-10-21 17:14 GMT+3"
+      "updated_at": "2026-10-21 17:59 GMT+3"
     },
     "062e2cba-fecb-488e-940e-75b50eca766d": {
       "name": "وسادة السيارة علا وحنان 18-10 (دفعة 13-10)",
       "spend_3d": 30.26,
       "purchases_3d": 1,
       "cpa_3d": 30.26,
-      "updated_at": "2026-10-21 17:14 GMT+3"
+      "updated_at": "2026-10-21 17:59 GMT+3"
     },
     "f1eca678-e241-4401-91c2-85bf4d51be3e": {
       "name": "smart+ cars GEMS (2-5$ CPA) SA 18-10",
       "spend_3d": 12.23,
       "purchases_3d": 0,
       "cpa_3d": null,
-      "updated_at": "2026-10-21 17:14 GMT+3"
+      "updated_at": "2026-10-21 17:59 GMT+3"
     },
     "71cba38f-9c4c-44dc-9c70-c231eb9a963b": {
       "name": "وسادة السيارة قطر 18-10",
       "spend_3d": 29.08,
       "purchases_3d": 0,
       "cpa_3d": null,
-      "updated_at": "2026-10-21 17:14 GMT+3"
+      "updated_at": "2026-10-21 17:59 GMT+3"
     },
     "4eefa50f-9008-4aea-b159-d370150b60cf": {
       "name": "صندوق دفاتر TIME X 21-10",
       "reason": "Single-AdSquad Cross-Platform Monitored Product Campaign",
-      "updated_at": "2026-10-21 17:21 GMT+3"
+      "updated_at": "2026-10-21 18:06 GMT+3"
     },
     "a171c141-a6d5-403e-8357-5c8f6c01bce0": {
       "name": "وسادة مايباخ 21-10",
       "reason": "Single-AdSquad Cross-Platform Monitored Product Campaign",
-      "updated_at": "2026-10-21 17:21 GMT+3"
+      "updated_at": "2026-10-21 18:06 GMT+3"
     },
     "c5a7cade-6ec3-4c47-b3a2-c5f08bcf8da0": {
       "name": "وسادة مايباخ 21-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-21 17:14 GMT+3"
+      "updated_at": "2026-10-21 17:59 GMT+3"
     },
     "1879653022433617": {
       "name": "maybach pillow 21-10",
       "aadvid": "7631763556322148369",
       "reason": "Single-Campaign Cross-Platform Monitored Product Campaign",
-      "updated_at": "2026-10-21 17:21 GMT+3"
+      "updated_at": "2026-10-21 18:06 GMT+3"
     },
     "1879653126110545": {
       "name": "timex books 21-10",
       "aadvid": "7631763556322148369",
       "reason": "Single-Campaign Cross-Platform Monitored Product Campaign",
-      "updated_at": "2026-10-21 17:21 GMT+3"
+      "updated_at": "2026-10-21 18:06 GMT+3"
     },
     "1879340705037537": {
       "name": "power bank 18-10 (Ola + Hanan 15-10)",
-      "account": "ROELLINGER RECYCLING",
-      "spend_3d": 64.69,
+      "aadvid": "7631763556322148369",
+      "spend_3d": 66.64,
       "purchases_3d": 8,
-      "cpa_3d": 8.09,
-      "updated_at": "2026-10-21T17:26:34.457030+03:00"
+      "cpa_3d": 8.33,
+      "reason": "3-Day CPA > $8.00 — Duplication Blocked"
     },
     "1879504465445265": {
       "name": "car armrest 19-10 (Hanan + Ola 17-10)",
-      "account": "ROELLINGER RECYCLING",
-      "spend_3d": 42.41,
-      "purchases_3d": 5,
-      "cpa_3d": 8.48,
-      "updated_at": "2026-10-21T17:26:34.558026+03:00"
+      "aadvid": "7631763556322148369",
+      "spend_3d": 42.7,
+      "purchases_3d": 4,
+      "cpa_3d": 10.68,
+      "reason": "3-Day CPA > $8.00 — Duplication Blocked"
     },
     "1879156756827185": {
       "name": "power bank winner 16-10 A",
-      "account": "ROELLINGER RECYCLING",
-      "spend_3d": 37.6,
+      "aadvid": "7631763556322148369",
+      "spend_3d": 37.66,
       "purchases_3d": 4,
-      "cpa_3d": 9.4,
-      "updated_at": "2026-10-21T17:26:34.731139+03:00"
+      "cpa_3d": 9.41,
+      "reason": "3-Day CPA > $8.00 — Duplication Blocked"
     },
     "1878973125748978": {
       "name": "car armrest leads  13-10",
-      "account": "ROELLINGER RECYCLING",
-      "spend_3d": 35.48,
+      "aadvid": "7631763556322148369",
+      "spend_3d": 35.68,
       "purchases_3d": 4,
-      "cpa_3d": 8.87,
-      "updated_at": "2026-10-21T17:26:34.781719+03:00"
+      "cpa_3d": 8.92,
+      "reason": "3-Day CPA > $8.00 — Duplication Blocked"
     },
     "1879568490427585": {
       "name": "car armrest leads 13-10 BOOST 20-10",
@@ -17031,6 +17757,14 @@
       "purchases_3d": 0,
       "cpa_3d": null,
       "updated_at": "2026-10-21T17:26:34.645119+03:00"
+    },
+    "1879155925017650": {
+      "name": "power bank winner 16-10 A",
+      "aadvid": "7631763556322148369",
+      "spend_3d": 123.1,
+      "purchases_3d": 14,
+      "cpa_3d": 8.79,
+      "reason": "3-Day CPA > $8.00 — Duplication Blocked"
     }
   },
   "proactive_scaled_squads": {},
