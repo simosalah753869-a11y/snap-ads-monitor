@@ -1,12 +1,15 @@
 import sys
 import time
+import json
 from datetime import datetime, timezone
+from pathlib import Path
 import requests
 from requests.adapters import HTTPAdapter
 from urllib3.util.retry import Retry
 from snap_auth import API_BASE, load_config, refresh_access_token
 
 AD_ACCOUNT_ID = "350cb560-ad77-4fb5-9bbf-4c090c9ad081"
+HISTORY_FILE = Path(__file__).parent / "paused_history.json"
 
 sys.stdout.reconfigure(encoding="utf-8")
 
@@ -19,24 +22,17 @@ def make_session(token: str) -> requests.Session:
     return s
 
 
-import json
-from pathlib import Path
-
-HISTORY_FILE = Path(__file__).parent / "paused_history.json"
-
-
-def clone_adsquad_exact(session: requests.Session, src: dict, copies_count: int):
+def clone_adsquad_exact(session: requests.Session, src: dict, copies_count: int) -> list[str]:
     source_squad_id = src["id"]
     campaign_id = src["campaign_id"]
     src_name = src["name"]
     new_name = src_name if src_name.lower().startswith("copy of") else f"Copy of {src_name}"
-    bid_dollars = round(src.get("bid_micro", 0) / 1_000_000, 2)
 
     ra = session.get(f"{API_BASE}/adsquads/{source_squad_id}/ads", timeout=20)
     ra.raise_for_status()
     all_ads = [a["ad"] for a in ra.json().get("ads", []) if "ad" in a]
 
-    # استبعاد أي فيديو تم إيقافه/حذفه نهائياً على مستوى الحملة بالكامل (disabled_videos) أو إيقافه مجمّعاً
+    # استبعاد أي فيديو تم إيقافه/حذفه نهائياً على مستوى الحملة أو الحساب
     disabled_keys = set()
     disabled_names_for_camp = set()
     paused_ads_map = {}
@@ -66,47 +62,35 @@ def clone_adsquad_exact(session: requests.Session, src: dict, copies_count: int)
         ):
             return False
         p_info = paused_ads_map.get(a.get("id", ""))
-        if p_info and ("Aggregated Video" in str(p_info.get("reason", "")) or "Permanent Disabled" in str(p_info.get("reason", ""))):
+        if p_info and (
+            "Aggregated Video" in str(p_info.get("reason", ""))
+            or "Permanent Disabled" in str(p_info.get("reason", ""))
+            or "Global Cross-Campaign" in str(p_info.get("reason", ""))
+        ):
             return False
         return True
 
-    allowed_all = [a for a in all_ads if is_ad_allowed(a)]
-    # Always include ALL allowed creatives in a new AdSquad clone (not just the 1 surviving active ad!)
+    # نسخ الفيديوهات الرابحة النشطة فقط داخل المجموعة وعدم إعادة تفعيل أي فيديو خاسر موقوف!
+    allowed_active = [a for a in all_ads if a.get("status") == "ACTIVE" and is_ad_allowed(a)]
     seen_creatives = set()
     ads_to_copy = []
-    for a in allowed_all:
+    for a in allowed_active:
         cid_k = a.get("creative_id")
         if cid_k and cid_k not in seen_creatives:
             seen_creatives.add(cid_k)
             ads_to_copy.append(a)
 
-    # If the source squad itself was created with fewer than 4 ads, pull the rest of the campaign's allowed creatives
-    if len(ads_to_copy) < 4:
-        try:
-            rc_ads = session.get(f"{API_BASE}/campaigns/{campaign_id}/ads", timeout=20)
-            if rc_ads.ok:
-                camp_ads = [x["ad"] for x in rc_ads.json().get("ads", []) if "ad" in x]
-                for a in camp_ads:
-                    cid_k = a.get("creative_id")
-                    if cid_k and cid_k not in seen_creatives and is_ad_allowed(a):
-                        seen_creatives.add(cid_k)
-                        ads_to_copy.append(a)
-                        if len(ads_to_copy) >= 10:
-                            break
-        except Exception:
-            pass
-
     if not ads_to_copy:
-        print(f"   ⚠️ تخطي نسخ '{src_name}': جميع الفيديوهات بداخلها تم إيقافها/حذفها.", flush=True)
-        return
+        print(f"   ⚠️ تخطي نسخ '{src_name}': لا توجد فيديوهات نشطة مسموحة بداخلها.", flush=True)
+        return []
 
-    raw_bid_micro = src.get("bid_micro") or 2_050_000
-    if raw_bid_micro < 1_950_000:
-        raw_bid_micro = 2_050_000
+    bid_ladder_micro = [2_050_000, 2_150_000, 2_250_000, 2_350_000]
+    raw_bid_micro = src.get("bid_micro") or 2_150_000
+    raw_bid_micro = max(2_050_000, min(2_350_000, raw_bid_micro))
     bid_dollars = round(raw_bid_micro / 1_000_000, 2)
 
     print(
-        f"   📋 نسخ '{src_name}' عدد {copies_count} مرات | نفس الـ Bid (${bid_dollars}) | الإعلانات المسموحة الكاملة: {len(ads_to_copy)}...",
+        f"   📋 نسخ '{src_name}' عدد {copies_count} مرات | سلم البيد الذكي ($2.05-$2.35، الأساس ${bid_dollars}) | الفيديوهات النشطة فقط: {len(ads_to_copy)}...",
         flush=True,
     )
 
@@ -124,11 +108,12 @@ def clone_adsquad_exact(session: requests.Session, src: dict, copies_count: int)
 
     now_iso = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%S.000Z")
     batch_squads = []
-    for _ in range(copies_count):
+    for copy_idx in range(copies_count):
         new_squad = {k: v for k, v in src.items() if k not in exclude_keys}
         new_squad["name"] = new_name
         new_squad["status"] = "ACTIVE"
-        new_squad["bid_micro"] = raw_bid_micro
+        step_bid_micro = bid_ladder_micro[copy_idx % len(bid_ladder_micro)] if copies_count > 1 else raw_bid_micro
+        new_squad["bid_micro"] = step_bid_micro
         new_squad["start_time"] = now_iso
         if "placement_v2" not in new_squad:
             new_squad["placement_v2"] = {"config": "AUTOMATIC"}
@@ -147,6 +132,7 @@ def clone_adsquad_exact(session: requests.Session, src: dict, copies_count: int)
 
     for idx, sq in enumerate(created_squads, start=1):
         sq_id = sq["id"]
+        sq_bid_d = round((sq.get("bid_micro") or raw_bid_micro) / 1_000_000, 2)
         new_ads_payload = [
             {
                 "ad_squad_id": sq_id,
@@ -164,10 +150,11 @@ def clone_adsquad_exact(session: requests.Session, src: dict, copies_count: int)
         )
         r_ads.raise_for_status()
         print(
-            f"      ✅ نسخة {idx}/{copies_count}: '{new_name}' (ID: {sq_id}) | Bid: ${bid_dollars} | ACTIVE",
+            f"      ✅ نسخة {idx}/{copies_count}: '{new_name}' (ID: {sq_id}) | Bid: ${sq_bid_d} | ACTIVE ({len(ads_to_copy)} videos)",
             flush=True,
         )
         time.sleep(0.2)
+    return [sq["id"] for sq in created_squads]
 
 
 def main():
@@ -198,9 +185,9 @@ def main():
         if not source_squad:
             print("   ⚠️ لا توجد Ad Squads في هذه الحملة للنسخ منها.")
             continue
-        clone_adsquad_exact(session, source_squad, 10)
+        clone_adsquad_exact(session, source_squad, 5)
 
-    print("\n🎉 اكتمل نسخ 10 Ad Squads جديدة لكل حملات قطر وعمان النشطة بنجاح!", flush=True)
+    print("\n🎉 اكتمل نسخ المجموعات بنجاح!", flush=True)
 
 
 if __name__ == "__main__":
