@@ -2,7 +2,7 @@ from datetime import datetime, timedelta
 import sys
 import urllib.parse
 from snap_auth import API_BASE, load_config, refresh_access_token, api_get
-from snap_monitor import ACCOUNT_TZ, TARGET_ACCOUNT_ID, load_paused_history, fetch_account_breakdown_stats, is_cross_monitored_product
+from snap_monitor import ACCOUNT_TZ, TARGET_ACCOUNT_ID, load_paused_history, fetch_account_breakdown_stats, is_cross_monitored_product_campaign
 from duplicate_gulf_campaigns import clone_adsquad_exact, make_session
 
 sys.stdout.reconfigure(encoding="utf-8")
@@ -105,7 +105,7 @@ def main():
     for c in active_camps:
         cid = c["id"]
         cname = c["name"]
-        if is_cross_monitored_product(cname):
+        if is_cross_monitored_product_campaign(cname):
             continue
         cst3 = camp_3d_stats.get(cid, {"spend": 0.0, "purchases": 0, "cpa": None})
         is_cpa_over_8 = (
