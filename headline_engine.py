@@ -269,7 +269,6 @@ def apply_headline_testing_live():
         untagged_copies = [
             s for s in copy_active
             if "[H" not in s.get("name", "")
-            and st7_sq.get(s["id"], {}).get("purchases", 0) == 0
         ]
         # نحدث حتى 3 مجموعات Copy حالية بعناوين مدورة H3 / H4 / H5 / H6 لكسر تشبع الإعلان فوراً
         for rot_i, c_sq in enumerate(untagged_copies[:3]):
@@ -313,5 +312,84 @@ def apply_headline_testing_live():
     )
 
 
+def rotate_remaining_car_copies():
+    token = refresh_access_token(load_config())
+    session = make_session(token)
+    hist = load_history()
+
+    target_cids = [
+        ("f8372cfb-ae46-44d0-bbb4-f39790ecc648", "car scaling camp ", "car", ["1", "4"]),
+        ("9be45a26-06ac-4716-8e7b-2fb3a4d65e4c", "car scaling new 2 text", "car", ["2"]),
+        ("3fb9b26f-7705-4286-b371-4efcd904670c", "وسادة السيارة الكويت 18-10", "car", ["KW_Car_v8", "KW_Winner_v2_1sale"]),
+    ]
+
+    for cid, cname, ptype, top_keys in target_cids:
+        hl_bank = HEADLINE_BANK[ptype]
+        squads = api_get_paginated(f"/campaigns/{cid}/adsquads?limit=100", token, "adsquads", "adsquad")
+        ads = api_get_paginated(f"/campaigns/{cid}/ads?limit=500", token, "ads", "ad")
+        copy_active = [
+            s for s in squads
+            if s.get("status") == "ACTIVE"
+            and "copy" in s.get("name", "").lower()
+            and "[H" not in s.get("name", "")
+            and "INVALID_AD_SQUAD_HAS_NO_ACTIVE_ADS" not in (s.get("delivery_status") or [])
+        ]
+
+        # Re-use already created [H3]/[H4]/[H5] creatives from the Method 2 injection in this campaign!
+        existing_hl_ads = {}
+        for a in ads:
+            nm = (a.get("name") or "").strip()
+            if "[H" in nm and a.get("creative_id"):
+                existing_hl_ads[nm] = a
+
+        for rot_i, c_sq in enumerate(copy_active[:3]):
+            csq_id = c_sq["id"]
+            hl_tag, hl_text = hl_bank[(rot_i + 2) % len(hl_bank)]
+            rot_payload = []
+            for clean_k in top_keys:
+                target_label = f"{clean_k} [{hl_tag}]"
+                if target_label in existing_hl_ads:
+                    ref_ad = existing_hl_ads[target_label]
+                    rot_payload.append({
+                        "ad_squad_id": csq_id,
+                        "creative_id": ref_ad["creative_id"],
+                        "name": target_label[:95],
+                        "status": "ACTIVE",
+                        "type": ref_ad.get("type", "REMOTE_WEBPAGE"),
+                    })
+                else:
+                    # Find base active ad
+                    for a in ads:
+                        if a.get("status") != "ACTIVE" or not a.get("creative_id"):
+                            continue
+                        raw_nm = (a.get("name") or "").split(" [H")[0].strip()
+                        ck = raw_nm
+                        while ck.lower().startswith("copy of "):
+                            ck = ck[8:].strip()
+                        if ck == clean_k:
+                            new_cid, _ = get_or_create_headline_creative(
+                                session, TARGET_ACCOUNT_ID, a["creative_id"], hl_tag, hl_text, hist
+                            )
+                            rot_payload.append({
+                                "ad_squad_id": csq_id,
+                                "creative_id": new_cid,
+                                "name": target_label[:95],
+                                "status": "ACTIVE",
+                                "type": a.get("type", "REMOTE_WEBPAGE"),
+                            })
+                            break
+
+            if rot_payload:
+                r = session.post(f"{API_BASE}/adsquads/{csq_id}/ads", json={"ads": rot_payload}, timeout=25)
+                if r.ok:
+                    c_sq["name"] = f"{c_sq['name'].strip()} [{hl_tag}]"[:95]
+                    session.put(f"{API_BASE}/campaigns/{cid}/adsquads", json={"adsquads": [c_sq]}, timeout=20)
+                    print(f"   🔄 [الطريقة 3 - تدوير العناوين على الـ Copy] '{cname}' -> '{c_sq['name']}' أخذت [{hl_tag}]: '{hl_text}'")
+    save_history(hist)
+
+
 if __name__ == "__main__":
-    apply_headline_testing_live()
+    if "--car-copies" in sys.argv:
+        rotate_remaining_car_copies()
+    else:
+        apply_headline_testing_live()
