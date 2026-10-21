@@ -469,7 +469,7 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
             camp_ads_cache[c_id] = []
 
         # تلقائياً: إطفاء أي مجموعة AdSquad نشطة أصبحت فارغة تماماً (0 إعلانات نشطة بداخلها) حتى لا تحجز خانة من الـ 15 مجموعة بدون فائدة
-        if not dry_run and camp_ads_cache.get(c_id) is not None:
+        if not dry_run and not is_cross_monitored_product(c.get("name", "")) and camp_ads_cache.get(c_id) is not None:
             active_ad_squad_ids = {
                 a.get("ad_squad_id") for a in camp_ads_cache[c_id] if a.get("status") == "ACTIVE"
             }
@@ -982,7 +982,7 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
         c_id = c["id"]
         c_name = c.get("name", "")
         c_squads = camp_squads_cache.get(c_id)
-        if not c_squads:
+        if not c_squads or is_cross_monitored_product(c_name):
             continue
         dead_to_pause = [
             sq for sq in c_squads
