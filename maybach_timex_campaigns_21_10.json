@@ -2,7 +2,35 @@
   "maybach": {
     "snapchat": {
       "campaign_id": "a171c141-a6d5-403e-8357-5c8f6c01bce0",
-      "campaign_name": "وسادة مايباخ 21-10"
+      "campaign_name": "وسادة مايباخ 21-10",
+      "adsquad_id": "3ae431ea-3938-43fb-b19c-572a8dc1ab53",
+      "adsquad_ids": [
+        "3ae431ea-3938-43fb-b19c-572a8dc1ab53",
+        "60942e1d-7d6f-4a72-a3e9-57f56b4138d3",
+        "b34adc78-ab62-49b2-b5e6-a0ded238dc2d"
+      ],
+      "ad_ids": [
+        "08f3e2e7-036f-4ff7-a759-902fa1b74ffd",
+        "9638919e-6844-4ead-8090-57e20b427ce3",
+        "94323709-9d86-4728-a32b-f1e9dcd0e729",
+        "87e2397f-9d5a-4dc4-b49d-05923a3b09ef",
+        "28ace372-e800-4490-b40b-eedce3b895a4",
+        "8bf826b3-5b73-48ab-be95-e4592d24ae65",
+        "8e6face8-af38-4bd6-a56f-38b4a94f53a8",
+        "7828d537-bb1b-4f62-96db-73be446c9150",
+        "4e4174ee-2e21-45e6-a2e3-43d84ef0946c",
+        "b89242f6-ca05-43aa-83f7-ddfb13be7261",
+        "97aa78a5-4d77-492b-8a8d-4f04295de7c1",
+        "7ac05c92-235c-4bbf-b640-f5935bf785b0",
+        "204826a6-11af-4e92-b9a2-fa495a09c531",
+        "23bc1f75-bd88-41e5-adc6-76b8f22fa2df",
+        "8e7d66a0-f6ec-496f-a043-8ea3854ea32f",
+        "737b2d75-f3a8-4992-aa51-e1e18e002b86",
+        "8387a371-9e1e-4b51-b7b8-c047bb679b97",
+        "9768e200-ca93-49fa-997a-d17e17fddc8e"
+      ],
+      "start_time_utc": "2026-10-22T03:00:00.000Z",
+      "start_time_ksa": "2026-10-22 06:00:00 GMT+3"
     },
     "tiktok": {
       "campaign_id": "1879653022433617",
@@ -15,17 +43,40 @@
     "snapchat": {
       "campaign_id": "4eefa50f-9008-4aea-b159-d370150b60cf",
       "campaign_name": "صندوق دفاتر TIME X 21-10",
-      "adsquad_id": "197f0741-b4e3-4285-9db8-a287bb2b230d",
+      "adsquad_id": "9a9f300f-32a5-41a7-a11c-34662a53e452",
+      "adsquad_ids": [
+        "9a9f300f-32a5-41a7-a11c-34662a53e452",
+        "b40c06e7-13a7-4f44-9d26-26931f4f2933",
+        "119f933f-1975-45a1-9fe1-f7f66877cbc2"
+      ],
       "ad_ids": [
-        "0414be51-8d78-4970-8a4d-bb1ceb262f71",
-        "ac41c88c-caf9-48ed-9183-a27c549742b0",
-        "b9e3ac83-e2c4-4d19-af63-aee68ab816f8",
-        "8fcee217-7bb0-40b0-bd49-7a5e20fe19ae",
-        "bc8787b4-0a07-4b41-9176-b216de6ed3b1",
-        "96279896-d7e6-49e7-8df6-83b4d220434a",
-        "27c9e5db-6639-4a1b-a639-0d08cb2ee61a",
-        "9871b859-3e93-4500-ae3b-9ded7053a97f"
-      ]
+        "9961e316-d950-4549-90ec-b321d538dc02",
+        "fc06bf4b-edf7-4391-9e35-5624fd33efcc",
+        "117b3d2f-5318-496b-8b76-27c030a24eb1",
+        "8c19ca48-2643-4590-8479-2dfac2983617",
+        "e25407b1-878e-4ba3-af41-1cd231004acf",
+        "b50fd3df-3ac4-44e8-80f9-1d9859fc1d00",
+        "0dc49367-50fc-4242-9ba3-697e4bebc2c4",
+        "fc06ab04-ba54-4820-bbd2-6b04a6686143",
+        "64d04549-20d6-4555-b348-ded2d142ab88",
+        "d374def0-b0db-489e-89e7-24b4d38b15cb",
+        "f29dc102-3556-4c10-ab4e-b72b4eb6b90f",
+        "da0d4b00-d91b-414d-ba4a-a2a222e9a288",
+        "4cacf586-d46b-46f2-8e34-137bbae644e0",
+        "6ccf4a9e-eff6-4825-9574-46069b3c1396",
+        "8cc4bee0-1072-4517-90b5-e8bf33ea6aa2",
+        "6474dce1-47f2-42a0-a04b-fcdc6dc1f7db",
+        "2c55ff94-4798-4286-8647-050307015bbc",
+        "f8fa032f-16fe-4ced-a485-e4dfd30eace0",
+        "15267fd3-75cc-476e-b75d-4d59a0b40618",
+        "667a7aa4-f4b5-414d-8a58-d6b78e45135f",
+        "327990d2-e579-47c4-9add-4df0ba6c9223",
+        "b7ce158c-d8ff-4736-9ebb-c9ee11cf00aa",
+        "195af4d8-5da2-4201-a9d3-534a90e4e019",
+        "26b1b82a-76f8-4732-8fbb-3b5e20b4aa90"
+      ],
+      "start_time_utc": "2026-10-22T03:00:00.000Z",
+      "start_time_ksa": "2026-10-22 06:00:00 GMT+3"
     },
     "tiktok": {
       "campaign_id": "1879653126110545",
@@ -36,21 +87,48 @@
   },
   "warmer": {
     "snapchat": {
-      "campaign_id": "f18a3bf4-148a-4f5e-baa1-f90335f1884c",
+      "campaign_id": "29891f22-e046-4cc8-b9ee-9921d2d65f0b",
       "campaign_name": "مسخن الرضاعات اللاسلكي 22-10",
-      "adsquad_id": "16e09fcf-aebe-40a9-ad37-b20d8e774a40",
+      "adsquad_id": "74e561cc-d8c7-4eb1-a731-9e1e3f853df5",
+      "adsquad_ids": [
+        "74e561cc-d8c7-4eb1-a731-9e1e3f853df5",
+        "56fa99b9-3d48-47ec-8cf4-661e45137f9d",
+        "dac075ca-5397-4837-b851-90e4dec3e17f"
+      ],
       "ad_ids": [
-        "1bfdc253-1101-4365-a341-6dd8bc26276a",
-        "1fd9f617-913e-4a11-a84f-683cfb0630e7",
-        "25ba464e-75d5-45e8-8cad-c7dda7cb6382",
-        "32558df2-1c60-46fe-b29a-1ef33e98290d",
-        "4339c042-e04b-4b9a-b6f7-41a64468c86c",
-        "74468d22-4a1d-4735-accd-318d0007a430",
-        "824284b0-8537-4e1a-ade0-ab2c5384bbc9",
-        "8aefbca6-1106-4ad3-92ed-87eab8b6e8f4",
-        "ab6fd68b-7aa1-4c19-8e85-47439eb4b42b",
-        "d6680538-d34f-45cf-b6b5-b82ca4fb3553"
-      ]
+        "650f950b-3f3f-49df-b2e2-ed044f25b6c8",
+        "06df8f07-73ba-4982-b52c-42802b831878",
+        "58af6228-68a2-4f98-ac67-b99d33eec1d5",
+        "d226aab8-9e1d-4fcf-b6d8-5e6b3e51a3d3",
+        "98334810-e2fb-4eca-9c5d-be43abf97a5e",
+        "c9514a06-6451-4baa-a44b-3256b80df260",
+        "7dac4237-bea6-4e7e-b7ce-5188ec0c89ec",
+        "41f78d74-981b-4351-abfa-be641ebf5d45",
+        "fc56f9e9-815b-4c36-a1e0-7cd8f76c41ce",
+        "6c664ce6-d892-4bc2-97c9-00f383c0e53a",
+        "99c6df69-421a-4f97-abf9-6a23e20a0335",
+        "96078464-0c25-4a36-a783-7f41a60e870d",
+        "70a8bb44-9d9e-4db7-bf03-996364b6dfca",
+        "644f04dc-cea2-4bb3-af4c-4faf179b4c54",
+        "310ffeb2-c07f-4a29-8fb6-38d0f25a58c0",
+        "3f3ea479-0d9a-42b5-ba88-0330a09bcd8d",
+        "2de8d7e4-563b-40ca-9fa6-1dd0ff393172",
+        "e2ac295f-8cc5-478d-bc46-89f713c65dda",
+        "7495dd39-4080-4131-8506-83c9d3cd2d79",
+        "e9f3fd37-13d0-4428-9fa2-6417f2af300a",
+        "c71fa389-3e5d-4f08-ba2a-ac4b21683559",
+        "c4c745b8-2d1e-413e-9ae6-917147122c86",
+        "cd35b6ca-6469-45b9-99d8-f570bb5f22e9",
+        "a80d3b4f-90f7-43fb-8c0c-680d7b49b608",
+        "c722e484-9e0a-4286-8e2a-3e558873ef43",
+        "fd0b2a96-c632-4e2e-9dca-6f4536f767f2",
+        "700639ca-f77b-4f62-ba9a-4764ad5e3334",
+        "55e91fe8-b65c-48bc-8329-ecf28f2b92fc",
+        "44852d87-dcf0-45f7-87e1-3f8f4b4c7148",
+        "32d80121-9b4b-4ed7-a219-66f83ea9b720"
+      ],
+      "start_time_utc": "2026-10-22T03:00:00.000Z",
+      "start_time_ksa": "2026-10-22 06:00:00 GMT+3"
     },
     "tiktok": {
       "campaign_id": "1879676075637041",
