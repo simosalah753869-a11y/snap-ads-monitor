@@ -248,7 +248,7 @@ def resolve_video_media_id(creative_id: str, token: str, history: dict) -> str:
 
 def is_cross_monitored_product_campaign(campaign_name: str, adsquad_name: str = "") -> bool:
     combined = f"{campaign_name} {adsquad_name}".lower()
-    return any(k in combined for k in ("مايباخ", "maybach", "time x", "timex", "تايم إكس", "دفاتر"))
+    return any(k in combined for k in ("مايباخ", "maybach", "time x", "timex", "تايم إكس", "دفاتر", "مسخن الرضاعات", "مسخن رضاعات", "warmer", "bottle warmer"))
 
 
 def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
