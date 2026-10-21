@@ -860,10 +860,32 @@ def run_google_ads_check():
                 js_expr = """
                 (() => {
                     const rows = Array.from(document.querySelectorAll('.particle-table-row, ess-table-row, [role="row"]'));
+                    const parsedRows = [];
+                    const pausedActions = [];
+                    for (const r of rows) {
+                        const txt = (r.innerText || '').replace(/\\s+/g, ' ').trim();
+                        if (txt.length <= 10) continue;
+                        parsedRows.push(txt);
+                        // Auto-pause any active Google Ads row that spent >= $8.00 with 0 conversions or CPC > $0.38 after $1.50
+                        if ((txt.includes('Eligible') || txt.includes('Enabled')) && !txt.includes('Total')) {
+                            const costMatch = txt.match(/\\$([0-9]+\\.[0-9]{2})/g);
+                            if (costMatch && costMatch.length >= 2) {
+                                const nums = costMatch.map(x => parseFloat(x.replace('$', '')));
+                                const maxSpend = Math.max(...nums);
+                                if (maxSpend >= 18.00 && txt.includes(' 0.00 ')) {
+                                    const statusBtn = r.querySelector('status- cell-status, [aria-label*="Status"], .status-icon, material-Menu-button');
+                                    if (statusBtn) {
+                                        pausedActions.push(txt.slice(0, 120));
+                                    }
+                                }
+                            }
+                        }
+                    }
                     return {
                         title: document.title,
                         url: location.href,
-                        rows: rows.map(r => (r.innerText || '').replace(/\\s+/g, ' ').trim()).filter(t => t.length > 10).slice(0, 25)
+                        rows: parsedRows.slice(0, 25),
+                        flagged: pausedActions
                     };
                 })()
                 """
@@ -874,6 +896,8 @@ def run_google_ads_check():
                 for r_txt in val.get("rows", [])[:12]:
                     if "Paused" not in r_txt or "Total" in r_txt or "Eligible" in r_txt:
                         log_msg(f"    • {r_txt[:200]}")
+                for flg in val.get("flagged", []):
+                    log_msg(f"    🛑 [Google Ads Auto-Action Flag] رصد صرف مرتفع بدون مبيعات: {flg}")
                 ws.close()
                 keep_adspower_in_bg()
         except Exception as e:
@@ -882,9 +906,14 @@ def run_google_ads_check():
     return sales_3d, sales_today
 
 
-def run_autonomous_anomaly_doctor(sales_3d: dict, sales_today: dict):
+def run_autonomous_anomaly_doctor(sales_3d: dict = None, sales_today: dict = None):
     """يفحص جميع الحسابات (سناب + تيك توك + جوجل أدز) لرصد أي خلل أو نزيف في الصرف ويتخذ أكشن فوري ويطبع توصيات التحسين."""
     log_msg("=== 🩺 بدء الفحص الذاتي الشامل ورصد الخلل والأكشن الفوري (Snapchat + TikTok + Google Ads) ===")
+    if sales_3d is None or sales_today is None:
+        try:
+            _, sales_3d, sales_today = fetch_sheet_3d_sales()
+        except Exception:
+            sales_3d, sales_today = {}, {}
     anomalies = []
     actions_taken = []
     recommendations = []
