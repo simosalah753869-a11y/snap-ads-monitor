@@ -606,6 +606,31 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
                 "reason": reason,
                 "paused_at": now_str,
             }
+            # إذا خسر إعلان يحمل عنواناً مختبراً [H1..H6]، نمنع تكرار هذا العنوان الخاسر نهائياً في النسخ القادمة!
+            if "[H" in ad_name:
+                cr_id_lost = ad.get("creative_id", "")
+                if cr_id_lost:
+                    history.setdefault("disabled_videos", {})[f"{c_id}:{cr_id_lost}"] = {
+                        "campaign_id": c_id,
+                        "campaign_name": c_name,
+                        "video_media_id": cr_id_lost,
+                        "sample_ad_name": ad_name.strip(),
+                        "reason": f"[Headline Variant Lost] {reason}",
+                        "disabled_at": now_str,
+                    }
+                try:
+                    hl_tag_lost = "H" + ad_name.split("[H", 1)[1].split("]", 1)[0].strip()
+                    history.setdefault("disabled_headlines", {})[f"{c_id}:{hl_tag_lost}"] = {
+                        "campaign_id": c_id,
+                        "campaign_name": c_name,
+                        "headline_tag": hl_tag_lost,
+                        "sample_ad_name": ad_name.strip(),
+                        "reason": reason,
+                        "disabled_at": now_str,
+                    }
+                    print(f"   🚫 تم حظر العنوان الخاسر [{hl_tag_lost}] في حملة '{c_name}' ولن يتم تكراره مرة أخرى!")
+                except Exception:
+                    pass
             save_paused_history(history)
             print(f"🛑 تم إيقاف الفيديو: '{ad_name}' (حملة: '{c_name}' / مجموعة: '{s_name}') | {reason}")
             time.sleep(0.3)
@@ -839,6 +864,19 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
                         "reason": kill_reason,
                         "disabled_at": now_str,
                     }
+                    if "[H" in (grp.get("sample_name") or ""):
+                        try:
+                            hl_t_lost = "H" + grp["sample_name"].split("[H", 1)[1].split("]", 1)[0].strip()
+                            history.setdefault("disabled_headlines", {})[f"{c_id}:{hl_t_lost}"] = {
+                                "campaign_id": c_id,
+                                "campaign_name": c_name,
+                                "headline_tag": hl_t_lost,
+                                "sample_ad_name": grp["sample_name"],
+                                "reason": kill_reason,
+                                "disabled_at": now_str,
+                            }
+                        except Exception:
+                            pass
                 save_paused_history(history)
                 print(f"   ✅ تم إيقاف الفيديو من {closed_cnt} مجموعة إعلانية بنجاح!")
 
