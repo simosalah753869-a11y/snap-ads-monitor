@@ -170,6 +170,7 @@ def clone_adsquad_exact(session: requests.Session, src: dict, copies_count: int)
     # استبعاد أي فيديو تم إيقافه/حذفه نهائياً على مستوى الحملة أو الحساب
     disabled_keys = set()
     disabled_names_for_camp = set()
+    disabled_headlines = {}
     paused_ads_map = {}
     cmap = {}
     hist = {}
@@ -181,6 +182,7 @@ def clone_adsquad_exact(session: requests.Session, src: dict, copies_count: int)
             for dv in disabled_vids_dict.values():
                 if dv.get("campaign_id") == campaign_id and dv.get("sample_ad_name"):
                     disabled_names_for_camp.add(dv["sample_ad_name"].strip())
+            disabled_headlines = hist.get("disabled_headlines") or {}
             paused_ads_map = hist.get("ads") or {}
             cmap = hist.get("creative_media_map") or {}
         except Exception:
@@ -189,6 +191,13 @@ def clone_adsquad_exact(session: requests.Session, src: dict, copies_count: int)
     def is_ad_allowed(a: dict) -> bool:
         cr_id = a.get("creative_id")
         ad_nm = (a.get("name") or "").strip()
+        if "[H" in ad_nm:
+            try:
+                hl_t = "H" + ad_nm.split("[H", 1)[1].split("]", 1)[0].strip()
+                if f"{campaign_id}:{hl_t}" in disabled_headlines:
+                    return False
+            except Exception:
+                pass
         v_key = cmap.get(cr_id) or cr_id
         if (
             f"{campaign_id}:{v_key}" in disabled_keys
@@ -222,9 +231,15 @@ def clone_adsquad_exact(session: requests.Session, src: dict, copies_count: int)
         print(f"   ⚠️ تخطي نسخ '{src_name}': لا توجد فيديوهات نشطة مسموحة بداخلها.", flush=True)
         return []
 
-    # تحديد نوع المنتج وبنك العناوين لتدوير العناوين تلقائياً (الطريقة 3) + دعم تعدد العناوين (الطريقة 2)
+    # تحديد نوع المنتج وبنك العناوين لتدوير العناوين تلقائياً (الطريقة 3) مع استبعاد أي عنوان خاسر محظور نهائياً!
     product_type = detect_product_type("", src_name)
-    headlines_list = HEADLINE_BANK.get(product_type, HEADLINE_BANK["general"])
+    raw_headlines_list = HEADLINE_BANK.get(product_type, HEADLINE_BANK["general"])
+    headlines_list = [
+        (htag, htxt) for (htag, htxt) in raw_headlines_list
+        if f"{campaign_id}:{htag}" not in disabled_headlines
+    ]
+    if not headlines_list:
+        headlines_list = raw_headlines_list[:2]
     rot_map = hist.setdefault("headline_rotation_idx", {})
     start_rot_idx = int(rot_map.get(campaign_id, 0))
 
