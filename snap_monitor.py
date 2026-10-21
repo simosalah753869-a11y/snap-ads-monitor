@@ -469,7 +469,7 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
             camp_ads_cache[c_id] = []
 
         # تلقائياً: إطفاء أي مجموعة AdSquad نشطة أصبحت فارغة تماماً (0 إعلانات نشطة بداخلها) حتى لا تحجز خانة من الـ 15 مجموعة بدون فائدة
-        if not dry_run and not is_cross_monitored_product(c.get("name", "")) and camp_ads_cache.get(c_id) is not None:
+        if not dry_run and not is_cross_monitored_product_campaign(c.get("name", "")) and camp_ads_cache.get(c_id) is not None:
             active_ad_squad_ids = {
                 a.get("ad_squad_id") for a in camp_ads_cache[c_id] if a.get("status") == "ACTIVE"
             }
@@ -982,7 +982,7 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
         c_id = c["id"]
         c_name = c.get("name", "")
         c_squads = camp_squads_cache.get(c_id)
-        if not c_squads or is_cross_monitored_product(c_name):
+        if not c_squads or is_cross_monitored_product_campaign(c_name):
             continue
         dead_to_pause = [
             sq for sq in c_squads
@@ -1033,14 +1033,17 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
             st3_sq = squad_stats_3d_map.get(s_id, {"spend": today_spend, "purchases": 0, "cpa": None})
             is_gulf_sq = is_gulf_034_campaign(c_name, s_name, squad)
             is_cross_sq = is_cross_monitored_product_campaign(c_name, s_name)
-            max_safe_bid_micro = 2_750_000 if is_cross_sq else (2_450_000 if is_gulf_sq else 2_350_000)
+            max_safe_bid_micro = 3_600_000 if is_cross_sq else (2_450_000 if is_gulf_sq else 2_350_000)
 
-            # (أ) تهدئة البيدات المتضخمة (> $2.35 للسعودية / > $2.45 للخليج) وإرجاعها لسلم البيد الآمن ($2.05-$2.35) ما لم تكن المجموعة رابحة اليوم بـ CPA <= $7.50
+            # (أ) تهدئة البيدات المتضخمة (> $2.35 للسعودية / > $2.45 للخليج / > $3.60 للمنتجات الجديدة) وإرجاعها لسلم البيد الآمن ما لم تكن المجموعة رابحة اليوم بـ CPA <= $7.50
             is_winning_today = st_sq.get("purchases", 0) >= 1 and st_sq.get("cpa") is not None and st_sq["cpa"] <= 7.50
             if bid_micro > max_safe_bid_micro and not is_winning_today:
-                target_ladder_micro = bid_ladder_micro[idx_sq % len(bid_ladder_micro)]
-                if is_gulf_sq:
-                    target_ladder_micro = min(2_450_000, target_ladder_micro + 100_000)
+                if is_cross_sq:
+                    target_ladder_micro = max_safe_bid_micro
+                else:
+                    target_ladder_micro = bid_ladder_micro[idx_sq % len(bid_ladder_micro)]
+                    if is_gulf_sq:
+                        target_ladder_micro = min(2_450_000, target_ladder_micro + 100_000)
                 old_b = round(bid_micro / 1_000_000, 2)
                 new_b = round(target_ladder_micro / 1_000_000, 2)
                 if dry_run:
