@@ -67,10 +67,22 @@ MAX_CAMPAIGN_NO_SALE_SPEND = 15.00
 MAX_CAMPAIGN_CPA = 12.00
 MAX_NO_SALE_SPEND = 6.00
 MAX_VIDEO_CPA = 8.00
+GULF_MAX_NO_SALE_SPEND = 10.00
+GULF_MAX_VIDEO_CPA = 13.00
 MIN_SPEND_FOR_CPC = 1.00
 MAX_CPC = 0.35
 MAX_DUP_VIDEO_NO_SALE_SPEND = 10.00
 MAX_DUP_VIDEO_CPA = 12.00
+
+GULF_KEYWORDS = (
+    "oman", "qatar", "qat", "bahrain", "kuwait", "kuwiat", "kwt", "gcc", "gulf",
+    "عمان", "قطر", "البحرين", "بحرين", "كويت", "خليج",
+)
+
+
+def is_gulf_campaign(camp_name: str, ad_name: str = "") -> bool:
+    combined = f"{camp_name or ''} {ad_name or ''}".lower()
+    return any(k in combined for k in GULF_KEYWORDS)
 
 
 ORIGIN_MATERIAL_TYPES = [
@@ -451,41 +463,46 @@ def evaluate_video_rules(
     spend_2d, conv_2d, cpc_2d, clicks_2d,
     spend_3d=0.0, conv_3d=0, cpc_3d=0.0, clicks_3d=0,
     spend_7d=0.0, conv_7d=0,
+    is_gulf=False,
 ):
     reasons = []
-    has_profitable_3d = conv_3d > 0 and (spend_3d / conv_3d) <= MAX_VIDEO_CPA
-    has_profitable_2d = conv_2d > 0 and (spend_2d / conv_2d) <= MAX_VIDEO_CPA
-    has_profitable_1d = conv_1d > 0 and (spend_1d / conv_1d) <= MAX_VIDEO_CPA
+    no_sale_limit = GULF_MAX_NO_SALE_SPEND if is_gulf else MAX_NO_SALE_SPEND
+    cpa_limit = GULF_MAX_VIDEO_CPA if is_gulf else MAX_VIDEO_CPA
+    region_tag = "[Gulf] " if is_gulf else ""
+
+    has_profitable_3d = conv_3d > 0 and (spend_3d / conv_3d) <= cpa_limit
+    has_profitable_2d = conv_2d > 0 and (spend_2d / conv_2d) <= cpa_limit
+    has_profitable_1d = conv_1d > 0 and (spend_1d / conv_1d) <= cpa_limit
     has_profitable_sales = has_profitable_3d or has_profitable_2d or has_profitable_1d
 
-    # Rule 1: Spend > $6 with 0 conversions (1D, 2D, 3D, or 7D accumulated across days) unless 3D CPA is profitable <= $8.00
-    if spend_7d > MAX_NO_SALE_SPEND and conv_7d == 0:
-        reasons.append(f"7-Day Accumulated Spend ${spend_7d:.2f} > ${MAX_NO_SALE_SPEND:.2f} with 0 sales")
-    elif spend_3d > MAX_NO_SALE_SPEND and conv_3d == 0:
-        reasons.append(f"3-Day Spend ${spend_3d:.2f} > ${MAX_NO_SALE_SPEND:.2f} with 0 sales")
-    elif spend_2d > MAX_NO_SALE_SPEND and conv_2d == 0 and not has_profitable_3d:
-        reasons.append(f"2-Day Spend ${spend_2d:.2f} > ${MAX_NO_SALE_SPEND:.2f} with 0 sales")
-    elif spend_1d > MAX_NO_SALE_SPEND and conv_1d == 0 and not (has_profitable_2d or has_profitable_3d):
-        reasons.append(f"Today Spend ${spend_1d:.2f} > ${MAX_NO_SALE_SPEND:.2f} with 0 sales")
+    # Rule 1: Spend > $6 (Saudi) or > $10 (Gulf) with 0 conversions unless 3D CPA is profitable
+    if spend_7d > no_sale_limit and conv_7d == 0:
+        reasons.append(f"{region_tag}7-Day Accumulated Spend ${spend_7d:.2f} > ${no_sale_limit:.2f} with 0 sales")
+    elif spend_3d > no_sale_limit and conv_3d == 0:
+        reasons.append(f"{region_tag}3-Day Spend ${spend_3d:.2f} > ${no_sale_limit:.2f} with 0 sales")
+    elif spend_2d > no_sale_limit and conv_2d == 0 and not has_profitable_3d:
+        reasons.append(f"{region_tag}2-Day Spend ${spend_2d:.2f} > ${no_sale_limit:.2f} with 0 sales")
+    elif spend_1d > no_sale_limit and conv_1d == 0 and not (has_profitable_2d or has_profitable_3d):
+        reasons.append(f"{region_tag}Today Spend ${spend_1d:.2f} > ${no_sale_limit:.2f} with 0 sales")
 
-    # Rule 2: Video CPA > $8.00 over 3 days / 7 days (or 2D/1D if 3D is not profitable)
-    if conv_3d > 0 and (spend_3d / conv_3d) > MAX_VIDEO_CPA:
-        reasons.append(f"3-Day Video CPA ${(spend_3d / conv_3d):.2f} > ${MAX_VIDEO_CPA:.2f} (Spend=${spend_3d:.2f}, Sales={conv_3d})")
-    elif conv_7d > 0 and (spend_7d / conv_7d) > MAX_VIDEO_CPA and not has_profitable_3d:
-        reasons.append(f"7-Day Video CPA ${(spend_7d / conv_7d):.2f} > ${MAX_VIDEO_CPA:.2f} (Spend=${spend_7d:.2f}, Sales={conv_7d})")
-    elif conv_2d > 0 and (spend_2d / conv_2d) > MAX_VIDEO_CPA and not has_profitable_3d:
-        reasons.append(f"2-Day Video CPA ${(spend_2d / conv_2d):.2f} > ${MAX_VIDEO_CPA:.2f} (Spend=${spend_2d:.2f}, Sales={conv_2d})")
-    elif conv_1d > 0 and (spend_1d / conv_1d) > MAX_VIDEO_CPA and not (has_profitable_2d or has_profitable_3d):
-        reasons.append(f"Today Video CPA ${(spend_1d / conv_1d):.2f} > ${MAX_VIDEO_CPA:.2f} (Spend=${spend_1d:.2f}, Sales={conv_1d})")
+    # Rule 2: Video CPA > $8.00 (Saudi) or > $13.00 (Gulf) over 3 days / 7 days (or 2D/1D if 3D is not profitable)
+    if conv_3d > 0 and (spend_3d / conv_3d) > cpa_limit:
+        reasons.append(f"{region_tag}3-Day Video CPA ${(spend_3d / conv_3d):.2f} > ${cpa_limit:.2f} (Spend=${spend_3d:.2f}, Sales={conv_3d})")
+    elif conv_7d > 0 and (spend_7d / conv_7d) > cpa_limit and not has_profitable_3d:
+        reasons.append(f"{region_tag}7-Day Video CPA ${(spend_7d / conv_7d):.2f} > ${cpa_limit:.2f} (Spend=${spend_7d:.2f}, Sales={conv_7d})")
+    elif conv_2d > 0 and (spend_2d / conv_2d) > cpa_limit and not has_profitable_3d:
+        reasons.append(f"{region_tag}2-Day Video CPA ${(spend_2d / conv_2d):.2f} > ${cpa_limit:.2f} (Spend=${spend_2d:.2f}, Sales={conv_2d})")
+    elif conv_1d > 0 and (spend_1d / conv_1d) > cpa_limit and not (has_profitable_2d or has_profitable_3d):
+        reasons.append(f"{region_tag}Today Video CPA ${(spend_1d / conv_1d):.2f} > ${cpa_limit:.2f} (Spend=${spend_1d:.2f}, Sales={conv_1d})")
 
-    # Rule 3: CPC Cut (EXEMPT ONLY if this specific video has sales with CPA <= $8.00)
+    # Rule 3: CPC Cut (> $0.35 after $1.00 spend, EXEMPT ONLY if this specific video has sales with CPA <= $8.00 Saudi or <= $13.00 Gulf)
     if not has_profitable_sales:
         if spend_1d >= MIN_SPEND_FOR_CPC and (cpc_1d > MAX_CPC or clicks_1d == 0):
-            reasons.append(f"Today Spend ${spend_1d:.2f} >= ${MIN_SPEND_FOR_CPC:.2f} & CPC ${cpc_1d:.2f} > ${MAX_CPC:.2f}")
+            reasons.append(f"{region_tag}Today Spend ${spend_1d:.2f} >= ${MIN_SPEND_FOR_CPC:.2f} & CPC ${cpc_1d:.2f} > ${MAX_CPC:.2f}")
         elif spend_2d >= MIN_SPEND_FOR_CPC and (cpc_2d > MAX_CPC or clicks_2d == 0):
-            reasons.append(f"2-Day Spend ${spend_2d:.2f} >= ${MIN_SPEND_FOR_CPC:.2f} & CPC ${cpc_2d:.2f} > ${MAX_CPC:.2f}")
+            reasons.append(f"{region_tag}2-Day Spend ${spend_2d:.2f} >= ${MIN_SPEND_FOR_CPC:.2f} & CPC ${cpc_2d:.2f} > ${MAX_CPC:.2f}")
         elif spend_3d >= MIN_SPEND_FOR_CPC and (cpc_3d > MAX_CPC or clicks_3d == 0):
-            reasons.append(f"3-Day Spend ${spend_3d:.2f} >= ${MIN_SPEND_FOR_CPC:.2f} & CPC ${cpc_3d:.2f} > ${MAX_CPC:.2f}")
+            reasons.append(f"{region_tag}3-Day Spend ${spend_3d:.2f} >= ${MIN_SPEND_FOR_CPC:.2f} & CPC ${cpc_3d:.2f} > ${MAX_CPC:.2f}")
     return reasons
 
 
@@ -643,20 +660,25 @@ def main():
                 )
 
             # Campaign-level Stop-Loss ONLY for cloned/duplicated campaigns (Copy / SCALE / BOOST / Turbo);
-            # CPC (> $0.35 at $1.00) and Video Stop-Loss (> $6.00 w/ 0 sales or CPA > $8.00) are applied per individual video, NOT campaign-wide!
+            # CPC (> $0.35 at $1.00) and Video Stop-Loss (> $6.00 Saudi / > $10.00 Gulf w/ 0 sales, or CPA > $8.00 Saudi / > $13.00 Gulf) are applied per individual video!
+            camp_is_gulf = is_gulf_campaign(camp_name)
+            camp_no_sale_lim = GULF_MAX_NO_SALE_SPEND if camp_is_gulf else MAX_CAMPAIGN_NO_SALE_SPEND
+            camp_cpa_lim = GULF_MAX_VIDEO_CPA if camp_is_gulf else MAX_CAMPAIGN_CPA
+            good_cpa_lim = GULF_MAX_VIDEO_CPA if camp_is_gulf else 8.00
+
             is_cloned_camp = any(k in camp_name.lower() for k in ("copy", "scale", "boost", "turbo"))
             camp_pause_reasons = []
-            has_good_today = c_conv_1d > 0 and c_cpa_1d is not None and c_cpa_1d <= 7.80
-            has_good_3d = c_conv_3d > 0 and c_cpa_3d is not None and c_cpa_3d <= 8.00
+            has_good_today = c_conv_1d > 0 and c_cpa_1d is not None and c_cpa_1d <= good_cpa_lim
+            has_good_3d = c_conv_3d > 0 and c_cpa_3d is not None and c_cpa_3d <= good_cpa_lim
             if is_cloned_camp and not (has_good_today or has_good_3d):
-                if c_spend_1d >= MAX_CAMPAIGN_NO_SALE_SPEND and c_conv_1d == 0:
-                    camp_pause_reasons.append(f"Cloned Campaign Today Spend ${c_spend_1d:.2f} >= ${MAX_CAMPAIGN_NO_SALE_SPEND:.2f} with 0 sales")
-                elif c_spend_3d >= MAX_CAMPAIGN_NO_SALE_SPEND and c_conv_3d == 0:
-                    camp_pause_reasons.append(f"Cloned Campaign 3-Day Spend ${c_spend_3d:.2f} >= ${MAX_CAMPAIGN_NO_SALE_SPEND:.2f} with 0 sales")
-                if c_conv_3d > 0 and c_spend_3d >= MAX_CAMPAIGN_NO_SALE_SPEND and c_cpa_3d is not None and c_cpa_3d > MAX_CAMPAIGN_CPA:
-                    camp_pause_reasons.append(f"Cloned Campaign 3-Day CPA ${c_cpa_3d:.2f} > ${MAX_CAMPAIGN_CPA:.2f} (Spend=${c_spend_3d:.2f}, Sales={c_conv_3d})")
-                elif c_conv_1d > 0 and c_spend_1d >= MAX_CAMPAIGN_NO_SALE_SPEND and c_cpa_1d is not None and c_cpa_1d > MAX_CAMPAIGN_CPA:
-                    camp_pause_reasons.append(f"Cloned Campaign Today CPA ${c_cpa_1d:.2f} > ${MAX_CAMPAIGN_CPA:.2f} (Spend=${c_spend_1d:.2f}, Sales={c_conv_1d})")
+                if c_spend_1d >= camp_no_sale_lim and c_conv_1d == 0:
+                    camp_pause_reasons.append(f"Cloned Campaign Today Spend ${c_spend_1d:.2f} >= ${camp_no_sale_lim:.2f} with 0 sales")
+                elif c_spend_3d >= camp_no_sale_lim and c_conv_3d == 0:
+                    camp_pause_reasons.append(f"Cloned Campaign 3-Day Spend ${c_spend_3d:.2f} >= ${camp_no_sale_lim:.2f} with 0 sales")
+                if c_conv_3d > 0 and c_spend_3d >= camp_no_sale_lim and c_cpa_3d is not None and c_cpa_3d > camp_cpa_lim:
+                    camp_pause_reasons.append(f"Cloned Campaign 3-Day CPA ${c_cpa_3d:.2f} > ${camp_cpa_lim:.2f} (Spend=${c_spend_3d:.2f}, Sales={c_conv_3d})")
+                elif c_conv_1d > 0 and c_spend_1d >= camp_no_sale_lim and c_cpa_1d is not None and c_cpa_1d > camp_cpa_lim:
+                    camp_pause_reasons.append(f"Cloned Campaign Today CPA ${c_cpa_1d:.2f} > ${camp_cpa_lim:.2f} (Spend=${c_spend_1d:.2f}, Sales={c_conv_1d})")
 
             if camp_pause_reasons and not is_cross_monitored_product_campaign(camp_name):
                 c_reason_str = " | ".join(camp_pause_reasons)
@@ -678,35 +700,40 @@ def main():
                     print(f"    🛑 [PAUSED CAMPAIGN] '{camp_name}' ({camp_id}) -> {c_reason_str}")
                     continue
 
-            if (c_spend_3d >= 8.0 and c_conv_3d == 0) or (c_conv_3d > 0 and c_cpa_3d is not None and c_cpa_3d > 8.0):
+            nodup_spend_lim = GULF_MAX_NO_SALE_SPEND if camp_is_gulf else 8.0
+            nodup_cpa_lim = GULF_MAX_VIDEO_CPA if camp_is_gulf else 8.0
+            if (c_spend_3d >= nodup_spend_lim and c_conv_3d == 0) or (c_conv_3d > 0 and c_cpa_3d is not None and c_cpa_3d > nodup_cpa_lim):
                 no_dup_camps[camp_id] = {
                     "name": camp_name,
                     "aadvid": aadvid,
                     "spend_3d": c_spend_3d,
                     "purchases_3d": c_conv_3d,
                     "cpa_3d": c_cpa_3d,
-                    "reason": "3-Day CPA > $8.00 — Duplication Blocked",
+                    "reason": f"3-Day CPA > ${nodup_cpa_lim:.2f} — Duplication Blocked",
                 }
-            elif camp_id in no_dup_camps and c_conv_3d > 0 and c_cpa_3d is not None and c_cpa_3d <= 8.0:
+            elif camp_id in no_dup_camps and c_conv_3d > 0 and c_cpa_3d is not None and c_cpa_3d <= nodup_cpa_lim:
                 del no_dup_camps[camp_id]
 
-            # Controlled Auto-Scale (+20% budget before 5:00 PM SA time ONLY) for strong winning campaigns (>=3 sales today at CPA <= $6.50 and 3D CPA <= $7.50)
+            # Controlled Auto-Scale (+20% budget before 5:00 PM SA time ONLY)
+            scale_cpa_1d_max = 10.50 if camp_is_gulf else 6.50
+            scale_cpa_3d_max = 12.50 if camp_is_gulf else 7.50
+            scale_bdg_cap = 50 if camp_is_gulf else 180
             scale_key = f"{now_sa.strftime('%Y-%m-%d')}:{aadvid}:{camp_id}"
             if (
                 is_before_6pm_sa
                 and camp_id not in no_dup_camps
                 and c_conv_1d >= 3
                 and c_cpa_1d is not None
-                and c_cpa_1d <= 6.50
-                and (c_cpa_3d is None or c_cpa_3d <= 7.50)
+                and c_cpa_1d <= scale_cpa_1d_max
+                and (c_cpa_3d is None or c_cpa_3d <= scale_cpa_3d_max)
                 and scale_key not in tt_scaled_today
             ):
                 try:
-                    cur_bdg = float(str(rd1.get("budget") or rd3.get("budget") or 50.0).replace(",", "").replace("$", ""))
+                    cur_bdg = float(str(rd1.get("budget") or rd3.get("budget") or 40.0).replace(",", "").replace("$", ""))
                 except Exception:
-                    cur_bdg = 50.0
-                if 20.0 <= cur_bdg < 150.0:
-                    new_bdg = min(180, int(round(cur_bdg * 1.20)))
+                    cur_bdg = 40.0
+                if 20.0 <= cur_bdg < scale_bdg_cap:
+                    new_bdg = min(scale_bdg_cap, int(round(cur_bdg * 1.20)))
                     try:
                         h_b = dict(headers)
                         h_b["Referer"] = f"https://ads.tiktok.com/i18n/manage/campaign?aadvid={aadvid}"
@@ -919,6 +946,9 @@ def main():
             draft_str = ",".join(draft_ids)
             hist_key = f"{aadvid}:{ad_id}:{draft_str}"
 
+            v_is_gulf = is_gulf_campaign(ad_camp_map.get(cid, ""), ad_name_map.get(cid, ""))
+            v_no_sale_lim = GULF_MAX_NO_SALE_SPEND if v_is_gulf else MAX_NO_SALE_SPEND
+
             # Delayed-Attribution Auto-Revival for Paused Smart+ Videos:
             if hist_key in history["tiktok_videos"] and opt_status != "0":
                 if v_key_cur in history.get("tiktok_disabled_dup_videos", {}):
@@ -928,6 +958,7 @@ def main():
                     spend_2d, conv_2d, cpc_2d, clicks_2d,
                     spend_3d, conv_3d, cpc_3d, clicks_3d,
                     spend_7d, conv_7d,
+                    is_gulf=v_is_gulf,
                 ):
                     ok_rev, _ = pause_smart_plus_video(session, headers, aadvid, ad_id, m3, operation="enable")
                     if ok_rev:
@@ -955,6 +986,7 @@ def main():
                 spend_2d, conv_2d, cpc_2d, clicks_2d,
                 spend_3d, conv_3d, cpc_3d, clicks_3d,
                 spend_7d, conv_7d,
+                is_gulf=v_is_gulf,
             )
             if v_key_cur in history.get("tiktok_disabled_dup_videos", {}):
                 reasons.append(f"Blacklisted Multi-Day Non-Converting Video ('{v_key_cur}')")
@@ -991,8 +1023,8 @@ def main():
                         "conv_7d": conv_7d,
                         "paused_at": datetime.now(timezone.utc).isoformat(),
                     }
-                    # Permanently blacklist any video that accumulated >$6 over 3D/7D with 0 sales so it is never re-enabled or duplicated
-                    if (spend_3d > MAX_NO_SALE_SPEND and conv_3d == 0) or (spend_7d > MAX_NO_SALE_SPEND and conv_7d == 0):
+                    # Permanently blacklist any video that accumulated >$6 (Saudi) or >$10 (Gulf) over 3D/7D with 0 sales
+                    if (spend_3d > v_no_sale_lim and conv_3d == 0) or (spend_7d > v_no_sale_lim and conv_7d == 0):
                         history["tiktok_disabled_dup_videos"][v_key_cur] = {
                             "v_key": v_key_cur,
                             "sample_name": m3.get("main_entity_name"),
@@ -1011,8 +1043,8 @@ def main():
     # =========================================================================
     # PHASE 2: Cross-Campaign & Cross-Account Duplicated Video Aggregation Rule
     # - Applies to any duplicated video (present in >= 2 AdSets across campaigns/accounts):
-    #   1) Total Spend >= $20.00 (1D/2D) or >= $12.00 (3D/7D) with 0 sales -> Pause ALL active copies permanently
-    #   2) Total Sales >= 1 and Total CPA >= $22.00 (1D/2D) or >= $18.00 (3D/7D) -> Pause ALL active copies permanently
+    #   1) Total Spend >= $10.00 with 0 sales -> Pause ALL active copies permanently
+    #   2) Total Sales >= 1 and Total CPA >= $12.00 ($13.00 for Gulf copies) -> Pause non-profitable copies
     # =========================================================================
     dup_candidates = [
         g for g in global_dup_videos.values()
@@ -1046,8 +1078,14 @@ def main():
         active_insts = [
             inst for inst in grp["instances"]
             if inst["is_active"]
-            and not (inst["conv_3d"] > 0 and (inst["spend_3d"] / inst["conv_3d"]) <= MAX_VIDEO_CPA)
-            and not (inst["conv_7d"] >= 3 and (inst["spend_7d"] / inst["conv_7d"]) <= MAX_VIDEO_CPA)
+            and not (
+                inst["conv_3d"] > 0
+                and (inst["spend_3d"] / inst["conv_3d"]) <= (GULF_MAX_VIDEO_CPA if is_gulf_campaign(inst["campaign_name"]) else MAX_VIDEO_CPA)
+            )
+            and not (
+                inst["conv_7d"] >= 3
+                and (inst["spend_7d"] / inst["conv_7d"]) <= (GULF_MAX_VIDEO_CPA if is_gulf_campaign(inst["campaign_name"]) else MAX_VIDEO_CPA)
+            )
         ]
         if not active_insts:
             continue
