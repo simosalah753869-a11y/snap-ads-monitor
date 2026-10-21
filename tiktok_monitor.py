@@ -166,7 +166,7 @@ def parse_draft_ids(raw_val):
 
 def is_cross_monitored_product_campaign(campaign_name: str, video_name: str = "") -> bool:
     combined = f"{campaign_name} {video_name}".lower()
-    return any(k in combined for k in ("مايباخ", "maybach", "time x", "timex", "تايم إكس", "دفاتر"))
+    return any(k in combined for k in ("مايباخ", "maybach", "time x", "timex", "تايم إكس", "دفاتر", "مسخن الرضاعات", "مسخن رضاعات", "warmer", "bottle warmer"))
 
 
 def fetch_campaigns(session, headers, aadvid, st_date, et_date):
