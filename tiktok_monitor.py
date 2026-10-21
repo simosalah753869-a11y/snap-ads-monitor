@@ -65,18 +65,18 @@ ACCOUNTS = [
 # 2. Duplicated video total CPA >= $12.00 (1D/2D/3D/7D, with >= 1 sale) -> Pause video across ALL campaigns & accounts
 MAX_CAMPAIGN_NO_SALE_SPEND = 15.00
 MAX_CAMPAIGN_CPA = 12.00
-MAX_NO_SALE_SPEND = 6.00
+MAX_NO_SALE_SPEND = 5.00
 MAX_VIDEO_CPA = 8.00
 GULF_MAX_NO_SALE_SPEND = 10.00
 GULF_MAX_VIDEO_CPA = 13.00
 MIN_SPEND_FOR_CPC = 1.00
 MAX_CPC = 0.35
-MAX_DUP_VIDEO_NO_SALE_SPEND = 10.00
-MAX_DUP_VIDEO_CPA = 12.00
+MAX_DUP_VIDEO_NO_SALE_SPEND = 12.00
+MAX_DUP_VIDEO_CPA = 9.50
 
 GULF_KEYWORDS = (
-    "oman", "qatar", "qat", "bahrain", "kuwait", "kuwiat", "kwt", "gcc", "gulf",
-    "عمان", "قطر", "البحرين", "بحرين", "كويت", "خليج",
+    "oman", "qatar", "qat", "bahrain", "kuwait", "kuwiat", "kwt", "uae", "emarat", "gcc", "gulf",
+    "عمان", "قطر", "البحرين", "بحرين", "كويت", "الكويت", "الامارات", "الإمارات", "خليج",
 )
 
 
@@ -162,17 +162,6 @@ def parse_draft_ids(raw_val):
     if not cleaned:
         return []
     return [x.strip().strip("\"'") for x in cleaned.split(",") if x.strip().strip("\"'")]
-
-
-GULF_KEYWORDS = (
-    "oman", "qatar", "qat", "bahrain", "kuwait", "kuwiat", "kwt", "uae", "emarat",
-    "عمان", "قطر", "البحرين", "بحرين", "كويت", "الكويت", "الامارات", "الإمارات",
-)
-
-
-def is_gulf_campaign(campaign_name: str) -> bool:
-    cname = (campaign_name or "").lower()
-    return any(k in cname for k in GULF_KEYWORDS)
 
 
 def is_cross_monitored_product_campaign(campaign_name: str, video_name: str = "") -> bool:
