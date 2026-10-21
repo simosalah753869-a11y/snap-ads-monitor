@@ -651,6 +651,13 @@ def run_proactive_sales_scaling(sales_3d: dict, sales_today: dict):
                 c3_list = fetch_campaigns(session, headers, aadvid, two_days_ago_d, today_d)
                 c2_map = {str(r.get("campaign_id")): r for r in c2_list}
                 c3_map = {str(r.get("campaign_id")): r for r in c3_list}
+                primary_cid_by_name = {}
+                for r_chk in c1_list:
+                    cn_l = (r_chk.get("campaign_name") or "").strip().lower()
+                    cid_chk = str(r_chk.get("campaign_id"))
+                    sp3_chk = gf(c3_map.get(cid_chk, {}), "stat_cost")
+                    if cn_l and (cn_l not in primary_cid_by_name or sp3_chk > primary_cid_by_name[cn_l][0]):
+                        primary_cid_by_name[cn_l] = (sp3_chk, cid_chk)
 
                 for r in c1_list:
                     cid = str(r.get("campaign_id"))
@@ -672,8 +679,9 @@ def run_proactive_sales_scaling(sales_3d: dict, sales_today: dict):
                     sp3 = gf(r3, "stat_cost")
                     cv3 = int(gf(r3, "time_attr_convert_cnt"))
 
-                    sh_3d = sales_3d.get(cname.lower(), 0) + (sales_3d.get(cid.lower(), 0) if cid.lower() != cname.lower() else 0)
-                    sh_td = sales_today.get(cname.lower(), 0) + (sales_today.get(cid.lower(), 0) if cid.lower() != cname.lower() else 0)
+                    is_primary_for_name = (primary_cid_by_name.get(cname.lower(), (0.0, cid))[1] == cid)
+                    sh_3d = (sales_3d.get(cname.lower(), 0) if is_primary_for_name else 0) + (sales_3d.get(cid.lower(), 0) if cid.lower() != cname.lower() else 0)
+                    sh_td = (sales_today.get(cname.lower(), 0) if is_primary_for_name else 0) + (sales_today.get(cid.lower(), 0) if cid.lower() != cname.lower() else 0)
 
                     eff_conv_today = max(cv1, sh_td)
                     eff_conv_3d = max(cv3, cv2, sh_3d)
@@ -955,8 +963,24 @@ def run_autonomous_anomaly_doctor(sales_3d: dict, sales_today: dict):
         log_msg("💡 [توصيات التحسين للمستخدم]: " + " | ".join(recommendations))
 
 
+def sync_latest_memory_files():
+    try:
+        import shutil
+        global_skill = Path(r"C:\Users\salah\.gemini\config\skills\snap-tiktok-ads-manager\SKILL.md")
+        local_skill = BASE_DIR / ".agents" / "skills" / "snap-tiktok-ads-manager" / "SKILL.md"
+        if global_skill.exists() and local_skill.exists():
+            if global_skill.stat().st_mtime >= local_skill.stat().st_mtime:
+                shutil.copy2(global_skill, local_skill)
+            else:
+                shutil.copy2(local_skill, global_skill)
+        log_msg("🧠 تم التحقق من مزامنة وقراءة أحدث ملفات الذاكرة والمهارة (GEMINI.md + SKILL.md + PROJECT_DOCUMENTATION.md).")
+    except Exception as e:
+        log_msg(f"⚠️ تنبيه مزامنة الذاكرة: {e}")
+
+
 def main():
     log_msg("🚀 انطلاق دورة المراقبة الذاتية والأكشن الفوري الشاملة (كل ساعتين: سناب شات + تيك توك + جوجل أدز)")
+    sync_latest_memory_files()
     run_step("مراقب ومحسن سناب شات", "snap_monitor.py")
     run_step("مكمل مجموعات سناب شات النشطة (Top-Up 15)", "topup_car_campaigns.py")
     run_step("مراقب ومحسن تيك توك (جميع الحسابات الـ 6)", "tiktok_monitor.py")
