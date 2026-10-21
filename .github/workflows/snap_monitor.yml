@@ -5,6 +5,10 @@ on:
     - cron: "*/20 * * * *"  # يعمل تلقائياً كل 20 دقيقة على مدار الـ 24 ساعة
   workflow_dispatch:        # يتيح لك تشغيله يدوياً بزر واحد من GitHub في أي وقت
 
+concurrency:
+  group: snap-tiktok-ads-monitor
+  cancel-in-progress: true
+
 permissions:
   contents: write
 
@@ -48,8 +52,28 @@ jobs:
         run: python cross_product_monitor.py
 
       - name: Save paused_history.json (لتذكر ما تم إيقافه وعدم إيقاف ما تعيد تشغيله)
+        continue-on-error: true
         run: |
+          cp paused_history.json /tmp/paused_history_run.json
           git config user.name "SnapTikTokAdsBot"
           git config user.email "bot@users.noreply.github.com"
+          git fetch origin main
+          git reset --hard origin/main
+          python -c "
+          import json
+          from pathlib import Path
+          p_rem = Path('paused_history.json')
+          p_run = Path('/tmp/paused_history_run.json')
+          rem = json.loads(p_rem.read_text('utf-8')) if p_rem.exists() else {}
+          run = json.loads(p_run.read_text('utf-8')) if p_run.exists() else {}
+          for k, v in run.items():
+              if isinstance(v, dict) and isinstance(rem.get(k), dict):
+                  merged = dict(rem[k])
+                  merged.update(v)
+                  rem[k] = merged
+              else:
+                  rem[k] = v
+          p_rem.write_text(json.dumps(rem, ensure_ascii=False, indent=2), 'utf-8')
+          "
           git add paused_history.json
-          git diff --staged --quiet || (git commit -m "Update paused_history.json [skip ci]" && git push)
+          git diff --staged --quiet || (git commit -m "Update paused_history.json [skip ci]" && git push origin main || true)
