@@ -893,35 +893,40 @@ def run_google_ads_check():
                                 const effConv = Math.max(uiConv, sheetConv);
                                 const effCpa = effConv >= 1 ? (spend / effConv) : 999;
                                 if ((spend >= 8.00 && effConv < 0.5) || (spend >= 12.00 && effCpa > 9.50)) {{
-                                    // Try clicking status-picker / status-menu button or row checkbox + Edit -> Pause
+                                    const fireClick = (el) => {{
+                                        if (!el) return;
+                                        for (const evType of ['mousedown', 'mouseup', 'click']) {{
+                                            el.dispatchEvent(new MouseEvent(evType, {{ bubbles: true, cancelable: true, view: window }}));
+                                        }}
+                                    }};
                                     let pausedOk = false;
                                     const statusBtn = r.querySelector('status-picker [role="button"], status-menu [role="button"], ess-cell[essfield*="status"] [role="button"], [aria-label*="Status"], .status-icon');
                                     if (statusBtn) {{
-                                        statusBtn.click();
-                                        await new Promise(res => setTimeout(res, 700));
+                                        fireClick(statusBtn);
+                                        await new Promise(res => setTimeout(res, 750));
                                         const items = Array.from(document.querySelectorAll('material-select-item, [role="menuitem"], [role="option"]'));
                                         const pauseItem = items.find(el => (el.innerText || '').trim() === 'Pause' || (el.innerText || '').includes('Pause'));
                                         if (pauseItem) {{
-                                            pauseItem.click();
-                                            await new Promise(res => setTimeout(res, 800));
+                                            fireClick(pauseItem);
+                                            await new Promise(res => setTimeout(res, 1100));
                                             pausedOk = true;
                                         }}
                                     }}
                                     if (!pausedOk) {{
                                         const cb = r.querySelector('material-checkbox, [role="checkbox"]');
                                         if (cb && cb.getAttribute('aria-checked') !== 'true') {{
-                                            cb.click();
-                                            await new Promise(res => setTimeout(res, 600));
+                                            fireClick(cb);
+                                            await new Promise(res => setTimeout(res, 650));
                                         }}
                                         const editBtns = Array.from(document.querySelectorAll('material-button, [role="button"]')).filter(b => (b.innerText || '').trim().startsWith('Edit'));
                                         if (editBtns.length > 0) {{
-                                            editBtns[0].click();
-                                            await new Promise(res => setTimeout(res, 700));
+                                            fireClick(editBtns[0]);
+                                            await new Promise(res => setTimeout(res, 750));
                                             const items = Array.from(document.querySelectorAll('material-select-item, [role="menuitem"], [role="option"]'));
                                             const pauseItem = items.find(el => (el.innerText || '').trim() === 'Pause');
                                             if (pauseItem) {{
-                                                pauseItem.click();
-                                                await new Promise(res => setTimeout(res, 900));
+                                                fireClick(pauseItem);
+                                                await new Promise(res => setTimeout(res, 1200));
                                                 pausedOk = true;
                                             }}
                                         }}
