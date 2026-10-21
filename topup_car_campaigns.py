@@ -163,37 +163,46 @@ def main():
             continue
 
         print(f"\n=== حملة: '{cname}' (ID: {cid}) ===", flush=True)
-        print(f"   📊 عدد المجموعات النشطة الفعّالة حالياً: {active_count} (الحد المستهدف: {MIN_ACTIVE_COUNT})", flush=True)
+        print(f"   📊 عدد المجموعات النشطة الفعّالة حالياً: {active_count} (الحد المستهدف: {max_cap})", flush=True)
 
-        if is_cpa_over_8:
-            print(f"   🚫 منع تكرار الدوبليكيت في هذه الحملة لأن سعر البيعة فيها لآخر 3 أيام متعدي $8.00 (CPA=${cst3.get('cpa')}) — لن يتم عمل أي Duplicate جديد هنا.", flush=True)
+        if active_count >= max_cap:
+            print(f"   ✅ الحملة تحتوي على {active_count} مجموعة نشطة فعّالة (>= {max_cap}) — لا تحتاج أي إضافة.", flush=True)
             continue
 
         if not allow_topup_window:
             print("   ⏸️ خارج نافذة التوسع النهارية (بعد 5:00 مساءً) — لا يتم إضافة مجموعات جديدة ليلاً لمنع الخسارة.", flush=True)
             continue
 
-        if active_count >= MIN_ACTIVE_COUNT:
-            print(f"   ✅ الحملة تحتوي على {active_count} مجموعة نشطة فعّالة (>= {MIN_ACTIVE_COUNT}) — لا تحتاج أي إضافة.", flush=True)
-            continue
-
-        # إضافة هادئة بحد أقصى نسختين فقط في كل دورة (كل ساعتين) لمنع صدمة المزاد
-        needed = min(2, MIN_ACTIVE_COUNT - active_count)
+        # إضافة هادئة بحد أقصى نسختين فقط في كل دورة لمنع صدمة المزاد
+        needed = min(2, max_cap - active_count)
         source_squad = pick_best_source_squad(session, active_squads or squads, stats_map)
         if not source_squad:
             print("   ⚠️ لا توجد أي مجموعة إعلانية صالحة للنسخ منها في هذه الحملة.", flush=True)
             continue
 
         st = stats_map.get(source_squad["id"], {"spend": 0.0, "purchases": 0, "cpa": None})
-        if st.get("purchases", 0) < 2 or (st.get("cpa") is not None and st["cpa"] > 7.50):
-            print(f"   ⏸️ تخطي الاستنساخ في '{cname}' لأن أفضل مجموعة متاحة ليس لديها >= 2 مبيعات بـ CPA <= $7.50 (CPA=${st.get('cpa')}).", flush=True)
-            continue
+        cpa_limit = 11.0 if is_gulf_camp else 8.0
 
-        print(
-            f"   🚀 جاري استنساخ {needed} مجموعة بهدوء من أفضل مجموعة رابحة ('{source_squad['name']}', مبيعات: {st['purchases']}, CPA: ${st['cpa']})...",
-            flush=True,
-        )
-        clone_adsquad_exact(session, source_squad, needed)
+        if not is_cpa_over_8:
+            # متوسط الحملة أقل من $8.00 -> ينسخ فوراً لتعويض المجموعة التي انطفأت
+            print(
+                f"   🚀 [متوسط الحملة <= $8.00 (CPA=${cst3.get('cpa')})] جاري تعويض ونسخ {needed} مجموعة من ('{source_squad['name']}', مبيعات: {st.get('purchases', 0)}, CPA: ${st.get('cpa')})...",
+                flush=True,
+            )
+            clone_adsquad_exact(session, source_squad, needed)
+        else:
+            # متوسط الحملة فوق $8.00 -> ينسخ فقط من الـ AdSet الرابحة (CPA <= $8.00) بدلاً من الخاسرة التي انطفأت!
+            if st.get("purchases", 0) >= 1 and st.get("cpa") is not None and st["cpa"] <= cpa_limit:
+                print(
+                    f"   ♻️ [متوسط الحملة ${cst3.get('cpa')} > $8.00 لكن توجد مجموعة رابحة!] جاري استبدال المجموعة الخاسرة المطفأة بنسخ {needed} من المجموعة الرابحة ('{source_squad['name']}', مبيعات: {st['purchases']}, CPA: ${st['cpa']} <= ${cpa_limit})...",
+                    flush=True,
+                )
+                clone_adsquad_exact(session, source_squad, needed)
+            else:
+                print(
+                    f"   🚫 متوسط الحملة (${cst3.get('cpa')}) فوق $8.00 ولا توجد مجموعة رابحة تحت ${cpa_limit} حالياً (أفضل مجموعة CPA=${st.get('cpa')}) — تم تخطي النسخ لحمايتك من الخسارة.",
+                    flush=True,
+                )
 
 
 if __name__ == "__main__":
