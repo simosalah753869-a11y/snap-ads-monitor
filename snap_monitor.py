@@ -166,18 +166,21 @@ def evaluate_adsquad_rule(adsquad_name: str, st: dict, campaign_name: str = "", 
     spend = st["spend"]
     purchases = st["purchases"]
     cpa = st["cpa"]
+    is_gulf = is_gulf_034_campaign(campaign_name, adsquad_name, squad)
+    no_sale_lim = 10.0 if is_gulf else 5.0
+    max_cpa_lim = 13.0 if is_gulf else 8.0
 
     # قاعدة صارمة بأمر المستخدم:
     # أي AdSquad لا يوجد في اسمها كلمة "Copy" لا يتم إطفاؤها أبداً كـ AdSquad (لأنها تحتوي على فيديوهات جديدة يجب اختبارها كلها)،
-    # وإنما يتم إطفاء الفيديوهات الفردية بداخلها فقط (كل فيديو يصرف >= 5$ بدون مبيعة أو يتجاوز رول الـ CPC أو CPA > 8$).
+    # وإنما يتم إطفاء الفيديوهات الفردية بداخلها فقط.
     if not is_copy:
         return False, ""
 
     # المجموعات المستنسخة (التي تحتوي على Copy في اسمها):
-    if spend >= 5.0 and purchases == 0:
-        return True, f"[Copy Rule] صرفت ${spend} (>= $5.00) بدون مبيعات"
-    if purchases > 0 and cpa is not None and cpa >= 8.0:
-        return True, f"[Copy Rule] سعر البيعة CPA = ${cpa} (>= $8.00) | الصرف: ${spend} | المبيعات: {purchases}"
+    if spend >= no_sale_lim and purchases == 0:
+        return True, f"[Copy Rule] صرفت ${spend} (>= ${no_sale_lim:.2f}) بدون مبيعات"
+    if purchases > 0 and cpa is not None and cpa > max_cpa_lim:
+        return True, f"[Copy Rule] سعر البيعة CPA = ${cpa} (> ${max_cpa_lim:.2f}) | الصرف: ${spend} | المبيعات: {purchases}"
 
     return False, ""
 
@@ -191,29 +194,30 @@ def evaluate_single_ad_rule(st: dict, campaign_name: str, adsquad_name: str, squ
     is_copy = "copy" in (adsquad_name or "").lower()
     is_cross_prod = is_cross_monitored_product_campaign(campaign_name, adsquad_name)
     is_gulf = is_gulf_034_campaign(campaign_name, adsquad_name, squad)
-    max_cpc = 0.30 if is_cross_prod else (0.34 if is_gulf else 0.28)
+    max_cpc = 0.30 if is_cross_prod else (0.35 if is_gulf else 0.28)
     min_cpc_spend = 0.80 if is_cross_prod else 1.0
-    max_cpa = 8.0
+    max_cpa = 13.0 if is_gulf else 8.0
+    no_sale_stop = 10.0 if is_gulf else 5.0
 
     # في حملات مايباخ و TIME X: إذا جاب الفيديو بيعة نخليه وما نطفيه بسبب الـ CPC ("الا في حالة جاب بيعة يخليه")
     if is_cross_prod and purchases >= 1:
         return False, ""
 
-    # إذا حقق الفيديو مبيعات فعلية وكان سعر البيعة مربحاً (<= $8.00 في السعودية والخليج)، لا نوقفه بسبب الـ CPC
+    # إذا حقق الفيديو مبيعات فعلية وكان سعر البيعة مربحاً (<= $8.00 في السعودية أو <= $13.00 في الخليج)، لا نوقفه بسبب الـ CPC
     if purchases > 0 and cpa is not None and cpa <= max_cpa:
         return False, ""
 
-    # 1. إيقاف الفيديو في جميع الدول (السعودية والخليج) إذا تخطى CPA حاجز 8$
+    # 1. إيقاف الفيديو إذا تخطى CPA الحد الأقصى ($8 للسعودية أو $13 للخليج)
     if purchases > 0 and cpa is not None and cpa > max_cpa:
-        return True, f"[Single Video Max $8 CPA Rule] صرف الفيديو ${spend} | المبيعات: {purchases} | CPA = ${cpa} (> $8.00)"
+        return True, f"[Single Video Max ${max_cpa:.0f} CPA Rule] صرف الفيديو ${spend} | المبيعات: {purchases} | CPA = ${cpa} (> ${max_cpa:.2f})"
 
-    # 2. قاعدة إيقاف الفيديو الموحدة (السعودية والخليج) إذا صرف >= 5$ بدون مبيعة داخل المجموعة (تُدار عبر cross_product_monitor لحملتي مايباخ و TIME X)
-    if not is_cross_prod and spend >= 5.0 and purchases == 0:
-        return True, f"[Single Video $5 Stop-Loss] صرف الفيديو ${spend} (>= $5.00) بدون مبيعة"
+    # 2. قاعدة إيقاف الفيديو إذا صرف >= $5 للسعودية أو >= $10 للخليج بدون مبيعة داخل المجموعة
+    if not is_cross_prod and spend >= no_sale_stop and purchases == 0:
+        return True, f"[Single Video ${no_sale_stop:.0f} Stop-Loss] صرف الفيديو ${spend} (>= ${no_sale_stop:.2f}) بدون مبيعة"
 
-    # 2B. فلتر النقرة المبكر داخل نسخ الـ Copy (إذا دخلت النسخة في جيب جماهيري غالٍ صرفت فيه >= $1.50 بنقرة > $0.16 للسعودية أو > $0.25 للخليج بدون مبيعات، تُطفأ عند $1.50 ولا تُترك تنزف إلى $5.00)
+    # 2B. فلتر النقرة المبكر داخل نسخ الـ Copy
     if is_copy and not is_cross_prod and spend >= 1.50 and purchases == 0:
-        copy_early_cpc = 0.25 if is_gulf else 0.165
+        copy_early_cpc = 0.35 if is_gulf else 0.165
         if swipes == 0 or cpc > copy_early_cpc:
             return True, f"[Copy Early High-CPC Cut] نسخة Copy دخلت جمهوراً غالياً: صرفت ${spend} (>= $1.50) بدون مبيعات بـ CPC=${cpc} (> ${copy_early_cpc})"
 
@@ -278,14 +282,18 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
 
     no_dup_camps = history.setdefault("no_duplicate_campaigns", {})
     for cid in list(no_dup_camps.keys()):
-        if is_cross_monitored_product_campaign(camp_names.get(cid, "") or no_dup_camps[cid].get("name", "")):
+        cname_chk = camp_names.get(cid, "") or no_dup_camps[cid].get("name", "")
+        if is_cross_monitored_product_campaign(cname_chk):
             continue
+        is_gulf_c = is_gulf_034_campaign(cname_chk)
+        cpa_lim_c = 13.0 if is_gulf_c else 8.0
+        sp_lim_c = 10.0
         cst_chk = camp_stats_3d_map.get(cid)
         if not cst_chk:
             del no_dup_camps[cid]
-        elif cst_chk.get("purchases", 0) > 0 and cst_chk.get("cpa") is not None and cst_chk["cpa"] <= 8.0:
+        elif cst_chk.get("purchases", 0) > 0 and cst_chk.get("cpa") is not None and cst_chk["cpa"] <= cpa_lim_c:
             del no_dup_camps[cid]
-        elif cst_chk.get("purchases", 0) == 0 and cst_chk.get("spend", 0) < 12.0:
+        elif cst_chk.get("purchases", 0) == 0 and cst_chk.get("spend", 0) < sp_lim_c:
             del no_dup_camps[cid]
     for cid, cname_val in camp_names.items():
         if is_cross_monitored_product_campaign(cname_val):
@@ -295,9 +303,13 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
                 "updated_at": now_str,
             }
     for cid, cst in camp_stats_3d_map.items():
-        if (cst["spend"] >= 12.0 and cst["purchases"] == 0) or (cst["purchases"] > 0 and cst["cpa"] is not None and cst["cpa"] > 8.0):
+        cname_c = camp_names.get(cid, cid)
+        is_gulf_c = is_gulf_034_campaign(cname_c)
+        cpa_lim_c = 13.0 if is_gulf_c else 8.0
+        sp_lim_c = 10.0
+        if (cst["spend"] >= sp_lim_c and cst["purchases"] == 0) or (cst["purchases"] > 0 and cst["cpa"] is not None and cst["cpa"] > cpa_lim_c):
             no_dup_camps[cid] = {
-                "name": camp_names.get(cid, cid),
+                "name": cname_c,
                 "spend_3d": cst["spend"],
                 "purchases_3d": cst["purchases"],
                 "cpa_3d": cst["cpa"],
@@ -501,8 +513,8 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
         ):
             # Never revive a video that was killed across all AdSquads!
             continue
-        max_revive_cpa = 8.0
-        if st_check["cpa"] < max_revive_cpa:
+        max_revive_cpa = 13.0 if is_gulf_034_campaign(c_name, s_name, squad) else 8.0
+        if st_check["cpa"] <= max_revive_cpa:
             if ad.get("status") == "PAUSED":
                 if dry_run:
                     print(
@@ -585,8 +597,8 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
             continue
 
         camp_is_saudi = is_saudi_squad(c_squads[0], c_name, c_squads[0].get("name", ""))
-        no_sale_limit = 12.0
-        max_cpa_limit = 9.50
+        no_sale_limit = 10.0
+        max_cpa_limit = 12.0 if camp_is_saudi else 13.0
         region_label = "السعودية" if camp_is_saudi else "الخليج"
 
         c_ads = camp_ads_cache.get(c_id, [])
@@ -736,16 +748,17 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
             if not kill_video:
                 continue
 
-            # إذا كان للفيديو مبيعات لكن CPA التراكمي > $9.50، نبقي فقط النسخ الفردية الرابحة (CPA <= $8.00) ونغلق باقي النسخ العالة
+            # إذا كان للفيديو مبيعات لكن CPA التراكمي تجاوز الحد، نبقي فقط النسخ الفردية الرابحة (<= $8.00 للسعودية أو <= $13.00 للخليج) ونغلق باقي النسخ العالة
             if keep_profitable_copies:
                 targets_to_pause = []
                 kept_winners = 0
+                ind_cpa_keep_max = 8.0 if camp_is_saudi else 13.0
                 for a_inst in active_list:
                     st1_i = ad_stats_map.get(a_inst["id"], {})
                     st3_i = ad_stats_3d_map.get(a_inst["id"], {})
                     p1_i, c1_i = st1_i.get("purchases", 0), st1_i.get("cpa")
                     p3_i, c3_i = st3_i.get("purchases", 0), st3_i.get("cpa")
-                    if (p1_i >= 1 and c1_i is not None and c1_i <= 8.0) or (p3_i >= 1 and c3_i is not None and c3_i <= 8.0):
+                    if (p1_i >= 1 and c1_i is not None and c1_i <= ind_cpa_keep_max) or (p3_i >= 1 and c3_i is not None and c3_i <= ind_cpa_keep_max):
                         kept_winners += 1
                     else:
                         targets_to_pause.append(a_inst)
