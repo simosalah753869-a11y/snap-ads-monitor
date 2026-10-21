@@ -857,39 +857,67 @@ def run_google_ads_check():
                 ws.send(json.dumps({"id": 1, "method": "Emulation.setFocusEmulationEnabled", "params": {"enabled": True}}))
                 ws.recv()
                 keep_adspower_in_bg()
-                js_expr = """
-                (() => {
+                js_expr = f"""
+                (async () => {{
+                    const sheetSales = {json.dumps(sales_3d)};
                     const rows = Array.from(document.querySelectorAll('.particle-table-row, ess-table-row, [role="row"]'));
                     const parsedRows = [];
                     const pausedActions = [];
-                    for (const r of rows) {
+                    for (const r of rows) {{
                         const txt = (r.innerText || '').replace(/\\s+/g, ' ').trim();
                         if (txt.length <= 10) continue;
                         parsedRows.push(txt);
-                        // Auto-pause any active Google Ads row that spent >= $8.00 with 0 conversions or CPC > $0.38 after $1.50
-                        if ((txt.includes('Eligible') || txt.includes('Enabled')) && !txt.includes('Total')) {
-                            const costMatch = txt.match(/\\$([0-9]+\\.[0-9]{2})/g);
-                            if (costMatch && costMatch.length >= 2) {
-                                const nums = costMatch.map(x => parseFloat(x.replace('$', '')));
-                                const maxSpend = Math.max(...nums);
-                                if (maxSpend >= 18.00 && txt.includes(' 0.00 ')) {
-                                    const statusBtn = r.querySelector('status- cell-status, [aria-label*="Status"], .status-icon, material-Menu-button');
-                                    if (statusBtn) {
-                                        pausedActions.push(txt.slice(0, 120));
-                                    }
-                                }
-                            }
-                        }
-                    }
-                    return {
+                        if ((txt.includes('Eligible') || txt.includes('Enabled')) && !txt.includes('Total:')) {{
+                            // Extract dollar amounts: first is usually budget, last/second is Cost
+                            const costMatches = Array.from(txt.matchAll(/\\$([0-9,]+\\.[0-9]{{2}})/g)).map(m => parseFloat(m[1].replace(/,/g, '')));
+                            if (costMatches.length >= 2) {{
+                                // In Google Ads table: Budget is first $ amount, Cost is the last $ amount (or second if CPC is present)
+                                const rowName = txt.split(/\\$[0-9]/)[0].trim();
+                                // Check if any sheet UTM matches rowName
+                                let sheetConv = 0;
+                                const rnLow = rowName.toLowerCase();
+                                for (const [k, v] of Object.entries(sheetSales)) {{
+                                    if (k && rnLow.includes(k.toLowerCase())) sheetConv = Math.max(sheetConv, v);
+                                }}
+                                // Find cost & conversions in text after 'Eligible' or 'Enabled'
+                                const afterStatus = txt.split(/Eligible|Enabled/).slice(1).join(' ');
+                                const afterDollars = Array.from(afterStatus.matchAll(/\\$([0-9,]+\\.[0-9]{{2}})/g)).map(m => parseFloat(m[1].replace(/,/g, '')));
+                                const spend = afterDollars.length > 0 ? Math.max(...afterDollars) : 0;
+                                // Conversions appear right before Cost or after Interactions
+                                const convMatch = afterStatus.match(/\\b([0-9]+\\.[0-9]{{2}})\\s+\\$[0-9,]+\\.[0-9]{{2}}/);
+                                const uiConv = convMatch ? parseFloat(convMatch[1]) : 0;
+                                const effConv = Math.max(uiConv, sheetConv);
+                                const effCpa = effConv >= 1 ? (spend / effConv) : 999;
+                                if ((spend >= 8.00 && effConv < 0.5) || (spend >= 12.00 && effCpa > 9.50)) {{
+                                    const btn = r.querySelector('ess-cell[essfield="status"] material-button, status-menu material-button, [aria-label*="Enabled"], [aria-label*="Eligible"], .status-icon, material-icon');
+                                    if (btn) {{
+                                        btn.click();
+                                        await new Promise(res => setTimeout(res, 650));
+                                        const items = Array.from(document.querySelectorAll('material-select-item, [role="menuitem"], [role="option"]'));
+                                        const pauseItem = items.find(el => (el.innerText || '').trim() === 'Pause' || (el.innerText || '').includes('Pause'));
+                                        if (pauseItem) {{
+                                            pauseItem.click();
+                                            await new Promise(res => setTimeout(res, 750));
+                                            pausedActions.push(`تم إيقاف حملة جوجل أدز الخاسرة تلقائياً: ${{rowName}} (الصرف=${{spend.toFixed(2)}}$, المبيعات=${{effConv}}, CPA=${{effCpa === 999 ? 'بدون مبيعات' : effCpa.toFixed(2)}})`);
+                                        }} else {{
+                                            pausedActions.push(`رصد حملة جوجل أدز خاسرة: ${{rowName}} (الصرف=${{spend.toFixed(2)}}$, المبيعات=${{effConv}})`);
+                                        }}
+                                    }} else {{
+                                        pausedActions.push(`رصد حملة جوجل أدز خاسرة: ${{rowName}} (الصرف=${{spend.toFixed(2)}}$, المبيعات=${{effConv}})`);
+                                    }}
+                                }}
+                            }}
+                        }}
+                    }}
+                    return {{
                         title: document.title,
                         url: location.href,
                         rows: parsedRows.slice(0, 25),
                         flagged: pausedActions
-                    };
-                })()
+                    }};
+                }})()
                 """
-                ws.send(json.dumps({"id": 2, "method": "Runtime.evaluate", "params": {"expression": js_expr, "returnByValue": True}}))
+                ws.send(json.dumps({"id": 2, "method": "Runtime.evaluate", "params": {"expression": js_expr, "awaitPromise": True, "returnByValue": True}}))
                 resp = json.loads(ws.recv())
                 val = resp.get("result", {}).get("result", {}).get("value") or {}
                 log_msg(f"🌐 [Google Ads CDP - {prof_name} (port={port})] {val.get('title')} | سطور الجدول ({len(val.get('rows', []))}):")
