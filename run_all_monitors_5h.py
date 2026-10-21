@@ -871,25 +871,26 @@ def run_google_ads_check():
                             const costMatches = Array.from(txt.matchAll(/\\$([0-9,]+\\.[0-9]{{2}})/g)).map(m => parseFloat(m[1].replace(/,/g, '')));
                             if (costMatches.length >= 2) {{
                                 const rowName = txt.split(/\\$[0-9]/)[0].replace(/\\bsettings\\b/gi, '').trim();
-                                let sheetConv = 0;
                                 const rnLow = rowName.toLowerCase();
+                                const seasonedCampaigns = ['cars', 'watch', 'watch 9-10', 'watch ksa', 'watch ksa 9-10', 'car lesds 14-10', 'cars gems winners 18-10'];
+                                const isCampaignsTab = document.title.includes('Campaigns');
+                                if (isCampaignsTab && seasonedCampaigns.includes(rnLow)) continue;
+                                let sheetConv = 0;
                                 for (const [k, v] of Object.entries(sheetSales)) {{
                                     if (k && rnLow.includes(k.toLowerCase())) sheetConv = Math.max(sheetConv, v);
                                 }}
                                 const afterStatus = txt.split(/Eligible|Enabled/).slice(1).join(' ');
                                 const afterDollars = Array.from(afterStatus.matchAll(/\\$([0-9,]+\\.[0-9]{{2}})/g)).map(m => parseFloat(m[1].replace(/,/g, '')));
                                 // Actual Cost in Campaigns table is the last dollar value; in Ads table it is the 2nd dollar value (after Avg. CPC)
-                                const isCampaignsTab = document.title.includes('Campaigns');
                                 const spend = afterDollars.length > 0 ? (isCampaignsTab ? afterDollars[afterDollars.length - 1] : afterDollars[1] || afterDollars[0]) : 0;
-                                // Extract conversions: in Campaigns tab, right after 'Demand Gen' or at end before last 0.00
+                                // Extract conversions: check 'Target CPA 0.00 <conv>', 'Demand Gen <conv>', or number right after Cost
                                 let uiConv = 0;
-                                const dgMatch = afterStatus.match(/Demand Gen\\s+([0-9]+\\.[0-9]{{2}})/);
-                                if (dgMatch) {{
-                                    uiConv = parseFloat(dgMatch[1]);
-                                }} else {{
-                                    const convMatch = afterStatus.match(/\\b([0-9]+\\.[0-9]{{2}})\\s+(?:US)?\\$[0-9,]+\\.[0-9]{{2}}/);
-                                    if (convMatch) uiConv = parseFloat(convMatch[1]);
-                                }}
+                                const tcpaMatch = afterStatus.match(/Target CPA\\s+[0-9,]+\\.[0-9]{{2}}\\s+([0-9,]+\\.[0-9]{{2}})/);
+                                const dgMatch = afterStatus.match(/Demand Gen\\s+([0-9,]+\\.[0-9]{{2}})/);
+                                const postCostMatch = afterStatus.match(/\\$(?:[0-9,]+\\.[0-9]{{2}})\\s+([0-9,]+\\.[0-9]{{2}})\\s+[0-9,]+\\.[0-9]{{2}}$/);
+                                if (tcpaMatch) uiConv = Math.max(uiConv, parseFloat(tcpaMatch[1].replace(/,/g, '')));
+                                if (dgMatch) uiConv = Math.max(uiConv, parseFloat(dgMatch[1].replace(/,/g, '')));
+                                if (postCostMatch) uiConv = Math.max(uiConv, parseFloat(postCostMatch[1].replace(/,/g, '')));
                                 const effConv = Math.max(uiConv, sheetConv);
                                 const effCpa = effConv >= 1 ? (spend / effConv) : 999;
                                 if ((spend >= 8.00 && effConv < 0.5) || (spend >= 12.00 && effCpa > 9.50)) {{
@@ -1046,12 +1047,24 @@ def run_autonomous_anomaly_doctor(sales_3d: dict = None, sales_today: dict = Non
             cv1 = sum(int(float((x.get("row_data") or {}).get("time_attr_convert_cnt") or 0)) for x in c1)
             sp3 = sum(float((x.get("row_data") or {}).get("stat_cost") or 0) for x in c3)
             cv3 = sum(int(float((x.get("row_data") or {}).get("time_attr_convert_cnt") or 0)) for x in c3)
+            act_c1 = [x for x in c1 if x.get("primary_status") not in ("disable", "delete") and str(x.get("opt_status")) == "0"]
+            act_sp1 = sum(float((x.get("row_data") or {}).get("stat_cost") or 0) for x in act_c1)
+            act_cv1 = 0
+            for x in act_c1:
+                cn_low = (x.get("campaign_name") or "").strip().lower()
+                px_cv = int(float((x.get("row_data") or {}).get("time_attr_convert_cnt") or 0))
+                sh_cv = (sales_today or {}).get(cn_low, 0)
+                act_cv1 += max(px_cv, sh_cv)
             if sp1 > 0 or sp3 > 0:
                 cpa1 = round(sp1 / cv1, 2) if cv1 > 0 else None
                 cpa3 = round(sp3 / cv3, 2) if cv3 > 0 else None
-                log_msg(f"📊 [ملخص صحة تيك توك - {acc_name}] اليوم: ${sp1:.2f} ({cv1} مبيعة، CPA=${cpa1}) | 3 أيام: ${sp3:.2f} ({cv3} مبيعة، CPA=${cpa3})")
-                if (sp1 >= 15.0 and cv1 == 0) or (cpa1 is not None and cpa1 > 9.50 and sp1 >= 15.0):
-                    anomalies.append(f"تيك توك ({acc_name}): ارتفاع تكلفة اليوم (الصرف=${sp1:.2f}، المبيعات={cv1}، CPA=${cpa1}).")
+                act_cpa1 = round(act_sp1 / act_cv1, 2) if act_cv1 > 0 else None
+                log_msg(
+                    f"📊 [ملخص صحة تيك توك - {acc_name}] إجمالي اليوم (شامل الموقوف): ${sp1:.2f} ({cv1} مبيعة بيكسل، CPA=${cpa1}) "
+                    f"| الحملات النشطة حالياً ({len(act_c1)}): الصرف=${act_sp1:.2f}، المبيعات الفعلية={act_cv1}، CPA النشط=${act_cpa1}"
+                )
+                if (act_sp1 >= 15.0 and act_cv1 == 0) or (act_cpa1 is not None and act_cpa1 > 9.50 and act_sp1 >= 15.0):
+                    anomalies.append(f"تيك توك ({acc_name}): ارتفاع تكلفة الحملات النشطة اليوم (الصرف=${act_sp1:.2f}، المبيعات={act_cv1}، CPA=${act_cpa1}).")
                     actions_taken.append(f"تم إيقاف الحملات المستنسخة الخاسرة والفيديوهات التي تجاوزت $5 بدون مبيعة أو $12 تراكمي في ({acc_name}).")
     except Exception as e:
         anomalies.append(f"تيك توك: تعذر الاتصال بـ API تيك توك ({e}) — قد تحتاج جلسة الكوكيز إلى تحديث.")
