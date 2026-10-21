@@ -188,7 +188,10 @@ def run_cross_product_monitor(dry_run: bool = False):
 
     snap_ad_1d = {x["id"]: x for x in fetch_account_breakdown_stats(snap_token, TARGET_ACCOUNT_ID, "ad", days_back=0)}
     snap_ad_3d = {x["id"]: x for x in fetch_account_breakdown_stats(snap_token, TARGET_ACCOUNT_ID, "ad", days_back=2)}
-    snap_ad_7d = {x["id"]: x for x in fetch_account_breakdown_stats(snap_token, TARGET_ACCOUNT_ID, "ad", days_back=6)}
+    try:
+        snap_ad_7d = {x["id"]: x for x in fetch_account_breakdown_stats(snap_token, TARGET_ACCOUNT_ID, "ad", days_back=6)}
+    except Exception:
+        snap_ad_7d = dict(snap_ad_3d)
 
     # 2. Authenticate & Fetch TikTok Data (Today + 3-Day + 7-Day)
     tt_session, tt_headers = build_session(load_cookies())
