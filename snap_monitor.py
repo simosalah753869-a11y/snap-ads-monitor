@@ -1009,7 +1009,8 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
             st_sq = squad_stats_map.get(s_id, {"spend": today_spend, "purchases": 0, "cpa": None})
             st3_sq = squad_stats_3d_map.get(s_id, {"spend": today_spend, "purchases": 0, "cpa": None})
             is_gulf_sq = is_gulf_034_campaign(c_name, s_name, squad)
-            max_safe_bid_micro = 2_450_000 if is_gulf_sq else 2_350_000
+            is_cross_sq = is_cross_monitored_product_campaign(c_name, s_name)
+            max_safe_bid_micro = 2_750_000 if is_cross_sq else (2_450_000 if is_gulf_sq else 2_350_000)
 
             # (أ) تهدئة البيدات المتضخمة (> $2.35 للسعودية / > $2.45 للخليج) وإرجاعها لسلم البيد الآمن ($2.05-$2.35) ما لم تكن المجموعة رابحة اليوم بـ CPA <= $7.50
             is_winning_today = st_sq.get("purchases", 0) >= 1 and st_sq.get("cpa") is not None and st_sq["cpa"] <= 7.50
