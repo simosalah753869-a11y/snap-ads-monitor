@@ -33,5 +33,30 @@
       "aadvid": "7631763556322148369",
       "video_count": 8
     }
+  },
+  "warmer": {
+    "snapchat": {
+      "campaign_id": "f18a3bf4-148a-4f5e-baa1-f90335f1884c",
+      "campaign_name": "مسخن الرضاعات اللاسلكي 22-10",
+      "adsquad_id": "16e09fcf-aebe-40a9-ad37-b20d8e774a40",
+      "ad_ids": [
+        "1bfdc253-1101-4365-a341-6dd8bc26276a",
+        "1fd9f617-913e-4a11-a84f-683cfb0630e7",
+        "25ba464e-75d5-45e8-8cad-c7dda7cb6382",
+        "32558df2-1c60-46fe-b29a-1ef33e98290d",
+        "4339c042-e04b-4b9a-b6f7-41a64468c86c",
+        "74468d22-4a1d-4735-accd-318d0007a430",
+        "824284b0-8537-4e1a-ade0-ab2c5384bbc9",
+        "8aefbca6-1106-4ad3-92ed-87eab8b6e8f4",
+        "ab6fd68b-7aa1-4c19-8e85-47439eb4b42b",
+        "d6680538-d34f-45cf-b6b5-b82ca4fb3553"
+      ]
+    },
+    "tiktok": {
+      "campaign_id": "1879676075637041",
+      "campaign_name": "baby bottle warmer 22-10",
+      "aadvid": "7631763556322148369",
+      "video_count": 10
+    }
   }
 }
