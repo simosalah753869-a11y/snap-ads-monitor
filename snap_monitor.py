@@ -649,13 +649,17 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
         for a in c_ads:
             cr_id = a.get("creative_id")
             ad_nm = (a.get("name") or "").strip()
-            v_key = (
-                history["creative_media_map"].get(cr_id)
-                or name_to_media.get(ad_nm)
-                or ad_nm
-                or cr_id
-                or "unknown"
-            )
+            # إذا كان الإعلان يختبر عنواناً محدداً [H1]..[H6]، نفصل تقييمه التراكمي حسب (الفيديو + العنوان creative_id) حتى لا يتأثر الفيديو الأصلي إذا خسر أحد العناوين!
+            if "[H" in ad_nm and cr_id:
+                v_key = cr_id
+            else:
+                v_key = (
+                    history["creative_media_map"].get(cr_id)
+                    or name_to_media.get(ad_nm)
+                    or ad_nm
+                    or cr_id
+                    or "unknown"
+                )
             grp = video_groups.setdefault(v_key, {
                 "ads": [],
                 "active_ads": [],
@@ -851,12 +855,15 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
             clean_nm = raw_nm
             while clean_nm.lower().startswith("copy of "):
                 clean_nm = clean_nm[8:].strip()
-            v_key_glob = (
-                history["creative_media_map"].get(cr_id)
-                or clean_nm
-                or cr_id
-                or "unknown"
-            )
+            if "[H" in clean_nm and cr_id:
+                v_key_glob = cr_id
+            else:
+                v_key_glob = (
+                    history["creative_media_map"].get(cr_id)
+                    or clean_nm
+                    or cr_id
+                    or "unknown"
+                )
             g_grp = global_video_groups.setdefault(v_key_glob, {
                 "active_ads": [],
                 "campaigns": set(),
