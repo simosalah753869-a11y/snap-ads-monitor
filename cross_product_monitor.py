@@ -45,6 +45,12 @@ PRODUCT_DEFS = [
         "snap_keywords": ("time x", "timex", "تايم إكس", "دفاتر"),
         "tt_keywords": ("timex", "time x", "دفاتر"),
     },
+    {
+        "key": "warmer",
+        "label": "مسخن رضاعات الحليب اللاسلكي المحمول",
+        "snap_keywords": ("مسخن الرضاعات", "مسخن رضاعات", "warmer", "bottle warmer"),
+        "tt_keywords": ("bottle warmer", "warmer", "مسخن الرضاعات", "مسخن رضاعات"),
+    },
 ]
 
 # القواعد الـ 4 المحددة من المستخدم للمنتجين (وسادة مايباخ + صندوق دفاتر TIME X):
