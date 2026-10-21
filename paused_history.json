@@ -16977,8 +16977,8 @@
     },
     "f18a3bf4-148a-4f5e-baa1-f90335f1884c": {
       "name": "مسخن الرضاعات اللاسلكي 22-10",
-      "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-21 19:03 GMT+3"
+      "reason": "Single-AdSquad Cross-Platform Monitored Product Campaign",
+      "updated_at": "2026-10-21 19:10 GMT+3"
     },
     "1879155925017650": {
       "name": "power bank winner 16-10 A",
@@ -17051,6 +17051,12 @@
       "purchases_3d": 0,
       "cpa_3d": null,
       "reason": "3-Day CPA > $8.00 — Duplication Blocked"
+    },
+    "1879676075637041": {
+      "name": "baby bottle warmer 22-10",
+      "aadvid": "7631763556322148369",
+      "reason": "Single-Campaign Cross-Platform Monitored Product Campaign",
+      "updated_at": "2026-10-21 19:10 GMT+3"
     }
   },
   "proactive_scaled_squads": {},
