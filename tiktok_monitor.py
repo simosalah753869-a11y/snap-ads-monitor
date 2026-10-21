@@ -63,8 +63,8 @@ ACCOUNTS = [
 # Aggregated Duplicated Video Level (Across ALL Campaigns & ALL Accounts):
 # 1. Duplicated video total spend >= $10.00 (1D/2D/3D/7D) with 0 sales -> Pause video across ALL campaigns & accounts
 # 2. Duplicated video total CPA >= $12.00 (1D/2D/3D/7D, with >= 1 sale) -> Pause video across ALL campaigns & accounts
-MAX_CAMPAIGN_NO_SALE_SPEND = 8.00
-MAX_CAMPAIGN_CPA = 9.00
+MAX_CAMPAIGN_NO_SALE_SPEND = 15.00
+MAX_CAMPAIGN_CPA = 12.00
 MAX_NO_SALE_SPEND = 6.00
 MAX_VIDEO_CPA = 8.00
 MIN_SPEND_FOR_CPC = 1.00
@@ -526,23 +526,23 @@ def evaluate_dup_video_rules(
         reasons.append(
             f"[Global Dup Video Stop-Loss 7D] Total 7-Day Spend ${spend_7d:.2f} >= ${MAX_DUP_VIDEO_NO_SALE_SPEND:.2f} with 0 sales"
         )
-    # Rule 2: Aggregated CPA >= $9.00 across all copies (when Spend >= $9.00)
-    if conv_3d > 0 and spend_3d >= MAX_DUP_VIDEO_CPA and (spend_3d / conv_3d) >= MAX_DUP_VIDEO_CPA:
+    # Rule 2: Aggregated CPA >= $9.50 across all copies (when Spend >= $12.00)
+    if conv_3d > 0 and spend_3d >= MAX_DUP_VIDEO_NO_SALE_SPEND and (spend_3d / conv_3d) >= MAX_DUP_VIDEO_CPA:
         reasons.append(
             f"[Global Dup Video High CPA 3D] Total 3-Day CPA ${(spend_3d / conv_3d):.2f} >= ${MAX_DUP_VIDEO_CPA:.2f} "
             f"(Total Spend=${spend_3d:.2f}, Total Sales={conv_3d})"
         )
-    elif conv_7d > 0 and spend_7d >= MAX_DUP_VIDEO_CPA and (spend_7d / conv_7d) >= MAX_DUP_VIDEO_CPA and not (conv_3d > 0 and (spend_3d / conv_3d) <= MAX_VIDEO_CPA):
+    elif conv_7d > 0 and spend_7d >= MAX_DUP_VIDEO_NO_SALE_SPEND and (spend_7d / conv_7d) >= MAX_DUP_VIDEO_CPA and not (conv_3d > 0 and (spend_3d / conv_3d) <= MAX_VIDEO_CPA):
         reasons.append(
             f"[Global Dup Video High CPA 7D] Total 7-Day CPA ${(spend_7d / conv_7d):.2f} >= ${MAX_DUP_VIDEO_CPA:.2f} "
             f"(Total Spend=${spend_7d:.2f}, Total Sales={conv_7d})"
         )
-    elif conv_2d > 0 and spend_2d >= MAX_DUP_VIDEO_CPA and (spend_2d / conv_2d) >= MAX_DUP_VIDEO_CPA and not (conv_3d > 0 and (spend_3d / conv_3d) <= MAX_VIDEO_CPA):
+    elif conv_2d > 0 and spend_2d >= MAX_DUP_VIDEO_NO_SALE_SPEND and (spend_2d / conv_2d) >= MAX_DUP_VIDEO_CPA and not (conv_3d > 0 and (spend_3d / conv_3d) <= MAX_VIDEO_CPA):
         reasons.append(
             f"[Global Dup Video High CPA 2D] Total 2-Day CPA ${(spend_2d / conv_2d):.2f} >= ${MAX_DUP_VIDEO_CPA:.2f} "
             f"(Total Spend=${spend_2d:.2f}, Total Sales={conv_2d})"
         )
-    elif conv_1d > 0 and spend_1d >= MAX_DUP_VIDEO_CPA and (spend_1d / conv_1d) >= MAX_DUP_VIDEO_CPA and not (conv_3d > 0 and (spend_3d / conv_3d) <= MAX_VIDEO_CPA):
+    elif conv_1d > 0 and spend_1d >= MAX_DUP_VIDEO_NO_SALE_SPEND and (spend_1d / conv_1d) >= MAX_DUP_VIDEO_CPA and not (conv_3d > 0 and (spend_3d / conv_3d) <= MAX_VIDEO_CPA):
         reasons.append(
             f"[Global Dup Video High CPA 1D] Total Today CPA ${(spend_1d / conv_1d):.2f} >= ${MAX_DUP_VIDEO_CPA:.2f} "
             f"(Total Spend=${spend_1d:.2f}, Total Sales={conv_1d})"
@@ -642,23 +642,21 @@ def main():
                     f"3-Day: ${c_spend_3d:.2f} (CPC=${c_cpc_3d:.2f}, {c_conv_3d} sales, CPA=${c_cpa_3d})"
                 )
 
-            # Campaign-level Stop-Loss & High-CPC cut:
+            # Campaign-level Stop-Loss ONLY for cloned/duplicated campaigns (Copy / SCALE / BOOST / Turbo);
+            # CPC (> $0.35 at $1.00) and Video Stop-Loss (> $6.00 w/ 0 sales or CPA > $8.00) are applied per individual video, NOT campaign-wide!
+            is_cloned_camp = any(k in camp_name.lower() for k in ("copy", "scale", "boost", "turbo"))
             camp_pause_reasons = []
             has_good_today = c_conv_1d > 0 and c_cpa_1d is not None and c_cpa_1d <= 7.80
             has_good_3d = c_conv_3d > 0 and c_cpa_3d is not None and c_cpa_3d <= 8.00
-            if not (has_good_today or has_good_3d):
-                if c_spend_1d >= 2.00 and c_conv_1d == 0 and c_cpc_1d > MAX_CPC:
-                    camp_pause_reasons.append(f"Today Spend ${c_spend_1d:.2f} >= $2.00 & CPC ${c_cpc_1d:.2f} > ${MAX_CPC:.2f} (0 sales)")
-                elif c_spend_3d >= 2.00 and c_conv_3d == 0 and c_cpc_3d > MAX_CPC:
-                    camp_pause_reasons.append(f"3-Day Spend ${c_spend_3d:.2f} >= $2.00 & CPC ${c_cpc_3d:.2f} > ${MAX_CPC:.2f} (0 sales)")
+            if is_cloned_camp and not (has_good_today or has_good_3d):
                 if c_spend_1d >= MAX_CAMPAIGN_NO_SALE_SPEND and c_conv_1d == 0:
-                    camp_pause_reasons.append(f"Today Spend ${c_spend_1d:.2f} >= ${MAX_CAMPAIGN_NO_SALE_SPEND:.2f} with 0 sales")
+                    camp_pause_reasons.append(f"Cloned Campaign Today Spend ${c_spend_1d:.2f} >= ${MAX_CAMPAIGN_NO_SALE_SPEND:.2f} with 0 sales")
                 elif c_spend_3d >= MAX_CAMPAIGN_NO_SALE_SPEND and c_conv_3d == 0:
-                    camp_pause_reasons.append(f"3-Day Spend ${c_spend_3d:.2f} >= ${MAX_CAMPAIGN_NO_SALE_SPEND:.2f} with 0 sales")
-                if c_conv_3d > 0 and c_spend_3d >= MAX_CAMPAIGN_CPA and c_cpa_3d is not None and c_cpa_3d > MAX_CAMPAIGN_CPA:
-                    camp_pause_reasons.append(f"3-Day Campaign CPA ${c_cpa_3d:.2f} > ${MAX_CAMPAIGN_CPA:.2f} (Spend=${c_spend_3d:.2f}, Sales={c_conv_3d})")
-                elif c_conv_1d > 0 and c_spend_1d >= MAX_CAMPAIGN_CPA and c_cpa_1d is not None and c_cpa_1d > MAX_CAMPAIGN_CPA:
-                    camp_pause_reasons.append(f"Today Campaign CPA ${c_cpa_1d:.2f} > ${MAX_CAMPAIGN_CPA:.2f} (Spend=${c_spend_1d:.2f}, Sales={c_conv_1d})")
+                    camp_pause_reasons.append(f"Cloned Campaign 3-Day Spend ${c_spend_3d:.2f} >= ${MAX_CAMPAIGN_NO_SALE_SPEND:.2f} with 0 sales")
+                if c_conv_3d > 0 and c_spend_3d >= MAX_CAMPAIGN_NO_SALE_SPEND and c_cpa_3d is not None and c_cpa_3d > MAX_CAMPAIGN_CPA:
+                    camp_pause_reasons.append(f"Cloned Campaign 3-Day CPA ${c_cpa_3d:.2f} > ${MAX_CAMPAIGN_CPA:.2f} (Spend=${c_spend_3d:.2f}, Sales={c_conv_3d})")
+                elif c_conv_1d > 0 and c_spend_1d >= MAX_CAMPAIGN_NO_SALE_SPEND and c_cpa_1d is not None and c_cpa_1d > MAX_CAMPAIGN_CPA:
+                    camp_pause_reasons.append(f"Cloned Campaign Today CPA ${c_cpa_1d:.2f} > ${MAX_CAMPAIGN_CPA:.2f} (Spend=${c_spend_1d:.2f}, Sales={c_conv_1d})")
 
             if camp_pause_reasons and not is_cross_monitored_product_campaign(camp_name):
                 c_reason_str = " | ".join(camp_pause_reasons)
