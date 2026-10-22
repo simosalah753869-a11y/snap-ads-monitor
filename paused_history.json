@@ -371,6 +371,24 @@
       "campaign": "باور بانك وينر",
       "reason": "[3-Day Audit] [Copy Rule] صرفت $5.16 (>= $5.00) بدون مبيعات",
       "paused_at": "2026-10-21 19:26 GMT+3"
+    },
+    "25fb75fe-9eda-4e1f-a3fe-c98e6dd2e6fd": {
+      "name": "Copy of SA_Watch Target Cost Men 20+ | 2.8 Bid",
+      "campaign": "smart+ watch suis SA 18-10",
+      "reason": "[3-Day Audit] [Copy Rule] سعر البيعة CPA = $8.68 (> $8.00) | الصرف: $26.03 | المبيعات: 3",
+      "paused_at": "2026-10-22 22:25 GMT+3"
+    },
+    "49943e45-bb7e-4ec8-b7c4-afc4770af321": {
+      "name": "Copy of Copy of 1.5 | 23.8 [H4]",
+      "campaign": "car scaling camp ",
+      "reason": "[3-Day Audit] [Copy Rule] سعر البيعة CPA = $8.03 (> $8.00) | الصرف: $40.16 | المبيعات: 5",
+      "paused_at": "2026-10-22 22:25 GMT+3"
+    },
+    "d9c93c32-8795-4a05-b093-a3fd6b185130": {
+      "name": "Copy of 16-10 1 [H4]",
+      "campaign": "باور بانك وينر",
+      "reason": "[3-Day Audit] [Copy Rule] سعر البيعة CPA = $8.34 (> $8.00) | الصرف: $8.34 | المبيعات: 1",
+      "paused_at": "2026-10-22 22:25 GMT+3"
     }
   },
   "ads": {
@@ -3465,8 +3483,8 @@
       "name": "SA_Car_tc_v2",
       "campaign": "smart+ cars SA 18-10",
       "adsquad": "Copy of SA_Car Target Cost Men 20+ | 2.8 Bid",
-      "reason": "[Aggregated Video High CPA 3D - السعودية] مجموع صرف الفيديو لـ 3 أيام = $16.15 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $16.15 (>= $16.00)",
-      "paused_at": "2026-10-20 20:17 GMT+3"
+      "reason": "[Aggregated Video High CPA 3D - السعودية] مجموع صرف الفيديو التراكمي لـ 3 أيام = $14.77 | المبيعات = 1 | CPA التراكمي = $14.77 (> $9.50)",
+      "paused_at": "2026-10-22 22:25 GMT+3"
     },
     "20420d16-d0e3-49f8-bf92-7f8868c4a194": {
       "name": "SA_Car_tc_v2",
@@ -4914,8 +4932,8 @@
       "name": "SA_Watch_tc_v6",
       "campaign": "smart+ watch suis SA 18-10",
       "adsquad": "Copy of SA_Watch Target Cost Men 20+ | 2.8 Bid",
-      "reason": "[Aggregated Video High CPA 3D - السعودية] مجموع صرف الفيديو لـ 3 أيام = $81.10 | المبيعات = 8 | CPA التراكمي = $10.14 (> $9.50)",
-      "paused_at": "2026-10-21 14:12 GMT+3"
+      "reason": "[Permanent Disabled Video Lock - السعودية] هذا الفيديو التراكمي موقوف نهائياً ولن يُسمح بإعادة تشغيله في أي AdSquad",
+      "paused_at": "2026-10-22 22:25 GMT+3"
     },
     "d620d19c-1acc-48b4-9db7-664b0b126556": {
       "name": "SA_Watch_tc_v6",
@@ -9247,8 +9265,8 @@
       "name": "W6_2",
       "campaign": "smart+ watch suis SA 18-10",
       "adsquad": "Copy of SA_Watch Target Cost Men 20+ | 2.8 Bid",
-      "reason": "[Aggregated Video High CPA 3D - السعودية] مجموع صرف الفيديو التراكمي لـ 3 أيام = $41.40 | المبيعات = 3 | CPA التراكمي = $13.80 (> $9.50)",
-      "paused_at": "2026-10-22 12:55 GMT+3"
+      "reason": "[Aggregated Video High CPA 3D - السعودية] مجموع صرف الفيديو التراكمي لـ 3 أيام = $55.54 | المبيعات = 5 | CPA التراكمي = $11.11 (> $9.50)",
+      "paused_at": "2026-10-22 22:25 GMT+3"
     },
     "d52cd5a3-660c-471d-a6f5-0913326d2b32": {
       "name": "26-9_ola_3",
@@ -9996,8 +10014,8 @@
       "name": "W3_2",
       "campaign": "smart+ watch suis SA 18-10",
       "adsquad": "Copy of SA_Watch Target Cost Men 20+ | 2.8 Bid",
-      "reason": "[Aggregated Video High CPA 3D - السعودية] مجموع صرف الفيديو لـ 3 أيام = $73.96 | المبيعات = 5 | CPA التراكمي = $14.79 (> $9.50)",
-      "paused_at": "2026-10-22 12:32 GMT+3"
+      "reason": "[Aggregated Video High CPA 3D - السعودية] مجموع صرف الفيديو التراكمي لـ 3 أيام = $74.09 | المبيعات = 5 | CPA التراكمي = $14.82 (> $9.50)",
+      "paused_at": "2026-10-22 22:25 GMT+3"
     },
     "a4031294-ffd3-4949-9996-431426bf20be": {
       "name": "Copy of Copy of Copy of Copy of 2",
@@ -10236,6 +10254,41 @@
       "adsquad": "Headline Lab H1-H3 | Elite Winners",
       "reason": "[Permanent Disabled Video Lock - السعودية] هذا الفيديو التراكمي موقوف نهائياً ولن يُسمح بإعادة تشغيله في أي AdSquad",
       "paused_at": "2026-10-22 22:08 GMT+3"
+    },
+    "bf916b3d-bc84-4eb9-b10f-36371028f140": {
+      "name": "QA_PB_v8",
+      "campaign": "باور بانك قطر 18-10",
+      "adsquad": "QA_PB Smart+ Broad | 2.6 Bid",
+      "reason": "[Ad CPC Rule] صرف الفيديو $1.12 (>= $1.00) | النقرات: 1 | سعر النقرة CPC = $1.12 (> $0.35)",
+      "paused_at": "2026-10-22 22:25 GMT+3"
+    },
+    "17d6434b-6f33-4b97-b71f-af2020950855": {
+      "name": "SA_Watch_tc_v6",
+      "campaign": "smart+ watch suis SA 18-10",
+      "adsquad": "Copy of SA_Watch Target Cost Men 20+ | 2.8 Bid",
+      "reason": "[Permanent Disabled Video Lock - السعودية] هذا الفيديو التراكمي موقوف نهائياً ولن يُسمح بإعادة تشغيله في أي AdSquad",
+      "paused_at": "2026-10-22 22:25 GMT+3"
+    },
+    "49208db5-f837-45a1-b067-618180c9a0d2": {
+      "name": "SA_Watch_tc_v6",
+      "campaign": "smart+ watch suis SA 18-10",
+      "adsquad": "Copy of SA_Watch Target Cost Men 20+ | 2.8 Bid",
+      "reason": "[Permanent Disabled Video Lock - السعودية] هذا الفيديو التراكمي موقوف نهائياً ولن يُسمح بإعادة تشغيله في أي AdSquad",
+      "paused_at": "2026-10-22 22:25 GMT+3"
+    },
+    "a48b3a78-6b3f-4add-a466-cbe37f27b241": {
+      "name": "Copy of Copy of Copy of Copy of Copy of 1",
+      "campaign": "car scaling camp ",
+      "adsquad": "Copy of Copy of 1.5 | 23.8",
+      "reason": "[Aggregated Video High CPA 3D - السعودية] مجموع صرف الفيديو التراكمي لـ 3 أيام = $266.77 | المبيعات = 26 | CPA التراكمي = $10.26 (> $9.50)",
+      "paused_at": "2026-10-22 22:25 GMT+3"
+    },
+    "a6675960-74e6-411a-94c9-83d91e148d30": {
+      "name": "Copy of 4",
+      "campaign": "car scaling camp ",
+      "adsquad": "Copy of Copy of 1.5 | 23.8",
+      "reason": "[Global Accumulated Video High CPA 3D] مجموع صرف الفيديو التراكمي لـ 3 أيام على مستوى الحساب = $22.20 | المبيعات = 2 | CPA التراكمي = $11.10 (> $9.50)",
+      "paused_at": "2026-10-22 22:25 GMT+3"
     }
   },
   "bid_bumps": {
@@ -12586,10 +12639,10 @@
       "video_media_id": "a959f636-d6ed-468c-ad35-2c3b7b496d6e",
       "sample_ad_name": "W6_2",
       "closed_instances": 1,
-      "total_spend": 44.54,
-      "total_purchases": 3,
-      "reason": "[Aggregated Video High CPA 3D - السعودية] مجموع صرف الفيديو التراكمي لـ 3 أيام = $41.40 | المبيعات = 3 | CPA التراكمي = $13.80 (> $9.50)",
-      "disabled_at": "2026-10-22 12:55 GMT+3"
+      "total_spend": 59.62,
+      "total_purchases": 5,
+      "reason": "[Aggregated Video High CPA 3D - السعودية] مجموع صرف الفيديو التراكمي لـ 3 أيام = $55.54 | المبيعات = 5 | CPA التراكمي = $11.11 (> $9.50)",
+      "disabled_at": "2026-10-22 22:25 GMT+3"
     },
     "4504af26-5609-4e7b-aeca-e11cf9e03846:NAME:W6_2": {
       "campaign_id": "4504af26-5609-4e7b-aeca-e11cf9e03846",
@@ -12597,10 +12650,10 @@
       "video_media_id": "a959f636-d6ed-468c-ad35-2c3b7b496d6e",
       "sample_ad_name": "W6_2",
       "closed_instances": 1,
-      "total_spend": 44.54,
-      "total_purchases": 3,
-      "reason": "[Aggregated Video High CPA 3D - السعودية] مجموع صرف الفيديو التراكمي لـ 3 أيام = $41.40 | المبيعات = 3 | CPA التراكمي = $13.80 (> $9.50)",
-      "disabled_at": "2026-10-22 12:55 GMT+3"
+      "total_spend": 59.62,
+      "total_purchases": 5,
+      "reason": "[Aggregated Video High CPA 3D - السعودية] مجموع صرف الفيديو التراكمي لـ 3 أيام = $55.54 | المبيعات = 5 | CPA التراكمي = $11.11 (> $9.50)",
+      "disabled_at": "2026-10-22 22:25 GMT+3"
     },
     "9be45a26-06ac-4716-8e7b-2fb3a4d65e4c:NAME:2": {
       "campaign_id": "9be45a26-06ac-4716-8e7b-2fb3a4d65e4c",
@@ -12618,11 +12671,11 @@
       "campaign_name": "car scaling camp ",
       "video_media_id": "1",
       "sample_ad_name": "1",
-      "closed_instances": 6,
-      "total_spend": 1218.48,
-      "total_purchases": 154,
-      "reason": "[Aggregated Video High CPA 3D - السعودية] مجموع صرف الفيديو التراكمي لـ 3 أيام = $182.15 | المبيعات = 13 | CPA التراكمي = $14.01 (> $9.50)",
-      "disabled_at": "2026-10-22 12:55 GMT+3"
+      "closed_instances": 1,
+      "total_spend": 1598.96,
+      "total_purchases": 200,
+      "reason": "[Aggregated Video High CPA 3D - السعودية] مجموع صرف الفيديو التراكمي لـ 3 أيام = $266.77 | المبيعات = 26 | CPA التراكمي = $10.26 (> $9.50)",
+      "disabled_at": "2026-10-22 22:25 GMT+3"
     },
     "3fb9b26f-7705-4286-b371-4efcd904670c:GULF:MEDIA:22d7c271-05ae-4995-b9d5-b18c7c71a6f5": {
       "campaign_id": "3fb9b26f-7705-4286-b371-4efcd904670c",
@@ -12659,11 +12712,66 @@
       "campaign_name": "smart+ watch suis SA 18-10",
       "video_media_id": "SA_Watch_tc_v6",
       "sample_ad_name": "SA_Watch_tc_v6",
-      "closed_instances": 2,
+      "closed_instances": 3,
       "total_spend": 94.77,
       "total_purchases": 10,
       "reason": "[Permanent Disabled Video Lock - السعودية] هذا الفيديو التراكمي موقوف نهائياً ولن يُسمح بإعادة تشغيله في أي AdSquad",
-      "disabled_at": "2026-10-22 22:08 GMT+3"
+      "disabled_at": "2026-10-22 22:25 GMT+3"
+    },
+    "4504af26-5609-4e7b-aeca-e11cf9e03846:NAME:W3_2": {
+      "campaign_id": "4504af26-5609-4e7b-aeca-e11cf9e03846",
+      "campaign_name": "smart+ watch suis SA 18-10",
+      "video_media_id": "W3_2",
+      "sample_ad_name": "W3_2",
+      "closed_instances": 1,
+      "total_spend": 88.7,
+      "total_purchases": 6,
+      "reason": "[Aggregated Video High CPA 3D - السعودية] مجموع صرف الفيديو التراكمي لـ 3 أيام = $74.09 | المبيعات = 5 | CPA التراكمي = $14.82 (> $9.50)",
+      "disabled_at": "2026-10-22 22:25 GMT+3"
+    },
+    "baa69314-505c-4b3a-851e-883c10034935:MEDIA:9c252a90-aa3f-4e14-bf7b-ccad7a47a0fc": {
+      "campaign_id": "baa69314-505c-4b3a-851e-883c10034935",
+      "campaign_name": "smart+ cars SA 18-10",
+      "video_media_id": "9c252a90-aa3f-4e14-bf7b-ccad7a47a0fc",
+      "sample_ad_name": "SA_Car_tc_v2",
+      "closed_instances": 1,
+      "total_spend": 17.57,
+      "total_purchases": 1,
+      "reason": "[Aggregated Video High CPA 3D - السعودية] مجموع صرف الفيديو التراكمي لـ 3 أيام = $14.77 | المبيعات = 1 | CPA التراكمي = $14.77 (> $9.50)",
+      "disabled_at": "2026-10-22 22:25 GMT+3"
+    },
+    "baa69314-505c-4b3a-851e-883c10034935:NAME:SA_Car_tc_v2": {
+      "campaign_id": "baa69314-505c-4b3a-851e-883c10034935",
+      "campaign_name": "smart+ cars SA 18-10",
+      "video_media_id": "9c252a90-aa3f-4e14-bf7b-ccad7a47a0fc",
+      "sample_ad_name": "SA_Car_tc_v2",
+      "closed_instances": 1,
+      "total_spend": 17.57,
+      "total_purchases": 1,
+      "reason": "[Aggregated Video High CPA 3D - السعودية] مجموع صرف الفيديو التراكمي لـ 3 أيام = $14.77 | المبيعات = 1 | CPA التراكمي = $14.77 (> $9.50)",
+      "disabled_at": "2026-10-22 22:25 GMT+3"
+    },
+    "f8372cfb-ae46-44d0-bbb4-f39790ecc648:SA:MEDIA:9c252a90-aa3f-4e14-bf7b-ccad7a47a0fc": {
+      "campaign_id": "f8372cfb-ae46-44d0-bbb4-f39790ecc648",
+      "campaign_name": "car scaling camp ",
+      "video_media_id": "SA:MEDIA:9c252a90-aa3f-4e14-bf7b-ccad7a47a0fc",
+      "sample_ad_name": "Elite_Copy of 4",
+      "closed_instances": 1,
+      "total_spend": 122.95,
+      "total_purchases": 17,
+      "reason": "[Global Accumulated Video High CPA 3D] مجموع صرف الفيديو التراكمي لـ 3 أيام على مستوى الحساب = $22.20 | المبيعات = 2 | CPA التراكمي = $11.10 (> $9.50)",
+      "disabled_at": "2026-10-22 22:25 GMT+3"
+    },
+    "GLOBAL:NAME:Elite_Copy of 4": {
+      "campaign_id": "GLOBAL",
+      "campaign_name": "ALL_CAMPAIGNS",
+      "video_media_id": "SA:MEDIA:9c252a90-aa3f-4e14-bf7b-ccad7a47a0fc",
+      "sample_ad_name": "Elite_Copy of 4",
+      "closed_instances": 1,
+      "total_spend": 122.95,
+      "total_purchases": 17,
+      "reason": "[Global Accumulated Video High CPA 3D] مجموع صرف الفيديو التراكمي لـ 3 أيام على مستوى الحساب = $22.20 | المبيعات = 2 | CPA التراكمي = $11.10 (> $9.50)",
+      "disabled_at": "2026-10-22 22:25 GMT+3"
     }
   },
   "tiktok_campaigns": {
@@ -17760,6 +17868,48 @@
       "global_spend_7d": 19.35,
       "global_conv_7d": 2,
       "paused_at": "2026-10-22T14:19:44.105792+00:00"
+    },
+    "7631763556322148369:1879504465445281:1879504468172914": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "ad_id": "1879504465445281",
+      "creative_id": "1879504466869441",
+      "campaign_ad_name": "car armrest 19-10 (Hanan + Ola 17-10) / car armrest 19-10 (Hanan + Ola 17-10) - Creative",
+      "video_name": "19_10_17-10_hanan_4.mp4",
+      "draft_ids": [
+        "1879504468172914"
+      ],
+      "reason": "2-Day Spend $1.00 >= $1.00 & CPC $1.00 > $0.35",
+      "spend_1d": 0.24,
+      "conv_1d": 0,
+      "spend_2d": 1.0,
+      "conv_2d": 0,
+      "spend_3d": 1.24,
+      "conv_3d": 0,
+      "spend_7d": 1.41,
+      "conv_7d": 0,
+      "paused_at": "2026-10-22T19:22:04.932096+00:00"
+    },
+    "7631763556322148369:1879689078764753:1879689082319938": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "ad_id": "1879689078764753",
+      "creative_id": "1879689080510498",
+      "campaign_ad_name": "car armrest 21-10 (Hanan 20-10 & 12-10 Edit) / car armrest 21-10 (Hanan 20-10 & 12-10 Edit) - Creative",
+      "video_name": "21-10_hanan_12-10_2.mp4",
+      "draft_ids": [
+        "1879689082319938"
+      ],
+      "reason": "Today Spend $1.00 >= $1.00 & CPC $0.50 > $0.35",
+      "spend_1d": 1.0,
+      "conv_1d": 0,
+      "spend_2d": 1.02,
+      "conv_2d": 0,
+      "spend_3d": 1.02,
+      "conv_3d": 0,
+      "spend_7d": 1.03,
+      "conv_7d": 0,
+      "paused_at": "2026-10-22T19:22:05.560482+00:00"
     }
   },
   "tiktok_ads": {},
@@ -18171,202 +18321,98 @@
       "spend_3d": 139.9,
       "purchases_3d": 8,
       "cpa_3d": 17.49,
-      "updated_at": "2026-10-22 22:19 GMT+3"
+      "updated_at": "2026-10-22 22:25 GMT+3"
     },
     "4504af26-5609-4e7b-aeca-e11cf9e03846": {
       "name": "smart+ watch suis SA 18-10",
       "spend_3d": 209.83,
       "purchases_3d": 19,
       "cpa_3d": 11.04,
-      "updated_at": "2026-10-22 22:19 GMT+3"
+      "updated_at": "2026-10-22 22:25 GMT+3"
     },
     "8703fd84-bad8-482e-adb5-da1e9c635d13": {
       "name": "watch suis winners 17-10",
       "spend_3d": 25.28,
       "purchases_3d": 3,
       "cpa_3d": 8.43,
-      "updated_at": "2026-10-22 22:19 GMT+3"
+      "updated_at": "2026-10-22 22:25 GMT+3"
     },
     "9be45a26-06ac-4716-8e7b-2fb3a4d65e4c": {
       "name": "car scaling new 2 text",
       "spend_3d": 160.3,
       "purchases_3d": 16,
       "cpa_3d": 10.02,
-      "updated_at": "2026-10-22 22:19 GMT+3"
+      "updated_at": "2026-10-22 22:25 GMT+3"
     },
     "baa69314-505c-4b3a-851e-883c10034935": {
       "name": "smart+ cars SA 18-10",
       "spend_3d": 251.24,
       "purchases_3d": 21,
       "cpa_3d": 11.96,
-      "updated_at": "2026-10-22 22:19 GMT+3"
+      "updated_at": "2026-10-22 22:25 GMT+3"
     },
     "e23e7c95-3f15-4945-9844-8bd73e2d79d3": {
       "name": "باور بانك وينر",
       "spend_3d": 101.52,
       "purchases_3d": 8,
       "cpa_3d": 12.69,
-      "updated_at": "2026-10-22 22:19 GMT+3"
+      "updated_at": "2026-10-22 22:25 GMT+3"
     },
     "4eefa50f-9008-4aea-b159-d370150b60cf": {
       "name": "صندوق دفاتر TIME X 21-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-22 22:19 GMT+3"
+      "updated_at": "2026-10-22 22:25 GMT+3"
     },
     "a171c141-a6d5-403e-8357-5c8f6c01bce0": {
       "name": "وسادة مايباخ 21-10",
       "spend_3d": 10.24,
       "purchases_3d": 0,
       "cpa_3d": null,
-      "updated_at": "2026-10-22 22:19 GMT+3"
+      "updated_at": "2026-10-22 22:25 GMT+3"
     },
     "c5a7cade-6ec3-4c47-b3a2-c5f08bcf8da0": {
       "name": "وسادة مايباخ 21-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-22 22:19 GMT+3"
+      "updated_at": "2026-10-22 22:25 GMT+3"
     },
     "1879653126110545": {
       "name": "timex books 21-10",
       "aadvid": "7631763556322148369",
       "reason": "Single-Campaign Cross-Platform Monitored Product Campaign",
-      "updated_at": "2026-10-22 22:23 GMT+3"
+      "updated_at": "2026-10-22 22:13 GMT+3"
     },
     "e8f0a5e9-89c5-4c14-aabb-c9c6c657891d": {
       "name": "مسخن الرضاعات اللاسلكي 22-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-22 22:19 GMT+3"
+      "updated_at": "2026-10-22 22:25 GMT+3"
     },
     "f18a3bf4-148a-4f5e-baa1-f90335f1884c": {
       "name": "مسخن الرضاعات اللاسلكي 22-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-22 22:19 GMT+3"
+      "updated_at": "2026-10-22 22:25 GMT+3"
     },
     "1879676075637041": {
       "name": "baby bottle warmer 22-10",
       "aadvid": "7631763556322148369",
       "reason": "Single-Campaign Cross-Platform Monitored Product Campaign",
-      "updated_at": "2026-10-22 22:23 GMT+3"
+      "updated_at": "2026-10-22 22:13 GMT+3"
     },
     "1879690057017602": {
       "name": "maybach pillow 21-10 (Boost CC 8.8)",
       "aadvid": "7631763556322148369",
       "reason": "Single-Campaign Cross-Platform Monitored Product Campaign",
-      "updated_at": "2026-10-22 22:23 GMT+3"
+      "updated_at": "2026-10-22 22:13 GMT+3"
     },
     "29891f22-e046-4cc8-b9ee-9921d2d65f0b": {
       "name": "مسخن الرضاعات اللاسلكي 22-10",
-      "reason": "Single-AdSquad Cross-Platform Monitored Product Campaign",
-      "updated_at": "2026-10-22 22:23 GMT+3"
+      "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
+      "updated_at": "2026-10-22 22:25 GMT+3"
     },
     "1879653022433617": {
       "name": "maybach pillow 21-10",
       "aadvid": "7631763556322148369",
       "reason": "Single-Campaign Cross-Platform Monitored Product Campaign",
-      "updated_at": "2026-10-22 22:23 GMT+3"
-    },
-    "1879155925017650": {
-      "name": "power bank winner 16-10 A",
-      "aadvid": "7631763556322148369",
-      "spend_3d": 101.57,
-      "purchases_3d": 12,
-      "cpa_3d": 8.46,
-      "reason": "3-Day CPA > $8.00 — Duplication Blocked"
-    },
-    "1879577430883393": {
-      "name": "qatar kashaf 20-10 (Accel CC 11.5)",
-      "aadvid": "7631763556322148369",
-      "spend_3d": 79.28,
-      "purchases_3d": 6,
-      "cpa_3d": 13.21,
-      "reason": "3-Day CPA > $13.00 — Duplication Blocked"
-    },
-    "1879340705037537": {
-      "name": "power bank 18-10 (Ola + Hanan 15-10)",
-      "aadvid": "7631763556322148369",
-      "spend_3d": 72.39,
-      "purchases_3d": 9,
-      "cpa_3d": 8.04,
-      "reason": "3-Day CPA > $8.00 — Duplication Blocked"
-    },
-    "1879581597584850": {
-      "name": "car armrest 20-10 (5 Videos)",
-      "aadvid": "7631763556322148369",
-      "spend_3d": 50.37,
-      "purchases_3d": 6,
-      "cpa_3d": 8.39,
-      "reason": "3-Day CPA > $8.00 — Duplication Blocked"
-    },
-    "1878973125748978": {
-      "name": "car armrest leads  13-10",
-      "aadvid": "7631763556322148369",
-      "spend_3d": 49.31,
-      "purchases_3d": 6,
-      "cpa_3d": 8.22,
-      "reason": "3-Day CPA > $8.00 — Duplication Blocked"
-    },
-    "1879504465445265": {
-      "name": "car armrest 19-10 (Hanan + Ola 17-10)",
-      "aadvid": "7631763556322148369",
-      "spend_3d": 45.26,
-      "purchases_3d": 4,
-      "cpa_3d": 11.31,
-      "reason": "3-Day CPA > $8.00 — Duplication Blocked"
-    },
-    "1879598604627026": {
-      "name": "car armrest 20-10 (7 Flow Hook Ads B)",
-      "aadvid": "7631763556322148369",
-      "spend_3d": 29.62,
-      "purchases_3d": 2,
-      "cpa_3d": 14.81,
-      "reason": "3-Day CPA > $8.00 — Duplication Blocked"
-    },
-    "1879598580856226": {
-      "name": "car armrest 20-10 (7 Flow Hook Ads A)",
-      "aadvid": "7631763556322148369",
-      "spend_3d": 26.5,
-      "purchases_3d": 3,
-      "cpa_3d": 8.83,
-      "reason": "3-Day CPA > $8.00 — Duplication Blocked"
-    },
-    "1879568832867394": {
-      "name": "car armrest 20-10 (Hanan + Ola 18-10)",
-      "aadvid": "7631763556322148369",
-      "spend_3d": 21.49,
-      "purchases_3d": 1,
-      "cpa_3d": 21.49,
-      "reason": "3-Day CPA > $8.00 — Duplication Blocked"
-    },
-    "1879577375941873": {
-      "name": "oman power bank 20-10 (Accel CC 11.5)",
-      "aadvid": "7631763556322148369",
-      "spend_3d": 13.25,
-      "purchases_3d": 0,
-      "cpa_3d": null,
-      "reason": "3-Day CPA > $13.00 — Duplication Blocked"
-    },
-    "1879700957516065": {
-      "name": "power bank 22-10 (7 Voltrx Hooks B)",
-      "aadvid": "7631765139798081554",
-      "spend_3d": 8.05,
-      "purchases_3d": 0,
-      "cpa_3d": null,
-      "reason": "3-Day CPA > $8.00 — Duplication Blocked"
-    },
-    "1879700783803490": {
-      "name": "power bank 22-10 (7 Voltrx Hooks A)",
-      "aadvid": "7631765070816509959",
-      "spend_3d": 8.41,
-      "purchases_3d": 1,
-      "cpa_3d": 8.41,
-      "reason": "3-Day CPA > $8.00 — Duplication Blocked"
-    },
-    "1879700803692817": {
-      "name": "power bank 22-10 (7 Voltrx Hooks B)",
-      "aadvid": "7631765070816509959",
-      "spend_3d": 8.11,
-      "purchases_3d": 0,
-      "cpa_3d": null,
-      "reason": "3-Day CPA > $8.00 — Duplication Blocked"
+      "updated_at": "2026-10-22 22:13 GMT+3"
     }
   },
   "proactive_scaled_squads": {
