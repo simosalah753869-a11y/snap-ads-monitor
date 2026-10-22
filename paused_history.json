@@ -17239,64 +17239,6 @@
       "sample_name": "16-10_ola_3.mp4",
       "reason": "Permanent Multi-AdSet Video Stop-Loss"
     },
-    "16-10_pb_winner_1": {
-      "v_key": "16-10_pb_winner_1",
-      "sample_name": "16-10_pb_winner_1.mp4",
-      "accounts": [
-        "ROELLINGER RECYCLING"
-      ],
-      "total_copies": 11,
-      "closed_copies": 1,
-      "spend_1d": 5.71,
-      "conv_1d": 0,
-      "spend_2d": 12.3,
-      "conv_2d": 0,
-      "spend_3d": 24.06,
-      "conv_3d": 1,
-      "spend_7d": 55.89,
-      "conv_7d": 13,
-      "reason": "[Global Dup Video High CPA 3D] Total 3-Day CPA $24.06 >= $18.00 (Total Spend=$24.06, Total Sales=1)",
-      "disabled_at": "2026-10-20T13:12:48.755238+00:00"
-    },
-    "16-10_pb_winner_7": {
-      "v_key": "16-10_pb_winner_7",
-      "sample_name": "16-10_pb_winner_7.mp4",
-      "accounts": [
-        "ROELLINGER RECYCLING"
-      ],
-      "total_copies": 9,
-      "closed_copies": 1,
-      "spend_1d": 0.0,
-      "conv_1d": 0,
-      "spend_2d": 1.23,
-      "conv_2d": 0,
-      "spend_3d": 22.29,
-      "conv_3d": 1,
-      "spend_7d": 67.86,
-      "conv_7d": 5,
-      "reason": "[Global Dup Video High CPA 3D] Total 3-Day CPA $22.29 >= $18.00 (Total Spend=$22.29, Total Sales=1)",
-      "disabled_at": "2026-10-20T13:12:48.135467+00:00"
-    },
-    "16-10_hanan_5": {
-      "v_key": "16-10_hanan_5",
-      "sample_name": "16-10_hanan_5.mp4",
-      "accounts": [
-        "ROELLINGER RECYCLING",
-        "ROELLINGER RECYCLING2"
-      ],
-      "total_copies": 6,
-      "closed_copies": 2,
-      "spend_1d": 0.52,
-      "conv_1d": 0,
-      "spend_2d": 2.85,
-      "conv_2d": 0,
-      "spend_3d": 19.04,
-      "conv_3d": 0,
-      "spend_7d": 32.27,
-      "conv_7d": 3,
-      "reason": "[Global Dup Video Stop-Loss 3D] Total 3-Day Spend $19.04 >= $12.00 with 0 sales",
-      "disabled_at": "2026-10-20T11:51:41.422720+00:00"
-    },
     "16-10_pb_winner_2": {
       "v_key": "16-10_pb_winner_2",
       "sample_name": "16-10_pb_winner_2.mp4",
@@ -17373,46 +17315,6 @@
       "reason": "[Global Dup Video Stop-Loss 7D] Total 7-Day Spend $16.04 >= $12.00 with 0 sales",
       "disabled_at": "2026-10-20T11:51:51.190980+00:00"
     },
-    "15-10_video_7": {
-      "v_key": "15-10_video_7",
-      "sample_name": "15-10_video_7.mp4",
-      "accounts": [
-        "ROELLINGER RECYCLING",
-        "ROELLINGER RECYCLING2"
-      ],
-      "total_copies": 6,
-      "closed_copies": 1,
-      "spend_1d": 0.0,
-      "conv_1d": 0,
-      "spend_2d": 1.96,
-      "conv_2d": 0,
-      "spend_3d": 4.9,
-      "conv_3d": 0,
-      "spend_7d": 21.06,
-      "conv_7d": 1,
-      "reason": "[Global Dup Video High CPA 7D] Total 7-Day CPA $21.06 >= $18.00 (Total Spend=$21.06, Total Sales=1)",
-      "disabled_at": "2026-10-21T10:40:57.313813+00:00"
-    },
-    "15-10_video_6": {
-      "v_key": "15-10_video_6",
-      "sample_name": "15-10_video_6.mp4",
-      "accounts": [
-        "ROELLINGER RECYCLING",
-        "ROELLINGER RECYCLING2"
-      ],
-      "total_copies": 4,
-      "closed_copies": 1,
-      "spend_1d": 2.36,
-      "conv_1d": 0,
-      "spend_2d": 4.55,
-      "conv_2d": 0,
-      "spend_3d": 4.59,
-      "conv_3d": 0,
-      "spend_7d": 26.34,
-      "conv_7d": 1,
-      "reason": "[Global Dup Video High CPA 7D] Total 7-Day CPA $26.34 >= $18.00 (Total Spend=$26.34, Total Sales=1)",
-      "disabled_at": "2026-10-20T11:51:46.359461+00:00"
-    },
     "13_7(2)": {
       "v_key": "13_7(2)",
       "sample_name": "13_7(2)_ZDz3XRUG.mp4",
@@ -17444,26 +17346,6 @@
       "conv_7d": 0,
       "reason": "[Global Dup Video Stop-Loss 7D] Total 7-Day Spend $12.11 >= $12.00 with 0 sales",
       "disabled_at": "2026-10-20T18:32:45.556310+00:00"
-    },
-    "16-10_hanan_2": {
-      "v_key": "16-10_hanan_2",
-      "sample_name": "16-10_hanan_2.mp4",
-      "accounts": [
-        "ROELLINGER RECYCLING",
-        "ROELLINGER RECYCLING2"
-      ],
-      "total_copies": 7,
-      "closed_copies": 2,
-      "spend_1d": 1.24,
-      "conv_1d": 0,
-      "spend_2d": 4.68,
-      "conv_2d": 0,
-      "spend_3d": 6.33,
-      "conv_3d": 0,
-      "spend_7d": 18.01,
-      "conv_7d": 1,
-      "reason": "[Global Dup Video High CPA 7D] Total 7-Day CPA $18.01 >= $18.00 (Total Spend=$18.01, Total Sales=1)",
-      "disabled_at": "2026-10-20T19:54:30.002627+00:00"
     },
     "15_9(3)": {
       "v_key": "15_9(3)",
@@ -17556,45 +17438,6 @@
       "reason": "7-Day Accumulated Spend $6.07 > $6.00 with 0 sales | Today Spend $3.66 >= $1.00 & CPC $1.83 > $0.35",
       "disabled_at": "2026-10-21T10:40:51.595996+00:00"
     },
-    "15-10_video_1": {
-      "v_key": "15-10_video_1",
-      "sample_name": "15-10_video_1.mp4",
-      "accounts": [
-        "ROELLINGER RECYCLING",
-        "ROELLINGER RECYCLING2"
-      ],
-      "total_copies": 7,
-      "closed_copies": 2,
-      "spend_1d": 0.22,
-      "conv_1d": 0,
-      "spend_2d": 0.22,
-      "conv_2d": 0,
-      "spend_3d": 4.23,
-      "conv_3d": 0,
-      "spend_7d": 39.73,
-      "conv_7d": 2,
-      "reason": "[Global Dup Video High CPA 7D] Total 7-Day CPA $19.86 >= $18.00 (Total Spend=$39.73, Total Sales=2)",
-      "disabled_at": "2026-10-21T10:40:53.770788+00:00"
-    },
-    "18_10_15-10_hanan_3": {
-      "v_key": "18_10_15-10_hanan_3",
-      "sample_name": "18_10_15-10_hanan_3.mp4",
-      "accounts": [
-        "ROELLINGER RECYCLING"
-      ],
-      "total_copies": 8,
-      "closed_copies": 4,
-      "spend_1d": 13.54,
-      "conv_1d": 1,
-      "spend_2d": 23.75,
-      "conv_2d": 1,
-      "spend_3d": 25.65,
-      "conv_3d": 1,
-      "spend_7d": 26.96,
-      "conv_7d": 1,
-      "reason": "[Global Dup Video High CPA 2D] Total 2-Day CPA $23.75 >= $22.00 (Total Spend=$23.75, Total Sales=1)",
-      "disabled_at": "2026-10-21T10:40:56.632970+00:00"
-    },
     "18_10_15-10_ola_3": {
       "v_key": "18_10_15-10_ola_3",
       "sample_name": "18_10_15-10_ola_3.mp4",
@@ -17633,82 +17476,6 @@
       "reason": "[Global Dup Video Stop-Loss 7D] Total 7-Day Spend $12.13 >= $12.00 with 0 sales",
       "disabled_at": "2026-10-21T10:41:00.886646+00:00"
     },
-    "16-10_pb_winner_5": {
-      "v_key": "16-10_pb_winner_5",
-      "sample_name": "16-10_pb_winner_5.mp4",
-      "accounts": [
-        "ROELLINGER RECYCLING"
-      ],
-      "total_copies": 16,
-      "closed_copies": 1,
-      "spend_1d": 22.05,
-      "conv_1d": 1,
-      "spend_2d": 34.8,
-      "conv_2d": 3,
-      "spend_3d": 83.54,
-      "conv_3d": 8,
-      "spend_7d": 237.11,
-      "conv_7d": 23,
-      "reason": "[Global Dup Video High CPA 3D] Total 3-Day CPA $10.44 >= $9.00 (Total Spend=$83.54, Total Sales=8)",
-      "disabled_at": "2026-10-21T10:49:41.631273+00:00"
-    },
-    "21_9(2)": {
-      "v_key": "21_9(2)",
-      "sample_name": "21_9(2)_97fNkmDS.mp4",
-      "accounts": [
-        "ROELLINGER RECYCLING"
-      ],
-      "total_copies": 4,
-      "closed_copies": 1,
-      "spend_1d": 0.19,
-      "conv_1d": 0,
-      "spend_2d": 0.42,
-      "conv_2d": 0,
-      "spend_3d": 9.48,
-      "conv_3d": 0,
-      "spend_7d": 70.83,
-      "conv_7d": 9,
-      "reason": "[Global Dup Video Stop-Loss 3D] Total 3-Day Spend $9.48 >= $8.00 with 0 sales",
-      "disabled_at": "2026-10-21T10:49:42.380699+00:00"
-    },
-    "18_10_15-10_ola_4": {
-      "v_key": "18_10_15-10_ola_4",
-      "sample_name": "18_10_15-10_ola_4.mp4",
-      "accounts": [
-        "ROELLINGER RECYCLING"
-      ],
-      "total_copies": 8,
-      "closed_copies": 1,
-      "spend_1d": 0.99,
-      "conv_1d": 0,
-      "spend_2d": 2.17,
-      "conv_2d": 0,
-      "spend_3d": 9.91,
-      "conv_3d": 1,
-      "spend_7d": 14.13,
-      "conv_7d": 1,
-      "reason": "[Global Dup Video High CPA 3D] Total 3-Day CPA $9.91 >= $9.00 (Total Spend=$9.91, Total Sales=1)",
-      "disabled_at": "2026-10-21T10:49:43.078775+00:00"
-    },
-    "23_9": {
-      "v_key": "23_9",
-      "sample_name": "23_9_zBIwX4ni.mov",
-      "accounts": [
-        "ROELLINGER RECYCLING"
-      ],
-      "total_copies": 4,
-      "closed_copies": 1,
-      "spend_1d": 0.0,
-      "conv_1d": 0,
-      "spend_2d": 2.15,
-      "conv_2d": 0,
-      "spend_3d": 3.18,
-      "conv_3d": 0,
-      "spend_7d": 11.92,
-      "conv_7d": 1,
-      "reason": "[Global Dup Video High CPA 7D] Total 7-Day CPA $11.92 >= $9.00 (Total Spend=$11.92, Total Sales=1)",
-      "disabled_at": "2026-10-21T10:49:43.751392+00:00"
-    },
     "18_10_15-10_hanan_1": {
       "v_key": "18_10_15-10_hanan_1",
       "sample_name": "18_10_15-10_hanan_1.mp4",
@@ -17727,84 +17494,6 @@
       "conv_7d": 0,
       "reason": "[Global Dup Video Stop-Loss 3D] Total 3-Day Spend $8.12 >= $8.00 with 0 sales",
       "disabled_at": "2026-10-21T10:49:45.015677+00:00"
-    },
-    "غطاء مساند ذراع السيارة فاخر مُبطّن بذاكرة فوم مع حافظة مناديل وجوال-music_refresh-7-18": {
-      "v_key": "غطاء مساند ذراع السيارة فاخر مُبطّن بذاكرة فوم مع حافظة مناديل وجوال-music_refresh-7-18",
-      "sample_name": "غطاء مساند ذراع السيارة فاخر مُبطّن بذاكرة فوم مع حافظة مناديل وجوال-Music_Refresh-7-18",
-      "accounts": [
-        "ROELLINGER RECYCLING"
-      ],
-      "total_copies": 3,
-      "closed_copies": 1,
-      "spend_1d": 0.0,
-      "conv_1d": 0,
-      "spend_2d": 0.0,
-      "conv_2d": 0,
-      "spend_3d": 0.0,
-      "conv_3d": 0,
-      "spend_7d": 11.66,
-      "conv_7d": 1,
-      "reason": "[Permanent Global Dup Video Lock] Video 'غطاء مساند ذراع السيارة فاخر مُبطّن بذاكرة فوم مع حافظة مناديل وجوال-music_refresh-7-18' was permanently disabled across all AdSets and is NEVER allowed to run again",
-      "disabled_at": "2026-10-21T11:09:01.758813+00:00"
-    },
-    "12_10(3)": {
-      "v_key": "12_10(3)",
-      "sample_name": "12_10(3).mp4",
-      "accounts": [
-        "ROELLINGER RECYCLING",
-        "ROELLINGER RECYCLING2"
-      ],
-      "total_copies": 6,
-      "closed_copies": 1,
-      "spend_1d": 0.0,
-      "conv_1d": 0,
-      "spend_2d": 0.01,
-      "conv_2d": 0,
-      "spend_3d": 0.01,
-      "conv_3d": 0,
-      "spend_7d": 11.18,
-      "conv_7d": 1,
-      "reason": "[Global Dup Video High CPA 7D] Total 7-Day CPA $11.18 >= $9.00 (Total Spend=$11.18, Total Sales=1)",
-      "disabled_at": "2026-10-21T10:49:46.339330+00:00"
-    },
-    "12_10(4)": {
-      "v_key": "12_10(4)",
-      "sample_name": "12_10(4).mp4",
-      "accounts": [
-        "ROELLINGER RECYCLING",
-        "ROELLINGER RECYCLING2"
-      ],
-      "total_copies": 6,
-      "closed_copies": 1,
-      "spend_1d": 0.0,
-      "conv_1d": 0,
-      "spend_2d": 0.02,
-      "conv_2d": 0,
-      "spend_3d": 0.09,
-      "conv_3d": 0,
-      "spend_7d": 10.96,
-      "conv_7d": 1,
-      "reason": "[Global Dup Video High CPA 7D] Total 7-Day CPA $10.96 >= $9.00 (Total Spend=$10.96, Total Sales=1)",
-      "disabled_at": "2026-10-21T10:49:47.261413+00:00"
-    },
-    "16-10_pb_winner_8": {
-      "v_key": "16-10_pb_winner_8",
-      "sample_name": "16-10_pb_winner_8.mp4",
-      "accounts": [
-        "ROELLINGER RECYCLING"
-      ],
-      "total_copies": 10,
-      "closed_copies": 2,
-      "spend_1d": 1.57,
-      "conv_1d": 0,
-      "spend_2d": 4.13,
-      "conv_2d": 0,
-      "spend_3d": 5.39,
-      "conv_3d": 0,
-      "spend_7d": 9.29,
-      "conv_7d": 1,
-      "reason": "[Global Dup Video High CPA 7D] Total 7-Day CPA $9.29 >= $9.00 (Total Spend=$9.29, Total Sales=1)",
-      "disabled_at": "2026-10-21T10:49:48.698515+00:00"
     },
     "غطاء مساند ذراع السيارة فاخر مُبطّن بذاكرة فوم مع حافظة مناديل وجوال-music_refresh-4-7": {
       "v_key": "غطاء مساند ذراع السيارة فاخر مُبطّن بذاكرة فوم مع حافظة مناديل وجوال-music_refresh-4-7",
@@ -17863,238 +17552,6 @@
       "reason": "[Global Dup Video Stop-Loss 1D] Total Today Spend $8.24 >= $8.00 with 0 sales",
       "disabled_at": "2026-10-21T10:49:52.708123+00:00"
     },
-    "18_10_15-10_ola_5": {
-      "v_key": "18_10_15-10_ola_5",
-      "sample_name": "18_10_15-10_ola_5.mp4",
-      "accounts": [
-        "ROELLINGER RECYCLING"
-      ],
-      "total_copies": 8,
-      "closed_copies": 1,
-      "spend_1d": 35.48,
-      "conv_1d": 2,
-      "spend_2d": 36.66,
-      "conv_2d": 2,
-      "spend_3d": 59.5,
-      "conv_3d": 4,
-      "spend_7d": 68.25,
-      "conv_7d": 4,
-      "reason": "[Global Dup Video High CPA 3D] Total 3-Day CPA $14.88 >= $9.50 (Total Spend=$59.50, Total Sales=4)",
-      "disabled_at": "2026-10-21T12:12:18.990508+00:00"
-    },
-    "30_7(5)": {
-      "v_key": "30_7(5)",
-      "sample_name": "30_7(5)_RaUAZML4.mp4",
-      "accounts": [
-        "ROELLINGER RECYCLING"
-      ],
-      "total_copies": 2,
-      "closed_copies": 0,
-      "spend_1d": 62.97,
-      "conv_1d": 6,
-      "spend_2d": 64.12,
-      "conv_2d": 6,
-      "spend_3d": 81.18,
-      "conv_3d": 7,
-      "spend_7d": 181.83,
-      "conv_7d": 26,
-      "reason": "[Global Dup Video High CPA 3D] Total 3-Day CPA $11.60 >= $9.50 (Total Spend=$81.18, Total Sales=7)",
-      "disabled_at": "2026-10-21T12:24:49.369990+00:00"
-    },
-    "15-10_video_4": {
-      "v_key": "15-10_video_4",
-      "sample_name": "15-10_video_4.mp4",
-      "accounts": [
-        "ROELLINGER RECYCLING",
-        "ROELLINGER RECYCLING2"
-      ],
-      "total_copies": 8,
-      "closed_copies": 0,
-      "spend_1d": 0.9,
-      "conv_1d": 0,
-      "spend_2d": 0.9,
-      "conv_2d": 0,
-      "spend_3d": 0.9,
-      "conv_3d": 0,
-      "spend_7d": 87.54,
-      "conv_7d": 9,
-      "reason": "[Global Dup Video High CPA 7D] Total 7-Day CPA $9.73 >= $9.50 (Total Spend=$87.54, Total Sales=9)",
-      "disabled_at": "2026-10-21T12:24:49.369990+00:00"
-    },
-    "2 (1)": {
-      "v_key": "2 (1)",
-      "sample_name": "2 (1).mp4",
-      "accounts": [
-        "ROELLINGER RECYCLING"
-      ],
-      "total_copies": 3,
-      "closed_copies": 0,
-      "spend_1d": 0.0,
-      "conv_1d": 0,
-      "spend_2d": 0.13,
-      "conv_2d": 0,
-      "spend_3d": 3.76,
-      "conv_3d": 0,
-      "spend_7d": 54.61,
-      "conv_7d": 5,
-      "reason": "[Global Dup Video High CPA 7D] Total 7-Day CPA $10.92 >= $9.50 (Total Spend=$54.61, Total Sales=5)",
-      "disabled_at": "2026-10-21T12:24:49.369990+00:00"
-    },
-    "ققفق": {
-      "v_key": "ققفق",
-      "sample_name": "ققفق_gCMc9G02.mp4",
-      "accounts": [
-        "ROELLINGER RECYCLING2"
-      ],
-      "total_copies": 4,
-      "closed_copies": 0,
-      "spend_1d": 0.0,
-      "conv_1d": 0,
-      "spend_2d": 1.53,
-      "conv_2d": 0,
-      "spend_3d": 12.35,
-      "conv_3d": 0,
-      "spend_7d": 44.76,
-      "conv_7d": 4,
-      "reason": "[Global Dup Video Stop-Loss 3D] Total 3-Day Spend $12.35 >= $12.00 with 0 sales | [Global Dup Video High CPA 7D] Total 7-Day CPA $11.19 >= $9.50 (Total Spend=$44.76, Total Sales=4)",
-      "disabled_at": "2026-10-21T12:24:49.369990+00:00"
-    },
-    "15-10_video_10": {
-      "v_key": "15-10_video_10",
-      "sample_name": "15-10_video_10.mp4",
-      "accounts": [
-        "ROELLINGER RECYCLING",
-        "ROELLINGER RECYCLING2"
-      ],
-      "total_copies": 9,
-      "closed_copies": 0,
-      "spend_1d": 0.33,
-      "conv_1d": 0,
-      "spend_2d": 0.33,
-      "conv_2d": 0,
-      "spend_3d": 1.37,
-      "conv_3d": 0,
-      "spend_7d": 40.22,
-      "conv_7d": 3,
-      "reason": "[Global Dup Video High CPA 7D] Total 7-Day CPA $13.41 >= $9.50 (Total Spend=$40.22, Total Sales=3)",
-      "disabled_at": "2026-10-21T12:24:49.369990+00:00"
-    },
-    "19_10_17-10_hanan_5": {
-      "v_key": "19_10_17-10_hanan_5",
-      "sample_name": "19_10_17-10_hanan_5.mp4",
-      "accounts": [
-        "ROELLINGER RECYCLING"
-      ],
-      "total_copies": 4,
-      "closed_copies": 0,
-      "spend_1d": 4.42,
-      "conv_1d": 0,
-      "spend_2d": 29.38,
-      "conv_2d": 3,
-      "spend_3d": 29.55,
-      "conv_3d": 3,
-      "spend_7d": 29.55,
-      "conv_7d": 3,
-      "reason": "[Global Dup Video High CPA 3D] Total 3-Day CPA $9.85 >= $9.50 (Total Spend=$29.55, Total Sales=3)",
-      "disabled_at": "2026-10-21T12:24:49.369990+00:00"
-    },
-    "31_5": {
-      "v_key": "31_5",
-      "sample_name": "31_5.mp4",
-      "accounts": [
-        "ROELLINGER RECYCLING2"
-      ],
-      "total_copies": 4,
-      "closed_copies": 0,
-      "spend_1d": 0.0,
-      "conv_1d": 0,
-      "spend_2d": 8.2,
-      "conv_2d": 0,
-      "spend_3d": 17.85,
-      "conv_3d": 2,
-      "spend_7d": 28.86,
-      "conv_7d": 3,
-      "reason": "[Global Dup Video High CPA 7D] Total 7-Day CPA $9.62 >= $9.50 (Total Spend=$28.86, Total Sales=3)",
-      "disabled_at": "2026-10-21T12:24:49.369990+00:00"
-    },
-    "ساعة(3)": {
-      "v_key": "ساعة(3)",
-      "sample_name": "ساعة(3)_17CKxSRy.mov",
-      "accounts": [
-        "ROELLINGER RECYCLING2"
-      ],
-      "total_copies": 4,
-      "closed_copies": 0,
-      "spend_1d": 2.85,
-      "conv_1d": 0,
-      "spend_2d": 5.65,
-      "conv_2d": 0,
-      "spend_3d": 12.06,
-      "conv_3d": 1,
-      "spend_7d": 27.9,
-      "conv_7d": 6,
-      "reason": "[Global Dup Video High CPA 3D] Total 3-Day CPA $12.06 >= $9.50 (Total Spend=$12.06, Total Sales=1)",
-      "disabled_at": "2026-10-21T12:24:49.369990+00:00"
-    },
-    "15-10_video_3": {
-      "v_key": "15-10_video_3",
-      "sample_name": "15-10_video_3.mp4",
-      "accounts": [
-        "ROELLINGER RECYCLING",
-        "ROELLINGER RECYCLING2"
-      ],
-      "total_copies": 8,
-      "closed_copies": 0,
-      "spend_1d": 0.95,
-      "conv_1d": 0,
-      "spend_2d": 1.75,
-      "conv_2d": 0,
-      "spend_3d": 3.5,
-      "conv_3d": 0,
-      "spend_7d": 26.8,
-      "conv_7d": 2,
-      "reason": "[Global Dup Video High CPA 7D] Total 7-Day CPA $13.40 >= $9.50 (Total Spend=$26.80, Total Sales=2)",
-      "disabled_at": "2026-10-21T12:24:49.369990+00:00"
-    },
-    "15-10_video_8": {
-      "v_key": "15-10_video_8",
-      "sample_name": "15-10_video_8.mp4",
-      "accounts": [
-        "ROELLINGER RECYCLING",
-        "ROELLINGER RECYCLING2"
-      ],
-      "total_copies": 6,
-      "closed_copies": 0,
-      "spend_1d": 0.02,
-      "conv_1d": 0,
-      "spend_2d": 0.1,
-      "conv_2d": 0,
-      "spend_3d": 3.19,
-      "conv_3d": 0,
-      "spend_7d": 26.73,
-      "conv_7d": 2,
-      "reason": "[Global Dup Video High CPA 7D] Total 7-Day CPA $13.37 >= $9.50 (Total Spend=$26.73, Total Sales=2)",
-      "disabled_at": "2026-10-21T12:24:49.369990+00:00"
-    },
-    "11_9(1)": {
-      "v_key": "11_9(1)",
-      "sample_name": "11_9(1)_C05oPyUq.mp4",
-      "accounts": [
-        "ROELLINGER RECYCLING2"
-      ],
-      "total_copies": 4,
-      "closed_copies": 0,
-      "spend_1d": 0.0,
-      "conv_1d": 0,
-      "spend_2d": 0.58,
-      "conv_2d": 0,
-      "spend_3d": 4.81,
-      "conv_3d": 0,
-      "spend_7d": 26.18,
-      "conv_7d": 2,
-      "reason": "[Global Dup Video High CPA 7D] Total 7-Day CPA $13.09 >= $9.50 (Total Spend=$26.18, Total Sales=2)",
-      "disabled_at": "2026-10-21T12:24:49.369990+00:00"
-    },
     "ola_pb_17_10_5_1-10_1": {
       "v_key": "ola_pb_17_10_5_1-10_1",
       "sample_name": "ola_pb_17_10_5_1-10_1.mp4",
@@ -18115,368 +17572,6 @@
       "reason": "[Global Dup Video Stop-Loss 7D] Total 7-Day Spend $17.55 >= $12.00 with 0 sales",
       "disabled_at": "2026-10-21T12:24:49.369990+00:00"
     },
-    "ola_pb_17_10_1_3-10_2": {
-      "v_key": "ola_pb_17_10_1_3-10_2",
-      "sample_name": "ola_pb_17_10_1_3-10_2.mp4",
-      "accounts": [
-        "ROELLINGER RECYCLING",
-        "ROELLINGER RECYCLING2"
-      ],
-      "total_copies": 4,
-      "closed_copies": 0,
-      "spend_1d": 0.0,
-      "conv_1d": 0,
-      "spend_2d": 0.0,
-      "conv_2d": 0,
-      "spend_3d": 0.03,
-      "conv_3d": 0,
-      "spend_7d": 14.91,
-      "conv_7d": 1,
-      "reason": "[Global Dup Video High CPA 7D] Total 7-Day CPA $14.91 >= $9.50 (Total Spend=$14.91, Total Sales=1)",
-      "disabled_at": "2026-10-21T12:24:49.369990+00:00"
-    },
-    "غطاء مساند ذراع السيارة فاخر مُبطّن بذاكرة فوم مع حافظة مناديل وجوال-music_refresh-0-15": {
-      "v_key": "غطاء مساند ذراع السيارة فاخر مُبطّن بذاكرة فوم مع حافظة مناديل وجوال-music_refresh-0-15",
-      "sample_name": "غطاء مساند ذراع السيارة فاخر مُبطّن بذاكرة فوم مع حافظة مناديل وجوال-Music_Refresh-0-15",
-      "accounts": [
-        "ROELLINGER RECYCLING"
-      ],
-      "total_copies": 2,
-      "closed_copies": 0,
-      "spend_1d": 0.0,
-      "conv_1d": 0,
-      "spend_2d": 0.0,
-      "conv_2d": 0,
-      "spend_3d": 0.0,
-      "conv_3d": 0,
-      "spend_7d": 13.09,
-      "conv_7d": 1,
-      "reason": "[Global Dup Video High CPA 7D] Total 7-Day CPA $13.09 >= $9.50 (Total Spend=$13.09, Total Sales=1)",
-      "disabled_at": "2026-10-21T12:24:49.369990+00:00"
-    },
-    "16_9": {
-      "v_key": "16_9",
-      "sample_name": "16_9.mp4",
-      "accounts": [
-        "ROELLINGER RECYCLING2"
-      ],
-      "total_copies": 4,
-      "closed_copies": 0,
-      "spend_1d": 7.23,
-      "conv_1d": 0,
-      "spend_2d": 10.76,
-      "conv_2d": 1,
-      "spend_3d": 12.04,
-      "conv_3d": 1,
-      "spend_7d": 17.89,
-      "conv_7d": 2,
-      "reason": "[Global Dup Video High CPA 3D] Total 3-Day CPA $12.04 >= $9.50 (Total Spend=$12.04, Total Sales=1)",
-      "disabled_at": "2026-10-21T13:19:09.142818+00:00"
-    },
-    "19_10_27-9_ola_3": {
-      "v_key": "19_10_27-9_ola_3",
-      "sample_name": "19_10_27-9_ola_3.mp4",
-      "accounts": [
-        "ROELLINGER RECYCLING"
-      ],
-      "total_copies": 5,
-      "closed_copies": 0,
-      "spend_1d": 7.37,
-      "conv_1d": 0,
-      "spend_2d": 12.27,
-      "conv_2d": 1,
-      "spend_3d": 12.31,
-      "conv_3d": 1,
-      "spend_7d": 12.31,
-      "conv_7d": 1,
-      "reason": "[Global Dup Video High CPA 3D] Total 3-Day CPA $12.31 >= $9.50 (Total Spend=$12.31, Total Sales=1)",
-      "disabled_at": "2026-10-21T14:21:51.173636+00:00"
-    },
-    "16-10_pb_winner_6": {
-      "v_key": "16-10_pb_winner_6",
-      "sample_name": "16-10_pb_winner_6.mp4",
-      "accounts": [
-        "ROELLINGER RECYCLING"
-      ],
-      "total_copies": 10,
-      "closed_copies": 0,
-      "spend_1d": 5.5,
-      "conv_1d": 1,
-      "spend_2d": 6.65,
-      "conv_2d": 1,
-      "spend_3d": 8.2,
-      "conv_3d": 1,
-      "spend_7d": 19.75,
-      "conv_7d": 2,
-      "reason": "[Global Dup Video High CPA 7D] Total 7-Day CPA $9.88 >= $9.50 (Total Spend=$19.75, Total Sales=2)",
-      "disabled_at": "2026-10-21T17:20:42.520207+00:00"
-    },
-    "18_10_15-10_hanan_4": {
-      "v_key": "18_10_15-10_hanan_4",
-      "sample_name": "18_10_15-10_hanan_4.mp4",
-      "accounts": [
-        "ROELLINGER RECYCLING"
-      ],
-      "total_copies": 8,
-      "closed_copies": 0,
-      "spend_1d": 35.85,
-      "conv_1d": 4,
-      "spend_2d": 37.17,
-      "conv_2d": 4,
-      "spend_3d": 40.46,
-      "conv_3d": 4,
-      "spend_7d": 49.44,
-      "conv_7d": 6,
-      "reason": "[Global Dup Video High CPA 3D] Total 3-Day CPA $10.12 >= $9.50 (Total Spend=$40.46, Total Sales=4)",
-      "disabled_at": "2026-10-21T18:22:52.330100+00:00"
-    },
-    "5": {
-      "v_key": "5",
-      "sample_name": "5_2RsPSKzf.mp4",
-      "accounts": [
-        "ROELLINGER RECYCLING"
-      ],
-      "total_copies": 3,
-      "closed_copies": 0,
-      "spend_1d": 39.99,
-      "conv_1d": 4,
-      "spend_2d": 39.99,
-      "conv_2d": 4,
-      "spend_3d": 40.15,
-      "conv_3d": 4,
-      "spend_7d": 40.15,
-      "conv_7d": 4,
-      "reason": "[Global Dup Video High CPA 3D] Total 3-Day CPA $10.04 >= $9.50 (Total Spend=$40.15, Total Sales=4)",
-      "disabled_at": "2026-10-21T21:17:56.818040+00:00"
-    },
-    "ساعة_(4)": {
-      "v_key": "ساعة_(4)",
-      "sample_name": "ساعة_(4)_BNo9p4lP.mp4",
-      "accounts": [
-        "ROELLINGER RECYCLING2"
-      ],
-      "total_copies": 4,
-      "closed_copies": 0,
-      "spend_1d": 0.0,
-      "conv_1d": 0,
-      "spend_2d": 0.0,
-      "conv_2d": 0,
-      "spend_3d": 0.86,
-      "conv_3d": 0,
-      "spend_7d": 21.15,
-      "conv_7d": 2,
-      "reason": "[Global Dup Video High CPA 7D] Total 7-Day CPA $10.57 >= $9.50 (Total Spend=$21.15, Total Sales=2)",
-      "disabled_at": "2026-10-21T22:20:07.478192+00:00"
-    },
-    "غطاء مساند ذراع السيارة فاخر مُبطّن بذاكرة فوم مع حافظة مناديل وجوال-new_hook-20-13": {
-      "v_key": "غطاء مساند ذراع السيارة فاخر مُبطّن بذاكرة فوم مع حافظة مناديل وجوال-new_hook-20-13",
-      "sample_name": "غطاء مساند ذراع السيارة فاخر مُبطّن بذاكرة فوم مع حافظة مناديل وجوال-New_Hook-20-13",
-      "accounts": [
-        "ROELLINGER RECYCLING"
-      ],
-      "total_copies": 2,
-      "closed_copies": 0,
-      "spend_1d": 0.0,
-      "conv_1d": 0,
-      "spend_2d": 0.0,
-      "conv_2d": 0,
-      "spend_3d": 0.0,
-      "conv_3d": 0,
-      "spend_7d": 13.27,
-      "conv_7d": 1,
-      "reason": "[Global Dup Video High CPA 7D] Total 7-Day CPA $13.27 >= $9.50 (Total Spend=$13.27, Total Sales=1)",
-      "disabled_at": "2026-10-21T22:20:07.478192+00:00"
-    },
-    "19_10_26-9_ola_6": {
-      "v_key": "19_10_26-9_ola_6",
-      "sample_name": "19_10_26-9_ola_6.mp4",
-      "accounts": [
-        "ROELLINGER RECYCLING"
-      ],
-      "total_copies": 5,
-      "closed_copies": 0,
-      "spend_1d": 19.73,
-      "conv_1d": 2,
-      "spend_2d": 55.26,
-      "conv_2d": 7,
-      "spend_3d": 56.03,
-      "conv_3d": 7,
-      "spend_7d": 56.1,
-      "conv_7d": 7,
-      "reason": "[Global Dup Video High CPA 1D] Total Today CPA $9.87 >= $9.50 (Total Spend=$19.73, Total Sales=2)",
-      "disabled_at": "2026-10-22T06:19:21.947165+00:00"
-    },
-    "20_10_18-10_ola_4": {
-      "v_key": "20_10_18-10_ola_4",
-      "sample_name": "20_10_18-10_ola_4.mp4",
-      "accounts": [
-        "ROELLINGER RECYCLING"
-      ],
-      "total_copies": 3,
-      "closed_copies": 2,
-      "spend_1d": 1.46,
-      "conv_1d": 0,
-      "spend_2d": 12.02,
-      "conv_2d": 1,
-      "spend_3d": 12.03,
-      "conv_3d": 1,
-      "spend_7d": 12.03,
-      "conv_7d": 1,
-      "reason": "[Global Dup Video High CPA 3D] Total 3-Day CPA $12.03 >= $9.50 (Total Spend=$12.03, Total Sales=1)",
-      "disabled_at": "2026-10-22T06:19:23.235385+00:00"
-    },
-    "20-10_car_hook_ad_2_final_v3": {
-      "v_key": "20-10_car_hook_ad_2_final_v3",
-      "sample_name": "20-10_car_hook_ad_2_final_v3.mp4",
-      "accounts": [
-        "ROELLINGER RECYCLING"
-      ],
-      "total_copies": 3,
-      "closed_copies": 0,
-      "spend_1d": 12.25,
-      "conv_1d": 0,
-      "spend_2d": 56.33,
-      "conv_2d": 7,
-      "spend_3d": 56.33,
-      "conv_3d": 7,
-      "spend_7d": 56.33,
-      "conv_7d": 7,
-      "reason": "[Global Dup Video Stop-Loss 1D] Total Today Spend $12.25 >= $12.00 with 0 sales",
-      "disabled_at": "2026-10-22T07:16:38.459805+00:00"
-    },
-    "15-10_ola_5": {
-      "v_key": "15-10_ola_5",
-      "sample_name": "18_10_15-10_ola_5.mp4",
-      "accounts": [
-        "ROELLINGER RECYCLING"
-      ],
-      "total_copies": 8,
-      "closed_copies": 0,
-      "spend_1d": 0.0,
-      "conv_1d": 0,
-      "spend_2d": 35.81,
-      "conv_2d": 2,
-      "spend_3d": 36.99,
-      "conv_3d": 2,
-      "spend_7d": 68.58,
-      "conv_7d": 4,
-      "reason": "[Global Dup Video High CPA 3D] Total 3-Day CPA $18.50 >= $9.50 (Total Spend=$36.99, Total Sales=2)",
-      "disabled_at": "2026-10-22T08:45:46.424932+00:00"
-    },
-    "26-9_ola_6": {
-      "v_key": "26-9_ola_6",
-      "sample_name": "19_10_26-9_ola_6.mp4",
-      "accounts": [
-        "ROELLINGER RECYCLING"
-      ],
-      "total_copies": 5,
-      "closed_copies": 0,
-      "spend_1d": 22.93,
-      "conv_1d": 2,
-      "spend_2d": 58.46,
-      "conv_2d": 7,
-      "spend_3d": 59.22,
-      "conv_3d": 7,
-      "spend_7d": 59.29,
-      "conv_7d": 7,
-      "reason": "[Global Dup Video High CPA 1D] Total Today CPA $11.46 >= $9.50 (Total Spend=$22.93, Total Sales=2)",
-      "disabled_at": "2026-10-22T08:45:46.424932+00:00"
-    },
-    "15-10_hanan_4": {
-      "v_key": "15-10_hanan_4",
-      "sample_name": "18_10_15-10_hanan_4.mp4",
-      "accounts": [
-        "ROELLINGER RECYCLING"
-      ],
-      "total_copies": 8,
-      "closed_copies": 0,
-      "spend_1d": 0.0,
-      "conv_1d": 0,
-      "spend_2d": 41.69,
-      "conv_2d": 4,
-      "spend_3d": 43.01,
-      "conv_3d": 4,
-      "spend_7d": 55.28,
-      "conv_7d": 6,
-      "reason": "[Global Dup Video High CPA 3D] Total 3-Day CPA $10.75 >= $9.50 (Total Spend=$43.01, Total Sales=4)",
-      "disabled_at": "2026-10-22T08:45:46.424932+00:00"
-    },
-    "17-10_hanan_5": {
-      "v_key": "17-10_hanan_5",
-      "sample_name": "19_10_17-10_hanan_5.mp4",
-      "accounts": [
-        "ROELLINGER RECYCLING"
-      ],
-      "total_copies": 4,
-      "closed_copies": 0,
-      "spend_1d": 0.0,
-      "conv_1d": 0,
-      "spend_2d": 4.43,
-      "conv_2d": 0,
-      "spend_3d": 29.39,
-      "conv_3d": 3,
-      "spend_7d": 29.56,
-      "conv_7d": 3,
-      "reason": "[Global Dup Video High CPA 3D] Total 3-Day CPA $9.80 >= $9.50 (Total Spend=$29.39, Total Sales=3)",
-      "disabled_at": "2026-10-22T08:45:46.424932+00:00"
-    },
-    "15-10_hanan_3": {
-      "v_key": "15-10_hanan_3",
-      "sample_name": "18_10_15-10_hanan_3.mp4",
-      "accounts": [
-        "ROELLINGER RECYCLING"
-      ],
-      "total_copies": 8,
-      "closed_copies": 0,
-      "spend_1d": 0.0,
-      "conv_1d": 0,
-      "spend_2d": 14.48,
-      "conv_2d": 1,
-      "spend_3d": 24.69,
-      "conv_3d": 1,
-      "spend_7d": 27.86,
-      "conv_7d": 1,
-      "reason": "[Global Dup Video High CPA 3D] Total 3-Day CPA $24.69 >= $9.50 (Total Spend=$24.69, Total Sales=1)",
-      "disabled_at": "2026-10-22T08:45:46.424932+00:00"
-    },
-    "15-10_ola_4": {
-      "v_key": "15-10_ola_4",
-      "sample_name": "18_10_15-10_ola_4.mp4",
-      "accounts": [
-        "ROELLINGER RECYCLING"
-      ],
-      "total_copies": 8,
-      "closed_copies": 0,
-      "spend_1d": 0.0,
-      "conv_1d": 0,
-      "spend_2d": 1.02,
-      "conv_2d": 0,
-      "spend_3d": 2.2,
-      "conv_3d": 0,
-      "spend_7d": 14.16,
-      "conv_7d": 1,
-      "reason": "[Global Dup Video High CPA 7D] Total 7-Day CPA $14.16 >= $9.50 (Total Spend=$14.16, Total Sales=1)",
-      "disabled_at": "2026-10-22T08:45:46.424932+00:00"
-    },
-    "27-9_ola_3": {
-      "v_key": "27-9_ola_3",
-      "sample_name": "19_10_27-9_ola_3.mp4",
-      "accounts": [
-        "ROELLINGER RECYCLING"
-      ],
-      "total_copies": 5,
-      "closed_copies": 0,
-      "spend_1d": 0.0,
-      "conv_1d": 0,
-      "spend_2d": 7.55,
-      "conv_2d": 0,
-      "spend_3d": 12.46,
-      "conv_3d": 1,
-      "spend_7d": 12.49,
-      "conv_7d": 1,
-      "reason": "[Global Dup Video High CPA 3D] Total 3-Day CPA $12.46 >= $9.50 (Total Spend=$12.46, Total Sales=1)",
-      "disabled_at": "2026-10-22T08:45:46.424932+00:00"
-    },
     "15-10_ola_3": {
       "v_key": "15-10_ola_3",
       "sample_name": "18_10_15-10_ola_3.mp4",
@@ -18494,25 +17589,6 @@
       "spend_7d": 12.21,
       "conv_7d": 0,
       "reason": "[Global Dup Video Stop-Loss 7D] Total 7-Day Spend $12.21 >= $10.00 with 0 sales",
-      "disabled_at": "2026-10-22T08:45:46.424932+00:00"
-    },
-    "18-10_ola_4": {
-      "v_key": "18-10_ola_4",
-      "sample_name": "20_10_18-10_ola_4.mp4",
-      "accounts": [
-        "ROELLINGER RECYCLING"
-      ],
-      "total_copies": 3,
-      "closed_copies": 0,
-      "spend_1d": 1.64,
-      "conv_1d": 0,
-      "spend_2d": 12.2,
-      "conv_2d": 1,
-      "spend_3d": 12.2,
-      "conv_3d": 1,
-      "spend_7d": 12.2,
-      "conv_7d": 1,
-      "reason": "[Global Dup Video High CPA 3D] Total 3-Day CPA $12.20 >= $9.50 (Total Spend=$12.20, Total Sales=1)",
       "disabled_at": "2026-10-22T08:45:46.424932+00:00"
     },
     "15-10_hanan_1": {
@@ -18552,25 +17628,6 @@
       "conv_7d": 0,
       "reason": "[Global Dup Video Stop-Loss 7D] Total 7-Day Spend $10.65 >= $10.00 with 0 sales",
       "disabled_at": "2026-10-22T08:45:46.424932+00:00"
-    },
-    "20-10_car_hook_ad_3_final_v3": {
-      "v_key": "20-10_car_hook_ad_3_final_v3",
-      "sample_name": "20-10_car_hook_ad_3_final_v3.mp4",
-      "accounts": [
-        "ROELLINGER RECYCLING"
-      ],
-      "total_copies": 3,
-      "closed_copies": 0,
-      "spend_1d": 1.94,
-      "conv_1d": 0,
-      "spend_2d": 10.33,
-      "conv_2d": 1,
-      "spend_3d": 10.35,
-      "conv_3d": 1,
-      "spend_7d": 10.33,
-      "conv_7d": 1,
-      "reason": "[Global Dup Video High CPA 3D] Total 3-Day CPA $10.35 >= $9.50 (Total Spend=$10.35, Total Sales=1)",
-      "disabled_at": "2026-10-22T09:16:12.394369+00:00"
     }
   },
   "no_duplicate_campaigns": {
@@ -18671,75 +17728,69 @@
       "reason": "Single-Campaign Cross-Platform Monitored Product Campaign",
       "updated_at": "2026-10-22 12:16 GMT+3"
     },
-    "1879155925017650": {
-      "name": "power bank winner 16-10 A",
-      "aadvid": "7631763556322148369",
-      "spend_3d": 86.8,
-      "purchases_3d": 10,
-      "cpa_3d": 8.68,
-      "reason": "3-Day CPA > $8.00 — Duplication Blocked"
-    },
     "1879577430883393": {
       "name": "qatar kashaf 20-10 (Accel CC 11.5)",
-      "aadvid": "7631763556322148369",
+      "account": "ROELLINGER RECYCLING",
       "spend_3d": 58.75,
       "purchases_3d": 4,
       "cpa_3d": 14.69,
-      "reason": "3-Day CPA > $13.00 — Duplication Blocked"
+      "updated_at": "2026-10-22T12:20:06.543414+03:00"
     },
     "1879504465445265": {
       "name": "car armrest 19-10 (Hanan + Ola 17-10)",
-      "aadvid": "7631763556322148369",
+      "account": "ROELLINGER RECYCLING",
       "spend_3d": 43.28,
-      "purchases_3d": 4,
-      "cpa_3d": 10.82,
-      "reason": "3-Day CPA > $8.00 — Duplication Blocked"
+      "purchases_3d": 5,
+      "cpa_3d": 8.66,
+      "updated_at": "2026-10-22T12:20:06.679400+03:00"
     },
     "1879598604627026": {
       "name": "car armrest 20-10 (7 Flow Hook Ads B)",
-      "aadvid": "7631763556322148369",
-      "spend_3d": 22.33,
+      "account": "ROELLINGER RECYCLING",
+      "spend_3d": 22.44,
       "purchases_3d": 2,
-      "cpa_3d": 11.16,
-      "reason": "3-Day CPA > $8.00 — Duplication Blocked"
+      "cpa_3d": 11.22,
+      "updated_at": "2026-10-22T12:20:06.472155+03:00"
     },
     "1879598580856226": {
       "name": "car armrest 20-10 (7 Flow Hook Ads A)",
-      "aadvid": "7631763556322148369",
-      "spend_3d": 18.6,
+      "account": "ROELLINGER RECYCLING",
+      "spend_3d": 18.67,
       "purchases_3d": 2,
-      "cpa_3d": 9.3,
-      "reason": "3-Day CPA > $8.00 — Duplication Blocked"
-    },
-    "1879568832867394": {
-      "name": "car armrest 20-10 (Hanan + Ola 18-10)",
-      "aadvid": "7631763556322148369",
-      "spend_3d": 15.9,
-      "purchases_3d": 1,
-      "cpa_3d": 15.9,
-      "reason": "3-Day CPA > $8.00 — Duplication Blocked"
+      "cpa_3d": 9.34,
+      "updated_at": "2026-10-22T12:20:06.571889+03:00"
     },
     "1879577375941873": {
       "name": "oman power bank 20-10 (Accel CC 11.5)",
-      "aadvid": "7631763556322148369",
+      "account": "ROELLINGER RECYCLING",
       "spend_3d": 13.25,
       "purchases_3d": 0,
       "cpa_3d": null,
-      "reason": "3-Day CPA > $13.00 — Duplication Blocked"
+      "updated_at": "2026-10-22T12:20:06.643756+03:00"
     },
     "1879699126810225": {
       "name": "car armrest 22-10 (5 Flow Hooks Smart+ Boost)",
-      "aadvid": "7631763556322148369",
-      "spend_3d": 8.37,
+      "account": "ROELLINGER RECYCLING",
+      "spend_3d": 8.57,
       "purchases_3d": 1,
-      "cpa_3d": 8.37,
-      "reason": "3-Day CPA > $8.00 — Duplication Blocked"
+      "cpa_3d": 8.57,
+      "updated_at": "2026-10-22T12:20:06.431837+03:00"
     },
-    "1879653022433617": {
-      "name": "maybach pillow 21-10",
-      "aadvid": "7631763556322148369",
-      "reason": "Single-Campaign Cross-Platform Monitored Product Campaign",
-      "updated_at": "2026-10-22 12:16 GMT+3"
+    "1879577400149345": {
+      "name": "qatar power bank 20-10 (Accel CC 11.5)",
+      "account": "ROELLINGER RECYCLING",
+      "spend_3d": 121.81,
+      "purchases_3d": 12,
+      "cpa_3d": 10.15,
+      "updated_at": "2026-10-22T12:20:06.366951+03:00"
+    },
+    "1879660661658674": {
+      "name": "kuwait car armrest 21-10 (5 Winners CC 8.8)",
+      "account": "ROELLINGER RECYCLING",
+      "spend_3d": 53.17,
+      "purchases_3d": 6,
+      "cpa_3d": 8.86,
+      "updated_at": "2026-10-22T12:20:06.401613+03:00"
     }
   },
   "proactive_scaled_squads": {},
