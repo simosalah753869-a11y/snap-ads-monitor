@@ -11996,7 +11996,12 @@
     "86a07f58-e8e3-4b1b-9b92-82949e076b87": "f03056f6-efbc-4526-9fd3-d259cede788e",
     "8eb0a73a-89c8-4ab5-a631-02c995f34f47": "a873c3b8-ac45-4c09-afeb-42598624e59f",
     "49b81c37-1451-4c0f-ac1b-bfb54eaeaa46": "b7751519-8006-478c-81ec-4223d51be3de",
-    "68dc8dbc-6b59-4d54-b314-dda9b23a86e5": "b7751519-8006-478c-81ec-4223d51be3de"
+    "68dc8dbc-6b59-4d54-b314-dda9b23a86e5": "b7751519-8006-478c-81ec-4223d51be3de",
+    "a3670fd1-7070-4fc2-ac4f-f64109ed6fcb": "b7751519-8006-478c-81ec-4223d51be3de",
+    "4ad4a183-9c96-4eb8-9cfe-38419a453eaa": "368de7b2-64e5-444e-82cc-0bfb3dc9cf25",
+    "b5ad74ff-237f-4f01-a6e0-135a6e78cab8": "08e86a33-6d7c-4f4a-8e4f-23b7b49072ff",
+    "adabe716-7146-4a8d-bb1b-3740fd64d7f9": "0977dd64-ea6a-4d8c-bbcd-3e7d5b4760f4",
+    "4389b3e1-6e64-4660-888b-44d42fa0f153": "08e86a33-6d7c-4f4a-8e4f-23b7b49072ff"
   },
   "disabled_videos": {
     "9be45a26-06ac-4716-8e7b-2fb3a4d65e4c:4b80880f-b25e-449f-a33d-2a8a798bfbeb": {
@@ -17595,6 +17600,27 @@
       "spend_7d": 2.53,
       "conv_7d": 0,
       "paused_at": "2026-10-22T11:16:27.632213+00:00"
+    },
+    "7631763556322148369:1879581597584866:1879581600686113": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "ad_id": "1879581597584866",
+      "creative_id": "1879581597728962",
+      "campaign_ad_name": "car armrest 20-10 (5 Videos) / 20-10 - Creative",
+      "video_name": "20-10_car_ad_3.mp4",
+      "draft_ids": [
+        "1879581600686113"
+      ],
+      "reason": "3-Day Video CPA $8.73 > $8.50 (Spend=$8.73, Sales=1)",
+      "spend_1d": 7.85,
+      "conv_1d": 1,
+      "spend_2d": 8.73,
+      "conv_2d": 1,
+      "spend_3d": 8.73,
+      "conv_3d": 1,
+      "spend_7d": 8.81,
+      "conv_7d": 1,
+      "paused_at": "2026-10-22T11:57:35.321137+00:00"
     }
   },
   "tiktok_ads": {},
@@ -18003,155 +18029,155 @@
   "no_duplicate_campaigns": {
     "16b7aaf3-7526-49d7-8e68-33df1e0872a7": {
       "name": "باور بانك السعودية سمارت+ (فيديوهات الحساب الثاني) 18-10",
-      "spend_3d": 138.13,
+      "spend_3d": 138.35,
       "purchases_3d": 8,
-      "cpa_3d": 17.27,
-      "updated_at": "2026-10-22 14:12 GMT+3"
+      "cpa_3d": 17.29,
+      "updated_at": "2026-10-22 14:54 GMT+3"
     },
     "4504af26-5609-4e7b-aeca-e11cf9e03846": {
       "name": "smart+ watch suis SA 18-10",
-      "spend_3d": 205.36,
+      "spend_3d": 206.11,
       "purchases_3d": 18,
-      "cpa_3d": 11.41,
-      "updated_at": "2026-10-22 14:12 GMT+3"
+      "cpa_3d": 11.45,
+      "updated_at": "2026-10-22 14:54 GMT+3"
     },
     "8703fd84-bad8-482e-adb5-da1e9c635d13": {
       "name": "watch suis winners 17-10",
       "spend_3d": 25.28,
       "purchases_3d": 3,
       "cpa_3d": 8.43,
-      "updated_at": "2026-10-22 14:12 GMT+3"
+      "updated_at": "2026-10-22 14:54 GMT+3"
     },
     "9be45a26-06ac-4716-8e7b-2fb3a4d65e4c": {
       "name": "car scaling new 2 text",
-      "spend_3d": 156.38,
+      "spend_3d": 156.66,
       "purchases_3d": 15,
-      "cpa_3d": 10.43,
-      "updated_at": "2026-10-22 14:12 GMT+3"
+      "cpa_3d": 10.44,
+      "updated_at": "2026-10-22 14:54 GMT+3"
     },
     "baa69314-505c-4b3a-851e-883c10034935": {
       "name": "smart+ cars SA 18-10",
-      "spend_3d": 249.0,
+      "spend_3d": 249.25,
       "purchases_3d": 21,
-      "cpa_3d": 11.86,
-      "updated_at": "2026-10-22 14:12 GMT+3"
+      "cpa_3d": 11.87,
+      "updated_at": "2026-10-22 14:54 GMT+3"
     },
     "e23e7c95-3f15-4945-9844-8bd73e2d79d3": {
       "name": "باور بانك وينر",
-      "spend_3d": 93.61,
+      "spend_3d": 93.8,
       "purchases_3d": 5,
-      "cpa_3d": 18.72,
-      "updated_at": "2026-10-22 14:12 GMT+3"
+      "cpa_3d": 18.76,
+      "updated_at": "2026-10-22 14:54 GMT+3"
     },
     "f8372cfb-ae46-44d0-bbb4-f39790ecc648": {
       "name": "car scaling camp ",
-      "spend_3d": 311.32,
+      "spend_3d": 313.09,
       "purchases_3d": 38,
-      "cpa_3d": 8.19,
-      "updated_at": "2026-10-22 14:12 GMT+3"
+      "cpa_3d": 8.24,
+      "updated_at": "2026-10-22 14:54 GMT+3"
     },
     "4eefa50f-9008-4aea-b159-d370150b60cf": {
       "name": "صندوق دفاتر TIME X 21-10",
       "reason": "Single-AdSquad Cross-Platform Monitored Product Campaign",
-      "updated_at": "2026-10-22 14:16 GMT+3"
+      "updated_at": "2026-10-22 14:58 GMT+3"
     },
     "a171c141-a6d5-403e-8357-5c8f6c01bce0": {
       "name": "وسادة مايباخ 21-10",
       "reason": "Single-AdSquad Cross-Platform Monitored Product Campaign",
-      "updated_at": "2026-10-22 14:16 GMT+3"
+      "updated_at": "2026-10-22 14:58 GMT+3"
     },
     "c5a7cade-6ec3-4c47-b3a2-c5f08bcf8da0": {
       "name": "وسادة مايباخ 21-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-22 14:12 GMT+3"
+      "updated_at": "2026-10-22 14:54 GMT+3"
     },
     "1879653126110545": {
       "name": "timex books 21-10",
       "aadvid": "7631763556322148369",
       "reason": "Single-Campaign Cross-Platform Monitored Product Campaign",
-      "updated_at": "2026-10-22 14:16 GMT+3"
+      "updated_at": "2026-10-22 14:58 GMT+3"
     },
     "e8f0a5e9-89c5-4c14-aabb-c9c6c657891d": {
       "name": "مسخن الرضاعات اللاسلكي 22-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-22 14:12 GMT+3"
+      "updated_at": "2026-10-22 14:54 GMT+3"
     },
     "f18a3bf4-148a-4f5e-baa1-f90335f1884c": {
       "name": "مسخن الرضاعات اللاسلكي 22-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-22 14:12 GMT+3"
+      "updated_at": "2026-10-22 14:54 GMT+3"
     },
     "1879676075637041": {
       "name": "baby bottle warmer 22-10",
       "aadvid": "7631763556322148369",
       "reason": "Single-Campaign Cross-Platform Monitored Product Campaign",
-      "updated_at": "2026-10-22 14:16 GMT+3"
+      "updated_at": "2026-10-22 14:58 GMT+3"
     },
     "29891f22-e046-4cc8-b9ee-9921d2d65f0b": {
       "name": "مسخن الرضاعات اللاسلكي 22-10",
       "reason": "Single-AdSquad Cross-Platform Monitored Product Campaign",
-      "updated_at": "2026-10-22 14:16 GMT+3"
+      "updated_at": "2026-10-22 14:58 GMT+3"
     },
     "1879690057017602": {
       "name": "maybach pillow 21-10 (Boost CC 8.8)",
       "aadvid": "7631763556322148369",
       "reason": "Single-Campaign Cross-Platform Monitored Product Campaign",
-      "updated_at": "2026-10-22 14:16 GMT+3"
+      "updated_at": "2026-10-22 14:58 GMT+3"
     },
     "1879155925017650": {
       "name": "power bank winner 16-10 A",
       "aadvid": "7631763556322148369",
-      "spend_3d": 88.06,
+      "spend_3d": 89.24,
       "purchases_3d": 10,
-      "cpa_3d": 8.81,
+      "cpa_3d": 8.92,
       "reason": "3-Day CPA > $8.00 — Duplication Blocked"
     },
     "1879340705037537": {
       "name": "power bank 18-10 (Ola + Hanan 15-10)",
       "aadvid": "7631763556322148369",
-      "spend_3d": 65.33,
+      "spend_3d": 65.86,
       "purchases_3d": 8,
-      "cpa_3d": 8.17,
+      "cpa_3d": 8.23,
       "reason": "3-Day CPA > $8.00 — Duplication Blocked"
     },
     "1879577430883393": {
       "name": "qatar kashaf 20-10 (Accel CC 11.5)",
       "aadvid": "7631763556322148369",
-      "spend_3d": 61.62,
+      "spend_3d": 63.12,
       "purchases_3d": 4,
-      "cpa_3d": 15.4,
+      "cpa_3d": 15.78,
       "reason": "3-Day CPA > $13.00 — Duplication Blocked"
     },
     "1879504465445265": {
       "name": "car armrest 19-10 (Hanan + Ola 17-10)",
       "aadvid": "7631763556322148369",
-      "spend_3d": 43.75,
+      "spend_3d": 43.92,
       "purchases_3d": 4,
-      "cpa_3d": 10.94,
+      "cpa_3d": 10.98,
       "reason": "3-Day CPA > $8.00 — Duplication Blocked"
     },
     "1879598604627026": {
       "name": "car armrest 20-10 (7 Flow Hook Ads B)",
       "aadvid": "7631763556322148369",
-      "spend_3d": 24.61,
+      "spend_3d": 25.03,
       "purchases_3d": 2,
-      "cpa_3d": 12.3,
+      "cpa_3d": 12.52,
       "reason": "3-Day CPA > $8.00 — Duplication Blocked"
     },
     "1879598580856226": {
       "name": "car armrest 20-10 (7 Flow Hook Ads A)",
       "aadvid": "7631763556322148369",
-      "spend_3d": 21.8,
+      "spend_3d": 22.16,
       "purchases_3d": 2,
-      "cpa_3d": 10.9,
+      "cpa_3d": 11.08,
       "reason": "3-Day CPA > $8.00 — Duplication Blocked"
     },
     "1879568832867394": {
       "name": "car armrest 20-10 (Hanan + Ola 18-10)",
       "aadvid": "7631763556322148369",
-      "spend_3d": 16.89,
+      "spend_3d": 17.1,
       "purchases_3d": 1,
-      "cpa_3d": 16.89,
+      "cpa_3d": 17.1,
       "reason": "3-Day CPA > $8.00 — Duplication Blocked"
     },
     "1879577375941873": {
@@ -18166,7 +18192,7 @@
       "name": "maybach pillow 21-10",
       "aadvid": "7631763556322148369",
       "reason": "Single-Campaign Cross-Platform Monitored Product Campaign",
-      "updated_at": "2026-10-22 14:16 GMT+3"
+      "updated_at": "2026-10-22 14:58 GMT+3"
     }
   },
   "proactive_scaled_squads": {},
