@@ -214,7 +214,7 @@ def run_cross_product_monitor(dry_run: bool = False):
     for prod_def in PRODUCT_DEFS:
         pkey = prod_def["key"]
         plabel = prod_def["label"]
-        snap_camps = match_snap_campaigns(all_snap_camps, prod_def, saved_cfg, snap_token=snap_token)
+        snap_camps = match_snap_campaigns(all_snap_camps, prod_def, saved_cfg, snap_token=snap_token, snap_stats_7d=snap_camp_7d)
         tt_camps = match_tiktok_campaigns(tt_camps_7d_list or tt_camps_3d_list, prod_def, saved_cfg)
 
         print(f"\n📦 المنتج: {plabel} ({pkey})")
@@ -239,11 +239,18 @@ def run_cross_product_monitor(dry_run: bool = False):
                 }
         save_paused_history(history)
 
-        # Fetch all ads inside the matched Snapchat campaigns
+        # Fetch all ads inside the matched Snapchat campaigns (and pause any accidental 'Copy' adsquad)
         snap_ads_by_camp = {}
         for sc in snap_camps:
             cid = sc["id"]
             try:
+                r_sqs = api_get(f"/campaigns/{cid}/adsquads?limit=200", snap_token)
+                for w_sq in r_sqs.get("adsquads", []):
+                    sq_obj = w_sq.get("adsquad", {})
+                    if sq_obj.get("status") == "ACTIVE" and "copy" in (sq_obj.get("name") or "").lower() and not dry_run:
+                        sq_obj["status"] = "PAUSED"
+                        api_put(f"/campaigns/{cid}/adsquads", snap_token, {"adsquads": [sq_obj]})
+                        print(f"   🛑 تم إيقاف المجموعة المستنسخة غير المطلوبة '{sq_obj.get('name')}' داخل '{sc.get('name')}'")
                 r_ads = api_get(f"/campaigns/{cid}/ads?limit=200", snap_token)
                 snap_ads_by_camp[cid] = [w.get("ad", {}) for w in r_ads.get("ads", []) if w.get("ad")]
             except Exception as e:
@@ -497,11 +504,11 @@ def run_cross_product_monitor(dry_run: bool = False):
 
             # 3A. Prune all 0-sale Snapchat ads in this product's campaign (including $0 spend ads)
             for sc in snap_camps:
+                if sc.get("status") != "ACTIVE":
+                    continue
                 cid = sc["id"]
                 cname = sc.get("name", "")
                 for ad in snap_ads_by_camp.get(cid, []):
-                    if ad.get("status") != "ACTIVE":
-                        continue
                     ad_id = ad["id"]
                     ad_name = ad.get("name", ad_id)
                     sq_id = ad.get("ad_squad_id", "")
@@ -511,6 +518,8 @@ def run_cross_product_monitor(dry_run: bool = False):
                     ad_sales = max(st1["purchases"], st3["purchases"], st7["purchases"])
                     ad_spend = max(st1["spend"], st3["spend"], st7["spend"])
                     if ad_sales == 0:
+                        if ad.get("status") != "ACTIVE":
+                            continue
                         if dry_run:
                             print(f"      🔍 [Snap Prune 0-Sale Video] '{ad_name}' (Spend=${ad_spend:.2f}, Sales=0)")
                         else:
@@ -527,7 +536,14 @@ def run_cross_product_monitor(dry_run: bool = False):
                             print(f"      🛑 [Snap Prune 0-Sale Video] تم إيقاف فيديو سناب '{ad_name}' (الصرف: ${ad_spend:.2f}، المبيعات: 0)")
                             time.sleep(0.2)
                     else:
-                        print(f"      🏆 [Snap Survivor Video Kept] الإبقاء على الفيديو الفائز '{ad_name}' (المبيعات: {ad_sales}، الصرف: ${ad_spend:.2f})")
+                        if ad.get("status") != "ACTIVE" and "[H" not in ad_name and not dry_run:
+                            ad["status"] = "ACTIVE"
+                            api_put(f"/adsquads/{sq_id}/ads", snap_token, {"ads": [ad]})
+                            history.get("ads", {}).pop(ad_id, None)
+                            save_paused_history(history)
+                            print(f"      ♻️🏆 [Snap Survivor Video Restored] إعادة تفعيل الفيديو الفائز '{ad_name}' (المبيعات: {ad_sales}، الصرف: ${ad_spend:.2f})")
+                        else:
+                            print(f"      🏆 [Snap Survivor Video Kept] الإبقاء على الفيديو الفائز '{ad_name}' (المبيعات: {ad_sales}، الصرف: ${ad_spend:.2f})")
 
             # 3B. Prune all 0-sale TikTok videos in this product's campaign (including $0 spend videos)
             for m_key in all_tt_mat_keys:
