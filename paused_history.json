@@ -10209,320 +10209,33 @@
       "reason": "[Global Accumulated Video High CPA 7D] مجموع صرف الفيديو التراكمي لـ 7 أيام على مستوى الحساب = $15.56 | المبيعات = 1 | CPA التراكمي = $15.56 (> $13.00)",
       "paused_at": "2026-10-22 12:55 GMT+3"
     },
-    "17d6434b-6f33-4b97-b71f-af2020950855": {
-      "name": "SA_Watch_tc_v6",
+    "6c1a25b1-023b-4b54-9fd6-333d305d9a59": {
+      "name": "4",
+      "campaign": "car scaling camp ",
+      "adsquad": "Copy of Copy of 1.5 | 23.8 [H4]",
+      "reason": "[Copy Early High-CPC Cut] نسخة Copy دخلت جمهوراً غالياً: صرفت $2.74 (>= $1.50) بدون مبيعات بـ CPC=$0.171 (> $0.165)",
+      "paused_at": "2026-10-22 15:14 GMT+3"
+    },
+    "fbcfdcaf-39a4-4c0e-82e2-9c084e547f74": {
+      "name": "SA_Watch_tc_v6 [H3]",
       "campaign": "smart+ watch suis SA 18-10",
-      "adsquad": "Copy of SA_Watch Target Cost Men 20+ | 2.8 Bid",
-      "reason": "[Ad CPC Rule] صرف الفيديو $1.18 (>= $1.00) | النقرات: 4 | سعر النقرة CPC = $0.295 (> $0.28)",
-      "paused_at": "2026-10-22 17:57 GMT+3"
+      "adsquad": "Headline Lab H1-H3 | Elite Winners",
+      "reason": "[Ad CPC Rule] صرف الفيديو $1.93 (>= $1.00) | النقرات: 6 | سعر النقرة CPC = $0.322 (> $0.28)",
+      "paused_at": "2026-10-22 22:08 GMT+3"
     },
-    "f29dc102-3556-4c10-ab4e-b72b4eb6b90f": {
-      "name": "timex_ad_2_female",
-      "campaign": "صندوق دفاتر TIME X 21-10",
-      "adsquad": "b40c06e7-13a7-4f44-9d26-26931f4f2933",
-      "reason": "[timex Early CPC Rule - Today] صرف الفيديو $0.91 (>= $0.80) | النقرات: 3 | CPC = $0.30 (> $0.30) مع 0 مبيعات",
-      "paused_at": "2026-10-22 18:40 GMT+3"
-    },
-    "d226aab8-9e1d-4fcf-b6d8-5e6b3e51a3d3": {
-      "name": "warmer_ad05_s3_v1_22_10",
-      "campaign": "مسخن الرضاعات اللاسلكي 22-10",
-      "adsquad": "warmer — Target Cost Age 20+ | 3.40 Bid",
-      "reason": "[Ad CPC Rule] صرف الفيديو $0.85 (>= $0.80) | النقرات: 1 | سعر النقرة CPC = $0.85 (> $0.30)",
-      "paused_at": "2026-10-22 19:12 GMT+3"
-    },
-    "4e4174ee-2e21-45e6-a2e3-43d84ef0946c": {
-      "name": "maybach_ad_6",
-      "campaign": "وسادة مايباخ 21-10",
-      "adsquad": "maybach — Target Cost Smart+ Broad | 3.30 Bid",
-      "reason": "[Ad CPC Rule] صرف الفيديو $1.33 (>= $0.80) | النقرات: 4 | سعر النقرة CPC = $0.333 (> $0.30)",
-      "paused_at": "2026-10-22 19:12 GMT+3"
-    },
-    "06df8f07-73ba-4982-b52c-42802b831878": {
-      "name": "warmer_ad03_s2_v1_22_10",
-      "campaign": "مسخن الرضاعات اللاسلكي 22-10",
-      "adsquad": "74e561cc-d8c7-4eb1-a731-9e1e3f853df5",
-      "reason": "[Cross-Platform Rule 3: Survivor-Only Pruning] الصرف المشترك $21.68 (> $20.00) وسعر البيعة المشترك CPA = $10.84 (> $8.00) -> إيقاف كل فيديو لم يحقق مبيعات نهائياً (حتى لو صرف $0.00) والإبقاء فقط على الفيديو الرابح!",
-      "paused_at": "2026-10-22 19:17 GMT+3"
-    },
-    "2de8d7e4-563b-40ca-9fa6-1dd0ff393172": {
-      "name": "warmer_ad04_s2_v2_22_10",
-      "campaign": "مسخن الرضاعات اللاسلكي 22-10",
-      "adsquad": "56fa99b9-3d48-47ec-8cf4-661e45137f9d",
-      "reason": "[Cross-Platform Rule 3: Survivor-Only Pruning] الصرف المشترك $21.68 (> $20.00) وسعر البيعة المشترك CPA = $10.84 (> $8.00) -> إيقاف كل فيديو لم يحقق مبيعات نهائياً (حتى لو صرف $0.00) والإبقاء فقط على الفيديو الرابح!",
-      "paused_at": "2026-10-22 19:17 GMT+3"
-    },
-    "310ffeb2-c07f-4a29-8fb6-38d0f25a58c0": {
-      "name": "warmer_ad02_s1_v2_22_10",
-      "campaign": "مسخن الرضاعات اللاسلكي 22-10",
-      "adsquad": "56fa99b9-3d48-47ec-8cf4-661e45137f9d",
-      "reason": "[Cross-Platform Rule 3: Survivor-Only Pruning] الصرف المشترك $21.68 (> $20.00) وسعر البيعة المشترك CPA = $10.84 (> $8.00) -> إيقاف كل فيديو لم يحقق مبيعات نهائياً (حتى لو صرف $0.00) والإبقاء فقط على الفيديو الرابح!",
-      "paused_at": "2026-10-22 19:17 GMT+3"
-    },
-    "32d80121-9b4b-4ed7-a219-66f83ea9b720": {
-      "name": "warmer_ad08_s4_v2_22_10",
-      "campaign": "مسخن الرضاعات اللاسلكي 22-10",
-      "adsquad": "dac075ca-5397-4837-b851-90e4dec3e17f",
-      "reason": "[Cross-Platform Rule 3: Survivor-Only Pruning] الصرف المشترك $21.68 (> $20.00) وسعر البيعة المشترك CPA = $10.84 (> $8.00) -> إيقاف كل فيديو لم يحقق مبيعات نهائياً (حتى لو صرف $0.00) والإبقاء فقط على الفيديو الرابح!",
-      "paused_at": "2026-10-22 19:17 GMT+3"
-    },
-    "3f3ea479-0d9a-42b5-ba88-0330a09bcd8d": {
-      "name": "warmer_ad06_s3_v2_22_10",
-      "campaign": "مسخن الرضاعات اللاسلكي 22-10",
-      "adsquad": "56fa99b9-3d48-47ec-8cf4-661e45137f9d",
-      "reason": "[Cross-Platform Rule 3: Survivor-Only Pruning] الصرف المشترك $21.68 (> $20.00) وسعر البيعة المشترك CPA = $10.84 (> $8.00) -> إيقاف كل فيديو لم يحقق مبيعات نهائياً (حتى لو صرف $0.00) والإبقاء فقط على الفيديو الرابح!",
-      "paused_at": "2026-10-22 19:17 GMT+3"
-    },
-    "41f78d74-981b-4351-abfa-be641ebf5d45": {
-      "name": "warmer_ad01_s1_v1_22_10",
-      "campaign": "مسخن الرضاعات اللاسلكي 22-10",
-      "adsquad": "74e561cc-d8c7-4eb1-a731-9e1e3f853df5",
-      "reason": "[Cross-Platform Rule 3: Survivor-Only Pruning] الصرف المشترك $21.68 (> $20.00) وسعر البيعة المشترك CPA = $10.84 (> $8.00) -> إيقاف كل فيديو لم يحقق مبيعات نهائياً (حتى لو صرف $0.00) والإبقاء فقط على الفيديو الرابح!",
-      "paused_at": "2026-10-22 19:17 GMT+3"
-    },
-    "44852d87-dcf0-45f7-87e1-3f8f4b4c7148": {
-      "name": "warmer_ad07_s4_v1_22_10",
-      "campaign": "مسخن الرضاعات اللاسلكي 22-10",
-      "adsquad": "dac075ca-5397-4837-b851-90e4dec3e17f",
-      "reason": "[Cross-Platform Rule 3: Survivor-Only Pruning] الصرف المشترك $21.68 (> $20.00) وسعر البيعة المشترك CPA = $10.84 (> $8.00) -> إيقاف كل فيديو لم يحقق مبيعات نهائياً (حتى لو صرف $0.00) والإبقاء فقط على الفيديو الرابح!",
-      "paused_at": "2026-10-22 19:17 GMT+3"
-    },
-    "55e91fe8-b65c-48bc-8329-ecf28f2b92fc": {
-      "name": "warmer_ad01_s1_v1_22_10",
-      "campaign": "مسخن الرضاعات اللاسلكي 22-10",
-      "adsquad": "dac075ca-5397-4837-b851-90e4dec3e17f",
-      "reason": "[Cross-Platform Rule 3: Survivor-Only Pruning] الصرف المشترك $21.68 (> $20.00) وسعر البيعة المشترك CPA = $10.84 (> $8.00) -> إيقاف كل فيديو لم يحقق مبيعات نهائياً (حتى لو صرف $0.00) والإبقاء فقط على الفيديو الرابح!",
-      "paused_at": "2026-10-22 19:17 GMT+3"
-    },
-    "58af6228-68a2-4f98-ac67-b99d33eec1d5": {
-      "name": "warmer_ad10_s5_v2_22_10",
-      "campaign": "مسخن الرضاعات اللاسلكي 22-10",
-      "adsquad": "74e561cc-d8c7-4eb1-a731-9e1e3f853df5",
-      "reason": "[Cross-Platform Rule 3: Survivor-Only Pruning] الصرف المشترك $21.68 (> $20.00) وسعر البيعة المشترك CPA = $10.84 (> $8.00) -> إيقاف كل فيديو لم يحقق مبيعات نهائياً (حتى لو صرف $0.00) والإبقاء فقط على الفيديو الرابح!",
-      "paused_at": "2026-10-22 19:17 GMT+3"
-    },
-    "6440619f-fda3-42a9-9a0f-ba1391bb4932": {
-      "name": "warmer_ad01_s1_v1_22_10 [H1]",
-      "campaign": "مسخن الرضاعات اللاسلكي 22-10",
-      "adsquad": "a18a0ed5-e59d-43cf-85fd-e3fba6496ac3",
-      "reason": "[Cross-Platform Rule 3: Survivor-Only Pruning] الصرف المشترك $21.68 (> $20.00) وسعر البيعة المشترك CPA = $10.84 (> $8.00) -> إيقاف كل فيديو لم يحقق مبيعات نهائياً (حتى لو صرف $0.00) والإبقاء فقط على الفيديو الرابح!",
-      "paused_at": "2026-10-22 19:17 GMT+3"
-    },
-    "6c664ce6-d892-4bc2-97c9-00f383c0e53a": {
-      "name": "warmer_ad08_s4_v2_22_10",
-      "campaign": "مسخن الرضاعات اللاسلكي 22-10",
-      "adsquad": "74e561cc-d8c7-4eb1-a731-9e1e3f853df5",
-      "reason": "[Cross-Platform Rule 3: Survivor-Only Pruning] الصرف المشترك $25.46 (> $20.00) وسعر البيعة المشترك CPA = $8.49 (> $8.00) -> إيقاف كل فيديو لم يحقق مبيعات نهائياً (حتى لو صرف $0.00) والإبقاء فقط على الفيديو الرابح!",
-      "paused_at": "2026-10-22 21:11 GMT+3"
-    },
-    "700639ca-f77b-4f62-ba9a-4764ad5e3334": {
-      "name": "warmer_ad04_s2_v2_22_10",
-      "campaign": "مسخن الرضاعات اللاسلكي 22-10",
-      "adsquad": "dac075ca-5397-4837-b851-90e4dec3e17f",
-      "reason": "[Cross-Platform Rule 3: Survivor-Only Pruning] الصرف المشترك $21.68 (> $20.00) وسعر البيعة المشترك CPA = $10.84 (> $8.00) -> إيقاف كل فيديو لم يحقق مبيعات نهائياً (حتى لو صرف $0.00) والإبقاء فقط على الفيديو الرابح!",
-      "paused_at": "2026-10-22 19:17 GMT+3"
-    },
-    "7495dd39-4080-4131-8506-83c9d3cd2d79": {
-      "name": "warmer_ad07_s4_v1_22_10",
-      "campaign": "مسخن الرضاعات اللاسلكي 22-10",
-      "adsquad": "56fa99b9-3d48-47ec-8cf4-661e45137f9d",
-      "reason": "[Cross-Platform Rule 3: Survivor-Only Pruning] الصرف المشترك $21.68 (> $20.00) وسعر البيعة المشترك CPA = $10.84 (> $8.00) -> إيقاف كل فيديو لم يحقق مبيعات نهائياً (حتى لو صرف $0.00) والإبقاء فقط على الفيديو الرابح!",
-      "paused_at": "2026-10-22 19:17 GMT+3"
-    },
-    "75417686-51e6-424c-ada3-0a9f1032c57d": {
-      "name": "warmer_ad04_s2_v2_22_10 [H1]",
-      "campaign": "مسخن الرضاعات اللاسلكي 22-10",
-      "adsquad": "a18a0ed5-e59d-43cf-85fd-e3fba6496ac3",
-      "reason": "[Cross-Platform Rule 3: Survivor-Only Pruning] الصرف المشترك $21.68 (> $20.00) وسعر البيعة المشترك CPA = $10.84 (> $8.00) -> إيقاف كل فيديو لم يحقق مبيعات نهائياً (حتى لو صرف $0.00) والإبقاء فقط على الفيديو الرابح!",
-      "paused_at": "2026-10-22 19:17 GMT+3"
-    },
-    "796f4caf-e73b-4f0b-b1c8-60cc38e3c549": {
-      "name": "warmer_ad03_s2_v1_22_10 [H1]",
-      "campaign": "مسخن الرضاعات اللاسلكي 22-10",
-      "adsquad": "a18a0ed5-e59d-43cf-85fd-e3fba6496ac3",
-      "reason": "[Cross-Platform Rule 3: Survivor-Only Pruning] الصرف المشترك $21.68 (> $20.00) وسعر البيعة المشترك CPA = $10.84 (> $8.00) -> إيقاف كل فيديو لم يحقق مبيعات نهائياً (حتى لو صرف $0.00) والإبقاء فقط على الفيديو الرابح!",
-      "paused_at": "2026-10-22 19:17 GMT+3"
-    },
-    "7dac4237-bea6-4e7e-b7ce-5188ec0c89ec": {
-      "name": "warmer_ad04_s2_v2_22_10",
-      "campaign": "مسخن الرضاعات اللاسلكي 22-10",
-      "adsquad": "74e561cc-d8c7-4eb1-a731-9e1e3f853df5",
-      "reason": "[Cross-Platform Rule 3: Survivor-Only Pruning] الصرف المشترك $21.68 (> $20.00) وسعر البيعة المشترك CPA = $10.84 (> $8.00) -> إيقاف كل فيديو لم يحقق مبيعات نهائياً (حتى لو صرف $0.00) والإبقاء فقط على الفيديو الرابح!",
-      "paused_at": "2026-10-22 19:17 GMT+3"
-    },
-    "7e1a0f57-79e3-4c73-83e8-c9b21dae8c8f": {
-      "name": "warmer_ad06_s3_v2_22_10 [H1]",
-      "campaign": "مسخن الرضاعات اللاسلكي 22-10",
-      "adsquad": "a18a0ed5-e59d-43cf-85fd-e3fba6496ac3",
-      "reason": "[Cross-Platform Rule 3: Survivor-Only Pruning] الصرف المشترك $21.68 (> $20.00) وسعر البيعة المشترك CPA = $10.84 (> $8.00) -> إيقاف كل فيديو لم يحقق مبيعات نهائياً (حتى لو صرف $0.00) والإبقاء فقط على الفيديو الرابح!",
-      "paused_at": "2026-10-22 19:17 GMT+3"
-    },
-    "84f7b19d-8ca4-47f0-b310-152092ef75d9": {
-      "name": "warmer_ad09_s5_v1_22_10 [H1]",
-      "campaign": "مسخن الرضاعات اللاسلكي 22-10",
-      "adsquad": "a18a0ed5-e59d-43cf-85fd-e3fba6496ac3",
-      "reason": "[Cross-Platform Rule 3: Survivor-Only Pruning] الصرف المشترك $21.68 (> $20.00) وسعر البيعة المشترك CPA = $10.84 (> $8.00) -> إيقاف كل فيديو لم يحقق مبيعات نهائياً (حتى لو صرف $0.00) والإبقاء فقط على الفيديو الرابح!",
-      "paused_at": "2026-10-22 19:17 GMT+3"
-    },
-    "98334810-e2fb-4eca-9c5d-be43abf97a5e": {
-      "name": "warmer_ad02_s1_v2_22_10",
-      "campaign": "مسخن الرضاعات اللاسلكي 22-10",
-      "adsquad": "74e561cc-d8c7-4eb1-a731-9e1e3f853df5",
-      "reason": "[Cross-Platform Rule 3: Survivor-Only Pruning] الصرف المشترك $21.68 (> $20.00) وسعر البيعة المشترك CPA = $10.84 (> $8.00) -> إيقاف كل فيديو لم يحقق مبيعات نهائياً (حتى لو صرف $0.00) والإبقاء فقط على الفيديو الرابح!",
-      "paused_at": "2026-10-22 19:17 GMT+3"
-    },
-    "a80d3b4f-90f7-43fb-8c0c-680d7b49b608": {
-      "name": "warmer_ad05_s3_v1_22_10",
-      "campaign": "مسخن الرضاعات اللاسلكي 22-10",
-      "adsquad": "dac075ca-5397-4837-b851-90e4dec3e17f",
-      "reason": "[Cross-Platform Rule 3: Survivor-Only Pruning] الصرف المشترك $21.68 (> $20.00) وسعر البيعة المشترك CPA = $10.84 (> $8.00) -> إيقاف كل فيديو لم يحقق مبيعات نهائياً (حتى لو صرف $0.00) والإبقاء فقط على الفيديو الرابح!",
-      "paused_at": "2026-10-22 19:17 GMT+3"
-    },
-    "af74cbd0-c95a-4da8-809e-2e524a88a742": {
-      "name": "warmer_ad02_s1_v2_22_10 [H1]",
-      "campaign": "مسخن الرضاعات اللاسلكي 22-10",
-      "adsquad": "a18a0ed5-e59d-43cf-85fd-e3fba6496ac3",
-      "reason": "[Cross-Platform Rule 3: Survivor-Only Pruning] الصرف المشترك $21.68 (> $20.00) وسعر البيعة المشترك CPA = $10.84 (> $8.00) -> إيقاف كل فيديو لم يحقق مبيعات نهائياً (حتى لو صرف $0.00) والإبقاء فقط على الفيديو الرابح!",
-      "paused_at": "2026-10-22 19:17 GMT+3"
-    },
-    "bdec96db-16ae-4f23-885d-80b54ee4b149": {
-      "name": "warmer_ad05_s3_v1_22_10 [H1]",
-      "campaign": "مسخن الرضاعات اللاسلكي 22-10",
-      "adsquad": "a18a0ed5-e59d-43cf-85fd-e3fba6496ac3",
-      "reason": "[Cross-Platform Rule 3: Survivor-Only Pruning] الصرف المشترك $21.68 (> $20.00) وسعر البيعة المشترك CPA = $10.84 (> $8.00) -> إيقاف كل فيديو لم يحقق مبيعات نهائياً (حتى لو صرف $0.00) والإبقاء فقط على الفيديو الرابح!",
-      "paused_at": "2026-10-22 19:17 GMT+3"
-    },
-    "c32e490c-d165-4e9d-8572-fd2e0fc7de5a": {
-      "name": "warmer_ad10_s5_v2_22_10 [H1]",
-      "campaign": "مسخن الرضاعات اللاسلكي 22-10",
-      "adsquad": "a18a0ed5-e59d-43cf-85fd-e3fba6496ac3",
-      "reason": "[Cross-Platform Rule 3: Survivor-Only Pruning] الصرف المشترك $21.68 (> $20.00) وسعر البيعة المشترك CPA = $10.84 (> $8.00) -> إيقاف كل فيديو لم يحقق مبيعات نهائياً (حتى لو صرف $0.00) والإبقاء فقط على الفيديو الرابح!",
-      "paused_at": "2026-10-22 19:17 GMT+3"
-    },
-    "c4c745b8-2d1e-413e-9ae6-917147122c86": {
-      "name": "warmer_ad03_s2_v1_22_10",
-      "campaign": "مسخن الرضاعات اللاسلكي 22-10",
-      "adsquad": "dac075ca-5397-4837-b851-90e4dec3e17f",
-      "reason": "[Cross-Platform Rule 3: Survivor-Only Pruning] الصرف المشترك $21.68 (> $20.00) وسعر البيعة المشترك CPA = $10.84 (> $8.00) -> إيقاف كل فيديو لم يحقق مبيعات نهائياً (حتى لو صرف $0.00) والإبقاء فقط على الفيديو الرابح!",
-      "paused_at": "2026-10-22 19:17 GMT+3"
-    },
-    "c71fa389-3e5d-4f08-ba2a-ac4b21683559": {
-      "name": "warmer_ad09_s5_v1_22_10",
-      "campaign": "مسخن الرضاعات اللاسلكي 22-10",
-      "adsquad": "dac075ca-5397-4837-b851-90e4dec3e17f",
-      "reason": "[Cross-Platform Rule 3: Survivor-Only Pruning] الصرف المشترك $21.68 (> $20.00) وسعر البيعة المشترك CPA = $10.84 (> $8.00) -> إيقاف كل فيديو لم يحقق مبيعات نهائياً (حتى لو صرف $0.00) والإبقاء فقط على الفيديو الرابح!",
-      "paused_at": "2026-10-22 19:17 GMT+3"
-    },
-    "c722e484-9e0a-4286-8e2a-3e558873ef43": {
-      "name": "warmer_ad02_s1_v2_22_10",
-      "campaign": "مسخن الرضاعات اللاسلكي 22-10",
-      "adsquad": "dac075ca-5397-4837-b851-90e4dec3e17f",
-      "reason": "[Cross-Platform Rule 3: Survivor-Only Pruning] الصرف المشترك $21.68 (> $20.00) وسعر البيعة المشترك CPA = $10.84 (> $8.00) -> إيقاف كل فيديو لم يحقق مبيعات نهائياً (حتى لو صرف $0.00) والإبقاء فقط على الفيديو الرابح!",
-      "paused_at": "2026-10-22 19:17 GMT+3"
-    },
-    "c9514a06-6451-4baa-a44b-3256b80df260": {
-      "name": "warmer_ad06_s3_v2_22_10",
-      "campaign": "مسخن الرضاعات اللاسلكي 22-10",
-      "adsquad": "74e561cc-d8c7-4eb1-a731-9e1e3f853df5",
-      "reason": "[Cross-Platform Rule 3: Survivor-Only Pruning] الصرف المشترك $21.68 (> $20.00) وسعر البيعة المشترك CPA = $10.84 (> $8.00) -> إيقاف كل فيديو لم يحقق مبيعات نهائياً (حتى لو صرف $0.00) والإبقاء فقط على الفيديو الرابح!",
-      "paused_at": "2026-10-22 19:17 GMT+3"
-    },
-    "cd35b6ca-6469-45b9-99d8-f570bb5f22e9": {
-      "name": "warmer_ad10_s5_v2_22_10",
-      "campaign": "مسخن الرضاعات اللاسلكي 22-10",
-      "adsquad": "dac075ca-5397-4837-b851-90e4dec3e17f",
-      "reason": "[Cross-Platform Rule 3: Survivor-Only Pruning] الصرف المشترك $21.68 (> $20.00) وسعر البيعة المشترك CPA = $10.84 (> $8.00) -> إيقاف كل فيديو لم يحقق مبيعات نهائياً (حتى لو صرف $0.00) والإبقاء فقط على الفيديو الرابح!",
-      "paused_at": "2026-10-22 19:17 GMT+3"
-    },
-    "e2ac295f-8cc5-478d-bc46-89f713c65dda": {
-      "name": "warmer_ad01_s1_v1_22_10",
-      "campaign": "مسخن الرضاعات اللاسلكي 22-10",
-      "adsquad": "56fa99b9-3d48-47ec-8cf4-661e45137f9d",
-      "reason": "[Cross-Platform Rule 3: Survivor-Only Pruning] الصرف المشترك $21.68 (> $20.00) وسعر البيعة المشترك CPA = $10.84 (> $8.00) -> إيقاف كل فيديو لم يحقق مبيعات نهائياً (حتى لو صرف $0.00) والإبقاء فقط على الفيديو الرابح!",
-      "paused_at": "2026-10-22 19:17 GMT+3"
-    },
-    "e2f0b965-e2ef-4235-88ec-8253382bd7a9": {
-      "name": "warmer_ad08_s4_v2_22_10 [H1]",
-      "campaign": "مسخن الرضاعات اللاسلكي 22-10",
-      "adsquad": "a18a0ed5-e59d-43cf-85fd-e3fba6496ac3",
-      "reason": "[Cross-Platform Rule 3: Survivor-Only Pruning] الصرف المشترك $21.68 (> $20.00) وسعر البيعة المشترك CPA = $10.84 (> $8.00) -> إيقاف كل فيديو لم يحقق مبيعات نهائياً (حتى لو صرف $0.00) والإبقاء فقط على الفيديو الرابح!",
-      "paused_at": "2026-10-22 19:17 GMT+3"
-    },
-    "e9f3fd37-13d0-4428-9fa2-6417f2af300a": {
-      "name": "warmer_ad08_s4_v2_22_10",
-      "campaign": "مسخن الرضاعات اللاسلكي 22-10",
-      "adsquad": "56fa99b9-3d48-47ec-8cf4-661e45137f9d",
-      "reason": "[Cross-Platform Rule 3: Survivor-Only Pruning] الصرف المشترك $25.46 (> $20.00) وسعر البيعة المشترك CPA = $8.49 (> $8.00) -> إيقاف كل فيديو لم يحقق مبيعات نهائياً (حتى لو صرف $0.00) والإبقاء فقط على الفيديو الرابح!",
-      "paused_at": "2026-10-22 21:11 GMT+3"
-    },
-    "ea3dfaad-442e-447d-b45a-916cf2c5b60a": {
-      "name": "warmer_ad07_s4_v1_22_10 [H1]",
-      "campaign": "مسخن الرضاعات اللاسلكي 22-10",
-      "adsquad": "a18a0ed5-e59d-43cf-85fd-e3fba6496ac3",
-      "reason": "[Cross-Platform Rule 3: Survivor-Only Pruning] الصرف المشترك $21.68 (> $20.00) وسعر البيعة المشترك CPA = $10.84 (> $8.00) -> إيقاف كل فيديو لم يحقق مبيعات نهائياً (حتى لو صرف $0.00) والإبقاء فقط على الفيديو الرابح!",
-      "paused_at": "2026-10-22 19:17 GMT+3"
-    },
-    "fc56f9e9-815b-4c36-a1e0-7cd8f76c41ce": {
-      "name": "warmer_ad07_s4_v1_22_10",
-      "campaign": "مسخن الرضاعات اللاسلكي 22-10",
-      "adsquad": "74e561cc-d8c7-4eb1-a731-9e1e3f853df5",
-      "reason": "[Cross-Platform Rule 3: Survivor-Only Pruning] الصرف المشترك $21.68 (> $20.00) وسعر البيعة المشترك CPA = $10.84 (> $8.00) -> إيقاف كل فيديو لم يحقق مبيعات نهائياً (حتى لو صرف $0.00) والإبقاء فقط على الفيديو الرابح!",
-      "paused_at": "2026-10-22 19:17 GMT+3"
-    },
-    "fd0b2a96-c632-4e2e-9dca-6f4536f767f2": {
-      "name": "warmer_ad06_s3_v2_22_10",
-      "campaign": "مسخن الرضاعات اللاسلكي 22-10",
-      "adsquad": "dac075ca-5397-4837-b851-90e4dec3e17f",
-      "reason": "[Cross-Platform Rule 3: Survivor-Only Pruning] الصرف المشترك $21.68 (> $20.00) وسعر البيعة المشترك CPA = $10.84 (> $8.00) -> إيقاف كل فيديو لم يحقق مبيعات نهائياً (حتى لو صرف $0.00) والإبقاء فقط على الفيديو الرابح!",
-      "paused_at": "2026-10-22 19:17 GMT+3"
-    },
-    "847c8154-9855-4498-9c0d-6d1febfbe9d1": {
-      "name": "21-10_ola_12-10_2 [H4]",
-      "campaign": "smart+ cars SA 18-10",
-      "adsquad": "Copy of 21-10 علا جديد (دفعة 12-10 — 5 فيديوهات) [H4]",
-      "reason": "[Ad CPC Rule] صرف الفيديو $1.14 (>= $1.00) | النقرات: 4 | سعر النقرة CPC = $0.285 (> $0.28)",
-      "paused_at": "2026-10-22 21:07 GMT+3"
-    },
-    "0f4645bb-d5fe-4cdc-9a5f-cce022abbc15": {
-      "name": "21-10_ola_12-10_2 [H4]",
-      "campaign": "smart+ cars SA 18-10",
-      "adsquad": "Copy of 21-10 علا جديد (دفعة 12-10 — 5 فيديوهات) [H4]",
+    "1e7cef19-cae4-492d-876a-743fa7a32c07": {
+      "name": "SA_Watch_tc_v6 [H2]",
+      "campaign": "smart+ watch suis SA 18-10",
+      "adsquad": "Headline Lab H1-H3 | Elite Winners",
       "reason": "[Permanent Disabled Video Lock - السعودية] هذا الفيديو التراكمي موقوف نهائياً ولن يُسمح بإعادة تشغيله في أي AdSquad",
-      "paused_at": "2026-10-22 21:07 GMT+3"
+      "paused_at": "2026-10-22 22:08 GMT+3"
     },
-    "4b2df71c-32d2-4613-8199-d74d82a04768": {
-      "name": "21-10_ola_12-10_2 [H3]",
-      "campaign": "smart+ cars SA 18-10",
-      "adsquad": "Copy of 21-10 علا جديد (دفعة 12-10 — 5 فيديوهات) [H3]",
+    "cb85e18a-2c3b-43c3-8f5c-0cb1d341a87f": {
+      "name": "SA_Watch_tc_v6 [H1]",
+      "campaign": "smart+ watch suis SA 18-10",
+      "adsquad": "Headline Lab H1-H3 | Elite Winners",
       "reason": "[Permanent Disabled Video Lock - السعودية] هذا الفيديو التراكمي موقوف نهائياً ولن يُسمح بإعادة تشغيله في أي AdSquad",
-      "paused_at": "2026-10-22 21:07 GMT+3"
-    },
-    "4fae0533-fada-4c38-a927-d45ff2ac6fcb": {
-      "name": "21-10_ola_12-10_2 [H3]",
-      "campaign": "smart+ cars SA 18-10",
-      "adsquad": "Copy of 21-10 علا جديد (دفعة 12-10 — 5 فيديوهات) [H3]",
-      "reason": "[Permanent Disabled Video Lock - السعودية] هذا الفيديو التراكمي موقوف نهائياً ولن يُسمح بإعادة تشغيله في أي AdSquad",
-      "paused_at": "2026-10-22 21:07 GMT+3"
-    },
-    "82ab4ff7-d241-4153-888d-eeedbfc2357c": {
-      "name": "21-10_ola_12-10_2 [H1]",
-      "campaign": "smart+ cars SA 18-10",
-      "adsquad": "Copy of 21-10 علا جديد (دفعة 12-10 — 5 فيديوهات) [H1]",
-      "reason": "[Permanent Disabled Video Lock - السعودية] هذا الفيديو التراكمي موقوف نهائياً ولن يُسمح بإعادة تشغيله في أي AdSquad",
-      "paused_at": "2026-10-22 21:07 GMT+3"
-    },
-    "a42f259e-af84-4331-87a7-908ab5da48e7": {
-      "name": "21-10_ola_12-10_2",
-      "campaign": "smart+ cars SA 18-10",
-      "adsquad": "21-10 علا جديد (دفعة 12-10 — 5 فيديوهات)",
-      "reason": "[Permanent Disabled Video Lock - السعودية] هذا الفيديو التراكمي موقوف نهائياً ولن يُسمح بإعادة تشغيله في أي AdSquad",
-      "paused_at": "2026-10-22 21:07 GMT+3"
-    },
-    "f1a5d29e-75e1-4668-bf99-5e9d5d9338bd": {
-      "name": "21-10_ola_12-10_2 [H1]",
-      "campaign": "smart+ cars SA 18-10",
-      "adsquad": "Copy of 21-10 علا جديد (دفعة 12-10 — 5 فيديوهات) [H1]",
-      "reason": "[Permanent Disabled Video Lock - السعودية] هذا الفيديو التراكمي موقوف نهائياً ولن يُسمح بإعادة تشغيله في أي AdSquad",
-      "paused_at": "2026-10-22 21:07 GMT+3"
+      "paused_at": "2026-10-22 22:08 GMT+3"
     }
   },
   "bid_bumps": {
@@ -12315,8 +12028,8 @@
     "a3670fd1-7070-4fc2-ac4f-f64109ed6fcb": "b7751519-8006-478c-81ec-4223d51be3de",
     "4ad4a183-9c96-4eb8-9cfe-38419a453eaa": "368de7b2-64e5-444e-82cc-0bfb3dc9cf25",
     "b5ad74ff-237f-4f01-a6e0-135a6e78cab8": "08e86a33-6d7c-4f4a-8e4f-23b7b49072ff",
-    "adabe716-7146-4a8d-bb1b-3740fd64d7f9": "0977dd64-ea6a-4d8c-bbcd-3e7d5b4760f4",
     "4389b3e1-6e64-4660-888b-44d42fa0f153": "08e86a33-6d7c-4f4a-8e4f-23b7b49072ff",
+    "adabe716-7146-4a8d-bb1b-3740fd64d7f9": "0977dd64-ea6a-4d8c-bbcd-3e7d5b4760f4",
     "f3f9c648-5717-4de7-9a17-dfd84f8e30e5": "e84a0e3c-61ad-4044-bbe3-d17593fc557c",
     "5a9a21b3-66ef-4ef1-8800-4c808c9682fb": "e84a0e3c-61ad-4044-bbe3-d17593fc557c"
   },
@@ -12933,35 +12646,24 @@
       "reason": "[Global Accumulated Video High CPA 7D] مجموع صرف الفيديو التراكمي لـ 7 أيام على مستوى الحساب = $15.56 | المبيعات = 1 | CPA التراكمي = $15.56 (> $13.00)",
       "disabled_at": "2026-10-22 12:55 GMT+3"
     },
-    "baa69314-505c-4b3a-851e-883c10034935:0cc4d9a2-de01-48ed-ab33-5e398187e732": {
-      "campaign_id": "baa69314-505c-4b3a-851e-883c10034935",
-      "campaign_name": "smart+ cars SA 18-10",
-      "video_media_id": "0cc4d9a2-de01-48ed-ab33-5e398187e732",
-      "sample_ad_name": "21-10_ola_12-10_2 [H4]",
-      "reason": "[Headline Variant Lost] [Ad CPC Rule] صرف الفيديو $1.14 (>= $1.00) | النقرات: 4 | سعر النقرة CPC = $0.285 (> $0.28)",
-      "disabled_at": "2026-10-22 21:07 GMT+3"
+    "4504af26-5609-4e7b-aeca-e11cf9e03846:ed4592d0-0e6c-4685-b6de-40f72f05b101": {
+      "campaign_id": "4504af26-5609-4e7b-aeca-e11cf9e03846",
+      "campaign_name": "smart+ watch suis SA 18-10",
+      "video_media_id": "ed4592d0-0e6c-4685-b6de-40f72f05b101",
+      "sample_ad_name": "SA_Watch_tc_v6 [H3]",
+      "reason": "[Headline Variant Lost] [Ad CPC Rule] صرف الفيديو $1.93 (>= $1.00) | النقرات: 6 | سعر النقرة CPC = $0.322 (> $0.28)",
+      "disabled_at": "2026-10-22 22:08 GMT+3"
     },
-    "baa69314-505c-4b3a-851e-883c10034935:MEDIA:368de7b2-64e5-444e-82cc-0bfb3dc9cf25": {
-      "campaign_id": "baa69314-505c-4b3a-851e-883c10034935",
-      "campaign_name": "smart+ cars SA 18-10",
-      "video_media_id": "368de7b2-64e5-444e-82cc-0bfb3dc9cf25",
-      "sample_ad_name": "21-10_ola_12-10_2",
-      "closed_instances": 6,
-      "total_spend": 2.67,
-      "total_purchases": 0,
+    "4504af26-5609-4e7b-aeca-e11cf9e03846:NAME:SA_Watch_tc_v6": {
+      "campaign_id": "4504af26-5609-4e7b-aeca-e11cf9e03846",
+      "campaign_name": "smart+ watch suis SA 18-10",
+      "video_media_id": "SA_Watch_tc_v6",
+      "sample_ad_name": "SA_Watch_tc_v6",
+      "closed_instances": 2,
+      "total_spend": 94.77,
+      "total_purchases": 10,
       "reason": "[Permanent Disabled Video Lock - السعودية] هذا الفيديو التراكمي موقوف نهائياً ولن يُسمح بإعادة تشغيله في أي AdSquad",
-      "disabled_at": "2026-10-22 21:07 GMT+3"
-    },
-    "baa69314-505c-4b3a-851e-883c10034935:NAME:21-10_ola_12-10_2": {
-      "campaign_id": "baa69314-505c-4b3a-851e-883c10034935",
-      "campaign_name": "smart+ cars SA 18-10",
-      "video_media_id": "368de7b2-64e5-444e-82cc-0bfb3dc9cf25",
-      "sample_ad_name": "21-10_ola_12-10_2",
-      "closed_instances": 6,
-      "total_spend": 2.67,
-      "total_purchases": 0,
-      "reason": "[Permanent Disabled Video Lock - السعودية] هذا الفيديو التراكمي موقوف نهائياً ولن يُسمح بإعادة تشغيله في أي AdSquad",
-      "disabled_at": "2026-10-22 21:07 GMT+3"
+      "disabled_at": "2026-10-22 22:08 GMT+3"
     }
   },
   "tiktok_campaigns": {
@@ -13201,18 +12903,6 @@
       "spend_3d": 26.18,
       "conv_3d": 2,
       "paused_at": "2026-10-21T14:19:59.562645+00:00"
-    },
-    "7631763556322148369:1879722389908674": {
-      "account_name": "ROELLINGER RECYCLING",
-      "aadvid": "7631763556322148369",
-      "campaign_id": "1879722389908674",
-      "campaign_name": "car armrest 20-10 (5 Videos) SCALE 22-10",
-      "reason": "Cloned Campaign Today Spend $5.11 >= $5.00 with 0 sales",
-      "spend_1d": 5.11,
-      "conv_1d": 0,
-      "spend_3d": 5.11,
-      "conv_3d": 0,
-      "paused_at": "2026-10-22T14:59:39.208589+00:00"
     }
   },
   "tiktok_videos": {
@@ -14869,24 +14559,16 @@
       "draft_ids": [
         "1879504468173826"
       ],
-      "reason": "[Global Dup Video High CPA 3D] Total 3-Day CPA $10.08 >= $9.50 (Total Spend=$30.25, Total Sales=3)",
-      "spend_1d": 0.86,
+      "reason": "3-Day Video CPA $8.12 > $8.00 (Spend=$24.35, Sales=3)",
+      "spend_1d": 3.18,
       "conv_1d": 0,
-      "spend_2d": 4.59,
-      "conv_2d": 0,
-      "spend_3d": 25.58,
+      "spend_2d": 24.17,
+      "conv_2d": 3,
+      "spend_3d": 24.35,
       "conv_3d": 3,
-      "spend_7d": 25.75,
+      "spend_7d": 24.42,
       "conv_7d": 3,
-      "global_spend_1d": 0.86,
-      "global_conv_1d": 0,
-      "global_spend_2d": 5.29,
-      "global_conv_2d": 0,
-      "global_spend_3d": 30.25,
-      "global_conv_3d": 3,
-      "global_spend_7d": 30.42,
-      "global_conv_7d": 3,
-      "paused_at": "2026-10-22T18:11:27.830117+00:00"
+      "paused_at": "2026-10-21T10:39:30.740917+00:00"
     },
     "7631763556322148369:1879340705037553:1879340705189073": {
       "aadvid": "7631763556322148369",
@@ -17794,24 +17476,16 @@
       "draft_ids": [
         "1879581600686081"
       ],
-      "reason": "[Global Dup Video High CPA 3D] Total 3-Day CPA $11.49 >= $9.50 (Total Spend=$22.98, Total Sales=2)",
-      "spend_1d": 17.49,
+      "reason": "3-Day Video CPA $8.47 > $8.00 (Spend=$16.95, Sales=2)",
+      "spend_1d": 13.01,
       "conv_1d": 2,
-      "spend_2d": 21.41,
+      "spend_2d": 16.93,
       "conv_2d": 2,
-      "spend_3d": 21.5,
+      "spend_3d": 16.95,
       "conv_3d": 2,
-      "spend_7d": 21.53,
+      "spend_7d": 16.95,
       "conv_7d": 2,
-      "global_spend_1d": 18.19,
-      "global_conv_1d": 2,
-      "global_spend_2d": 22.89,
-      "global_conv_2d": 2,
-      "global_spend_3d": 22.98,
-      "global_conv_3d": 2,
-      "global_spend_7d": 23.01,
-      "global_conv_7d": 2,
-      "paused_at": "2026-10-22T17:33:44.869389+00:00"
+      "paused_at": "2026-10-22T06:18:15.348164+00:00"
     },
     "7631763556322148369:1879568832868754:1879578772903345": {
       "aadvid": "7631763556322148369",
@@ -17934,131 +17608,42 @@
       "conv_7d": 0,
       "paused_at": "2026-10-22T08:45:01.758718+00:00"
     },
-    "7631765139798081554:1879700957516081:1879700962321457": {
-      "aadvid": "7631765139798081554",
-      "account_name": "ROELLINGER RECYCLING1",
-      "ad_id": "1879700957516081",
-      "creative_id": "1879700960190018",
-      "campaign_ad_name": "power bank 22-10 (7 Voltrx Hooks B) / power bank 22-10 (7 Voltrx Hooks B) - Creative",
-      "video_name": "22-10_voltrx_hook5_mall_woman.mp4",
+    "7631763556322148369:1879690057018770:1879690060895314": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "ad_id": "1879690057018770",
+      "creative_id": "1879690057022466",
+      "video_name": "maybach_ad_1_21_10.mp4",
       "draft_ids": [
-        "1879700962321457"
+        "1879690060895314"
       ],
-      "reason": "Today Spend $1.06 >= $1.00 & CPC $0.00 > $0.35",
-      "spend_1d": 1.06,
+      "reason": "[maybach Early CPC Rule - Today] Spend $2.16 (>= $0.80) | Clicks=6 | CPC=$0.36 (> $0.30) with 0 sales",
+      "spend_1d": 2.16,
       "conv_1d": 0,
-      "spend_2d": 1.06,
-      "conv_2d": 0,
-      "spend_3d": 1.06,
+      "spend_3d": 2.16,
       "conv_3d": 0,
-      "spend_7d": 1.06,
-      "conv_7d": 0,
-      "paused_at": "2026-10-22T11:16:03.908466+00:00"
+      "paused_at": "2026-10-22T11:24:35.203448+00:00"
     },
-    "7631765070816509959:1879700783803506:1879700787540993": {
-      "aadvid": "7631765070816509959",
-      "account_name": "ROELLINGER RECYCLING2",
-      "ad_id": "1879700783803506",
-      "creative_id": "1879700785650017",
-      "campaign_ad_name": "power bank 22-10 (7 Voltrx Hooks A) / power bank 22-10 (7 Voltrx Hooks A) - Creative",
-      "video_name": "22-10_voltrx_hook5_mall_woman.mp4",
-      "draft_ids": [
-        "1879700787540993"
-      ],
-      "reason": "Today Spend $2.53 >= $1.00 & CPC $0.36 > $0.35",
-      "spend_1d": 2.53,
-      "conv_1d": 0,
-      "spend_2d": 2.53,
-      "conv_2d": 0,
-      "spend_3d": 2.53,
-      "conv_3d": 0,
-      "spend_7d": 2.53,
-      "conv_7d": 0,
-      "paused_at": "2026-10-22T11:16:27.632213+00:00"
-    },
-    "7631763556322148369:1879581597584866:1879581600686113": {
-      "aadvid": "7631763556322148369",
-      "account_name": "ROELLINGER RECYCLING",
-      "ad_id": "1879581597584866",
-      "creative_id": "1879581597728962",
-      "campaign_ad_name": "car armrest 20-10 (5 Videos) / 20-10 - Creative",
-      "video_name": "20-10_car_ad_3.mp4",
-      "draft_ids": [
-        "1879581600686113"
-      ],
-      "reason": "3-Day Video CPA $8.73 > $8.50 (Spend=$8.73, Sales=1)",
-      "spend_1d": 7.85,
-      "conv_1d": 1,
-      "spend_2d": 8.73,
-      "conv_2d": 1,
-      "spend_3d": 8.73,
-      "conv_3d": 1,
-      "spend_7d": 8.81,
-      "conv_7d": 1,
-      "paused_at": "2026-10-22T11:57:35.321137+00:00"
-    },
-    "7631763556322148369:1879577400149361:1879577403803089": {
-      "aadvid": "7631763556322148369",
-      "account_name": "ROELLINGER RECYCLING",
-      "ad_id": "1879577400149361",
-      "creative_id": "1879577402168449",
-      "campaign_ad_name": "qatar power bank 20-10 (Accel CC 11.5) / qatar power bank 20-10 (Accel CC 11.5) - Creative",
-      "video_name": "18_10_15-10_hanan_4.mp4",
-      "draft_ids": [
-        "1879577403803089"
-      ],
-      "reason": "[Gulf] Today Spend $13.41 > $10.00 with 0 sales | [Gulf] 3-Day Video CPA $13.13 > $13.00 (Spend=$52.54, Sales=4) | [Gulf] Today Spend $13.41 >= $1.00 & CPC $0.36 > $0.35",
-      "spend_1d": 13.41,
-      "conv_1d": 0,
-      "spend_2d": 52.54,
-      "conv_2d": 4,
-      "spend_3d": 52.54,
-      "conv_3d": 4,
-      "spend_7d": 52.54,
-      "conv_7d": 4,
-      "paused_at": "2026-10-22T13:29:16.693676+00:00"
-    },
-    "7631763556322148369:1879689078764753:1879689082317826": {
-      "aadvid": "7631763556322148369",
-      "account_name": "ROELLINGER RECYCLING",
-      "ad_id": "1879689078764753",
-      "creative_id": "1879689080510498",
-      "campaign_ad_name": "car armrest 21-10 (Hanan 20-10 & 12-10 Edit) / car armrest 21-10 (Hanan 20-10 & 12-10 Edit) - Creative",
-      "video_name": "21-10_hanan_20-10_5.mp4",
-      "draft_ids": [
-        "1879689082317826"
-      ],
-      "reason": "3-Day Video CPA $8.93 > $8.50 (Spend=$17.85, Sales=2)",
-      "spend_1d": 17.56,
-      "conv_1d": 2,
-      "spend_2d": 17.85,
-      "conv_2d": 2,
-      "spend_3d": 17.85,
-      "conv_3d": 2,
-      "spend_7d": 17.85,
-      "conv_7d": 2,
-      "paused_at": "2026-10-22T13:29:17.293058+00:00"
-    },
-    "7631763556322148369:1879722389908690:1879722393156417": {
+    "7631763556322148369:1879722389908690:1879722393157121": {
       "aadvid": "7631763556322148369",
       "account_name": "ROELLINGER RECYCLING",
       "ad_id": "1879722389908690",
       "creative_id": "1879722391498754",
       "campaign_ad_name": "car armrest 20-10 (5 Videos) SCALE 22-10 / car armrest 20-10 (5 Videos) SCALE 22-10 - Creative",
-      "video_name": "20-10_car_ad_2.mp4",
+      "video_name": "20-10_car_ad_5.mp4",
       "draft_ids": [
-        "1879722393156417"
+        "1879722393157121"
       ],
-      "reason": "Today Spend $1.46 >= $1.00 & CPC $0.00 > $0.35",
-      "spend_1d": 1.46,
+      "reason": "Today Spend $2.04 >= $1.00 & CPC $0.68 > $0.35",
+      "spend_1d": 2.04,
       "conv_1d": 0,
-      "spend_2d": 1.46,
+      "spend_2d": 2.04,
       "conv_2d": 0,
-      "spend_3d": 1.46,
+      "spend_3d": 2.04,
       "conv_3d": 0,
-      "spend_7d": 1.46,
+      "spend_7d": 2.04,
       "conv_7d": 0,
-      "paused_at": "2026-10-22T13:29:17.938603+00:00"
+      "paused_at": "2026-10-22T14:18:54.541016+00:00"
     },
     "7631763556322148369:1879689071342641:1879689074485570": {
       "aadvid": "7631763556322148369",
@@ -18070,24 +17655,24 @@
       "draft_ids": [
         "1879689074485570"
       ],
-      "reason": "[Global Dup Video High CPA 3D] Total 3-Day CPA $9.68 >= $9.50 (Total Spend=$19.35, Total Sales=2)",
-      "spend_1d": 0.9,
+      "reason": "[Global Dup Video High CPA 3D] Total 3-Day CPA $9.67 >= $9.50 (Total Spend=$19.34, Total Sales=2)",
+      "spend_1d": 0.89,
       "conv_1d": 0,
-      "spend_2d": 0.9,
+      "spend_2d": 0.89,
       "conv_2d": 0,
-      "spend_3d": 0.9,
+      "spend_3d": 0.89,
       "conv_3d": 0,
       "spend_7d": 0.9,
       "conv_7d": 0,
-      "global_spend_1d": 19.06,
+      "global_spend_1d": 19.05,
       "global_conv_1d": 2,
-      "global_spend_2d": 19.35,
+      "global_spend_2d": 19.34,
       "global_conv_2d": 2,
-      "global_spend_3d": 19.35,
+      "global_spend_3d": 19.34,
       "global_conv_3d": 2,
       "global_spend_7d": 19.35,
       "global_conv_7d": 2,
-      "paused_at": "2026-10-22T14:20:47.451525+00:00"
+      "paused_at": "2026-10-22T14:19:41.966447+00:00"
     },
     "7631763556322148369:1879741456140865:1879741459495234": {
       "aadvid": "7631763556322148369",
@@ -18099,7 +17684,7 @@
       "draft_ids": [
         "1879741459495234"
       ],
-      "reason": "[Global Dup Video High CPA 3D] Total 3-Day CPA $9.68 >= $9.50 (Total Spend=$19.35, Total Sales=2)",
+      "reason": "[Global Dup Video High CPA 3D] Total 3-Day CPA $9.67 >= $9.50 (Total Spend=$19.34, Total Sales=2)",
       "spend_1d": 0.43,
       "conv_1d": 0,
       "spend_2d": 0.43,
@@ -18108,264 +17693,73 @@
       "conv_3d": 0,
       "spend_7d": 0.43,
       "conv_7d": 0,
-      "global_spend_1d": 19.06,
+      "global_spend_1d": 19.05,
       "global_conv_1d": 2,
-      "global_spend_2d": 19.35,
+      "global_spend_2d": 19.34,
       "global_conv_2d": 2,
-      "global_spend_3d": 19.35,
+      "global_spend_3d": 19.34,
       "global_conv_3d": 2,
       "global_spend_7d": 19.35,
       "global_conv_7d": 2,
-      "paused_at": "2026-10-22T14:20:48.086085+00:00"
+      "paused_at": "2026-10-22T14:19:42.679422+00:00"
     },
-    "7631763556322148369:1879598580856242:1879598583000497": {
-      "aadvid": "7631763556322148369",
-      "account_name": "ROELLINGER RECYCLING",
-      "ad_id": "1879598580856242",
-      "creative_id": "1879598582997345",
-      "campaign_ad_name": "car armrest 20-10 (7 Flow Hook Ads A) / 20-10 هوكات فلو A (7 فيديوهات) - Creative",
-      "video_name": "20-10_car_hook_ad_3_final_v3.mp4",
-      "draft_ids": [
-        "1879598583000497"
-      ],
-      "reason": "3-Day Video CPA $8.63 > $8.50 (Spend=$8.63, Sales=1)",
-      "spend_1d": 4.25,
-      "conv_1d": 0,
-      "spend_2d": 8.63,
-      "conv_2d": 1,
-      "spend_3d": 8.63,
-      "conv_3d": 1,
-      "spend_7d": 8.63,
-      "conv_7d": 1,
-      "paused_at": "2026-10-22T15:00:39.908778+00:00"
-    },
-    "7631765139798081554:1879700957516081:1879700962317762": {
+    "7631765139798081554:1879741540537474:1879741544139810": {
       "aadvid": "7631765139798081554",
       "account_name": "ROELLINGER RECYCLING1",
-      "ad_id": "1879700957516081",
-      "creative_id": "1879700960190018",
-      "campaign_ad_name": "power bank 22-10 (7 Voltrx Hooks B) / power bank 22-10 (7 Voltrx Hooks B) - Creative",
-      "video_name": "22-10_voltrx_hook2_mall_man.mp4",
+      "ad_id": "1879741540537474",
+      "creative_id": "1879741542155569",
+      "campaign_ad_name": "car armrest 22-10 ELITE WINNERS SCALE (CC 6.5) / car armrest 22-10 ELITE WINNERS SCALE (CC 6.5) - Creative",
+      "video_name": "21-10_hanan_20-10_5.mp4",
       "draft_ids": [
-        "1879700962317762"
+        "1879741544139810"
       ],
-      "reason": "Today Spend $1.12 >= $1.00 & CPC $1.12 > $0.35",
-      "spend_1d": 1.12,
+      "reason": "[Global Dup Video High CPA 3D] Total 3-Day CPA $9.67 >= $9.50 (Total Spend=$19.34, Total Sales=2)",
+      "spend_1d": 0.0,
       "conv_1d": 0,
-      "spend_2d": 1.12,
+      "spend_2d": 0.0,
       "conv_2d": 0,
-      "spend_3d": 1.12,
+      "spend_3d": 0.0,
       "conv_3d": 0,
-      "spend_7d": 1.12,
+      "spend_7d": 0.0,
       "conv_7d": 0,
-      "paused_at": "2026-10-22T15:00:58.108314+00:00"
+      "global_spend_1d": 19.05,
+      "global_conv_1d": 2,
+      "global_spend_2d": 19.34,
+      "global_conv_2d": 2,
+      "global_spend_3d": 19.34,
+      "global_conv_3d": 2,
+      "global_spend_7d": 19.35,
+      "global_conv_7d": 2,
+      "paused_at": "2026-10-22T14:19:43.400883+00:00"
     },
-    "7631765139798081554:1879700957516081:1879700962322449": {
-      "aadvid": "7631765139798081554",
-      "account_name": "ROELLINGER RECYCLING1",
-      "ad_id": "1879700957516081",
-      "creative_id": "1879700960190018",
-      "campaign_ad_name": "power bank 22-10 (7 Voltrx Hooks B) / power bank 22-10 (7 Voltrx Hooks B) - Creative",
-      "video_name": "22-10_voltrx_hook6_park_woman.mp4",
-      "draft_ids": [
-        "1879700962322449"
-      ],
-      "reason": "Today Spend $1.15 >= $1.00 & CPC $0.38 > $0.35",
-      "spend_1d": 1.15,
-      "conv_1d": 0,
-      "spend_2d": 1.15,
-      "conv_2d": 0,
-      "spend_3d": 1.15,
-      "conv_3d": 0,
-      "spend_7d": 1.15,
-      "conv_7d": 0,
-      "paused_at": "2026-10-22T16:16:50.912869+00:00"
-    },
-    "7631765070816509959:1879700803692833:1879700806125858": {
+    "7631765070816509959:1879741630263777:1879741633355426": {
       "aadvid": "7631765070816509959",
       "account_name": "ROELLINGER RECYCLING2",
-      "ad_id": "1879700803692833",
-      "creative_id": "1879700804764834",
-      "campaign_ad_name": "power bank 22-10 (7 Voltrx Hooks B) / power bank 22-10 (7 Voltrx Hooks B) - Creative",
-      "video_name": "22-10_voltrx_hook5_mall_woman.mp4",
+      "ad_id": "1879741630263777",
+      "creative_id": "1879741631970626",
+      "campaign_ad_name": "car armrest 22-10 ELITE WINNERS SCALE (CC 6.6) / car armrest 22-10 ELITE WINNERS SCALE (CC 6.6) - Creative",
+      "video_name": "21-10_hanan_20-10_5.mp4",
       "draft_ids": [
-        "1879700806125858"
+        "1879741633355426"
       ],
-      "reason": "Today Spend $3.56 >= $1.00 & CPC $0.36 > $0.35",
-      "spend_1d": 3.56,
+      "reason": "[Global Dup Video High CPA 3D] Total 3-Day CPA $9.67 >= $9.50 (Total Spend=$19.34, Total Sales=2)",
+      "spend_1d": 0.0,
       "conv_1d": 0,
-      "spend_2d": 3.56,
+      "spend_2d": 0.0,
       "conv_2d": 0,
-      "spend_3d": 3.56,
+      "spend_3d": 0.0,
       "conv_3d": 0,
-      "spend_7d": 3.56,
+      "spend_7d": 0.0,
       "conv_7d": 0,
-      "paused_at": "2026-10-22T16:17:18.138933+00:00"
-    },
-    "7631763556322148369:1879676075637057:1879676080329089": {
-      "aadvid": "7631763556322148369",
-      "account_name": "ROELLINGER RECYCLING",
-      "ad_id": "1879676075637057",
-      "creative_id": "1879676077843906",
-      "video_name": "warmer_ad06_s3_v2_22_10.mp4",
-      "draft_ids": [
-        "1879676080329089"
-      ],
-      "reason": "[Cross-Platform Rule 3: Survivor-Only Pruning] الصرف المشترك $21.68 (> $20.00) وسعر البيعة المشترك CPA = $10.84 (> $8.00) -> إيقاف كل فيديو لم يحقق مبيعات نهائياً (حتى لو صرف $0.00) والإبقاء فقط على الفيديو الرابح!",
-      "spend_1d": 1.1,
-      "conv_1d": 0,
-      "spend_3d": 1.1,
-      "conv_3d": 0,
-      "paused_at": "2026-10-22T16:19:20.268972+00:00"
-    },
-    "7631763556322148369:1879676075637057:1879676080327473": {
-      "aadvid": "7631763556322148369",
-      "account_name": "ROELLINGER RECYCLING",
-      "ad_id": "1879676075637057",
-      "creative_id": "1879676077843906",
-      "video_name": "warmer_ad01_s1_v1_22_10.mp4",
-      "draft_ids": [
-        "1879676080327473"
-      ],
-      "reason": "[Cross-Platform Rule 3: Survivor-Only Pruning] الصرف المشترك $21.68 (> $20.00) وسعر البيعة المشترك CPA = $10.84 (> $8.00) -> إيقاف كل فيديو لم يحقق مبيعات نهائياً (حتى لو صرف $0.00) والإبقاء فقط على الفيديو الرابح!",
-      "spend_1d": 0.33,
-      "conv_1d": 0,
-      "spend_3d": 0.33,
-      "conv_3d": 0,
-      "paused_at": "2026-10-22T16:19:21.046074+00:00"
-    },
-    "7631763556322148369:1879676075637057:1879676080329121": {
-      "aadvid": "7631763556322148369",
-      "account_name": "ROELLINGER RECYCLING",
-      "ad_id": "1879676075637057",
-      "creative_id": "1879676077843906",
-      "video_name": "warmer_ad08_s4_v2_22_10.mp4",
-      "draft_ids": [
-        "1879676080329121"
-      ],
-      "reason": "[Cross-Platform Rule 3: Survivor-Only Pruning] الصرف المشترك $21.68 (> $20.00) وسعر البيعة المشترك CPA = $10.84 (> $8.00) -> إيقاف كل فيديو لم يحقق مبيعات نهائياً (حتى لو صرف $0.00) والإبقاء فقط على الفيديو الرابح!",
-      "spend_1d": 0.97,
-      "conv_1d": 0,
-      "spend_3d": 0.97,
-      "conv_3d": 0,
-      "paused_at": "2026-10-22T16:19:21.774229+00:00"
-    },
-    "7631763556322148369:1879676075637057:1879676080327729": {
-      "aadvid": "7631763556322148369",
-      "account_name": "ROELLINGER RECYCLING",
-      "ad_id": "1879676075637057",
-      "creative_id": "1879676077843906",
-      "video_name": "warmer_ad05_s3_v1_22_10.mp4",
-      "draft_ids": [
-        "1879676080327729"
-      ],
-      "reason": "[Cross-Platform Rule 3: Survivor-Only Pruning] الصرف المشترك $21.68 (> $20.00) وسعر البيعة المشترك CPA = $10.84 (> $8.00) -> إيقاف كل فيديو لم يحقق مبيعات نهائياً (حتى لو صرف $0.00) والإبقاء فقط على الفيديو الرابح!",
-      "spend_1d": 0.59,
-      "conv_1d": 0,
-      "spend_3d": 0.59,
-      "conv_3d": 0,
-      "paused_at": "2026-10-22T16:19:22.400382+00:00"
-    },
-    "7631763556322148369:1879676075637057:1879676080329105": {
-      "aadvid": "7631763556322148369",
-      "account_name": "ROELLINGER RECYCLING",
-      "ad_id": "1879676075637057",
-      "creative_id": "1879676077843906",
-      "video_name": "warmer_ad07_s4_v1_22_10.mp4",
-      "draft_ids": [
-        "1879676080329105"
-      ],
-      "reason": "[Cross-Platform Rule 3: Survivor-Only Pruning] الصرف المشترك $21.68 (> $20.00) وسعر البيعة المشترك CPA = $10.84 (> $8.00) -> إيقاف كل فيديو لم يحقق مبيعات نهائياً (حتى لو صرف $0.00) والإبقاء فقط على الفيديو الرابح!",
-      "spend_1d": 0.45,
-      "conv_1d": 0,
-      "spend_3d": 0.45,
-      "conv_3d": 0,
-      "paused_at": "2026-10-22T16:19:23.190577+00:00"
-    },
-    "7631763556322148369:1879676075637057:1879676080327713": {
-      "aadvid": "7631763556322148369",
-      "account_name": "ROELLINGER RECYCLING",
-      "ad_id": "1879676075637057",
-      "creative_id": "1879676077843906",
-      "video_name": "warmer_ad04_s2_v2_22_10.mp4",
-      "draft_ids": [
-        "1879676080327713"
-      ],
-      "reason": "[Cross-Platform Rule 3: Survivor-Only Pruning] الصرف المشترك $21.68 (> $20.00) وسعر البيعة المشترك CPA = $10.84 (> $8.00) -> إيقاف كل فيديو لم يحقق مبيعات نهائياً (حتى لو صرف $0.00) والإبقاء فقط على الفيديو الرابح!",
-      "spend_1d": 0.6,
-      "conv_1d": 0,
-      "spend_3d": 0.6,
-      "conv_3d": 0,
-      "paused_at": "2026-10-22T16:19:23.978584+00:00"
-    },
-    "7631763556322148369:1879676075637057:1879676080329137": {
-      "aadvid": "7631763556322148369",
-      "account_name": "ROELLINGER RECYCLING",
-      "ad_id": "1879676075637057",
-      "creative_id": "1879676077843906",
-      "video_name": "warmer_ad09_s5_v1_22_10.mp4",
-      "draft_ids": [
-        "1879676080329137"
-      ],
-      "reason": "[Cross-Platform Rule 3: Survivor-Only Pruning] الصرف المشترك $21.68 (> $20.00) وسعر البيعة المشترك CPA = $10.84 (> $8.00) -> إيقاف كل فيديو لم يحقق مبيعات نهائياً (حتى لو صرف $0.00) والإبقاء فقط على الفيديو الرابح!",
-      "spend_1d": 0.84,
-      "conv_1d": 0,
-      "spend_3d": 0.84,
-      "conv_3d": 0,
-      "paused_at": "2026-10-22T16:19:24.807329+00:00"
-    },
-    "7631763556322148369:1879676075637057:1879676080331137": {
-      "aadvid": "7631763556322148369",
-      "account_name": "ROELLINGER RECYCLING",
-      "ad_id": "1879676075637057",
-      "creative_id": "1879676077843906",
-      "video_name": "warmer_ad10_s5_v2_22_10.mp4",
-      "draft_ids": [
-        "1879676080331137"
-      ],
-      "reason": "[Cross-Platform Rule 3: Survivor-Only Pruning] الصرف المشترك $21.68 (> $20.00) وسعر البيعة المشترك CPA = $10.84 (> $8.00) -> إيقاف كل فيديو لم يحقق مبيعات نهائياً (حتى لو صرف $0.00) والإبقاء فقط على الفيديو الرابح!",
-      "spend_1d": 0.46,
-      "conv_1d": 0,
-      "spend_3d": 0.46,
-      "conv_3d": 0,
-      "paused_at": "2026-10-22T16:19:25.461502+00:00"
-    },
-    "7631763556322148369:1879676075637057:1879676080327697": {
-      "aadvid": "7631763556322148369",
-      "account_name": "ROELLINGER RECYCLING",
-      "ad_id": "1879676075637057",
-      "creative_id": "1879676077843906",
-      "video_name": "warmer_ad03_s2_v1_22_10.mp4",
-      "draft_ids": [
-        "1879676080327697"
-      ],
-      "reason": "[Cross-Platform Rule 3: Survivor-Only Pruning] الصرف المشترك $21.68 (> $20.00) وسعر البيعة المشترك CPA = $10.84 (> $8.00) -> إيقاف كل فيديو لم يحقق مبيعات نهائياً (حتى لو صرف $0.00) والإبقاء فقط على الفيديو الرابح!",
-      "spend_1d": 0.66,
-      "conv_1d": 0,
-      "spend_3d": 0.66,
-      "conv_3d": 0,
-      "paused_at": "2026-10-22T16:19:26.196145+00:00"
-    },
-    "7631763556322148369:1879598604627042:1879598605367857": {
-      "aadvid": "7631763556322148369",
-      "account_name": "ROELLINGER RECYCLING",
-      "ad_id": "1879598604627042",
-      "creative_id": "1879598604674321",
-      "campaign_ad_name": "car armrest 20-10 (7 Flow Hook Ads B) / 20-10 هوكات فلو B (7 فيديوهات) - Creative",
-      "video_name": "20-10_car_hook_ad_4_final_v3.mp4",
-      "draft_ids": [
-        "1879598605367857"
-      ],
-      "reason": "Today Spend $1.87 >= $1.00 & CPC $0.47 > $0.35",
-      "spend_1d": 1.87,
-      "conv_1d": 0,
-      "spend_2d": 3.04,
-      "conv_2d": 0,
-      "spend_3d": 3.04,
-      "conv_3d": 0,
-      "spend_7d": 3.04,
-      "conv_7d": 0,
-      "paused_at": "2026-10-22T19:06:56.908509+00:00"
+      "global_spend_1d": 19.05,
+      "global_conv_1d": 2,
+      "global_spend_2d": 19.34,
+      "global_conv_2d": 2,
+      "global_spend_3d": 19.34,
+      "global_conv_3d": 2,
+      "global_spend_7d": 19.35,
+      "global_conv_7d": 2,
+      "paused_at": "2026-10-22T14:19:44.105792+00:00"
     }
   },
   "tiktok_ads": {},
@@ -18774,207 +18168,115 @@
   "no_duplicate_campaigns": {
     "16b7aaf3-7526-49d7-8e68-33df1e0872a7": {
       "name": "باور بانك السعودية سمارت+ (فيديوهات الحساب الثاني) 18-10",
-      "spend_3d": 139.87,
+      "spend_3d": 139.9,
       "purchases_3d": 8,
-      "cpa_3d": 17.48,
-      "updated_at": "2026-10-22 22:03 GMT+3"
+      "cpa_3d": 17.49,
+      "updated_at": "2026-10-22 22:18 GMT+3"
     },
     "4504af26-5609-4e7b-aeca-e11cf9e03846": {
       "name": "smart+ watch suis SA 18-10",
-      "spend_3d": 209.13,
+      "spend_3d": 209.83,
       "purchases_3d": 19,
-      "cpa_3d": 11.01,
-      "updated_at": "2026-10-22 22:03 GMT+3"
+      "cpa_3d": 11.04,
+      "updated_at": "2026-10-22 22:18 GMT+3"
     },
     "8703fd84-bad8-482e-adb5-da1e9c635d13": {
       "name": "watch suis winners 17-10",
       "spend_3d": 25.28,
       "purchases_3d": 3,
       "cpa_3d": 8.43,
-      "updated_at": "2026-10-22 22:03 GMT+3"
+      "updated_at": "2026-10-22 22:18 GMT+3"
     },
     "9be45a26-06ac-4716-8e7b-2fb3a4d65e4c": {
       "name": "car scaling new 2 text",
-      "spend_3d": 160.16,
+      "spend_3d": 160.3,
       "purchases_3d": 16,
-      "cpa_3d": 10.01,
-      "updated_at": "2026-10-22 22:03 GMT+3"
+      "cpa_3d": 10.02,
+      "updated_at": "2026-10-22 22:18 GMT+3"
     },
     "baa69314-505c-4b3a-851e-883c10034935": {
       "name": "smart+ cars SA 18-10",
-      "spend_3d": 251.19,
+      "spend_3d": 251.24,
       "purchases_3d": 21,
       "cpa_3d": 11.96,
-      "updated_at": "2026-10-22 22:03 GMT+3"
+      "updated_at": "2026-10-22 22:18 GMT+3"
     },
     "e23e7c95-3f15-4945-9844-8bd73e2d79d3": {
       "name": "باور بانك وينر",
-      "spend_3d": 101.04,
+      "spend_3d": 101.52,
       "purchases_3d": 8,
-      "cpa_3d": 12.63,
-      "updated_at": "2026-10-22 22:03 GMT+3"
-    },
-    "f8372cfb-ae46-44d0-bbb4-f39790ecc648": {
-      "name": "car scaling camp ",
-      "spend_3d": 314.86,
-      "purchases_3d": 39,
-      "cpa_3d": 8.07,
-      "updated_at": "2026-10-22 17:16 GMT+3"
+      "cpa_3d": 12.69,
+      "updated_at": "2026-10-22 22:18 GMT+3"
     },
     "4eefa50f-9008-4aea-b159-d370150b60cf": {
       "name": "صندوق دفاتر TIME X 21-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-22 22:03 GMT+3"
+      "updated_at": "2026-10-22 22:18 GMT+3"
     },
     "a171c141-a6d5-403e-8357-5c8f6c01bce0": {
       "name": "وسادة مايباخ 21-10",
       "spend_3d": 10.24,
       "purchases_3d": 0,
       "cpa_3d": null,
-      "updated_at": "2026-10-22 22:03 GMT+3"
+      "updated_at": "2026-10-22 22:18 GMT+3"
     },
     "c5a7cade-6ec3-4c47-b3a2-c5f08bcf8da0": {
       "name": "وسادة مايباخ 21-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-22 22:03 GMT+3"
+      "updated_at": "2026-10-22 22:18 GMT+3"
     },
     "1879653126110545": {
       "name": "timex books 21-10",
       "aadvid": "7631763556322148369",
       "reason": "Single-Campaign Cross-Platform Monitored Product Campaign",
-      "updated_at": "2026-10-22 22:07 GMT+3"
+      "updated_at": "2026-10-22 22:13 GMT+3"
     },
     "e8f0a5e9-89c5-4c14-aabb-c9c6c657891d": {
       "name": "مسخن الرضاعات اللاسلكي 22-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-22 22:03 GMT+3"
+      "updated_at": "2026-10-22 22:18 GMT+3"
     },
     "f18a3bf4-148a-4f5e-baa1-f90335f1884c": {
       "name": "مسخن الرضاعات اللاسلكي 22-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-22 22:03 GMT+3"
+      "updated_at": "2026-10-22 22:18 GMT+3"
     },
     "1879676075637041": {
       "name": "baby bottle warmer 22-10",
       "aadvid": "7631763556322148369",
       "reason": "Single-Campaign Cross-Platform Monitored Product Campaign",
-      "updated_at": "2026-10-22 22:07 GMT+3"
-    },
-    "29891f22-e046-4cc8-b9ee-9921d2d65f0b": {
-      "name": "مسخن الرضاعات اللاسلكي 22-10",
-      "reason": "Single-AdSquad Cross-Platform Monitored Product Campaign",
-      "updated_at": "2026-10-22 22:07 GMT+3"
+      "updated_at": "2026-10-22 22:13 GMT+3"
     },
     "1879690057017602": {
       "name": "maybach pillow 21-10 (Boost CC 8.8)",
       "aadvid": "7631763556322148369",
       "reason": "Single-Campaign Cross-Platform Monitored Product Campaign",
-      "updated_at": "2026-10-22 22:07 GMT+3"
+      "updated_at": "2026-10-22 22:13 GMT+3"
     },
-    "1879155925017650": {
-      "name": "power bank winner 16-10 A",
-      "aadvid": "7631763556322148369",
-      "spend_3d": 101.55,
-      "purchases_3d": 12,
-      "cpa_3d": 8.46,
-      "reason": "3-Day CPA > $8.00 — Duplication Blocked"
-    },
-    "1879340705037537": {
-      "name": "power bank 18-10 (Ola + Hanan 15-10)",
-      "aadvid": "7631763556322148369",
-      "spend_3d": 72.15,
-      "purchases_3d": 9,
-      "cpa_3d": 8.02,
-      "reason": "3-Day CPA > $8.00 — Duplication Blocked"
-    },
-    "1879577430883393": {
-      "name": "qatar kashaf 20-10 (Accel CC 11.5)",
-      "aadvid": "7631763556322148369",
-      "spend_3d": 78.73,
-      "purchases_3d": 6,
-      "cpa_3d": 13.12,
-      "reason": "3-Day CPA > $13.00 — Duplication Blocked"
-    },
-    "1879504465445265": {
-      "name": "car armrest 19-10 (Hanan + Ola 17-10)",
-      "aadvid": "7631763556322148369",
-      "spend_3d": 45.18,
-      "purchases_3d": 4,
-      "cpa_3d": 11.29,
-      "reason": "3-Day CPA > $8.00 — Duplication Blocked"
-    },
-    "1879598604627026": {
-      "name": "car armrest 20-10 (7 Flow Hook Ads B)",
-      "aadvid": "7631763556322148369",
-      "spend_3d": 29.45,
-      "purchases_3d": 2,
-      "cpa_3d": 14.72,
-      "reason": "3-Day CPA > $8.00 — Duplication Blocked"
-    },
-    "1879598580856226": {
-      "name": "car armrest 20-10 (7 Flow Hook Ads A)",
-      "aadvid": "7631763556322148369",
-      "spend_3d": 26.36,
-      "purchases_3d": 3,
-      "cpa_3d": 8.79,
-      "reason": "3-Day CPA > $8.00 — Duplication Blocked"
-    },
-    "1879568832867394": {
-      "name": "car armrest 20-10 (Hanan + Ola 18-10)",
-      "aadvid": "7631763556322148369",
-      "spend_3d": 21.24,
-      "purchases_3d": 1,
-      "cpa_3d": 21.24,
-      "reason": "3-Day CPA > $8.00 — Duplication Blocked"
-    },
-    "1879577375941873": {
-      "name": "oman power bank 20-10 (Accel CC 11.5)",
-      "aadvid": "7631763556322148369",
-      "spend_3d": 13.25,
-      "purchases_3d": 0,
-      "cpa_3d": null,
-      "reason": "3-Day CPA > $13.00 — Duplication Blocked"
+    "29891f22-e046-4cc8-b9ee-9921d2d65f0b": {
+      "name": "مسخن الرضاعات اللاسلكي 22-10",
+      "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
+      "updated_at": "2026-10-22 22:18 GMT+3"
     },
     "1879653022433617": {
       "name": "maybach pillow 21-10",
       "aadvid": "7631763556322148369",
       "reason": "Single-Campaign Cross-Platform Monitored Product Campaign",
-      "updated_at": "2026-10-22 22:07 GMT+3"
-    },
-    "1878973125748978": {
-      "name": "car armrest leads  13-10",
-      "aadvid": "7631763556322148369",
-      "spend_3d": 49.23,
-      "purchases_3d": 6,
-      "cpa_3d": 8.21,
-      "reason": "3-Day CPA > $8.00 — Duplication Blocked"
-    },
-    "1879581597584850": {
-      "name": "car armrest 20-10 (5 Videos)",
-      "aadvid": "7631763556322148369",
-      "spend_3d": 50.22,
-      "purchases_3d": 6,
-      "cpa_3d": 8.37,
-      "reason": "3-Day CPA > $8.00 — Duplication Blocked"
-    },
-    "1879700783803490": {
-      "name": "power bank 22-10 (7 Voltrx Hooks A)",
-      "aadvid": "7631765070816509959",
-      "spend_3d": 8.31,
-      "purchases_3d": 1,
-      "cpa_3d": 8.31,
-      "reason": "3-Day CPA > $8.00 — Duplication Blocked"
-    },
-    "1879700803692817": {
-      "name": "power bank 22-10 (7 Voltrx Hooks B)",
-      "aadvid": "7631765070816509959",
-      "spend_3d": 8.02,
-      "purchases_3d": 0,
-      "cpa_3d": null,
-      "reason": "3-Day CPA > $8.00 — Duplication Blocked"
+      "updated_at": "2026-10-22 22:13 GMT+3"
     }
   },
-  "proactive_scaled_squads": {},
+  "proactive_scaled_squads": {
+    "2026-10-22:29891f22-e046-4cc8-b9ee-9921d2d65f0b": {
+      "name": "warmer — Target Cost Smart+ Broad | 3.30 Bid",
+      "campaign": "مسخن الرضاعات اللاسلكي 22-10",
+      "purchases_today": 2,
+      "cpa_today": 1.72,
+      "cloned_ids": [
+        "a18a0ed5-e59d-43cf-85fd-e3fba6496ac3"
+      ],
+      "scaled_at": "2026-10-22T14:25:53.941671+03:00"
+    }
+  },
   "proactive_boosted_squads": {
     "2026-10-20:e6da3055-e3cf-4a00-9939-9da49a05c95c": {
       "name": "KW_Car Smart+ Broad | 2.8 Bid",
@@ -19295,6 +18597,14 @@
       "new_bid": 2.31,
       "reason": "low_cpa_winner",
       "boosted_at": "2026-10-22T12:19:25.383258+03:00"
+    },
+    "2026-10-22:8de6349c-cf74-4e1b-b989-b2ca7b10bd83": {
+      "name": "Copy of 16-10 1 [H3]",
+      "campaign": "باور بانك وينر",
+      "old_bid": 2.25,
+      "new_bid": 2.33,
+      "reason": "low_cpa_winner",
+      "boosted_at": "2026-10-22T14:27:11.417831+03:00"
     }
   },
   "proactive_revived_squads": {
@@ -25288,6 +24598,132 @@
         "deep_link_urls": [],
         "block_preload": true
       }
+    },
+    "a3670fd1-7070-4fc2-ac4f-f64109ed6fcb": {
+      "name": "21-10_hanan_20-10_1 [H2]",
+      "type": "WEB_VIEW",
+      "brand_name": "دار الرمال",
+      "headline": "التوصيل مجاني مع ضمان استرجاع",
+      "call_to_action": "ORDER_NOW",
+      "top_snap_media_id": "b7751519-8006-478c-81ec-4223d51be3de",
+      "top_snap_crop_position": "MIDDLE",
+      "forced_view_eligibility": "SIX_SECONDS",
+      "ad_product": "SNAP_AD",
+      "web_view_properties": {
+        "url": "https://www.daralrimal.org/uUspO82ob",
+        "allow_snap_javascript_sdk": false,
+        "use_immersive_mode": false,
+        "deep_link_urls": [],
+        "block_preload": true
+      }
+    },
+    "4ad4a183-9c96-4eb8-9cfe-38419a453eaa": {
+      "name": "21-10_ola_12-10_2 [H2]",
+      "type": "WEB_VIEW",
+      "brand_name": "دار الرمال",
+      "headline": "التوصيل مجاني مع ضمان استرجاع",
+      "call_to_action": "ORDER_NOW",
+      "top_snap_media_id": "368de7b2-64e5-444e-82cc-0bfb3dc9cf25",
+      "top_snap_crop_position": "MIDDLE",
+      "forced_view_eligibility": "SIX_SECONDS",
+      "ad_product": "SNAP_AD",
+      "web_view_properties": {
+        "url": "https://www.daralrimal.org/uUspO82ob",
+        "allow_snap_javascript_sdk": false,
+        "use_immersive_mode": false,
+        "deep_link_urls": [],
+        "block_preload": true
+      }
+    },
+    "b5ad74ff-237f-4f01-a6e0-135a6e78cab8": {
+      "name": "CR_cn2_pb_hist_13_31_4_64sales [H1]",
+      "type": "WEB_VIEW",
+      "brand_name": "دار الرمال",
+      "headline": "هدية مجانية في انتظارك مع الطلب",
+      "call_to_action": "ORDER_NOW",
+      "top_snap_media_id": "08e86a33-6d7c-4f4a-8e4f-23b7b49072ff",
+      "top_snap_crop_position": "MIDDLE",
+      "forced_view_eligibility": "SIX_SECONDS",
+      "ad_product": "SNAP_AD",
+      "web_view_properties": {
+        "url": "https://www.daralrimal.shop/rluajrRjM/4A-VKbyQu",
+        "allow_snap_javascript_sdk": false,
+        "use_immersive_mode": false,
+        "deep_link_urls": [],
+        "block_preload": true
+      }
+    },
+    "4389b3e1-6e64-4660-888b-44d42fa0f153": {
+      "name": "CR_cn2_pb_hist_13_31_4_64sales [H3]",
+      "type": "WEB_VIEW",
+      "brand_name": "دار الرمال",
+      "headline": "عرض خاص اليوم + الدفع عند الاستلام",
+      "call_to_action": "ORDER_NOW",
+      "top_snap_media_id": "08e86a33-6d7c-4f4a-8e4f-23b7b49072ff",
+      "top_snap_crop_position": "MIDDLE",
+      "forced_view_eligibility": "SIX_SECONDS",
+      "ad_product": "SNAP_AD",
+      "web_view_properties": {
+        "url": "https://www.daralrimal.shop/rluajrRjM/4A-VKbyQu",
+        "allow_snap_javascript_sdk": false,
+        "use_immersive_mode": false,
+        "deep_link_urls": [],
+        "block_preload": true
+      }
+    },
+    "adabe716-7146-4a8d-bb1b-3740fd64d7f9": {
+      "name": "mz_pb_15_7_105s [H3]",
+      "type": "WEB_VIEW",
+      "brand_name": "دار الرمال",
+      "headline": "عرض خاص اليوم + الدفع عند الاستلام",
+      "call_to_action": "ORDER_NOW",
+      "top_snap_media_id": "0977dd64-ea6a-4d8c-bbcd-3e7d5b4760f4",
+      "top_snap_crop_position": "MIDDLE",
+      "forced_view_eligibility": "SIX_SECONDS",
+      "ad_product": "SNAP_AD",
+      "web_view_properties": {
+        "url": "https://www.daralrimal.shop/rluajrRjM/4A-VKbyQu",
+        "allow_snap_javascript_sdk": false,
+        "use_immersive_mode": false,
+        "deep_link_urls": [],
+        "block_preload": true
+      }
+    },
+    "f3f9c648-5717-4de7-9a17-dfd84f8e30e5": {
+      "name": "وسادة 3 [H3]",
+      "type": "WEB_VIEW",
+      "brand_name": "دار الرمال",
+      "headline": "راحة فورية بالخطوط وداعاً للألم",
+      "call_to_action": "ORDER_NOW",
+      "top_snap_media_id": "e84a0e3c-61ad-4044-bbe3-d17593fc557c",
+      "top_snap_crop_position": "MIDDLE",
+      "forced_view_eligibility": "SIX_SECONDS",
+      "ad_product": "SNAP_AD",
+      "web_view_properties": {
+        "url": "https://www.daralrimal.shop/vzdbTeWWU",
+        "allow_snap_javascript_sdk": false,
+        "use_immersive_mode": false,
+        "deep_link_urls": [],
+        "block_preload": true
+      }
+    },
+    "5a9a21b3-66ef-4ef1-8800-4c808c9682fb": {
+      "name": "وسادة 3 [H4]",
+      "type": "WEB_VIEW",
+      "brand_name": "دار الرمال",
+      "headline": "عرض خاص اليوم + الدفع عند الاستلام",
+      "call_to_action": "ORDER_NOW",
+      "top_snap_media_id": "e84a0e3c-61ad-4044-bbe3-d17593fc557c",
+      "top_snap_crop_position": "MIDDLE",
+      "forced_view_eligibility": "SIX_SECONDS",
+      "ad_product": "SNAP_AD",
+      "web_view_properties": {
+        "url": "https://www.daralrimal.shop/vzdbTeWWU",
+        "allow_snap_javascript_sdk": false,
+        "use_immersive_mode": false,
+        "deep_link_urls": [],
+        "block_preload": true
+      }
     }
   },
   "headline_creatives_cache": {
@@ -25399,12 +24835,20 @@
     "4e69532f-8fc1-4689-842b-98c8d35c1aca|https://www.daralrimal.shop/tvfAkFHdl|التوصيل مجاني مع ضمان استرجاع": "7cf46f3c-579a-41bf-a32e-6435bffb45fa",
     "4e69532f-8fc1-4689-842b-98c8d35c1aca|https://www.daralrimal.shop/tvfAkFHdl|راحة فورية بالخطوط وداعاً للألم": "0c5462dd-b7cc-49ea-a914-f507d2b92f4f",
     "b7751519-8006-478c-81ec-4223d51be3de|https://www.daralrimal.org/uUspO82ob|عرض خاص اليوم + الدفع عند الاستلام": "49b81c37-1451-4c0f-ac1b-bfb54eaeaa46",
-    "b7751519-8006-478c-81ec-4223d51be3de|https://www.daralrimal.org/uUspO82ob|خصم خاص اليوم والكمية محدودة جداً": "68dc8dbc-6b59-4d54-b314-dda9b23a86e5"
+    "b7751519-8006-478c-81ec-4223d51be3de|https://www.daralrimal.org/uUspO82ob|خصم خاص اليوم والكمية محدودة جداً": "68dc8dbc-6b59-4d54-b314-dda9b23a86e5",
+    "b7751519-8006-478c-81ec-4223d51be3de|https://www.daralrimal.org/uUspO82ob|التوصيل مجاني مع ضمان استرجاع": "a3670fd1-7070-4fc2-ac4f-f64109ed6fcb",
+    "368de7b2-64e5-444e-82cc-0bfb3dc9cf25|https://www.daralrimal.org/uUspO82ob|التوصيل مجاني مع ضمان استرجاع": "4ad4a183-9c96-4eb8-9cfe-38419a453eaa",
+    "08e86a33-6d7c-4f4a-8e4f-23b7b49072ff|https://www.daralrimal.shop/rluajrRjM/4A-VKbyQu|هدية مجانية في انتظارك مع الطلب": "b5ad74ff-237f-4f01-a6e0-135a6e78cab8",
+    "08e86a33-6d7c-4f4a-8e4f-23b7b49072ff|https://www.daralrimal.shop/rluajrRjM/4A-VKbyQu|عرض خاص اليوم + الدفع عند الاستلام": "4389b3e1-6e64-4660-888b-44d42fa0f153",
+    "0977dd64-ea6a-4d8c-bbcd-3e7d5b4760f4|https://www.daralrimal.shop/rluajrRjM/4A-VKbyQu|عرض خاص اليوم + الدفع عند الاستلام": "adabe716-7146-4a8d-bb1b-3740fd64d7f9",
+    "e84a0e3c-61ad-4044-bbe3-d17593fc557c|https://www.daralrimal.shop/vzdbTeWWU|راحة فورية بالخطوط وداعاً للألم": "f3f9c648-5717-4de7-9a17-dfd84f8e30e5",
+    "e84a0e3c-61ad-4044-bbe3-d17593fc557c|https://www.daralrimal.shop/vzdbTeWWU|عرض خاص اليوم + الدفع عند الاستلام": "5a9a21b3-66ef-4ef1-8800-4c808c9682fb"
   },
   "headline_rotation_idx": {
-    "baa69314-505c-4b3a-851e-883c10034935": 2,
-    "f8372cfb-ae46-44d0-bbb4-f39790ecc648": 2,
-    "9be45a26-06ac-4716-8e7b-2fb3a4d65e4c": 0
+    "baa69314-505c-4b3a-851e-883c10034935": 0,
+    "f8372cfb-ae46-44d0-bbb4-f39790ecc648": 3,
+    "9be45a26-06ac-4716-8e7b-2fb3a4d65e4c": 0,
+    "e23e7c95-3f15-4945-9844-8bd73e2d79d3": 1
   },
   "disabled_headlines": {
     "baa69314-505c-4b3a-851e-883c10034935:H2": {
@@ -25431,30 +24875,13 @@
       "reason": "[Ad CPC Rule] صرف الفيديو $1.44 (>= $1.00) | النقرات: 4 | سعر النقرة CPC = $0.36 (> $0.28)",
       "disabled_at": "2026-10-22 10:10 GMT+3"
     },
-    "baa69314-505c-4b3a-851e-883c10034935:H4": {
-      "campaign_id": "baa69314-505c-4b3a-851e-883c10034935",
-      "campaign_name": "smart+ cars SA 18-10",
-      "headline_tag": "H4",
-      "sample_ad_name": "21-10_ola_12-10_2 [H4]",
-      "reason": "[Ad CPC Rule] صرف الفيديو $1.14 (>= $1.00) | النقرات: 4 | سعر النقرة CPC = $0.285 (> $0.28)",
-      "disabled_at": "2026-10-22 21:07 GMT+3"
-    }
-  },
-  "cross_paused_campaigns": {
-    "snap:a171c141-a6d5-403e-8357-5c8f6c01bce0": {
-      "platform": "snapchat",
-      "campaign_id": "a171c141-a6d5-403e-8357-5c8f6c01bce0",
-      "campaign_name": "وسادة مايباخ 21-10",
-      "reason": "[Cross-Platform Rule 1: >= $20 Zero-Sale Stop] مجموع الصرف المشترك (Snap + TikTok) = $20.53 (>= $20.00) بدون أي مبيعة (0 مبيعات)",
-      "paused_at": "2026-10-22 19:17 GMT+3"
-    },
-    "tiktok:1879653022433617": {
-      "platform": "tiktok",
-      "aadvid": "7631763556322148369",
-      "campaign_id": "1879653022433617",
-      "campaign_name": "maybach pillow 21-10",
-      "reason": "[Cross-Platform Rule 1: >= $20 Zero-Sale Stop] مجموع الصرف المشترك (Snap + TikTok) = $20.53 (>= $20.00) بدون أي مبيعة (0 مبيعات)",
-      "paused_at": "2026-10-22 19:17 GMT+3"
+    "4504af26-5609-4e7b-aeca-e11cf9e03846:H3": {
+      "campaign_id": "4504af26-5609-4e7b-aeca-e11cf9e03846",
+      "campaign_name": "smart+ watch suis SA 18-10",
+      "headline_tag": "H3",
+      "sample_ad_name": "SA_Watch_tc_v6 [H3]",
+      "reason": "[Ad CPC Rule] صرف الفيديو $1.93 (>= $1.00) | النقرات: 6 | سعر النقرة CPC = $0.322 (> $0.28)",
+      "disabled_at": "2026-10-22 22:08 GMT+3"
     }
   }
 }
