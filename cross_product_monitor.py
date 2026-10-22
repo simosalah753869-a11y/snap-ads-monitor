@@ -75,16 +75,17 @@ def load_product_campaign_ids() -> dict:
     return {}
 
 
-def match_snap_campaigns(all_snap_camps: list[dict], prod_def: dict, saved_cfg: dict, snap_token: str = "") -> list[dict]:
+def match_snap_campaigns(all_snap_camps: list[dict], prod_def: dict, saved_cfg: dict, snap_token: str = "", snap_stats_7d: dict = None) -> list[dict]:
     key = prod_def["key"]
     saved_snap_id = str(saved_cfg.get(key, {}).get("snapchat", {}).get("campaign_id") or "")
     matched = []
     seen_ids = set()
     for c in all_snap_camps:
-        if c.get("status") != "ACTIVE":
-            continue
         cid = str(c.get("id") or "")
         cname = (c.get("name") or "").lower()
+        has_spend = bool(snap_stats_7d and snap_stats_7d.get(cid, {}).get("spend", 0.0) > 0)
+        if c.get("status") != "ACTIVE" and cid != saved_snap_id and not has_spend:
+            continue
         if (saved_snap_id and cid == saved_snap_id) or any(k in cname for k in prod_def["snap_keywords"]):
             matched.append(c)
             seen_ids.add(cid)
@@ -92,7 +93,7 @@ def match_snap_campaigns(all_snap_camps: list[dict], prod_def: dict, saved_cfg: 
         try:
             r_c = api_get(f"/campaigns/{saved_snap_id}", snap_token)
             c_obj = r_c.get("campaigns", [{}])[0].get("campaign", {})
-            if c_obj and c_obj.get("id") and c_obj.get("status") == "ACTIVE":
+            if c_obj and c_obj.get("id"):
                 matched.append(c_obj)
         except Exception:
             pass
