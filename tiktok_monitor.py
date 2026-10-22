@@ -140,6 +140,19 @@ def build_session(cookies_raw):
     s.mount("https://", adapter)
     s.mount("http://", adapter)
 
+    _orig_request = s.request
+    def _resilient_request(method, url, **kwargs):
+        last_exc = None
+        for attempt in range(3):
+            try:
+                return _orig_request(method, url, **kwargs)
+            except Exception as exc:
+                last_exc = exc
+                if attempt < 2:
+                    time.sleep(1.5 * (attempt + 1))
+        raise last_exc
+    s.request = _resilient_request
+
     csrf = ""
     for c in cookies_raw:
         s.cookies.set(c["name"], c["value"], domain=c.get("domain", ".tiktok.com"))
