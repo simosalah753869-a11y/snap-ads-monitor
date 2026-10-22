@@ -221,14 +221,14 @@ def run_cross_product_monitor(dry_run: bool = False):
         print(f"   • حملات سناب شات المطابقة: {[c.get('name') + ' (' + c.get('id') + ')' for c in snap_camps]}")
         print(f"   • حملات تيك توك المطابقة: {[str(c.get('campaign_name')) + ' (' + str(c.get('campaign_id')) + ')' for c in tt_camps]}")
 
-        # حظر دائم لإيقاف حملات مسخن الرضاعات نهائياً بأمر المستخدم
-        if pkey == "warmer":
+        # حظر دائم لإيقاف حملات مسخن الرضاعات ووسادة مايباخ نهائياً بأمر المستخدم
+        if pkey in ("warmer", "maybach"):
             for sc in snap_camps:
                 if sc.get("status") == "ACTIVE":
-                    pause_snap_campaign(snap_token, TARGET_ACCOUNT_ID, sc, "إيقاف نهائي لحملات منتج مسخن الرضاعات بأمر المستخدم", history, now_str, dry_run=dry_run)
+                    pause_snap_campaign(snap_token, TARGET_ACCOUNT_ID, sc, f"إيقاف نهائي لحملات منتج {plabel} بأمر المستخدم", history, now_str, dry_run=dry_run)
             for tc in tt_camps:
-                pause_tt_campaign_wrapper(tt_session, tt_headers, TIKTOK_AADVID, tc, "إيقاف نهائي لحملات منتج مسخن الرضاعات بأمر المستخدم", history, now_str, dry_run=dry_run)
-            print("   🛑 [Permanent Shutoff] منتج مسخن الرضاعات موقوف نهائياً في جميع المنصات.")
+                pause_tt_campaign_wrapper(tt_session, tt_headers, TIKTOK_AADVID, tc, f"إيقاف نهائي لحملات منتج {plabel} بأمر المستخدم", history, now_str, dry_run=dry_run)
+            print(f"   🛑 [Permanent Shutoff] منتج {plabel} ({pkey}) موقوف نهائياً في جميع المنصات.")
             continue
 
         # Keep no_duplicate_campaigns locked for these product campaigns so snap_monitor never clones 20 squads inside them
