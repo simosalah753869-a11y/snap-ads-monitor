@@ -11833,11 +11833,11 @@
       "campaign_name": "smart+ cars SA 18-10",
       "video_media_id": "5b20e277-f3dc-42ba-910c-7b348f84d544",
       "sample_ad_name": "SA_Car_tc_v1",
-      "closed_instances": 1,
-      "total_spend": 182.86,
-      "total_purchases": 23,
-      "reason": "[Aggregated Video High CPA 3D - السعودية] مجموع صرف الفيديو لـ 3 أيام = $24.37 | المبيعات = 1 | CPA التراكمي = $24.37 (> $9.50)",
-      "disabled_at": "2026-10-22 12:32 GMT+3"
+      "closed_instances": 2,
+      "total_spend": 24.3,
+      "total_purchases": 1,
+      "reason": "[Aggregated Video High CPA - السعودية] مجموع صرف الفيديو = $24.30 | المبيعات = 1 | سعر البيعة الإجمالي CPA = $24.30 (>= $18.00)",
+      "disabled_at": "2026-10-20 13:28 GMT+3"
     },
     "16b7aaf3-7526-49d7-8e68-33df1e0872a7:3bcd9ff7-ec46-4884-9c93-cd1a04ae60a0": {
       "campaign_id": "16b7aaf3-7526-49d7-8e68-33df1e0872a7",
@@ -11890,13 +11890,14 @@
     "9be45a26-06ac-4716-8e7b-2fb3a4d65e4c:5b20e277-f3dc-42ba-910c-7b348f84d544": {
       "campaign_id": "9be45a26-06ac-4716-8e7b-2fb3a4d65e4c",
       "campaign_name": "car scaling new 2 text",
-      "video_media_id": "5b20e277-f3dc-42ba-910c-7b348f84d544",
-      "sample_ad_name": "2",
-      "closed_instances": 2,
-      "total_spend": 175.13,
-      "total_purchases": 13,
-      "reason": "[Aggregated Video High CPA 3D - السعودية] مجموع صرف الفيديو لـ 3 أيام = $69.43 | المبيعات = 5 | CPA التراكمي = $13.89 (> $9.50)",
-      "disabled_at": "2026-10-22 12:32 GMT+3"
+      "media_key": "5b20e277-f3dc-42ba-910c-7b348f84d544",
+      "sample_name": "Copy of Copy of Copy of Copy of 2",
+      "spend_3d": 49.62,
+      "purchases_3d": 2,
+      "spend_7d": 49.62,
+      "purchases_7d": 2,
+      "reason": "[3-Day Aggregated Video High CPA] مجموع صرف 3 أيام = $49.62 (2 مبيعات، CPA=$24.81 >= $18.00)",
+      "disabled_at": "2026-10-20 14:12:08"
     },
     "9be45a26-06ac-4716-8e7b-2fb3a4d65e4c:d159aa6a-cf76-452d-aeb6-2aff5577e336": {
       "campaign_id": "9be45a26-06ac-4716-8e7b-2fb3a4d65e4c",
@@ -12280,11 +12281,11 @@
       "campaign_name": "باور بانك السعودية سمارت+ (فيديوهات الحساب الثاني) 18-10",
       "video_media_id": "986c61b3-38cf-42d9-a8e2-28eff82d1f7d",
       "sample_ad_name": "hist_3_25_5_3_244sales",
-      "closed_instances": 1,
-      "total_spend": 41.66,
+      "closed_instances": 4,
+      "total_spend": 41.65,
       "total_purchases": 4,
-      "reason": "[Aggregated Video High CPA 3D - السعودية] مجموع صرف الفيديو لـ 3 أيام = $30.00 | المبيعات = 3 | CPA التراكمي = $10.00 (> $9.50)",
-      "disabled_at": "2026-10-22 12:32 GMT+3"
+      "reason": "[Aggregated Video High CPA 3D - السعودية] مجموع صرف الفيديو لـ 3 أيام = $29.99 | المبيعات = 3 | CPA التراكمي = $10.00 (> $9.50)",
+      "disabled_at": "2026-10-22 11:34 GMT+3"
     },
     "4504af26-5609-4e7b-aeca-e11cf9e03846:a959f636-d6ed-468c-ad35-2c3b7b496d6e": {
       "campaign_id": "4504af26-5609-4e7b-aeca-e11cf9e03846",
@@ -12302,11 +12303,11 @@
       "campaign_name": "smart+ watch suis SA 18-10",
       "video_media_id": "a5a8ab21-3b00-4ba2-99f8-f866a15b59e1",
       "sample_ad_name": "W3_2",
-      "closed_instances": 1,
-      "total_spend": 88.57,
+      "closed_instances": 3,
+      "total_spend": 88.48,
       "total_purchases": 6,
-      "reason": "[Aggregated Video High CPA 3D - السعودية] مجموع صرف الفيديو لـ 3 أيام = $73.96 | المبيعات = 5 | CPA التراكمي = $14.79 (> $9.50)",
-      "disabled_at": "2026-10-22 12:32 GMT+3"
+      "reason": "[Aggregated Video High CPA 3D - السعودية] مجموع صرف الفيديو لـ 3 أيام = $73.87 | المبيعات = 5 | CPA التراكمي = $14.77 (> $9.50)",
+      "disabled_at": "2026-10-22 11:34 GMT+3"
     },
     "9be45a26-06ac-4716-8e7b-2fb3a4d65e4c:6d77577a-cc80-4ac5-b027-bacb2f4624a4": {
       "campaign_id": "9be45a26-06ac-4716-8e7b-2fb3a4d65e4c",
@@ -17716,97 +17717,159 @@
       "spend_3d": 137.35,
       "purchases_3d": 8,
       "cpa_3d": 17.17,
-      "updated_at": "2026-10-22 12:32 GMT+3"
+      "updated_at": "2026-10-22 12:30 GMT+3"
     },
     "4504af26-5609-4e7b-aeca-e11cf9e03846": {
       "name": "smart+ watch suis SA 18-10",
       "spend_3d": 200.2,
       "purchases_3d": 18,
       "cpa_3d": 11.12,
-      "updated_at": "2026-10-22 12:32 GMT+3"
+      "updated_at": "2026-10-22 12:30 GMT+3"
     },
     "8703fd84-bad8-482e-adb5-da1e9c635d13": {
       "name": "watch suis winners 17-10",
       "spend_3d": 25.28,
       "purchases_3d": 3,
       "cpa_3d": 8.43,
-      "updated_at": "2026-10-22 12:32 GMT+3"
+      "updated_at": "2026-10-22 12:30 GMT+3"
     },
     "9be45a26-06ac-4716-8e7b-2fb3a4d65e4c": {
       "name": "car scaling new 2 text",
       "spend_3d": 154.81,
       "purchases_3d": 15,
       "cpa_3d": 10.32,
-      "updated_at": "2026-10-22 12:32 GMT+3"
+      "updated_at": "2026-10-22 12:30 GMT+3"
     },
     "baa69314-505c-4b3a-851e-883c10034935": {
       "name": "smart+ cars SA 18-10",
       "spend_3d": 245.78,
       "purchases_3d": 21,
       "cpa_3d": 11.7,
-      "updated_at": "2026-10-22 12:32 GMT+3"
+      "updated_at": "2026-10-22 12:30 GMT+3"
     },
     "e23e7c95-3f15-4945-9844-8bd73e2d79d3": {
       "name": "باور بانك وينر",
       "spend_3d": 92.45,
       "purchases_3d": 4,
       "cpa_3d": 23.11,
-      "updated_at": "2026-10-22 12:32 GMT+3"
+      "updated_at": "2026-10-22 12:30 GMT+3"
     },
     "f8372cfb-ae46-44d0-bbb4-f39790ecc648": {
       "name": "car scaling camp ",
       "spend_3d": 306.53,
       "purchases_3d": 38,
       "cpa_3d": 8.07,
-      "updated_at": "2026-10-22 12:32 GMT+3"
+      "updated_at": "2026-10-22 12:30 GMT+3"
     },
     "4eefa50f-9008-4aea-b159-d370150b60cf": {
       "name": "صندوق دفاتر TIME X 21-10",
-      "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-22 12:32 GMT+3"
+      "reason": "Single-AdSquad Cross-Platform Monitored Product Campaign",
+      "updated_at": "2026-10-22 12:34 GMT+3"
     },
     "a171c141-a6d5-403e-8357-5c8f6c01bce0": {
       "name": "وسادة مايباخ 21-10",
-      "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-22 12:32 GMT+3"
+      "reason": "Single-AdSquad Cross-Platform Monitored Product Campaign",
+      "updated_at": "2026-10-22 12:34 GMT+3"
     },
     "c5a7cade-6ec3-4c47-b3a2-c5f08bcf8da0": {
       "name": "وسادة مايباخ 21-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-22 12:32 GMT+3"
+      "updated_at": "2026-10-22 12:30 GMT+3"
     },
     "1879653126110545": {
       "name": "timex books 21-10",
       "aadvid": "7631763556322148369",
       "reason": "Single-Campaign Cross-Platform Monitored Product Campaign",
-      "updated_at": "2026-10-22 12:16 GMT+3"
+      "updated_at": "2026-10-22 12:34 GMT+3"
     },
     "e8f0a5e9-89c5-4c14-aabb-c9c6c657891d": {
       "name": "مسخن الرضاعات اللاسلكي 22-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-22 12:32 GMT+3"
+      "updated_at": "2026-10-22 12:30 GMT+3"
     },
     "f18a3bf4-148a-4f5e-baa1-f90335f1884c": {
       "name": "مسخن الرضاعات اللاسلكي 22-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-22 12:32 GMT+3"
+      "updated_at": "2026-10-22 12:30 GMT+3"
     },
     "1879676075637041": {
       "name": "baby bottle warmer 22-10",
       "aadvid": "7631763556322148369",
       "reason": "Single-Campaign Cross-Platform Monitored Product Campaign",
-      "updated_at": "2026-10-22 12:16 GMT+3"
+      "updated_at": "2026-10-22 12:34 GMT+3"
     },
     "29891f22-e046-4cc8-b9ee-9921d2d65f0b": {
       "name": "مسخن الرضاعات اللاسلكي 22-10",
-      "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-22 12:32 GMT+3"
+      "reason": "Single-AdSquad Cross-Platform Monitored Product Campaign",
+      "updated_at": "2026-10-22 12:34 GMT+3"
     },
     "1879690057017602": {
       "name": "maybach pillow 21-10 (Boost CC 8.8)",
       "aadvid": "7631763556322148369",
       "reason": "Single-Campaign Cross-Platform Monitored Product Campaign",
-      "updated_at": "2026-10-22 12:16 GMT+3"
+      "updated_at": "2026-10-22 12:34 GMT+3"
+    },
+    "1879155925017650": {
+      "name": "power bank winner 16-10 A",
+      "aadvid": "7631763556322148369",
+      "spend_3d": 86.8,
+      "purchases_3d": 10,
+      "cpa_3d": 8.68,
+      "reason": "3-Day CPA > $8.00 — Duplication Blocked"
+    },
+    "1879577430883393": {
+      "name": "qatar kashaf 20-10 (Accel CC 11.5)",
+      "aadvid": "7631763556322148369",
+      "spend_3d": 58.75,
+      "purchases_3d": 4,
+      "cpa_3d": 14.69,
+      "reason": "3-Day CPA > $13.00 — Duplication Blocked"
+    },
+    "1879504465445265": {
+      "name": "car armrest 19-10 (Hanan + Ola 17-10)",
+      "aadvid": "7631763556322148369",
+      "spend_3d": 43.33,
+      "purchases_3d": 4,
+      "cpa_3d": 10.83,
+      "reason": "3-Day CPA > $8.00 — Duplication Blocked"
+    },
+    "1879598604627026": {
+      "name": "car armrest 20-10 (7 Flow Hook Ads B)",
+      "aadvid": "7631763556322148369",
+      "spend_3d": 22.89,
+      "purchases_3d": 2,
+      "cpa_3d": 11.45,
+      "reason": "3-Day CPA > $8.00 — Duplication Blocked"
+    },
+    "1879598580856226": {
+      "name": "car armrest 20-10 (7 Flow Hook Ads A)",
+      "aadvid": "7631763556322148369",
+      "spend_3d": 19.16,
+      "purchases_3d": 2,
+      "cpa_3d": 9.58,
+      "reason": "3-Day CPA > $8.00 — Duplication Blocked"
+    },
+    "1879568832867394": {
+      "name": "car armrest 20-10 (Hanan + Ola 18-10)",
+      "aadvid": "7631763556322148369",
+      "spend_3d": 16.12,
+      "purchases_3d": 1,
+      "cpa_3d": 16.12,
+      "reason": "3-Day CPA > $8.00 — Duplication Blocked"
+    },
+    "1879577375941873": {
+      "name": "oman power bank 20-10 (Accel CC 11.5)",
+      "aadvid": "7631763556322148369",
+      "spend_3d": 13.25,
+      "purchases_3d": 0,
+      "cpa_3d": null,
+      "reason": "3-Day CPA > $13.00 — Duplication Blocked"
+    },
+    "1879653022433617": {
+      "name": "maybach pillow 21-10",
+      "aadvid": "7631763556322148369",
+      "reason": "Single-Campaign Cross-Platform Monitored Product Campaign",
+      "updated_at": "2026-10-22 12:34 GMT+3"
     }
   },
   "proactive_scaled_squads": {},
