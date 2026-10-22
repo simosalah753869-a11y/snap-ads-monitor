@@ -179,9 +179,6 @@ def clone_adsquad_exact(session: requests.Session, src: dict, copies_count: int)
             hist = json.loads(HISTORY_FILE.read_text(encoding="utf-8"))
             disabled_vids_dict = hist.get("disabled_videos") or {}
             disabled_keys = set(disabled_vids_dict.keys())
-            for dv in disabled_vids_dict.values():
-                if dv.get("campaign_id") == campaign_id and dv.get("sample_ad_name"):
-                    disabled_names_for_camp.add(dv["sample_ad_name"].strip())
             disabled_headlines = hist.get("disabled_headlines") or {}
             paused_ads_map = hist.get("ads") or {}
             cmap = hist.get("creative_media_map") or {}
@@ -200,10 +197,10 @@ def clone_adsquad_exact(session: requests.Session, src: dict, copies_count: int)
                 pass
         v_key = cmap.get(cr_id) or cr_id
         if (
-            f"{campaign_id}:{v_key}" in disabled_keys
+            f"{campaign_id}:MEDIA:{v_key}" in disabled_keys
+            or f"GLOBAL:MEDIA:{v_key}" in disabled_keys
+            or f"{campaign_id}:{v_key}" in disabled_keys
             or f"{campaign_id}:{cr_id}" in disabled_keys
-            or f"{campaign_id}:{ad_nm}" in disabled_keys
-            or ad_nm in disabled_names_for_camp
         ):
             return False
         p_info = paused_ads_map.get(a.get("id", ""))
@@ -305,9 +302,11 @@ def clone_adsquad_exact(session: requests.Session, src: dict, copies_count: int)
         for v_idx, ad in enumerate(ads_to_copy):
             base_ad_nm = (ad.get("name") or "Ad").split(" [H")[0].strip()
             # العنوان الأساسي المدور لهذه النسخة (الطريقة 3)
-            cid_1, _ = get_or_create_headline_creative(
+            cid_1, mid_1 = get_or_create_headline_creative(
                 session, AD_ACCOUNT_ID, ad["creative_id"], hl1_tag, hl1_text, hist
             )
+            if mid_1 and f"_m{mid_1[:6]}" not in base_ad_nm:
+                base_ad_nm = f"{base_ad_nm}_m{mid_1[:6]}"
             new_ads_payload.append(
                 {
                     "ad_squad_id": sq_id,
