@@ -322,24 +322,15 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
     print(f"📊 عدد المجموعات الإعلانية (Ad Squads) التي صرفت اليوم: {len(squad_stats)} (خلال 3 أيام: {len(squad_stats_3d)})")
 
     camp_squads_cache = {}
-    try:
-        all_acc_squads = api_get_paginated(f"/adaccounts/{ad_account_id}/adsquads?limit=500", token, "adsquads", "adsquad")
-        for sq in all_acc_squads:
-            squad_cache[sq["id"]] = sq
-            if sq.get("campaign_id"):
-                camp_squads_cache.setdefault(sq["campaign_id"], []).append(sq)
-    except Exception:
-        pass
     for c in active_campaigns:
         c_id = c["id"]
-        if c_id not in camp_squads_cache:
-            try:
-                c_squads = api_get_paginated(f"/campaigns/{c_id}/adsquads?limit=200", token, "adsquads", "adsquad")
-                camp_squads_cache[c_id] = c_squads
-                for sq in c_squads:
-                    squad_cache[sq["id"]] = sq
-            except Exception:
-                camp_squads_cache[c_id] = []
+        try:
+            c_squads = api_get_paginated(f"/campaigns/{c_id}/adsquads?limit=200", token, "adsquads", "adsquad")
+            camp_squads_cache[c_id] = c_squads
+            for sq in c_squads:
+                squad_cache[sq["id"]] = sq
+        except Exception:
+            camp_squads_cache[c_id] = []
 
     # 1A. مراجعة المجموعات التي أطفأها البوت مسبقاً:
     # - أي مجموعة لا يوجد في اسمها "Copy" يعيد البوت تشغيلها فوراً (ما دامت تحتوي على فيديوهات نشطة) لأن القاعدة هي إطفاء الفيديوهات داخلها فقط وليس المجموعة.
@@ -484,26 +475,16 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
     ad_cache = {}
     camp_ads_cache = {}
     all_account_ads = []
-    try:
-        all_account_ads = api_get_paginated(f"/adaccounts/{ad_account_id}/ads?limit=500", token, "ads", "ad")
-        for a in all_account_ads:
-            ad_cache[a["id"]] = a
-            sq_obj = squad_cache.get(a.get("ad_squad_id", ""))
-            if sq_obj and sq_obj.get("campaign_id"):
-                camp_ads_cache.setdefault(sq_obj["campaign_id"], []).append(a)
-    except Exception:
-        all_account_ads = []
-
     for c in active_campaigns:
         c_id = c["id"]
-        if c_id not in camp_ads_cache:
-            try:
-                c_ads = api_get_paginated(f"/campaigns/{c_id}/ads?limit=500", token, "ads", "ad")
-                camp_ads_cache[c_id] = c_ads
-                for a in c_ads:
-                    ad_cache[a["id"]] = a
-            except Exception:
-                camp_ads_cache[c_id] = []
+        try:
+            c_ads = api_get_paginated(f"/campaigns/{c_id}/ads?limit=500", token, "ads", "ad")
+            camp_ads_cache[c_id] = c_ads
+            for a in c_ads:
+                ad_cache[a["id"]] = a
+                all_account_ads.append(a)
+        except Exception:
+            camp_ads_cache[c_id] = []
 
         # تلقائياً: إطفاء أي مجموعة AdSquad نشطة أصبحت فارغة تماماً (0 إعلانات نشطة بداخلها) حتى لا تحجز خانة من الـ 15 مجموعة بدون فائدة
         if not dry_run and not is_cross_monitored_product_campaign(c.get("name", "")) and camp_ads_cache.get(c_id) is not None:
