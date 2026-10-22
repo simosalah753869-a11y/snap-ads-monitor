@@ -1125,33 +1125,22 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
             st3_sq = squad_stats_3d_map.get(s_id, {"spend": today_spend, "purchases": 0, "cpa": None})
             is_gulf_sq = is_gulf_034_campaign(c_name, s_name, squad)
             is_cross_sq = is_cross_monitored_product_campaign(c_name, s_name)
-            is_copy_sq = "copy" in s_name.lower()
-            is_target_cost = squad.get("bid_strategy") == "TARGET_COST" or bool(squad.get("target_bid"))
-            is_winning_today = st_sq.get("purchases", 0) >= 1 and st_sq.get("cpa") is not None and st_sq["cpa"] <= (11.0 if is_gulf_sq else 8.00)
-            is_winning_3d = st3_sq.get("purchases", 0) >= 1 and st3_sq.get("cpa") is not None and st3_sq["cpa"] <= (11.0 if is_gulf_sq else 8.00)
-            is_proven_winner = is_winning_today or is_winning_3d
+            is_winning_today = st_sq.get("purchases", 0) >= 1 and st_sq.get("cpa") is not None and st_sq["cpa"] <= 8.00
 
             if is_cross_sq:
-                max_safe_bid_micro = 4_500_000
-            elif not is_copy_sq:
-                # المجموعات الأصلية ومجموعات الفيديوهات الجديدة (بدون Copy) تحتاج بيد $2.65-$3.10 لتتحرك وتختبر الفيديوهات الجديدة ولا تُخنق أبداً بسلم الـ Copy
-                max_safe_bid_micro = 3_100_000 if is_target_cost else 2_950_000
-            elif is_proven_winner:
-                # المجموعات المستنسخة الرابحة فعلياً (اليوم أو آخر 3 أيام بـ CPA <= $8.00) يُحفظ بيدها التشغيلي حتى $2.85-$3.00 ولا يُكسر عند منتصف الليل!
-                max_safe_bid_micro = 3_000_000 if is_target_cost else 2_850_000
+                max_safe_bid_micro = 3_600_000
             else:
-                max_safe_bid_micro = 2_550_000 if is_gulf_sq else 2_450_000
+                max_safe_bid_micro = 2_450_000 if is_gulf_sq else 2_350_000
 
-            # (أ) تهدئة البيدات المتضخمة فقط للمجموعات غير الرابحة التي تتجاوز سقف الأمان المخصص لنوعها
-            if bid_micro > max_safe_bid_micro and not is_proven_winner:
+            # (أ) تهدئة البيدات المتضخمة (> $2.35 للسعودية / > $2.45 للخليج / > $3.60 للمنتجات الجديدة) فوراً إلى سلم البيدات المتدرج ($2.05 / $2.15 / $2.25 / $2.35) لمنع النزيف والخسارة:
+            if bid_micro > max_safe_bid_micro and not is_winning_today:
                 if is_cross_sq:
-                    target_ladder_micro = max_safe_bid_micro
-                elif not is_copy_sq:
-                    target_ladder_micro = max_safe_bid_micro
+                    is_tc_sq = squad.get("bid_strategy") == "TARGET_COST" or bool(squad.get("target_bid"))
+                    target_ladder_micro = 3_400_000 if is_tc_sq else 3_500_000
                 else:
                     target_ladder_micro = bid_ladder_micro[idx_sq % len(bid_ladder_micro)]
                     if is_gulf_sq:
-                        target_ladder_micro = min(2_550_000, target_ladder_micro + 100_000)
+                        target_ladder_micro = min(2_450_000, target_ladder_micro + 100_000)
                 old_b = round(bid_micro / 1_000_000, 2)
                 new_b = round(target_ladder_micro / 1_000_000, 2)
                 if dry_run:
@@ -1168,30 +1157,6 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
 
             if is_night_window or not is_before_6pm_window:
                 continue
-
-            # (أ-2) إنعاش فوري للمجموعات الرابحة في 3 أيام وللمجموعات الأصلية/الفيديوهات الجديدة والمنتجات الجديدة التي خُنقت ببيد منخفض وتوقفت عن الصرف اليوم (< $1.50):
-            min_active_floor_micro = 0
-            if is_cross_sq and today_spend < 1.50:
-                min_active_floor_micro = 4_200_000 if is_target_cost else 4_300_000
-            elif is_proven_winner and today_spend < 1.50:
-                min_active_floor_micro = 2_800_000 if is_target_cost else 2_650_000
-            elif not is_copy_sq and today_spend < 1.50 and st3_sq.get("spend", 0) < 5.0:
-                min_active_floor_micro = 2_800_000 if is_target_cost else 2_650_000
-
-            if min_active_floor_micro > 0 and 0 < bid_micro < min_active_floor_micro:
-                old_b = round(bid_micro / 1_000_000, 2)
-                new_b = round(min_active_floor_micro / 1_000_000, 2)
-                if dry_run:
-                    print(f"🔍 [إنعاش بيد مجموعة رابحة/فيديوهات جديدة] '{s_name}' (حملة: '{c_name}'): ${old_b} -> ${new_b}")
-                else:
-                    squad["bid_micro"] = min_active_floor_micro
-                    try:
-                        api_put(f"/campaigns/{c_id}/adsquads", token, {"adsquads": [squad]})
-                        bid_micro = min_active_floor_micro
-                        print(f"🔥✅ [إنعاش بيد مجموعة رابحة/فيديوهات جديدة لتتحرك فوراً] '{s_name}' (حملة: '{c_name}'): ${old_b} -> ${new_b}")
-                        time.sleep(0.2)
-                    except Exception:
-                        pass
 
             w_rec = history["smart_spend_watchdog"].get(s_id, {})
             if w_rec.get("date") != today_date_str:
@@ -1245,15 +1210,11 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
                     except Exception:
                         pass
 
-            # (ج) تحريك المجموعات المتوقفة:
-            # - مجموعات الفيديوهات الجديدة (بدون Copy) ومجموعات المنتجات الجديدة ومجموعات الفائزين تتحرك مستقلة إذا كان صرفها اليوم < $1.50!
-            # - أما مجموعات الـ Copy العادية فلا يتحرك منها إلا 2 كشّاف فقط إذا كانت الحملة بالكامل متوقفة (< $2.00).
-            if is_copy_sq and not is_proven_winner:
-                if camp_total_spend_today >= 2.00 or scouts_nudged_in_camp >= 2:
-                    continue
-            else:
-                if today_spend >= 1.50:
-                    continue
+            # (ج) كشّاف الجمود (Scout Rule): لا يُحرك البيد إلا إذا كانت الحملة بالكامل متجمدة (< $2.00 اليوم)، ولنسختين اثنتين فقط (2 Scouts) بـ +$0.10 وبسقف أقصى $2.35 للسعودية ($2.45 للخليج)!
+            if camp_total_spend_today >= 2.00 or scouts_nudged_in_camp >= 2:
+                continue
+            if today_spend >= 0.80:
+                continue
 
             created_dt = parse_iso_utc(squad.get("created_at", ""))
             start_dt = parse_iso_utc(squad.get("start_time", ""))
@@ -1265,15 +1226,13 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
             last_act_dt = parse_iso_utc(w_rec.get("last_action_at", ""))
             if last_act_dt and (now_utc - last_act_dt) < timedelta(hours=2):
                 continue
-            max_bumps_allowed = 3 if (not is_copy_sq or is_cross_sq or is_proven_winner) else 1
-            if int(w_rec.get("bumps_today", 0)) >= max_bumps_allowed:
+            if int(w_rec.get("bumps_today", 0)) >= 1:
                 continue
 
             if bid_micro <= 0 or bid_micro >= max_safe_bid_micro:
                 continue
 
-            step_bump = 150_000 if (not is_copy_sq or is_cross_sq) else 100_000
-            new_bid_micro = min(max_safe_bid_micro, bid_micro + step_bump)
+            new_bid_micro = min(max_safe_bid_micro, bid_micro + 100_000)
             if new_bid_micro <= bid_micro:
                 continue
 
@@ -1286,10 +1245,9 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
                     w_rec["bumps_today"] = int(w_rec.get("bumps_today", 0)) + 1
                     w_rec["last_action_at"] = now_utc.isoformat()
                     save_paused_history(history)
-                    if is_copy_sq and not is_proven_winner:
-                        scouts_nudged_in_camp += 1
+                    scouts_nudged_in_camp += 1
                     print(
-                        f"⚡ [تحريك بيد ذكي للمجموعة المتوقفة < $1.50] المجموعة '{s_name}' (حملة: '{c_name}'): ${old_b} -> ${new_b}"
+                        f"⚡ [كشّاف الجمود {scouts_nudged_in_camp}/2] تحريك طفيف +$0.10 للمجموعة '{s_name}' لأن الحملة كاملة صرفت ${camp_total_spend_today:.2f} فقط: ${old_b} -> ${new_b}"
                     )
                 except Exception:
                     pass
