@@ -71,7 +71,7 @@ GULF_MAX_NO_SALE_SPEND = 10.00
 GULF_MAX_VIDEO_CPA = 13.00
 MIN_SPEND_FOR_CPC = 1.00
 MAX_CPC = 0.35
-MAX_DUP_VIDEO_NO_SALE_SPEND = 12.00
+MAX_DUP_VIDEO_NO_SALE_SPEND = 10.00
 MAX_DUP_VIDEO_CPA = 9.50
 
 GULF_KEYWORDS = (
@@ -505,6 +505,8 @@ def canonical_video_name(raw_name: str, fallback_id: str = "") -> str:
     stem = re.sub(r"_[A-Za-z0-9]{8}$", "", stem)
     # Strip leading "Copy of "
     stem = re.sub(r"^copy\s+of\s+", "", stem, flags=re.IGNORECASE)
+    # Strip duplicate leading upload-date prefix when followed by original date prefix (e.g. 19_10_17-10_ola_3 -> 17-10_ola_3)
+    stem = re.sub(r"^\d{1,2}[_-]\d{1,2}[_-](?=\d{1,2}[_-]\d{1,2}[_-])", "", stem)
     return stem.strip().lower()
 
 
