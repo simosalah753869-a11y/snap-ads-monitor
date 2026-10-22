@@ -667,7 +667,19 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
         c_name = camp_names.get(c_id, "")
 
         min_spend_chk = 0.80 if is_cross_monitored_product_campaign(c_name, s_name) else 1.0
-        should_pause, reason = evaluate_single_ad_rule(st, c_name, s_name, squad) if st["spend"] >= min_spend_chk else (False, "")
+        max_cpa_3d_ind = 13.0 if is_gulf_034_campaign(c_name, s_name, squad) else 8.0
+        no_sale_1d_ind = 10.0 if is_gulf_034_campaign(c_name, s_name, squad) else 5.0
+        is_proven_3d_winner = (
+            st3["purchases"] >= 1
+            and st3["cpa"] is not None
+            and st3["cpa"] <= max_cpa_3d_ind
+            and not (st["spend"] >= no_sale_1d_ind and st["purchases"] == 0)
+        )
+        should_pause, reason = (
+            evaluate_single_ad_rule(st, c_name, s_name, squad)
+            if (st["spend"] >= min_spend_chk and not is_proven_3d_winner)
+            else (False, "")
+        )
         if not should_pause and st3["spend"] >= min_spend_chk:
             should_pause, reason = evaluate_single_ad_rule(st3, c_name, s_name, squad)
             if should_pause:
@@ -821,7 +833,7 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
                     grp["spend_7d"] = round(grp["spend_7d"] + st7["spend"], 2)
                     grp["purchases_7d"] += st7["purchases"]
 
-        for v_key, grp in video_groups.items():
+        for v_key, grp in sorted(video_groups.items(), key=lambda kv: 0 if kv[0].startswith("NAME:") else 1):
             tot_spend = grp["spend"]
             tot_purch = grp["purchases"]
             sp2, pu2 = grp["spend_2d"], grp["purchases_2d"]
@@ -832,22 +844,6 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
                 continue
 
             raw_v_key = v_key.split(":", 1)[1] if ":" in v_key else v_key
-            already_permanently_disabled = (
-                f"{c_id}:{v_key}" in history.get("disabled_videos", {})
-                or f"{c_id}:{raw_v_key}" in history.get("disabled_videos", {})
-                or f"GLOBAL:{v_key}" in history.get("disabled_videos", {})
-                or any(
-                    dv.get("campaign_id") in (c_id, "GLOBAL")
-                    and (
-                        dv.get("video_media_id") in (v_key, raw_v_key)
-                        or (grp["sample_name"] and clean_base_ad_name(dv.get("sample_ad_name", "")) == grp["sample_name"])
-                    )
-                    for dv in history.get("disabled_videos", {}).values()
-                )
-            )
-            if not already_permanently_disabled and max(tot_spend, sp2, sp3, sp7) < no_sale_limit:
-                continue
-
             tot_cpa = round(tot_spend / tot_purch, 2) if tot_purch > 0 else None
             cpa2 = round(sp2 / pu2, 2) if pu2 > 0 else None
             cpa3 = round(sp3 / pu3, 2) if pu3 > 0 else None
@@ -859,6 +855,33 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
                 and (pu2 == 0 or (cpa2 is not None and cpa2 <= max_cpa_limit))
                 and (tot_purch == 0 or (tot_cpa is not None and tot_cpa <= max_cpa_limit))
             ):
+                for dk in list(history.get("disabled_videos", {}).keys()):
+                    dv = history["disabled_videos"][dk]
+                    if dv.get("campaign_id") in (c_id, "GLOBAL") and (
+                        dv.get("video_media_id") in (v_key, raw_v_key)
+                        or (grp["sample_name"] and clean_base_ad_name(dv.get("sample_ad_name", "")) == grp["sample_name"])
+                    ):
+                        del history["disabled_videos"][dk]
+                continue
+
+            already_permanently_disabled = (
+                f"{c_id}:{v_key}" in history.get("disabled_videos", {})
+                or f"{c_id}:{raw_v_key}" in history.get("disabled_videos", {})
+                or f"GLOBAL:{v_key}" in history.get("disabled_videos", {})
+                or any(
+                    dv.get("campaign_id") in (c_id, "GLOBAL")
+                    and (
+                        dv.get("video_media_id") in (v_key, raw_v_key)
+                        or (
+                            v_key.startswith("NAME:")
+                            and grp["sample_name"]
+                            and clean_base_ad_name(dv.get("sample_ad_name", "")) == grp["sample_name"]
+                        )
+                    )
+                    for dv in history.get("disabled_videos", {}).values()
+                )
+            )
+            if not already_permanently_disabled and max(tot_spend, sp2, sp3, sp7) < no_sale_limit:
                 continue
 
             kill_video = False
