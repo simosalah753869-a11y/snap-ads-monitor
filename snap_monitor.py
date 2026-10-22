@@ -216,11 +216,11 @@ def evaluate_single_ad_rule(st: dict, campaign_name: str, adsquad_name: str, squ
     if not is_cross_prod and spend >= no_sale_stop and purchases == 0:
         return True, f"[Single Video ${no_sale_stop:.0f} Stop-Loss] صرف الفيديو ${spend} (>= ${no_sale_stop:.2f}) بدون مبيعة"
 
-    # 2B. فلتر النقرة المبكر داخل نسخ الـ Copy
-    if is_copy and not is_cross_prod and spend >= 1.50 and purchases == 0:
-        copy_early_cpc = 0.35 if is_gulf else 0.165
+    # 2B. فلتر النقرة المبكر المتوازن داخل نسخ الـ Copy (عند $2.50 بدلاً من $1.50 لمنع قتل المجموعة قبل إتمام البيع)
+    if is_copy and not is_cross_prod and spend >= 2.50 and purchases == 0:
+        copy_early_cpc = 0.35 if is_gulf else 0.24
         if swipes == 0 or cpc > copy_early_cpc:
-            return True, f"[Copy Early High-CPC Cut] نسخة Copy دخلت جمهوراً غالياً: صرفت ${spend} (>= $1.50) بدون مبيعات بـ CPC=${cpc} (> ${copy_early_cpc})"
+            return True, f"[Copy Early High-CPC Cut] نسخة Copy دخلت جمهوراً غالياً: صرفت ${spend} (>= $2.50) بدون مبيعات بـ CPC=${cpc} (> ${copy_early_cpc})"
 
     # 3. قاعدة إيقاف الـ CPC المرتفع بعد صرف >= 0.80$ لحملتي مايباخ و TIME X (أو >= 1.00$ لباقي الحملات) بدون مبيعات
     if spend >= min_cpc_spend:
@@ -379,7 +379,8 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
         s_name = squad.get("name", info.get("name", ""))
         c_name = camp_names.get(c_id, info.get("campaign", ""))
 
-        if "copy" not in s_name.lower():
+        is_consolidated_pause = "[Consolidation" in str(info.get("reason", ""))
+        if "copy" not in s_name.lower() and not is_consolidated_pause:
             has_no_active_ads = "INVALID_AD_SQUAD_HAS_NO_ACTIVE_ADS" in (squad.get("delivery_status") or [])
             if not has_no_active_ads and squad.get("status") == "PAUSED":
                 if dry_run:
@@ -409,9 +410,9 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
         st_check = None
         if st1_chk.get("purchases", 0) > 0:
             st_check = st1_chk
-        elif is_recent_pause and st2_chk and st2_chk.get("purchases", 0) > 0:
+        elif not is_consolidated_pause and is_recent_pause and st2_chk and st2_chk.get("purchases", 0) > 0:
             st_check = st2_chk
-        elif is_recent_pause and st3_chk and st3_chk.get("purchases", 0) > 0:
+        elif not is_consolidated_pause and is_recent_pause and st3_chk and st3_chk.get("purchases", 0) > 0:
             st_check = st3_chk
         else:
             continue
@@ -481,11 +482,12 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
                 if a_sq.get("status") != "ACTIVE":
                     continue
                 aid_sq = a_sq["id"]
-                bnm_sq = clean_base_ad_name(a_sq.get("name", ""))
+                cr_sq = a_sq.get("creative_id", "")
+                mid_sq = history.get("creative_media_map", {}).get(cr_sq) or resolve_video_media_id(cr_sq, token, history)
                 st3_sq_ad = ad_stats_3d_map.get(aid_sq, {"spend": 0.0, "purchases": 0, "cpa": None})
                 st1_sq_ad = ad_stats_map.get(aid_sq, {"spend": 0.0, "purchases": 0, "cpa": None})
                 is_disabled_vid = any(
-                    bnm_sq and clean_base_ad_name(dv.get("sample_ad_name", "")) == bnm_sq
+                    mid_sq and dv.get("video_media_id") in (mid_sq, f"MEDIA:{mid_sq}", f"SA:MEDIA:{mid_sq}", f"GULF:MEDIA:{mid_sq}")
                     for dv in history.get("disabled_videos", {}).values()
                 )
                 if (
@@ -591,20 +593,19 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
         s_name = squad.get("name", "")
         c_name = camp_names.get(c_id, info.get("campaign", ""))
         ad_name = ad.get("name", info.get("name", ""))
-        base_nm_chk = clean_base_ad_name(ad_name)
         cr_id_chk = ad.get("creative_id", "")
-        v_key_chk = history.get("creative_media_map", {}).get(cr_id_chk) or cr_id_chk
+        v_key_chk = history.get("creative_media_map", {}).get(cr_id_chk) or resolve_video_media_id(cr_id_chk, token, history) or cr_id_chk
         disabled_vids = history.get("disabled_videos", {})
         is_disabled_accumulated = (
             f"{c_id}:{v_key_chk}" in disabled_vids
+            or f"{c_id}:MEDIA:{v_key_chk}" in disabled_vids
             or f"{c_id}:{cr_id_chk}" in disabled_vids
-            or (base_nm_chk and f"{c_id}:NAME:{base_nm_chk}" in disabled_vids)
-            or (base_nm_chk and f"GLOBAL:NAME:{base_nm_chk}" in disabled_vids)
             or (v_key_chk and f"GLOBAL:MEDIA:{v_key_chk}" in disabled_vids)
             or "Aggregated Video" in str(info.get("reason", ""))
             or "Global Cross-Campaign" in str(info.get("reason", ""))
+            or "Global Accumulated" in str(info.get("reason", ""))
             or any(
-                base_nm_chk and clean_base_ad_name(dv.get("sample_ad_name", "")) == base_nm_chk
+                v_key_chk and dv.get("video_media_id") in (v_key_chk, f"MEDIA:{v_key_chk}", f"SA:MEDIA:{v_key_chk}", f"GULF:MEDIA:{v_key_chk}")
                 for dv in disabled_vids.values()
             )
         )
@@ -943,19 +944,34 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
             if not kill_video:
                 continue
 
-            # إغلاق جميع نسخ الفيديو التراكمي الخاسر بنسبة 100% بدون استثناء (صفر نسخ مبقية)
-            targets_to_pause = list(active_list)
+            # حماية النسخ الفردية المربحة (CPA <= $8.50 للسعودية / <= $13.00 للخليج) من الإيقاف التراكمي
+            win_copy_cpa_lim = 8.50 if camp_is_saudi else 13.0
+            targets_to_pause = []
+            for a_cand in active_list:
+                aid_c = a_cand["id"]
+                st1_c = ad_stats_map.get(aid_c, {"spend": 0.0, "purchases": 0, "cpa": None})
+                st3_c = ad_stats_3d_map.get(aid_c, {"spend": 0.0, "purchases": 0, "cpa": None})
+                is_profitable_copy = (
+                    (
+                        (st1_c["purchases"] >= 1 and st1_c["cpa"] is not None and st1_c["cpa"] <= win_copy_cpa_lim)
+                        or (st3_c["purchases"] >= 1 and st3_c["cpa"] is not None and st3_c["cpa"] <= win_copy_cpa_lim)
+                    )
+                    and not (st1_c["spend"] >= 5.0 and st1_c["purchases"] == 0)
+                )
+                if not is_profitable_copy:
+                    targets_to_pause.append(a_cand)
+
             if not targets_to_pause:
                 continue
 
             if dry_run:
                 print(
-                    f"🔍 [حذف/إيقاف الفيديو التراكمي بالكامل] الحملة: '{c_name}' | الفيديو: '{grp['sample_name']}' ({v_key}) "
-                    f"| النسخ التي ستُغلق: {len(targets_to_pause)} (0 نسخ مبقية) | {kill_reason}"
+                    f"🔍 [حذف/إيقاف النسخ الخاسرة للفيديو التراكمي] الحملة: '{c_name}' | الفيديو: '{grp['sample_name']}' ({v_key}) "
+                    f"| النسخ التي ستُغلق: {len(targets_to_pause)} | {kill_reason}"
                 )
             else:
                 print(
-                    f"🗑️ جاري إيقاف الفيديو التراكمي بالكامل '{grp['sample_name']}' ({v_key}) في {len(targets_to_pause)} مجموعة في حملة '{c_name}' | {kill_reason}"
+                    f"🗑️ جاري إيقاف النسخ الخاسرة للفيديو التراكمي '{grp['sample_name']}' ({v_key}) في {len(targets_to_pause)} مجموعة في حملة '{c_name}' | {kill_reason}"
                 )
                 ads_by_squad = {}
                 for a in targets_to_pause:
@@ -979,21 +995,23 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
                     except Exception as e:
                         print(f"   ⚠️ خطأ أثناء إغلاق الفيديو في المجموعة {sq_id}: {e}")
 
-                history["disabled_videos"][f"{c_id}:{v_key}"] = {
-                    "campaign_id": c_id,
-                    "campaign_name": c_name,
-                    "video_media_id": raw_v_key,
-                    "sample_ad_name": grp["sample_name"],
-                    "closed_instances": closed_cnt,
-                    "total_spend": max(tot_spend, sp2, sp3, sp7),
-                    "total_purchases": max(tot_purch, pu2, pu3, pu7),
-                    "reason": kill_reason,
-                    "disabled_at": now_str,
-                }
-                if grp["sample_name"]:
-                    history["disabled_videos"][f"{c_id}:NAME:{grp['sample_name']}"] = history["disabled_videos"][f"{c_id}:{v_key}"]
+                # يُحظر الفيديو نهائياً في disabled_videos فقط إذا لم يحقق أي مبيعة على الإطلاق (0 مبيعات)
+                if max(tot_purch, pu2, pu3, pu7) == 0:
+                    history["disabled_videos"][f"{c_id}:{v_key}"] = {
+                        "campaign_id": c_id,
+                        "campaign_name": c_name,
+                        "video_media_id": raw_v_key,
+                        "sample_ad_name": grp["sample_name"],
+                        "closed_instances": closed_cnt,
+                        "total_spend": max(tot_spend, sp2, sp3, sp7),
+                        "total_purchases": 0,
+                        "reason": kill_reason,
+                        "disabled_at": now_str,
+                    }
+                    if grp["sample_name"]:
+                        history["disabled_videos"][f"{c_id}:NAME:{grp['sample_name']}"] = history["disabled_videos"][f"{c_id}:{v_key}"]
                 save_paused_history(history)
-                print(f"   ✅ تم إيقاف جميع نسخ الفيديو التراكمي ({closed_cnt} نسخة) بنجاح!")
+                print(f"   ✅ تم إيقاف النسخ الخاسرة للفيديو التراكمي ({closed_cnt} نسخة) بنجاح مع حماية النسخ الفردية المربحة!")
 
     # 2B-Global. فحص مجموع صرف ومبيعات الفيديوهات التراكمية على مستوى الحساب بالكامل (شاملاً جميع الحملات النشطة والموقوفة خلال 1D + 2D + 3D + 7D بالـ Media ID وبالاسم الأساسي النظيف):
     print("\n🌐 فحص مجموع صرف الفيديوهات التراكمية على مستوى الحساب بالكامل عبر جميع الحملات والمجموعات (1D + 2D + 3D + 7D)...")
@@ -1133,13 +1151,28 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
         if not g_kill:
             continue
 
-        # إغلاق جميع نسخ الفيديو التراكمي الخاسر على مستوى الحساب بالكامل (صفر نسخ مبقية)
-        g_targets = list(active_glob_list)
+        # حماية النسخ الفردية المربحة (CPA <= $8.50 للسعودية / <= $13.00 للخليج) من الإيقاف التراكمي على مستوى الحساب
+        g_win_cpa_lim = 8.50 if is_sa_glob else 13.0
+        g_targets = []
+        for c_id_g, c_name_g, a_g in active_glob_list:
+            aid_g = a_g["id"]
+            st1_g = ad_stats_map.get(aid_g, {"spend": 0.0, "purchases": 0, "cpa": None})
+            st3_g = ad_stats_3d_map.get(aid_g, {"spend": 0.0, "purchases": 0, "cpa": None})
+            is_prof_g = (
+                (
+                    (st1_g["purchases"] >= 1 and st1_g["cpa"] is not None and st1_g["cpa"] <= g_win_cpa_lim)
+                    or (st3_g["purchases"] >= 1 and st3_g["cpa"] is not None and st3_g["cpa"] <= g_win_cpa_lim)
+                )
+                and not (st1_g["spend"] >= 5.0 and st1_g["purchases"] == 0)
+            )
+            if not is_prof_g:
+                g_targets.append((c_id_g, c_name_g, a_g))
+
         if not g_targets:
             continue
 
         if dry_run:
-            print(f"🔍 [إيقاف فيديو تراكمي على مستوى الحساب بالكامل] الفيديو: '{g_grp['sample_name']}' ({v_key_glob}) | النسخ المستهدفة: {len(g_targets)} | {g_reason}")
+            print(f"🔍 [إيقاف النسخ الخاسرة لفيديو تراكمي على مستوى الحساب] الفيديو: '{g_grp['sample_name']}' ({v_key_glob}) | النسخ المستهدفة: {len(g_targets)} | {g_reason}")
         else:
             ads_by_sq_glob = {}
             for c_id_g, c_name_g, a_g in g_targets:
@@ -1158,21 +1191,22 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
                             "paused_at": now_str,
                         }
                         closed_g += 1
-                    history["disabled_videos"][f"{c_id_g}:{v_key_glob}"] = {
-                        "campaign_id": c_id_g,
-                        "campaign_name": c_name_g,
-                        "video_media_id": v_key_glob,
-                        "sample_ad_name": g_grp["sample_name"],
-                        "closed_instances": len(sq_ads_g),
-                        "total_spend": max(g_sp1, g_sp2, g_sp3, g_sp7),
-                        "total_purchases": max(g_pu1, g_pu2, g_pu3, g_pu7),
-                        "reason": g_reason,
-                        "disabled_at": now_str,
-                    }
+                    if max(g_pu1, g_pu2, g_pu3, g_pu7) == 0:
+                        history["disabled_videos"][f"{c_id_g}:{v_key_glob}"] = {
+                            "campaign_id": c_id_g,
+                            "campaign_name": c_name_g,
+                            "video_media_id": v_key_glob,
+                            "sample_ad_name": g_grp["sample_name"],
+                            "closed_instances": len(sq_ads_g),
+                            "total_spend": max(g_sp1, g_sp2, g_sp3, g_sp7),
+                            "total_purchases": 0,
+                            "reason": g_reason,
+                            "disabled_at": now_str,
+                        }
                     time.sleep(0.2)
                 except Exception as e:
                     print(f"   ⚠️ خطأ أثناء إغلاق الفيديو التراكمي في المجموعة {sq_id_g}: {e}")
-            if g_grp["sample_name"]:
+            if g_grp["sample_name"] and max(g_pu1, g_pu2, g_pu3, g_pu7) == 0:
                 history["disabled_videos"][f"GLOBAL:NAME:{g_grp['sample_name']}"] = {
                     "campaign_id": "GLOBAL",
                     "campaign_name": "ALL_CAMPAIGNS",
@@ -1180,12 +1214,12 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
                     "sample_ad_name": g_grp["sample_name"],
                     "closed_instances": closed_g,
                     "total_spend": max(g_sp1, g_sp2, g_sp3, g_sp7),
-                    "total_purchases": max(g_pu1, g_pu2, g_pu3, g_pu7),
+                    "total_purchases": 0,
                     "reason": g_reason,
                     "disabled_at": now_str,
                 }
             save_paused_history(history)
-            print(f"🗑️✅ [إيقاف فيديو تراكمي على مستوى الحساب بالكامل] تم إيقاف '{g_grp['sample_name']}' في {closed_g} مجموعة عبر الحساب (0 نسخ متبقية) | {g_reason}")
+            print(f"🗑️✅ [إيقاف النسخ الخاسرة لفيديو تراكمي على مستوى الحساب] تم إيقاف '{g_grp['sample_name']}' في {closed_g} مجموعة مع حماية النسخ الفردية المربحة | {g_reason}")
 
     # 2C. تنظيف المجموعات الإعلانية الميتة التي أصبحت بدون أي فيديو نشط (INVALID_AD_SQUAD_HAS_NO_ACTIVE_ADS)
     for c in active_campaigns:
