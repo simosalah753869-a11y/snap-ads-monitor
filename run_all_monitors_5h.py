@@ -457,15 +457,20 @@ def run_proactive_sales_scaling(sales_3d: dict, sales_today: dict):
             cname = c.get("name", "")
             if is_banned_kashaf(cname):
                 continue
+            cst1 = {x["id"]: x for x in fetch_account_breakdown_stats(token, TARGET_ACCOUNT_ID, "campaign", days_back=0)}.get(cid, {"spend": 0.0, "purchases": 0, "cpa": None})
             cst3 = camp_st_3d.get(cid, {"spend": 0.0, "purchases": 0, "cpa": None})
-            sh_3d_camp = sales_3d.get(cid.lower(), 0) + (sales_3d.get(cname.lower(), 0) if cname.lower() != cid.lower() else 0)
-            eff_pu3_camp = max(cst3["purchases"], sh_3d_camp)
+            sh_1d_camp = (sales_today or {}).get(cid.lower(), 0) + ((sales_today or {}).get(cname.strip().lower(), 0) if cname.strip().lower() != cid.lower() else 0)
+            sh_3d_camp = (sales_3d or {}).get(cid.lower(), 0) + ((sales_3d or {}).get(cname.strip().lower(), 0) if cname.strip().lower() != cid.lower() else 0)
+            eff_pu3_camp = sh_3d_camp if sales_3d else cst3["purchases"]
             eff_cpa3_camp = round(cst3["spend"] / eff_pu3_camp, 2) if eff_pu3_camp > 0 else None
+            eff_cpa1_camp = round(cst1["spend"] / sh_1d_camp, 2) if sh_1d_camp > 0 else None
             snap_cpa_3d = cst3.get("cpa")
             camp_over_8_3d = (
                 (cst3["spend"] > 8.0 and eff_pu3_camp == 0)
                 or (snap_cpa_3d is not None and snap_cpa_3d > 8.0)
                 or (eff_pu3_camp > 0 and eff_cpa3_camp is not None and eff_cpa3_camp > 8.0)
+                or (cst1["spend"] >= 8.0 and sh_1d_camp == 0)
+                or (sh_1d_camp > 0 and eff_cpa1_camp is not None and eff_cpa1_camp > 8.0)
             )
             if camp_over_8_3d:
                 no_dup_camps[cid] = {
@@ -580,8 +585,12 @@ def run_proactive_sales_scaling(sales_3d: dict, sales_today: dict):
                 bid_micro = int(sq.get("bid_micro") or 0)
                 max_boost_bid_micro = 2_450_000 if is_gulf else 2_350_000
                 has_low_cpa_win = (
-                    (s1["purchases"] >= 1 and s1["cpa"] is not None and s1["cpa"] <= 5.00)
-                    or (s2["purchases"] >= 2 and s2["cpa"] is not None and s2["cpa"] <= 5.50)
+                    sh_1d_camp >= 1
+                    and (eff_cpa1_camp is None or eff_cpa1_camp <= 8.0)
+                    and (
+                        (s1["purchases"] >= 1 and s1["cpa"] is not None and s1["cpa"] <= 5.00)
+                        or (s2["purchases"] >= 2 and s2["cpa"] is not None and s2["cpa"] <= 5.50)
+                    )
                 )
                 if (
                     allow_budget_bid_increase
@@ -1011,13 +1020,20 @@ def run_autonomous_anomaly_doctor(sales_3d: dict = None, sales_today: dict = Non
         acc_cpa_1d = round(tot_sp_1d / tot_pu_1d, 2) if tot_pu_1d > 0 else None
         acc_cpc_1d = round(tot_sp_1d / tot_sw_1d, 3) if tot_sw_1d > 0 else 0.0
 
+        all_camps_resp = api_get(f"/adaccounts/{TARGET_ACCOUNT_ID}/campaigns", tok).get("campaigns", [])
+        snap_camp_ids = {c["campaign"]["id"].lower(): c["campaign"]["name"].strip().lower() for c in all_camps_resp if "campaign" in c}
+        sh_pu_1d = sum(v for k, v in (sales_today or {}).items() if k in snap_camp_ids or k in snap_camp_ids.values())
+        sh_cpa_1d = round(tot_sp_1d / sh_pu_1d, 2) if sh_pu_1d > 0 else None
+
         tot_sp_3d = round(sum(x["spend"] for x in c_stats_3d), 2)
         tot_pu_3d = sum(x["purchases"] for x in c_stats_3d)
         acc_cpa_3d = round(tot_sp_3d / tot_pu_3d, 2) if tot_pu_3d > 0 else None
+        sh_pu_3d = sum(v for k, v in (sales_3d or {}).items() if k in snap_camp_ids or k in snap_camp_ids.values())
+        sh_cpa_3d = round(tot_sp_3d / sh_pu_3d, 2) if sh_pu_3d > 0 else None
 
         log_msg(
-            f"📊 [ملخص صحة سناب شات] اليوم: الصرف=${tot_sp_1d:.2f} | المبيعات={tot_pu_1d} | CPA=${acc_cpa_1d} | CPC=${acc_cpc_1d} "
-            f"|| آخر 3 أيام: الصرف=${tot_sp_3d:.2f} | المبيعات={tot_pu_3d} | CPA=${acc_cpa_3d}"
+            f"📊 [ملخص صحة سناب شات] اليوم: الصرف=${tot_sp_1d:.2f} | مبيعات الشيت الحقيقية={sh_pu_1d} (CPA الحقيقي=${sh_cpa_1d}) | بيكسل سناب={tot_pu_1d} (CPA البيكسل=${acc_cpa_1d}) | CPC=${acc_cpc_1d} "
+            f"|| آخر 3 أيام: الصرف=${tot_sp_3d:.2f} | مبيعات الشيت={sh_pu_3d} (CPA الشيت=${sh_cpa_3d}) | بيكسل={tot_pu_3d} (CPA البيكسل=${acc_cpa_3d})"
         )
         if tot_sp_1d < 10.0 and datetime.now(SA_TZ).hour >= 10:
             anomalies.append(
@@ -1026,10 +1042,11 @@ def run_autonomous_anomaly_doctor(sales_3d: dict = None, sales_today: dict = Non
             recommendations.append(
                 f"يرجى رفع سقف الصرف (Lifetime Spend Cap) أو سداد الرصيد في سناب شات (الحالي: ${spend_cap:,.2f}) ليعود الصرف الفوري للحملات النشطة."
             )
-        if acc_cpa_1d is not None and acc_cpa_1d > 8.50 and tot_sp_1d >= 20.0:
-            anomalies.append(f"سناب شات: متوسط سعر البيعة اليوم مرتفع (${acc_cpa_1d} > $8.50).")
+        real_eval_cpa = sh_cpa_1d if sh_pu_1d > 0 else acc_cpa_1d
+        if (tot_sp_1d >= 20.0 and sh_pu_1d == 0) or (sh_cpa_1d is not None and sh_cpa_1d > 8.50 and tot_sp_1d >= 20.0):
+            anomalies.append(f"سناب شات: سعر البيعة الحقيقي في الشيت اليوم مرتفع (${sh_cpa_1d} من {sh_pu_1d} مبيعات شيت مقابل {tot_pu_1d} وهمية في البيكسل).")
             actions_taken.append("تم تفعيل فلتر النقرة المبكر ($1.50) في نسخ الـ Copy وتهدئة البيدات فوق $2.35 وإيقاف النسخ الصفرية للفيديوهات المكررة.")
-            recommendations.append("يُنصح بتجديد الكرييتف (رفع الفيديوهات الفائزة بـ Media ID جديد في حملة نظيفة) لكسر تشبع الجمهور.")
+            recommendations.append("بيكسل سناب شات يسجل مبيعات مضاعفة/وهمية؛ يجب الاعتماد على مبيعات الشيت الحقيقية وإيقاف المجموعات التي لا تسجل في الشيت.")
     except Exception as e:
         log_msg(f"⚠️ تعذر إكمال الفحص الذاتي لسناب شات: {e}")
 
