@@ -252,8 +252,8 @@ def duplicate_tiktok_winner_campaign(session, headers, aadvid: str, template_cid
         a_form["start_time"] = start_str
         try:
             cur_bid_val = float(a_form.get("cpa_bid") or 0)
-            if 0 < cur_bid_val < 7.2:
-                a_form["cpa_bid"] = "7.6"
+            if cur_bid_val <= 0 or cur_bid_val > 6.6:
+                a_form["cpa_bid"] = "6.5"
         except Exception:
             pass
         a_form["inventory_flow_type"] = 1
@@ -784,10 +784,15 @@ def run_proactive_sales_scaling(sales_3d: dict, sales_today: dict):
 
                     # (ج) استنساخ منضبط (بحد أقصى حملة واحدة في الحساب يومياً، وقبل 5 مساءً فقط، وللحملات الخارقة >= 4 مبيعات بـ CPA <= $5.50) لمنع تشتيت البيكسل
                     acc_clone_key = f"{today_key}:{aadvid}"
+                    has_active_scale_today = any(
+                        any(k in (rc.get("campaign_name") or "").lower() for k in ("scale", "elite", "copy"))
+                        and str(rc.get("campaign_opt_status")) == "0"
+                        for rc in c1_list
+                    )
                     is_tt_super_winner = (
                         eff_conv_today >= 4 and eff_cpa_today <= 5.50 and eff_cpa_3d <= 6.50
                     )
-                    if allow_budget_bid_increase and is_tt_super_winner and cid not in no_dup_tt and acc_clone_key not in tt_cloned and "scale" not in cname.lower() and "boost" not in cname.lower():
+                    if allow_budget_bid_increase and not has_active_scale_today and is_tt_super_winner and cid not in no_dup_tt and acc_clone_key not in tt_cloned and "scale" not in cname.lower() and "boost" not in cname.lower():
                         new_cname = f"{cname} SCALE {now_sa.strftime('%d-%m')}"
                         ok_cp, msg_cp = duplicate_tiktok_winner_campaign(
                             session, headers, aadvid, cid, new_cname, allow_immediate=True
@@ -1098,7 +1103,7 @@ def run_autonomous_anomaly_doctor(sales_3d: dict = None, sales_today: dict = Non
 
 
 GUARDIAN_REPORT_FILE = BASE_DIR / "guardian_latest_report.md"
-TT_COPY_KEYS = ("copy", "scale", "boost", "turbo")
+TT_COPY_KEYS = ("copy", "scale", "boost", "turbo", "elite")
 
 
 def run_improvements_guardian(sales_3d: dict = None, sales_today: dict = None):
@@ -1239,9 +1244,9 @@ def run_improvements_guardian(sales_3d: dict = None, sales_today: dict = None):
                 cv3 = max(int(float(rd3.get("time_attr_convert_cnt") or 0)), (sales_3d or {}).get(cn.lower(), 0))
                 cpa3 = round(sp3 / cv3, 2) if cv3 else None
                 is_copy = any(k in cn.lower() for k in TT_COPY_KEYS)
-                if is_copy and ((sp >= 15 and cv == 0) or (cpa3 is not None and cpa3 > 12.0 and sp3 >= 15)):
+                if is_copy and ((sp >= 5.0 and cv == 0) or (cpa3 is not None and cpa3 > 9.50 and sp3 >= 10)):
                     ok, _ = pause_campaign(session, headers, aadvid, x.get("campaign_id"))
-                    actions.append(f"تيك توك ({acc_name}): {'إيقاف' if ok else 'فشل إيقاف'} حملة مستنسخة خاسرة '{cn}' (اليوم ${sp:.2f}/{cv} مبيعة، 3D CPA=${cpa3})")
+                    actions.append(f"تيك توك ({acc_name}): {'إيقاف' if ok else 'فشل إيقاف'} حملة سكيل/مستنسخة خاسرة عند حد الأمان ($5) '{cn}' (اليوم ${sp:.2f}/{cv} مبيعة، 3D CPA=${cpa3})")
                 elif not is_copy and sp >= 20 and cv == 0:
                     anomalies.append(f"تيك توك ({acc_name}) '{cn}': صرف ${sp:.2f} اليوم بدون مبيعة.")
                     recs.append(f"'{cn}': الحملة الأصلية محمية — راجع الفيديوهات (يتم قصّ الخاسر تلقائياً) وأضف كرييتف جديد.")
