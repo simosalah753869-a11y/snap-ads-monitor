@@ -391,6 +391,7 @@ def run_proactive_sales_scaling(sales_3d: dict, sales_today: dict):
             fetch_account_breakdown_stats,
             api_put,
             is_gulf_034_campaign,
+            is_cross_monitored_product_campaign,
         )
         from duplicate_gulf_campaigns import clone_adsquad_exact, make_session
 
@@ -455,7 +456,7 @@ def run_proactive_sales_scaling(sales_3d: dict, sales_today: dict):
         for c in active_camps:
             cid = c["id"]
             cname = c.get("name", "")
-            if is_banned_kashaf(cname):
+            if is_banned_kashaf(cname) or is_cross_monitored_product_campaign(cname):
                 continue
             cst1 = {x["id"]: x for x in fetch_account_breakdown_stats(token, TARGET_ACCOUNT_ID, "campaign", days_back=0)}.get(cid, {"spend": 0.0, "purchases": 0, "cpa": None})
             cst3 = camp_st_3d.get(cid, {"spend": 0.0, "purchases": 0, "cpa": None})
@@ -672,7 +673,7 @@ def run_proactive_sales_scaling(sales_3d: dict, sales_today: dict):
                     cid = str(r.get("campaign_id"))
                     cname = (r.get("campaign_name") or "").strip()
                     op = str(r.get("campaign_opt_status"))
-                    if is_banned_kashaf(cname):
+                    if is_banned_kashaf(cname) or any(k in cname.lower() for k in ("maybach", "timex", "time x", "warmer", "bottle warmer")):
                         continue
 
                     sp1 = gf(r, "stat_cost")
