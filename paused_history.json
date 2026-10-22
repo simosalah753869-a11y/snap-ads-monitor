@@ -222,12 +222,6 @@
       "reason": "[Copy Rule] صرفت $5.03 (>= $5) بدون مبيعات",
       "paused_at": "2026-10-20 16:07 GMT+3"
     },
-    "bc6e96e0-ce65-42f9-a256-aa1abc93581a": {
-      "name": "Copy of Copy of 1.5 | 23.8",
-      "campaign": "car scaling camp ",
-      "reason": "[Max $8 CPA Rule] سعر البيعة CPA = $9.44 (> $8.00) | الصرف: $9.44 | المبيعات: 1",
-      "paused_at": "2026-10-20 16:07 GMT+3"
-    },
     "41e9e548-b8ae-450b-895b-0778d3350005": {
       "name": "Copy of SA_Car Target Cost Men 20+ | 2.8 Bid",
       "campaign": "smart+ cars SA 18-10",
@@ -342,12 +336,6 @@
       "reason": "[Copy Rule] صرفت $5.98 (>= $5.00) بدون مبيعات",
       "paused_at": "2026-10-20 23:14 GMT+3"
     },
-    "98dd40fe-309d-4792-8a2e-343a9e3343db": {
-      "name": "Copy of Copy of 1.5 | 23.8",
-      "campaign": "car scaling camp ",
-      "reason": "[Max $8 CPA Rule] سعر البيعة CPA = $10.01 (> $8.00) | الصرف: $10.01 | المبيعات: 1",
-      "paused_at": "2026-10-20 23:14 GMT+3"
-    },
     "d1cdc718-9e24-4e82-87b9-55183eeea4a8": {
       "name": "Copy of SA_PB_OldAcc Target Cost Men 20+ | 2.8 Bid",
       "campaign": "باور بانك السعودية سمارت+ (فيديوهات الحساب الثاني) 18-10",
@@ -371,12 +359,6 @@
       "campaign": "باور بانك وينر",
       "reason": "[3-Day Audit] [Copy Rule] صرفت $5.16 (>= $5.00) بدون مبيعات",
       "paused_at": "2026-10-21 19:26 GMT+3"
-    },
-    "49943e45-bb7e-4ec8-b7c4-afc4770af321": {
-      "name": "Copy of Copy of 1.5 | 23.8 [H4]",
-      "campaign": "car scaling camp ",
-      "reason": "[3-Day Audit] [Copy Rule] سعر البيعة CPA = $8.03 (> $8.00) | الصرف: $40.16 | المبيعات: 5",
-      "paused_at": "2026-10-22 22:25 GMT+3"
     },
     "3b17c260-4223-49f7-b6f7-81b7b0eb012d": {
       "name": "20-10 (5 فيديوهات الوسادة)",
@@ -10415,20 +10397,6 @@
       "reason": "[Global Accumulated Video High CPA 7D] مجموع صرف الفيديو التراكمي لـ 7 أيام على مستوى الحساب = $15.56 | المبيعات = 1 | CPA التراكمي = $15.56 (> $13.00)",
       "paused_at": "2026-10-22 12:55 GMT+3"
     },
-    "6c1a25b1-023b-4b54-9fd6-333d305d9a59": {
-      "name": "4",
-      "campaign": "car scaling camp ",
-      "adsquad": "Copy of Copy of 1.5 | 23.8 [H4]",
-      "reason": "[Copy Early High-CPC Cut] نسخة Copy دخلت جمهوراً غالياً: صرفت $2.74 (>= $1.50) بدون مبيعات بـ CPC=$0.171 (> $0.165)",
-      "paused_at": "2026-10-22 15:14 GMT+3"
-    },
-    "fbcfdcaf-39a4-4c0e-82e2-9c084e547f74": {
-      "name": "SA_Watch_tc_v6 [H3]",
-      "campaign": "smart+ watch suis SA 18-10",
-      "adsquad": "Headline Lab H1-H3 | Elite Winners",
-      "reason": "[Ad CPC Rule] صرف الفيديو $1.93 (>= $1.00) | النقرات: 6 | سعر النقرة CPC = $0.322 (> $0.28)",
-      "paused_at": "2026-10-22 22:08 GMT+3"
-    },
     "1e7cef19-cae4-492d-876a-743fa7a32c07": {
       "name": "SA_Watch_tc_v6 [H2]",
       "campaign": "smart+ watch suis SA 18-10",
@@ -18056,62 +18024,62 @@
   "no_duplicate_campaigns": {
     "16b7aaf3-7526-49d7-8e68-33df1e0872a7": {
       "name": "باور بانك السعودية سمارت+ (فيديوهات الحساب الثاني) 18-10",
-      "spend_3d": 139.9,
+      "spend_3d": 139.97,
       "purchases_3d": 8,
-      "cpa_3d": 17.49,
-      "updated_at": "2026-10-22 22:33 GMT+3"
+      "cpa_3d": 17.5,
+      "updated_at": "2026-10-22 22:49 GMT+3"
     },
     "4504af26-5609-4e7b-aeca-e11cf9e03846": {
       "name": "smart+ watch suis SA 18-10",
-      "spend_3d": 209.83,
-      "purchases_3d": 19,
-      "cpa_3d": 11.04,
-      "updated_at": "2026-10-22 22:33 GMT+3"
+      "spend_3d": 209.91,
+      "purchases_3d": 20,
+      "cpa_3d": 10.5,
+      "updated_at": "2026-10-22 22:49 GMT+3"
     },
     "8703fd84-bad8-482e-adb5-da1e9c635d13": {
       "name": "watch suis winners 17-10",
       "spend_3d": 25.28,
       "purchases_3d": 3,
       "cpa_3d": 8.43,
-      "updated_at": "2026-10-22 22:33 GMT+3"
+      "updated_at": "2026-10-22 22:49 GMT+3"
     },
     "9be45a26-06ac-4716-8e7b-2fb3a4d65e4c": {
       "name": "car scaling new 2 text",
-      "spend_3d": 160.3,
+      "spend_3d": 160.61,
       "purchases_3d": 16,
-      "cpa_3d": 10.02,
-      "updated_at": "2026-10-22 22:33 GMT+3"
+      "cpa_3d": 10.04,
+      "updated_at": "2026-10-22 22:49 GMT+3"
     },
     "baa69314-505c-4b3a-851e-883c10034935": {
       "name": "smart+ cars SA 18-10",
-      "spend_3d": 251.24,
+      "spend_3d": 251.28,
       "purchases_3d": 21,
-      "cpa_3d": 11.96,
-      "updated_at": "2026-10-22 22:33 GMT+3"
+      "cpa_3d": 11.97,
+      "updated_at": "2026-10-22 22:49 GMT+3"
     },
     "e23e7c95-3f15-4945-9844-8bd73e2d79d3": {
       "name": "باور بانك وينر",
-      "spend_3d": 101.52,
+      "spend_3d": 101.89,
       "purchases_3d": 8,
-      "cpa_3d": 12.69,
-      "updated_at": "2026-10-22 22:33 GMT+3"
+      "cpa_3d": 12.74,
+      "updated_at": "2026-10-22 22:49 GMT+3"
     },
     "4eefa50f-9008-4aea-b159-d370150b60cf": {
       "name": "صندوق دفاتر TIME X 21-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-22 22:33 GMT+3"
+      "updated_at": "2026-10-22 22:49 GMT+3"
     },
     "a171c141-a6d5-403e-8357-5c8f6c01bce0": {
       "name": "وسادة مايباخ 21-10",
       "spend_3d": 10.24,
       "purchases_3d": 0,
       "cpa_3d": null,
-      "updated_at": "2026-10-22 22:33 GMT+3"
+      "updated_at": "2026-10-22 22:49 GMT+3"
     },
     "c5a7cade-6ec3-4c47-b3a2-c5f08bcf8da0": {
       "name": "وسادة مايباخ 21-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-22 22:33 GMT+3"
+      "updated_at": "2026-10-22 22:49 GMT+3"
     },
     "1879653126110545": {
       "name": "timex books 21-10",
@@ -18122,12 +18090,12 @@
     "e8f0a5e9-89c5-4c14-aabb-c9c6c657891d": {
       "name": "مسخن الرضاعات اللاسلكي 22-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-22 22:33 GMT+3"
+      "updated_at": "2026-10-22 22:49 GMT+3"
     },
     "f18a3bf4-148a-4f5e-baa1-f90335f1884c": {
       "name": "مسخن الرضاعات اللاسلكي 22-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-22 22:33 GMT+3"
+      "updated_at": "2026-10-22 22:49 GMT+3"
     },
     "1879676075637041": {
       "name": "baby bottle warmer 22-10",
@@ -18144,7 +18112,7 @@
     "29891f22-e046-4cc8-b9ee-9921d2d65f0b": {
       "name": "مسخن الرضاعات اللاسلكي 22-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-22 22:33 GMT+3"
+      "updated_at": "2026-10-22 22:49 GMT+3"
     },
     "1879653022433617": {
       "name": "maybach pillow 21-10",
@@ -24771,5 +24739,6 @@
       "reason": "[Ad CPC Rule] صرف الفيديو $1.93 (>= $1.00) | النقرات: 6 | سعر النقرة CPC = $0.322 (> $0.28)",
       "disabled_at": "2026-10-22 22:08 GMT+3"
     }
-  }
+  },
+  "cross_paused_campaigns": {}
 }
