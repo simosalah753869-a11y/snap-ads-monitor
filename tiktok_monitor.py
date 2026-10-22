@@ -63,15 +63,15 @@ ACCOUNTS = [
 # Aggregated Duplicated Video Level (Across ALL Campaigns & ALL Accounts):
 # 1. Duplicated video total spend >= $10.00 (1D/2D/3D/7D) with 0 sales -> Pause video across ALL campaigns & accounts
 # 2. Duplicated video total CPA >= $12.00 (1D/2D/3D/7D, with >= 1 sale) -> Pause video across ALL campaigns & accounts
-MAX_CAMPAIGN_NO_SALE_SPEND = 8.00
-MAX_CAMPAIGN_CPA = 9.00
+MAX_CAMPAIGN_NO_SALE_SPEND = 5.00
+MAX_CAMPAIGN_CPA = 8.50
 MAX_NO_SALE_SPEND = 5.00
-MAX_VIDEO_CPA = 8.00
+MAX_VIDEO_CPA = 8.50
 GULF_MAX_NO_SALE_SPEND = 10.00
 GULF_MAX_VIDEO_CPA = 13.00
 MIN_SPEND_FOR_CPC = 1.00
 MAX_CPC = 0.35
-MAX_DUP_VIDEO_NO_SALE_SPEND = 10.00
+MAX_DUP_VIDEO_NO_SALE_SPEND = 12.00
 MAX_DUP_VIDEO_CPA = 9.50
 
 GULF_KEYWORDS = (
@@ -515,14 +515,17 @@ def evaluate_dup_video_rules(
     spend_2d: float, conv_2d: int,
     spend_3d: float = 0.0, conv_3d: int = 0,
     spend_7d: float = 0.0, conv_7d: int = 0,
+    all_gulf: bool = False,
 ) -> list[str]:
     reasons = []
-    # Rule 1: Aggregated Today / 2D / 3D / 7D Spend >= $8.00 across all copies with 0 conversions
-    if spend_1d >= MAX_DUP_VIDEO_NO_SALE_SPEND and conv_1d == 0:
+    dup_cpa_lim = GULF_MAX_VIDEO_CPA if all_gulf else MAX_DUP_VIDEO_CPA
+    has_good_3d = conv_3d > 0 and (spend_3d / conv_3d) <= dup_cpa_lim
+    # Rule 1: Aggregated Today / 2D / 3D / 7D Spend >= $12.00 across all copies with 0 conversions
+    if spend_1d >= MAX_DUP_VIDEO_NO_SALE_SPEND and conv_1d == 0 and not has_good_3d:
         reasons.append(
             f"[Global Dup Video Stop-Loss 1D] Total Today Spend ${spend_1d:.2f} >= ${MAX_DUP_VIDEO_NO_SALE_SPEND:.2f} with 0 sales"
         )
-    elif spend_2d >= MAX_DUP_VIDEO_NO_SALE_SPEND and conv_2d == 0:
+    elif spend_2d >= MAX_DUP_VIDEO_NO_SALE_SPEND and conv_2d == 0 and not has_good_3d:
         reasons.append(
             f"[Global Dup Video Stop-Loss 2D] Total 2-Day Spend ${spend_2d:.2f} >= ${MAX_DUP_VIDEO_NO_SALE_SPEND:.2f} with 0 sales"
         )
@@ -534,25 +537,25 @@ def evaluate_dup_video_rules(
         reasons.append(
             f"[Global Dup Video Stop-Loss 7D] Total 7-Day Spend ${spend_7d:.2f} >= ${MAX_DUP_VIDEO_NO_SALE_SPEND:.2f} with 0 sales"
         )
-    # Rule 2: Aggregated CPA >= $9.50 across all copies (when Spend >= $12.00)
-    if conv_3d > 0 and spend_3d >= MAX_DUP_VIDEO_NO_SALE_SPEND and (spend_3d / conv_3d) >= MAX_DUP_VIDEO_CPA:
+    # Rule 2: Aggregated CPA >= $9.50 ($13.00 Gulf) across all copies (when Spend >= $12.00)
+    if conv_3d > 0 and spend_3d >= MAX_DUP_VIDEO_NO_SALE_SPEND and (spend_3d / conv_3d) >= dup_cpa_lim:
         reasons.append(
-            f"[Global Dup Video High CPA 3D] Total 3-Day CPA ${(spend_3d / conv_3d):.2f} >= ${MAX_DUP_VIDEO_CPA:.2f} "
+            f"[Global Dup Video High CPA 3D] Total 3-Day CPA ${(spend_3d / conv_3d):.2f} >= ${dup_cpa_lim:.2f} "
             f"(Total Spend=${spend_3d:.2f}, Total Sales={conv_3d})"
         )
-    elif conv_7d > 0 and spend_7d >= MAX_DUP_VIDEO_NO_SALE_SPEND and (spend_7d / conv_7d) >= MAX_DUP_VIDEO_CPA and not (conv_3d > 0 and (spend_3d / conv_3d) <= MAX_VIDEO_CPA):
+    elif conv_7d > 0 and spend_7d >= MAX_DUP_VIDEO_NO_SALE_SPEND and (spend_7d / conv_7d) >= dup_cpa_lim and not has_good_3d:
         reasons.append(
-            f"[Global Dup Video High CPA 7D] Total 7-Day CPA ${(spend_7d / conv_7d):.2f} >= ${MAX_DUP_VIDEO_CPA:.2f} "
+            f"[Global Dup Video High CPA 7D] Total 7-Day CPA ${(spend_7d / conv_7d):.2f} >= ${dup_cpa_lim:.2f} "
             f"(Total Spend=${spend_7d:.2f}, Total Sales={conv_7d})"
         )
-    elif conv_2d > 0 and spend_2d >= MAX_DUP_VIDEO_NO_SALE_SPEND and (spend_2d / conv_2d) >= MAX_DUP_VIDEO_CPA and not (conv_3d > 0 and (spend_3d / conv_3d) <= MAX_VIDEO_CPA):
+    elif conv_2d > 0 and spend_2d >= MAX_DUP_VIDEO_NO_SALE_SPEND and (spend_2d / conv_2d) >= dup_cpa_lim and not has_good_3d:
         reasons.append(
-            f"[Global Dup Video High CPA 2D] Total 2-Day CPA ${(spend_2d / conv_2d):.2f} >= ${MAX_DUP_VIDEO_CPA:.2f} "
+            f"[Global Dup Video High CPA 2D] Total 2-Day CPA ${(spend_2d / conv_2d):.2f} >= ${dup_cpa_lim:.2f} "
             f"(Total Spend=${spend_2d:.2f}, Total Sales={conv_2d})"
         )
-    elif conv_1d > 0 and spend_1d >= MAX_DUP_VIDEO_NO_SALE_SPEND and (spend_1d / conv_1d) >= MAX_DUP_VIDEO_CPA and not (conv_3d > 0 and (spend_3d / conv_3d) <= MAX_VIDEO_CPA):
+    elif conv_1d > 0 and spend_1d >= MAX_DUP_VIDEO_NO_SALE_SPEND and (spend_1d / conv_1d) >= dup_cpa_lim and not has_good_3d:
         reasons.append(
-            f"[Global Dup Video High CPA 1D] Total Today CPA ${(spend_1d / conv_1d):.2f} >= ${MAX_DUP_VIDEO_CPA:.2f} "
+            f"[Global Dup Video High CPA 1D] Total Today CPA ${(spend_1d / conv_1d):.2f} >= ${dup_cpa_lim:.2f} "
             f"(Total Spend=${spend_1d:.2f}, Total Sales={conv_1d})"
         )
     return reasons
@@ -720,7 +723,7 @@ def main():
                 and scale_key not in tt_scaled_today
             ):
                 try:
-                    cur_bdg = float(str(rd1.get("budget") or rd3.get("budget") or 40.0).replace(",", "").replace("$", ""))
+                    cur_bdg = float(str(c1.get("budget") or c3.get("budget") or rd1.get("budget") or rd3.get("budget") or 40.0).replace(",", "").replace("$", ""))
                 except Exception:
                     cur_bdg = 40.0
                 if 20.0 <= cur_bdg < scale_bdg_cap:
@@ -979,7 +982,12 @@ def main():
                 spend_7d, conv_7d,
                 is_gulf=v_is_gulf,
             )
-            if v_key_cur in history.get("tiktok_disabled_dup_videos", {}):
+            v_cpa_lim = GULF_MAX_VIDEO_CPA if v_is_gulf else MAX_VIDEO_CPA
+            v_has_profitable_sales = (
+                (conv_3d > 0 and (spend_3d / conv_3d) <= v_cpa_lim)
+                or (conv_1d > 0 and (spend_1d / conv_1d) <= v_cpa_lim)
+            )
+            if v_key_cur in history.get("tiktok_disabled_dup_videos", {}) and not v_has_profitable_sales:
                 reasons.append(f"Blacklisted Multi-Day Non-Converting Video ('{v_key_cur}')")
 
             if reasons:
@@ -1055,10 +1063,13 @@ def main():
         tot_sp7 = grp["spend_7d"]
         tot_cv7 = grp["conv_7d"]
 
-        dup_reasons = evaluate_dup_video_rules(tot_sp1, tot_cv1, tot_sp2, tot_cv2, tot_sp3, tot_cv3, tot_sp7, tot_cv7)
+        all_insts_gulf = bool(grp["instances"]) and all(is_gulf_campaign(inst["campaign_name"]) for inst in grp["instances"])
+        dup_reasons = evaluate_dup_video_rules(
+            tot_sp1, tot_cv1, tot_sp2, tot_cv2, tot_sp3, tot_cv3, tot_sp7, tot_cv7, all_gulf=all_insts_gulf
+        )
 
-        # Permanent Lock: Once a duplicated video is in tiktok_disabled_dup_videos, NEVER revive it and immediately shut down any active copy!
-        if v_key in history.get("tiktok_disabled_dup_videos", {}) and not dup_reasons:
+        # Permanent Lock: Only applies to 0-sale blacklisted videos; profitable individual copies are always protected!
+        if v_key in history.get("tiktok_disabled_dup_videos", {}) and not dup_reasons and tot_cv3 == 0 and tot_cv7 == 0:
             dup_reasons = [
                 f"[Permanent Global Dup Video Lock] Video '{v_key}' was permanently disabled across all AdSets and is NEVER allowed to run again"
             ]
@@ -1074,12 +1085,16 @@ def main():
                 and (inst["spend_3d"] / inst["conv_3d"]) <= (GULF_MAX_VIDEO_CPA if is_gulf_campaign(inst["campaign_name"]) else MAX_VIDEO_CPA)
             )
             and not (
+                inst["conv_1d"] > 0
+                and (inst["spend_1d"] / inst["conv_1d"]) <= (GULF_MAX_VIDEO_CPA if is_gulf_campaign(inst["campaign_name"]) else MAX_VIDEO_CPA)
+            )
+            and not (
                 inst["conv_7d"] >= 3
                 and (inst["spend_7d"] / inst["conv_7d"]) <= (GULF_MAX_VIDEO_CPA if is_gulf_campaign(inst["campaign_name"]) else MAX_VIDEO_CPA)
             )
         ]
         if not active_insts:
-            if v_key not in history.get("tiktok_disabled_dup_videos", {}):
+            if tot_cv3 == 0 and tot_cv7 == 0 and v_key not in history.get("tiktok_disabled_dup_videos", {}):
                 history["tiktok_disabled_dup_videos"][v_key] = {
                     "v_key": v_key,
                     "sample_name": grp["sample_name"],
@@ -1150,23 +1165,24 @@ def main():
             else:
                 print(f"    -> [ERROR] Failed to pause copy {inst['draft_str']} in ad_id {inst['ad_id']}: {resp_kill}")
 
-        history["tiktok_disabled_dup_videos"][v_key] = {
-            "v_key": v_key,
-            "sample_name": grp["sample_name"],
-            "accounts": sorted(grp["accounts"]),
-            "total_copies": len(grp["ad_ids"]),
-            "closed_copies": closed_copies,
-            "spend_1d": tot_sp1,
-            "conv_1d": tot_cv1,
-            "spend_2d": tot_sp2,
-            "conv_2d": tot_cv2,
-            "spend_3d": tot_sp3,
-            "conv_3d": tot_cv3,
-            "spend_7d": tot_sp7,
-            "conv_7d": tot_cv7,
-            "reason": dup_reason_str,
-            "disabled_at": datetime.now(timezone.utc).isoformat(),
-        }
+        if tot_cv3 == 0 and tot_cv7 == 0:
+            history["tiktok_disabled_dup_videos"][v_key] = {
+                "v_key": v_key,
+                "sample_name": grp["sample_name"],
+                "accounts": sorted(grp["accounts"]),
+                "total_copies": len(grp["ad_ids"]),
+                "closed_copies": closed_copies,
+                "spend_1d": tot_sp1,
+                "conv_1d": tot_cv1,
+                "spend_2d": tot_sp2,
+                "conv_2d": tot_cv2,
+                "spend_3d": tot_sp3,
+                "conv_3d": tot_cv3,
+                "spend_7d": tot_sp7,
+                "conv_7d": tot_cv7,
+                "reason": dup_reason_str,
+                "disabled_at": datetime.now(timezone.utc).isoformat(),
+            }
 
     save_history(history)
     print(
