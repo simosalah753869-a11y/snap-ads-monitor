@@ -1143,7 +1143,7 @@ def run_improvements_guardian(sales_3d: dict = None, sales_today: dict = None):
                 countries |= get_squad_countries(s)
             is_gulf = bool(countries & GULF_COUNTRY_CODES) and "sa" not in countries
             bid_cap = 2.45 if is_gulf else 2.35
-            max_copies = 5 if is_gulf else 15
+            max_copies = 5
             nosale_cut, cpa_cut = (10.0, 13.0) if is_gulf else (5.0, 8.0)
 
             c_sp1 = round(sum(st1.get(s["id"], empty)["spend"] for s in act), 2)
@@ -1159,8 +1159,8 @@ def run_improvements_guardian(sales_3d: dict = None, sales_today: dict = None):
                 st = st1.get(s["id"], empty)
                 if "copy" in nm.lower():
                     reason = None
-                    if st["purchases"] == 0 and st["spend"] >= 1.50 and st["cpc"] > 0.18:
-                        reason = f"صرف ${st['spend']} بدون مبيعة و CPC=${st['cpc']} > $0.18"
+                    if st["purchases"] == 0 and st["spend"] >= 2.50 and st["cpc"] > 0.24:
+                        reason = f"صرف ${st['spend']} بدون مبيعة و CPC=${st['cpc']} > $0.24"
                     elif st["purchases"] == 0 and st["spend"] >= nosale_cut:
                         reason = f"صرف ${st['spend']} بدون مبيعة (>= ${nosale_cut})"
                     elif st["cpa"] is not None and st["cpa"] > cpa_cut:
@@ -1172,18 +1172,21 @@ def run_improvements_guardian(sales_3d: dict = None, sales_today: dict = None):
                         continue
                 still_active.append(s)
 
-            # (B) سقف عدد النسخ 15 سعودي / 5 خليج — إيقاف الزائد الأضعف
-            copies = [s for s in still_active if "copy" in s.get("name", "").lower()]
-            if len(copies) > max_copies:
+            # (B) سقف عدد النسخ 5 مجموعات مركزة — إيقاف الزائد الأضعف
+            if len(still_active) > max_copies:
                 def rank(s):
                     st = st1.get(s["id"], empty)
-                    return (st["purchases"], -(st["cpa"] or 99), -st["spend"])
-                copies.sort(key=rank, reverse=True)
-                for s in copies[max_copies:]:
-                    s["status"] = "PAUSED"
-                    put_squad(s)
-                    still_active.remove(s)
-                    actions.append(f"سناب: تجاوز سقف {max_copies} نسخة في '{cname}' — إيقاف الأضعف '{s.get('name','')}'")
+                    s3 = st3.get(s["id"], empty)
+                    return (st["purchases"], s3["purchases"], -(st["cpa"] or s3["cpa"] or 99), -st["spend"])
+                still_active.sort(key=rank, reverse=True)
+                for s in list(still_active[max_copies:]):
+                    st_s = st1.get(s["id"], empty)
+                    s3_s = st3.get(s["id"], empty)
+                    if st_s["purchases"] == 0 and s3_s["purchases"] == 0:
+                        s["status"] = "PAUSED"
+                        put_squad(s)
+                        still_active.remove(s)
+                        actions.append(f"سناب: تقليص التشتت فوق {max_copies} مجموعات في '{cname}' — إيقاف '{s.get('name','')}'")
 
             # (C) سلّم البيدات: تهدئة أي بيد فوق السقف (عدا الفائز CPA<=5 اليوم)
             for s in still_active:
