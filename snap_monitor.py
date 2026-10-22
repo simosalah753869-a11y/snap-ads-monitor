@@ -167,8 +167,10 @@ def evaluate_adsquad_rule(adsquad_name: str, st: dict, campaign_name: str = "", 
     spend = st["spend"]
     purchases = st["purchases"]
     cpa = st["cpa"]
+    cpc = st.get("cpc", 0.0)
+    swipes = st.get("swipes", 0)
     is_gulf = is_gulf_034_campaign(campaign_name, adsquad_name, squad)
-    no_sale_lim = 10.0 if is_gulf else 5.0
+    no_sale_lim = 8.0 if is_gulf else 4.50
     max_cpa_lim = 13.0 if is_gulf else 8.0
 
     # قاعدة صارمة بأمر المستخدم:
@@ -178,6 +180,10 @@ def evaluate_adsquad_rule(adsquad_name: str, st: dict, campaign_name: str = "", 
         return False, ""
 
     # المجموعات المستنسخة (التي تحتوي على Copy في اسمها):
+    # فرملة النقرة المبكرة للمجموعات المستنسخة (Copy) لمنع استنزاف $4.50 في جمهور غالٍ:
+    early_cpc_lim = 0.28 if is_gulf else 0.165
+    if spend >= 1.50 and purchases == 0 and (swipes == 0 or cpc > early_cpc_lim):
+        return True, f"[Copy Early CPC Brake] صرفت ${spend} (>= $1.50) بدون مبيعات وسعر النقرة CPC=${cpc} (> ${early_cpc_lim})"
     if spend >= no_sale_lim and purchases == 0:
         return True, f"[Copy Rule] صرفت ${spend} (>= ${no_sale_lim:.2f}) بدون مبيعات"
     if purchases > 0 and cpa is not None and cpa > max_cpa_lim:
@@ -449,7 +455,7 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
             continue
         st_1d = squad_stats_map.get(s_id, {"spend": 0.0, "purchases": 0, "cpa": None, "cpc": 0.0, "swipes": 0})
         st_3d = squad_stats_3d_map.get(s_id, {"spend": 0.0, "purchases": 0, "cpa": None, "cpc": 0.0, "swipes": 0})
-        if max(st_1d["spend"], st_3d["spend"]) < 5.0:
+        if max(st_1d["spend"], st_3d["spend"]) < 1.50:
             continue
 
         s_name = squad.get("name", "")
@@ -467,8 +473,8 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
             # هذه الحملات (وسادة مايباخ ودفاتر TIME X) يراقبها cross_product_monitor.py بمجموع الصرف في سناب وتيكتوك معاً (20$)
             continue
 
-        should_pause_1d, reason_1d = evaluate_adsquad_rule(s_name, st_1d, c_name, squad) if st_1d["spend"] >= 5.0 else (False, "")
-        should_pause_3d, reason_3d = evaluate_adsquad_rule(s_name, st_3d, c_name, squad) if st_3d["spend"] >= 5.0 else (False, "")
+        should_pause_1d, reason_1d = evaluate_adsquad_rule(s_name, st_1d, c_name, squad) if st_1d["spend"] >= 1.50 else (False, "")
+        should_pause_3d, reason_3d = evaluate_adsquad_rule(s_name, st_3d, c_name, squad) if st_3d["spend"] >= 4.50 else (False, "")
         should_pause = should_pause_1d or should_pause_3d
         reason = reason_1d if should_pause_1d else f"[3-Day Audit] {reason_3d}"
 
@@ -1302,7 +1308,8 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
                 )
             )
             if (
-                not w_rec.get("scaled_budget_today")
+                not is_cross_sq
+                and not w_rec.get("scaled_budget_today")
                 and has_vertical_scale_win
                 and today_spend >= (daily_budget * 0.45)
                 and daily_budget < 80.0
@@ -1327,7 +1334,7 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
                         pass
 
             # (ج) كشّاف الجمود (Scout Rule): لا يُحرك البيد إلا إذا كانت الحملة بالكامل متجمدة (< $2.00 اليوم)، ولنسختين اثنتين فقط (2 Scouts) بـ +$0.10 وبسقف أقصى $2.35 للسعودية ($2.45 للخليج)!
-            if camp_total_spend_today >= 2.00 or scouts_nudged_in_camp >= 2:
+            if is_cross_sq or camp_total_spend_today >= 2.00 or scouts_nudged_in_camp >= 2:
                 continue
             if today_spend >= 0.80:
                 continue
