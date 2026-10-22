@@ -1114,10 +1114,16 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
         c_squads = camp_squads_cache.get(c_id)
         if not c_squads or is_cross_monitored_product_campaign(c_name):
             continue
+        active_sq_ids_after_2b = {
+            a.get("ad_squad_id") for a in camp_ads_cache.get(c_id, []) if a.get("status") == "ACTIVE"
+        }
         dead_to_pause = [
             sq for sq in c_squads
             if sq.get("status") == "ACTIVE"
-            and "INVALID_AD_SQUAD_HAS_NO_ACTIVE_ADS" in (sq.get("delivery_status") or [])
+            and (
+                sq["id"] not in active_sq_ids_after_2b
+                or "INVALID_AD_SQUAD_HAS_NO_ACTIVE_ADS" in (sq.get("delivery_status") or [])
+            )
         ]
         if dead_to_pause and not dry_run:
             for sq in dead_to_pause:
