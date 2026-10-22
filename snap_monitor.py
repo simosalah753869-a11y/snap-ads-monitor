@@ -332,6 +332,40 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
         except Exception:
             camp_squads_cache[c_id] = []
 
+    # جلب إحصائيات وإعلانات الفيديوهات مسبقاً لحماية أي مجموعة Copy تحتوي بداخلها على فيديو رابح بكوست ممتاز (<= $8.50) من الإطفاء بسبب الفيديوهات الأخرى!
+    ad_stats = fetch_account_breakdown_stats(token, ad_account_id, "ad", days_back=0)
+    ad_stats_map = {st["id"]: st for st in ad_stats}
+    ad_stats_2d = fetch_account_breakdown_stats(token, ad_account_id, "ad", days_back=1)
+    ad_stats_2d_map = {st["id"]: st for st in ad_stats_2d}
+    ad_stats_3d = fetch_account_breakdown_stats(token, ad_account_id, "ad", days_back=2)
+    ad_stats_3d_map = {st["id"]: st for st in ad_stats_3d}
+    ad_stats_7d = fetch_account_breakdown_stats(token, ad_account_id, "ad", days_back=6)
+    ad_stats_7d_map = {st["id"]: st for st in ad_stats_7d}
+
+    def clean_base_ad_name(raw_nm: str) -> str:
+        s = (raw_nm or "").strip()
+        while s.lower().startswith("copy of "):
+            s = s[8:].strip()
+        s = re.sub(r"\s*\[H\d+\].*$", "", s, flags=re.IGNORECASE).strip()
+        s = re.sub(r"_hl\d+$", "", s, flags=re.IGNORECASE).strip()
+        return s
+
+    ad_cache = {}
+    camp_ads_cache = {}
+    ads_by_squad_cache = {}
+    all_account_ads = []
+    for c in active_campaigns:
+        c_id = c["id"]
+        try:
+            c_ads = api_get_paginated(f"/campaigns/{c_id}/ads?limit=500", token, "ads", "ad")
+            camp_ads_cache[c_id] = c_ads
+            for a in c_ads:
+                ad_cache[a["id"]] = a
+                all_account_ads.append(a)
+                ads_by_squad_cache.setdefault(a.get("ad_squad_id"), []).append(a)
+        except Exception:
+            camp_ads_cache[c_id] = []
+
     # 1A. مراجعة المجموعات التي أطفأها البوت مسبقاً:
     # - أي مجموعة لا يوجد في اسمها "Copy" يعيد البوت تشغيلها فوراً (ما دامت تحتوي على فيديوهات نشطة) لأن القاعدة هي إطفاء الفيديوهات داخلها فقط وليس المجموعة.
     # - وأي مجموعة Copy ظهرت لها مبيعة متأخرة وانخفض سعر المبيعة (CPA) تحت الحد المسموح يعيد البوت تشغيلها فوراً!
@@ -438,6 +472,46 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
         reason = reason_1d if should_pause_1d else f"[3-Day Audit] {reason_3d}"
 
         if should_pause:
+            # حماية الفيديو الرابح داخل مجموعة Copy: إذا كان داخل المجموعة فيديو نشط غير متراكم خاسر وحقق مبيعات بكوست ممتاز (<= $8.50 للسعودية / <= $13.00 للخليج) ولم ينزف اليوم >= $5 بدون مبيعات، نُبقي المجموعة والفيديو الرابح شغالين ونطفئ فقط الفيديوهات الصفرية الأخرى بداخلها!
+            sq_ads_list = ads_by_squad_cache.get(s_id, [])
+            max_win_ad_cpa = 13.0 if is_gulf_034_campaign(c_name, s_name, squad) else 8.50
+            winning_active_ads = []
+            losing_active_siblings = []
+            for a_sq in sq_ads_list:
+                if a_sq.get("status") != "ACTIVE":
+                    continue
+                aid_sq = a_sq["id"]
+                bnm_sq = clean_base_ad_name(a_sq.get("name", ""))
+                st3_sq_ad = ad_stats_3d_map.get(aid_sq, {"spend": 0.0, "purchases": 0, "cpa": None})
+                st1_sq_ad = ad_stats_map.get(aid_sq, {"spend": 0.0, "purchases": 0, "cpa": None})
+                is_disabled_vid = any(
+                    bnm_sq and clean_base_ad_name(dv.get("sample_ad_name", "")) == bnm_sq
+                    for dv in history.get("disabled_videos", {}).values()
+                )
+                if (
+                    not is_disabled_vid
+                    and st3_sq_ad.get("purchases", 0) >= 1
+                    and st3_sq_ad.get("cpa") is not None
+                    and st3_sq_ad["cpa"] <= max_win_ad_cpa
+                    and not (st1_sq_ad.get("spend", 0.0) >= 5.0 and st1_sq_ad.get("purchases", 0) == 0)
+                ):
+                    winning_active_ads.append(a_sq)
+                else:
+                    losing_active_siblings.append(a_sq)
+
+            if winning_active_ads:
+                if losing_active_siblings and not dry_run:
+                    for ls_ad in losing_active_siblings:
+                        ls_ad["status"] = "PAUSED"
+                    try:
+                        api_put(f"/adsquads/{s_id}/ads", token, {"ads": losing_active_siblings})
+                    except Exception:
+                        pass
+                print(
+                    f"🛡️ [حماية فيديو رابح داخل المجموعة] الإبقاء على المجموعة '{s_name}' نشطة لأن بداخلها {len(winning_active_ads)} فيديو رابح بكوست ممتاز (وإطفاء {len(losing_active_siblings)} فيديو خاسر بداخلها)"
+                )
+                continue
+
             if dry_run:
                 print(f"🔍 [مطابق للشرط] المجموعة: '{s_name}' (حملة: '{c_name}') | {reason}")
             else:
@@ -453,38 +527,9 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
                 print(f"🛑 تم إيقاف المجموعة: '{s_name}' (حملة: '{c_name}') | {reason}")
                 time.sleep(0.3)
 
-    # 2. One API call for all Ad (video) stats today (+ 2-day, 3-day, and 7-day stats for multi-day accumulated spend check)
-    ad_stats = fetch_account_breakdown_stats(token, ad_account_id, "ad", days_back=0)
-    ad_stats_map = {st["id"]: st for st in ad_stats}
-    ad_stats_2d = fetch_account_breakdown_stats(token, ad_account_id, "ad", days_back=1)
-    ad_stats_2d_map = {st["id"]: st for st in ad_stats_2d}
-    ad_stats_3d = fetch_account_breakdown_stats(token, ad_account_id, "ad", days_back=2)
-    ad_stats_3d_map = {st["id"]: st for st in ad_stats_3d}
-    ad_stats_7d = fetch_account_breakdown_stats(token, ad_account_id, "ad", days_back=6)
-    ad_stats_7d_map = {st["id"]: st for st in ad_stats_7d}
     print(f"\n🎬 عدد الفيديوهات الإعلانية (Ads) التي صرفت اليوم: {len(ad_stats)} (وخلال 3 أيام: {len(ad_stats_3d)})")
-
-    def clean_base_ad_name(raw_nm: str) -> str:
-        s = (raw_nm or "").strip()
-        while s.lower().startswith("copy of "):
-            s = s[8:].strip()
-        s = re.sub(r"\s*\[H\d+\].*$", "", s, flags=re.IGNORECASE).strip()
-        s = re.sub(r"_hl\d+$", "", s, flags=re.IGNORECASE).strip()
-        return s
-
-    ad_cache = {}
-    camp_ads_cache = {}
-    all_account_ads = []
     for c in active_campaigns:
         c_id = c["id"]
-        try:
-            c_ads = api_get_paginated(f"/campaigns/{c_id}/ads?limit=500", token, "ads", "ad")
-            camp_ads_cache[c_id] = c_ads
-            for a in c_ads:
-                ad_cache[a["id"]] = a
-                all_account_ads.append(a)
-        except Exception:
-            camp_ads_cache[c_id] = []
 
         # تلقائياً: إطفاء أي مجموعة AdSquad نشطة أصبحت فارغة تماماً (0 إعلانات نشطة بداخلها) حتى لا تحجز خانة من الـ 15 مجموعة بدون فائدة
         if not dry_run and not is_cross_monitored_product_campaign(c.get("name", "")) and camp_ads_cache.get(c_id) is not None:
