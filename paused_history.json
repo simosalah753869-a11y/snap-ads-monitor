@@ -11994,7 +11994,9 @@
     "5765e578-d979-4c6e-81ea-ee9c079ef304": "c6cbaa18-52e0-46fe-936b-fa2a8b43f852",
     "225bde70-c8d2-42a4-99ed-716251fd5ada": "38313a2a-e6fa-4f57-ac56-c1631bcf84d6",
     "86a07f58-e8e3-4b1b-9b92-82949e076b87": "f03056f6-efbc-4526-9fd3-d259cede788e",
-    "8eb0a73a-89c8-4ab5-a631-02c995f34f47": "a873c3b8-ac45-4c09-afeb-42598624e59f"
+    "8eb0a73a-89c8-4ab5-a631-02c995f34f47": "a873c3b8-ac45-4c09-afeb-42598624e59f",
+    "49b81c37-1451-4c0f-ac1b-bfb54eaeaa46": "b7751519-8006-478c-81ec-4223d51be3de",
+    "68dc8dbc-6b59-4d54-b314-dda9b23a86e5": "b7751519-8006-478c-81ec-4223d51be3de"
   },
   "disabled_videos": {
     "9be45a26-06ac-4716-8e7b-2fb3a4d65e4c:4b80880f-b25e-449f-a33d-2a8a798bfbeb": {
@@ -17959,67 +17961,67 @@
   "no_duplicate_campaigns": {
     "16b7aaf3-7526-49d7-8e68-33df1e0872a7": {
       "name": "باور بانك السعودية سمارت+ (فيديوهات الحساب الثاني) 18-10",
-      "spend_3d": 137.46,
+      "spend_3d": 137.73,
       "purchases_3d": 8,
-      "cpa_3d": 17.18,
-      "updated_at": "2026-10-22 13:04 GMT+3"
+      "cpa_3d": 17.22,
+      "updated_at": "2026-10-22 13:14 GMT+3"
     },
     "4504af26-5609-4e7b-aeca-e11cf9e03846": {
       "name": "smart+ watch suis SA 18-10",
-      "spend_3d": 200.31,
+      "spend_3d": 202.71,
       "purchases_3d": 18,
-      "cpa_3d": 11.13,
-      "updated_at": "2026-10-22 13:04 GMT+3"
+      "cpa_3d": 11.26,
+      "updated_at": "2026-10-22 13:14 GMT+3"
     },
     "8703fd84-bad8-482e-adb5-da1e9c635d13": {
       "name": "watch suis winners 17-10",
       "spend_3d": 25.28,
       "purchases_3d": 3,
       "cpa_3d": 8.43,
-      "updated_at": "2026-10-22 13:04 GMT+3"
+      "updated_at": "2026-10-22 13:14 GMT+3"
     },
     "9be45a26-06ac-4716-8e7b-2fb3a4d65e4c": {
       "name": "car scaling new 2 text",
-      "spend_3d": 155.0,
+      "spend_3d": 155.62,
       "purchases_3d": 15,
-      "cpa_3d": 10.33,
-      "updated_at": "2026-10-22 13:04 GMT+3"
+      "cpa_3d": 10.37,
+      "updated_at": "2026-10-22 13:14 GMT+3"
     },
     "baa69314-505c-4b3a-851e-883c10034935": {
       "name": "smart+ cars SA 18-10",
-      "spend_3d": 246.11,
+      "spend_3d": 248.03,
       "purchases_3d": 21,
-      "cpa_3d": 11.72,
-      "updated_at": "2026-10-22 13:04 GMT+3"
+      "cpa_3d": 11.81,
+      "updated_at": "2026-10-22 13:14 GMT+3"
     },
     "e23e7c95-3f15-4945-9844-8bd73e2d79d3": {
       "name": "باور بانك وينر",
-      "spend_3d": 92.69,
+      "spend_3d": 92.9,
       "purchases_3d": 4,
-      "cpa_3d": 23.17,
-      "updated_at": "2026-10-22 13:04 GMT+3"
+      "cpa_3d": 23.23,
+      "updated_at": "2026-10-22 13:14 GMT+3"
     },
     "f8372cfb-ae46-44d0-bbb4-f39790ecc648": {
       "name": "car scaling camp ",
-      "spend_3d": 306.93,
+      "spend_3d": 309.37,
       "purchases_3d": 38,
-      "cpa_3d": 8.08,
-      "updated_at": "2026-10-22 13:04 GMT+3"
+      "cpa_3d": 8.14,
+      "updated_at": "2026-10-22 13:14 GMT+3"
     },
     "4eefa50f-9008-4aea-b159-d370150b60cf": {
       "name": "صندوق دفاتر TIME X 21-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-22 13:04 GMT+3"
+      "updated_at": "2026-10-22 13:14 GMT+3"
     },
     "a171c141-a6d5-403e-8357-5c8f6c01bce0": {
       "name": "وسادة مايباخ 21-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-22 13:04 GMT+3"
+      "updated_at": "2026-10-22 13:14 GMT+3"
     },
     "c5a7cade-6ec3-4c47-b3a2-c5f08bcf8da0": {
       "name": "وسادة مايباخ 21-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-22 13:04 GMT+3"
+      "updated_at": "2026-10-22 13:14 GMT+3"
     },
     "1879653126110545": {
       "name": "timex books 21-10",
@@ -18030,12 +18032,12 @@
     "e8f0a5e9-89c5-4c14-aabb-c9c6c657891d": {
       "name": "مسخن الرضاعات اللاسلكي 22-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-22 13:04 GMT+3"
+      "updated_at": "2026-10-22 13:14 GMT+3"
     },
     "f18a3bf4-148a-4f5e-baa1-f90335f1884c": {
       "name": "مسخن الرضاعات اللاسلكي 22-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-22 13:04 GMT+3"
+      "updated_at": "2026-10-22 13:14 GMT+3"
     },
     "1879676075637041": {
       "name": "baby bottle warmer 22-10",
@@ -18046,7 +18048,7 @@
     "29891f22-e046-4cc8-b9ee-9921d2d65f0b": {
       "name": "مسخن الرضاعات اللاسلكي 22-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-22 13:04 GMT+3"
+      "updated_at": "2026-10-22 13:14 GMT+3"
     },
     "1879690057017602": {
       "name": "maybach pillow 21-10 (Boost CC 8.8)",
@@ -24333,6 +24335,42 @@
         "deep_link_urls": [],
         "block_preload": true
       }
+    },
+    "49b81c37-1451-4c0f-ac1b-bfb54eaeaa46": {
+      "name": "21-10_hanan_20-10_1 [H3]",
+      "type": "WEB_VIEW",
+      "brand_name": "دار الرمال",
+      "headline": "عرض خاص اليوم + الدفع عند الاستلام",
+      "call_to_action": "ORDER_NOW",
+      "top_snap_media_id": "b7751519-8006-478c-81ec-4223d51be3de",
+      "top_snap_crop_position": "MIDDLE",
+      "forced_view_eligibility": "SIX_SECONDS",
+      "ad_product": "SNAP_AD",
+      "web_view_properties": {
+        "url": "https://www.daralrimal.org/uUspO82ob",
+        "allow_snap_javascript_sdk": false,
+        "use_immersive_mode": false,
+        "deep_link_urls": [],
+        "block_preload": true
+      }
+    },
+    "68dc8dbc-6b59-4d54-b314-dda9b23a86e5": {
+      "name": "21-10_hanan_20-10_1 [H4]",
+      "type": "WEB_VIEW",
+      "brand_name": "دار الرمال",
+      "headline": "خصم خاص اليوم والكمية محدودة جداً",
+      "call_to_action": "ORDER_NOW",
+      "top_snap_media_id": "b7751519-8006-478c-81ec-4223d51be3de",
+      "top_snap_crop_position": "MIDDLE",
+      "forced_view_eligibility": "SIX_SECONDS",
+      "ad_product": "SNAP_AD",
+      "web_view_properties": {
+        "url": "https://www.daralrimal.org/uUspO82ob",
+        "allow_snap_javascript_sdk": false,
+        "use_immersive_mode": false,
+        "deep_link_urls": [],
+        "block_preload": true
+      }
     }
   },
   "headline_creatives_cache": {
@@ -24442,12 +24480,14 @@
     "5e3a909a-eb7e-4376-818f-ceef00715235|https://www.daralrimal.shop/tvfAkFHdl|هدية مجانية في انتظارك مع الطلب": "9a66c09a-f86e-4ed2-992a-618abf719ba4",
     "4e69532f-8fc1-4689-842b-98c8d35c1aca|https://www.daralrimal.shop/tvfAkFHdl|هدية مجانية في انتظارك مع الطلب": "55ea8eab-63c7-4691-9208-ebcc8fc361f6",
     "4e69532f-8fc1-4689-842b-98c8d35c1aca|https://www.daralrimal.shop/tvfAkFHdl|التوصيل مجاني مع ضمان استرجاع": "7cf46f3c-579a-41bf-a32e-6435bffb45fa",
-    "4e69532f-8fc1-4689-842b-98c8d35c1aca|https://www.daralrimal.shop/tvfAkFHdl|راحة فورية بالخطوط وداعاً للألم": "0c5462dd-b7cc-49ea-a914-f507d2b92f4f"
+    "4e69532f-8fc1-4689-842b-98c8d35c1aca|https://www.daralrimal.shop/tvfAkFHdl|راحة فورية بالخطوط وداعاً للألم": "0c5462dd-b7cc-49ea-a914-f507d2b92f4f",
+    "b7751519-8006-478c-81ec-4223d51be3de|https://www.daralrimal.org/uUspO82ob|عرض خاص اليوم + الدفع عند الاستلام": "49b81c37-1451-4c0f-ac1b-bfb54eaeaa46",
+    "b7751519-8006-478c-81ec-4223d51be3de|https://www.daralrimal.org/uUspO82ob|خصم خاص اليوم والكمية محدودة جداً": "68dc8dbc-6b59-4d54-b314-dda9b23a86e5"
   },
   "headline_rotation_idx": {
-    "baa69314-505c-4b3a-851e-883c10034935": 0,
-    "f8372cfb-ae46-44d0-bbb4-f39790ecc648": 1,
-    "9be45a26-06ac-4716-8e7b-2fb3a4d65e4c": 2
+    "baa69314-505c-4b3a-851e-883c10034935": 2,
+    "f8372cfb-ae46-44d0-bbb4-f39790ecc648": 2,
+    "9be45a26-06ac-4716-8e7b-2fb3a4d65e4c": 0
   },
   "disabled_headlines": {
     "baa69314-505c-4b3a-851e-883c10034935:H2": {
