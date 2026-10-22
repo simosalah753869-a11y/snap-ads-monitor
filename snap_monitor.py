@@ -772,15 +772,12 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
         if not relevant_creatives:
             continue
 
-        name_to_media = {}
         for cr_id in relevant_creatives:
-            m_id = resolve_video_media_id(cr_id, token, history)
-            for a in c_ads:
-                if a.get("creative_id") == cr_id and a.get("name"):
-                    name_to_media[a["name"].strip()] = m_id
-                    base_nm_k = clean_base_ad_name(a["name"])
-                    if base_nm_k:
-                        name_to_media[base_nm_k] = m_id
+            resolve_video_media_id(cr_id, token, history)
+        # تنظيف أي مفاتيح قديمة مبنية على الاسم (NAME:) من disabled_videos لاعتماد معرف الفيديو الحقيقي (top_snap_media_id) حصراً
+        for dk_old in list(history.get("disabled_videos", {}).keys()):
+            if ":NAME:" in dk_old or str(history["disabled_videos"][dk_old].get("video_media_id", "")).startswith("NAME:"):
+                del history["disabled_videos"][dk_old]
         save_paused_history(history)
 
         video_groups = {}
@@ -788,53 +785,46 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
             cr_id = a.get("creative_id")
             ad_nm = (a.get("name") or "").strip()
             base_nm = clean_base_ad_name(ad_nm)
-            media_id = history["creative_media_map"].get(cr_id) or name_to_media.get(ad_nm) or name_to_media.get(base_nm)
-            # التجميع المزدوج الصارم: نجمع نسخ الفيديو الواحد سواء تشاركت نفس الـ Media ID أو تشاركت نفس الاسم الأساسي النظيف (مثل '2' أو '1' المرفوع عدة مرات)!
-            keys_for_ad = set()
-            if media_id:
-                keys_for_ad.add(f"MEDIA:{media_id}")
-            if base_nm:
-                keys_for_ad.add(f"NAME:{base_nm}")
-            if not keys_for_ad:
-                keys_for_ad.add(f"CR:{cr_id or a['id']}")
+            media_id = history["creative_media_map"].get(cr_id) or (resolve_video_media_id(cr_id, token, history) if cr_id else None)
+            # التجميع الصارم بناءً على ملف الفيديو الحقيقي نفسه (top_snap_media_id) حصراً — وليس الاسم المكتوب عليه!
+            v_key = f"MEDIA:{media_id}" if media_id else f"CR:{cr_id or a['id']}"
 
-            for v_key in keys_for_ad:
-                grp = video_groups.setdefault(v_key, {
-                    "ads": [],
-                    "active_ads": [],
-                    "spend": 0.0,
-                    "purchases": 0,
-                    "swipes": 0,
-                    "spend_2d": 0.0,
-                    "purchases_2d": 0,
-                    "spend_3d": 0.0,
-                    "purchases_3d": 0,
-                    "spend_7d": 0.0,
-                    "purchases_7d": 0,
-                    "sample_name": base_nm or ad_nm,
-                })
-                grp["ads"].append(a)
-                if a.get("status") == "ACTIVE" and squad_status_map.get(a.get("ad_squad_id")) == "ACTIVE":
-                    grp["active_ads"].append(a)
-                st = ad_stats_map.get(a["id"])
-                if st:
-                    grp["spend"] = round(grp["spend"] + st["spend"], 2)
-                    grp["purchases"] += st["purchases"]
-                    grp["swipes"] += st["swipes"]
-                st2 = ad_stats_2d_map.get(a["id"])
-                if st2:
-                    grp["spend_2d"] = round(grp["spend_2d"] + st2["spend"], 2)
-                    grp["purchases_2d"] += st2["purchases"]
-                st3 = ad_stats_3d_map.get(a["id"])
-                if st3:
-                    grp["spend_3d"] = round(grp["spend_3d"] + st3["spend"], 2)
-                    grp["purchases_3d"] += st3["purchases"]
-                st7 = ad_stats_7d_map.get(a["id"])
-                if st7:
-                    grp["spend_7d"] = round(grp["spend_7d"] + st7["spend"], 2)
-                    grp["purchases_7d"] += st7["purchases"]
+            grp = video_groups.setdefault(v_key, {
+                "ads": [],
+                "active_ads": [],
+                "spend": 0.0,
+                "purchases": 0,
+                "swipes": 0,
+                "spend_2d": 0.0,
+                "purchases_2d": 0,
+                "spend_3d": 0.0,
+                "purchases_3d": 0,
+                "spend_7d": 0.0,
+                "purchases_7d": 0,
+                "sample_name": base_nm or ad_nm,
+            })
+            grp["ads"].append(a)
+            if a.get("status") == "ACTIVE" and squad_status_map.get(a.get("ad_squad_id")) == "ACTIVE":
+                grp["active_ads"].append(a)
+            st = ad_stats_map.get(a["id"])
+            if st:
+                grp["spend"] = round(grp["spend"] + st["spend"], 2)
+                grp["purchases"] += st["purchases"]
+                grp["swipes"] += st["swipes"]
+            st2 = ad_stats_2d_map.get(a["id"])
+            if st2:
+                grp["spend_2d"] = round(grp["spend_2d"] + st2["spend"], 2)
+                grp["purchases_2d"] += st2["purchases"]
+            st3 = ad_stats_3d_map.get(a["id"])
+            if st3:
+                grp["spend_3d"] = round(grp["spend_3d"] + st3["spend"], 2)
+                grp["purchases_3d"] += st3["purchases"]
+            st7 = ad_stats_7d_map.get(a["id"])
+            if st7:
+                grp["spend_7d"] = round(grp["spend_7d"] + st7["spend"], 2)
+                grp["purchases_7d"] += st7["purchases"]
 
-        for v_key, grp in sorted(video_groups.items(), key=lambda kv: 0 if kv[0].startswith("NAME:") else 1):
+        for v_key, grp in video_groups.items():
             tot_spend = grp["spend"]
             tot_purch = grp["purchases"]
             sp2, pu2 = grp["spend_2d"], grp["purchases_2d"]
@@ -858,10 +848,7 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
             ):
                 for dk in list(history.get("disabled_videos", {}).keys()):
                     dv = history["disabled_videos"][dk]
-                    if dv.get("campaign_id") in (c_id, "GLOBAL") and (
-                        dv.get("video_media_id") in (v_key, raw_v_key)
-                        or (grp["sample_name"] and clean_base_ad_name(dv.get("sample_ad_name", "")) == grp["sample_name"])
-                    ):
+                    if dv.get("campaign_id") in (c_id, "GLOBAL") and dv.get("video_media_id") in (v_key, raw_v_key):
                         del history["disabled_videos"][dk]
                 continue
 
@@ -871,14 +858,7 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
                 or f"GLOBAL:{v_key}" in history.get("disabled_videos", {})
                 or any(
                     dv.get("campaign_id") in (c_id, "GLOBAL")
-                    and (
-                        dv.get("video_media_id") in (v_key, raw_v_key)
-                        or (
-                            v_key.startswith("NAME:")
-                            and grp["sample_name"]
-                            and clean_base_ad_name(dv.get("sample_ad_name", "")) == grp["sample_name"]
-                        )
-                    )
+                    and dv.get("video_media_id") in (v_key, raw_v_key)
                     for dv in history.get("disabled_videos", {}).values()
                 )
             )
@@ -995,7 +975,7 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
                     except Exception as e:
                         print(f"   ⚠️ خطأ أثناء إغلاق الفيديو في المجموعة {sq_id}: {e}")
 
-                # يُحظر الفيديو نهائياً في disabled_videos فقط إذا لم يحقق أي مبيعة على الإطلاق (0 مبيعات)
+                # يُحظر الفيديو نهائياً في disabled_videos بمعرفه الحقيقي (top_snap_media_id) فقط إذا لم يحقق أي مبيعة على الإطلاق (0 مبيعات)
                 if max(tot_purch, pu2, pu3, pu7) == 0:
                     history["disabled_videos"][f"{c_id}:{v_key}"] = {
                         "campaign_id": c_id,
@@ -1008,13 +988,11 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
                         "reason": kill_reason,
                         "disabled_at": now_str,
                     }
-                    if grp["sample_name"]:
-                        history["disabled_videos"][f"{c_id}:NAME:{grp['sample_name']}"] = history["disabled_videos"][f"{c_id}:{v_key}"]
                 save_paused_history(history)
                 print(f"   ✅ تم إيقاف النسخ الخاسرة للفيديو التراكمي ({closed_cnt} نسخة) بنجاح مع حماية النسخ الفردية المربحة!")
 
-    # 2B-Global. فحص مجموع صرف ومبيعات الفيديوهات التراكمية على مستوى الحساب بالكامل (شاملاً جميع الحملات النشطة والموقوفة خلال 1D + 2D + 3D + 7D بالـ Media ID وبالاسم الأساسي النظيف):
-    print("\n🌐 فحص مجموع صرف الفيديوهات التراكمية على مستوى الحساب بالكامل عبر جميع الحملات والمجموعات (1D + 2D + 3D + 7D)...")
+    # 2B-Global. فحص مجموع صرف ومبيعات الفيديوهات التراكمية على مستوى الحساب بالكامل بناءً على معرف الفيديو الحقيقي (top_snap_media_id) حصراً:
+    print("\n🌐 فحص مجموع صرف الفيديوهات التراكمية على مستوى الحساب بالكامل بمعرف الفيديو الحقيقي (top_snap_media_id) عبر جميع الحملات والمجموعات (1D + 2D + 3D + 7D)...")
     global_video_groups = {}
     ads_for_global_audit = all_account_ads if all_account_ads else list(ad_cache.values())
     for a in ads_for_global_audit:
@@ -1049,49 +1027,41 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
         ad_is_saudi = is_saudi_squad(sq_obj, c_name, s_name)
         reg_prefix = "SA" if ad_is_saudi else "GULF"
 
-        g_keys = set()
-        if media_id:
-            g_keys.add(f"{reg_prefix}:MEDIA:{media_id}")
-        if clean_nm:
-            g_keys.add(f"{reg_prefix}:NAME:{clean_nm}")
-        if not g_keys and cr_id:
-            g_keys.add(f"{reg_prefix}:CR:{cr_id}")
-
-        for v_key_glob in g_keys:
-            g_grp = global_video_groups.setdefault(v_key_glob, {
-                "is_saudi": ad_is_saudi,
-                "active_ads": [],
-                "campaigns": set(),
-                "spend_1d": 0.0,
-                "purchases_1d": 0,
-                "spend_2d": 0.0,
-                "purchases_2d": 0,
-                "spend_3d": 0.0,
-                "purchases_3d": 0,
-                "spend_7d": 0.0,
-                "purchases_7d": 0,
-                "sample_name": clean_nm or raw_nm,
-            })
-            if c_name:
-                g_grp["campaigns"].add(c_name)
-            if is_Active_Now:
-                g_grp["active_ads"].append((c_id, c_name, a))
-            st1_a = ad_stats_map.get(ad_id)
-            if st1_a:
-                g_grp["spend_1d"] = round(g_grp["spend_1d"] + st1_a["spend"], 2)
-                g_grp["purchases_1d"] += st1_a["purchases"]
-            st2_a = ad_stats_2d_map.get(ad_id)
-            if st2_a:
-                g_grp["spend_2d"] = round(g_grp["spend_2d"] + st2_a["spend"], 2)
-                g_grp["purchases_2d"] += st2_a["purchases"]
-            st3_a = ad_stats_3d_map.get(ad_id)
-            if st3_a:
-                g_grp["spend_3d"] = round(g_grp["spend_3d"] + st3_a["spend"], 2)
-                g_grp["purchases_3d"] += st3_a["purchases"]
-            st7_a = ad_stats_7d_map.get(ad_id)
-            if st7_a:
-                g_grp["spend_7d"] = round(g_grp["spend_7d"] + st7_a["spend"], 2)
-                g_grp["purchases_7d"] += st7_a["purchases"]
+        v_key_glob = f"{reg_prefix}:MEDIA:{media_id}" if media_id else f"{reg_prefix}:CR:{cr_id or ad_id}"
+        g_grp = global_video_groups.setdefault(v_key_glob, {
+            "is_saudi": ad_is_saudi,
+            "active_ads": [],
+            "campaigns": set(),
+            "spend_1d": 0.0,
+            "purchases_1d": 0,
+            "spend_2d": 0.0,
+            "purchases_2d": 0,
+            "spend_3d": 0.0,
+            "purchases_3d": 0,
+            "spend_7d": 0.0,
+            "purchases_7d": 0,
+            "sample_name": clean_nm or raw_nm,
+        })
+        if c_name:
+            g_grp["campaigns"].add(c_name)
+        if is_Active_Now:
+            g_grp["active_ads"].append((c_id, c_name, a))
+        st1_a = ad_stats_map.get(ad_id)
+        if st1_a:
+            g_grp["spend_1d"] = round(g_grp["spend_1d"] + st1_a["spend"], 2)
+            g_grp["purchases_1d"] += st1_a["purchases"]
+        st2_a = ad_stats_2d_map.get(ad_id)
+        if st2_a:
+            g_grp["spend_2d"] = round(g_grp["spend_2d"] + st2_a["spend"], 2)
+            g_grp["purchases_2d"] += st2_a["purchases"]
+        st3_a = ad_stats_3d_map.get(ad_id)
+        if st3_a:
+            g_grp["spend_3d"] = round(g_grp["spend_3d"] + st3_a["spend"], 2)
+            g_grp["purchases_3d"] += st3_a["purchases"]
+        st7_a = ad_stats_7d_map.get(ad_id)
+        if st7_a:
+            g_grp["spend_7d"] = round(g_grp["spend_7d"] + st7_a["spend"], 2)
+            g_grp["purchases_7d"] += st7_a["purchases"]
 
     for v_key_glob, g_grp in global_video_groups.items():
         active_glob_list = [
@@ -1206,18 +1176,6 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
                     time.sleep(0.2)
                 except Exception as e:
                     print(f"   ⚠️ خطأ أثناء إغلاق الفيديو التراكمي في المجموعة {sq_id_g}: {e}")
-            if g_grp["sample_name"] and max(g_pu1, g_pu2, g_pu3, g_pu7) == 0:
-                history["disabled_videos"][f"GLOBAL:NAME:{g_grp['sample_name']}"] = {
-                    "campaign_id": "GLOBAL",
-                    "campaign_name": "ALL_CAMPAIGNS",
-                    "video_media_id": v_key_glob,
-                    "sample_ad_name": g_grp["sample_name"],
-                    "closed_instances": closed_g,
-                    "total_spend": max(g_sp1, g_sp2, g_sp3, g_sp7),
-                    "total_purchases": 0,
-                    "reason": g_reason,
-                    "disabled_at": now_str,
-                }
             save_paused_history(history)
             print(f"🗑️✅ [إيقاف النسخ الخاسرة لفيديو تراكمي على مستوى الحساب] تم إيقاف '{g_grp['sample_name']}' في {closed_g} مجموعة مع حماية النسخ الفردية المربحة | {g_reason}")
 
