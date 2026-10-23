@@ -1310,23 +1310,18 @@ def run_improvements_guardian(sales_3d: dict = None, sales_today: dict = None):
                     continue
                 rd = x.get("row_data") or {}
                 sp = float(rd.get("stat_cost") or 0)
-                clk = int(float(rd.get("click_cnt") or 0))
-                cpc = float(rd.get("cpc") or 0)
                 cv = max(int(float(rd.get("time_attr_convert_cnt") or 0)), (sales_today or {}).get(cn.lower(), 0))
                 rd3 = (c3.get(str(x.get("campaign_id"))) or {}).get("row_data") or {}
                 sp3 = float(rd3.get("stat_cost") or 0)
                 cv3 = max(int(float(rd3.get("time_attr_convert_cnt") or 0)), (sales_3d or {}).get(cn.lower(), 0))
                 cpa3 = round(sp3 / cv3, 2) if cv3 else None
                 is_copy = any(k in cn.lower() for k in TT_COPY_KEYS)
-                if sp >= 1.0 and cv == 0 and (cpc > 0.35 or clk == 0):
-                    ok, _ = pause_campaign(session, headers, aadvid, x.get("campaign_id"))
-                    actions.append(f"تيك توك ({acc_name}): {'إيقاف' if ok else 'فشل إيقاف'} حملة بسبب CPC مرتفع اليوم '{cn}' (الصرف ${sp:.2f}، النقرات {clk}، CPC=${cpc:.2f}، 0 مبيعات)")
-                elif is_copy and ((sp >= 4.50 and cv == 0) or (cpa3 is not None and cpa3 > 7.00 and sp3 >= 7.0)):
+                if is_copy and ((sp >= 15.0 and cv == 0) or (cpa3 is not None and cpa3 > 12.00 and sp3 >= 15.0)):
                     ok, _ = pause_campaign(session, headers, aadvid, x.get("campaign_id"))
                     actions.append(f"تيك توك ({acc_name}): {'إيقاف' if ok else 'فشل إيقاف'} حملة سكيل/مستنسخة خاسرة '{cn}' (اليوم ${sp:.2f}/{cv} مبيعة، 3D CPA=${cpa3})")
-                elif not is_copy and ((sp >= 7.0 and cv == 0) or (cpa3 is not None and cpa3 > 7.00 and sp >= 2.0 and cv == 0)):
-                    ok, _ = pause_campaign(session, headers, aadvid, x.get("campaign_id"))
-                    actions.append(f"تيك توك ({acc_name}): {'إيقاف' if ok else 'فشل إيقاف'} حملة نازفة بدون مبيعات اليوم '{cn}' (اليوم ${sp:.2f}/{cv} مبيعة، 3D CPA=${cpa3})")
+                elif not is_copy and sp >= 18.0 and cv == 0:
+                    anomalies.append(f"تيك توك ({acc_name}) '{cn}': صرف ${sp:.2f} اليوم بدون مبيعة.")
+                    recs.append(f"'{cn}': الحملة الأصلية محمية — يتم قصّ الفيديوهات والأدست الخاسرة فقط عند $4.50.")
     except Exception as e:
         anomalies.append(f"تيك توك: تعذر الفحص ({e}).")
         recs.append("جدد كوكيز تيك توك (tiktok_cookies.json) بتسجيل الدخول من جديد.")
