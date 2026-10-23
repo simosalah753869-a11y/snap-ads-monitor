@@ -980,51 +980,14 @@ def run_google_ads_check():
                     if "Paused" not in r_txt or "Total" in r_txt or "Eligible" in r_txt:
                         log_msg(f"    • {r_txt[:200]}")
                 msg_id = 10
+                # ملاحظة هامة: إيقاف إعلانات Google Ads يتم حصرياً عبر المفصّص الرباعي الدقيق (deep_multiwindow_account_auditor.py)
+                # بعد التحقق من النوافذ الأربع (1D / 2D / 3D / 7D) ومطابقة التاريخ والبيكسل والشيت بحرص 1000%.
                 for flg in val.get("flagged", []):
                     if isinstance(flg, dict):
                         rname = flg.get("rowName", "")
                         sp_v = flg.get("spend", 0.0)
                         cv_v = flg.get("effConv", 0.0)
-                        bcoords = flg.get("btnCoords")
-                        paused_done = False
-                        if bcoords:
-                            for ev_t in ("mousePressed", "mouseReleased"):
-                                msg_id += 1
-                                ws.send(json.dumps({"id": msg_id, "method": "Input.dispatchMouseEvent", "params": {"type": ev_t, "x": bcoords["x"], "y": bcoords["y"], "button": "left", "clickCount": 1}}))
-                                ws.recv()
-                            time.sleep(0.8)
-                            find_pause_js = """
-                            (() => {
-                                const items = Array.from(document.querySelectorAll('material-select-item, [role="menuitem"], [role="option"]'));
-                                const p = items.find(el => {
-                                    const t = (el.innerText || '').trim();
-                                    const r = el.getBoundingClientRect();
-                                    return (t === 'Pause' || t.startsWith('Pause')) && r.width > 0 && r.height > 0;
-                                });
-                                if (p) {
-                                    const r = p.getBoundingClientRect();
-                                    return {x: Math.round(r.left + r.width / 2), y: Math.round(r.top + r.height / 2)};
-                                }
-                                return null;
-                            })()
-                            """
-                            msg_id += 1
-                            ws.send(json.dumps({"id": msg_id, "method": "Runtime.evaluate", "params": {"expression": find_pause_js, "returnByValue": True}}))
-                            p_resp = json.loads(ws.recv())
-                            pcoords = p_resp.get("result", {}).get("result", {}).get("value")
-                            if pcoords:
-                                for ev_t in ("mousePressed", "mouseReleased"):
-                                    msg_id += 1
-                                    ws.send(json.dumps({"id": msg_id, "method": "Input.dispatchMouseEvent", "params": {"type": ev_t, "x": pcoords["x"], "y": pcoords["y"], "button": "left", "clickCount": 1}}))
-                                    ws.recv()
-                                time.sleep(1.2)
-                                paused_done = True
-                        if paused_done:
-                            log_msg(f"    🛑 [Google Ads Auto-Action] تم إيقاف حملة/إعلان جوجل أدز الخاسر فوراً: {rname} (الصرف=${sp_v:.2f}, المبيعات={cv_v:.2f})")
-                        else:
-                            log_msg(f"    🛑 [Google Ads Auto-Action Flag] رصد حملة/إعلان جوجل أدز خاسر: {rname} (الصرف=${sp_v:.2f}, المبيعات={cv_v:.2f})")
-                    else:
-                        log_msg(f"    🛑 [Google Ads Auto-Action Flag] رصد صرف مرتفع بدون مبيعات: {flg}")
+                        log_msg(f"    ℹ️ [Google Ads Pre-Check] مرشح للفحص الرباعي الدقيق: {rname} (الصرف=${sp_v:.2f}, المبيعات={cv_v:.2f})")
                 ws.close()
                 keep_adspower_in_bg()
         except Exception as e:
