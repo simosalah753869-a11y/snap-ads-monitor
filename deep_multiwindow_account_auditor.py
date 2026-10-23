@@ -55,9 +55,9 @@ REPORT_FILE = BASE_DIR / "multiwindow_audit_latest_report.md"
 # القواعد الصارمة المحدثة بأمر المستخدم: سعر البيعة الأقصى 7.00$ للسعودية (10.00$-12.00$ للخليج) عبر 4 نوافذ (1D, 2D, 3D, 7D)
 MAX_CPA_SA = 7.00
 MAX_CPA_GULF = 12.00
-NO_SALE_AD_STOP_SA = 5.00
+NO_SALE_AD_STOP_SA = 4.00
 NO_SALE_AD_STOP_GULF = 8.50
-NO_SALE_SQUAD_STOP_SA = 4.50
+NO_SALE_SQUAD_STOP_SA = 4.00
 NO_SALE_SQUAD_STOP_GULF = 8.00
 
 
