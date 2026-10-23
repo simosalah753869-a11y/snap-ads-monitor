@@ -502,21 +502,41 @@ def run_proactive_sales_scaling(sales_3d: dict, sales_today: dict):
                 s3 = st_3d.get(sid, {"spend": 0.0, "purchases": 0, "cpa": None, "cpc": 0.0, "swipes": 0})
 
                 is_copy_sq = "copy" in sname.lower()
+                user_react_sq = history.get("user_reactivated_squads", {})
 
                 # (0) إيقاف المجموعات المستنسخة (التي تحتوي على Copy في اسمها فقط!) إذا صرفت >= 5$ بدون مبيعة أو تخطت CPA > 8$؛
-                # أما المجموعات الأصلية/الجديدة التي لا يوجد فيها Copy فيُمنع إطفاؤها كـ AdSquad ويتم إطفاء الفيديوهات بداخلها فقط!
-                if is_copy_sq and ((s3["spend"] >= 5.0 and s3["purchases"] == 0) or (s3["purchases"] > 0 and s3["cpa"] is not None and s3["cpa"] > 8.0)):
-                    sq["status"] = "PAUSED"
+                # بشرط عدم وجودها في قائمة التفعيل اليدوي أو احتوائها على فيديو رابح محمي بواسطة snap_monitor.py!
+                if is_copy_sq and sid not in user_react_sq and ((s3["spend"] >= 5.0 and s3["purchases"] == 0) or (s3["purchases"] > 0 and s3["cpa"] is not None and s3["cpa"] > 8.0)):
+                    # Check if there is a winning active ad inside before pausing the squad
+                    has_protected_win_ad = False
                     try:
-                        api_put(f"/campaigns/{cid}/adsquads", token, {"adsquads": [sq]})
-                        snap_actions += 1
-                        log_msg(
-                            f"🛑 [قاعدة الـ Copy - سناب شات] تم إيقاف المجموعة المستنسخة '{sname}' داخل حملة '{cname}' "
-                            f"(3D Spend=${s3['spend']:.2f}, Sales={s3['purchases']}, CPA=${s3['cpa']}) لتوجيه الميزانية للمجموعات البياعة."
-                        )
+                        ads_chk = api_get(f"/adsquads/{sid}/ads", token).get("ads", [])
+                        ad_st_3d_map = {x["id"]: x for x in fetch_account_breakdown_stats(token, TARGET_ACCOUNT_ID, "ad", days_back=2)}
+                        ad_st_1d_map = {x["id"]: x for x in fetch_account_breakdown_stats(token, TARGET_ACCOUNT_ID, "ad", days_back=0)}
+                        for a_w in ads_chk:
+                            ao = a_w.get("ad") or {}
+                            if ao.get("status") != "ACTIVE":
+                                continue
+                            aid_w = ao.get("id")
+                            a3 = ad_st_3d_map.get(aid_w, {"spend": 0.0, "purchases": 0, "cpa": None})
+                            a1 = ad_st_1d_map.get(aid_w, {"spend": 0.0, "purchases": 0, "cpa": None})
+                            if a3["purchases"] >= 1 and a3["cpa"] is not None and a3["cpa"] <= 8.50 and not (a1["spend"] >= 4.80 and a1["purchases"] == 0):
+                                has_protected_win_ad = True
+                                break
                     except Exception:
                         pass
-                    continue
+                    if not has_protected_win_ad:
+                        sq["status"] = "PAUSED"
+                        try:
+                            api_put(f"/campaigns/{cid}/adsquads", token, {"adsquads": [sq]})
+                            snap_actions += 1
+                            log_msg(
+                                f"🛑 [قاعدة الـ Copy - سناب شات] تم إيقاف المجموعة المستنسخة '{sname}' داخل حملة '{cname}' "
+                                f"(3D Spend=${s3['spend']:.2f}, Sales={s3['purchases']}, CPA=${s3['cpa']}) لتوجيه الميزانية للمجموعات البياعة."
+                            )
+                        except Exception:
+                            pass
+                        continue
 
                 # (ب) تنظيف الفيديوهات غير البياعة (>= 5.00$ بدون مبيعة) داخل المجموعات
                 if (not is_copy_sq) or s2["purchases"] >= 1 or s1["purchases"] >= 1:
@@ -1119,8 +1139,9 @@ def run_improvements_guardian(sales_3d: dict = None, sales_today: dict = None):
         from snap_auth import load_config, refresh_access_token
         from snap_monitor import (TARGET_ACCOUNT_ID, api_put, api_get_paginated,
                                   fetch_account_breakdown_stats, get_squad_countries, GULF_COUNTRY_CODES,
-                                  is_cross_monitored_product_campaign)
+                                  is_cross_monitored_product_campaign, load_paused_history)
         tok = refresh_access_token(load_config())
+        user_react_sq_guard = load_paused_history().get("user_reactivated_squads", {})
         camps = api_get_paginated(f"/adaccounts/{TARGET_ACCOUNT_ID}/campaigns", tok, "campaigns", "campaign")
         squads = api_get_paginated(f"/adaccounts/{TARGET_ACCOUNT_ID}/adsquads", tok, "adsquads", "adsquad", max_pages=40)
         st1 = {x["id"]: x for x in fetch_account_breakdown_stats(tok, TARGET_ACCOUNT_ID, "adsquad", days_back=0)}
@@ -1158,7 +1179,7 @@ def run_improvements_guardian(sales_3d: dict = None, sales_today: dict = None):
             for s in act:
                 nm = s.get("name", "")
                 st = st1.get(s["id"], empty)
-                if "copy" in nm.lower():
+                if "copy" in nm.lower() and s["id"] not in user_react_sq_guard:
                     reason = None
                     if st["purchases"] == 0 and st["spend"] >= 2.50 and st["cpc"] > 0.24:
                         reason = f"صرف ${st['spend']} بدون مبيعة و CPC=${st['cpc']} > $0.24"
@@ -1181,6 +1202,8 @@ def run_improvements_guardian(sales_3d: dict = None, sales_today: dict = None):
                     return (st["purchases"], s3["purchases"], -(st["cpa"] or s3["cpa"] or 99), -st["spend"])
                 still_active.sort(key=rank, reverse=True)
                 for s in list(still_active[max_copies:]):
+                    if s["id"] in user_react_sq_guard:
+                        continue
                     st_s = st1.get(s["id"], empty)
                     s3_s = st3.get(s["id"], empty)
                     if st_s["purchases"] == 0 and s3_s["purchases"] == 0:
@@ -1351,6 +1374,7 @@ def main():
         run_improvements_guardian(sales_3d, sales_today)
     except Exception as e:
         log_msg(f"⚠️ حارس التحسينات: {e}")
+    run_step("شريك النجاح وفاحص المتجر والحملات للمنتجات النشطة", "store_and_ads_growth_partner.py")
     log_msg("🏁 اكتملت دورة المراقبة الذاتية والأكشن الفوري بنجاح.\n")
 
 
