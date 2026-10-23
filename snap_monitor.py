@@ -287,6 +287,13 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
     LEGACY_SNAP_CUTOFF = "2026-10-23T18:00:00"
     for c in all_campaigns_list:
         camp_names[c["id"]] = c.get("name", "")
+        if c["id"] in ALLOWED_30X_CAMPAIGN_IDS and c.get("status") != "ACTIVE":
+            if not dry_run:
+                c_on = dict(c)
+                c_on["status"] = "ACTIVE"
+                api_put(f"/adaccounts/{ad_account_id}/campaigns", token, {"campaigns": [c_on]})
+                c["status"] = "ACTIVE"
+                print(f"✅ [حماية حملات الـ 30 مجموعة] إعادة تفعيل الحملة المعتمدة '{c.get('name', '')}' ({c['id']}).")
         if c.get("status") == "ACTIVE":
             created_ts = str(c.get("created_at") or "")
             if is_cross_monitored_product_campaign(c.get("name", "")) or (
@@ -362,7 +369,7 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
     for c in active_campaigns:
         c_id = c["id"]
         try:
-            c_squads = api_get_paginated(f"/campaigns/{c_id}/adsquads?limit=200", token, "adsquads", "adsquad")
+            c_squads = api_get_paginated(f"/campaigns/{c_id}/adsquads?limit=100", token, "adsquads", "adsquad", max_pages=50)
             camp_squads_cache[c_id] = c_squads
             for sq in c_squads:
                 squad_cache[sq["id"]] = sq
@@ -394,14 +401,14 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
     for c in active_campaigns:
         c_id = c["id"]
         try:
-            c_ads = api_get_paginated(f"/campaigns/{c_id}/ads?limit=500", token, "ads", "ad")
+            c_ads = api_get_paginated(f"/campaigns/{c_id}/ads?limit=100", token, "ads", "ad", max_pages=60)
             camp_ads_cache[c_id] = c_ads
             for a in c_ads:
                 ad_cache[a["id"]] = a
                 all_account_ads.append(a)
                 ads_by_squad_cache.setdefault(a.get("ad_squad_id"), []).append(a)
         except Exception:
-            camp_ads_cache[c_id] = []
+            camp_ads_cache[c_id] = None
 
     # 1A. (موقوف نهائياً بأمر المستخدم: ممنوع إعادة تشغيل أي مجموعة إعلانية موقوفة في سناب شات — التزام كامل بحملة واحدة وأدست واحدة فقط)
     for s_id, info in []:
@@ -545,17 +552,11 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
         c_id = c["id"]
 
         # تلقائياً: إطفاء أي مجموعة AdSquad نشطة أصبحت فارغة تماماً (0 إعلانات نشطة بداخلها) حتى لا تحجز خانة من الـ 15 مجموعة بدون فائدة
-        if not dry_run and not is_cross_monitored_product_campaign(c.get("name", "")) and camp_ads_cache.get(c_id) is not None:
-            active_ad_squad_ids = {
-                a.get("ad_squad_id") for a in camp_ads_cache[c_id] if a.get("status") == "ACTIVE"
-            }
+        if not dry_run and not is_cross_monitored_product_campaign(c.get("name", "")):
             empty_active_squads = [
                 sq for sq in camp_squads_cache.get(c_id, [])
                 if sq.get("status") == "ACTIVE"
-                and (
-                    sq["id"] not in active_ad_squad_ids
-                    or "INVALID_AD_SQUAD_HAS_NO_ACTIVE_ADS" in (sq.get("delivery_status") or [])
-                )
+                and "INVALID_AD_SQUAD_HAS_NO_ACTIVE_ADS" in (sq.get("delivery_status") or [])
             ]
             if empty_active_squads:
                 for esq in empty_active_squads:
