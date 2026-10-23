@@ -82,15 +82,16 @@ def log_msg(msg: str):
         f.write(line + "\n")
 
 
-def run_step(title: str, script_name: str):
+def run_step(title: str, script_name: str, extra_args: list = None):
     log_msg(f"=== بدء تشغيل: {title} ({script_name}) ===")
     script_path = BASE_DIR / script_name
     if not script_path.exists():
         log_msg(f"⚠️ الملف غير موجود: {script_path}")
         return
     try:
+        cmd = [sys.executable, "-X", "utf8", str(script_path)] + (extra_args or [])
         res = subprocess.run(
-            [sys.executable, "-X", "utf8", str(script_path)],
+            cmd,
             cwd=str(BASE_DIR),
             capture_output=True,
             text=True,
@@ -1373,7 +1374,7 @@ def main():
     run_step("مكمل مجموعات سناب شات النشطة (Top-Up 15)", "topup_car_campaigns.py")
     run_step("مراقب ومحسن تيك توك (جميع الحسابات الـ 6)", "tiktok_monitor.py")
     run_step("مراقب مايباخ وتايم إكس المشترك (سناب + تيك توك)", "cross_product_monitor.py")
-    run_step("المفصّص الشامل وقاطع النزيف عبر 4 نوافذ (1D/2D/3D/7D — سقف 7$)", "deep_multiwindow_account_auditor.py")
+    run_step("المفصّص الشامل وقاطع النزيف عبر 4 نوافذ (1D/2D/3D/7D — سقف 7$)", "deep_multiwindow_account_auditor.py", ["--skip-snap-tiktok"])
     sales_3d, sales_today = run_google_ads_check()
     run_proactive_sales_scaling(sales_3d, sales_today)
     run_autonomous_anomaly_doctor(sales_3d, sales_today)
