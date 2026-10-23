@@ -1398,6 +1398,7 @@ def main():
     run_step("مكمل مجموعات سناب شات النشطة (Top-Up 15)", "topup_car_campaigns.py")
     run_step("مراقب ومحسن تيك توك (جميع الحسابات الـ 6)", "tiktok_monitor.py")
     run_step("مراقب مايباخ وتايم إكس المشترك (سناب + تيك توك)", "cross_product_monitor.py")
+    run_step("المفصّص الشامل وقاطع النزيف عبر 4 نوافذ (1D/2D/3D/7D — سقف 7$)", "deep_multiwindow_account_auditor.py")
     sales_3d, sales_today = run_google_ads_check()
     run_proactive_sales_scaling(sales_3d, sales_today)
     run_autonomous_anomaly_doctor(sales_3d, sales_today)
