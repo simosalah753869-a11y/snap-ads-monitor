@@ -240,13 +240,19 @@ def clone_adsquad_exact(session: requests.Session, src: dict, copies_count: int)
     rot_map = hist.setdefault("headline_rotation_idx", {})
     start_rot_idx = int(rot_map.get(campaign_id, 0))
 
-    bid_ladder_micro = [2_050_000, 2_150_000, 2_250_000, 2_350_000]
-    raw_bid_micro = src.get("bid_micro") or 2_150_000
-    raw_bid_micro = max(2_050_000, min(2_350_000, raw_bid_micro))
+    is_tc = str(src.get("bid_strategy") or "") == "TARGET_COST"
+    if is_tc:
+        bid_ladder_micro = [2_650_000, 2_750_000, 2_800_000, 2_850_000]
+        raw_bid_micro = src.get("bid_micro") or 2_750_000
+        raw_bid_micro = max(2_600_000, min(2_850_000, raw_bid_micro))
+    else:
+        bid_ladder_micro = [2_250_000, 2_350_000, 2_400_000, 2_450_000]
+        raw_bid_micro = src.get("bid_micro") or 2_400_000
+        raw_bid_micro = max(2_250_000, min(2_500_000, raw_bid_micro))
     bid_dollars = round(raw_bid_micro / 1_000_000, 2)
 
     print(
-        f"   📋 نسخ '{src_name}' عدد {copies_count} مرات | سلم البيد الذكي ($2.05-$2.35، الأساس ${bid_dollars}) | تدوير العناوين ({product_type}) | الفيديوهات النشطة: {len(ads_to_copy)}...",
+        f"   📋 نسخ '{src_name}' عدد {copies_count} مرات | سلم البيد الذكي (الأساس ${bid_dollars}) | تدوير العناوين ({product_type}) | الفيديوهات النشطة: {len(ads_to_copy)}...",
         flush=True,
     )
 
