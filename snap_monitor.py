@@ -16,6 +16,7 @@ SECOND_ACCOUNT_ID = "0d00760b-6793-441f-a675-e35371ce9c7c"  # CSP9860 4
 TARGET_ACCOUNT_IDS = [TARGET_ACCOUNT_ID, SECOND_ACCOUNT_ID]
 ALLOWED_30X_CAMPAIGN_IDS = {
     "f8372cfb-ae46-44d0-bbb4-f39790ecc648",  # CSP9860 - car scaling camp (Pillow)
+    "9be45a26-06ac-4716-8e7b-2fb3a4d65e4c",  # CSP9860 - car scaling new 2 text (Pillow Test AdSquad Campaign)
     "e23e7c95-3f15-4945-9844-8bd73e2d79d3",  # CSP9860 - باور بانك وينر (Power Bank)
     "558c5d45-f08e-400c-a499-7668e801c347",  # CSP9860 4 - car armrest (Pillow)
     "803324e6-052e-441b-99fb-4d43e56c5c78",  # CSP9860 4 - باور بانك وينر - سمارت (Power Bank)
@@ -171,9 +172,18 @@ def fetch_account_breakdown_stats(token: str, ad_account_id: str, breakdown: str
     return results
 
 
+def is_non_copy_test_adsquad(adsquad_name: str) -> bool:
+    """يرجع True إذا كانت المجموعة الإعلانية اسمها تيست / test وبدون كلمة copy (مخصصة لاختبار الفيديوهات بسرعة)."""
+    nm = (adsquad_name or "").strip().lower()
+    if not nm or "copy" in nm:
+        return False
+    return nm in ("تيست", "تست", "test") or ("تيست" in nm) or ("تست" in nm) or ("test" in nm)
+
+
 def evaluate_adsquad_rule(adsquad_name: str, st: dict, campaign_name: str = "", squad: dict | None = None) -> tuple[bool, str]:
     is_copy = "copy" in adsquad_name.lower()
     is_base_template = adsquad_name.strip().lower().startswith("base -")
+    is_test_non_copy = is_non_copy_test_adsquad(adsquad_name)
     spend = st["spend"]
     purchases = st["purchases"]
     cpa = st["cpa"]
@@ -184,7 +194,8 @@ def evaluate_adsquad_rule(adsquad_name: str, st: dict, campaign_name: str = "", 
     max_cpa_lim = 12.0 if is_gulf else 7.0
     max_adsquad_cpc = 0.35
 
-    if is_base_template:
+    if is_base_template or is_test_non_copy:
+        # في أدست التيست (التي لا تحتوي على copy)، لا نطفي الأدست نفسها بل نختبر ونطفي الفيديوهات الفردية بداخلها بسرعة ($4 بدون مبيعة، CPA >= $7، أو CPC > $0.30)
         return False, ""
 
     # قاعدة صارمة بأمر المستخدم (2026-10-23):
@@ -216,8 +227,26 @@ def evaluate_single_ad_rule(st: dict, campaign_name: str, adsquad_name: str, squ
     cpa = st.get("cpa")
     cpc = st["cpc"]
     is_copy = "copy" in (adsquad_name or "").lower()
+    is_test_non_copy = is_non_copy_test_adsquad(adsquad_name)
     is_cross_prod = is_cross_monitored_product_campaign(campaign_name, adsquad_name)
     is_gulf = is_gulf_034_campaign(campaign_name, adsquad_name, squad)
+
+    # قاعدة خاصة وصارمة لأدست التيست التي لا تحتوي على copy (لاختبار الفيديوهات بسرعة):
+    # 1) أي فيديو يصرف >= $4.00 بدون مبيعة يطفي مباشرة
+    # 2) أي فيديو يصل فيه سعر البيعة CPA >= $7.00 يطفي مباشرة
+    # 3) أي فيديو يتجاوز فيه CPC > $0.30 (بدون مبيعة مربحة < $7.00) يطفي مباشرة
+    if is_test_non_copy:
+        if purchases > 0 and cpa is not None and cpa >= 7.00:
+            return True, f"[Test AdSquad Video Rule: CPA >= $7] صرف الفيديو ${spend} | المبيعات: {purchases} | سعر البيعة CPA = ${cpa} (>= $7.00)"
+        if spend >= 4.00 and purchases == 0:
+            return True, f"[Test AdSquad Video Rule: $4 Stop-Loss] صرف الفيديو ${spend} (>= $4.00) بدون مبيعة"
+        if purchases == 0 and spend >= 0.60:
+            if swipes == 0:
+                return True, f"[Test AdSquad Video Rule: CPC > $0.30] صرف الفيديو ${spend} (>= $0.60) بدون أي نقرة (الحد الأقصى $0.30)"
+            if cpc > 0.30:
+                return True, f"[Test AdSquad Video Rule: CPC > $0.30] صرف الفيديو ${spend} | النقرات: {swipes} | سعر النقرة CPC = ${cpc} (> $0.30)"
+        return False, ""
+
     max_cpc = 0.30 if is_cross_prod else 0.35
     min_cpc_spend = 0.80 if is_cross_prod else 1.0
     max_cpa = 12.0 if is_gulf else 7.0
@@ -685,9 +714,10 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
         c_id = squad.get("campaign_id", "")
         c_name = camp_names.get(c_id, "")
 
-        min_spend_chk = 0.80 if is_cross_monitored_product_campaign(c_name, s_name) else 1.0
-        max_cpa_3d_ind = 12.0 if is_gulf_034_campaign(c_name, s_name, squad) else 7.0
-        no_sale_1d_ind = 10.0 if is_gulf_034_campaign(c_name, s_name, squad) else 5.0
+        is_test_sq = is_non_copy_test_adsquad(s_name)
+        min_spend_chk = 0.60 if is_test_sq else (0.80 if is_cross_monitored_product_campaign(c_name, s_name) else 1.0)
+        max_cpa_3d_ind = 6.99 if is_test_sq else (12.0 if is_gulf_034_campaign(c_name, s_name, squad) else 7.0)
+        no_sale_1d_ind = 4.0 if is_test_sq else (10.0 if is_gulf_034_campaign(c_name, s_name, squad) else 5.0)
         is_proven_3d_winner = (
             st3["purchases"] >= 1
             and st3["cpa"] is not None
@@ -1242,6 +1272,7 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
             st3_sq = squad_stats_3d_map.get(s_id, {"spend": today_spend, "purchases": 0, "cpa": None})
             is_gulf_sq = is_gulf_034_campaign(c_name, s_name, squad)
             is_cross_sq = is_cross_monitored_product_campaign(c_name, s_name)
+            is_test_sq_bid = is_non_copy_test_adsquad(s_name)
             is_tc_sq = squad.get("bid_strategy") == "TARGET_COST" or bool(squad.get("target_bid"))
             is_winning_today = (
                 (st_sq.get("purchases", 0) >= 1 and st_sq.get("cpa") is not None and st_sq["cpa"] <= 7.00)
@@ -1250,6 +1281,8 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
 
             if is_cross_sq:
                 max_safe_bid_micro = 3_600_000
+            elif is_test_sq_bid:
+                max_safe_bid_micro = 3_000_000
             elif is_tc_sq:
                 max_safe_bid_micro = 2_850_000
             else:
@@ -1335,8 +1368,8 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
                     except Exception:
                         pass
 
-            # (ج) كشّاف الجمود (Scout Rule): تحريك البيد +$0.10 للمجموعات البطيئة الصرف (< $0.80) — مع عدم المساس ببيدات مجموعات Copy A ($1.90) و Copy B ($2.10) الثابتة!
-            if is_cross_sq or scouts_nudged_in_camp >= 4 or s_name.startswith(("Copy A -", "Copy B -")):
+            # (ج) كشّاف الجمود (Scout Rule): تحريك البيد +$0.10 للمجموعات البطيئة الصرف (< $0.80) — مع عدم المساس ببيدات مجموعات Copy A ($1.90) و Copy B ($2.10) وأدست التيست ($3.00 Max) الثابتة!
+            if is_cross_sq or is_test_sq_bid or scouts_nudged_in_camp >= 4 or s_name.startswith(("Copy A -", "Copy B -")):
                 continue
             if today_spend >= 0.80:
                 continue
