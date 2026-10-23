@@ -8045,6 +8045,34 @@
       "adsquad": "Copy B - Car 2.1 Max [H2] #08",
       "reason": "[Aggregated Video High CPA 7D - السعودية] مجموع صرف الفيديو التراكمي لـ 7 أيام = $7.25 | المبيعات = 1 | CPA التراكمي = $7.25 (> $7.00)",
       "paused_at": "2026-10-23 23:14 GMT+3"
+    },
+    "32073c02-7274-4293-b45c-7dc6de444214": {
+      "name": "PB_v2_Winner2_m89aba9 [H1]",
+      "campaign": "باور بانك وينر",
+      "adsquad": "Copy A - PB 1.9 Max [H1] #14",
+      "reason": "[Permanent Disabled Video Lock - السعودية] هذا الفيديو التراكمي موقوف نهائياً ولن يُسمح بإعادة تشغيله في أي AdSquad",
+      "paused_at": "2026-10-24 02:46 GMT+3"
+    },
+    "4030d06e-0e95-49ab-8b4b-fc2564da79f4": {
+      "name": "PB_v2_Winner2_m89aba9 [H1]",
+      "campaign": "باور بانك وينر",
+      "adsquad": "Copy A - PB 1.9 Max [H1] #07",
+      "reason": "[Permanent Disabled Video Lock - السعودية] هذا الفيديو التراكمي موقوف نهائياً ولن يُسمح بإعادة تشغيله في أي AdSquad",
+      "paused_at": "2026-10-24 02:46 GMT+3"
+    },
+    "900b8c50-cfbd-4339-8b22-3310cfafbcdf": {
+      "name": "PB_v3_Winner3_mf03b43 [H1]",
+      "campaign": "باور بانك وينر",
+      "adsquad": "Copy A - PB 1.9 Max [H1] #07",
+      "reason": "[Permanent Disabled Video Lock - السعودية] هذا الفيديو التراكمي موقوف نهائياً ولن يُسمح بإعادة تشغيله في أي AdSquad",
+      "paused_at": "2026-10-24 02:46 GMT+3"
+    },
+    "e48526f8-cad9-4502-a559-01077b847c69": {
+      "name": "PB_v3_Winner3_mf03b43 [H1]",
+      "campaign": "باور بانك وينر",
+      "adsquad": "Copy A - PB 1.9 Max [H1] #14",
+      "reason": "[Permanent Disabled Video Lock - السعودية] هذا الفيديو التراكمي موقوف نهائياً ولن يُسمح بإعادة تشغيله في أي AdSquad",
+      "paused_at": "2026-10-24 02:46 GMT+3"
     }
   },
   "bid_bumps": {
@@ -10166,7 +10194,15 @@
     "15844453-3925-4182-bb12-2cdbed0708d7": "54ca78ba-6c19-4265-be3b-1f554c60271e",
     "0c5e9b3d-65a2-4e19-b220-d153eb74f2b8": "6ff2de55-9340-45ca-a50f-19e9d125bda8",
     "d108bf23-b812-42b4-9953-b9d5ca56c2e4": "ef6f5ed7-4fe6-48bf-9ec7-3937dfed53d0",
-    "3404a77c-a3a2-4284-987f-5c302c57e0a7": "c99fe699-1ff0-4a8d-bed5-adf94ac2d01d"
+    "3404a77c-a3a2-4284-987f-5c302c57e0a7": "c99fe699-1ff0-4a8d-bed5-adf94ac2d01d",
+    "eac6d5cb-0e60-4994-ab13-63a901a0a8d0": "dd2ba6d0-420f-4b74-9d6b-cfa85d4d2109",
+    "577cac9c-4fc6-4376-a05f-92591601c393": "cfaa82c8-5ae2-46d7-9169-d0da70145a24",
+    "a9c6dd09-a93f-4706-96a0-173afa88da05": "df7c42eb-2aa4-4b88-a432-ee037a872980",
+    "0ee2d46e-dcf2-4f02-920f-d23bba1a7eea": "96d2d554-26cf-4925-82b5-d93ef5de01d6",
+    "df3a385e-2aa3-4da3-aad5-f1d35f94e439": "cc93f9a0-aa82-4dd6-97b1-c2af5d909677",
+    "2c636ca9-d350-49ef-ba48-e86d42b9f9e0": "c3d1f4f1-282c-49c8-ac35-cef7d584717a",
+    "1e83130d-8254-4892-aaed-c59e78a56fd4": "a1d59b72-9583-4081-a073-1794f8f2cf1f",
+    "48972bb8-7452-4f38-aaf9-1f59fe5f4626": "5bb317cc-9c4f-4aad-95ce-017ff032db00"
   },
   "disabled_videos": {
     "16b7aaf3-7526-49d7-8e68-33df1e0872a7:3bcd9ff7-ec46-4884-9c93-cd1a04ae60a0": {
@@ -10455,11 +10491,11 @@
       "campaign_name": "باور بانك وينر",
       "video_media_id": "89aba96a-6aa7-4a63-9819-0daca54a74e4",
       "sample_ad_name": "PB_v2_win2_m89aba9",
-      "closed_instances": 15,
+      "closed_instances": 2,
       "total_spend": 0.0,
       "total_purchases": 0,
       "reason": "[Permanent Disabled Video Lock - السعودية] هذا الفيديو التراكمي موقوف نهائياً ولن يُسمح بإعادة تشغيله في أي AdSquad",
-      "disabled_at": "2026-10-23 23:14 GMT+3"
+      "disabled_at": "2026-10-24 02:46 GMT+3"
     },
     "e23e7c95-3f15-4945-9844-8bd73e2d79d3:MEDIA:cc7aeeac-37af-4dec-980a-2b8a544e949d": {
       "campaign_id": "e23e7c95-3f15-4945-9844-8bd73e2d79d3",
@@ -10477,11 +10513,11 @@
       "campaign_name": "باور بانك وينر",
       "video_media_id": "f03b4395-e1da-4ed3-8606-7e5e3d86d3e4",
       "sample_ad_name": "PB_v3_win3_mf03b43",
-      "closed_instances": 28,
+      "closed_instances": 2,
       "total_spend": 0.0,
       "total_purchases": 0,
       "reason": "[Permanent Disabled Video Lock - السعودية] هذا الفيديو التراكمي موقوف نهائياً ولن يُسمح بإعادة تشغيله في أي AdSquad",
-      "disabled_at": "2026-10-23 23:14 GMT+3"
+      "disabled_at": "2026-10-24 02:46 GMT+3"
     }
   },
   "tiktok_campaigns": {
@@ -15464,6 +15500,48 @@
       "spend_7d": 0.55,
       "conv_7d": 0,
       "paused_at": "2026-10-23T23:08:35.789672+00:00"
+    },
+    "7631763556322148369:1879824619984034:1879849425632594": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "ad_id": "1879824619984034",
+      "creative_id": "1879849423810850",
+      "campaign_ad_name": "power bank 23-10 (Voltrx 10 Hooks Ads) / power bank 23-10 (Voltrx 10 Hooks Ads) - Creative",
+      "video_name": "23-10_voltrx_ad_10.mp4",
+      "draft_ids": [
+        "1879849425632594"
+      ],
+      "reason": "Today Early High CPC $0.00 (Spend=$0.57, Clicks=0, 0 sales)",
+      "spend_1d": 0.57,
+      "conv_1d": 0,
+      "spend_2d": 10.36,
+      "conv_2d": 3,
+      "spend_3d": 10.36,
+      "conv_3d": 3,
+      "spend_7d": 10.36,
+      "conv_7d": 3,
+      "paused_at": "2026-10-23T23:50:48.901276+00:00"
+    },
+    "7631765139798081554:1879845883154162:1879849564253745": {
+      "aadvid": "7631765139798081554",
+      "account_name": "ROELLINGER RECYCLING1",
+      "ad_id": "1879845883154162",
+      "creative_id": "1879849562268690",
+      "campaign_ad_name": "power bank ym49 23-10 (Voltrx UGC Scripts B1 - 9 Ads) / power bank ym49 23-10 (Voltrx UGC Scripts B1 - 9 Ads) - Creative",
+      "video_name": "23-10_voltrx_ym49_s13.mp4",
+      "draft_ids": [
+        "1879849564253745"
+      ],
+      "reason": "2-Day High CPC $0.34 (Spend=$0.34, Clicks=1, 0 sales)",
+      "spend_1d": 0.09,
+      "conv_1d": 0,
+      "spend_2d": 0.34,
+      "conv_2d": 0,
+      "spend_3d": 0.34,
+      "conv_3d": 0,
+      "spend_7d": 0.34,
+      "conv_7d": 0,
+      "paused_at": "2026-10-23T23:51:05.531267+00:00"
     }
   },
   "tiktok_ads": {},
@@ -16303,19 +16381,19 @@
       "spend_3d": 27.89,
       "purchases_3d": 2,
       "cpa_3d": 13.95,
-      "updated_at": "2026-10-24 02:33 GMT+3"
+      "updated_at": "2026-10-24 02:46 GMT+3"
     },
     "a171c141-a6d5-403e-8357-5c8f6c01bce0": {
       "name": "وسادة مايباخ 21-10",
       "spend_3d": 10.25,
       "purchases_3d": 0,
       "cpa_3d": null,
-      "updated_at": "2026-10-24 02:33 GMT+3"
+      "updated_at": "2026-10-24 02:46 GMT+3"
     },
     "c5a7cade-6ec3-4c47-b3a2-c5f08bcf8da0": {
       "name": "وسادة مايباخ 21-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-24 02:33 GMT+3"
+      "updated_at": "2026-10-24 02:46 GMT+3"
     },
     "1879653126110545": {
       "name": "timex books 21-10",
@@ -16326,12 +16404,12 @@
     "e8f0a5e9-89c5-4c14-aabb-c9c6c657891d": {
       "name": "مسخن الرضاعات اللاسلكي 22-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-24 02:33 GMT+3"
+      "updated_at": "2026-10-24 02:46 GMT+3"
     },
     "f18a3bf4-148a-4f5e-baa1-f90335f1884c": {
       "name": "مسخن الرضاعات اللاسلكي 22-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-24 02:33 GMT+3"
+      "updated_at": "2026-10-24 02:46 GMT+3"
     },
     "1879676075637041": {
       "name": "baby bottle warmer 22-10",
@@ -16350,7 +16428,7 @@
       "spend_3d": 23.96,
       "purchases_3d": 3,
       "cpa_3d": 7.99,
-      "updated_at": "2026-10-24 02:33 GMT+3"
+      "updated_at": "2026-10-24 02:46 GMT+3"
     },
     "1879653022433617": {
       "name": "maybach pillow 21-10",
@@ -16363,14 +16441,14 @@
       "spend_3d": 24.87,
       "purchases_3d": 2,
       "cpa_3d": 12.44,
-      "updated_at": "2026-10-24 02:35 GMT+3"
+      "updated_at": "2026-10-24 02:48 GMT+3"
     },
     "1879824619984018": {
       "name": "power bank 23-10 (Voltrx 10 Hooks Ads)",
       "aadvid": "7631763556322148369",
-      "spend_3d": 59.98,
+      "spend_3d": 60.13,
       "purchases_3d": 8,
-      "cpa_3d": 7.5,
+      "cpa_3d": 7.52,
       "reason": "3-Day CPA > $7.00 — Duplication Blocked"
     },
     "1879699119491393": {
