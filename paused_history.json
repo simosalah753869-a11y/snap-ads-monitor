@@ -15344,6 +15344,124 @@
       "conv_7d": 0,
       "reason": "[Global Dup Video Stop-Loss 7D] Total 7-Day Spend $7.43 >= $7.00 with 0 sales",
       "disabled_at": "2026-10-23T17:15:24.707180+00:00"
+    },
+    "16-10_hanan_5": {
+      "v_key": "16-10_hanan_5",
+      "sample_name": "16-10_hanan_5.mp4",
+      "accounts": [
+        "ROELLINGER RECYCLING",
+        "ROELLINGER RECYCLING2"
+      ],
+      "total_copies": 7,
+      "closed_copies": 0,
+      "spend_1d": 0.0,
+      "conv_1d": 0,
+      "spend_2d": 0.0,
+      "conv_2d": 0,
+      "spend_3d": 0.0,
+      "conv_3d": 0,
+      "spend_7d": 19.06,
+      "conv_7d": 0,
+      "reason": "[Global Dup Video Stop-Loss 7D] Total 7-Day Spend $19.06 >= $7.00 with 0 sales",
+      "disabled_at": "2026-10-23T22:29:45.763329+00:00"
+    },
+    "10_10": {
+      "v_key": "10_10",
+      "sample_name": "10_10.mov",
+      "accounts": [
+        "ROELLINGER RECYCLING2"
+      ],
+      "total_copies": 4,
+      "closed_copies": 0,
+      "spend_1d": 0.0,
+      "conv_1d": 0,
+      "spend_2d": 0.61,
+      "conv_2d": 0,
+      "spend_3d": 0.61,
+      "conv_3d": 0,
+      "spend_7d": 16.17,
+      "conv_7d": 0,
+      "reason": "[Global Dup Video Stop-Loss 7D] Total 7-Day Spend $16.17 >= $7.00 with 0 sales",
+      "disabled_at": "2026-10-23T22:29:45.763350+00:00"
+    },
+    "15-10_video_8": {
+      "v_key": "15-10_video_8",
+      "sample_name": "15-10_video_8.mp4",
+      "accounts": [
+        "ROELLINGER RECYCLING",
+        "ROELLINGER RECYCLING2"
+      ],
+      "total_copies": 5,
+      "closed_copies": 0,
+      "spend_1d": 0.0,
+      "conv_1d": 0,
+      "spend_2d": 0.0,
+      "conv_2d": 0,
+      "spend_3d": 0.0,
+      "conv_3d": 0,
+      "spend_7d": 12.24,
+      "conv_7d": 0,
+      "reason": "[Global Dup Video Stop-Loss 7D] Total 7-Day Spend $12.24 >= $7.00 with 0 sales",
+      "disabled_at": "2026-10-23T22:29:45.763396+00:00"
+    },
+    "15-10_video_7": {
+      "v_key": "15-10_video_7",
+      "sample_name": "15-10_video_7.mp4",
+      "accounts": [
+        "ROELLINGER RECYCLING",
+        "ROELLINGER RECYCLING2"
+      ],
+      "total_copies": 4,
+      "closed_copies": 0,
+      "spend_1d": 0.0,
+      "conv_1d": 0,
+      "spend_2d": 0.0,
+      "conv_2d": 0,
+      "spend_3d": 0.0,
+      "conv_3d": 0,
+      "spend_7d": 8.78,
+      "conv_7d": 0,
+      "reason": "[Global Dup Video Stop-Loss 7D] Total 7-Day Spend $8.78 >= $7.00 with 0 sales",
+      "disabled_at": "2026-10-23T22:29:45.763458+00:00"
+    },
+    "15-10_video_3": {
+      "v_key": "15-10_video_3",
+      "sample_name": "15-10_video_3.mp4",
+      "accounts": [
+        "ROELLINGER RECYCLING",
+        "ROELLINGER RECYCLING2"
+      ],
+      "total_copies": 6,
+      "closed_copies": 0,
+      "spend_1d": 0.0,
+      "conv_1d": 0,
+      "spend_2d": 0.0,
+      "conv_2d": 0,
+      "spend_3d": 0.0,
+      "conv_3d": 0,
+      "spend_7d": 8.01,
+      "conv_7d": 0,
+      "reason": "[Global Dup Video Stop-Loss 7D] Total 7-Day Spend $8.01 >= $7.00 with 0 sales",
+      "disabled_at": "2026-10-23T22:29:45.763488+00:00"
+    },
+    "16-10_pb_winner_7": {
+      "v_key": "16-10_pb_winner_7",
+      "sample_name": "16-10_pb_winner_7.mp4",
+      "accounts": [
+        "ROELLINGER RECYCLING"
+      ],
+      "total_copies": 7,
+      "closed_copies": 0,
+      "spend_1d": 0.0,
+      "conv_1d": 0,
+      "spend_2d": 0.0,
+      "conv_2d": 0,
+      "spend_3d": 0.0,
+      "conv_3d": 0,
+      "spend_7d": 7.74,
+      "conv_7d": 0,
+      "reason": "[Global Dup Video Stop-Loss 7D] Total 7-Day Spend $7.74 >= $7.00 with 0 sales",
+      "disabled_at": "2026-10-23T22:29:45.763519+00:00"
     }
   },
   "no_duplicate_campaigns": {
@@ -15352,19 +15470,19 @@
       "spend_3d": 27.89,
       "purchases_3d": 2,
       "cpa_3d": 13.95,
-      "updated_at": "2026-10-24 00:52 GMT+3"
+      "updated_at": "2026-10-24 01:26 GMT+3"
     },
     "a171c141-a6d5-403e-8357-5c8f6c01bce0": {
       "name": "وسادة مايباخ 21-10",
       "spend_3d": 10.25,
       "purchases_3d": 0,
       "cpa_3d": null,
-      "updated_at": "2026-10-24 00:52 GMT+3"
+      "updated_at": "2026-10-24 01:26 GMT+3"
     },
     "c5a7cade-6ec3-4c47-b3a2-c5f08bcf8da0": {
       "name": "وسادة مايباخ 21-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-24 00:52 GMT+3"
+      "updated_at": "2026-10-24 01:26 GMT+3"
     },
     "1879653126110545": {
       "name": "timex books 21-10",
@@ -15375,12 +15493,12 @@
     "e8f0a5e9-89c5-4c14-aabb-c9c6c657891d": {
       "name": "مسخن الرضاعات اللاسلكي 22-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-24 00:52 GMT+3"
+      "updated_at": "2026-10-24 01:26 GMT+3"
     },
     "f18a3bf4-148a-4f5e-baa1-f90335f1884c": {
       "name": "مسخن الرضاعات اللاسلكي 22-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-24 00:52 GMT+3"
+      "updated_at": "2026-10-24 01:26 GMT+3"
     },
     "1879676075637041": {
       "name": "baby bottle warmer 22-10",
@@ -15399,7 +15517,7 @@
       "spend_3d": 23.96,
       "purchases_3d": 3,
       "cpa_3d": 7.99,
-      "updated_at": "2026-10-24 00:52 GMT+3"
+      "updated_at": "2026-10-24 01:26 GMT+3"
     },
     "1879653022433617": {
       "name": "maybach pillow 21-10",
@@ -15445,9 +15563,9 @@
     "1879689078764737": {
       "name": "car armrest 21-10 (Hanan 20-10 & 12-10 Edit)",
       "aadvid": "7631763556322148369",
-      "spend_3d": 189.46,
+      "spend_3d": 187.92,
       "purchases_3d": 25,
-      "cpa_3d": 7.58,
+      "cpa_3d": 7.52,
       "reason": "3-Day CPA > $7.00 — Duplication Blocked"
     },
     "1874314269672753": {
@@ -15461,17 +15579,17 @@
     "1879581597584850": {
       "name": "car armrest 20-10 (5 Videos)",
       "aadvid": "7631763556322148369",
-      "spend_3d": 58.48,
+      "spend_3d": 45.41,
       "purchases_3d": 6,
-      "cpa_3d": 9.75,
+      "cpa_3d": 7.57,
       "reason": "3-Day CPA > $7.00 — Duplication Blocked"
     },
     "1879824619984018": {
       "name": "power bank 23-10 (Voltrx 10 Hooks Ads)",
       "aadvid": "7631763556322148369",
-      "spend_3d": 57.84,
+      "spend_3d": 58.57,
       "purchases_3d": 8,
-      "cpa_3d": 7.23,
+      "cpa_3d": 7.32,
       "reason": "3-Day CPA > $7.00 — Duplication Blocked"
     },
     "1879699119491393": {
@@ -15484,18 +15602,18 @@
     },
     "1879660661658674": {
       "name": "kuwait car armrest 21-10 (5 Winners CC 8.8)",
-      "account": "ROELLINGER RECYCLING",
+      "aadvid": "7631763556322148369",
       "spend_3d": 16.43,
       "purchases_3d": 0,
       "cpa_3d": null,
-      "updated_at": "2026-10-24T00:26:58.039038+03:00"
+      "reason": "3-Day CPA > $12.00 — Duplication Blocked"
     },
     "558c5d45-f08e-400c-a499-7668e801c347": {
       "name": "car armrest",
-      "spend_3d": 22.15,
+      "spend_3d": 24.84,
       "purchases_3d": 0,
       "cpa_3d": null,
-      "updated_at": "2026-10-24 00:53 GMT+3"
+      "updated_at": "2026-10-24 01:27 GMT+3"
     },
     "1879340705037537": {
       "name": "power bank 18-10 (Ola + Hanan 15-10)",
