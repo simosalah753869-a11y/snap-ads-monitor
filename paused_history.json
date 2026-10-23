@@ -9258,6 +9258,18 @@
       "spend_3d": 2.06,
       "conv_3d": 0,
       "paused_at": "2026-10-23T11:06:47.715422+00:00"
+    },
+    "7631765139798081554:1879845869407457": {
+      "account_name": "ROELLINGER RECYCLING1",
+      "aadvid": "7631765139798081554",
+      "campaign_id": "1879845869407457",
+      "campaign_name": "power bank ym49 23-10 (Seedance 5 Flagship UGC Ads)",
+      "reason": "Campaign Today Spend $1.08 >= $1.00 & CPC $0.00 > $0.35 (0 sales Today)",
+      "spend_1d": 1.08,
+      "conv_1d": 0,
+      "spend_3d": 1.08,
+      "conv_3d": 0,
+      "paused_at": "2026-10-23T19:17:48.947001+00:00"
     }
   },
   "tiktok_videos": {
@@ -12995,6 +13007,27 @@
       "spend_7d": 1.02,
       "conv_7d": 0,
       "paused_at": "2026-10-23T19:11:00.787251+00:00"
+    },
+    "7631763556322148369:1879340705037553:1879849462497970": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "ad_id": "1879340705037553",
+      "creative_id": "1879849459055025",
+      "campaign_ad_name": "power bank 18-10 (Ola + Hanan 15-10) / power bank 18-10 (Ola + Hanan 15-10) - Creative",
+      "video_name": "18_10_15-10_ola_2.mp4",
+      "draft_ids": [
+        "1879849462497970"
+      ],
+      "reason": "Sibling High-CPC Video Pruned Inside Converting Campaign (Today Spend=$1.53, CPC=$0.31 > $0.30, 0 sales Today)",
+      "spend_1d": 1.53,
+      "conv_1d": 0,
+      "spend_2d": 1.53,
+      "conv_2d": 0,
+      "spend_3d": 1.53,
+      "conv_3d": 0,
+      "spend_7d": 1.53,
+      "conv_7d": 0,
+      "paused_at": "2026-10-23T19:17:37.620664+00:00"
     }
   },
   "tiktok_ads": {},
@@ -13716,33 +13749,33 @@
       "spend_3d": 22.8,
       "purchases_3d": 1,
       "cpa_3d": 22.8,
-      "updated_at": "2026-10-23 22:08 GMT+3"
+      "updated_at": "2026-10-23 22:15 GMT+3"
     },
     "4504af26-5609-4e7b-aeca-e11cf9e03846": {
       "name": "smart+ watch suis SA 18-10",
       "spend_3d": 73.97,
       "purchases_3d": 7,
       "cpa_3d": 10.57,
-      "updated_at": "2026-10-23 22:08 GMT+3"
+      "updated_at": "2026-10-23 22:15 GMT+3"
     },
     "4eefa50f-9008-4aea-b159-d370150b60cf": {
       "name": "صندوق دفاتر TIME X 21-10",
       "spend_3d": 27.9,
       "purchases_3d": 2,
       "cpa_3d": 13.95,
-      "updated_at": "2026-10-23 22:08 GMT+3"
+      "updated_at": "2026-10-23 22:15 GMT+3"
     },
     "a171c141-a6d5-403e-8357-5c8f6c01bce0": {
       "name": "وسادة مايباخ 21-10",
       "spend_3d": 10.25,
       "purchases_3d": 0,
       "cpa_3d": null,
-      "updated_at": "2026-10-23 22:08 GMT+3"
+      "updated_at": "2026-10-23 22:15 GMT+3"
     },
     "c5a7cade-6ec3-4c47-b3a2-c5f08bcf8da0": {
       "name": "وسادة مايباخ 21-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-23 22:08 GMT+3"
+      "updated_at": "2026-10-23 22:15 GMT+3"
     },
     "1879653126110545": {
       "name": "timex books 21-10",
@@ -13753,12 +13786,12 @@
     "e8f0a5e9-89c5-4c14-aabb-c9c6c657891d": {
       "name": "مسخن الرضاعات اللاسلكي 22-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-23 22:08 GMT+3"
+      "updated_at": "2026-10-23 22:15 GMT+3"
     },
     "f18a3bf4-148a-4f5e-baa1-f90335f1884c": {
       "name": "مسخن الرضاعات اللاسلكي 22-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-23 22:08 GMT+3"
+      "updated_at": "2026-10-23 22:15 GMT+3"
     },
     "1879676075637041": {
       "name": "baby bottle warmer 22-10",
@@ -13777,7 +13810,7 @@
       "spend_3d": 23.96,
       "purchases_3d": 3,
       "cpa_3d": 7.99,
-      "updated_at": "2026-10-23 22:08 GMT+3"
+      "updated_at": "2026-10-23 22:15 GMT+3"
     },
     "1879653022433617": {
       "name": "maybach pillow 21-10",
@@ -13790,42 +13823,42 @@
       "spend_3d": 33.24,
       "purchases_3d": 3,
       "cpa_3d": 11.08,
-      "updated_at": "2026-10-23 22:08 GMT+3"
+      "updated_at": "2026-10-23 22:15 GMT+3"
     },
     "baa69314-505c-4b3a-851e-883c10034935": {
       "name": "smart+ cars SA 18-10",
       "spend_3d": 67.57,
       "purchases_3d": 7,
       "cpa_3d": 9.65,
-      "updated_at": "2026-10-23 22:08 GMT+3"
+      "updated_at": "2026-10-23 22:15 GMT+3"
     },
     "e23e7c95-3f15-4945-9844-8bd73e2d79d3": {
       "name": "باور بانك وينر",
       "spend_3d": 44.6,
       "purchases_3d": 5,
       "cpa_3d": 8.92,
-      "updated_at": "2026-10-23 22:08 GMT+3"
+      "updated_at": "2026-10-23 22:15 GMT+3"
     },
     "f8372cfb-ae46-44d0-bbb4-f39790ecc648": {
       "name": "car scaling camp ",
       "spend_3d": 85.17,
       "purchases_3d": 12,
       "cpa_3d": 7.1,
-      "updated_at": "2026-10-23 22:08 GMT+3"
+      "updated_at": "2026-10-23 22:15 GMT+3"
     },
     "7976c6e7-376f-441d-8e34-ed11c341dbb1": {
       "name": "smart+ power bank SA 18-10",
       "spend_3d": 8.63,
       "purchases_3d": 1,
       "cpa_3d": 8.63,
-      "updated_at": "2026-10-23 22:08 GMT+3"
+      "updated_at": "2026-10-23 22:15 GMT+3"
     },
     "1879824619984018": {
       "name": "power bank 23-10 (Voltrx 10 Hooks Ads)",
       "aadvid": "7631763556322148369",
-      "spend_3d": 53.88,
+      "spend_3d": 54.01,
       "purchases_3d": 6,
-      "cpa_3d": 8.98,
+      "cpa_3d": 9.0,
       "reason": "3-Day CPA > $7.00 — Duplication Blocked"
     },
     "1879689078764737": {
@@ -13839,17 +13872,17 @@
     "1879340705037537": {
       "name": "power bank 18-10 (Ola + Hanan 15-10)",
       "aadvid": "7631763556322148369",
-      "spend_3d": 74.05,
+      "spend_3d": 74.33,
       "purchases_3d": 10,
-      "cpa_3d": 7.4,
+      "cpa_3d": 7.43,
       "reason": "3-Day CPA > $7.00 — Duplication Blocked"
     },
     "1879598580856226": {
       "name": "car armrest 20-10 (7 Flow Hook Ads A)",
       "aadvid": "7631763556322148369",
-      "spend_3d": 34.6,
+      "spend_3d": 34.62,
       "purchases_3d": 3,
-      "cpa_3d": 11.53,
+      "cpa_3d": 11.54,
       "reason": "3-Day CPA > $7.00 — Duplication Blocked"
     },
     "1879581597584850": {
@@ -13895,7 +13928,7 @@
     "1878928548528402": {
       "name": "watch broad tiktok",
       "aadvid": "7631765070816509959",
-      "spend_3d": 12.16,
+      "spend_3d": 12.17,
       "purchases_3d": 0,
       "cpa_3d": null,
       "reason": "3-Day CPA > $7.00 — Duplication Blocked"
