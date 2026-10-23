@@ -575,12 +575,6 @@
       "campaign": "باور بانك وينر",
       "reason": "[Consolidation to Top 6 Squads] تقليص التشتت لتركيز الميزانية في المجموعات الرابحة",
       "paused_at": "2026-10-22 22:40 GMT+3"
-    },
-    "a2404f7f-84c6-428a-a049-046445572926": {
-      "name": "Copy of Copy of Copy of Copy of 1.5 | 23.8 [H5]",
-      "campaign": "car scaling camp ",
-      "reason": "[Copy Rule] صرفت $5.28 (>= $4.50) بدون مبيعات",
-      "paused_at": "2026-10-23 10:09 GMT+3"
     }
   },
   "ads": {
@@ -10426,117 +10420,12 @@
       "reason": "[Aggregated Video High CPA 3D - السعودية] مجموع صرف الفيديو التراكمي لـ 3 أيام = $74.09 | المبيعات = 5 | CPA التراكمي = $14.82 (> $9.50)",
       "paused_at": "2026-10-22 22:33 GMT+3"
     },
-    "0dc49367-50fc-4242-9ba3-697e4bebc2c4": {
-      "name": "timex_ad_2_male_m7b8c82",
-      "campaign": "صندوق دفاتر TIME X 21-10",
-      "adsquad": "9a9f300f-32a5-41a7-a11c-34662a53e452",
-      "reason": "[Cross-Platform Rule 3: Survivor-Only Pruning] الصرف المشترك $20.71 (> $20.00) وسعر البيعة المشترك CPA = $10.36 (> $8.00) -> إيقاف كل فيديو لم يحقق مبيعات نهائياً (حتى لو صرف $0.00) والإبقاء فقط على الفيديو الرابح!",
-      "paused_at": "2026-10-23 05:15 GMT+3"
-    },
-    "117b3d2f-5318-496b-8b76-27c030a24eb1": {
-      "name": "timex_ad_2_female_m0e8b0a",
-      "campaign": "صندوق دفاتر TIME X 21-10",
-      "adsquad": "9a9f300f-32a5-41a7-a11c-34662a53e452",
-      "reason": "[Cross-Platform Rule 3: Survivor-Only Pruning] الصرف المشترك $20.71 (> $20.00) وسعر البيعة المشترك CPA = $10.36 (> $8.00) -> إيقاف كل فيديو لم يحقق مبيعات نهائياً (حتى لو صرف $0.00) والإبقاء فقط على الفيديو الرابح!",
-      "paused_at": "2026-10-23 05:15 GMT+3"
-    },
-    "15267fd3-75cc-476e-b75d-4d59a0b40618": {
-      "name": "timex_ad_2_female_m0e8b0a",
-      "campaign": "صندوق دفاتر TIME X 21-10",
-      "adsquad": "119f933f-1975-45a1-9fe1-f7f66877cbc2",
-      "reason": "[Cross-Platform Rule 3: Survivor-Only Pruning] الصرف المشترك $20.71 (> $20.00) وسعر البيعة المشترك CPA = $10.36 (> $8.00) -> إيقاف كل فيديو لم يحقق مبيعات نهائياً (حتى لو صرف $0.00) والإبقاء فقط على الفيديو الرابح!",
-      "paused_at": "2026-10-23 05:15 GMT+3"
-    },
-    "195af4d8-5da2-4201-a9d3-534a90e4e019": {
-      "name": "timex_ad_2_male_m7b8c82",
-      "campaign": "صندوق دفاتر TIME X 21-10",
-      "adsquad": "119f933f-1975-45a1-9fe1-f7f66877cbc2",
-      "reason": "[Cross-Platform Rule 3: Survivor-Only Pruning] الصرف المشترك $20.71 (> $20.00) وسعر البيعة المشترك CPA = $10.36 (> $8.00) -> إيقاف كل فيديو لم يحقق مبيعات نهائياً (حتى لو صرف $0.00) والإبقاء فقط على الفيديو الرابح!",
-      "paused_at": "2026-10-23 05:15 GMT+3"
-    },
-    "26b1b82a-76f8-4732-8fbb-3b5e20b4aa90": {
-      "name": "timex_ad_3_male_m8c2aaa",
-      "campaign": "صندوق دفاتر TIME X 21-10",
-      "adsquad": "119f933f-1975-45a1-9fe1-f7f66877cbc2",
-      "reason": "[Cross-Platform Rule 3: Survivor-Only Pruning] الصرف المشترك $20.71 (> $20.00) وسعر البيعة المشترك CPA = $10.36 (> $8.00) -> إيقاف كل فيديو لم يحقق مبيعات نهائياً (حتى لو صرف $0.00) والإبقاء فقط على الفيديو الرابح!",
-      "paused_at": "2026-10-23 05:15 GMT+3"
-    },
-    "2c55ff94-4798-4286-8647-050307015bbc": {
-      "name": "timex_ad_1_male_m01dbbe",
-      "campaign": "صندوق دفاتر TIME X 21-10",
-      "adsquad": "119f933f-1975-45a1-9fe1-f7f66877cbc2",
-      "reason": "[Cross-Platform Rule 3: Survivor-Only Pruning] الصرف المشترك $20.71 (> $20.00) وسعر البيعة المشترك CPA = $10.36 (> $8.00) -> إيقاف كل فيديو لم يحقق مبيعات نهائياً (حتى لو صرف $0.00) والإبقاء فقط على الفيديو الرابح!",
-      "paused_at": "2026-10-23 05:15 GMT+3"
-    },
-    "327990d2-e579-47c4-9add-4df0ba6c9223": {
-      "name": "timex_ad_4_female_m1b6d40",
-      "campaign": "صندوق دفاتر TIME X 21-10",
-      "adsquad": "119f933f-1975-45a1-9fe1-f7f66877cbc2",
-      "reason": "[Cross-Platform Rule 3: Survivor-Only Pruning] الصرف المشترك $20.71 (> $20.00) وسعر البيعة المشترك CPA = $10.36 (> $8.00) -> إيقاف كل فيديو لم يحقق مبيعات نهائياً (حتى لو صرف $0.00) والإبقاء فقط على الفيديو الرابح!",
-      "paused_at": "2026-10-23 05:15 GMT+3"
-    },
-    "667a7aa4-f4b5-414d-8a58-d6b78e45135f": {
-      "name": "timex_ad_3_female_mb45e1f",
-      "campaign": "صندوق دفاتر TIME X 21-10",
-      "adsquad": "119f933f-1975-45a1-9fe1-f7f66877cbc2",
-      "reason": "[Cross-Platform Rule 3: Survivor-Only Pruning] الصرف المشترك $20.71 (> $20.00) وسعر البيعة المشترك CPA = $10.36 (> $8.00) -> إيقاف كل فيديو لم يحقق مبيعات نهائياً (حتى لو صرف $0.00) والإبقاء فقط على الفيديو الرابح!",
-      "paused_at": "2026-10-23 05:15 GMT+3"
-    },
-    "8c19ca48-2643-4590-8479-2dfac2983617": {
-      "name": "timex_ad_3_female_mb45e1f",
-      "campaign": "صندوق دفاتر TIME X 21-10",
-      "adsquad": "9a9f300f-32a5-41a7-a11c-34662a53e452",
-      "reason": "[Cross-Platform Rule 3: Survivor-Only Pruning] الصرف المشترك $20.71 (> $20.00) وسعر البيعة المشترك CPA = $10.36 (> $8.00) -> إيقاف كل فيديو لم يحقق مبيعات نهائياً (حتى لو صرف $0.00) والإبقاء فقط على الفيديو الرابح!",
-      "paused_at": "2026-10-23 05:15 GMT+3"
-    },
-    "9961e316-d950-4549-90ec-b321d538dc02": {
-      "name": "timex_ad_1_male_m01dbbe",
-      "campaign": "صندوق دفاتر TIME X 21-10",
-      "adsquad": "9a9f300f-32a5-41a7-a11c-34662a53e452",
-      "reason": "[Cross-Platform Rule 3: Survivor-Only Pruning] الصرف المشترك $20.71 (> $20.00) وسعر البيعة المشترك CPA = $10.36 (> $8.00) -> إيقاف كل فيديو لم يحقق مبيعات نهائياً (حتى لو صرف $0.00) والإبقاء فقط على الفيديو الرابح!",
-      "paused_at": "2026-10-23 05:15 GMT+3"
-    },
-    "b7ce158c-d8ff-4736-9ebb-c9ee11cf00aa": {
-      "name": "timex_ad_1_female_m07820b",
-      "campaign": "صندوق دفاتر TIME X 21-10",
-      "adsquad": "119f933f-1975-45a1-9fe1-f7f66877cbc2",
-      "reason": "[Cross-Platform Rule 3: Survivor-Only Pruning] الصرف المشترك $20.71 (> $20.00) وسعر البيعة المشترك CPA = $10.36 (> $8.00) -> إيقاف كل فيديو لم يحقق مبيعات نهائياً (حتى لو صرف $0.00) والإبقاء فقط على الفيديو الرابح!",
-      "paused_at": "2026-10-23 05:15 GMT+3"
-    },
-    "e25407b1-878e-4ba3-af41-1cd231004acf": {
-      "name": "timex_ad_4_female_m1b6d40",
-      "campaign": "صندوق دفاتر TIME X 21-10",
-      "adsquad": "9a9f300f-32a5-41a7-a11c-34662a53e452",
-      "reason": "[Cross-Platform Rule 3: Survivor-Only Pruning] الصرف المشترك $20.71 (> $20.00) وسعر البيعة المشترك CPA = $10.36 (> $8.00) -> إيقاف كل فيديو لم يحقق مبيعات نهائياً (حتى لو صرف $0.00) والإبقاء فقط على الفيديو الرابح!",
-      "paused_at": "2026-10-23 05:15 GMT+3"
-    },
-    "f8fa032f-16fe-4ced-a485-e4dfd30eace0": {
-      "name": "timex_ad_4_male_m12cff5",
-      "campaign": "صندوق دفاتر TIME X 21-10",
-      "adsquad": "119f933f-1975-45a1-9fe1-f7f66877cbc2",
-      "reason": "[Cross-Platform Rule 3: Survivor-Only Pruning] الصرف المشترك $20.71 (> $20.00) وسعر البيعة المشترك CPA = $10.36 (> $8.00) -> إيقاف كل فيديو لم يحقق مبيعات نهائياً (حتى لو صرف $0.00) والإبقاء فقط على الفيديو الرابح!",
-      "paused_at": "2026-10-23 05:15 GMT+3"
-    },
-    "fc06ab04-ba54-4820-bbd2-6b04a6686143": {
-      "name": "timex_ad_3_male_m8c2aaa",
-      "campaign": "صندوق دفاتر TIME X 21-10",
-      "adsquad": "9a9f300f-32a5-41a7-a11c-34662a53e452",
-      "reason": "[Cross-Platform Rule 3: Survivor-Only Pruning] الصرف المشترك $20.71 (> $20.00) وسعر البيعة المشترك CPA = $10.36 (> $8.00) -> إيقاف كل فيديو لم يحقق مبيعات نهائياً (حتى لو صرف $0.00) والإبقاء فقط على الفيديو الرابح!",
-      "paused_at": "2026-10-23 05:15 GMT+3"
-    },
-    "fc06bf4b-edf7-4391-9e35-5624fd33efcc": {
-      "name": "timex_ad_4_male_m12cff5",
-      "campaign": "صندوق دفاتر TIME X 21-10",
-      "adsquad": "9a9f300f-32a5-41a7-a11c-34662a53e452",
-      "reason": "[Cross-Platform Rule 3: Survivor-Only Pruning] الصرف المشترك $20.71 (> $20.00) وسعر البيعة المشترك CPA = $10.36 (> $8.00) -> إيقاف كل فيديو لم يحقق مبيعات نهائياً (حتى لو صرف $0.00) والإبقاء فقط على الفيديو الرابح!",
-      "paused_at": "2026-10-23 05:15 GMT+3"
-    },
-    "91ac86c8-d192-4d23-a1dc-16f830194b7b": {
-      "name": "22-10_voltrx_hook1_desert_man_m39351c",
-      "campaign": "smart+ power bank SA 18-10",
-      "adsquad": "22-10 فولتركس (عنوان 3: خلي جوالك دايماً مشحون بكل مكان)",
-      "reason": "[3-Day Audit] [Ad CPC Rule] صرف الفيديو $1.01 (>= $1.00) | النقرات: 2 | سعر النقرة CPC = $0.505 (> $0.28)",
-      "paused_at": "2026-10-23 07:54 GMT+3"
+    "fce334da-c7d4-4ad9-b7a3-d5339655e973": {
+      "name": "21-10_ola_12-10_2_m368de7 [H3]",
+      "campaign": "car scaling new 2 text",
+      "adsquad": "21-10 علا جديد (دفعة 12-10 — 5 فيديوهات)",
+      "reason": "[3-Day Audit] [Ad CPC Rule] صرف الفيديو $1.7 (>= $1.00) | النقرات: 6 | سعر النقرة CPC = $0.283 (> $0.28)",
+      "paused_at": "2026-10-23 10:07 GMT+3"
     }
   },
   "bid_bumps": {
@@ -12373,7 +12262,24 @@
     "14f1a2fa-3fc2-4ccf-8308-0b05bd1d9c11": "a6754cf1-f0cf-45d6-9bfd-7730c8cbe98f",
     "1ef337f4-95c0-414e-b1ea-e24c8fa7486a": "9b75ee49-4716-4d16-9828-64c5d1e6ecc9",
     "0ea4076b-1fcb-44c5-be64-59b17ea06fd2": "c02e4bdc-7e3a-4e14-a012-f52bf68fc892",
-    "f83c7c6a-3c11-448a-afa3-bb38ef782984": "0d8e3e1c-bf51-4a7a-a045-efff3c3afc96"
+    "f83c7c6a-3c11-448a-afa3-bb38ef782984": "0d8e3e1c-bf51-4a7a-a045-efff3c3afc96",
+    "e0aa3322-1890-4ee4-a281-78a880ad7fc3": "0c06b06e-90ce-42ec-80f0-4f6e88af20c7",
+    "31c40334-d677-4738-8325-21cd8cde60c4": "9edae80d-dbd4-4253-b227-8bdcee74c4a6",
+    "15c944dd-15bd-4c11-9906-755bc0ae584b": "9edae80d-dbd4-4253-b227-8bdcee74c4a6",
+    "ce5c6041-32cd-4260-83bd-4f5235ab1a82": "9edae80d-dbd4-4253-b227-8bdcee74c4a6",
+    "f20a4274-a914-401d-8f6c-d2ca56de3f2b": "9edae80d-dbd4-4253-b227-8bdcee74c4a6",
+    "9f9a3346-1bdf-41c7-b6f7-df4cbe9ba7cc": "39351c6b-3151-4afd-9727-feba78830e11",
+    "a802a6e9-91ef-4e6f-9168-ab46d4fa9887": "39351c6b-3151-4afd-9727-feba78830e11",
+    "e238cdca-fa57-4034-b3c6-9273ceb591f3": "5d315093-a5af-4ccb-992e-ebb1cce47cd1",
+    "a5886543-bb58-406f-8a34-1d750e8e37a5": "56b16d1b-07d4-4b07-86ad-7a2a58363d6b",
+    "8875f508-8d8a-43fb-8597-7b7a71301249": "5ce4105d-c0d4-4675-9753-ab45ce31cea9",
+    "7eefca0d-f8bc-4021-8c96-a9b87160df9d": "aed7092c-0607-41e4-a941-63d0929f627c",
+    "e743e406-a61b-41e3-9963-a7ed0e2c4939": "56b16d1b-07d4-4b07-86ad-7a2a58363d6b",
+    "a45b36da-51d5-4367-8ee5-8d562be59410": "5ce4105d-c0d4-4675-9753-ab45ce31cea9",
+    "93a93b89-38ec-470d-a10a-652af3032a19": "aed7092c-0607-41e4-a941-63d0929f627c",
+    "0fe8e8eb-70ef-4ec9-ac4b-188f27ec3708": "c322b187-1abf-4aa2-9d20-ead7d75b237a",
+    "6c6f3f0a-91da-47cc-a974-fab2b019b7ed": "c322b187-1abf-4aa2-9d20-ead7d75b237a",
+    "bd894b74-a7cb-44c6-a137-abfe300a460d": "c322b187-1abf-4aa2-9d20-ead7d75b237a"
   },
   "disabled_videos": {
     "16b7aaf3-7526-49d7-8e68-33df1e0872a7:3bcd9ff7-ec46-4884-9c93-cd1a04ae60a0": {
@@ -12618,6 +12524,14 @@
       "total_purchases": 0,
       "reason": "[Permanent Disabled Video Lock - السعودية] هذا الفيديو موقوف نهائياً في هذه الحملة ولن يُسمح بإعادة تشغيله في أي AdSquad",
       "disabled_at": "2026-10-22 11:34 GMT+3"
+    },
+    "9be45a26-06ac-4716-8e7b-2fb3a4d65e4c:9d290148-971e-4b82-87e3-e8739564513f": {
+      "campaign_id": "9be45a26-06ac-4716-8e7b-2fb3a4d65e4c",
+      "campaign_name": "car scaling new 2 text",
+      "video_media_id": "9d290148-971e-4b82-87e3-e8739564513f",
+      "sample_ad_name": "21-10_ola_12-10_2_m368de7 [H3]",
+      "reason": "[Headline Variant Lost] [3-Day Audit] [Ad CPC Rule] صرف الفيديو $1.7 (>= $1.00) | النقرات: 6 | سعر النقرة CPC = $0.283 (> $0.28)",
+      "disabled_at": "2026-10-23 10:07 GMT+3"
     }
   },
   "tiktok_campaigns": {
@@ -12857,6 +12771,42 @@
       "spend_3d": 26.18,
       "conv_3d": 2,
       "paused_at": "2026-10-21T14:19:59.562645+00:00"
+    },
+    "7631763556322148369:1879577430883393": {
+      "account_name": "ROELLINGER RECYCLING",
+      "aadvid": "7631763556322148369",
+      "campaign_id": "1879577430883393",
+      "campaign_name": "qatar kashaf 20-10 (Accel CC 11.5)",
+      "reason": "Universal Campaign 3-Day High CPA $13.72 > $13.00 with $3.03/0 sales Today",
+      "spend_1d": 3.03,
+      "conv_1d": 0,
+      "spend_3d": 96.05,
+      "conv_3d": 7,
+      "paused_at": "2026-10-23T04:03:53.686709+00:00"
+    },
+    "7631763556322148369:1879598580856226": {
+      "account_name": "ROELLINGER RECYCLING",
+      "aadvid": "7631763556322148369",
+      "campaign_id": "1879598580856226",
+      "campaign_name": "car armrest 20-10 (7 Flow Hook Ads A)",
+      "reason": "Universal Campaign 3-Day High CPA $10.30 > $9.00 with $3.13/0 sales Today",
+      "spend_1d": 3.13,
+      "conv_1d": 0,
+      "spend_3d": 30.9,
+      "conv_3d": 3,
+      "paused_at": "2026-10-23T06:03:56.765208+00:00"
+    },
+    "7631765070816509959:1879700783803490": {
+      "account_name": "ROELLINGER RECYCLING2",
+      "aadvid": "7631765070816509959",
+      "campaign_id": "1879700783803490",
+      "campaign_name": "power bank 22-10 (7 Voltrx Hooks A)",
+      "reason": "Universal Campaign 3-Day High CPA $12.86 > $9.00 with $3.11/0 sales Today",
+      "spend_1d": 3.11,
+      "conv_1d": 0,
+      "spend_3d": 12.86,
+      "conv_3d": 1,
+      "paused_at": "2026-10-23T07:12:38.053687+00:00"
     }
   },
   "tiktok_videos": {
@@ -17786,47 +17736,68 @@
       "global_conv_7d": 1,
       "paused_at": "2026-10-22T22:12:47.135655+00:00"
     },
-    "7631763556322148369:1879581597584866:1879581600686129": {
+    "7631763556322148369:1878973125749954:1879708094700657": {
       "aadvid": "7631763556322148369",
       "account_name": "ROELLINGER RECYCLING",
-      "ad_id": "1879581597584866",
-      "creative_id": "1879581597728962",
-      "campaign_ad_name": "car armrest 20-10 (5 Videos) / 20-10 - Creative",
-      "video_name": "20-10_car_ad_4.mp4",
+      "ad_id": "1878973125749954",
+      "creative_id": "1878973173545585",
+      "campaign_ad_name": "car armrest leads  13-10 / Ad name2026-10-13 11:52:19",
+      "video_name": "غطاء مساند ذراع السيارة فاخر مُبطّن بذاكرة فوم مع حافظة مناديل ومساحة لوضع الجوال-New_Hook-18-17",
       "draft_ids": [
-        "1879581600686129"
+        "1879708094700657"
       ],
-      "reason": "3-Day Spend $1.95 >= $1.00 & CPC $0.33 > $0.32",
-      "spend_1d": 0.11,
+      "reason": "Sibling 0-Sale Video Pruned Inside Converting Campaign (3D Spend=$2.59 >= $2.50, 0 sales)",
+      "spend_1d": 1.88,
       "conv_1d": 0,
-      "spend_2d": 0.59,
+      "spend_2d": 2.59,
       "conv_2d": 0,
-      "spend_3d": 1.95,
+      "spend_3d": 2.59,
       "conv_3d": 0,
-      "spend_7d": 1.95,
+      "spend_7d": 2.59,
       "conv_7d": 0,
-      "paused_at": "2026-10-23T02:14:31.332199+00:00"
+      "paused_at": "2026-10-23T01:13:42.680662+00:00"
     },
-    "7631763556322148369:1879155925019858:1879155925053553": {
+    "7631763556322148369:1878973125749954:1879708094700641": {
       "aadvid": "7631763556322148369",
       "account_name": "ROELLINGER RECYCLING",
-      "ad_id": "1879155925019858",
-      "creative_id": "1879155925019890",
-      "campaign_ad_name": "power bank winner 16-10 A / power bank winner 16-10 A - Creative",
-      "video_name": "16-10_pb_winner_10.mp4",
+      "ad_id": "1878973125749954",
+      "creative_id": "1878973173545585",
+      "campaign_ad_name": "car armrest leads  13-10 / Ad name2026-10-13 11:52:19",
+      "video_name": "غطاء مسند ذراع السيارة مع رغوة الذاكرة وجيوب جانبية – جلد نابا، حامل مناديل، مقاوم للحرارة والشمس-Music_Refresh-3-10",
       "draft_ids": [
-        "1879155925053553"
+        "1879708094700641"
       ],
-      "reason": "3-Day Video CPA $8.50 > $8.50 (Spend=$76.51, Sales=9) | Today Spend $3.32 >= $1.00 & CPC $0.37 > $0.32",
-      "spend_1d": 3.32,
+      "reason": "Today Spend $1.46 >= $1.00 & CPC $0.49 > $0.32",
+      "spend_1d": 1.46,
       "conv_1d": 0,
-      "spend_2d": 21.1,
-      "conv_2d": 2,
-      "spend_3d": 76.51,
-      "conv_3d": 9,
-      "spend_7d": 127.05,
-      "conv_7d": 18,
-      "paused_at": "2026-10-23T06:13:49.337066+00:00"
+      "spend_2d": 2.38,
+      "conv_2d": 0,
+      "spend_3d": 2.38,
+      "conv_3d": 0,
+      "spend_7d": 2.38,
+      "conv_7d": 0,
+      "paused_at": "2026-10-23T01:13:43.297642+00:00"
+    },
+    "7631763556322148369:1879689078764753:1879689082316930": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "ad_id": "1879689078764753",
+      "creative_id": "1879689080510498",
+      "campaign_ad_name": "car armrest 21-10 (Hanan 20-10 & 12-10 Edit) / car armrest 21-10 (Hanan 20-10 & 12-10 Edit) - Creative",
+      "video_name": "21-10_hanan_20-10_1.mp4",
+      "draft_ids": [
+        "1879689082316930"
+      ],
+      "reason": "Today Spend $9.05 > $4.50 with 0 sales | 3-Day Video CPA $8.58 > $8.50 (Spend=$145.79, Sales=17)",
+      "spend_1d": 9.05,
+      "conv_1d": 0,
+      "spend_2d": 145.42,
+      "conv_2d": 17,
+      "spend_3d": 145.79,
+      "conv_3d": 17,
+      "spend_7d": 145.79,
+      "conv_7d": 17,
+      "paused_at": "2026-10-23T06:04:47.569345+00:00"
     }
   },
   "tiktok_ads": {},
@@ -18278,47 +18249,47 @@
       "spend_3d": 22.8,
       "purchases_3d": 1,
       "cpa_3d": 22.8,
-      "updated_at": "2026-10-23 10:09 GMT+3"
+      "updated_at": "2026-10-23 10:07 GMT+3"
     },
     "4504af26-5609-4e7b-aeca-e11cf9e03846": {
       "name": "smart+ watch suis SA 18-10",
       "spend_3d": 62.57,
       "purchases_3d": 7,
       "cpa_3d": 8.94,
-      "updated_at": "2026-10-23 10:09 GMT+3"
+      "updated_at": "2026-10-23T10:14:56.891832+03:00"
     },
     "4eefa50f-9008-4aea-b159-d370150b60cf": {
       "name": "صندوق دفاتر TIME X 21-10",
       "reason": "Single-AdSquad Cross-Platform Monitored Product Campaign",
-      "updated_at": "2026-10-23 10:13 GMT+3"
+      "updated_at": "2026-10-23 10:12 GMT+3"
     },
     "a171c141-a6d5-403e-8357-5c8f6c01bce0": {
       "name": "وسادة مايباخ 21-10",
       "spend_3d": 10.25,
       "purchases_3d": 0,
       "cpa_3d": null,
-      "updated_at": "2026-10-23 10:09 GMT+3"
+      "updated_at": "2026-10-23 10:07 GMT+3"
     },
     "c5a7cade-6ec3-4c47-b3a2-c5f08bcf8da0": {
       "name": "وسادة مايباخ 21-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-23 10:09 GMT+3"
+      "updated_at": "2026-10-23 10:07 GMT+3"
     },
     "1879653126110545": {
       "name": "timex books 21-10",
       "aadvid": "7631763556322148369",
       "reason": "Single-Campaign Cross-Platform Monitored Product Campaign",
-      "updated_at": "2026-10-23 10:13 GMT+3"
+      "updated_at": "2026-10-23 10:12 GMT+3"
     },
     "e8f0a5e9-89c5-4c14-aabb-c9c6c657891d": {
       "name": "مسخن الرضاعات اللاسلكي 22-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-23 10:09 GMT+3"
+      "updated_at": "2026-10-23 10:07 GMT+3"
     },
     "f18a3bf4-148a-4f5e-baa1-f90335f1884c": {
       "name": "مسخن الرضاعات اللاسلكي 22-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-23 10:09 GMT+3"
+      "updated_at": "2026-10-23 10:07 GMT+3"
     },
     "1879676075637041": {
       "name": "baby bottle warmer 22-10",
@@ -18335,7 +18306,7 @@
     "29891f22-e046-4cc8-b9ee-9921d2d65f0b": {
       "name": "مسخن الرضاعات اللاسلكي 22-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-23 10:09 GMT+3"
+      "updated_at": "2026-10-23 10:07 GMT+3"
     },
     "1879653022433617": {
       "name": "maybach pillow 21-10",
@@ -18343,76 +18314,50 @@
       "reason": "Single-Campaign Cross-Platform Monitored Product Campaign",
       "updated_at": "2026-10-22 22:13 GMT+3"
     },
-    "1879577430883393": {
-      "name": "qatar kashaf 20-10 (Accel CC 11.5)",
-      "aadvid": "7631763556322148369",
-      "spend_3d": 95.75,
-      "purchases_3d": 7,
-      "cpa_3d": 13.68,
-      "reason": "3-Day CPA > $13.00 — Duplication Blocked"
-    },
-    "1879155925017650": {
-      "name": "power bank winner 16-10 A",
-      "aadvid": "7631763556322148369",
-      "spend_3d": 77.51,
-      "purchases_3d": 9,
-      "cpa_3d": 8.61,
-      "reason": "3-Day CPA > $8.00 — Duplication Blocked"
-    },
     "1879581597584850": {
       "name": "car armrest 20-10 (5 Videos)",
-      "aadvid": "7631763556322148369",
-      "spend_3d": 54.91,
+      "account": "ROELLINGER RECYCLING",
+      "spend_3d": 54.95,
       "purchases_3d": 6,
-      "cpa_3d": 9.15,
-      "reason": "3-Day CPA > $8.00 — Duplication Blocked"
-    },
-    "1879598580856226": {
-      "name": "car armrest 20-10 (7 Flow Hook Ads A)",
-      "aadvid": "7631763556322148369",
-      "spend_3d": 30.71,
-      "purchases_3d": 3,
-      "cpa_3d": 10.24,
-      "reason": "3-Day CPA > $8.00 — Duplication Blocked"
-    },
-    "1879700783803490": {
-      "name": "power bank 22-10 (7 Voltrx Hooks A)",
-      "aadvid": "7631765070816509959",
-      "spend_3d": 12.69,
-      "purchases_3d": 1,
-      "cpa_3d": 12.69,
-      "reason": "3-Day CPA > $8.00 — Duplication Blocked"
-    },
-    "baa69314-505c-4b3a-851e-883c10034935": {
-      "name": "smart+ cars SA 18-10",
-      "spend_3d": 58.64,
-      "purchases_3d": 7,
-      "cpa_3d": 8.38,
-      "updated_at": "2026-10-23 07:13 GMT+3"
-    },
-    "1879340705037537": {
-      "name": "power bank 18-10 (Ola + Hanan 15-10)",
-      "aadvid": "7631763556322148369",
-      "spend_3d": 65.67,
-      "purchases_3d": 8,
-      "cpa_3d": 8.21,
-      "reason": "3-Day CPA > $8.00 — Duplication Blocked"
+      "cpa_3d": 9.16,
+      "updated_at": "2026-10-23T10:17:38.757649+03:00"
     },
     "1879689071342625": {
       "name": "car armrest 21-10 (Hanan 20-10 & Ola 12-10)",
-      "aadvid": "7631763556322148369",
-      "spend_3d": 24.86,
+      "account": "ROELLINGER RECYCLING",
+      "spend_3d": 24.93,
       "purchases_3d": 3,
-      "cpa_3d": 8.29,
-      "reason": "3-Day CPA > $8.00 — Duplication Blocked"
+      "cpa_3d": 8.31,
+      "updated_at": "2026-10-23T10:17:38.735558+03:00"
     },
-    "1879700949085345": {
-      "name": "power bank 22-10 (7 Voltrx Hooks A)",
-      "aadvid": "7631765139798081554",
-      "spend_3d": 8.33,
-      "purchases_3d": 1,
-      "cpa_3d": 8.33,
-      "reason": "3-Day CPA > $8.00 — Duplication Blocked"
+    "9be45a26-06ac-4716-8e7b-2fb3a4d65e4c": {
+      "name": "car scaling new 2 text",
+      "spend_3d": 32.56,
+      "purchases_3d": 6,
+      "cpa_3d": 5.43,
+      "updated_at": "2026-10-23T10:16:27.521449+03:00"
+    },
+    "baa69314-505c-4b3a-851e-883c10034935": {
+      "name": "smart+ cars SA 18-10",
+      "spend_3d": 63.71,
+      "purchases_3d": 8,
+      "cpa_3d": 7.96,
+      "updated_at": "2026-10-23T10:16:33.107302+03:00"
+    },
+    "f8372cfb-ae46-44d0-bbb4-f39790ecc648": {
+      "name": "car scaling camp ",
+      "spend_3d": 81.54,
+      "purchases_3d": 16,
+      "cpa_3d": 5.1,
+      "updated_at": "2026-10-23T10:17:20.968484+03:00"
+    },
+    "1879577400149345": {
+      "name": "qatar power bank 20-10 (Accel CC 11.5)",
+      "account": "ROELLINGER RECYCLING",
+      "spend_3d": 154.06,
+      "purchases_3d": 14,
+      "cpa_3d": 11.0,
+      "updated_at": "2026-10-23T10:17:38.672636+03:00"
     }
   },
   "proactive_scaled_squads": {
@@ -18799,6 +18744,13 @@
       "purchases": 1,
       "cpa": 5.91,
       "revived_at": "2026-10-22T23:23:32.837157+03:00"
+    },
+    "a2404f7f-84c6-428a-a049-046445572926": {
+      "name": "Copy of Copy of Copy of Copy of 1.5 | 23.8 [H5]",
+      "campaign": "",
+      "purchases": 3,
+      "cpa": 5.81,
+      "revived_at": "2026-10-23T10:14:50.804052+03:00"
     }
   },
   "proactive_pruned_winner_ads": {
@@ -18868,6 +18820,13 @@
       "conv_3d": 2,
       "cpa_3d": 3.46,
       "revived_at": "2026-10-20T13:36:53.058727+03:00"
+    },
+    "1879700783803490": {
+      "name": "power bank 22-10 (7 Voltrx Hooks A)",
+      "account": "ROELLINGER RECYCLING2",
+      "conv_3d": 2,
+      "cpa_3d": 6.44,
+      "revived_at": "2026-10-23T10:17:46.481139+03:00"
     }
   },
   "smart_spend_watchdog": {
@@ -19066,9 +19025,9 @@
       "name": "Copy of KW_Car Smart+ Broad | 2.8 Bid [H3]",
       "campaign": "وسادة السيارة الكويت 18-10",
       "bumps_today": 1,
-      "last_action_at": "2026-10-23T03:31:32.079751+00:00",
+      "last_action_at": "2026-10-23T03:10:14.509959+00:00",
       "last_spend": 0.0,
-      "last_check_at": "2026-10-23T03:31:32.079751+00:00",
+      "last_check_at": "2026-10-23T03:10:14.509959+00:00",
       "scaled_budget_today": false
     },
     "0ac0e6b0-f03d-4389-b91c-dc6163b39a1a": {
@@ -19088,7 +19047,7 @@
       "bumps_today": 0,
       "last_action_at": null,
       "last_spend": 0.05,
-      "last_check_at": "2026-10-23T03:31:32.079751+00:00",
+      "last_check_at": "2026-10-23T03:10:14.509959+00:00",
       "scaled_budget_today": false
     },
     "4c601409-02bf-450b-9406-01dda1ae0efc": {
@@ -19105,10 +19064,10 @@
       "date": "2026-10-23",
       "name": "KW_Car Smart+ Auto-Expansion | 2.50 Bid",
       "campaign": "وسادة السيارة الكويت 18-10",
-      "bumps_today": 0,
-      "last_action_at": null,
+      "bumps_today": 1,
+      "last_action_at": "2026-10-23T03:10:14.509959+00:00",
       "last_spend": 0.03,
-      "last_check_at": "2026-10-23T03:31:32.079751+00:00",
+      "last_check_at": "2026-10-23T03:10:14.509959+00:00",
       "scaled_budget_today": false
     },
     "54ed625b-f818-42c6-a7f7-590e5674f789": {
@@ -19118,7 +19077,7 @@
       "bumps_today": 0,
       "last_action_at": null,
       "last_spend": 0.07,
-      "last_check_at": "2026-10-23T03:31:32.079751+00:00",
+      "last_check_at": "2026-10-23T03:10:14.509959+00:00",
       "scaled_budget_today": false
     },
     "5caf39d2-6b9c-4d47-a055-ff0318e60973": {
@@ -19176,9 +19135,9 @@
       "name": "KW_Car Smart+ Broad | 2.8 Bid",
       "campaign": "وسادة السيارة الكويت 18-10",
       "bumps_today": 1,
-      "last_action_at": "2026-10-23T03:31:32.079751+00:00",
+      "last_action_at": "2026-10-23T04:02:52.750681+00:00",
       "last_spend": 0.0,
-      "last_check_at": "2026-10-23T03:31:32.079751+00:00",
+      "last_check_at": "2026-10-23T03:10:14.509959+00:00",
       "scaled_budget_today": false
     },
     "0278a935-003c-4bf0-bd9d-460a8f5dd59b": {
@@ -19217,8 +19176,8 @@
       "campaign": "smart+ watch suis SA 18-10",
       "bumps_today": 0,
       "last_action_at": null,
-      "last_spend": 2.19,
-      "last_check_at": "2026-10-23T03:31:32.079751+00:00",
+      "last_spend": 2.01,
+      "last_check_at": "2026-10-23T03:10:14.509959+00:00",
       "scaled_budget_today": false
     },
     "25fb75fe-9eda-4e1f-a3fe-c98e6dd2e6fd": {
@@ -19388,7 +19347,7 @@
       "bumps_today": 0,
       "last_action_at": null,
       "last_spend": 0.0,
-      "last_check_at": "2026-10-23T03:31:32.079751+00:00",
+      "last_check_at": "2026-10-23T03:10:14.509959+00:00",
       "scaled_budget_today": false
     },
     "2c7f2bc6-cc68-4955-9108-74cc159115f8": {
@@ -19396,19 +19355,19 @@
       "name": "SA_PB_Manzilk_Batch2 Smart+ Broad | 2.30 Bid",
       "campaign": "smart+ power bank MANZILK WINNERS 2 SA 18-10",
       "bumps_today": 1,
-      "last_action_at": "2026-10-23T03:31:32.079751+00:00",
+      "last_action_at": "2026-10-23T03:10:14.509959+00:00",
       "last_spend": 0.0,
-      "last_check_at": "2026-10-23T03:31:32.079751+00:00",
+      "last_check_at": "2026-10-23T03:10:14.509959+00:00",
       "scaled_budget_today": false
     },
     "aa5352be-e7da-48a5-8116-5a23feadc992": {
       "date": "2026-10-23",
       "name": "SA_PB_Manzilk_Batch1 Smart+ Broad | 2.30 Bid",
       "campaign": "smart+ power bank MANZILK WINNERS 2 SA 18-10",
-      "bumps_today": 0,
-      "last_action_at": null,
+      "bumps_today": 1,
+      "last_action_at": "2026-10-23T03:10:14.509959+00:00",
       "last_spend": 0.0,
-      "last_check_at": "2026-10-23T03:31:32.079751+00:00",
+      "last_check_at": "2026-10-23T03:10:14.509959+00:00",
       "scaled_budget_today": false
     },
     "ee8e4661-ce02-4fde-8f99-69a14f610d15": {
@@ -19418,7 +19377,7 @@
       "bumps_today": 0,
       "last_action_at": null,
       "last_spend": 0.01,
-      "last_check_at": "2026-10-23T03:31:32.079751+00:00",
+      "last_check_at": "2026-10-23T03:10:14.509959+00:00",
       "scaled_budget_today": false
     },
     "4ed2162c-d888-4d56-9b3d-b841a810cac4": {
@@ -19436,9 +19395,9 @@
       "name": "SA Smart+ Winners | 3.0 Bid",
       "campaign": "smart+ power bank SA 18-10",
       "bumps_today": 1,
-      "last_action_at": "2026-10-23T03:31:32.079751+00:00",
+      "last_action_at": "2026-10-23T03:10:14.509959+00:00",
       "last_spend": 0.0,
-      "last_check_at": "2026-10-23T03:31:32.079751+00:00",
+      "last_check_at": "2026-10-23T03:10:14.509959+00:00",
       "scaled_budget_today": false
     },
     "75dc5519-9832-45b2-9a99-bb7effe0b1ed": {
@@ -19448,7 +19407,7 @@
       "bumps_today": 0,
       "last_action_at": null,
       "last_spend": 0.0,
-      "last_check_at": "2026-10-23T03:31:32.079751+00:00",
+      "last_check_at": "2026-10-23T03:10:14.509959+00:00",
       "scaled_budget_today": false
     },
     "1c053031-a93d-42f7-ba58-99c9f2809471": {
@@ -19476,9 +19435,9 @@
       "name": "OM_PB Smart+ Auto-Expansion | 2.20 Bid",
       "campaign": "باور بانك عمان 18-10",
       "bumps_today": 1,
-      "last_action_at": "2026-10-23T03:31:32.079751+00:00",
+      "last_action_at": "2026-10-23T03:10:14.509959+00:00",
       "last_spend": 0.03,
-      "last_check_at": "2026-10-23T03:31:32.079751+00:00",
+      "last_check_at": "2026-10-23T03:10:14.509959+00:00",
       "scaled_budget_today": false
     },
     "4191e809-c3e2-48cb-ad33-a521201c261a": {
@@ -19897,8 +19856,8 @@
       "campaign": "smart+ watch suis SA 18-10",
       "bumps_today": 0,
       "last_action_at": null,
-      "last_spend": 2.21,
-      "last_check_at": "2026-10-23T03:31:32.079751+00:00",
+      "last_spend": 2.15,
+      "last_check_at": "2026-10-23T03:10:14.509959+00:00",
       "scaled_budget_today": false
     },
     "162ce17e-8b16-430b-be36-b34bc22b0d6a": {
@@ -20386,9 +20345,9 @@
       "name": "QA_PB Smart+ Broad | 2.6 Bid",
       "campaign": "باور بانك قطر 18-10",
       "bumps_today": 1,
-      "last_action_at": "2026-10-23T03:31:32.079751+00:00",
+      "last_action_at": "2026-10-23T03:10:14.509959+00:00",
       "last_spend": 0.2,
-      "last_check_at": "2026-10-23T03:31:32.079751+00:00",
+      "last_check_at": "2026-10-23T03:10:14.509959+00:00",
       "scaled_budget_today": false
     },
     "3aa66af1-2ccc-4bba-b928-7d8856d71d2e": {
@@ -21697,8 +21656,8 @@
       "campaign": "smart+ watch suis SA 18-10",
       "bumps_today": 0,
       "last_action_at": null,
-      "last_spend": 0.87,
-      "last_check_at": "2026-10-23T03:31:32.079751+00:00",
+      "last_spend": 0.78,
+      "last_check_at": "2026-10-23T03:10:14.509959+00:00",
       "scaled_budget_today": false
     },
     "119f933f-1975-45a1-9fe1-f7f66877cbc2": {
@@ -21727,8 +21686,8 @@
       "campaign": "صندوق دفاتر TIME X 21-10",
       "bumps_today": 0,
       "last_action_at": null,
-      "last_spend": 5.27,
-      "last_check_at": "2026-10-23T03:31:32.079751+00:00",
+      "last_spend": 5.12,
+      "last_check_at": "2026-10-23T03:10:14.509959+00:00",
       "scaled_budget_today": false
     },
     "5d275c73-c38a-44f1-a6c3-9ca34438a750": {
@@ -21736,9 +21695,9 @@
       "name": "Smart+ Broad 18-10 (علا وحنان دفعة 15-10)",
       "campaign": "smart+ power bank SA 18-10",
       "bumps_today": 1,
-      "last_action_at": "2026-10-23T03:31:32.079751+00:00",
+      "last_action_at": "2026-10-23T03:10:14.509959+00:00",
       "last_spend": 0.0,
-      "last_check_at": "2026-10-23T03:31:32.079751+00:00",
+      "last_check_at": "2026-10-23T03:10:14.509959+00:00",
       "scaled_budget_today": false
     },
     "835c036f-20c0-4a2e-bb8f-1bbd6bdcd1a0": {
@@ -21746,9 +21705,9 @@
       "name": "22-10 فولتركس (عنوان 3: خلي جوالك دايماً مشحون بكل مكان)",
       "campaign": "smart+ power bank SA 18-10",
       "bumps_today": 1,
-      "last_action_at": "2026-10-23T04:14:58.866072+00:00",
+      "last_action_at": "2026-10-23T04:02:52.750681+00:00",
       "last_spend": 0.12,
-      "last_check_at": "2026-10-23T03:31:32.079751+00:00",
+      "last_check_at": "2026-10-23T03:10:14.509959+00:00",
       "scaled_budget_today": false
     },
     "f52cfc5a-69b3-46cc-aa60-0b8a4080d43e": {
@@ -22155,10 +22114,10 @@
       "date": "2026-10-23",
       "name": "Smart+ Broad 23-10 فولتريكس (9 فيديوهات)",
       "campaign": "smart+ power bank SA 18-10",
-      "bumps_today": 0,
-      "last_action_at": null,
+      "bumps_today": 1,
+      "last_action_at": "2026-10-23T05:10:36.622723+00:00",
       "last_spend": 0.0,
-      "last_check_at": "2026-10-23T03:31:32.079751+00:00",
+      "last_check_at": "2026-10-23T03:10:14.509959+00:00",
       "scaled_budget_today": false
     }
   },
@@ -24898,6 +24857,438 @@
         "deep_link_urls": [],
         "block_preload": true
       }
+    },
+    "e0aa3322-1890-4ee4-a281-78a880ad7fc3": {
+      "name": "4 [H6]",
+      "type": "WEB_VIEW",
+      "brand_name": "دار الرمال",
+      "headline": "الأكثر طلباً بالسعودية لراحة اليد",
+      "call_to_action": "ORDER_NOW",
+      "top_snap_media_id": "0c06b06e-90ce-42ec-80f0-4f6e88af20c7",
+      "top_snap_crop_position": "MIDDLE",
+      "forced_view_eligibility": "SIX_SECONDS",
+      "ad_product": "SNAP_AD",
+      "web_view_properties": {
+        "url": "https://www.daralrimal.shop/tvfAkFHdl",
+        "allow_snap_javascript_sdk": false,
+        "use_immersive_mode": false,
+        "deep_link_urls": [],
+        "block_preload": true
+      }
+    },
+    "41ada81b-e05f-4d1b-acb6-469b1e0e9407": {
+      "name": "18_10_13-10_hanan_5",
+      "type": "WEB_VIEW",
+      "brand_name": "دار الرمال",
+      "headline": "التوصيل مجاني مع ضمان استرجاع",
+      "call_to_action": "ORDER_NOW",
+      "top_snap_media_id": "9edae80d-dbd4-4253-b227-8bdcee74c4a6",
+      "top_snap_crop_position": "MIDDLE",
+      "forced_view_eligibility": "SIX_SECONDS",
+      "ad_product": "SNAP_AD",
+      "web_view_properties": {
+        "url": "https://www.daralrimal.org/uUspO82ob",
+        "allow_snap_javascript_sdk": false,
+        "use_immersive_mode": false,
+        "deep_link_urls": [],
+        "block_preload": true
+      }
+    },
+    "31c40334-d677-4738-8325-21cd8cde60c4": {
+      "name": "18_10_13-10_hanan_5 [H1]",
+      "type": "WEB_VIEW",
+      "brand_name": "دار الرمال",
+      "headline": "هدية مجانية في انتظارك مع الطلب",
+      "call_to_action": "ORDER_NOW",
+      "top_snap_media_id": "9edae80d-dbd4-4253-b227-8bdcee74c4a6",
+      "top_snap_crop_position": "MIDDLE",
+      "forced_view_eligibility": "SIX_SECONDS",
+      "ad_product": "SNAP_AD",
+      "web_view_properties": {
+        "url": "https://www.daralrimal.org/uUspO82ob",
+        "allow_snap_javascript_sdk": false,
+        "use_immersive_mode": false,
+        "deep_link_urls": [],
+        "block_preload": true
+      }
+    },
+    "15c944dd-15bd-4c11-9906-755bc0ae584b": {
+      "name": "18_10_13-10_hanan_5 [H3]",
+      "type": "WEB_VIEW",
+      "brand_name": "دار الرمال",
+      "headline": "راحة فورية بالخطوط وداعاً للألم",
+      "call_to_action": "ORDER_NOW",
+      "top_snap_media_id": "9edae80d-dbd4-4253-b227-8bdcee74c4a6",
+      "top_snap_crop_position": "MIDDLE",
+      "forced_view_eligibility": "SIX_SECONDS",
+      "ad_product": "SNAP_AD",
+      "web_view_properties": {
+        "url": "https://www.daralrimal.org/uUspO82ob",
+        "allow_snap_javascript_sdk": false,
+        "use_immersive_mode": false,
+        "deep_link_urls": [],
+        "block_preload": true
+      }
+    },
+    "ce5c6041-32cd-4260-83bd-4f5235ab1a82": {
+      "name": "18_10_13-10_hanan_5 [H4]",
+      "type": "WEB_VIEW",
+      "brand_name": "دار الرمال",
+      "headline": "عرض خاص اليوم + الدفع عند الاستلام",
+      "call_to_action": "ORDER_NOW",
+      "top_snap_media_id": "9edae80d-dbd4-4253-b227-8bdcee74c4a6",
+      "top_snap_crop_position": "MIDDLE",
+      "forced_view_eligibility": "SIX_SECONDS",
+      "ad_product": "SNAP_AD",
+      "web_view_properties": {
+        "url": "https://www.daralrimal.org/uUspO82ob",
+        "allow_snap_javascript_sdk": false,
+        "use_immersive_mode": false,
+        "deep_link_urls": [],
+        "block_preload": true
+      }
+    },
+    "f20a4274-a914-401d-8f6c-d2ca56de3f2b": {
+      "name": "18_10_13-10_hanan_5 [H5]",
+      "type": "WEB_VIEW",
+      "brand_name": "دار الرمال",
+      "headline": "ركبها بثواني وغير راحة سيارتك",
+      "call_to_action": "ORDER_NOW",
+      "top_snap_media_id": "9edae80d-dbd4-4253-b227-8bdcee74c4a6",
+      "top_snap_crop_position": "MIDDLE",
+      "forced_view_eligibility": "SIX_SECONDS",
+      "ad_product": "SNAP_AD",
+      "web_view_properties": {
+        "url": "https://www.daralrimal.org/uUspO82ob",
+        "allow_snap_javascript_sdk": false,
+        "use_immersive_mode": false,
+        "deep_link_urls": [],
+        "block_preload": true
+      }
+    },
+    "6bb9a168-30c9-4d53-94bb-061cd54e7d45": {
+      "name": "22-10_voltrx_hook1_desert_man",
+      "type": "WEB_VIEW",
+      "brand_name": "دار الرمال",
+      "headline": "الطلب مرتفع والكمية محدودة جداً",
+      "call_to_action": "ORDER_NOW",
+      "top_snap_media_id": "39351c6b-3151-4afd-9727-feba78830e11",
+      "top_snap_crop_position": "MIDDLE",
+      "forced_view_eligibility": "SIX_SECONDS",
+      "ad_product": "SNAP_AD",
+      "web_view_properties": {
+        "url": "https://www.daralrimal.shop/rluajrRjM/split",
+        "allow_snap_javascript_sdk": false,
+        "use_immersive_mode": false,
+        "deep_link_urls": [],
+        "block_preload": true
+      }
+    },
+    "9f9a3346-1bdf-41c7-b6f7-df4cbe9ba7cc": {
+      "name": "22-10_voltrx_hook1_desert_man [H3]",
+      "type": "WEB_VIEW",
+      "brand_name": "دار الرمال",
+      "headline": "عرض خاص اليوم + الدفع عند الاستلام",
+      "call_to_action": "ORDER_NOW",
+      "top_snap_media_id": "39351c6b-3151-4afd-9727-feba78830e11",
+      "top_snap_crop_position": "MIDDLE",
+      "forced_view_eligibility": "SIX_SECONDS",
+      "ad_product": "SNAP_AD",
+      "web_view_properties": {
+        "url": "https://www.daralrimal.shop/rluajrRjM/split",
+        "allow_snap_javascript_sdk": false,
+        "use_immersive_mode": false,
+        "deep_link_urls": [],
+        "block_preload": true
+      }
+    },
+    "a802a6e9-91ef-4e6f-9168-ab46d4fa9887": {
+      "name": "22-10_voltrx_hook1_desert_man [H1]",
+      "type": "WEB_VIEW",
+      "brand_name": "دار الرمال",
+      "headline": "هدية مجانية في انتظارك مع الطلب",
+      "call_to_action": "ORDER_NOW",
+      "top_snap_media_id": "39351c6b-3151-4afd-9727-feba78830e11",
+      "top_snap_crop_position": "MIDDLE",
+      "forced_view_eligibility": "SIX_SECONDS",
+      "ad_product": "SNAP_AD",
+      "web_view_properties": {
+        "url": "https://www.daralrimal.shop/rluajrRjM/split",
+        "allow_snap_javascript_sdk": false,
+        "use_immersive_mode": false,
+        "deep_link_urls": [],
+        "block_preload": true
+      }
+    },
+    "54d1998f-0320-463b-9967-05a7f8aa1fa7": {
+      "name": "22-10_voltrx_hook7_home_woman",
+      "type": "WEB_VIEW",
+      "brand_name": "دار الرمال",
+      "headline": "الطلب مرتفع والكمية محدودة جداً",
+      "call_to_action": "ORDER_NOW",
+      "top_snap_media_id": "5d315093-a5af-4ccb-992e-ebb1cce47cd1",
+      "top_snap_crop_position": "MIDDLE",
+      "forced_view_eligibility": "SIX_SECONDS",
+      "ad_product": "SNAP_AD",
+      "web_view_properties": {
+        "url": "https://www.daralrimal.shop/rluajrRjM/split",
+        "allow_snap_javascript_sdk": false,
+        "use_immersive_mode": false,
+        "deep_link_urls": [],
+        "block_preload": true
+      }
+    },
+    "e238cdca-fa57-4034-b3c6-9273ceb591f3": {
+      "name": "22-10_voltrx_hook7_home_woman [H3]",
+      "type": "WEB_VIEW",
+      "brand_name": "دار الرمال",
+      "headline": "عرض خاص اليوم + الدفع عند الاستلام",
+      "call_to_action": "ORDER_NOW",
+      "top_snap_media_id": "5d315093-a5af-4ccb-992e-ebb1cce47cd1",
+      "top_snap_crop_position": "MIDDLE",
+      "forced_view_eligibility": "SIX_SECONDS",
+      "ad_product": "SNAP_AD",
+      "web_view_properties": {
+        "url": "https://www.daralrimal.shop/rluajrRjM/split",
+        "allow_snap_javascript_sdk": false,
+        "use_immersive_mode": false,
+        "deep_link_urls": [],
+        "block_preload": true
+      }
+    },
+    "fe39a5f6-df0a-4c5d-aece-7a3c4b59e143": {
+      "name": "22-10_voltrx_hook2_mall_man",
+      "type": "WEB_VIEW",
+      "brand_name": "دار الرمال",
+      "headline": "الطلب مرتفع والكمية محدودة جداً",
+      "call_to_action": "ORDER_NOW",
+      "top_snap_media_id": "56b16d1b-07d4-4b07-86ad-7a2a58363d6b",
+      "top_snap_crop_position": "MIDDLE",
+      "forced_view_eligibility": "SIX_SECONDS",
+      "ad_product": "SNAP_AD",
+      "web_view_properties": {
+        "url": "https://www.daralrimal.shop/rluajrRjM/split",
+        "allow_snap_javascript_sdk": false,
+        "use_immersive_mode": false,
+        "deep_link_urls": [],
+        "block_preload": true
+      }
+    },
+    "a5886543-bb58-406f-8a34-1d750e8e37a5": {
+      "name": "22-10_voltrx_hook2_mall_man [H3]",
+      "type": "WEB_VIEW",
+      "brand_name": "دار الرمال",
+      "headline": "عرض خاص اليوم + الدفع عند الاستلام",
+      "call_to_action": "ORDER_NOW",
+      "top_snap_media_id": "56b16d1b-07d4-4b07-86ad-7a2a58363d6b",
+      "top_snap_crop_position": "MIDDLE",
+      "forced_view_eligibility": "SIX_SECONDS",
+      "ad_product": "SNAP_AD",
+      "web_view_properties": {
+        "url": "https://www.daralrimal.shop/rluajrRjM/split",
+        "allow_snap_javascript_sdk": false,
+        "use_immersive_mode": false,
+        "deep_link_urls": [],
+        "block_preload": true
+      }
+    },
+    "ccee6c5b-2ae1-4e8b-a686-6b844ba17f01": {
+      "name": "22-10_voltrx_hook4_home_man",
+      "type": "WEB_VIEW",
+      "brand_name": "دار الرمال",
+      "headline": "الطلب مرتفع والكمية محدودة جداً",
+      "call_to_action": "ORDER_NOW",
+      "top_snap_media_id": "5ce4105d-c0d4-4675-9753-ab45ce31cea9",
+      "top_snap_crop_position": "MIDDLE",
+      "forced_view_eligibility": "SIX_SECONDS",
+      "ad_product": "SNAP_AD",
+      "web_view_properties": {
+        "url": "https://www.daralrimal.shop/rluajrRjM/split",
+        "allow_snap_javascript_sdk": false,
+        "use_immersive_mode": false,
+        "deep_link_urls": [],
+        "block_preload": true
+      }
+    },
+    "8875f508-8d8a-43fb-8597-7b7a71301249": {
+      "name": "22-10_voltrx_hook4_home_man [H3]",
+      "type": "WEB_VIEW",
+      "brand_name": "دار الرمال",
+      "headline": "عرض خاص اليوم + الدفع عند الاستلام",
+      "call_to_action": "ORDER_NOW",
+      "top_snap_media_id": "5ce4105d-c0d4-4675-9753-ab45ce31cea9",
+      "top_snap_crop_position": "MIDDLE",
+      "forced_view_eligibility": "SIX_SECONDS",
+      "ad_product": "SNAP_AD",
+      "web_view_properties": {
+        "url": "https://www.daralrimal.shop/rluajrRjM/split",
+        "allow_snap_javascript_sdk": false,
+        "use_immersive_mode": false,
+        "deep_link_urls": [],
+        "block_preload": true
+      }
+    },
+    "1b794422-25ed-4939-b5ce-9f6a3fe09673": {
+      "name": "22-10_voltrx_hook6_park_woman",
+      "type": "WEB_VIEW",
+      "brand_name": "دار الرمال",
+      "headline": "الطلب مرتفع والكمية محدودة جداً",
+      "call_to_action": "ORDER_NOW",
+      "top_snap_media_id": "aed7092c-0607-41e4-a941-63d0929f627c",
+      "top_snap_crop_position": "MIDDLE",
+      "forced_view_eligibility": "SIX_SECONDS",
+      "ad_product": "SNAP_AD",
+      "web_view_properties": {
+        "url": "https://www.daralrimal.shop/rluajrRjM/split",
+        "allow_snap_javascript_sdk": false,
+        "use_immersive_mode": false,
+        "deep_link_urls": [],
+        "block_preload": true
+      }
+    },
+    "7eefca0d-f8bc-4021-8c96-a9b87160df9d": {
+      "name": "22-10_voltrx_hook6_park_woman [H3]",
+      "type": "WEB_VIEW",
+      "brand_name": "دار الرمال",
+      "headline": "عرض خاص اليوم + الدفع عند الاستلام",
+      "call_to_action": "ORDER_NOW",
+      "top_snap_media_id": "aed7092c-0607-41e4-a941-63d0929f627c",
+      "top_snap_crop_position": "MIDDLE",
+      "forced_view_eligibility": "SIX_SECONDS",
+      "ad_product": "SNAP_AD",
+      "web_view_properties": {
+        "url": "https://www.daralrimal.shop/rluajrRjM/split",
+        "allow_snap_javascript_sdk": false,
+        "use_immersive_mode": false,
+        "deep_link_urls": [],
+        "block_preload": true
+      }
+    },
+    "e743e406-a61b-41e3-9963-a7ed0e2c4939": {
+      "name": "22-10_voltrx_hook2_mall_man [H1]",
+      "type": "WEB_VIEW",
+      "brand_name": "دار الرمال",
+      "headline": "هدية مجانية في انتظارك مع الطلب",
+      "call_to_action": "ORDER_NOW",
+      "top_snap_media_id": "56b16d1b-07d4-4b07-86ad-7a2a58363d6b",
+      "top_snap_crop_position": "MIDDLE",
+      "forced_view_eligibility": "SIX_SECONDS",
+      "ad_product": "SNAP_AD",
+      "web_view_properties": {
+        "url": "https://www.daralrimal.shop/rluajrRjM/split",
+        "allow_snap_javascript_sdk": false,
+        "use_immersive_mode": false,
+        "deep_link_urls": [],
+        "block_preload": true
+      }
+    },
+    "a45b36da-51d5-4367-8ee5-8d562be59410": {
+      "name": "22-10_voltrx_hook4_home_man [H1]",
+      "type": "WEB_VIEW",
+      "brand_name": "دار الرمال",
+      "headline": "هدية مجانية في انتظارك مع الطلب",
+      "call_to_action": "ORDER_NOW",
+      "top_snap_media_id": "5ce4105d-c0d4-4675-9753-ab45ce31cea9",
+      "top_snap_crop_position": "MIDDLE",
+      "forced_view_eligibility": "SIX_SECONDS",
+      "ad_product": "SNAP_AD",
+      "web_view_properties": {
+        "url": "https://www.daralrimal.shop/rluajrRjM/split",
+        "allow_snap_javascript_sdk": false,
+        "use_immersive_mode": false,
+        "deep_link_urls": [],
+        "block_preload": true
+      }
+    },
+    "93a93b89-38ec-470d-a10a-652af3032a19": {
+      "name": "22-10_voltrx_hook6_park_woman [H1]",
+      "type": "WEB_VIEW",
+      "brand_name": "دار الرمال",
+      "headline": "هدية مجانية في انتظارك مع الطلب",
+      "call_to_action": "ORDER_NOW",
+      "top_snap_media_id": "aed7092c-0607-41e4-a941-63d0929f627c",
+      "top_snap_crop_position": "MIDDLE",
+      "forced_view_eligibility": "SIX_SECONDS",
+      "ad_product": "SNAP_AD",
+      "web_view_properties": {
+        "url": "https://www.daralrimal.shop/rluajrRjM/split",
+        "allow_snap_javascript_sdk": false,
+        "use_immersive_mode": false,
+        "deep_link_urls": [],
+        "block_preload": true
+      }
+    },
+    "99704d49-16b3-40bb-adc2-679206284106": {
+      "name": "3",
+      "type": "WEB_VIEW",
+      "brand_name": "دار الرمال",
+      "headline": "توصيل مجاني مع ضمان استرجاع",
+      "call_to_action": "ORDER_NOW",
+      "top_snap_media_id": "c322b187-1abf-4aa2-9d20-ead7d75b237a",
+      "top_snap_crop_position": "MIDDLE",
+      "forced_view_eligibility": "SIX_SECONDS",
+      "ad_product": "SNAP_AD",
+      "web_view_properties": {
+        "url": "https://www.daralrimal.shop/1Hby5-oAB",
+        "allow_snap_javascript_sdk": false,
+        "use_immersive_mode": false,
+        "deep_link_urls": [],
+        "block_preload": true
+      }
+    },
+    "0fe8e8eb-70ef-4ec9-ac4b-188f27ec3708": {
+      "name": "3 [H1]",
+      "type": "WEB_VIEW",
+      "brand_name": "دار الرمال",
+      "headline": "فخامة سويسرية + هدية مجانية اليوم",
+      "call_to_action": "ORDER_NOW",
+      "top_snap_media_id": "c322b187-1abf-4aa2-9d20-ead7d75b237a",
+      "top_snap_crop_position": "MIDDLE",
+      "forced_view_eligibility": "SIX_SECONDS",
+      "ad_product": "SNAP_AD",
+      "web_view_properties": {
+        "url": "https://www.daralrimal.shop/1Hby5-oAB",
+        "allow_snap_javascript_sdk": false,
+        "use_immersive_mode": false,
+        "deep_link_urls": [],
+        "block_preload": true
+      }
+    },
+    "6c6f3f0a-91da-47cc-a974-fab2b019b7ed": {
+      "name": "3 [H2]",
+      "type": "WEB_VIEW",
+      "brand_name": "دار الرمال",
+      "headline": "التوصيل مجاني مع ضمان استرجاع",
+      "call_to_action": "ORDER_NOW",
+      "top_snap_media_id": "c322b187-1abf-4aa2-9d20-ead7d75b237a",
+      "top_snap_crop_position": "MIDDLE",
+      "forced_view_eligibility": "SIX_SECONDS",
+      "ad_product": "SNAP_AD",
+      "web_view_properties": {
+        "url": "https://www.daralrimal.shop/1Hby5-oAB",
+        "allow_snap_javascript_sdk": false,
+        "use_immersive_mode": false,
+        "deep_link_urls": [],
+        "block_preload": true
+      }
+    },
+    "bd894b74-a7cb-44c6-a137-abfe300a460d": {
+      "name": "3 [H4]",
+      "type": "WEB_VIEW",
+      "brand_name": "دار الرمال",
+      "headline": "خصم خاص اليوم والكمية محدودة جداً",
+      "call_to_action": "ORDER_NOW",
+      "top_snap_media_id": "c322b187-1abf-4aa2-9d20-ead7d75b237a",
+      "top_snap_crop_position": "MIDDLE",
+      "forced_view_eligibility": "SIX_SECONDS",
+      "ad_product": "SNAP_AD",
+      "web_view_properties": {
+        "url": "https://www.daralrimal.shop/1Hby5-oAB",
+        "allow_snap_javascript_sdk": false,
+        "use_immersive_mode": false,
+        "deep_link_urls": [],
+        "block_preload": true
+      }
     }
   },
   "headline_creatives_cache": {
@@ -25016,13 +25407,31 @@
     "08e86a33-6d7c-4f4a-8e4f-23b7b49072ff|https://www.daralrimal.shop/rluajrRjM/4A-VKbyQu|عرض خاص اليوم + الدفع عند الاستلام": "4389b3e1-6e64-4660-888b-44d42fa0f153",
     "0977dd64-ea6a-4d8c-bbcd-3e7d5b4760f4|https://www.daralrimal.shop/rluajrRjM/4A-VKbyQu|عرض خاص اليوم + الدفع عند الاستلام": "adabe716-7146-4a8d-bb1b-3740fd64d7f9",
     "e84a0e3c-61ad-4044-bbe3-d17593fc557c|https://www.daralrimal.shop/vzdbTeWWU|راحة فورية بالخطوط وداعاً للألم": "f3f9c648-5717-4de7-9a17-dfd84f8e30e5",
-    "e84a0e3c-61ad-4044-bbe3-d17593fc557c|https://www.daralrimal.shop/vzdbTeWWU|عرض خاص اليوم + الدفع عند الاستلام": "5a9a21b3-66ef-4ef1-8800-4c808c9682fb"
+    "e84a0e3c-61ad-4044-bbe3-d17593fc557c|https://www.daralrimal.shop/vzdbTeWWU|عرض خاص اليوم + الدفع عند الاستلام": "5a9a21b3-66ef-4ef1-8800-4c808c9682fb",
+    "0c06b06e-90ce-42ec-80f0-4f6e88af20c7|https://www.daralrimal.shop/tvfAkFHdl|الأكثر طلباً بالسعودية لراحة اليد": "e0aa3322-1890-4ee4-a281-78a880ad7fc3",
+    "9edae80d-dbd4-4253-b227-8bdcee74c4a6|https://www.daralrimal.org/uUspO82ob|هدية مجانية في انتظارك مع الطلب": "31c40334-d677-4738-8325-21cd8cde60c4",
+    "9edae80d-dbd4-4253-b227-8bdcee74c4a6|https://www.daralrimal.org/uUspO82ob|راحة فورية بالخطوط وداعاً للألم": "15c944dd-15bd-4c11-9906-755bc0ae584b",
+    "9edae80d-dbd4-4253-b227-8bdcee74c4a6|https://www.daralrimal.org/uUspO82ob|عرض خاص اليوم + الدفع عند الاستلام": "ce5c6041-32cd-4260-83bd-4f5235ab1a82",
+    "9edae80d-dbd4-4253-b227-8bdcee74c4a6|https://www.daralrimal.org/uUspO82ob|ركبها بثواني وغير راحة سيارتك": "f20a4274-a914-401d-8f6c-d2ca56de3f2b",
+    "39351c6b-3151-4afd-9727-feba78830e11|https://www.daralrimal.shop/rluajrRjM/split|عرض خاص اليوم + الدفع عند الاستلام": "9f9a3346-1bdf-41c7-b6f7-df4cbe9ba7cc",
+    "39351c6b-3151-4afd-9727-feba78830e11|https://www.daralrimal.shop/rluajrRjM/split|هدية مجانية في انتظارك مع الطلب": "a802a6e9-91ef-4e6f-9168-ab46d4fa9887",
+    "5d315093-a5af-4ccb-992e-ebb1cce47cd1|https://www.daralrimal.shop/rluajrRjM/split|عرض خاص اليوم + الدفع عند الاستلام": "e238cdca-fa57-4034-b3c6-9273ceb591f3",
+    "56b16d1b-07d4-4b07-86ad-7a2a58363d6b|https://www.daralrimal.shop/rluajrRjM/split|عرض خاص اليوم + الدفع عند الاستلام": "a5886543-bb58-406f-8a34-1d750e8e37a5",
+    "5ce4105d-c0d4-4675-9753-ab45ce31cea9|https://www.daralrimal.shop/rluajrRjM/split|عرض خاص اليوم + الدفع عند الاستلام": "8875f508-8d8a-43fb-8597-7b7a71301249",
+    "aed7092c-0607-41e4-a941-63d0929f627c|https://www.daralrimal.shop/rluajrRjM/split|عرض خاص اليوم + الدفع عند الاستلام": "7eefca0d-f8bc-4021-8c96-a9b87160df9d",
+    "56b16d1b-07d4-4b07-86ad-7a2a58363d6b|https://www.daralrimal.shop/rluajrRjM/split|هدية مجانية في انتظارك مع الطلب": "e743e406-a61b-41e3-9963-a7ed0e2c4939",
+    "5ce4105d-c0d4-4675-9753-ab45ce31cea9|https://www.daralrimal.shop/rluajrRjM/split|هدية مجانية في انتظارك مع الطلب": "a45b36da-51d5-4367-8ee5-8d562be59410",
+    "aed7092c-0607-41e4-a941-63d0929f627c|https://www.daralrimal.shop/rluajrRjM/split|هدية مجانية في انتظارك مع الطلب": "93a93b89-38ec-470d-a10a-652af3032a19",
+    "c322b187-1abf-4aa2-9d20-ead7d75b237a|https://www.daralrimal.shop/1Hby5-oAB|فخامة سويسرية + هدية مجانية اليوم": "0fe8e8eb-70ef-4ec9-ac4b-188f27ec3708",
+    "c322b187-1abf-4aa2-9d20-ead7d75b237a|https://www.daralrimal.shop/1Hby5-oAB|التوصيل مجاني مع ضمان استرجاع": "6c6f3f0a-91da-47cc-a974-fab2b019b7ed",
+    "c322b187-1abf-4aa2-9d20-ead7d75b237a|https://www.daralrimal.shop/1Hby5-oAB|خصم خاص اليوم والكمية محدودة جداً": "bd894b74-a7cb-44c6-a137-abfe300a460d"
   },
   "headline_rotation_idx": {
-    "baa69314-505c-4b3a-851e-883c10034935": 0,
-    "f8372cfb-ae46-44d0-bbb4-f39790ecc648": 3,
+    "baa69314-505c-4b3a-851e-883c10034935": 3,
+    "f8372cfb-ae46-44d0-bbb4-f39790ecc648": 0,
     "9be45a26-06ac-4716-8e7b-2fb3a4d65e4c": 0,
-    "e23e7c95-3f15-4945-9844-8bd73e2d79d3": 1
+    "e23e7c95-3f15-4945-9844-8bd73e2d79d3": 0,
+    "4504af26-5609-4e7b-aeca-e11cf9e03846": 2
   },
   "disabled_headlines": {
     "baa69314-505c-4b3a-851e-883c10034935:H2": {
@@ -25056,6 +25465,14 @@
       "sample_ad_name": "SA_Watch_tc_v6 [H3]",
       "reason": "[Ad CPC Rule] صرف الفيديو $1.93 (>= $1.00) | النقرات: 6 | سعر النقرة CPC = $0.322 (> $0.28)",
       "disabled_at": "2026-10-22 22:08 GMT+3"
+    },
+    "9be45a26-06ac-4716-8e7b-2fb3a4d65e4c:H3": {
+      "campaign_id": "9be45a26-06ac-4716-8e7b-2fb3a4d65e4c",
+      "campaign_name": "car scaling new 2 text",
+      "headline_tag": "H3",
+      "sample_ad_name": "21-10_ola_12-10_2_m368de7 [H3]",
+      "reason": "[3-Day Audit] [Ad CPC Rule] صرف الفيديو $1.7 (>= $1.00) | النقرات: 6 | سعر النقرة CPC = $0.283 (> $0.28)",
+      "disabled_at": "2026-10-23 10:07 GMT+3"
     }
   },
   "cross_paused_campaigns": {}
