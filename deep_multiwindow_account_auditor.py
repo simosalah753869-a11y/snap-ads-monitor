@@ -543,75 +543,87 @@ def click_prev_day_js(ws, prev_date_text=""):
 
 
 def scrape_google_ads_table(ws) -> dict:
-    """Scrapes all rows from Google Ads /aw/ads or /aw/campaigns table across pages with exact parsed metrics."""
-    js = """
-    (async () => {
-        const sleep = ms => new Promise(r => setTimeout(r, ms));
-        const firstBtn = document.querySelector('[aria-label="Go to the first page"]');
-        if (firstBtn && !firstBtn.disabled && firstBtn.getAttribute('aria-disabled') !== 'true') {
-            firstBtn.click();
-            await sleep(1400);
-        }
-        const seen = new Set();
-        const rowsOut = [];
-        for (let page = 0; page < 4; page++) {
-            const scroller = document.querySelector('.particle-table-canvas, ess-table-canvas, [role="grid"]') || window;
-            if (scroller !== window) scroller.scrollTop = 0;
-            else window.scrollTo(0, 0);
-            await sleep(200);
-            for (let step = 0; step < 18; step++) {
-                const rows = Array.from(document.querySelectorAll('.particle-table-row, ess-table-row'));
-                for (const r of rows) {
-                    const stCell = r.querySelector('[essfield="status"]');
-                    const stImg = stCell ? stCell.querySelector('[role="img"]') : null;
-                    let toggle = stImg ? (stImg.getAttribute('aria-label') || '') : '';
-                    const camp = ((r.querySelector('[essfield="campaign_name"]') || {}).innerText || '').trim();
-                    const ag = ((r.querySelector('[essfield="ad_group_name"], [essfield="ad_group"]') || {}).innerText || '').trim();
-                    const ad = ((r.querySelector('.ad-name') || {}).innerText || '').trim();
-                    let txt = (r.innerText || '').replace(/\\s+/g, ' ').trim();
-                    if (txt.includes('View asset details')) {
-                        txt = txt.split('View asset details')[1].trim();
-                    }
-                    if (toggle === 'Enabled' && /Campaign is paused|Ad group is paused|Campaign ended/i.test(txt)) {
-                        toggle = 'Paused';
-                    }
-                    const key = toggle + '|' + camp + '|' + ag + '|' + ad + '|' + txt.slice(0, 140);
-                    if (txt.length > 5 && !seen.has(key)) {
-                        seen.add(key);
-                        const isZero = /\\b0\\s+0\\s+(?:—|0\\.00%)\\s+(?:US)?\\$0\\.00/.test(txt);
-                        if (toggle === 'Enabled' || !isZero || txt.includes('Total:')) {
-                            rowsOut.push({toggle, camp, ag, ad, text: txt.slice(0, 320)});
+    """Scrapes all rows from Google Ads /aw/ads or /aw/campaigns table across pages with exact parsed metrics (Python-driven to prevent background tab timer throttling)."""
+    eval_js(
+        ws,
+        """(() => {
+            const firstBtn = document.querySelector('[aria-label="Go to the first page"]');
+            if (firstBtn && !firstBtn.disabled && firstBtn.getAttribute('aria-disabled') !== 'true') firstBtn.click();
+        })()""",
+    )
+    time.sleep(0.9)
+    seen = set()
+    rows_out = []
+    for _page in range(4):
+        eval_js(ws, "const s = document.querySelector('.particle-table-canvas, ess-table-canvas, [role=\"grid\"]'); if (s) s.scrollTop = 0; else window.scrollTo(0, 0);")
+        time.sleep(0.15)
+        for _step in range(18):
+            batch = eval_js(
+                ws,
+                """(() => {
+                    const out = [];
+                    const rows = Array.from(document.querySelectorAll('.particle-table-row, ess-table-row'));
+                    for (const r of rows) {
+                        const stCell = r.querySelector('[essfield="status"]');
+                        const stImg = stCell ? stCell.querySelector('[role="img"]') : null;
+                        let toggle = stImg ? (stImg.getAttribute('aria-label') || '') : '';
+                        const camp = ((r.querySelector('[essfield="campaign_name"]') || {}).innerText || '').trim();
+                        const ag = ((r.querySelector('[essfield="ad_group_name"], [essfield="ad_group"]') || {}).innerText || '').trim();
+                        const ad = ((r.querySelector('.ad-name') || {}).innerText || '').trim();
+                        let txt = (r.innerText || '').replace(/\\s+/g, ' ').trim();
+                        if (txt.includes('View asset details')) {
+                            txt = txt.split('View asset details')[1].trim();
+                        }
+                        if (toggle === 'Enabled' && /Campaign is paused|Ad group is paused|Campaign ended/i.test(txt)) {
+                            toggle = 'Paused';
+                        }
+                        if (txt.length > 5) {
+                            const isZero = /\\b0\\s+0\\s+(?:—|0\\.00%)\\s+(?:US)?\\$0\\.00/.test(txt);
+                            if (toggle === 'Enabled' || !isZero || txt.includes('Total:')) {
+                                out.push({toggle, camp, ag, ad, text: txt.slice(0, 320)});
+                            }
                         }
                     }
+                    const scroller = document.querySelector('.particle-table-canvas, ess-table-canvas, [role="grid"]');
+                    if (scroller) scroller.scrollTop += 650;
+                    else window.scrollBy(0, 650);
+                    return out;
+                })()""",
+            ) or []
+            for item in batch:
+                key = f"{item.get('toggle')}|{item.get('camp')}|{item.get('ag')}|{item.get('ad')}|{item.get('text', '')[:140]}"
+                if key not in seen:
+                    seen.add(key)
+                    rows_out.append(item)
+            time.sleep(0.10)
+        eval_js(ws, "const s = document.querySelector('.particle-table-canvas, ess-table-canvas, [role=\"grid\"]'); if (s) s.scrollTop = 0; else window.scrollTo(0, 0);")
+        has_next = eval_js(
+            ws,
+            """(() => {
+                const nextBtn = document.querySelector('[aria-label="Go to the next page"]');
+                if (nextBtn && !nextBtn.disabled && nextBtn.getAttribute('aria-disabled') !== 'true') {
+                    nextBtn.click();
+                    return true;
                 }
-                if (scroller === window) window.scrollBy(0, 650);
-                else scroller.scrollTop += 650;
-                await sleep(140);
-            }
-            if (scroller !== window) scroller.scrollTop = 0;
-            else window.scrollTo(0, 0);
-            const nextBtn = document.querySelector('[aria-label="Go to the next page"]');
-            if (nextBtn && !nextBtn.disabled && nextBtn.getAttribute('aria-disabled') !== 'true') {
-                nextBtn.click();
-                await sleep(1600);
-            } else {
-                break;
-            }
-        }
-        const firstBtnEnd = document.querySelector('[aria-label="Go to the first page"]');
-        if (firstBtnEnd && !firstBtnEnd.disabled && firstBtnEnd.getAttribute('aria-disabled') !== 'true') {
-            firstBtnEnd.click();
-            await sleep(1200);
-        }
-        await sleep(300);
-        const dateEl = document.querySelector('material-date-range-picker, .date-range-picker');
-        return {
-            dateText: dateEl ? (dateEl.innerText || '').replace(/\\s+/g, ' ').trim() : '',
-            rows: rowsOut
-        };
-    })()
-    """
-    return eval_js(ws, js, await_promise=True) or {}
+                return false;
+            })()""",
+        )
+        if not has_next:
+            break
+        time.sleep(1.3)
+    eval_js(
+        ws,
+        """(() => {
+            const firstBtn = document.querySelector('[aria-label="Go to the first page"]');
+            if (firstBtn && !firstBtn.disabled && firstBtn.getAttribute('aria-disabled') !== 'true') firstBtn.click();
+        })()""",
+    )
+    time.sleep(0.8)
+    date_txt = eval_js(
+        ws,
+        "(() => { const d = document.querySelector('material-date-range-picker, .date-range-picker'); return d ? (d.innerText || '').replace(/\\s+/g, ' ').trim() : ''; })()",
+    ) or ""
+    return {"dateText": date_txt, "rows": rows_out}
 
 
 def parse_google_ad_metrics(row_obj: dict) -> dict:
@@ -804,8 +816,9 @@ def audit_google_ads_multiwindow() -> dict:
             ws = websocket.create_connection(
                 g_tabs[0]["webSocketDebuggerUrl"].replace("ws://localhost:", "ws://127.0.0.1:"),
                 suppress_origin=True,
-                timeout=25,
+                timeout=60,
             )
+            send_cdp(ws, "Target.activateTarget", {"targetId": g_tabs[0]["id"]})
             send_cdp(ws, "Emulation.setFocusEmulationEnabled", {"enabled": True})
             keep_adspower_offscreen(port)
 
@@ -978,9 +991,9 @@ def audit_google_ads_multiwindow() -> dict:
                         pause_reason = f"صرف اليوم ${sp_1d:.2f} (>= ${no_sale_g:.2f}) بـ 0 مبيعات (في البيكسل والشيت)"
                     elif eff_1d >= 1.0 and sp_1d >= max_cpa_g and cpa_1d is not None and cpa_1d > max_cpa_g:
                         pause_reason = f"CPA اليوم مرتفع ${cpa_1d:.2f} (> ${max_cpa_g:.2f}) [صرف ${sp_1d:.2f} / {eff_1d:.0f} مبيعات]"
-                    elif sp_2d >= no_sale_g and eff_2d == 0 and not is_profitable_3d:
+                    elif sp_2d >= no_sale_g and eff_2d == 0:
                         pause_reason = f"صرف يومين (2D) ${sp_2d:.2f} (>= ${no_sale_g:.2f}) بـ 0 مبيعات"
-                    elif eff_2d >= 1.0 and sp_2d >= max_cpa_g and cpa_2d is not None and cpa_2d > max_cpa_g and not is_profitable_1d and not is_profitable_3d:
+                    elif eff_2d >= 1.0 and sp_2d >= max_cpa_g and cpa_2d is not None and cpa_2d > max_cpa_g and not is_profitable_1d:
                         pause_reason = f"CPA يومين (2D) مرتفع ${cpa_2d:.2f} (> ${max_cpa_g:.2f}) [صرف ${sp_2d:.2f} / {eff_2d:.0f} مبيعات]"
                     elif sp_3d >= no_sale_g and eff_3d == 0:
                         pause_reason = f"صرف 3 أيام (3D) ${sp_3d:.2f} (>= ${no_sale_g:.2f}) بـ 0 مبيعات"
@@ -990,8 +1003,12 @@ def audit_google_ads_multiwindow() -> dict:
                         pause_reason = f"صرف 7 أيام (7D) ${sp_7d:.2f} بـ 0 مبيعات"
                     elif eff_7d >= 1.0 and sp_7d >= (max_cpa_g + 2.0) and cpa_7d is not None and cpa_7d > max_cpa_g and not is_profitable_3d and not is_profitable_1d:
                         pause_reason = f"CPA 7 أيام (7D) مرتفع ${cpa_7d:.2f} (> ${max_cpa_g:.2f}) [صرف ${sp_7d:.2f} / {eff_7d:.0f} مبيعات]"
-                    elif sp_1d >= 1.50 and eff_1d == 0 and eff_3d == 0 and (d0["clicks"] == 0 or d0["cpc"] > 0.35):
+                    elif sp_1d >= 1.00 and eff_1d == 0 and (d0["clicks"] == 0 or d0["cpc"] > 0.35):
                         pause_reason = f"CPC مرتفع اليوم (${d0['cpc']:.2f} / نقرات={d0['clicks']}) بعد صرف ${sp_1d:.2f} بـ 0 مبيعات"
+                    elif sp_2d >= 1.00 and eff_2d == 0 and ((d0["clicks"] + d1["clicks"]) == 0 or (sp_2d / max(1, d0["clicks"] + d1["clicks"])) > 0.35):
+                        pause_reason = f"CPC مرتفع في يومين ($2D=${sp_2d:.2f} / نقرات={d0['clicks']+d1['clicks']}) بـ 0 مبيعات"
+                    elif sp_3d >= 1.00 and eff_3d == 0 and ((d0["clicks"] + d1["clicks"] + d2["clicks"]) == 0 or (sp_3d / max(1, d0["clicks"] + d1["clicks"] + d2["clicks"])) > 0.35):
+                        pause_reason = f"CPC مرتفع في 3 أيام ($3D=${sp_3d:.2f} / نقرات={d0['clicks']+d1['clicks']+d2['clicks']}) بـ 0 مبيعات"
                     elif ad_key == "ad 1" and sp_3d >= 1.00 and eff_3d == 0:
                         pause_reason = f"إعلان باسم عام (Ad 1) بدون كود UTM وصرف ${sp_3d:.2f} بـ 0 مبيعات"
 
@@ -1003,7 +1020,10 @@ def audit_google_ads_multiwindow() -> dict:
                         if res_p == "NOT_FOUND":
                             click_prev_day_js(ws)
                             res_p = set_google_ad_status_carefully(ws, camp, ad, "Pause", port=port, ag_name=ag)
-                            select_date_preset(ws, "Today", port=port)
+                        if res_p == "NOT_FOUND":
+                            select_date_preset(ws, "Last 7 days", port=port)
+                            res_p = set_google_ad_status_carefully(ws, camp, ad, "Pause", port=port, ag_name=ag)
+                        select_date_preset(ws, "Today", port=port)
                         decision = f"🛑 تم إيقافه فوراً ({res_p}) — {pause_reason}"
                         all_actions.append(f"🛑 Google Ads ({label}): إيقاف الإعلان `{ad}` في حملة `{camp}` ({ag}) — {pause_reason} ({res_p})")
                     else:
