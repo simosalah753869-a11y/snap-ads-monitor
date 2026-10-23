@@ -643,7 +643,7 @@ def main():
         )
 
         now_sa = datetime.now(timezone(timedelta(hours=3)))
-        is_before_6pm_sa = (6 <= now_sa.hour < 17)
+        is_before_6pm_sa = (6 <= now_sa.hour < 23)
         tt_scaled_today = history.setdefault("proactive_scaled_tiktok", {})
 
         for c3 in active_camps:
@@ -704,16 +704,16 @@ def main():
             if is_cloned_camp and not has_good_today:
                 if c_spend_1d >= camp_no_sale_lim and c_conv_1d == 0:
                     camp_pause_reasons.append(f"Cloned/Scale Campaign Today Spend ${c_spend_1d:.2f} >= ${camp_no_sale_lim:.2f} with 0 sales Today")
-                elif c_spend_2d >= camp_no_sale_lim and c_conv_2d == 0:
+                elif c_spend_1d >= 2.00 and c_spend_2d >= camp_no_sale_lim and c_conv_2d == 0:
                     camp_pause_reasons.append(f"Cloned/Scale Campaign 2-Day Spend ${c_spend_2d:.2f} >= ${camp_no_sale_lim:.2f} with 0 sales")
-                elif c_spend_3d >= camp_no_sale_lim and c_conv_3d == 0:
+                elif c_spend_1d >= 2.00 and c_spend_3d >= camp_no_sale_lim and c_conv_3d == 0:
                     camp_pause_reasons.append(f"Cloned/Scale Campaign 3-Day Spend ${c_spend_3d:.2f} >= ${camp_no_sale_lim:.2f} with 0 sales")
-                if c_conv_3d > 0 and c_spend_3d >= camp_no_sale_lim and c_cpa_3d is not None and c_cpa_3d > camp_cpa_lim:
+                if c_spend_1d >= 2.00 and c_conv_3d > 0 and c_spend_3d >= camp_no_sale_lim and c_cpa_3d is not None and c_cpa_3d > camp_cpa_lim:
                     camp_pause_reasons.append(f"Cloned/Scale Campaign 3-Day CPA ${c_cpa_3d:.2f} > ${camp_cpa_lim:.2f} (Spend=${c_spend_3d:.2f}, Sales={c_conv_3d})")
             elif not is_cloned_camp and not has_good_today:
                 if c_spend_1d >= reg_no_sale_1d and c_conv_1d == 0:
                     camp_pause_reasons.append(f"Campaign Today Spend ${c_spend_1d:.2f} >= ${reg_no_sale_1d:.2f} with 0 sales Today")
-                elif c_spend_2d >= reg_no_sale_1d and c_conv_2d == 0 and not has_good_3d:
+                elif c_spend_1d >= 2.00 and c_spend_2d >= reg_no_sale_1d and c_conv_2d == 0 and not has_good_3d:
                     camp_pause_reasons.append(f"Campaign 2-Day Spend ${c_spend_2d:.2f} >= ${reg_no_sale_1d:.2f} with 0 sales")
 
             if camp_pause_reasons and not is_cross_monitored_product_campaign(camp_name):
@@ -750,33 +750,35 @@ def main():
             elif camp_id in no_dup_camps and c_conv_3d > 0 and c_cpa_3d is not None and c_cpa_3d <= nodup_cpa_lim:
                 del no_dup_camps[camp_id]
 
-            # Controlled Auto-Scale (+20% budget before 5:00 PM SA time ONLY)
-            scale_cpa_1d_max = 10.50 if camp_is_gulf else 6.50
-            scale_cpa_3d_max = 12.50 if camp_is_gulf else 7.50
-            scale_bdg_cap = 50 if camp_is_gulf else 180
+            # Controlled Auto-Scale (+30% budget from 06:00 to 23:00 SA time)
+            scale_cpa_1d_max = 10.50 if camp_is_gulf else 6.80
+            scale_cpa_3d_max = 12.50 if camp_is_gulf else 8.00
+            scale_bdg_cap = 80 if camp_is_gulf else 220
             scale_key = f"{now_sa.strftime('%Y-%m-%d')}:{aadvid}:{camp_id}"
             if (
                 is_before_6pm_sa
-                and camp_id not in no_dup_camps
-                and c_conv_1d >= 3
+                and c_conv_1d >= 2
                 and c_cpa_1d is not None
                 and c_cpa_1d <= scale_cpa_1d_max
                 and (c_cpa_3d is None or c_cpa_3d <= scale_cpa_3d_max)
                 and scale_key not in tt_scaled_today
             ):
                 try:
-                    cur_bdg = float(str(c1.get("budget") or c3.get("budget") or rd1.get("budget") or rd3.get("budget") or 40.0).replace(",", "").replace("$", ""))
-                except Exception:
-                    cur_bdg = 40.0
-                if 20.0 <= cur_bdg < scale_bdg_cap:
-                    new_bdg = min(scale_bdg_cap, int(round(cur_bdg * 1.20)))
-                    try:
-                        h_b = dict(headers)
-                        h_b["Referer"] = f"https://ads.tiktok.com/i18n/manage/campaign?aadvid={aadvid}"
+                    h_b = dict(headers)
+                    h_b["Referer"] = f"https://ads.tiktok.com/i18n/manage/campaign?aadvid={aadvid}"
+                    det_r = session.get(
+                        f"https://ads.tiktok.com/api/v3/i18n/perf/campaign/detail/?aadvid={aadvid}&campaign_id={camp_id}",
+                        headers=h_b,
+                        timeout=15,
+                    ).json().get("data") or {}
+                    cur_bdg = float(det_r.get("budget") or c1.get("budget") or c3.get("budget") or 50.0)
+                    if det_r and 20.0 <= cur_bdg < scale_bdg_cap:
+                        new_bdg = min(scale_bdg_cap, int(round(cur_bdg * 1.30)))
+                        up_payload = {**det_r, "campaign_id": str(camp_id), "campaign_name": det_r.get("name") or camp_name, "budget": float(new_bdg)}
                         rb_resp = session.post(
-                            f"https://ads.tiktok.com/api/v2/i18n/overture/campaign/update_budget/?aadvid={aadvid}&req_src=bidding",
+                            f"https://ads.tiktok.com/api/v3/i18n/perf/campaign/update/?aadvid={aadvid}",
                             headers=h_b,
-                            json={"campaign_id": camp_id, "budget": new_bdg, "budget_mode": 1, "ad_channel": 1},
+                            json=up_payload,
                             timeout=15,
                         )
                         if rb_resp.text.strip() and rb_resp.json().get("code") == 0:
@@ -789,10 +791,10 @@ def main():
                                 "scaled_at": now_sa.isoformat(),
                             }
                             print(
-                                f"    🚀 [CONTROLLED AUTO-SCALE +20%] Campaign '{camp_name}' ({c_conv_1d} sales @ CPA=${c_cpa_1d}) -> Budget: ${cur_bdg:.0f} -> ${new_bdg}"
+                                f"    🚀 [AUTO-SCALE +30%] Campaign '{camp_name}' ({c_conv_1d} sales @ CPA=${c_cpa_1d}) -> Budget: ${cur_bdg:.0f} -> ${new_bdg}"
                             )
-                    except Exception:
-                        pass
+                except Exception:
+                    pass
 
         if not relevant_cids:
             continue
