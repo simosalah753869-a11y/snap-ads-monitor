@@ -429,23 +429,29 @@ def run_growth_partner():
                 p_entry["tt_clicks_3d"] += clk3
                 p_entry["tt_sales_3d"] += cv3
 
-                # Auto-Scale TikTok Winning Campaigns on High-Demand Days (CPA <= $5.50 Today & <= $7.00 3D)
+                # Auto-Scale TikTok Winning Campaigns on High-Demand Days (CPA <= $6.80 Today & <= $7.50 3D)
                 cid_str = str(x.get("campaign_id"))
                 cpa1_tt = (sp1 / cv1) if cv1 > 0 else 999.0
                 cpa3_tt = (sp3 / cv3) if cv3 > 0 else 999.0
                 scale_key_tt = f"tt_scale:{today_d}:{cid_str}"
                 already_scaled_tt = any(a.get("scale_key") == scale_key_tt for a in ledger.get("actions", []))
-                if cv1 >= 2 and cpa1_tt <= 5.50 and cpa3_tt <= 7.00 and not already_scaled_tt:
-                    cur_b = float(rd1.get("budget") or x.get("budget") or 30.0)
-                    if 15.0 <= cur_b < 120.0:
-                        new_b = min(150, int(round(cur_b * 1.30)))
-                        try:
-                            h_b = dict(headers)
-                            h_b["Referer"] = f"https://ads.tiktok.com/i18n/manage/campaign?aadvid={aadvid}"
+                if cv1 >= 2 and cpa1_tt <= 6.80 and cpa3_tt <= 7.50 and not already_scaled_tt:
+                    try:
+                        h_b = dict(headers)
+                        h_b["Referer"] = f"https://ads.tiktok.com/i18n/manage/campaign?aadvid={aadvid}"
+                        det_r = session.get(
+                            f"https://ads.tiktok.com/api/v3/i18n/perf/campaign/detail/?aadvid={aadvid}&campaign_id={cid_str}",
+                            headers=h_b,
+                            timeout=15,
+                        ).json().get("data") or {}
+                        cur_b = float(det_r.get("budget") or rd1.get("budget") or x.get("budget") or 30.0)
+                        if det_r and 15.0 <= cur_b < 200.0:
+                            new_b = min(220, int(round(cur_b * 1.30)))
+                            up_p = {**det_r, "campaign_id": cid_str, "campaign_name": det_r.get("name") or cn, "budget": float(new_b)}
                             rb = session.post(
-                                f"https://ads.tiktok.com/api/v2/i18n/overture/campaign/update_budget/?aadvid={aadvid}&req_src=bidding",
+                                f"https://ads.tiktok.com/api/v3/i18n/perf/campaign/update/?aadvid={aadvid}",
                                 headers=h_b,
-                                json={"campaign_id": cid_str, "budget": new_b, "budget_mode": 1, "ad_channel": 1},
+                                json=up_p,
                                 timeout=15,
                             )
                             if rb.status_code == 200 and rb.json().get("code") == 0:
@@ -463,8 +469,8 @@ def run_growth_partner():
                                     "status": "ACTIVE_TEST",
                                     "ts": now_sa.isoformat(),
                                 })
-                        except Exception:
-                            pass
+                    except Exception:
+                        pass
     except Exception as e:
         print(f"WARN TikTok Partner check: {e}", flush=True)
 
@@ -479,7 +485,7 @@ def run_growth_partner():
                     "type": "scale_google_ads",
                     "scale_key": g_scale_key,
                     "ad_id": "google_winners",
-                    "ad_name": "Google Ads Winners (car lesds 14-10 / watch ksa / الباور قطر / kashaf oman)",
+                    "ad_name": "Google Ads Winners (car lesds 14-10 / watch ksa / الباور قطر)",
                     "product": "وسادة مسند السيارة + الساعة + الباور",
                     "base_spend": 0.0,
                     "base_sales": today_same_hr_orders,
