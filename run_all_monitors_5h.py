@@ -1136,7 +1136,7 @@ def run_improvements_guardian(sales_3d: dict = None, sales_today: dict = None):
 
     # ---------------- 1) Snapchat CSP9860 ----------------
     try:
-        from snap_auth import load_config, refresh_access_token
+        from snap_auth import load_config, refresh_access_token, api_get
         from snap_monitor import (TARGET_ACCOUNT_ID, api_put, api_get_paginated,
                                   fetch_account_breakdown_stats, get_squad_countries, GULF_COUNTRY_CODES,
                                   is_cross_monitored_product_campaign, load_paused_history)
@@ -1146,6 +1146,8 @@ def run_improvements_guardian(sales_3d: dict = None, sales_today: dict = None):
         squads = api_get_paginated(f"/adaccounts/{TARGET_ACCOUNT_ID}/adsquads", tok, "adsquads", "adsquad", max_pages=40)
         st1 = {x["id"]: x for x in fetch_account_breakdown_stats(tok, TARGET_ACCOUNT_ID, "adsquad", days_back=0)}
         st3 = {x["id"]: x for x in fetch_account_breakdown_stats(tok, TARGET_ACCOUNT_ID, "adsquad", days_back=2)}
+        ad_st1_g = {x["id"]: x for x in fetch_account_breakdown_stats(tok, TARGET_ACCOUNT_ID, "ad", days_back=0)}
+        ad_st3_g = {x["id"]: x for x in fetch_account_breakdown_stats(tok, TARGET_ACCOUNT_ID, "ad", days_back=2)}
         empty = {"spend": 0.0, "purchases": 0, "cpa": None, "cpc": 0.0, "swipes": 0}
 
         def put_squad(sq):
@@ -1188,10 +1190,27 @@ def run_improvements_guardian(sales_3d: dict = None, sales_today: dict = None):
                     elif st["cpa"] is not None and st["cpa"] > cpa_cut:
                         reason = f"CPA=${st['cpa']} > ${cpa_cut}"
                     if reason:
-                        s["status"] = "PAUSED"
-                        put_squad(s)
-                        actions.append(f"سناب: إيقاف نسخة خاسرة '{nm}' ({cname}) — {reason}")
-                        continue
+                        has_prot_win = False
+                        try:
+                            ads_in_s = api_get(f"/adsquads/{s['id']}/ads", tok).get("ads", [])
+                            for aw in ads_in_s:
+                                ao = aw.get("ad") or {}
+                                if ao.get("status") != "ACTIVE":
+                                    continue
+                                a3_v = ad_st3_g.get(ao["id"], empty)
+                                a1_v = ad_st1_g.get(ao["id"], empty)
+                                if a3_v["purchases"] >= 1 and a3_v["cpa"] is not None and a3_v["cpa"] <= 8.50 and not (a1_v["spend"] >= 4.80 and a1_v["purchases"] == 0):
+                                    has_prot_win = True
+                                elif a3_v["purchases"] == 0 and a1_v["spend"] >= 1.20 and a1_v["purchases"] == 0:
+                                    ao["status"] = "PAUSED"
+                                    api_put(f"/adsquads/{s['id']}/ads", tok, {"ads": [ao]})
+                        except Exception:
+                            pass
+                        if not has_prot_win:
+                            s["status"] = "PAUSED"
+                            put_squad(s)
+                            actions.append(f"سناب: إيقاف نسخة خاسرة '{nm}' ({cname}) — {reason}")
+                            continue
                 still_active.append(s)
 
             # (B) سقف عدد النسخ 5 مجموعات مركزة — إيقاف الزائد الأضعف
