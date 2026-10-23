@@ -376,10 +376,10 @@ def run_proactive_sales_scaling(sales_3d: dict, sales_today: dict):
     now_sa = datetime.now(SA_TZ)
     today_key = now_sa.strftime("%Y-%m-%d")
     sa_hour = now_sa.hour
-    allow_budget_bid_increase = (6 <= sa_hour < 17)
+    allow_budget_bid_increase = (6 <= sa_hour < 23)
     log_msg(
-        f"=== 🚀 بدء محرك تحسين الحملات المتوازن (كل ساعتين - بدون ضغط يسبب خسارة) | توقيت السعودية: {now_sa.strftime('%H:%M')} | "
-        f"نافذة التوسع النهارية الآمنة (06:00-16:59): {'مفعلة ✅' if allow_budget_bid_increase else 'مغلقة لحماية الربح ليلاً 🛡️'} ==="
+        f"=== 🚀 بدء محرك تحسين الحملات والسكيلينغ المربح (كل ساعتين) | توقيت السعودية: {now_sa.strftime('%H:%M')} | "
+        f"نافذة التوسع والذروة (06:00-23:00): {'مفعلة ✅' if allow_budget_bid_increase else 'مغلقة بعد منتصف الليل 🛡️'} ==="
     )
 
     # =========================================================================
@@ -786,35 +786,42 @@ def run_proactive_sales_scaling(sales_3d: dict, sales_today: dict):
                         eff_conv_today >= 3 and eff_cpa_today <= 6.50 and sp1 >= 15.0
                     )
                     if allow_budget_bid_increase and eff_cpa_3d <= 7.50 and cid not in no_dup_tt and is_tt_budget_winner and t_key not in tt_scaled:
-                        cur_budget = gf(r, "budget") or 50.0
-                        if 20.0 <= cur_budget < 150.0:
-                            new_budget = min(180, int(round(cur_budget * 1.20)))
+                        cur_budget = float(r.get("budget") or gf(r, "budget") or 50.0)
+                        if 20.0 <= cur_budget < 200.0:
+                            new_budget = min(220, int(round(cur_budget * 1.20)))
                             try:
                                 h_b = dict(headers)
                                 h_b["Referer"] = f"https://ads.tiktok.com/i18n/manage/campaign?aadvid={aadvid}"
-                                resp_b = session.post(
-                                    f"https://ads.tiktok.com/api/v2/i18n/overture/campaign/update_budget/?aadvid={aadvid}&req_src=bidding",
+                                det_r = session.get(
+                                    f"https://ads.tiktok.com/api/v3/i18n/perf/campaign/detail/?aadvid={aadvid}&campaign_id={cid}",
                                     headers=h_b,
-                                    json={"campaign_id": cid, "budget": new_budget, "budget_mode": 1, "ad_channel": 1},
-                                    timeout=20,
-                                )
-                                if resp_b.text.strip():
-                                    rb = resp_b.json()
-                                    if rb.get("code") == 0:
-                                        tt_scaled[t_key] = {
-                                            "name": cname,
-                                            "old_budget": cur_budget,
-                                            "new_budget": new_budget,
-                                            "conv_today": eff_conv_today,
-                                            "cpa_today": eff_cpa_today,
-                                            "scaled_at": datetime.now(SA_TZ).isoformat(),
-                                        }
-                                        save_history(hist)
-                                        tt_actions += 1
-                                        log_msg(
-                                            f"🔥 [توسع هادئ تيك توك - رفع ميزانية +20%] '{cname}' ({acc_name}) | "
-                                            f"مبيعات اليوم: {eff_conv_today} بـ CPA=${eff_cpa_today:.2f} | الميزانية: ${cur_budget:.0f} -> ${new_budget}"
-                                        )
+                                    timeout=15,
+                                ).json().get("data") or {}
+                                if det_r:
+                                    up_payload = {**det_r, "campaign_id": str(cid), "campaign_name": det_r.get("name") or cname, "budget": float(new_budget)}
+                                    resp_b = session.post(
+                                        f"https://ads.tiktok.com/api/v3/i18n/perf/campaign/update/?aadvid={aadvid}",
+                                        headers=h_b,
+                                        json=up_payload,
+                                        timeout=20,
+                                    )
+                                    if resp_b.text.strip():
+                                        rb = resp_b.json()
+                                        if rb.get("code") == 0:
+                                            tt_scaled[t_key] = {
+                                                "name": cname,
+                                                "old_budget": cur_budget,
+                                                "new_budget": new_budget,
+                                                "conv_today": eff_conv_today,
+                                                "cpa_today": eff_cpa_today,
+                                                "scaled_at": datetime.now(SA_TZ).isoformat(),
+                                            }
+                                            save_history(hist)
+                                            tt_actions += 1
+                                            log_msg(
+                                                f"🔥 [توسع هادئ تيك توك - رفع ميزانية +20%] '{cname}' ({acc_name}) | "
+                                                f"مبيعات اليوم: {eff_conv_today} بـ CPA=${eff_cpa_today:.2f} | الميزانية: ${cur_budget:.0f} -> ${new_budget}"
+                                            )
                             except Exception:
                                 pass
 
