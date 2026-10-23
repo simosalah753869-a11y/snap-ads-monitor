@@ -367,12 +367,13 @@ def wait_for_table_change(ws, old_sig, timeout=7.5):
 def select_date_preset(ws, option_text, port=None):
     old_sig = get_total_row_sig(ws)
     eval_js(ws, "window.scrollTo(0, 0); document.querySelectorAll('.particle-table-canvas, ess-table-canvas, [role=\"grid\"]').forEach(s => s.scrollTop = 0);")
-    time.sleep(0.25)
+    time.sleep(0.3)
     js_open = """
     (() => {
-        const picker = document.querySelector('material-date-range-picker, .date-range-picker');
-        if (!picker) return null;
-        const btn = picker.querySelector('.dropdown-button, [role="button"], material-button') || picker;
+        const icons = Array.from(document.querySelectorAll('material-date-range-picker material-icon, .date-range-picker material-icon'));
+        const arrow = icons.find(i => (i.innerText || '').trim() === 'arrow_drop_down');
+        const btn = arrow ? (arrow.closest('[role="button"], material-button, .dropdown-button') || arrow) : document.querySelector('material-date-range-picker .dropdown-button');
+        if (!btn) return null;
         const r = btn.getBoundingClientRect();
         if (r.width <= 0 || r.height <= 0) return null;
         return {x: Math.round(r.left + r.width/2), y: Math.round(r.top + r.height/2)};
@@ -382,26 +383,28 @@ def select_date_preset(ws, option_text, port=None):
     if not box:
         return "NO_DATE_PICKER"
     cdp_click(ws, box["x"], box["y"])
-    time.sleep(0.95)
+    time.sleep(1.0)
     keep_adspower_offscreen(port)
     js_pick = f"""
     (() => {{
-        const lists = Array.from(document.querySelectorAll('.preset-list, material-list, .popup-content, [role="listbox"], [role="menu"]'));
-        const items = Array.from(document.querySelectorAll('material-select-item, [role="option"], [role="menuitem"], .item-label'));
+        const items = Array.from(document.querySelectorAll('material-select-item, [role="option"], [role="menuitem"], .item-label, span'));
         for (const el of items) {{
             const t = (el.innerText || '').replace(/\\s+/g, ' ').trim();
             if ((t === {json.dumps(option_text)} || t.startsWith({json.dumps(option_text)} + ' ')) && el.offsetParent !== null) {{
                 const itemEl = el.closest('material-select-item, [role="option"], [role="menuitem"]') || el;
                 itemEl.scrollIntoView({{block: 'center'}});
                 const r = itemEl.getBoundingClientRect();
-                return {{found: true, x: Math.round(r.left + r.width/2), y: Math.round(r.top + r.height/2)}};
+                if (r.width > 0 && r.height > 0) {{
+                    return {{found: true, x: Math.round(r.left + r.width/2), y: Math.round(r.top + r.height/2)}};
+                }}
             }}
         }}
-        return {{found: false, lists: lists.length}};
+        return {{found: false}};
     }})()
     """
     pk = eval_js(ws, js_pick) or {}
     if pk.get("found"):
+        time.sleep(0.15)
         cdp_click(ws, pk["x"], pk["y"])
         wait_for_table_change(ws, old_sig, timeout=7.5)
         keep_adspower_offscreen(port)
@@ -519,10 +522,10 @@ def set_google_ad_status_carefully(ws, camp_name: str, ad_name: str, desired_sta
     expected_label = "Enabled" if desired_status == "Enable" else "Paused"
     eval_js(ws, "document.body.click()")
     time.sleep(0.2)
-    for scroll_pos in (0, 500, 1000, 1500, 2000):
+    for scroll_pos in (0, 500, 1000, 1500, 2000, 2600):
         eval_js(
             ws,
-            f"window.scrollTo(0, {scroll_pos}); document.querySelectorAll('.particle-table-canvas, .ess-table-canvas, [role=\"grid\"]').forEach(s => s.scrollTop = {scroll_pos});",
+            f"window.scrollTo(0, {scroll_pos}); document.querySelectorAll('.particle-table-canvas, ess-table-canvas, .ess-table-canvas, [role=\"grid\"]').forEach(s => s.scrollTop = {scroll_pos});",
         )
         time.sleep(0.2)
         js_find = f"""
