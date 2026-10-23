@@ -99,6 +99,35 @@ def keep_adspower_offscreen(port=None):
         pass
 
 
+def classify_product_and_country(text_prod: str, text_country: str = "") -> tuple:
+    t = f"{text_prod} {text_country}".lower()
+    if any(k in t for k in ("watch", "ساع", "ساعه", "ساعات")):
+        p_cat = "watch"
+    elif any(k in t for k in ("power", "باور", "شاحن", "voltrx")):
+        p_cat = "power"
+    elif any(k in t for k in ("kashaf", "كشاف")):
+        p_cat = "kashaf"
+    elif any(k in t for k in ("car", "armrest", "سيار", "وساد", "تكاي", "مسند")):
+        p_cat = "car"
+    else:
+        p_cat = "other"
+
+    c_raw = (text_country or text_prod).lower()
+    if any(k in c_raw for k in ("oman", "عمان", "عُمان")) or c_raw.strip() == "om":
+        c_cat = "om"
+    elif any(k in c_raw for k in ("qatar", "قطر")) or c_raw.strip() == "qa":
+        c_cat = "qa"
+    elif any(k in c_raw for k in ("kuwait", "كويت")) or c_raw.strip() == "kw":
+        c_cat = "kw"
+    elif any(k in c_raw for k in ("uae", "امارات", "إمارات")) or c_raw.strip() == "ae":
+        c_cat = "ae"
+    elif any(k in c_raw for k in ("bahrain", "بحرين")) or c_raw.strip() == "bh":
+        c_cat = "bh"
+    else:
+        c_cat = "sa"
+    return p_cat, c_cat
+
+
 def fetch_sheet_multiwindow_sales(ref_date_str: str = None) -> dict:
     """Fetches Lightfunnels Google Sheet orders and aggregates by UTM across 1D, 2D, 3D, and 7D."""
     csv_url = "https://docs.google.com/spreadsheets/d/1AaGXjCDbrD7tLEpYaJf5cncgZ3HW5IP3J8TIVAcn0pE/gviz/tq?tqx=out:csv"
@@ -132,53 +161,6 @@ def fetch_sheet_multiwindow_sales(ref_date_str: str = None) -> dict:
 
     last_time_by_utm = {}
     seen_keys = set()
-def classify_product_and_country(text_prod: str, text_country: str = "") -> tuple:
-    t = f"{text_prod} {text_country}".lower()
-    if any(k in t for k in ("watch", "ساع", "ساعه", "ساعات")):
-        p_cat = "watch"
-    elif any(k in t for k in ("power", "باور", "شاحن", "voltrx")):
-        p_cat = "power"
-    elif any(k in t for k in ("kashaf", "كشاف")):
-        p_cat = "kashaf"
-    elif any(k in t for k in ("car", "armrest", "سيار", "وساد", "تكاي", "مسند")):
-        p_cat = "car"
-    else:
-        p_cat = "other"
-
-    c_raw = (text_country or text_prod).lower()
-    if any(k in c_raw for k in ("oman", "عمان", "عُمان")) or c_raw.strip() == "om":
-        c_cat = "om"
-    elif any(k in c_raw for k in ("qatar", "قطر")) or c_raw.strip() == "qa":
-        c_cat = "qa"
-    elif any(k in c_raw for k in ("kuwait", "كويت")) or c_raw.strip() == "kw":
-        c_cat = "kw"
-    elif any(k in c_raw for k in ("uae", "امارات", "إمارات")) or c_raw.strip() == "ae":
-        c_cat = "ae"
-    elif any(k in c_raw for k in ("bahrain", "بحرين")) or c_raw.strip() == "bh":
-        c_cat = "bh"
-    else:
-        c_cat = "sa"
-    return p_cat, c_cat
-
-
-def fetch_sheet_multiwindow_sales() -> dict:
-    """
-    Returns deduplicated Lightfunnels sales per UTM code across 1D, 2D, 3D, and 7D,
-    plus strict (utm, prod_cat, country_cat) breakdowns to prevent cross-product/country UTM collisions.
-    """
-    url = f"https://docs.google.com/spreadsheets/d/{SHEET_ID}/gviz/tq?tqx=out:csv&sheet={SHEET_NAME}"
-    req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
-    raw_csv = urllib.request.urlopen(req, timeout=20).read().decode("utf-8", errors="replace")
-    rows = list(csv.reader(io.StringIO(raw_csv)))
-
-    d_1d = get_date_set(0)
-    d_2d = get_date_set(1)
-    d_3d = get_date_set(2)
-    d_7d = get_date_set(6)
-
-    seen_keys = set()
-    last_time_by_utm = {}
-
     s1 = defaultdict(int)
     s2 = defaultdict(int)
     s3 = defaultdict(int)
