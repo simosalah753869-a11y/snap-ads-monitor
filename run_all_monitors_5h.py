@@ -508,45 +508,34 @@ def run_proactive_sales_scaling(sales_3d: dict, sales_today: dict):
                 is_copy_sq = "copy" in sname.lower()
                 user_react_sq = history.get("user_reactivated_squads", {})
 
-                # (0) إيقاف المجموعات المستنسخة (التي تحتوي على Copy في اسمها فقط!) إذا صرفت >= 5$ بدون مبيعة أو تخطت CPA > 7$؛
-                # بشرط عدم وجودها في قائمة التفعيل اليدوي أو احتوائها على فيديو رابح محمي بواسطة snap_monitor.py!
-                if is_copy_sq and sid not in user_react_sq and ((s3["spend"] >= 5.0 and s3["purchases"] == 0) or (s3["purchases"] > 0 and s3["cpa"] is not None and s3["cpa"] > 7.0)):
-                    # Check if there is a winning active ad inside before pausing the squad
-                    has_protected_win_ad = False
+                # (0) إيقاف أي مجموعة (AdSquad) تصرف >= $4.00 بـ 0 مبيعات أو يتعدى فيها سعر النقرة CPC > $0.35 بدون مبيعات، أو تتخطى CPA > $7.00 — بغض النظر لو بعض الفيديوهات بداخلها لم تأخذ فرصتها بعد!
+                high_cpc_no_sale = (
+                    s1["purchases"] == 0
+                    and (
+                        (s1["spend"] >= 1.00 and s1.get("swipes", 0) == 0)
+                        or (s1["spend"] >= 0.70 and s1.get("swipes", 0) > 0 and s1.get("cpc", 0.0) > 0.35)
+                    )
+                ) or (
+                    s3["purchases"] == 0
+                    and (
+                        (s3["spend"] >= 1.00 and s3.get("swipes", 0) == 0)
+                        or (s3["spend"] >= 0.70 and s3.get("swipes", 0) > 0 and s3.get("cpc", 0.0) > 0.35)
+                    )
+                )
+                hit_4_stop_loss = (s1["spend"] >= 4.00 and s1["purchases"] == 0) or (s3["spend"] >= 4.00 and s3["purchases"] == 0)
+                hit_high_cpa = is_copy_sq and (s3["purchases"] > 0 and s3["cpa"] is not None and s3["cpa"] > 7.0)
+                if sid not in user_react_sq and (high_cpc_no_sale or hit_4_stop_loss or hit_high_cpa):
+                    sq["status"] = "PAUSED"
                     try:
-                        ads_chk = api_get(f"/adsquads/{sid}/ads", token).get("ads", [])
-                        ad_st_3d_map = {x["id"]: x for x in fetch_account_breakdown_stats(token, TARGET_ACCOUNT_ID, "ad", days_back=2)}
-                        ad_st_1d_map = {x["id"]: x for x in fetch_account_breakdown_stats(token, TARGET_ACCOUNT_ID, "ad", days_back=0)}
-                        for a_w in ads_chk:
-                            ao = a_w.get("ad") or {}
-                            if ao.get("status") != "ACTIVE":
-                                continue
-                            aid_w = ao.get("id")
-                            a3 = ad_st_3d_map.get(aid_w, {"spend": 0.0, "purchases": 0, "cpa": None})
-                            a1 = ad_st_1d_map.get(aid_w, {"spend": 0.0, "purchases": 0, "cpa": None})
-                            if (
-                                a3["purchases"] >= 1
-                                and a3["cpa"] is not None
-                                and a3["cpa"] <= 7.00
-                                and not (a1["spend"] >= 4.80 and a1["purchases"] == 0)
-                                and not (a1["purchases"] > 0 and a1["cpa"] is not None and a1["cpa"] > 7.00)
-                            ):
-                                has_protected_win_ad = True
-                                break
+                        api_put(f"/campaigns/{cid}/adsquads", token, {"adsquads": [sq]})
+                        snap_actions += 1
+                        log_msg(
+                            f"🛑 [قاعدة إيقاف الأدست - سناب شات] تم إيقاف المجموعة '{sname}' داخل حملة '{cname}' "
+                            f"(Spend=${s3['spend']:.2f}, CPC=${s1.get('cpc') or s3.get('cpc')}, Sales={s3['purchases']}, CPA=${s3['cpa']}) بغض النظر عن باقي الفيديوهات."
+                        )
                     except Exception:
                         pass
-                    if not has_protected_win_ad:
-                        sq["status"] = "PAUSED"
-                        try:
-                            api_put(f"/campaigns/{cid}/adsquads", token, {"adsquads": [sq]})
-                            snap_actions += 1
-                            log_msg(
-                                f"🛑 [قاعدة الـ Copy - سناب شات] تم إيقاف المجموعة المستنسخة '{sname}' داخل حملة '{cname}' "
-                                f"(3D Spend=${s3['spend']:.2f}, Sales={s3['purchases']}, CPA=${s3['cpa']}) لتوجيه الميزانية للمجموعات البياعة."
-                            )
-                        except Exception:
-                            pass
-                        continue
+                    continue
 
                 # (ب) تنظيف الفيديوهات غير البياعة (>= 5.00$ بدون مبيعة) داخل المجموعات
                 if (not is_copy_sq) or s2["purchases"] >= 1 or s1["purchases"] >= 1:
@@ -620,6 +609,7 @@ def run_proactive_sales_scaling(sales_3d: dict, sales_today: dict):
                 )
                 if (
                     allow_budget_bid_increase
+                    and not sname.startswith(("Copy A -", "Copy B -"))
                     and has_low_cpa_win
                     and s1["spend"] < 4.00
                     and 0 < bid_micro < max_boost_bid_micro
