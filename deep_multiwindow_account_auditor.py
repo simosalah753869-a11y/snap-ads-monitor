@@ -425,7 +425,12 @@ def select_date_preset(ws, option_text, port=None):
         return {x: Math.round(r.left + r.width/2), y: Math.round(r.top + r.height/2)};
     })()
     """
-    box = eval_js(ws, js_open)
+    box = None
+    for _ in range(12):
+        box = eval_js(ws, js_open)
+        if box:
+            break
+        time.sleep(0.8)
     if not box:
         return "NO_DATE_PICKER"
     cdp_click(ws, box["x"], box["y"])
