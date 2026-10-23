@@ -1,0 +1,828 @@
+import csv
+import ctypes
+import glob
+import io
+import json
+import os
+import re
+import socket
+import sys
+import time
+import urllib.parse
+import urllib.request
+from collections import defaultdict
+from datetime import datetime, timedelta, timezone
+from pathlib import Path
+import requests
+import websocket
+
+sys.stdout.reconfigure(encoding="utf-8")
+
+_orig_getaddrinfo = socket.getaddrinfo
+_dns_cache = {}
+
+
+def _doh_getaddrinfo(host, port, family=0, type=0, proto=0, flags=0):
+    try:
+        return _orig_getaddrinfo(host, port, family, type, proto, flags)
+    except Exception:
+        if host not in _dns_cache:
+            try:
+                req = urllib.request.Request(
+                    f"https://1.1.1.1/dns-query?name={host}&type=A",
+                    headers={"accept": "application/dns-json"},
+                )
+                with urllib.request.urlopen(req, timeout=5) as resp:
+                    r = json.loads(resp.read().decode("utf-8"))
+                ips = [a["data"] for a in r.get("Answer", []) if a.get("type") == 1]
+                if ips:
+                    _dns_cache[host] = ips[0]
+            except Exception:
+                pass
+        if host in _dns_cache:
+            return _orig_getaddrinfo(_dns_cache[host], port, family, type, proto, flags)
+        raise
+
+
+socket.getaddrinfo = _doh_getaddrinfo
+
+BASE_DIR = Path(__file__).resolve().parent
+sys.path.insert(0, str(BASE_DIR))
+
+SA_TZ = timezone(timedelta(hours=3))
+REPORT_FILE = BASE_DIR / "multiwindow_audit_latest_report.md"
+
+# القواعد الصارمة المحدثة بأمر المستخدم: سعر البيعة الأقصى 7.00$ للسعودية (10.00$-12.00$ للخليج) عبر 4 نوافذ (1D, 2D, 3D, 7D)
+MAX_CPA_SA = 7.00
+MAX_CPA_GULF = 12.00
+NO_SALE_AD_STOP_SA = 5.00
+NO_SALE_AD_STOP_GULF = 8.50
+NO_SALE_SQUAD_STOP_SA = 4.50
+NO_SALE_SQUAD_STOP_GULF = 8.00
+
+
+def keep_adspower_offscreen(port=None):
+    if port:
+        try:
+            ver = json.loads(urllib.request.urlopen(f"http://127.0.0.1:{port}/json/version", timeout=2.5).read().decode("utf-8"))
+            b_ws_url = ver.get("webSocketDebuggerUrl", "").replace("ws://localhost:", "ws://127.0.0.1:")
+            tabs = json.loads(urllib.request.urlopen(f"http://127.0.0.1:{port}/json/list", timeout=2.5).read().decode("utf-8"))
+            g_tabs = [t for t in tabs if t.get("type") == "page" and "ads.google.com" in t.get("url", "")]
+            if b_ws_url and g_tabs:
+                bws = websocket.create_connection(b_ws_url, suppress_origin=True, timeout=4)
+                bws.send(json.dumps({"id": 1, "method": "Browser.getWindowForTarget", "params": {"targetId": g_tabs[0]["id"]}}))
+                rw = json.loads(bws.recv()).get("result", {})
+                if "windowId" in rw:
+                    bws.send(json.dumps({"id": 2, "method": "Browser.setWindowBounds", "params": {"windowId": rw["windowId"], "bounds": {"windowState": "normal"}}}))
+                    bws.recv()
+                    bws.send(json.dumps({"id": 3, "method": "Browser.setWindowBounds", "params": {"windowId": rw["windowId"], "bounds": {"left": -3200, "top": -3200, "width": 1440, "height": 900, "windowState": "normal"}}}))
+                    bws.recv()
+                bws.close()
+        except Exception:
+            pass
+    try:
+        user32 = ctypes.windll.user32
+
+        def cb(hwnd, lParam):
+            if user32.IsWindowVisible(hwnd):
+                length = user32.GetWindowTextLengthW(hwnd)
+                if length > 0:
+                    buf = ctypes.create_unicode_buffer(length + 1)
+                    user32.GetWindowTextW(hwnd, buf, length + 1)
+                    if any(k in buf.value for k in ("SunBrowser", "Google Ads", "AdsPower")):
+                        user32.SetWindowPos(hwnd, 1, -3200, -3200, 1440, 900, 0x0010 | 0x0004)
+            return True
+
+        WNDENUMPROC = ctypes.WINFUNCTYPE(ctypes.c_bool, ctypes.c_int, ctypes.c_int)
+        user32.EnumWindows(WNDENUMPROC(cb), 0)
+    except Exception:
+        pass
+
+
+def fetch_sheet_multiwindow_sales(ref_date_str: str = None) -> dict:
+    """Fetches Lightfunnels Google Sheet orders and aggregates by UTM across 1D, 2D, 3D, and 7D."""
+    csv_url = "https://docs.google.com/spreadsheets/d/1AaGXjCDbrD7tLEpYaJf5cncgZ3HW5IP3J8TIVAcn0pE/gviz/tq?tqx=out:csv"
+    csv_text = ""
+    for _ in range(3):
+        try:
+            r = requests.get(csv_url, headers={"User-Agent": "Mozilla/5.0"}, timeout=20)
+            if r.status_code == 200 and r.text:
+                csv_text = r.text
+                break
+        except Exception:
+            time.sleep(1.0)
+    if not csv_text:
+        req = urllib.request.Request(csv_url, headers={"User-Agent": "Mozilla/5.0"})
+        csv_text = urllib.request.urlopen(req, timeout=20).read().decode("utf-8", errors="replace")
+
+    rows = list(csv.reader(io.StringIO(csv_text)))
+    now_sa = datetime.now(SA_TZ)
+    if ref_date_str:
+        try:
+            base_dt = datetime.strptime(ref_date_str, "%Y-%m-%d").replace(tzinfo=SA_TZ)
+        except Exception:
+            base_dt = now_sa
+    else:
+        base_dt = now_sa
+
+    d_1d = {base_dt.strftime("%Y-%m-%d"), now_sa.strftime("%Y-%m-%d")}
+    d_2d = {(base_dt - timedelta(days=i)).strftime("%Y-%m-%d") for i in range(2)} | d_1d
+    d_3d = {(base_dt - timedelta(days=i)).strftime("%Y-%m-%d") for i in range(3)} | d_1d
+    d_7d = {(base_dt - timedelta(days=i)).strftime("%Y-%m-%d") for i in range(7)} | d_1d
+
+    last_time_by_utm = {}
+    seen_keys = set()
+    s1 = defaultdict(int)
+    s2 = defaultdict(int)
+    s3 = defaultdict(int)
+    s7 = defaultdict(int)
+    by_day_utm = defaultdict(lambda: defaultdict(int))
+
+    for r in rows[1:]:
+        if len(r) < 3:
+            continue
+        utm_raw = (r[1] or "").strip()
+        date_raw = (r[2] or "").strip()
+        if not utm_raw or not date_raw:
+            continue
+        d_str = date_raw.split(" ")[0]
+        if d_str not in d_7d:
+            continue
+        utm = utm_raw.lower()
+        try:
+            dt = datetime.strptime(date_raw[:19], "%Y-%m-%d %H:%M:%S")
+            t_ms = dt.timestamp() * 1000.0
+        except Exception:
+            t_ms = 0.0
+        ukey = f"{utm}|{date_raw}"
+        if ukey in seen_keys:
+            continue
+        if t_ms > 0 and utm in last_time_by_utm and abs(t_ms - last_time_by_utm[utm]) <= 5000:
+            seen_keys.add(ukey)
+            continue
+        seen_keys.add(ukey)
+        if t_ms > 0:
+            last_time_by_utm[utm] = t_ms
+
+        by_day_utm[d_str][utm] += 1
+        if d_str in d_1d:
+            s1[utm] += 1
+        if d_str in d_2d:
+            s2[utm] += 1
+        if d_str in d_3d:
+            s3[utm] += 1
+        if d_str in d_7d:
+            s7[utm] += 1
+
+    return {
+        "1d": dict(s1),
+        "2d": dict(s2),
+        "3d": dict(s3),
+        "7d": dict(s7),
+        "by_day": {k: dict(v) for k, v in by_day_utm.items()},
+    }
+
+
+# ==============================================================================
+# PART 1 & 2: RUN SNAPCHAT & TIKTOK MONITORS + MULTI-WINDOW DISSECTION
+# ==============================================================================
+def audit_snapchat_multiwindow(sheet_sales: dict) -> dict:
+    from snap_auth import load_config, refresh_access_token
+    import snap_monitor as sm
+
+    print("\n======================================================================")
+    print("👻 [1/3] فحص وتفصيص حساب سناب شات (CSP9860) عبر 4 نوافذ (1D / 2D / 3D / 7D) بحد CPA <= $7.00")
+    print("======================================================================", flush=True)
+
+    token = refresh_access_token(load_config())
+    # Run standard snap_monitor first (which now uses 1_DAY attribution & $7.00 max CPA across 1D/2D/3D/7D)
+    sm.run_automation(token, sm.TARGET_ACCOUNT_ID, dry_run=False)
+
+    # Fetch fresh post-action snapshot to verify 1000%
+    camps = sm.api_get_paginated(f"/adaccounts/{sm.TARGET_ACCOUNT_ID}/campaigns?limit=200", token, "campaigns", "campaign")
+    active_camps = [c for c in camps if c.get("status") == "ACTIVE"]
+
+    c_1d = {x["id"]: x for x in sm.fetch_account_breakdown_stats(token, sm.TARGET_ACCOUNT_ID, "campaign", days_back=0)}
+    c_2d = {x["id"]: x for x in sm.fetch_account_breakdown_stats(token, sm.TARGET_ACCOUNT_ID, "campaign", days_back=1)}
+    c_3d = {x["id"]: x for x in sm.fetch_account_breakdown_stats(token, sm.TARGET_ACCOUNT_ID, "campaign", days_back=2)}
+    c_7d = {x["id"]: x for x in sm.fetch_account_breakdown_stats(token, sm.TARGET_ACCOUNT_ID, "campaign", days_back=6)}
+
+    ad_1d = {x["id"]: x for x in sm.fetch_account_breakdown_stats(token, sm.TARGET_ACCOUNT_ID, "ad", days_back=0)}
+    ad_2d = {x["id"]: x for x in sm.fetch_account_breakdown_stats(token, sm.TARGET_ACCOUNT_ID, "ad", days_back=1)}
+    ad_3d = {x["id"]: x for x in sm.fetch_account_breakdown_stats(token, sm.TARGET_ACCOUNT_ID, "ad", days_back=2)}
+    ad_7d = {x["id"]: x for x in sm.fetch_account_breakdown_stats(token, sm.TARGET_ACCOUNT_ID, "ad", days_back=6)}
+
+    snap_summary = []
+    extra_paused = []
+    history = sm.load_paused_history()
+    now_str = datetime.now(SA_TZ).strftime("%Y-%m-%d %H:%M GMT+3")
+
+    for c in active_camps:
+        cid = c["id"]
+        cname = c.get("name", "")
+        s1 = c_1d.get(cid, {"spend": 0.0, "purchases": 0, "cpa": None})
+        s2 = c_2d.get(cid, {"spend": 0.0, "purchases": 0, "cpa": None})
+        s3 = c_3d.get(cid, {"spend": 0.0, "purchases": 0, "cpa": None})
+        s7 = c_7d.get(cid, {"spend": 0.0, "purchases": 0, "cpa": None})
+
+        # Double check all active ads inside this campaign
+        c_ads = sm.api_get_paginated(f"/campaigns/{cid}/ads?limit=500", token, "ads", "ad")
+        c_squads = {sq["id"]: sq for sq in sm.api_get_paginated(f"/campaigns/{cid}/adsquads?limit=200", token, "adsquads", "adsquad")}
+        act_ads = [a for a in c_ads if a.get("status") == "ACTIVE" and c_squads.get(a.get("ad_squad_id", ""), {}).get("status") == "ACTIVE"]
+
+        for a in act_ads:
+            aid = a["id"]
+            aname = a.get("name", "")
+            sq = c_squads.get(a.get("ad_squad_id", ""), {})
+            sname = sq.get("name", "")
+            if sm.is_cross_monitored_product_campaign(cname, sname):
+                continue
+            is_gulf = sm.is_gulf_034_campaign(cname, sname, sq)
+            max_cpa = MAX_CPA_GULF if is_gulf else MAX_CPA_SA
+            no_sale_lim = NO_SALE_AD_STOP_GULF if is_gulf else NO_SALE_AD_STOP_SA
+
+            a1 = ad_1d.get(aid, {"spend": 0.0, "purchases": 0, "cpa": None, "cpc": 0.0, "swipes": 0})
+            a2 = ad_2d.get(aid, {"spend": 0.0, "purchases": 0, "cpa": None, "cpc": 0.0, "swipes": 0})
+            a3 = ad_3d.get(aid, {"spend": 0.0, "purchases": 0, "cpa": None, "cpc": 0.0, "swipes": 0})
+            a7 = ad_7d.get(aid, {"spend": 0.0, "purchases": 0, "cpa": None, "cpc": 0.0, "swipes": 0})
+
+            if max(a1["spend"], a2["spend"], a3["spend"], a7["spend"]) <= 0:
+                continue
+
+            # Check if this active ad violates $7 CPA or 0-sale limit in 1D, 2D, 3D, or 7D
+            has_good_1d = a1["purchases"] >= 1 and a1["cpa"] is not None and a1["cpa"] <= max_cpa
+            has_good_3d = (
+                a3["purchases"] >= 1
+                and a3["cpa"] is not None
+                and a3["cpa"] <= max_cpa
+                and not (a1["spend"] >= no_sale_lim and a1["purchases"] == 0)
+                and not (a1["purchases"] > 0 and a1["cpa"] is not None and a1["cpa"] > max_cpa)
+            )
+            kill_r = None
+            if a1["spend"] >= no_sale_lim and a1["purchases"] == 0:
+                kill_r = f"1D Spend ${a1['spend']:.2f} with 0 sales"
+            elif a1["purchases"] > 0 and a1["cpa"] is not None and a1["cpa"] > max_cpa:
+                kill_r = f"1D CPA ${a1['cpa']:.2f} > ${max_cpa:.2f} (${a1['spend']:.2f}/{a1['purchases']}p)"
+            elif a2["spend"] >= no_sale_lim and a2["purchases"] == 0 and not has_good_3d:
+                kill_r = f"2D Spend ${a2['spend']:.2f} with 0 sales"
+            elif a2["purchases"] > 0 and a2["cpa"] is not None and a2["cpa"] > max_cpa and not has_good_1d:
+                kill_r = f"2D CPA ${a2['cpa']:.2f} > ${max_cpa:.2f} (${a2['spend']:.2f}/{a2['purchases']}p)"
+            elif a3["spend"] >= no_sale_lim and a3["purchases"] == 0:
+                kill_r = f"3D Spend ${a3['spend']:.2f} with 0 sales"
+            elif a3["purchases"] > 0 and a3["cpa"] is not None and a3["cpa"] > max_cpa and not has_good_1d:
+                kill_r = f"3D CPA ${a3['cpa']:.2f} > ${max_cpa:.2f} (${a3['spend']:.2f}/{a3['purchases']}p)"
+            elif a7["spend"] >= no_sale_lim and a7["purchases"] == 0 and not has_good_3d:
+                kill_r = f"7D Spend ${a7['spend']:.2f} with 0 sales"
+            elif a7["purchases"] > 0 and a7["cpa"] is not None and a7["cpa"] > max_cpa and not has_good_3d and not has_good_1d:
+                kill_r = f"7D CPA ${a7['cpa']:.2f} > ${max_cpa:.2f} (${a7['spend']:.2f}/{a7['purchases']}p)"
+
+            if kill_r:
+                a["status"] = "PAUSED"
+                sm.api_put(f"/adsquads/{sq['id']}/ads", token, {"ads": [a]})
+                history["ads"][aid] = {
+                    "name": aname,
+                    "campaign": cname,
+                    "adsquad": sname,
+                    "reason": f"[MultiWindow Manual+Bot Dissector] {kill_r}",
+                    "paused_at": now_str,
+                }
+                sm.save_paused_history(history)
+                extra_paused.append(f"🛑 سناب شات: إيقاف الإعلان `{aname}` في `{cname}` (`{sname}`) — {kill_r}")
+                print(f"  🛑 [Extra Dissector Pause] '{aname}' in '{cname}' | {kill_r}", flush=True)
+
+        if max(s1["spend"], s2["spend"], s3["spend"], s7["spend"]) > 0:
+            snap_summary.append({
+                "name": cname,
+                "1d": f"${s1['spend']:.2f} / {s1['purchases']}p (CPA={('$'+str(s1['cpa'])) if s1['cpa'] else '—'})",
+                "2d": f"${s2['spend']:.2f} / {s2['purchases']}p (CPA={('$'+str(s2['cpa'])) if s2['cpa'] else '—'})",
+                "3d": f"${s3['spend']:.2f} / {s3['purchases']}p (CPA={('$'+str(s3['cpa'])) if s3['cpa'] else '—'})",
+                "7d": f"${s7['spend']:.2f} / {s7['purchases']}p (CPA={('$'+str(s7['cpa'])) if s7['cpa'] else '—'})",
+            })
+
+    return {"campaigns": snap_summary, "extra_paused": extra_paused}
+
+
+def audit_tiktok_multiwindow() -> dict:
+    import tiktok_monitor as tm
+
+    print("\n======================================================================")
+    print("🎵 [2/3] فحص وتفصيص حسابات تيك توك الـ 6 عبر 4 نوافذ (1D / 2D / 3D / 7D) بحد CPA <= $7.00")
+    print("======================================================================", flush=True)
+
+    tm.main()
+    return {"status": "completed"}
+
+
+# ==============================================================================
+# PART 3: GOOGLE ADS 1000% CAREFUL MULTI-WINDOW (1D / 2D / 3D / 7D) AUDITOR
+# ==============================================================================
+MID = 100
+
+
+def send_cdp(ws, method, params=None):
+    global MID
+    MID += 1
+    my_id = MID
+    ws.send(json.dumps({"id": my_id, "method": method, "params": params or {}}))
+    while True:
+        raw = ws.recv()
+        msg = json.loads(raw)
+        if msg.get("id") == my_id:
+            return msg.get("result", {}), msg.get("error")
+
+
+def eval_js(ws, expr, await_promise=False):
+    res, _ = send_cdp(ws, "Runtime.evaluate", {"expression": expr, "awaitPromise": await_promise, "returnByValue": True})
+    return (res or {}).get("result", {}).get("value")
+
+
+def cdp_click(ws, x, y):
+    send_cdp(ws, "Input.dispatchMouseEvent", {"type": "mouseMoved", "x": x, "y": y})
+    send_cdp(ws, "Input.dispatchMouseEvent", {"type": "mousePressed", "x": x, "y": y, "button": "left", "clickCount": 1})
+    send_cdp(ws, "Input.dispatchMouseEvent", {"type": "mouseReleased", "x": x, "y": y, "button": "left", "clickCount": 1})
+
+
+def get_total_row_sig(ws):
+    js = """
+    (() => {
+        const rows = Array.from(document.querySelectorAll('.particle-table-row, ess-table-row'));
+        const tot = rows.find(r => (r.innerText || '').includes('Total:'));
+        return tot ? (tot.innerText || '').replace(/\\s+/g, ' ').trim() : '';
+    })()
+    """
+    return eval_js(ws, js) or ""
+
+
+def wait_for_table_change(ws, old_sig, timeout=7.5):
+    t0 = time.time()
+    while time.time() - t0 < timeout:
+        time.sleep(0.55)
+        cur_sig = get_total_row_sig(ws)
+        if cur_sig and cur_sig != old_sig:
+            time.sleep(0.55)
+            return cur_sig
+    return get_total_row_sig(ws)
+
+
+def select_date_preset(ws, option_text, port=None):
+    old_sig = get_total_row_sig(ws)
+    js_open = """
+    (() => {
+        window.scrollTo(0, 0);
+        const icons = Array.from(document.querySelectorAll('material-date-range-picker material-icon, .date-range-picker material-icon'));
+        const arrow = icons.find(i => (i.innerText || '').trim() === 'arrow_drop_down');
+        const btn = arrow ? (arrow.closest('[role="button"], material-button, .dropdown-button') || arrow) : document.querySelector('material-date-range-picker .dropdown-button');
+        if (!btn) return null;
+        const r = btn.getBoundingClientRect();
+        return {x: Math.round(r.left + r.width/2), y: Math.round(r.top + r.height/2)};
+    })()
+    """
+    box = eval_js(ws, js_open)
+    if not box:
+        return "NO_DATE_PICKER"
+    cdp_click(ws, box["x"], box["y"])
+    time.sleep(0.9)
+    keep_adspower_offscreen(port)
+    js_pick = f"""
+    (() => {{
+        const items = Array.from(document.querySelectorAll('material-select-item, [role="option"], [role="menuitem"], .item-label, span'));
+        const target = items.find(el => (el.innerText || '').trim().startsWith({json.dumps(option_text)}) && el.offsetParent !== null);
+        if (target) {{
+            const r = (target.closest('material-select-item, [role="option"], [role="menuitem"]') || target).getBoundingClientRect();
+            return {{found: true, x: Math.round(r.left + r.width/2), y: Math.round(r.top + r.height/2)}};
+        }}
+        return {{found: false}};
+    }})()
+    """
+    pk = eval_js(ws, js_pick) or {}
+    if pk.get("found"):
+        cdp_click(ws, pk["x"], pk["y"])
+        wait_for_table_change(ws, old_sig, timeout=7.5)
+        keep_adspower_offscreen(port)
+        return f"SELECTED:{option_text}"
+    send_cdp(ws, "Input.dispatchKeyEvent", {"type": "keyDown", "key": "Escape", "code": "Escape", "windowsVirtualKeyCode": 27})
+    send_cdp(ws, "Input.dispatchKeyEvent", {"type": "keyUp", "key": "Escape", "code": "Escape", "windowsVirtualKeyCode": 27})
+    return "NOT_FOUND"
+
+
+def click_prev_day_js(ws):
+    old_sig = get_total_row_sig(ws)
+    js = """
+    (() => {
+        const icons = Array.from(document.querySelectorAll('material-date-range-picker material-icon, .date-range-picker material-icon, material-date-range-picker i'));
+        const prev = icons.find(el => (el.innerText || '').trim() === 'chevron_left');
+        if (prev) {
+            const btn = prev.closest('material-button, button, [role="button"]') || prev;
+            btn.click();
+            return 'CLICKED_PREV';
+        }
+        return 'NOT_FOUND';
+    })()
+    """
+    r = eval_js(ws, js)
+    if r == "CLICKED_PREV":
+        wait_for_table_change(ws, old_sig, timeout=7.5)
+        return True
+    return False
+
+
+def scrape_google_ads_table(ws) -> dict:
+    """Scrapes all rows from Google Ads /aw/ads or /aw/campaigns table with exact parsed metrics."""
+    js = """
+    (async () => {
+        const sleep = ms => new Promise(r => setTimeout(r, ms));
+        const scroller = document.querySelector('.particle-table-canvas, ess-table-canvas, [role="grid"]') || window;
+        if (scroller !== window) scroller.scrollTop = 0;
+        await sleep(200);
+        const seen = new Set();
+        const rowsOut = [];
+        for (let step = 0; step < 6; step++) {
+            const rows = Array.from(document.querySelectorAll('.particle-table-row, ess-table-row'));
+            for (const r of rows) {
+                const stCell = r.querySelector('[essfield="status"]');
+                const stImg = stCell ? stCell.querySelector('[role="img"]') : null;
+                const toggle = stImg ? (stImg.getAttribute('aria-label') || '') : '';
+                const camp = ((r.querySelector('[essfield="campaign_name"]') || {}).innerText || '').trim();
+                const ad = ((r.querySelector('.ad-name') || {}).innerText || '').trim();
+                let txt = (r.innerText || '').replace(/\\s+/g, ' ').trim();
+                if (txt.includes('View asset details')) {
+                    txt = txt.split('View asset details')[1].trim();
+                }
+                const key = toggle + '|' + camp + '|' + ad + '|' + txt.slice(0, 140);
+                if (txt.length > 5 && !seen.has(key)) {
+                    seen.add(key);
+                    const isZero = /\\b0\\s+0\\s+(?:—|0\\.00%)\\s+(?:US)?\\$0\\.00/.test(txt);
+                    if (toggle === 'Enabled' || !isZero || txt.includes('Total:')) {
+                        rowsOut.push({toggle, camp, ad, text: txt.slice(0, 320)});
+                    }
+                }
+            }
+            if (scroller === window) window.scrollBy(0, 650);
+            else scroller.scrollTop += 650;
+            await sleep(160);
+        }
+        if (scroller !== window) scroller.scrollTop = 0;
+        const dateEl = document.querySelector('material-date-range-picker, .date-range-picker');
+        return {
+            dateText: dateEl ? (dateEl.innerText || '').replace(/\\s+/g, ' ').trim() : '',
+            rows: rowsOut
+        };
+    })()
+    """
+    return eval_js(ws, js, await_promise=True) or {}
+
+
+def parse_google_ad_metrics(row_obj: dict) -> dict:
+    """
+    Carefully parses a Google Ads /aw/ads row text:
+    Example: 'Enabled c9 car lesds 14-10 Ad group 1 Eligible Demand Gen Video Ad 238 4,009 5.94% $0.08 $19.47 0.00% 3.00 $6.49'
+    or with 0 clicks: 'Enabled pbw5 power bank WINNERS 20-10 Ad group 1 Eligible (Limited) Demand Gen Video Ad 0 118 0.00% — $1.51 0.00% 0.00 $0.00'
+    """
+    txt = row_obj.get("text", "")
+    after_status = re.split(r"Eligible(?:\s*\([^)]+\))?|Paused|Pending|Under review|Approved|Disapproved", txt, maxsplit=1)
+    tail = after_status[1] if len(after_status) > 1 else txt
+
+    # Match pattern: <clicks> <impr> <ctr>% <cpc_or_dash> $<cost> <conv_rate>% <conv> $<cpa>
+    m = re.search(
+        r"(\d[\d,]*)\s+(\d[\d,]*)\s+[\d.]+%\s+(?:(?:US)?\$([\d,]+\.\d{2})|—)\s+(?:US)?\$([\d,]+\.\d{2})\s+[\d.]+%\s+([\d,]+\.\d{2})",
+        tail,
+    )
+    if m:
+        clicks = int(m.group(1).replace(",", ""))
+        impr = int(m.group(2).replace(",", ""))
+        cpc = float(m.group(3).replace(",", "")) if m.group(3) else 0.0
+        cost = float(m.group(4).replace(",", ""))
+        conv = float(m.group(5).replace(",", ""))
+        return {"clicks": clicks, "impr": impr, "cpc": cpc, "spend": cost, "ui_conv": conv}
+
+    # Fallback parser
+    dollars = [float(x.replace(",", "")) for x in re.findall(r"(?:US)?\$([\d,]+\.\d{2})", tail)]
+    has_dash_cpc = bool(re.search(r"%\s+—\s+(?:US)?\$", tail))
+    if dollars:
+        spend = dollars[0] if has_dash_cpc else (dollars[1] if len(dollars) > 1 else dollars[0])
+        cpc = 0.0 if has_dash_cpc else (dollars[0] if len(dollars) > 1 else 0.0)
+    else:
+        spend, cpc = 0.0, 0.0
+    conv_m = re.search(r"%\s+([\d,]+\.\d{2})\s+(?:US)?\$[\d,]+\.\d{2}\s*$", tail)
+    ui_conv = float(conv_m.group(1).replace(",", "")) if conv_m else 0.0
+    return {"clicks": 0, "impr": 0, "cpc": cpc, "spend": spend, "ui_conv": ui_conv}
+
+
+def set_google_ad_status_carefully(ws, camp_name: str, ad_name: str, desired_status: str, port=None) -> str:
+    expected_label = "Enabled" if desired_status == "Enable" else "Paused"
+    eval_js(ws, "document.body.click()")
+    time.sleep(0.2)
+    for scroll_pos in (0, 500, 1000, 1500, 2000):
+        eval_js(
+            ws,
+            f"window.scrollTo(0, {scroll_pos}); document.querySelectorAll('.particle-table-canvas, .ess-table-canvas, [role=\"grid\"]').forEach(s => s.scrollTop = {scroll_pos});",
+        )
+        time.sleep(0.2)
+        js_find = f"""
+        (() => {{
+            const rows = Array.from(document.querySelectorAll('.particle-table-row, ess-table-row'));
+            for (const r of rows) {{
+                const c = ((r.querySelector('[essfield="campaign_name"]') || {{}}).innerText || '').trim();
+                const n = ((r.querySelector('.ad-name') || {{}}).innerText || '').trim();
+                if (c === {json.dumps(camp_name)} && n === {json.dumps(ad_name)}) {{
+                    r.scrollIntoView({{block: 'center'}});
+                    const stCell = r.querySelector('[essfield="status"]');
+                    if (!stCell) continue;
+                    const img = stCell.querySelector('[role="img"]');
+                    const cur = img ? (img.getAttribute('aria-label') || '') : '';
+                    if (cur === {json.dumps(expected_label)}) return {{res: 'ALREADY_' + cur}};
+                    stCell.dispatchEvent(new MouseEvent('mouseenter', {{bubbles: true}}));
+                    stCell.dispatchEvent(new MouseEvent('mouseover', {{bubbles: true}}));
+                    r.dispatchEvent(new MouseEvent('mouseenter', {{bubbles: true}}));
+                    const btn = stCell.querySelector('.ess-edit-icon, [role="button"]');
+                    if (btn) {{
+                        btn.click();
+                        return {{res: 'OPENED', cur}};
+                    }}
+                    return {{res: 'NO_BTN', cur}};
+                }}
+            }}
+            return {{res: 'NOT_FOUND'}};
+        }})()
+        """
+        info = eval_js(ws, js_find) or {}
+        if info.get("res") == "NOT_FOUND":
+            continue
+        if info.get("res", "").startswith("ALREADY_"):
+            return info["res"]
+        if info.get("res") == "OPENED":
+            time.sleep(0.75)
+            keep_adspower_offscreen(port)
+            js_menu = f"""
+            (() => {{
+                const items = Array.from(document.querySelectorAll('material-select-item, [role="menuitem"], [role="option"]')).filter(el => el.offsetParent !== null);
+                for (const item of items) {{
+                    const t = (item.innerText || '').replace(/\\s+/g, ' ').trim();
+                    if (t === {json.dumps(desired_status)} || t.endsWith(' ' + {json.dumps(desired_status)})) {{
+                        const r = item.getBoundingClientRect();
+                        return {{found: true, t, x: Math.round(r.left + r.width/2), y: Math.round(r.top + r.height/2)}};
+                    }}
+                }}
+                return {{found: false}};
+            }})()
+            """
+            minfo = eval_js(ws, js_menu) or {}
+            if minfo.get("found"):
+                cdp_click(ws, minfo["x"], minfo["y"])
+                time.sleep(1.5)
+                keep_adspower_offscreen(port)
+                return f"PAUSED_SUCCESS (was {info.get('cur')})"
+    return "NOT_FOUND"
+
+
+def audit_google_ads_multiwindow() -> dict:
+    from run_all_monitors_5h import find_open_adspower_ports
+
+    print("\n======================================================================")
+    print("🌐 [3/3] فحص وتفصيص حسابات Google Ads عبر 4 نوافذ (1D / 2D / 3D / 7D) بحرص 1000% (بيكسل + شيت Lightfunnels)")
+    print("======================================================================", flush=True)
+
+    ports = dict(find_open_adspower_ports())
+    if not ports:
+        print("⚠️ لا توجد منافذ AdsPower مفتوحة حالياً!", flush=True)
+        return {"accounts": [], "actions": []}
+
+    sheet = fetch_sheet_multiwindow_sales()
+    print(f"📊 مبيعات شيت Lightfunnels الموثقة (1D اليوم): {json.dumps(sheet['1d'], ensure_ascii=False)}")
+    print(f"📊 مبيعات شيت Lightfunnels الموثقة (2D يومين): {json.dumps(sheet['2d'], ensure_ascii=False)}")
+    print(f"📊 مبيعات شيت Lightfunnels الموثقة (3D 3 أيام): {json.dumps(sheet['3d'], ensure_ascii=False)}")
+    print(f"📊 مبيعات شيت Lightfunnels الموثقة (7D 7 أيام): {json.dumps(sheet['7d'], ensure_ascii=False)}", flush=True)
+
+    accounts_cfg = []
+    for prof, port in ports.items():
+        if "k1cekgik" in prof:
+            accounts_cfg.append(("Account 1: ads (843-693-9582)", prof, port, "8436939582"))
+        elif "k1dh2jyf" in prof:
+            accounts_cfg.append(("Account 2: 744-305-2213 (802-462-7197)", prof, port, "8024627197"))
+        else:
+            accounts_cfg.append((f"Profile {prof}", prof, port, ""))
+
+    all_acc_reports = []
+    all_actions = []
+
+    for label, prof, port, ocid in sorted(accounts_cfg, key=lambda x: x[0]):
+        keep_adspower_offscreen(port)
+        print(f"\n----------------------------------------------------------------------")
+        print(f"🔎 الدخول إلى {label} (Port={port}, ocid={ocid})")
+        print(f"----------------------------------------------------------------------", flush=True)
+        try:
+            tabs = json.loads(urllib.request.urlopen(f"http://127.0.0.1:{port}/json/list", timeout=4).read().decode("utf-8"))
+            g_tabs = [t for t in tabs if t.get("type") == "page" and "ads.google.com" in t.get("url", "")]
+            if not g_tabs:
+                print(f"⚠️ لا توجد تبويبة Google Ads مفتوحة في {label}", flush=True)
+                continue
+            ws = websocket.create_connection(
+                g_tabs[0]["webSocketDebuggerUrl"].replace("ws://localhost:", "ws://127.0.0.1:"),
+                suppress_origin=True,
+                timeout=25,
+            )
+            send_cdp(ws, "Emulation.setFocusEmulationEnabled", {"enabled": True})
+            keep_adspower_offscreen(port)
+
+            # Navigate to /aw/ads
+            cur_url = eval_js(ws, "location.href") or ""
+            if "/aw/ads" not in cur_url:
+                nav_url = f"https://ads.google.com/aw/ads?ocid={ocid}" if ocid else "https://ads.google.com/aw/ads"
+                send_cdp(ws, "Page.navigate", {"url": nav_url})
+                time.sleep(6.5)
+                keep_adspower_offscreen(port)
+
+            # 1) Select Today (d0)
+            select_date_preset(ws, "Today", port=port)
+            tbl_d0 = scrape_google_ads_table(ws)
+            date_d0 = tbl_d0.get("dateText", "Today")
+
+            # 2) Click prev day -> Yesterday (d1)
+            click_prev_day_js(ws)
+            tbl_d1 = scrape_google_ads_table(ws)
+            date_d1 = tbl_d1.get("dateText", "Yesterday")
+
+            # 3) Click prev day -> 2 Days Ago (d2)
+            click_prev_day_js(ws)
+            tbl_d2 = scrape_google_ads_table(ws)
+            date_d2 = tbl_d2.get("dateText", "2 Days Ago")
+
+            # 4) Select Last 7 days (l7)
+            select_date_preset(ws, "Last 7 days", port=port)
+            tbl_l7 = scrape_google_ads_table(ws)
+            date_l7 = tbl_l7.get("dateText", "Last 7 days")
+
+            # Return cleanly to Today so UI stays on Today
+            select_date_preset(ws, "Today", port=port)
+
+            print(f"  📅 النوافذ المقروءة بنجاح: اليوم=({date_d0}) | أمس=({date_d1}) | قبل أمس=({date_d2}) | 7 أيام=({date_l7})", flush=True)
+
+            # Aggregate per (camp, ad) across d0, d1, d2, l7
+            ads_map = {}
+
+            def ingest_table(tbl, slot):
+                for r in tbl.get("rows", []):
+                    camp = (r.get("camp") or "").strip()
+                    ad = (r.get("ad") or "").strip()
+                    if not camp or not ad or "Total:" in r.get("text", ""):
+                        continue
+                    key = (camp, ad)
+                    entry = ads_map.setdefault(key, {
+                        "camp": camp,
+                        "ad": ad,
+                        "toggle": r.get("toggle", ""),
+                        "d0": {"spend": 0.0, "ui_conv": 0.0, "clicks": 0, "cpc": 0.0},
+                        "d1": {"spend": 0.0, "ui_conv": 0.0, "clicks": 0, "cpc": 0.0},
+                        "d2": {"spend": 0.0, "ui_conv": 0.0, "clicks": 0, "cpc": 0.0},
+                        "l7": {"spend": 0.0, "ui_conv": 0.0, "clicks": 0, "cpc": 0.0},
+                    })
+                    if slot == "d0" and r.get("toggle"):
+                        entry["toggle"] = r.get("toggle")
+                    m = parse_google_ad_metrics(r)
+                    entry[slot] = m
+
+            ingest_table(tbl_d0, "d0")
+            ingest_table(tbl_d1, "d1")
+            ingest_table(tbl_d2, "d2")
+            ingest_table(tbl_l7, "l7")
+
+            acc_ads_report = []
+            for (camp, ad), info in sorted(ads_map.items(), key=lambda kv: (kv[1]["toggle"] != "Enabled", -kv[1]["d0"]["spend"], -kv[1]["l7"]["spend"])):
+                toggle = info["toggle"]
+                d0, d1, d2, l7 = info["d0"], info["d1"], info["d2"], info["l7"]
+
+                sp_1d = round(d0["spend"], 2)
+                sp_2d = round(d0["spend"] + d1["spend"], 2)
+                sp_3d = round(d0["spend"] + d1["spend"] + d2["spend"], 2)
+                sp_7d = round(max(sp_3d, d0["spend"] + l7["spend"]), 2)
+
+                ui_1d = d0["ui_conv"]
+                ui_2d = round(d0["ui_conv"] + d1["ui_conv"], 2)
+                ui_3d = round(d0["ui_conv"] + d1["ui_conv"] + d2["ui_conv"], 2)
+                ui_7d = round(max(ui_3d, d0["ui_conv"] + l7["ui_conv"]), 2)
+
+                ad_key = ad.strip().lower()
+                sh_1d = sheet["1d"].get(ad_key, 0)
+                sh_2d = sheet["2d"].get(ad_key, 0)
+                sh_3d = sheet["3d"].get(ad_key, 0)
+                sh_7d = sheet["7d"].get(ad_key, 0)
+
+                eff_1d = max(ui_1d, float(sh_1d))
+                eff_2d = max(ui_2d, float(sh_2d))
+                eff_3d = max(ui_3d, float(sh_3d))
+                eff_7d = max(ui_7d, float(sh_7d))
+
+                cpa_1d = round(sp_1d / eff_1d, 2) if eff_1d > 0 else None
+                cpa_2d = round(sp_2d / eff_2d, 2) if eff_2d > 0 else None
+                cpa_3d = round(sp_3d / eff_3d, 2) if eff_3d > 0 else None
+                cpa_7d = round(sp_7d / eff_7d, 2) if eff_7d > 0 else None
+
+                if toggle != "Enabled" and max(sp_1d, sp_2d, sp_3d, sp_7d) < 0.50:
+                    continue
+
+                is_gulf_g = any(k in camp.lower() for k in ("عمان", "قطر", "كويت", "بحرين", "امارات", "oman", "qatar", "kuwait", "bahrain", "uae"))
+                max_cpa_g = 10.00 if is_gulf_g else MAX_CPA_SA  # $7.00 for Saudi, $10.00 for Gulf in Google Ads
+                no_sale_g = 7.00 if is_gulf_g else 5.00
+
+                # 1000% CAREFUL EVALUATION FOR ENABLED ADS ONLY:
+                decision = "⏸️ متوقف مسبقاً"
+                pause_reason = None
+                if toggle == "Enabled":
+                    is_profitable_1d = eff_1d >= 1.0 and cpa_1d is not None and cpa_1d <= max_cpa_g
+                    is_profitable_3d = (
+                        eff_3d >= 1.0
+                        and cpa_3d is not None
+                        and cpa_3d <= max_cpa_g
+                        and not (sp_1d >= no_sale_g and eff_1d == 0)
+                        and not (eff_1d >= 1.0 and cpa_1d is not None and cpa_1d > max_cpa_g)
+                    )
+
+                    if sp_1d >= no_sale_g and eff_1d == 0:
+                        pause_reason = f"صرف اليوم ${sp_1d:.2f} (>= ${no_sale_g:.2f}) بـ 0 مبيعات (في البيكسل والشيت)"
+                    elif eff_1d >= 1.0 and sp_1d >= max_cpa_g and cpa_1d is not None and cpa_1d > max_cpa_g:
+                        pause_reason = f"CPA اليوم مرتفع ${cpa_1d:.2f} (> ${max_cpa_g:.2f}) [صرف ${sp_1d:.2f} / {eff_1d:.0f} مبيعات]"
+                    elif sp_2d >= no_sale_g and eff_2d == 0 and not is_profitable_3d:
+                        pause_reason = f"صرف يومين (2D) ${sp_2d:.2f} (>= ${no_sale_g:.2f}) بـ 0 مبيعات"
+                    elif eff_2d >= 1.0 and sp_2d >= max_cpa_g and cpa_2d is not None and cpa_2d > max_cpa_g and not is_profitable_1d and not is_profitable_3d:
+                        pause_reason = f"CPA يومين (2D) مرتفع ${cpa_2d:.2f} (> ${max_cpa_g:.2f}) [صرف ${sp_2d:.2f} / {eff_2d:.0f} مبيعات]"
+                    elif sp_3d >= no_sale_g and eff_3d == 0:
+                        pause_reason = f"صرف 3 أيام (3D) ${sp_3d:.2f} (>= ${no_sale_g:.2f}) بـ 0 مبيعات"
+                    elif eff_3d >= 1.0 and sp_3d >= max_cpa_g and cpa_3d is not None and cpa_3d > max_cpa_g and not is_profitable_1d:
+                        pause_reason = f"CPA 3 أيام (3D) مرتفع ${cpa_3d:.2f} (> ${max_cpa_g:.2f}) [صرف ${sp_3d:.2f} / {eff_3d:.0f} مبيعات]"
+                    elif sp_7d >= (no_sale_g + 1.50) and eff_7d == 0 and not is_profitable_3d:
+                        pause_reason = f"صرف 7 أيام (7D) ${sp_7d:.2f} بـ 0 مبيعات"
+                    elif eff_7d >= 1.0 and sp_7d >= (max_cpa_g + 2.0) and cpa_7d is not None and cpa_7d > max_cpa_g and not is_profitable_3d and not is_profitable_1d:
+                        pause_reason = f"CPA 7 أيام (7D) مرتفع ${cpa_7d:.2f} (> ${max_cpa_g:.2f}) [صرف ${sp_7d:.2f} / {eff_7d:.0f} مبيعات]"
+                    elif sp_1d >= 1.50 and eff_1d == 0 and eff_3d == 0 and (d0["clicks"] == 0 or d0["cpc"] > 0.35):
+                        pause_reason = f"CPC مرتفع اليوم (${d0['cpc']:.2f} / نقرات={d0['clicks']}) بعد صرف ${sp_1d:.2f} بـ 0 مبيعات"
+
+                    if pause_reason:
+                        res_p = set_google_ad_status_carefully(ws, camp, ad, "Pause", port=port)
+                        decision = f"🛑 تم إيقافه فوراً ({res_p}) — {pause_reason}"
+                        all_actions.append(f"🛑 Google Ads ({label}): إيقاف الإعلان `{ad}` في حملة `{camp}` — {pause_reason} ({res_p})")
+                    else:
+                        decision = "✅ رابح / آمن ومستمر"
+
+                row_line = (
+                    f"  • [{toggle:7s}] Camp='{camp}' | Ad='{ad}' || "
+                    f"1D: ${sp_1d:.2f} (UI={ui_1d:.0f}, Sheet={sh_1d} -> CPA={('$'+str(cpa_1d)) if cpa_1d else '—'}) | "
+                    f"2D: ${sp_2d:.2f} (UI={ui_2d:.0f}, Sheet={sh_2d} -> CPA={('$'+str(cpa_2d)) if cpa_2d else '—'}) | "
+                    f"3D: ${sp_3d:.2f} (UI={ui_3d:.0f}, Sheet={sh_3d} -> CPA={('$'+str(cpa_3d)) if cpa_3d else '—'}) | "
+                    f"7D: ${sp_7d:.2f} (UI={ui_7d:.0f}, Sheet={sh_7d} -> CPA={('$'+str(cpa_7d)) if cpa_7d else '—'}) ==> {decision}"
+                )
+                print(row_line, flush=True)
+                acc_ads_report.append({
+                    "camp": camp,
+                    "ad": ad,
+                    "toggle": toggle,
+                    "1d": f"${sp_1d:.2f} ({eff_1d:.0f}p: UI={ui_1d:.0f}/Sh={sh_1d}, CPA={('$'+str(cpa_1d)) if cpa_1d else '—'})",
+                    "2d": f"${sp_2d:.2f} ({eff_2d:.0f}p: UI={ui_2d:.0f}/Sh={sh_2d}, CPA={('$'+str(cpa_2d)) if cpa_2d else '—'})",
+                    "3d": f"${sp_3d:.2f} ({eff_3d:.0f}p: UI={ui_3d:.0f}/Sh={sh_3d}, CPA={('$'+str(cpa_3d)) if cpa_3d else '—'})",
+                    "7d": f"${sp_7d:.2f} ({eff_7d:.0f}p: UI={ui_7d:.0f}/Sh={sh_7d}, CPA={('$'+str(cpa_7d)) if cpa_7d else '—'})",
+                    "decision": decision,
+                })
+
+            all_acc_reports.append({"label": label, "ads": acc_ads_report})
+            ws.close()
+            keep_adspower_offscreen(port)
+        except Exception as e:
+            print(f"⚠️ خطأ أثناء فحص {label}: {e}", flush=True)
+
+    return {"accounts": all_acc_reports, "actions": all_actions}
+
+
+def main():
+    now_sa = datetime.now(SA_TZ)
+    print(f"🚀 بدء الفاحص والمفصّص الشامل متعدد النوافذ (1D / 2D / 3D / 7D) بحد أقصى CPA = $7.00 ({now_sa:%Y-%m-%d %H:%M} GMT+3)", flush=True)
+    sheet = fetch_sheet_multiwindow_sales()
+    snap_res = audit_snapchat_multiwindow(sheet)
+    tt_res = audit_tiktok_multiwindow()
+    g_res = audit_google_ads_multiwindow()
+
+    lines = [
+        f"# 🛡️ تقرير المفصّص الشامل وقاطع النزيف عبر الـ 4 نوافذ (`1D / 2D / 3D / 7D` — سقف `CPA <= $7.00`) — {now_sa:%Y-%m-%d %H:%M} GMT+3",
+        "",
+        "## ⚡ الأكشنات الفورية المنفذة في هذه الدورة",
+    ]
+    combined_actions = snap_res.get("extra_paused", []) + g_res.get("actions", [])
+    if combined_actions:
+        for a in combined_actions:
+            lines.append(f"- {a}")
+    else:
+        lines.append("- ✅ تم تنظيف وإيقاف جميع الإعلانات الخاسرة؛ كل ما يعمل الآن آمن أو مربح تحت سقف `$7.00`.")
+
+    lines.extend(["", "## 🌐 جدول تفصيص Google Ads عبر الـ 4 نوافذ (`1D / 2D / 3D / 7D` — بيكسل + شيت)"])
+    for acc in g_res.get("accounts", []):
+        lines.append(f"### {acc['label']}")
+        lines.append("| الحالة | الحملة | الإعلان | اليوم (1D) | يومين (2D) | 3 أيام (3D) | 7 أيام (7D) | القرار |")
+        lines.append("|---|---|---|---|---|---|---|---|")
+        for r in acc.get("ads", []):
+            lines.append(f"| `{r['toggle']}` | `{r['camp']}` | **`{r['ad']}`** | {r['1d']} | {r['2d']} | {r['3d']} | {r['7d']} | {r['decision']} |")
+        lines.append("")
+
+    REPORT_FILE.write_text("\n".join(lines) + "\n", encoding="utf-8")
+    print(f"\n✅ اكتمل الفحص الشامل وحُفظ التقرير في: {REPORT_FILE}", flush=True)
+
+
+if __name__ == "__main__":
+    main()
