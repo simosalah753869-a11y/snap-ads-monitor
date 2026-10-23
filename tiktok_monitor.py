@@ -649,6 +649,12 @@ def main():
         for c3 in active_camps:
             camp_id = str(c3.get("campaign_id") or "")
             camp_name = c3.get("campaign_name") or "Campaign"
+            if is_cross_monitored_product_campaign(camp_name):
+                ok_new_p, _ = pause_campaign(session, headers, aadvid, camp_id, operation="disable")
+                if ok_new_p:
+                    total_campaigns_paused += 1
+                    print(f"    🛑 [PERMANENT SHUTOFF NEW PRODUCT] '{camp_name}' ({camp_id}) -> Paused permanently per user command")
+                continue
             c1 = camp_1d_map.get(camp_id, {})
             c2 = camp_2d_map.get(camp_id, {})
             rd1 = c1.get("row_data") or {}
