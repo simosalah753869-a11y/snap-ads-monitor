@@ -171,8 +171,15 @@ def main(dry_run: bool = False):
         camp_id = item["campaign_id"]
         prod = item["prod_prefix"]
 
-        squads = get_all_pages(s, f"/campaigns/{camp_id}/adsquads?limit=200", "adsquads")
-        ads = get_all_pages(s, f"/campaigns/{camp_id}/ads?limit=500", "ads")
+        rc = s.get(f"{API_BASE}/campaigns/{camp_id}", timeout=20).json()
+        camp_obj = (rc.get("campaigns") or [{}])[0].get("campaign", {})
+        if camp_obj and camp_obj.get("status") != "ACTIVE" and not dry_run:
+            camp_obj["status"] = "ACTIVE"
+            s.put(f"{API_BASE}/adaccounts/{acc_id}/campaigns", json={"campaigns": [camp_obj]}, timeout=20)
+            print(f"✅ [{acc_name}] إعادة تفعيل الحملة '{camp_obj.get('name')}' ({camp_id})", flush=True)
+
+        squads = get_all_pages(s, f"/campaigns/{camp_id}/adsquads?limit=100", "adsquads")
+        ads = get_all_pages(s, f"/campaigns/{camp_id}/ads?limit=100", "ads")
         ads_by_sq = {}
         for a in ads:
             ads_by_sq.setdefault(a.get("ad_squad_id"), []).append(a)
@@ -222,10 +229,8 @@ def main(dry_run: bool = False):
                 s1 = st1_map.get(sid, {"spend": 0.0, "purchases": 0, "cpc": 0.0, "swipes": 0})
                 s3 = st3_map.get(sid, {"spend": 0.0, "purchases": 0, "cpc": 0.0, "swipes": 0})
                 deliv = sq.get("delivery_status") or []
-                active_sq_ads = [a for a in ads_by_sq.get(sid, []) if a.get("status") == "ACTIVE"]
                 is_broken_or_bad = (
-                    not active_sq_ads
-                    or "INVALID_AD_SQUAD_HAS_NO_ACTIVE_ADS" in deliv
+                    "INVALID_AD_SQUAD_HAS_NO_ACTIVE_ADS" in deliv
                     or (s1["spend"] >= 4.00 and s1["purchases"] == 0)
                     or (s3["spend"] >= 4.00 and s3["purchases"] == 0)
                     or (s1["spend"] >= 0.70 and s1["purchases"] == 0 and s1.get("swipes", 0) > 0 and s1.get("cpc", 0.0) > 0.35)
@@ -310,18 +315,28 @@ def main(dry_run: bool = False):
                 )
 
 
-def enforce_exact_15_per_cohort():
+def enforce_exact_15_per_cohort(target_start_iso: str = "2026-10-24T03:00:00.000Z"):
     cfg = load_config()
     token = refresh_access_token(cfg)
     s = make_session(token)
     for it in CAMPAIGNS_TO_MANAGE:
+        acc_id = it["account_id"]
         cid = it["campaign_id"]
         prod = it["prod_prefix"]
-        sqs = get_all_pages(s, f"/campaigns/{cid}/adsquads?limit=200", "adsquads")
-        ads = get_all_pages(s, f"/campaigns/{cid}/ads?limit=500", "ads")
+        rc = s.get(f"{API_BASE}/campaigns/{cid}", timeout=20).json()
+        camp_obj = (rc.get("campaigns") or [{}])[0].get("campaign", {})
+        if camp_obj and camp_obj.get("status") != "ACTIVE":
+            camp_obj["status"] = "ACTIVE"
+            s.put(f"{API_BASE}/adaccounts/{acc_id}/campaigns", json={"campaigns": [camp_obj]}, timeout=20)
+            print(f"✅ [{it['account_name']}] تفعيل الحملة '{camp_obj.get('name')}' ({cid})", flush=True)
+
+        sqs = get_all_pages(s, f"/campaigns/{cid}/adsquads?limit=100", "adsquads")
+        ads = get_all_pages(s, f"/campaigns/{cid}/ads?limit=100", "ads")
         by_sq = {}
         for a in ads:
             by_sq.setdefault(a.get("ad_squad_id"), []).append(a)
+
+        kept_ids = set()
         for cs in COHORT_SPECS:
             cp = cs["prefix_tpl"].format(prod=prod)
             csqs = [x for x in sqs if (x.get("name") or "").startswith(cp)]
@@ -331,6 +346,7 @@ def enforce_exact_15_per_cohort():
             pause_rest = csqs[:-15]
             to_upd = []
             for x in keep15:
+                kept_ids.add(x["id"])
                 if not by_sq.get(x["id"]) and tmpl_ads:
                     s.post(
                         f"{API_BASE}/adsquads/{x['id']}/ads",
@@ -348,8 +364,9 @@ def enforce_exact_15_per_cohort():
                         },
                         timeout=25,
                     )
-                if x.get("status") != "ACTIVE":
+                if x.get("status") != "ACTIVE" or x.get("start_time") != target_start_iso:
                     x["status"] = "ACTIVE"
+                    x["start_time"] = target_start_iso
                     to_upd.append(x)
             for x in pause_rest:
                 if x.get("status") == "ACTIVE":
@@ -359,7 +376,15 @@ def enforce_exact_15_per_cohort():
                 for i in range(0, len(to_upd), 20):
                     s.put(f"{API_BASE}/campaigns/{cid}/adsquads", json={"adsquads": to_upd[i : i + 20]}, timeout=25)
             act_cnt = len([x for x in keep15 if x.get("status") == "ACTIVE"])
-            print(f"✅ [{it['account_name']} | {cp}] النشط الآن بالضبط: {act_cnt}/15", flush=True)
+            print(f"✅ [{it['account_name']} | {cp}] النشط الآن بالضبط: {act_cnt}/15 (مجدول 6:00 صباحاً -> {target_start_iso})", flush=True)
+
+        other_active = [x for x in sqs if x["id"] not in kept_ids and x.get("status") == "ACTIVE"]
+        if other_active:
+            for x in other_active:
+                x["status"] = "PAUSED"
+            for i in range(0, len(other_active), 20):
+                s.put(f"{API_BASE}/campaigns/{cid}/adsquads", json={"adsquads": other_active[i : i + 20]}, timeout=25)
+            print(f"🛑 [{it['account_name']}] إيقاف {len(other_active)} مجموعة قديمة أخرى داخل الحملة.", flush=True)
 
 
 if __name__ == "__main__":
