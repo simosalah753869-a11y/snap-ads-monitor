@@ -412,8 +412,10 @@ def wait_for_table_change(ws, old_sig, timeout=7.5):
 
 def select_date_preset(ws, option_text, port=None):
     old_sig = get_total_row_sig(ws)
-    eval_js(ws, "window.scrollTo(0, 0); document.querySelectorAll('.particle-table-canvas, ess-table-canvas, [role=\"grid\"]').forEach(s => s.scrollTop = 0);")
-    time.sleep(0.3)
+    send_cdp(ws, "Input.dispatchKeyEvent", {"type": "keyDown", "key": "Escape", "code": "Escape", "windowsVirtualKeyCode": 27})
+    send_cdp(ws, "Input.dispatchKeyEvent", {"type": "keyUp", "key": "Escape", "code": "Escape", "windowsVirtualKeyCode": 27})
+    eval_js(ws, "document.body.click(); window.scrollTo(0, 0); document.querySelectorAll('.particle-table-canvas, ess-table-canvas, .ess-table-canvas, [role=\"grid\"]').forEach(s => s.scrollTop = 0);")
+    time.sleep(0.35)
     js_open = """
     (() => {
         const icons = Array.from(document.querySelectorAll('material-date-range-picker material-icon, .date-range-picker material-icon'));
