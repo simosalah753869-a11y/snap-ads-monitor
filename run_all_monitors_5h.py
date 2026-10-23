@@ -144,6 +144,9 @@ def fetch_sheet_3d_sales():
     for r in rows[1:]:
         if len(r) < 3:
             continue
+        prod_raw = (r[0] or "").strip().lower()
+        if any(g in prod_raw for g in ("باور بانك صغير للطوارئ", "سوار رجالي", "سماعات", "هدية", "مجانا", "مجاناً")):
+            continue
         utm_raw = (r[1] or "").strip()
         date_raw = (r[2] or "").strip()
         if not utm_raw or not date_raw:
@@ -160,7 +163,7 @@ def fetch_sheet_3d_sales():
         ukey = f"{utm}|{date_raw}"
         if ukey in seen_keys:
             continue
-        if t_ms > 0 and utm in last_time_by_utm and abs(t_ms - last_time_by_utm[utm]) <= 5000:
+        if t_ms > 0 and utm in last_time_by_utm and abs(t_ms - last_time_by_utm[utm]) <= 60000:
             seen_keys.add(ukey)
             continue
         seen_keys.add(ukey)
