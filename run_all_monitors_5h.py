@@ -423,8 +423,8 @@ def run_proactive_sales_scaling(sales_3d: dict, sales_today: dict):
         snap_sess = None
         snap_actions = 0
 
-        # (أ) إعادة تشغيل المجموعات الموقوفة التي سجلت مبيعات متأخرة مربحة (CPA <= $8.00 للسعودية / <= $10.00 للخليج) داخل الحملات النشطة فقط
-        for paused_sid, p_info in (list(history.get("adsquads", {}).items()) if active_camp_ids else []):
+        # (أ) (موقوف نهائياً بأمر المستخدم: ممنوع إعادة تشغيل المجموعات الموقوفة في سناب شات — حملة واحدة وأدست واحدة فقط)
+        for paused_sid, p_info in []:
             s2_p = st_2d.get(paused_sid) or st_3d.get(paused_sid)
             if not s2_p or s2_p.get("purchases", 0) < 1 or s2_p.get("cpa") is None:
                 continue
@@ -585,13 +585,8 @@ def run_proactive_sales_scaling(sales_3d: dict, sales_today: dict):
                 is_gulf = is_gulf_034_campaign(cname, sname, sq)
                 win_cpa_limit = 5.50
 
-                # (ج) استنساخ هادئ (نسخة واحدة x1 فقط، ومرة واحدة للحملة يومياً قبل 5 مساءً) للمجموعات السوبر رابحة بدون إغراق الحملة
-                scale_key = f"{today_key}:{cid}"
-                is_super_winner_today = (
-                    (s1["purchases"] >= 2 and s1["cpa"] is not None and s1["cpa"] <= win_cpa_limit)
-                    or (s3["purchases"] >= 4 and s3["cpa"] is not None and s3["cpa"] <= 5.50 and s1["purchases"] >= 1 and s1["cpa"] is not None and s1["cpa"] <= 6.00)
-                )
-                if allow_budget_bid_increase and not is_gulf and not camp_over_8_3d and cid not in no_dup_camps and is_super_winner_today and scale_key not in scaled_squads and len(squads) < 24:
+                # (ج) (موقوف نهائياً بأمر المستخدم: ممنوع عمل أي Duplicate للأدست في سناب شات — حملة واحدة وأدست واحدة فقط!)
+                if False:
                     if snap_sess is None:
                         snap_sess = make_session(token)
                     new_ids = clone_adsquad_exact(snap_sess, sq, 1)
