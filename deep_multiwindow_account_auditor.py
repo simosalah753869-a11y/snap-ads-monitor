@@ -247,115 +247,128 @@ def audit_snapchat_multiwindow(sheet_sales: dict) -> dict:
     import snap_monitor as sm
 
     print("\n======================================================================")
-    print("👻 [1/3] فحص وتفصيص حساب سناب شات (CSP9860) عبر 4 نوافذ (1D / 2D / 3D / 7D) بحد CPA <= $7.00")
+    print("👻 [1/3] فحص وتفصيص جميع حسابات سناب شات والفيديوهات عبر 4 نوافذ (1D / 2D / 3D / 7D) بحد CPA <= $7.00")
     print("======================================================================", flush=True)
 
     token = refresh_access_token(load_config())
-    # Run standard snap_monitor first (which now uses 1_DAY attribution & $7.00 max CPA across 1D/2D/3D/7D)
-    sm.run_automation(token, sm.TARGET_ACCOUNT_ID, dry_run=False)
-
-    # Fetch fresh post-action snapshot to verify 1000%
-    camps = sm.api_get_paginated(f"/adaccounts/{sm.TARGET_ACCOUNT_ID}/campaigns?limit=200", token, "campaigns", "campaign")
-    active_camps = [c for c in camps if c.get("status") == "ACTIVE"]
-
-    c_1d = {x["id"]: x for x in sm.fetch_account_breakdown_stats(token, sm.TARGET_ACCOUNT_ID, "campaign", days_back=0)}
-    c_2d = {x["id"]: x for x in sm.fetch_account_breakdown_stats(token, sm.TARGET_ACCOUNT_ID, "campaign", days_back=1)}
-    c_3d = {x["id"]: x for x in sm.fetch_account_breakdown_stats(token, sm.TARGET_ACCOUNT_ID, "campaign", days_back=2)}
-    c_7d = {x["id"]: x for x in sm.fetch_account_breakdown_stats(token, sm.TARGET_ACCOUNT_ID, "campaign", days_back=6)}
-
-    ad_1d = {x["id"]: x for x in sm.fetch_account_breakdown_stats(token, sm.TARGET_ACCOUNT_ID, "ad", days_back=0)}
-    ad_2d = {x["id"]: x for x in sm.fetch_account_breakdown_stats(token, sm.TARGET_ACCOUNT_ID, "ad", days_back=1)}
-    ad_3d = {x["id"]: x for x in sm.fetch_account_breakdown_stats(token, sm.TARGET_ACCOUNT_ID, "ad", days_back=2)}
-    ad_7d = {x["id"]: x for x in sm.fetch_account_breakdown_stats(token, sm.TARGET_ACCOUNT_ID, "ad", days_back=6)}
-
+    account_ids = getattr(sm, "TARGET_ACCOUNT_IDS", [sm.TARGET_ACCOUNT_ID])
     snap_summary = []
+    snap_videos_summary = []
     extra_paused = []
     history = sm.load_paused_history()
     now_str = datetime.now(SA_TZ).strftime("%Y-%m-%d %H:%M GMT+3")
 
-    for c in active_camps:
-        cid = c["id"]
-        cname = c.get("name", "")
-        s1 = c_1d.get(cid, {"spend": 0.0, "purchases": 0, "cpa": None})
-        s2 = c_2d.get(cid, {"spend": 0.0, "purchases": 0, "cpa": None})
-        s3 = c_3d.get(cid, {"spend": 0.0, "purchases": 0, "cpa": None})
-        s7 = c_7d.get(cid, {"spend": 0.0, "purchases": 0, "cpa": None})
+    for acc_id in account_ids:
+        # Run standard snap_monitor on each account (which uses 1_DAY attribution & $7.00 max CPA across 1D/2D/3D/7D)
+        sm.run_automation(token, acc_id, dry_run=False)
 
-        # Double check all active ads inside this campaign
-        c_ads = sm.api_get_paginated(f"/campaigns/{cid}/ads?limit=500", token, "ads", "ad")
-        c_squads = {sq["id"]: sq for sq in sm.api_get_paginated(f"/campaigns/{cid}/adsquads?limit=200", token, "adsquads", "adsquad")}
-        act_ads = [a for a in c_ads if a.get("status") == "ACTIVE" and c_squads.get(a.get("ad_squad_id", ""), {}).get("status") == "ACTIVE"]
+        # Fetch fresh post-action snapshot to verify 1000%
+        camps = sm.api_get_paginated(f"/adaccounts/{acc_id}/campaigns?limit=200", token, "campaigns", "campaign")
+        active_camps = [c for c in camps if c.get("status") == "ACTIVE"]
 
-        for a in act_ads:
-            aid = a["id"]
-            aname = a.get("name", "")
-            sq = c_squads.get(a.get("ad_squad_id", ""), {})
-            sname = sq.get("name", "")
-            if sm.is_cross_monitored_product_campaign(cname, sname):
-                continue
-            is_gulf = sm.is_gulf_034_campaign(cname, sname, sq)
-            max_cpa = MAX_CPA_GULF if is_gulf else MAX_CPA_SA
-            no_sale_lim = NO_SALE_AD_STOP_GULF if is_gulf else NO_SALE_AD_STOP_SA
+        c_1d = {x["id"]: x for x in sm.fetch_account_breakdown_stats(token, acc_id, "campaign", days_back=0)}
+        c_2d = {x["id"]: x for x in sm.fetch_account_breakdown_stats(token, acc_id, "campaign", days_back=1)}
+        c_3d = {x["id"]: x for x in sm.fetch_account_breakdown_stats(token, acc_id, "campaign", days_back=2)}
+        c_7d = {x["id"]: x for x in sm.fetch_account_breakdown_stats(token, acc_id, "campaign", days_back=6)}
 
-            a1 = ad_1d.get(aid, {"spend": 0.0, "purchases": 0, "cpa": None, "cpc": 0.0, "swipes": 0})
-            a2 = ad_2d.get(aid, {"spend": 0.0, "purchases": 0, "cpa": None, "cpc": 0.0, "swipes": 0})
-            a3 = ad_3d.get(aid, {"spend": 0.0, "purchases": 0, "cpa": None, "cpc": 0.0, "swipes": 0})
-            a7 = ad_7d.get(aid, {"spend": 0.0, "purchases": 0, "cpa": None, "cpc": 0.0, "swipes": 0})
+        ad_1d = {x["id"]: x for x in sm.fetch_account_breakdown_stats(token, acc_id, "ad", days_back=0)}
+        ad_2d = {x["id"]: x for x in sm.fetch_account_breakdown_stats(token, acc_id, "ad", days_back=1)}
+        ad_3d = {x["id"]: x for x in sm.fetch_account_breakdown_stats(token, acc_id, "ad", days_back=2)}
+        ad_7d = {x["id"]: x for x in sm.fetch_account_breakdown_stats(token, acc_id, "ad", days_back=6)}
 
-            if max(a1["spend"], a2["spend"], a3["spend"], a7["spend"]) <= 0:
-                continue
+        for c in active_camps:
+            cid = c["id"]
+            cname = c.get("name", "")
+            s1 = c_1d.get(cid, {"spend": 0.0, "purchases": 0, "cpa": None})
+            s2 = c_2d.get(cid, {"spend": 0.0, "purchases": 0, "cpa": None})
+            s3 = c_3d.get(cid, {"spend": 0.0, "purchases": 0, "cpa": None})
+            s7 = c_7d.get(cid, {"spend": 0.0, "purchases": 0, "cpa": None})
 
-            # Check if this active ad violates $7 CPA or 0-sale limit in 1D, 2D, 3D, or 7D
-            has_good_1d = a1["purchases"] >= 1 and a1["cpa"] is not None and a1["cpa"] <= max_cpa
-            has_good_3d = (
-                a3["purchases"] >= 1
-                and a3["cpa"] is not None
-                and a3["cpa"] <= max_cpa
-                and not (a1["spend"] >= no_sale_lim and a1["purchases"] == 0)
-                and not (a1["purchases"] > 0 and a1["cpa"] is not None and a1["cpa"] > max_cpa)
-            )
-            kill_r = None
-            if a1["spend"] >= no_sale_lim and a1["purchases"] == 0:
-                kill_r = f"1D Spend ${a1['spend']:.2f} with 0 sales"
-            elif a1["purchases"] > 0 and a1["cpa"] is not None and a1["cpa"] > max_cpa:
-                kill_r = f"1D CPA ${a1['cpa']:.2f} > ${max_cpa:.2f} (${a1['spend']:.2f}/{a1['purchases']}p)"
-            elif a2["spend"] >= no_sale_lim and a2["purchases"] == 0 and not has_good_3d:
-                kill_r = f"2D Spend ${a2['spend']:.2f} with 0 sales"
-            elif a2["purchases"] > 0 and a2["cpa"] is not None and a2["cpa"] > max_cpa and not has_good_1d:
-                kill_r = f"2D CPA ${a2['cpa']:.2f} > ${max_cpa:.2f} (${a2['spend']:.2f}/{a2['purchases']}p)"
-            elif a3["spend"] >= no_sale_lim and a3["purchases"] == 0:
-                kill_r = f"3D Spend ${a3['spend']:.2f} with 0 sales"
-            elif a3["purchases"] > 0 and a3["cpa"] is not None and a3["cpa"] > max_cpa and not has_good_1d:
-                kill_r = f"3D CPA ${a3['cpa']:.2f} > ${max_cpa:.2f} (${a3['spend']:.2f}/{a3['purchases']}p)"
-            elif a7["spend"] >= no_sale_lim and a7["purchases"] == 0 and not has_good_3d:
-                kill_r = f"7D Spend ${a7['spend']:.2f} with 0 sales"
-            elif a7["purchases"] > 0 and a7["cpa"] is not None and a7["cpa"] > max_cpa and not has_good_3d and not has_good_1d:
-                kill_r = f"7D CPA ${a7['cpa']:.2f} > ${max_cpa:.2f} (${a7['spend']:.2f}/{a7['purchases']}p)"
+            # Double check all active ads inside this campaign
+            c_ads = sm.api_get_paginated(f"/campaigns/{cid}/ads?limit=100", token, "ads", "ad", max_pages=60)
+            c_squads = {sq["id"]: sq for sq in sm.api_get_paginated(f"/campaigns/{cid}/adsquads?limit=100", token, "adsquads", "adsquad", max_pages=50)}
+            act_ads = [a for a in c_ads if a.get("status") == "ACTIVE" and c_squads.get(a.get("ad_squad_id", ""), {}).get("status") == "ACTIVE"]
 
-            if kill_r:
-                a["status"] = "PAUSED"
-                sm.api_put(f"/adsquads/{sq['id']}/ads", token, {"ads": [a]})
-                history["ads"][aid] = {
-                    "name": aname,
-                    "campaign": cname,
-                    "adsquad": sname,
-                    "reason": f"[MultiWindow Manual+Bot Dissector] {kill_r}",
-                    "paused_at": now_str,
-                }
-                sm.save_paused_history(history)
-                extra_paused.append(f"🛑 سناب شات: إيقاف الإعلان `{aname}` في `{cname}` (`{sname}`) — {kill_r}")
-                print(f"  🛑 [Extra Dissector Pause] '{aname}' in '{cname}' | {kill_r}", flush=True)
+            for a in act_ads:
+                aid = a["id"]
+                aname = a.get("name", "")
+                sq = c_squads.get(a.get("ad_squad_id", ""), {})
+                sname = sq.get("name", "")
+                if sm.is_cross_monitored_product_campaign(cname, sname):
+                    continue
+                is_gulf = sm.is_gulf_034_campaign(cname, sname, sq)
+                max_cpa = MAX_CPA_GULF if is_gulf else MAX_CPA_SA
+                no_sale_lim = NO_SALE_AD_STOP_GULF if is_gulf else NO_SALE_AD_STOP_SA
 
-        if max(s1["spend"], s2["spend"], s3["spend"], s7["spend"]) > 0:
-            snap_summary.append({
-                "name": cname,
-                "1d": f"${s1['spend']:.2f} / {s1['purchases']}p (CPA={('$'+str(s1['cpa'])) if s1['cpa'] else '—'})",
-                "2d": f"${s2['spend']:.2f} / {s2['purchases']}p (CPA={('$'+str(s2['cpa'])) if s2['cpa'] else '—'})",
-                "3d": f"${s3['spend']:.2f} / {s3['purchases']}p (CPA={('$'+str(s3['cpa'])) if s3['cpa'] else '—'})",
-                "7d": f"${s7['spend']:.2f} / {s7['purchases']}p (CPA={('$'+str(s7['cpa'])) if s7['cpa'] else '—'})",
-            })
+                a1 = ad_1d.get(aid, {"spend": 0.0, "purchases": 0, "cpa": None, "cpc": 0.0, "swipes": 0})
+                a2 = ad_2d.get(aid, {"spend": 0.0, "purchases": 0, "cpa": None, "cpc": 0.0, "swipes": 0})
+                a3 = ad_3d.get(aid, {"spend": 0.0, "purchases": 0, "cpa": None, "cpc": 0.0, "swipes": 0})
+                a7 = ad_7d.get(aid, {"spend": 0.0, "purchases": 0, "cpa": None, "cpc": 0.0, "swipes": 0})
 
-    return {"campaigns": snap_summary, "extra_paused": extra_paused}
+                if max(a1["spend"], a2["spend"], a3["spend"], a7["spend"]) > 0:
+                    snap_videos_summary.append({
+                        "camp": cname,
+                        "squad": sname,
+                        "ad": aname,
+                        "1d": f"${a1['spend']:.2f}/{a1['purchases']}p",
+                        "2d": f"${a2['spend']:.2f}/{a2['purchases']}p",
+                        "3d": f"${a3['spend']:.2f}/{a3['purchases']}p",
+                        "7d": f"${a7['spend']:.2f}/{a7['purchases']}p",
+                    })
+                else:
+                    continue
+
+                # Check if this active ad violates $7 CPA or 0-sale limit in 1D, 2D, 3D, or 7D
+                has_good_1d = a1["purchases"] >= 1 and a1["cpa"] is not None and a1["cpa"] <= max_cpa
+                has_good_3d = (
+                    a3["purchases"] >= 1
+                    and a3["cpa"] is not None
+                    and a3["cpa"] <= max_cpa
+                    and not (a1["spend"] >= no_sale_lim and a1["purchases"] == 0)
+                    and not (a1["purchases"] > 0 and a1["cpa"] is not None and a1["cpa"] > max_cpa)
+                )
+                kill_r = None
+                if a1["spend"] >= no_sale_lim and a1["purchases"] == 0:
+                    kill_r = f"1D Spend ${a1['spend']:.2f} with 0 sales"
+                elif a1["purchases"] > 0 and a1["cpa"] is not None and a1["cpa"] > max_cpa:
+                    kill_r = f"1D CPA ${a1['cpa']:.2f} > ${max_cpa:.2f} (${a1['spend']:.2f}/{a1['purchases']}p)"
+                elif a2["spend"] >= no_sale_lim and a2["purchases"] == 0 and not has_good_3d:
+                    kill_r = f"2D Spend ${a2['spend']:.2f} with 0 sales"
+                elif a2["purchases"] > 0 and a2["cpa"] is not None and a2["cpa"] > max_cpa and not has_good_1d:
+                    kill_r = f"2D CPA ${a2['cpa']:.2f} > ${max_cpa:.2f} (${a2['spend']:.2f}/{a2['purchases']}p)"
+                elif a3["spend"] >= no_sale_lim and a3["purchases"] == 0:
+                    kill_r = f"3D Spend ${a3['spend']:.2f} with 0 sales"
+                elif a3["purchases"] > 0 and a3["cpa"] is not None and a3["cpa"] > max_cpa and not has_good_1d:
+                    kill_r = f"3D CPA ${a3['cpa']:.2f} > ${max_cpa:.2f} (${a3['spend']:.2f}/{a3['purchases']}p)"
+                elif a7["spend"] >= no_sale_lim and a7["purchases"] == 0 and not has_good_3d:
+                    kill_r = f"7D Spend ${a7['spend']:.2f} with 0 sales"
+                elif a7["purchases"] > 0 and a7["cpa"] is not None and a7["cpa"] > max_cpa and not has_good_3d and not has_good_1d:
+                    kill_r = f"7D CPA ${a7['cpa']:.2f} > ${max_cpa:.2f} (${a7['spend']:.2f}/{a7['purchases']}p)"
+
+                if kill_r:
+                    a["status"] = "PAUSED"
+                    sm.api_put(f"/adsquads/{sq['id']}/ads", token, {"ads": [a]})
+                    history["ads"][aid] = {
+                        "name": aname,
+                        "campaign": cname,
+                        "adsquad": sname,
+                        "reason": f"[MultiWindow Manual+Bot Dissector] {kill_r}",
+                        "paused_at": now_str,
+                    }
+                    sm.save_paused_history(history)
+                    extra_paused.append(f"🛑 سناب شات: إيقاف الإعلان `{aname}` في `{cname}` (`{sname}`) — {kill_r}")
+                    print(f"  🛑 [Extra Dissector Pause] '{aname}' in '{cname}' | {kill_r}", flush=True)
+
+            if max(s1["spend"], s2["spend"], s3["spend"], s7["spend"]) > 0 or act_ads:
+                snap_summary.append({
+                    "name": f"{cname} (Active Ads={len(act_ads)})",
+                    "1d": f"${s1['spend']:.2f} / {s1['purchases']}p (CPA={('$'+str(s1['cpa'])) if s1['cpa'] else '—'})",
+                    "2d": f"${s2['spend']:.2f} / {s2['purchases']}p (CPA={('$'+str(s2['cpa'])) if s2['cpa'] else '—'})",
+                    "3d": f"${s3['spend']:.2f} / {s3['purchases']}p (CPA={('$'+str(s3['cpa'])) if s3['cpa'] else '—'})",
+                    "7d": f"${s7['spend']:.2f} / {s7['purchases']}p (CPA={('$'+str(s7['cpa'])) if s7['cpa'] else '—'})",
+                })
+
+    return {"campaigns": snap_summary, "videos": snap_videos_summary, "extra_paused": extra_paused}
 
 
 def audit_tiktok_multiwindow() -> dict:
@@ -488,30 +501,41 @@ def select_date_preset(ws, option_text, port=None):
     return "NOT_FOUND"
 
 
-def click_prev_day_js(ws):
-    old_sig = get_total_row_sig(ws)
-    js = """
-    (() => {
-        const icons = Array.from(document.querySelectorAll('material-date-range-picker material-icon, .date-range-picker material-icon, material-date-range-picker i'));
-        const prev = icons.find(el => (el.innerText || '').trim() === 'chevron_left');
-        if (prev) {
-            const btn = prev.closest('material-button, button, [role="button"]') || prev;
-            const r = btn.getBoundingClientRect();
-            if (r.width > 0 && r.height > 0) {
-                return {found: true, x: Math.round(r.left + r.width/2), y: Math.round(r.top + r.height/2)};
+def click_prev_day_js(ws, prev_date_text=""):
+    for attempt in range(3):
+        old_sig = get_total_row_sig(ws)
+        send_cdp(ws, "Input.dispatchKeyEvent", {"type": "keyDown", "key": "Escape", "code": "Escape", "windowsVirtualKeyCode": 27})
+        send_cdp(ws, "Input.dispatchKeyEvent", {"type": "keyUp", "key": "Escape", "code": "Escape", "windowsVirtualKeyCode": 27})
+        eval_js(ws, "document.body.click(); window.scrollTo(0, 0);")
+        time.sleep(0.25)
+        js = """
+        (() => {
+            const icons = Array.from(document.querySelectorAll('material-date-range-picker material-icon, .date-range-picker material-icon, material-date-range-picker i'));
+            const prev = icons.find(el => (el.innerText || '').trim() === 'chevron_left');
+            if (prev) {
+                const btn = prev.closest('material-button, button, [role="button"]') || prev;
+                btn.click();
+                const r = btn.getBoundingClientRect();
+                if (r.width > 0 && r.height > 0) {
+                    return {found: true, x: Math.round(r.left + r.width/2), y: Math.round(r.top + r.height/2)};
+                }
+                return {found: true, clicked_js: true};
             }
-            btn.click();
-            return {found: true, clicked_js: true};
-        }
-        return {found: false};
-    })()
-    """
-    r = eval_js(ws, js) or {}
-    if r.get("found"):
-        if r.get("x") and r.get("y"):
+            return {found: false};
+        })()
+        """
+        r = eval_js(ws, js) or {}
+        if not r.get("found"):
+            return False
+        if attempt > 0 and r.get("x") and r.get("y"):
             cdp_click(ws, r["x"], r["y"])
-        wait_for_table_change(ws, old_sig, timeout=9.0)
-        return True
+        wait_for_table_change(ws, old_sig, timeout=7.5)
+        cur_dt = eval_js(
+            ws,
+            "(() => { const d = document.querySelector('material-date-range-picker, .date-range-picker'); return d ? (d.innerText || '').replace(/\\s+/g, ' ').trim() : ''; })()",
+        ) or ""
+        if not prev_date_text or (cur_dt and cur_dt != prev_date_text):
+            return True
     return False
 
 
@@ -525,41 +549,55 @@ def scrape_google_ads_table(ws) -> dict:
             firstBtn.click();
             await sleep(1400);
         }
-        const scroller = document.querySelector('.particle-table-canvas, ess-table-canvas, [role="grid"]') || window;
-        if (scroller !== window) scroller.scrollTop = 0;
-        else window.scrollTo(0, 0);
-        await sleep(200);
         const seen = new Set();
         const rowsOut = [];
-        for (let step = 0; step < 18; step++) {
-            const rows = Array.from(document.querySelectorAll('.particle-table-row, ess-table-row'));
-            for (const r of rows) {
-                const stCell = r.querySelector('[essfield="status"]');
-                const stImg = stCell ? stCell.querySelector('[role="img"]') : null;
-                const toggle = stImg ? (stImg.getAttribute('aria-label') || '') : '';
-                const camp = ((r.querySelector('[essfield="campaign_name"]') || {}).innerText || '').trim();
-                const ag = ((r.querySelector('[essfield="ad_group_name"], [essfield="ad_group"]') || {}).innerText || '').trim();
-                const ad = ((r.querySelector('.ad-name') || {}).innerText || '').trim();
-                let txt = (r.innerText || '').replace(/\\s+/g, ' ').trim();
-                if (txt.includes('View asset details')) {
-                    txt = txt.split('View asset details')[1].trim();
-                }
-                const key = toggle + '|' + camp + '|' + ag + '|' + ad + '|' + txt.slice(0, 140);
-                if (txt.length > 5 && !seen.has(key)) {
-                    seen.add(key);
-                    const isZero = /\\b0\\s+0\\s+(?:—|0\\.00%)\\s+(?:US)?\\$0\\.00/.test(txt);
-                    if (toggle === 'Enabled' || !isZero || txt.includes('Total:')) {
-                        rowsOut.push({toggle, camp, ag, ad, text: txt.slice(0, 320)});
+        for (let page = 0; page < 4; page++) {
+            const scroller = document.querySelector('.particle-table-canvas, ess-table-canvas, [role="grid"]') || window;
+            if (scroller !== window) scroller.scrollTop = 0;
+            else window.scrollTo(0, 0);
+            await sleep(200);
+            for (let step = 0; step < 18; step++) {
+                const rows = Array.from(document.querySelectorAll('.particle-table-row, ess-table-row'));
+                for (const r of rows) {
+                    const stCell = r.querySelector('[essfield="status"]');
+                    const stImg = stCell ? stCell.querySelector('[role="img"]') : null;
+                    const toggle = stImg ? (stImg.getAttribute('aria-label') || '') : '';
+                    const camp = ((r.querySelector('[essfield="campaign_name"]') || {}).innerText || '').trim();
+                    const ag = ((r.querySelector('[essfield="ad_group_name"], [essfield="ad_group"]') || {}).innerText || '').trim();
+                    const ad = ((r.querySelector('.ad-name') || {}).innerText || '').trim();
+                    let txt = (r.innerText || '').replace(/\\s+/g, ' ').trim();
+                    if (txt.includes('View asset details')) {
+                        txt = txt.split('View asset details')[1].trim();
+                    }
+                    const key = toggle + '|' + camp + '|' + ag + '|' + ad + '|' + txt.slice(0, 140);
+                    if (txt.length > 5 && !seen.has(key)) {
+                        seen.add(key);
+                        const isZero = /\\b0\\s+0\\s+(?:—|0\\.00%)\\s+(?:US)?\\$0\\.00/.test(txt);
+                        if (toggle === 'Enabled' || !isZero || txt.includes('Total:')) {
+                            rowsOut.push({toggle, camp, ag, ad, text: txt.slice(0, 320)});
+                        }
                     }
                 }
+                if (scroller === window) window.scrollBy(0, 650);
+                else scroller.scrollTop += 650;
+                await sleep(140);
             }
-            if (scroller === window) window.scrollBy(0, 650);
-            else scroller.scrollTop += 650;
-            await sleep(140);
+            if (scroller !== window) scroller.scrollTop = 0;
+            else window.scrollTo(0, 0);
+            const nextBtn = document.querySelector('[aria-label="Go to the next page"]');
+            if (nextBtn && !nextBtn.disabled && nextBtn.getAttribute('aria-disabled') !== 'true') {
+                nextBtn.click();
+                await sleep(1600);
+            } else {
+                break;
+            }
         }
-        if (scroller !== window) scroller.scrollTop = 0;
-        else window.scrollTo(0, 0);
-        await sleep(500);
+        const firstBtnEnd = document.querySelector('[aria-label="Go to the first page"]');
+        if (firstBtnEnd && !firstBtnEnd.disabled && firstBtnEnd.getAttribute('aria-disabled') !== 'true') {
+            firstBtnEnd.click();
+            await sleep(1200);
+        }
+        await sleep(300);
         const dateEl = document.querySelector('material-date-range-picker, .date-range-picker');
         return {
             dateText: dateEl ? (dateEl.innerText || '').replace(/\\s+/g, ' ').trim() : '',
@@ -754,12 +792,12 @@ def audit_google_ads_multiwindow() -> dict:
             today_verified = date_d0.startswith("Today")
 
             # 2) Click prev day -> Yesterday (d1)
-            click_prev_day_js(ws)
+            click_prev_day_js(ws, prev_date_text=date_d0)
             tbl_d1 = scrape_google_ads_table(ws)
             date_d1 = tbl_d1.get("dateText", "Yesterday")
 
             # 3) Click prev day -> 2 Days Ago (d2)
-            click_prev_day_js(ws)
+            click_prev_day_js(ws, prev_date_text=date_d1)
             tbl_d2 = scrape_google_ads_table(ws)
             date_d2 = tbl_d2.get("dateText", "2 Days Ago")
 
@@ -790,8 +828,14 @@ def audit_google_ads_multiwindow() -> dict:
 
             # Aggregate per (camp, ag, ad) across d0, d1, d2, l7
             ads_map = {}
+            seen_slot_dates = set()
 
             def ingest_table(tbl, slot):
+                dt_str = (tbl.get("dateText") or "").strip()
+                if slot != "d0" and dt_str and dt_str in seen_slot_dates:
+                    return
+                if dt_str:
+                    seen_slot_dates.add(dt_str)
                 for r in tbl.get("rows", []):
                     camp = (r.get("camp") or "").strip()
                     ag = (r.get("ag") or "").strip()
