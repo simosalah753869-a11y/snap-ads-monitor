@@ -701,7 +701,7 @@ def audit_google_ads_multiwindow() -> dict:
         print(f"----------------------------------------------------------------------", flush=True)
         try:
             tabs = json.loads(urllib.request.urlopen(f"http://127.0.0.1:{port}/json/list", timeout=4).read().decode("utf-8"))
-            g_tabs = [t for t in tabs if t.get("type") == "page" and "ads.google.com" in t.get("url", "")]
+            g_tabs = [t for t in tabs if t.get("type") == "page" and "ads.google.com" in t.get("url", "") and "/campaigns/new" not in t.get("url", "") and "/construction" not in t.get("url", "")]
             if not g_tabs:
                 print(f"⚠️ لا توجد تبويبة Google Ads مفتوحة في {label}", flush=True)
                 continue
