@@ -706,8 +706,8 @@ def main():
                     camp_pause_reasons.append(f"Universal Campaign Today Spend ${c_spend_1d:.2f} >= ${reg_no_sale_1d:.2f} with 0 sales Today")
                 elif c_spend_3d >= reg_no_sale_3d and c_conv_3d == 0:
                     camp_pause_reasons.append(f"Universal Campaign 3-Day Spend ${c_spend_3d:.2f} >= ${reg_no_sale_3d:.2f} with 0 sales")
-                elif c_conv_3d > 0 and c_spend_3d >= 12.0 and c_cpa_3d is not None and c_cpa_3d > reg_cpa_3d_lim and c_conv_1d == 0 and c_spend_1d >= 3.0:
-                    camp_pause_reasons.append(f"Universal Campaign 3-Day High CPA ${c_cpa_3d:.2f} > ${reg_cpa_3d_lim:.2f} with ${c_spend_1d:.2f}/0 sales Today")
+                elif c_conv_3d > 0 and c_spend_3d >= 10.0 and c_cpa_3d is not None and c_cpa_3d > camp_cpa_lim and c_conv_1d == 0 and c_spend_1d >= 2.0:
+                    camp_pause_reasons.append(f"Universal Campaign 3-Day High CPA ${c_cpa_3d:.2f} > ${camp_cpa_lim:.2f} with ${c_spend_1d:.2f}/0 sales Today")
 
             if camp_pause_reasons and not is_cross_monitored_product_campaign(camp_name):
                 c_reason_str = " | ".join(camp_pause_reasons)
