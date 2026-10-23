@@ -12,6 +12,14 @@ from duplicate_gulf_campaigns import clone_adsquad_exact, make_session
 sys.stdout.reconfigure(encoding="utf-8")
 
 TARGET_ACCOUNT_ID = "350cb560-ad77-4fb5-9bbf-4c090c9ad081"  # CSP9860
+SECOND_ACCOUNT_ID = "0d00760b-6793-441f-a675-e35371ce9c7c"  # CSP9860 4
+TARGET_ACCOUNT_IDS = [TARGET_ACCOUNT_ID, SECOND_ACCOUNT_ID]
+ALLOWED_30X_CAMPAIGN_IDS = {
+    "f8372cfb-ae46-44d0-bbb4-f39790ecc648",  # CSP9860 - car scaling camp (Pillow)
+    "e23e7c95-3f15-4945-9844-8bd73e2d79d3",  # CSP9860 - باور بانك وينر (Power Bank)
+    "558c5d45-f08e-400c-a499-7668e801c347",  # CSP9860 4 - car armrest (Pillow)
+    "803324e6-052e-441b-99fb-4d43e56c5c78",  # CSP9860 4 - باور بانك وينر - سمارت (Power Bank)
+}
 HISTORY_FILE = Path(__file__).parent / "paused_history.json"
 ACCOUNT_TZ = timezone(timedelta(hours=3))  # GMT+3 (Saudi/Qatar time)
 
@@ -165,28 +173,36 @@ def fetch_account_breakdown_stats(token: str, ad_account_id: str, breakdown: str
 
 def evaluate_adsquad_rule(adsquad_name: str, st: dict, campaign_name: str = "", squad: dict | None = None) -> tuple[bool, str]:
     is_copy = "copy" in adsquad_name.lower()
+    is_base_template = adsquad_name.strip().lower().startswith("base -")
     spend = st["spend"]
     purchases = st["purchases"]
     cpa = st["cpa"]
     cpc = st.get("cpc", 0.0)
     swipes = st.get("swipes", 0)
     is_gulf = is_gulf_034_campaign(campaign_name, adsquad_name, squad)
-    no_sale_lim = 8.0 if is_gulf else 4.50
+    no_sale_lim = 8.0 if is_gulf else 4.00
     max_cpa_lim = 12.0 if is_gulf else 7.0
+    max_adsquad_cpc = 0.35
 
-    # قاعدة صارمة بأمر المستخدم:
-    # أي AdSquad لا يوجد في اسمها كلمة "Copy" لا يتم إطفاؤها أبداً كـ AdSquad (لأنها تحتوي على فيديوهات جديدة يجب اختبارها كلها)،
-    # وإنما يتم إطفاء الفيديوهات الفردية بداخلها فقط.
+    if is_base_template:
+        return False, ""
+
+    # قاعدة صارمة بأمر المستخدم (2026-10-23):
+    # 1) أي مجموعة إعلانية (AdSquad) يتعدى فيها سعر النقرة CPC > $0.35 (بعد صرف >= $0.70 بدون مبيعات، أو >= $1.00 بـ 0 نقرات) تُطفأ فوراً بغض النظر لو بعض الفيديوهات بداخلها لم تأخذ فرصتها بعد.
+    if purchases == 0:
+        if spend >= 1.00 and swipes == 0:
+            return True, f"[AdSquad CPC > $0.35 Rule] صرفت المجموعة ${spend:.2f} (>= $1.00) بـ 0 نقرات و0 مبيعات (بغض النظر عن الفيديوهات بداخلها)"
+        if spend >= 0.70 and swipes > 0 and cpc > max_adsquad_cpc:
+            return True, f"[AdSquad CPC > $0.35 Rule] صرفت المجموعة ${spend:.2f} بدون مبيعات وسعر النقرة CPC=${cpc:.3f} (> ${max_adsquad_cpc:.2f}) بغض النظر عن باقي الفيديوهات"
+
+    # 2) أي مجموعة إعلانية تصرف >= $4.00 بالضبط بدون أي مبيعة (0 مبيعات) تُطفأ فوراً بغض النظر عن الفيديوهات بداخلها.
+    if spend >= no_sale_lim and purchases == 0:
+        return True, f"[AdSquad $4.00 Stop-Loss] صرفت المجموعة ${spend:.2f} (>= ${no_sale_lim:.2f}) بدون أي مبيعة (0 مبيعات)"
+
     if not is_copy:
         return False, ""
 
-    # المجموعات المستنسخة (التي تحتوي على Copy في اسمها):
-    # فرملة النقرة المبكرة للمجموعات المستنسخة (Copy) لمنع استنزاف $4.50 في جمهور غالٍ:
-    early_cpc_lim = 0.28 if is_gulf else 0.165
-    if spend >= 1.50 and purchases == 0 and (swipes == 0 or cpc > early_cpc_lim):
-        return True, f"[Copy Early CPC Brake] صرفت ${spend} (>= $1.50) بدون مبيعات وسعر النقرة CPC=${cpc} (> ${early_cpc_lim})"
-    if spend >= no_sale_lim and purchases == 0:
-        return True, f"[Copy Rule] صرفت ${spend} (>= ${no_sale_lim:.2f}) بدون مبيعات"
+    # 3) إيقاف المجموعة إذا تخطت الحد الأقصى للـ CPA:
     if purchases > 0 and cpa is not None and cpa > max_cpa_lim:
         return True, f"[Copy Rule] سعر البيعة CPA = ${cpa} (> ${max_cpa_lim:.2f}) | الصرف: ${spend} | المبيعات: {purchases}"
 
@@ -202,10 +218,10 @@ def evaluate_single_ad_rule(st: dict, campaign_name: str, adsquad_name: str, squ
     is_copy = "copy" in (adsquad_name or "").lower()
     is_cross_prod = is_cross_monitored_product_campaign(campaign_name, adsquad_name)
     is_gulf = is_gulf_034_campaign(campaign_name, adsquad_name, squad)
-    max_cpc = 0.30 if is_cross_prod else (0.35 if is_gulf else 0.28)
+    max_cpc = 0.30 if is_cross_prod else 0.35
     min_cpc_spend = 0.80 if is_cross_prod else 1.0
     max_cpa = 12.0 if is_gulf else 7.0
-    no_sale_stop = 10.0 if is_gulf else 5.0
+    no_sale_stop = 10.0 if is_gulf else 4.0
 
     # في حملات مايباخ و TIME X: إذا جاب الفيديو بيعة نخليه وما نطفيه بسبب الـ CPC ("الا في حالة جاب بيعة يخليه")
     if is_cross_prod and purchases >= 1:
@@ -219,13 +235,13 @@ def evaluate_single_ad_rule(st: dict, campaign_name: str, adsquad_name: str, squ
     if purchases > 0 and cpa is not None and cpa > max_cpa:
         return True, f"[Single Video Max ${max_cpa:.0f} CPA Rule] صرف الفيديو ${spend} | المبيعات: {purchases} | CPA = ${cpa} (> ${max_cpa:.2f})"
 
-    # 2. قاعدة إيقاف الفيديو إذا صرف >= $5 للسعودية أو >= $10 للخليج بدون مبيعة داخل المجموعة
+    # 2. قاعدة إيقاف الفيديو إذا صرف >= $4 للسعودية أو >= $10 للخليج بدون مبيعة داخل المجموعة
     if not is_cross_prod and spend >= no_sale_stop and purchases == 0:
         return True, f"[Single Video ${no_sale_stop:.0f} Stop-Loss] صرف الفيديو ${spend} (>= ${no_sale_stop:.2f}) بدون مبيعة"
 
-    # 2B. فلتر النقرة المبكر المتوازن داخل نسخ الـ Copy (عند $2.50 بدلاً من $1.50 لمنع قتل المجموعة قبل إتمام البيع)
+    # 2B. فلتر النقرة داخل نسخ الـ Copy (> $0.35 CPC)
     if is_copy and not is_cross_prod and spend >= 2.50 and purchases == 0:
-        copy_early_cpc = 0.35 if is_gulf else 0.24
+        copy_early_cpc = 0.35
         if swipes == 0 or cpc > copy_early_cpc:
             return True, f"[Copy Early High-CPC Cut] نسخة Copy دخلت جمهوراً غالياً: صرفت ${spend} (>= $2.50) بدون مبيعات بـ CPC=${cpc} (> ${copy_early_cpc})"
 
@@ -267,13 +283,15 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
     all_campaigns_list = api_get_paginated(f"/adaccounts/{ad_account_id}/campaigns?limit=200", token, "campaigns", "campaign")
     camp_names = {}
     active_campaigns = []
-    # قاعدة صارمة دائمة بأمر المستخدم (2026-10-23): إيقاف جميع حملات سناب شات القديمة نهائياً، وعدم السماح إلا بالحملة الجديدة (حملة واحدة + أدست واحدة) التي أُنشئت بعد 2026-10-23T18:00:00Z
+    # السماح بالحملات الأربع المعتمدة (وسادة + باور بانك في الحسابين CSP9860 و CSP9860 4) أو الحملات المنشأة بعد 2026-10-23T18:00:00
     LEGACY_SNAP_CUTOFF = "2026-10-23T18:00:00"
     for c in all_campaigns_list:
         camp_names[c["id"]] = c.get("name", "")
         if c.get("status") == "ACTIVE":
             created_ts = str(c.get("created_at") or "")
-            if is_cross_monitored_product_campaign(c.get("name", "")) or (created_ts and created_ts < LEGACY_SNAP_CUTOFF):
+            if is_cross_monitored_product_campaign(c.get("name", "")) or (
+                c["id"] not in ALLOWED_30X_CAMPAIGN_IDS and created_ts and created_ts < LEGACY_SNAP_CUTOFF
+            ):
                 if not dry_run:
                     c_off = dict(c)
                     c_off["status"] = "PAUSED"
@@ -473,7 +491,7 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
         st_2d = squad_stats_2d_map.get(s_id, {"spend": 0.0, "purchases": 0, "cpa": None, "cpc": 0.0, "swipes": 0})
         st_3d = squad_stats_3d_map.get(s_id, {"spend": 0.0, "purchases": 0, "cpa": None, "cpc": 0.0, "swipes": 0})
         st_7d = squad_stats_7d_map.get(s_id, {"spend": 0.0, "purchases": 0, "cpa": None, "cpc": 0.0, "swipes": 0})
-        if max(st_1d["spend"], st_2d["spend"], st_3d["spend"], st_7d["spend"]) < 1.50:
+        if max(st_1d["spend"], st_2d["spend"], st_3d["spend"], st_7d["spend"]) < 0.70:
             continue
 
         s_name = squad.get("name", "")
@@ -491,10 +509,10 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
             # هذه الحملات (وسادة مايباخ ودفاتر TIME X) يراقبها cross_product_monitor.py بمجموع الصرف في سناب وتيكتوك معاً (20$)
             continue
 
-        should_pause_1d, reason_1d = evaluate_adsquad_rule(s_name, st_1d, c_name, squad) if st_1d["spend"] >= 1.50 else (False, "")
-        should_pause_2d, reason_2d = evaluate_adsquad_rule(s_name, st_2d, c_name, squad) if st_2d["spend"] >= 4.50 else (False, "")
-        should_pause_3d, reason_3d = evaluate_adsquad_rule(s_name, st_3d, c_name, squad) if st_3d["spend"] >= 4.50 else (False, "")
-        should_pause_7d, reason_7d = evaluate_adsquad_rule(s_name, st_7d, c_name, squad) if st_7d["spend"] >= 4.50 else (False, "")
+        should_pause_1d, reason_1d = evaluate_adsquad_rule(s_name, st_1d, c_name, squad) if st_1d["spend"] >= 0.70 else (False, "")
+        should_pause_2d, reason_2d = evaluate_adsquad_rule(s_name, st_2d, c_name, squad) if st_2d["spend"] >= 0.70 else (False, "")
+        should_pause_3d, reason_3d = evaluate_adsquad_rule(s_name, st_3d, c_name, squad) if st_3d["spend"] >= 0.70 else (False, "")
+        should_pause_7d, reason_7d = evaluate_adsquad_rule(s_name, st_7d, c_name, squad) if st_7d["spend"] >= 4.00 else (False, "")
         should_pause = should_pause_1d or should_pause_2d or should_pause_3d or should_pause_7d
         if should_pause_1d:
             reason = reason_1d
@@ -506,48 +524,7 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
             reason = f"[7-Day Audit] {reason_7d}"
 
         if should_pause:
-            # حماية الفيديو الرابح داخل مجموعة Copy: إذا كان داخل المجموعة فيديو نشط غير متراكم خاسر وحقق مبيعات بكوست ممتاز (<= $7.00 للسعودية / <= $12.00 للخليج) ولم ينزف اليوم >= $5 بدون مبيعات، نُبقي المجموعة والفيديو الرابح شغالين ونطفئ فقط الفيديوهات الصفرية الأخرى بداخلها!
-            sq_ads_list = ads_by_squad_cache.get(s_id, [])
-            max_win_ad_cpa = 12.0 if is_gulf_034_campaign(c_name, s_name, squad) else 7.00
-            winning_active_ads = []
-            losing_active_siblings = []
-            for a_sq in sq_ads_list:
-                if a_sq.get("status") != "ACTIVE":
-                    continue
-                aid_sq = a_sq["id"]
-                cr_sq = a_sq.get("creative_id", "")
-                mid_sq = history.get("creative_media_map", {}).get(cr_sq) or resolve_video_media_id(cr_sq, token, history)
-                st3_sq_ad = ad_stats_3d_map.get(aid_sq, {"spend": 0.0, "purchases": 0, "cpa": None})
-                st1_sq_ad = ad_stats_map.get(aid_sq, {"spend": 0.0, "purchases": 0, "cpa": None})
-                is_disabled_vid = any(
-                    mid_sq and dv.get("video_media_id") in (mid_sq, f"MEDIA:{mid_sq}", f"SA:MEDIA:{mid_sq}", f"GULF:MEDIA:{mid_sq}")
-                    for dv in history.get("disabled_videos", {}).values()
-                )
-                if (
-                    not is_disabled_vid
-                    and st3_sq_ad.get("purchases", 0) >= 1
-                    and st3_sq_ad.get("cpa") is not None
-                    and st3_sq_ad["cpa"] <= max_win_ad_cpa
-                    and not (st1_sq_ad.get("spend", 0.0) >= 5.0 and st1_sq_ad.get("purchases", 0) == 0)
-                    and not (st1_sq_ad.get("purchases", 0) > 0 and st1_sq_ad.get("cpa") is not None and st1_sq_ad["cpa"] > max_win_ad_cpa)
-                ):
-                    winning_active_ads.append(a_sq)
-                else:
-                    losing_active_siblings.append(a_sq)
-
-            if winning_active_ads:
-                if losing_active_siblings and not dry_run:
-                    for ls_ad in losing_active_siblings:
-                        ls_ad["status"] = "PAUSED"
-                    try:
-                        api_put(f"/adsquads/{s_id}/ads", token, {"ads": losing_active_siblings})
-                    except Exception:
-                        pass
-                print(
-                    f"🛡️ [حماية فيديو رابح داخل المجموعة] الإبقاء على المجموعة '{s_name}' نشطة لأن بداخلها {len(winning_active_ads)} فيديو رابح بكوست ممتاز (وإطفاء {len(losing_active_siblings)} فيديو خاسر بداخلها)"
-                )
-                continue
-
+            # بأمر المستخدم: أي مجموعة تصرف >= $4.00 بـ 0 مبيعات أو يتعدى فيها سعر النقرة CPC > $0.35 بدون مبيعات تُطفأ فوراً بغض النظر لو بعض الفيديوهات بداخلها لم تأخذ فرصتها بعد!
             if dry_run:
                 print(f"🔍 [مطابق للشرط] المجموعة: '{s_name}' (حملة: '{c_name}') | {reason}")
             else:
@@ -754,31 +731,6 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
                 "reason": reason,
                 "paused_at": now_str,
             }
-            # إذا خسر إعلان يحمل عنواناً مختبراً [H1..H6]، نمنع تكرار هذا العنوان الخاسر نهائياً في النسخ القادمة!
-            if "[H" in ad_name:
-                cr_id_lost = ad.get("creative_id", "")
-                if cr_id_lost:
-                    history.setdefault("disabled_videos", {})[f"{c_id}:{cr_id_lost}"] = {
-                        "campaign_id": c_id,
-                        "campaign_name": c_name,
-                        "video_media_id": cr_id_lost,
-                        "sample_ad_name": ad_name.strip(),
-                        "reason": f"[Headline Variant Lost] {reason}",
-                        "disabled_at": now_str,
-                    }
-                try:
-                    hl_tag_lost = "H" + ad_name.split("[H", 1)[1].split("]", 1)[0].strip()
-                    history.setdefault("disabled_headlines", {})[f"{c_id}:{hl_tag_lost}"] = {
-                        "campaign_id": c_id,
-                        "campaign_name": c_name,
-                        "headline_tag": hl_tag_lost,
-                        "sample_ad_name": ad_name.strip(),
-                        "reason": reason,
-                        "disabled_at": now_str,
-                    }
-                    print(f"   🚫 تم حظر العنوان الخاسر [{hl_tag_lost}] في حملة '{c_name}' ولن يتم تكراره مرة أخرى!")
-                except Exception:
-                    pass
             save_paused_history(history)
             print(f"🛑 تم إيقاف الفيديو: '{ad_name}' (حملة: '{c_name}' / مجموعة: '{s_name}') | {reason}")
             time.sleep(0.3)
@@ -1382,8 +1334,8 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
                     except Exception:
                         pass
 
-            # (ج) كشّاف الجمود (Scout Rule): تحريك البيد +$0.10 للمجموعات البطيئة الصرف (< $0.80) بحد أقصى 4 مجموعات في الدورة لكل حملة وبسقف آمن:
-            if is_cross_sq or scouts_nudged_in_camp >= 4:
+            # (ج) كشّاف الجمود (Scout Rule): تحريك البيد +$0.10 للمجموعات البطيئة الصرف (< $0.80) — مع عدم المساس ببيدات مجموعات Copy A ($1.90) و Copy B ($2.10) الثابتة!
+            if is_cross_sq or scouts_nudged_in_camp >= 4 or s_name.startswith(("Copy A -", "Copy B -")):
                 continue
             if today_spend >= 0.80:
                 continue
@@ -1451,4 +1403,13 @@ if __name__ == "__main__":
         recheck_gulf_adsquads(token)
     else:
         dry = "--dry-run" in sys.argv
-        run_automation(token, TARGET_ACCOUNT_ID, dry_run=dry)
+        for acc_id in TARGET_ACCOUNT_IDS:
+            print(f"\n==================================================================")
+            print(f"🛡️ تشغيل مراقب سناب شات على الحساب: {acc_id}")
+            print(f"==================================================================")
+            run_automation(token, acc_id, dry_run=dry)
+        try:
+            from topup_car_campaigns import main as run_cohort_topup
+            run_cohort_topup(dry_run=dry)
+        except Exception as e_topup:
+            print(f"⚠️ خطأ أثناء فحص إعادة النسخ التلقائي لمجموعات الـ 15 الرابحة: {e_topup}")
