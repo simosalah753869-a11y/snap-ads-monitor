@@ -8,7 +8,7 @@ from duplicate_gulf_campaigns import clone_adsquad_exact, make_session
 sys.stdout.reconfigure(encoding="utf-8")
 
 AD_ACCOUNT_ID = "350cb560-ad77-4fb5-9bbf-4c090c9ad081"
-MIN_ACTIVE_COUNT = 5
+MIN_ACTIVE_COUNT = 12
 
 # الكلمات المفتاحية لحملات السكالينج والدوبليكيت (السعودية + دول الخليج بنفس الطريقة، مع حظر كشاف السعودية فقط)
 SCALING_KEYWORDS = ("scaling", "car", "وينر", "winner", "kashaf qatar", "كشاف قطر")
