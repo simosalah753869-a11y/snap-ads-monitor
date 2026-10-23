@@ -1260,6 +1260,8 @@ def run_improvements_guardian(sales_3d: dict = None, sales_today: dict = None):
                 for s in list(still_active[max_copies:]):
                     if s["id"] in user_react_sq_guard:
                         continue
+                    if "copy" not in (s.get("name") or "").lower():
+                        continue
                     st_s = st1.get(s["id"], empty)
                     s3_s = st3.get(s["id"], empty)
                     if st_s["purchases"] == 0 and s3_s["purchases"] == 0:
