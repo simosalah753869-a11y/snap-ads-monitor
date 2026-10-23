@@ -132,6 +132,7 @@ def fetch_account_breakdown_stats(token: str, ad_account_id: str, breakdown: str
         f"&start_time={urllib.parse.quote(start_str)}"
         f"&end_time={urllib.parse.quote(end_str)}"
         f"&breakdown={breakdown}&fields={fields}"
+        f"&swipe_up_attribution_window=1_DAY&view_attribution_window=1_DAY"
     )
     resp = api_get(url, token)
     breakdown_list = (
@@ -502,6 +503,7 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
                     and st3_sq_ad.get("cpa") is not None
                     and st3_sq_ad["cpa"] <= max_win_ad_cpa
                     and not (st1_sq_ad.get("spend", 0.0) >= 5.0 and st1_sq_ad.get("purchases", 0) == 0)
+                    and not (st1_sq_ad.get("purchases", 0) > 0 and st1_sq_ad.get("cpa") is not None and st1_sq_ad["cpa"] > max_win_ad_cpa)
                 ):
                     winning_active_ads.append(a_sq)
                 else:
@@ -667,7 +669,7 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
         ad_name = ad.get("name", "")
         s_id = ad.get("ad_squad_id")
         squad = squad_cache.get(s_id, {})
-        if not squad or squad.get("status") != "ACTIVE":
+        if not squad:
             continue
         s_name = squad.get("name", "")
         c_id = squad.get("campaign_id", "")
@@ -681,6 +683,7 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
             and st3["cpa"] is not None
             and st3["cpa"] <= max_cpa_3d_ind
             and not (st["spend"] >= no_sale_1d_ind and st["purchases"] == 0)
+            and not (st["purchases"] > 0 and st["cpa"] is not None and st["cpa"] > max_cpa_3d_ind)
         )
         should_pause, reason = (
             evaluate_single_ad_rule(st, c_name, s_name, squad)
@@ -691,7 +694,7 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
             should_pause, reason = evaluate_single_ad_rule(st3, c_name, s_name, squad)
             if should_pause:
                 reason = f"[3-Day Audit] {reason}"
-        if not should_pause and st7["spend"] >= min_spend_chk and st7["purchases"] == 0:
+        if not should_pause and st7["spend"] >= min_spend_chk and not is_proven_3d_winner:
             should_pause, reason = evaluate_single_ad_rule(st7, c_name, s_name, squad)
             if should_pause:
                 reason = f"[7-Day Audit] {reason}"
