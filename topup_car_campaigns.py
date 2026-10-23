@@ -310,6 +310,61 @@ def main(dry_run: bool = False):
                 )
 
 
+def enforce_exact_15_per_cohort():
+    cfg = load_config()
+    token = refresh_access_token(cfg)
+    s = make_session(token)
+    for it in CAMPAIGNS_TO_MANAGE:
+        cid = it["campaign_id"]
+        prod = it["prod_prefix"]
+        sqs = get_all_pages(s, f"/campaigns/{cid}/adsquads?limit=200", "adsquads")
+        ads = get_all_pages(s, f"/campaigns/{cid}/ads?limit=500", "ads")
+        by_sq = {}
+        for a in ads:
+            by_sq.setdefault(a.get("ad_squad_id"), []).append(a)
+        for cs in COHORT_SPECS:
+            cp = cs["prefix_tpl"].format(prod=prod)
+            csqs = [x for x in sqs if (x.get("name") or "").startswith(cp)]
+            with_ads = [x for x in csqs if by_sq.get(x["id"])]
+            tmpl_ads = by_sq.get(with_ads[0]["id"], []) if with_ads else []
+            keep15 = csqs[-15:]
+            pause_rest = csqs[:-15]
+            to_upd = []
+            for x in keep15:
+                if not by_sq.get(x["id"]) and tmpl_ads:
+                    s.post(
+                        f"{API_BASE}/adsquads/{x['id']}/ads",
+                        json={
+                            "ads": [
+                                {
+                                    "ad_squad_id": x["id"],
+                                    "creative_id": a["creative_id"],
+                                    "name": a["name"],
+                                    "status": "ACTIVE",
+                                    "type": "REMOTE_WEBPAGE",
+                                }
+                                for a in tmpl_ads
+                            ]
+                        },
+                        timeout=25,
+                    )
+                if x.get("status") != "ACTIVE":
+                    x["status"] = "ACTIVE"
+                    to_upd.append(x)
+            for x in pause_rest:
+                if x.get("status") == "ACTIVE":
+                    x["status"] = "PAUSED"
+                    to_upd.append(x)
+            if to_upd:
+                for i in range(0, len(to_upd), 20):
+                    s.put(f"{API_BASE}/campaigns/{cid}/adsquads", json={"adsquads": to_upd[i : i + 20]}, timeout=25)
+            act_cnt = len([x for x in keep15 if x.get("status") == "ACTIVE"])
+            print(f"✅ [{it['account_name']} | {cp}] النشط الآن بالضبط: {act_cnt}/15", flush=True)
+
+
 if __name__ == "__main__":
-    dry = "--dry-run" in sys.argv
-    main(dry_run=dry)
+    if "--enforce-15" in sys.argv:
+        enforce_exact_15_per_cohort()
+    else:
+        dry = "--dry-run" in sys.argv
+        main(dry_run=dry)
