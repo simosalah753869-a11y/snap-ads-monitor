@@ -132,17 +132,70 @@ def fetch_sheet_multiwindow_sales(ref_date_str: str = None) -> dict:
 
     last_time_by_utm = {}
     seen_keys = set()
+def classify_product_and_country(text_prod: str, text_country: str = "") -> tuple:
+    t = f"{text_prod} {text_country}".lower()
+    if any(k in t for k in ("watch", "ساع", "ساعه", "ساعات")):
+        p_cat = "watch"
+    elif any(k in t for k in ("power", "باور", "شاحن", "voltrx")):
+        p_cat = "power"
+    elif any(k in t for k in ("kashaf", "كشاف")):
+        p_cat = "kashaf"
+    elif any(k in t for k in ("car", "armrest", "سيار", "وساد", "تكاي", "مسند")):
+        p_cat = "car"
+    else:
+        p_cat = "other"
+
+    c_raw = (text_country or text_prod).lower()
+    if any(k in c_raw for k in ("oman", "عمان", "عُمان")) or c_raw.strip() == "om":
+        c_cat = "om"
+    elif any(k in c_raw for k in ("qatar", "قطر")) or c_raw.strip() == "qa":
+        c_cat = "qa"
+    elif any(k in c_raw for k in ("kuwait", "كويت")) or c_raw.strip() == "kw":
+        c_cat = "kw"
+    elif any(k in c_raw for k in ("uae", "امارات", "إمارات")) or c_raw.strip() == "ae":
+        c_cat = "ae"
+    elif any(k in c_raw for k in ("bahrain", "بحرين")) or c_raw.strip() == "bh":
+        c_cat = "bh"
+    else:
+        c_cat = "sa"
+    return p_cat, c_cat
+
+
+def fetch_sheet_multiwindow_sales() -> dict:
+    """
+    Returns deduplicated Lightfunnels sales per UTM code across 1D, 2D, 3D, and 7D,
+    plus strict (utm, prod_cat, country_cat) breakdowns to prevent cross-product/country UTM collisions.
+    """
+    url = f"https://docs.google.com/spreadsheets/d/{SHEET_ID}/gviz/tq?tqx=out:csv&sheet={SHEET_NAME}"
+    req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
+    raw_csv = urllib.request.urlopen(req, timeout=20).read().decode("utf-8", errors="replace")
+    rows = list(csv.reader(io.StringIO(raw_csv)))
+
+    d_1d = get_date_set(0)
+    d_2d = get_date_set(1)
+    d_3d = get_date_set(2)
+    d_7d = get_date_set(6)
+
+    seen_keys = set()
+    last_time_by_utm = {}
+
     s1 = defaultdict(int)
     s2 = defaultdict(int)
     s3 = defaultdict(int)
     s7 = defaultdict(int)
+    s1_strict = defaultdict(int)
+    s2_strict = defaultdict(int)
+    s3_strict = defaultdict(int)
+    s7_strict = defaultdict(int)
     by_day_utm = defaultdict(lambda: defaultdict(int))
 
     for r in rows[1:]:
         if len(r) < 3:
             continue
+        prod_raw = (r[0] or "").strip()
         utm_raw = (r[1] or "").strip()
         date_raw = (r[2] or "").strip()
+        country_raw = (r[3] or "").strip() if len(r) > 3 else ""
         if not utm_raw or not date_raw:
             continue
         d_str = date_raw.split(" ")[0]
@@ -164,21 +217,32 @@ def fetch_sheet_multiwindow_sales(ref_date_str: str = None) -> dict:
         if t_ms > 0:
             last_time_by_utm[utm] = t_ms
 
+        p_cat, c_cat = classify_product_and_country(prod_raw, country_raw)
+        strict_key = f"{utm}|{p_cat}|{c_cat}"
+
         by_day_utm[d_str][utm] += 1
         if d_str in d_1d:
             s1[utm] += 1
+            s1_strict[strict_key] += 1
         if d_str in d_2d:
             s2[utm] += 1
+            s2_strict[strict_key] += 1
         if d_str in d_3d:
             s3[utm] += 1
+            s3_strict[strict_key] += 1
         if d_str in d_7d:
             s7[utm] += 1
+            s7_strict[strict_key] += 1
 
     return {
         "1d": dict(s1),
         "2d": dict(s2),
         "3d": dict(s3),
         "7d": dict(s7),
+        "1d_strict": dict(s1_strict),
+        "2d_strict": dict(s2_strict),
+        "3d_strict": dict(s3_strict),
+        "7d_strict": dict(s7_strict),
         "by_day": {k: dict(v) for k, v in by_day_utm.items()},
     }
 
@@ -386,23 +450,30 @@ def select_date_preset(ws, option_text, port=None):
     time.sleep(1.0)
     keep_adspower_offscreen(port)
     js_pick = f"""
-    (() => {{
-        const items = Array.from(document.querySelectorAll('material-select-item, [role="option"], [role="menuitem"], .item-label, span'));
-        for (const el of items) {{
-            const t = (el.innerText || '').replace(/\\s+/g, ' ').trim();
-            if ((t === {json.dumps(option_text)} || t.startsWith({json.dumps(option_text)} + ' ')) && el.offsetParent !== null) {{
-                const itemEl = el.closest('material-select-item, [role="option"], [role="menuitem"]') || el;
-                itemEl.scrollIntoView({{block: 'center'}});
-                const r = itemEl.getBoundingClientRect();
-                if (r.width > 0 && r.height > 0) {{
-                    return {{found: true, x: Math.round(r.left + r.width/2), y: Math.round(r.top + r.height/2)}};
+    (async () => {{
+        const sleep = ms => new Promise(r => setTimeout(r, ms));
+        const lists = Array.from(document.querySelectorAll('.preset-list, .presets, material-list, [role="listbox"]'));
+        for (const scrollPos of [0, 180, 360, 0]) {{
+            for (const lst of lists) lst.scrollTop = scrollPos;
+            await sleep(80);
+            const items = Array.from(document.querySelectorAll('material-select-item, [role="option"], [role="menuitem"], .item-label, span'));
+            for (const el of items) {{
+                const t = (el.innerText || '').replace(/\\s+/g, ' ').trim();
+                if ((t === {json.dumps(option_text)} || t.startsWith({json.dumps(option_text)} + ' ')) && el.offsetParent !== null) {{
+                    const itemEl = el.closest('material-select-item, [role="option"], [role="menuitem"]') || el;
+                    itemEl.scrollIntoView({{block: 'center'}});
+                    await sleep(50);
+                    const r = itemEl.getBoundingClientRect();
+                    if (r.width > 0 && r.height > 0) {{
+                        return {{found: true, x: Math.round(r.left + r.width/2), y: Math.round(r.top + r.height/2)}};
+                    }}
                 }}
             }}
         }}
         return {{found: false}};
     }})()
     """
-    pk = eval_js(ws, js_pick) or {}
+    pk = eval_js(ws, js_pick, await_promise=True) or {}
     if pk.get("found"):
         time.sleep(0.15)
         cdp_click(ws, pk["x"], pk["y"])
@@ -436,39 +507,46 @@ def click_prev_day_js(ws):
 
 
 def scrape_google_ads_table(ws) -> dict:
-    """Scrapes all rows from Google Ads /aw/ads or /aw/campaigns table with exact parsed metrics."""
+    """Scrapes all rows from Google Ads /aw/ads or /aw/campaigns table across pages with exact parsed metrics."""
     js = """
     (async () => {
         const sleep = ms => new Promise(r => setTimeout(r, ms));
+        const firstBtn = document.querySelector('[aria-label="Go to the first page"]');
+        if (firstBtn && !firstBtn.disabled && firstBtn.getAttribute('aria-disabled') !== 'true') {
+            firstBtn.click();
+            await sleep(1400);
+        }
         const scroller = document.querySelector('.particle-table-canvas, ess-table-canvas, [role="grid"]') || window;
         if (scroller !== window) scroller.scrollTop = 0;
+        else window.scrollTo(0, 0);
         await sleep(200);
         const seen = new Set();
         const rowsOut = [];
-        for (let step = 0; step < 6; step++) {
+        for (let step = 0; step < 18; step++) {
             const rows = Array.from(document.querySelectorAll('.particle-table-row, ess-table-row'));
             for (const r of rows) {
                 const stCell = r.querySelector('[essfield="status"]');
                 const stImg = stCell ? stCell.querySelector('[role="img"]') : null;
                 const toggle = stImg ? (stImg.getAttribute('aria-label') || '') : '';
                 const camp = ((r.querySelector('[essfield="campaign_name"]') || {}).innerText || '').trim();
+                const ag = ((r.querySelector('[essfield="ad_group_name"], [essfield="ad_group"]') || {}).innerText || '').trim();
                 const ad = ((r.querySelector('.ad-name') || {}).innerText || '').trim();
                 let txt = (r.innerText || '').replace(/\\s+/g, ' ').trim();
                 if (txt.includes('View asset details')) {
                     txt = txt.split('View asset details')[1].trim();
                 }
-                const key = toggle + '|' + camp + '|' + ad + '|' + txt.slice(0, 140);
+                const key = toggle + '|' + camp + '|' + ag + '|' + ad + '|' + txt.slice(0, 140);
                 if (txt.length > 5 && !seen.has(key)) {
                     seen.add(key);
                     const isZero = /\\b0\\s+0\\s+(?:—|0\\.00%)\\s+(?:US)?\\$0\\.00/.test(txt);
                     if (toggle === 'Enabled' || !isZero || txt.includes('Total:')) {
-                        rowsOut.push({toggle, camp, ad, text: txt.slice(0, 320)});
+                        rowsOut.push({toggle, camp, ag, ad, text: txt.slice(0, 320)});
                     }
                 }
             }
             if (scroller === window) window.scrollBy(0, 650);
             else scroller.scrollTop += 650;
-            await sleep(160);
+            await sleep(140);
         }
         if (scroller !== window) scroller.scrollTop = 0;
         else window.scrollTo(0, 0);
@@ -518,23 +596,25 @@ def parse_google_ad_metrics(row_obj: dict) -> dict:
     return {"clicks": 0, "impr": 0, "cpc": cpc, "spend": spend, "ui_conv": ui_conv}
 
 
-def set_google_ad_status_carefully(ws, camp_name: str, ad_name: str, desired_status: str, port=None) -> str:
+def set_google_ad_status_carefully(ws, camp_name: str, ad_name: str, desired_status: str, port=None, ag_name: str = None) -> str:
     expected_label = "Enabled" if desired_status == "Enable" else "Paused"
     eval_js(ws, "document.body.click()")
     time.sleep(0.2)
-    for scroll_pos in (0, 500, 1000, 1500, 2000, 2600):
+    for scroll_pos in range(0, 9500, 550):
         eval_js(
             ws,
             f"window.scrollTo(0, {scroll_pos}); document.querySelectorAll('.particle-table-canvas, ess-table-canvas, .ess-table-canvas, [role=\"grid\"]').forEach(s => s.scrollTop = {scroll_pos});",
         )
-        time.sleep(0.2)
+        time.sleep(0.18)
         js_find = f"""
         (() => {{
             const rows = Array.from(document.querySelectorAll('.particle-table-row, ess-table-row'));
+            const wantAg = {json.dumps(ag_name or "")};
             for (const r of rows) {{
                 const c = ((r.querySelector('[essfield="campaign_name"]') || {{}}).innerText || '').trim();
+                const ag = ((r.querySelector('[essfield="ad_group_name"], [essfield="ad_group"]') || {{}}).innerText || '').trim();
                 const n = ((r.querySelector('.ad-name') || {{}}).innerText || '').trim();
-                if (c === {json.dumps(camp_name)} && n === {json.dumps(ad_name)}) {{
+                if (c === {json.dumps(camp_name)} && n === {json.dumps(ad_name)} && (!wantAg || ag === wantAg)) {{
                     r.scrollIntoView({{block: 'center'}});
                     const stCell = r.querySelector('[essfield="status"]');
                     if (!stCell) continue;
@@ -667,18 +747,20 @@ def audit_google_ads_multiwindow() -> dict:
 
             print(f"  📅 النوافذ المقروءة بنجاح: اليوم=({date_d0}) | أمس=({date_d1}) | قبل أمس=({date_d2}) | 7 أيام=({date_l7})", flush=True)
 
-            # Aggregate per (camp, ad) across d0, d1, d2, l7
+            # Aggregate per (camp, ag, ad) across d0, d1, d2, l7
             ads_map = {}
 
             def ingest_table(tbl, slot):
                 for r in tbl.get("rows", []):
                     camp = (r.get("camp") or "").strip()
+                    ag = (r.get("ag") or "").strip()
                     ad = (r.get("ad") or "").strip()
                     if not camp or not ad or "Total:" in r.get("text", ""):
                         continue
-                    key = (camp, ad)
+                    key = (camp, ag, ad)
                     entry = ads_map.setdefault(key, {
                         "camp": camp,
+                        "ag": ag,
                         "ad": ad,
                         "toggle": r.get("toggle", ""),
                         "d0": {"spend": 0.0, "ui_conv": 0.0, "clicks": 0, "cpc": 0.0},
@@ -689,7 +771,8 @@ def audit_google_ads_multiwindow() -> dict:
                     if slot == "d0" and r.get("toggle"):
                         entry["toggle"] = r.get("toggle")
                     m = parse_google_ad_metrics(r)
-                    entry[slot] = m
+                    if m["spend"] >= entry[slot]["spend"]:
+                        entry[slot] = m
 
             ingest_table(tbl_d0, "d0")
             ingest_table(tbl_d1, "d1")
@@ -697,7 +780,7 @@ def audit_google_ads_multiwindow() -> dict:
             ingest_table(tbl_l7, "l7")
 
             acc_ads_report = []
-            for (camp, ad), info in sorted(ads_map.items(), key=lambda kv: (kv[1]["toggle"] != "Enabled", -kv[1]["d0"]["spend"], -kv[1]["l7"]["spend"])):
+            for (camp, ag, ad), info in sorted(ads_map.items(), key=lambda kv: (kv[1]["toggle"] != "Enabled", -kv[1]["d0"]["spend"], -kv[1]["l7"]["spend"])):
                 toggle = info["toggle"]
                 d0, d1, d2, l7 = info["d0"], info["d1"], info["d2"], info["l7"]
 
@@ -712,15 +795,23 @@ def audit_google_ads_multiwindow() -> dict:
                 ui_7d = round(max(ui_3d, d0["ui_conv"] + l7["ui_conv"]), 2)
 
                 ad_key = ad.strip().lower()
-                sh_1d = sheet["1d"].get(ad_key, 0)
-                sh_2d = sheet["2d"].get(ad_key, 0)
-                sh_3d = sheet["3d"].get(ad_key, 0)
-                sh_7d = sheet["7d"].get(ad_key, 0)
+                c_pcat, c_ccat = classify_product_and_country(camp, camp)
+                strict_k = f"{ad_key}|{c_pcat}|{c_ccat}"
+                if c_pcat != "other":
+                    sh_1d = sheet.get("1d_strict", {}).get(strict_k, 0)
+                    sh_2d = sheet.get("2d_strict", {}).get(strict_k, 0)
+                    sh_3d = sheet.get("3d_strict", {}).get(strict_k, 0)
+                    sh_7d = sheet.get("7d_strict", {}).get(strict_k, 0)
+                else:
+                    sh_1d = sheet["1d"].get(ad_key, 0)
+                    sh_2d = sheet["2d"].get(ad_key, 0)
+                    sh_3d = sheet["3d"].get(ad_key, 0)
+                    sh_7d = sheet["7d"].get(ad_key, 0)
 
                 # If this is a duplicate '#2' campaign sharing the same ad_name as the original campaign,
                 # do not let the 0-UI-conversion duplicate claim the original campaign's Sheet sales!
                 base_camp = camp.split("#")[0].strip()
-                if "#" in camp and (base_camp, ad) in ads_map and ui_7d == 0:
+                if "#" in camp and any(k[0] == base_camp and k[2] == ad for k in ads_map) and ui_7d == 0:
                     sh_1d = sh_2d = sh_3d = sh_7d = 0
 
                 eff_1d = max(ui_1d, float(sh_1d))
@@ -775,18 +866,18 @@ def audit_google_ads_multiwindow() -> dict:
                         pause_reason = f"إعلان باسم عام (Ad 1) بدون كود UTM وصرف ${sp_3d:.2f} بـ 0 مبيعات"
 
                     if pause_reason:
-                        res_p = set_google_ad_status_carefully(ws, camp, ad, "Pause", port=port)
+                        res_p = set_google_ad_status_carefully(ws, camp, ad, "Pause", port=port, ag_name=ag)
                         if res_p == "NOT_FOUND":
                             click_prev_day_js(ws)
-                            res_p = set_google_ad_status_carefully(ws, camp, ad, "Pause", port=port)
+                            res_p = set_google_ad_status_carefully(ws, camp, ad, "Pause", port=port, ag_name=ag)
                             select_date_preset(ws, "Today", port=port)
                         decision = f"🛑 تم إيقافه فوراً ({res_p}) — {pause_reason}"
-                        all_actions.append(f"🛑 Google Ads ({label}): إيقاف الإعلان `{ad}` في حملة `{camp}` — {pause_reason} ({res_p})")
+                        all_actions.append(f"🛑 Google Ads ({label}): إيقاف الإعلان `{ad}` في حملة `{camp}` ({ag}) — {pause_reason} ({res_p})")
                     else:
                         decision = "✅ رابح / آمن ومستمر"
 
                 row_line = (
-                    f"  • [{toggle:7s}] Camp='{camp}' | Ad='{ad}' || "
+                    f"  • [{toggle:7s}] Camp='{camp}' | AG='{ag}' | Ad='{ad}' || "
                     f"1D: ${sp_1d:.2f} (UI={ui_1d:.0f}, Sheet={sh_1d} -> CPA={('$'+str(cpa_1d)) if cpa_1d else '—'}) | "
                     f"2D: ${sp_2d:.2f} (UI={ui_2d:.0f}, Sheet={sh_2d} -> CPA={('$'+str(cpa_2d)) if cpa_2d else '—'}) | "
                     f"3D: ${sp_3d:.2f} (UI={ui_3d:.0f}, Sheet={sh_3d} -> CPA={('$'+str(cpa_3d)) if cpa_3d else '—'}) | "
@@ -795,6 +886,7 @@ def audit_google_ads_multiwindow() -> dict:
                 print(row_line, flush=True)
                 acc_ads_report.append({
                     "camp": camp,
+                    "ag": ag,
                     "ad": ad,
                     "toggle": toggle,
                     "1d": f"${sp_1d:.2f} ({eff_1d:.0f}p: UI={ui_1d:.0f}/Sh={sh_1d}, CPA={('$'+str(cpa_1d)) if cpa_1d else '—'})",
