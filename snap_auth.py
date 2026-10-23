@@ -95,15 +95,20 @@ def refresh_access_token(cfg: dict) -> str:
 def api_get(endpoint: str, token: str) -> dict:
     import time, requests
     url = f"{API_BASE}{endpoint}" if endpoint.startswith("/") else endpoint
-    for attempt in range(4):
+    for attempt in range(6):
         try:
-            r = requests.get(url, headers={"Authorization": f"Bearer {token}"}, timeout=25)
+            r = requests.get(url, headers={"Authorization": f"Bearer {token}", "Connection": "close"}, timeout=30)
             if r.status_code == 200:
                 return r.json()
         except Exception:
-            if attempt == 3:
-                raise
-            time.sleep(1.5 * (attempt + 1))
+            try:
+                req = urllib.request.Request(url, headers={"Authorization": f"Bearer {token}", "Connection": "close"})
+                with urllib.request.urlopen(req, timeout=30) as resp:
+                    return json.loads(resp.read().decode("utf-8"))
+            except Exception:
+                if attempt == 5:
+                    raise
+                time.sleep(1.5 * (attempt + 1))
     return {}
 
 
