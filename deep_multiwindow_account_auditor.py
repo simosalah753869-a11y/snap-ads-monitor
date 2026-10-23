@@ -775,6 +775,18 @@ def audit_google_ads_multiwindow() -> dict:
 
             print(f"  📅 النوافذ المقروءة بنجاح: اليوم=({date_d0}) | أمس=({date_d1}) | قبل أمس=({date_d2}) | 7 أيام=({date_l7})", flush=True)
 
+            # Parse the exact calendar date shown in Google Ads UI 'Today' (e.g. 'Today Oct 23, 2026')
+            # so that between 00:00 and 02:00 Saudi time (before Google Ads account timezone rolls over),
+            # Sheet 1D sales match the exact date displayed in Google Ads UI!
+            m_ui_dt = re.search(r"([A-Z][a-z]{2}\s+\d{1,2},\s+\d{4})", date_d0)
+            if m_ui_dt:
+                try:
+                    ui_dt_parsed = datetime.strptime(m_ui_dt.group(1), "%b %d, %Y")
+                    ui_ref_str = ui_dt_parsed.strftime("%Y-%m-%d")
+                    sheet = fetch_sheet_multiwindow_sales(ui_ref_str)
+                except Exception:
+                    pass
+
             # Aggregate per (camp, ag, ad) across d0, d1, d2, l7
             ads_map = {}
 
