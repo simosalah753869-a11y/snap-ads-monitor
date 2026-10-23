@@ -724,9 +724,14 @@ def run_proactive_sales_scaling(sales_3d: dict, sales_today: dict):
                     eff_cpa_today = round(sp1 / eff_conv_today, 2) if eff_conv_today > 0 else 999.0
                     eff_cpa_3d = round(sp3 / eff_conv_3d, 2) if eff_conv_3d > 0 else 999.0
 
-                    # (أ) إعادة تشغيل حملة تيك توك موقوفة إذا سجلت مبيعات متأخرة في الشيت أو المنصة بـ CPA <= $7.00
+                    # (أ) إعادة تشغيل حملة تيك توك موقوفة فقط إذا سجلت مبيعات متأخرة جديدة بـ CPA <= $7.00 ولم تنزف اليوم بدون مبيعات أو بـ CPC مرتفع
                     if op != "0":
-                        if eff_conv_3d >= 2 and eff_cpa_3d <= 7.00 and cid not in tt_revived:
+                        prev_camp_info = hist.get("tiktok_campaigns", {}).get(cid, {})
+                        prev_c_conv3 = int(prev_camp_info.get("conv_3d", prev_camp_info.get("conv_2d", 0)) or 0)
+                        prev_c_conv1 = int(prev_camp_info.get("conv_1d", 0) or 0)
+                        has_new_late_sale = (eff_conv_today > prev_c_conv1) or (eff_conv_3d > prev_c_conv3 and prev_c_conv3 > 0)
+                        bleeding_today = (sp1 >= 1.0 and eff_conv_today == 0 and (cpc1 > 0.35 or clk1 == 0)) or (sp1 >= 4.50 and eff_conv_today == 0)
+                        if has_new_late_sale and not bleeding_today and eff_conv_3d >= 2 and eff_cpa_3d <= 7.00 and cid not in tt_revived:
                             try:
                                 ok_rev, _ = pause_campaign(session, headers, aadvid, cid, operation="enable")
                                 if ok_rev:
@@ -1305,18 +1310,23 @@ def run_improvements_guardian(sales_3d: dict = None, sales_today: dict = None):
                     continue
                 rd = x.get("row_data") or {}
                 sp = float(rd.get("stat_cost") or 0)
+                clk = int(float(rd.get("click_cnt") or 0))
+                cpc = float(rd.get("cpc") or 0)
                 cv = max(int(float(rd.get("time_attr_convert_cnt") or 0)), (sales_today or {}).get(cn.lower(), 0))
                 rd3 = (c3.get(str(x.get("campaign_id"))) or {}).get("row_data") or {}
                 sp3 = float(rd3.get("stat_cost") or 0)
                 cv3 = max(int(float(rd3.get("time_attr_convert_cnt") or 0)), (sales_3d or {}).get(cn.lower(), 0))
                 cpa3 = round(sp3 / cv3, 2) if cv3 else None
                 is_copy = any(k in cn.lower() for k in TT_COPY_KEYS)
-                if is_copy and ((sp >= 5.0 and cv == 0) or (cpa3 is not None and cpa3 > 9.50 and sp3 >= 10)):
+                if sp >= 1.0 and cv == 0 and (cpc > 0.35 or clk == 0):
                     ok, _ = pause_campaign(session, headers, aadvid, x.get("campaign_id"))
-                    actions.append(f"تيك توك ({acc_name}): {'إيقاف' if ok else 'فشل إيقاف'} حملة سكيل/مستنسخة خاسرة عند حد الأمان ($5) '{cn}' (اليوم ${sp:.2f}/{cv} مبيعة، 3D CPA=${cpa3})")
-                elif not is_copy and sp >= 20 and cv == 0:
-                    anomalies.append(f"تيك توك ({acc_name}) '{cn}': صرف ${sp:.2f} اليوم بدون مبيعة.")
-                    recs.append(f"'{cn}': الحملة الأصلية محمية — راجع الفيديوهات (يتم قصّ الخاسر تلقائياً) وأضف كرييتف جديد.")
+                    actions.append(f"تيك توك ({acc_name}): {'إيقاف' if ok else 'فشل إيقاف'} حملة بسبب CPC مرتفع اليوم '{cn}' (الصرف ${sp:.2f}، النقرات {clk}، CPC=${cpc:.2f}، 0 مبيعات)")
+                elif is_copy and ((sp >= 4.50 and cv == 0) or (cpa3 is not None and cpa3 > 7.00 and sp3 >= 7.0)):
+                    ok, _ = pause_campaign(session, headers, aadvid, x.get("campaign_id"))
+                    actions.append(f"تيك توك ({acc_name}): {'إيقاف' if ok else 'فشل إيقاف'} حملة سكيل/مستنسخة خاسرة '{cn}' (اليوم ${sp:.2f}/{cv} مبيعة، 3D CPA=${cpa3})")
+                elif not is_copy and ((sp >= 7.0 and cv == 0) or (cpa3 is not None and cpa3 > 7.00 and sp >= 2.0 and cv == 0)):
+                    ok, _ = pause_campaign(session, headers, aadvid, x.get("campaign_id"))
+                    actions.append(f"تيك توك ({acc_name}): {'إيقاف' if ok else 'فشل إيقاف'} حملة نازفة بدون مبيعات اليوم '{cn}' (اليوم ${sp:.2f}/{cv} مبيعة، 3D CPA=${cpa3})")
     except Exception as e:
         anomalies.append(f"تيك توك: تعذر الفحص ({e}).")
         recs.append("جدد كوكيز تيك توك (tiktok_cookies.json) بتسجيل الدخول من جديد.")
