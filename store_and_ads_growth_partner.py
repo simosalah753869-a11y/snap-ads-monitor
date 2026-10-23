@@ -344,7 +344,7 @@ def run_growth_partner():
 
             # Fast Action: Rescue any choked 3D winning video OR boost budget of today's super-winner
             is_gulf = sm.is_gulf_034_campaign(cname)
-            cpa_lim = 13.0 if is_gulf else 8.50
+            cpa_lim = 12.0 if is_gulf else 7.00
             for a in ads_c:
                 aid = a["id"]
                 a3 = st_ad_3d.get(aid, {})
