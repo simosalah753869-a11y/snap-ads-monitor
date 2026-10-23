@@ -99,11 +99,18 @@ def keep_adspower_offscreen(port=None):
         pass
 
 
+def is_sheet_gift_row(prod_name: str) -> bool:
+    p = (prod_name or "").strip().lower()
+    return any(g in p for g in ("باور بانك صغير للطوارئ", "سوار رجالي", "سماعات", "هدية", "مجانا", "مجاناً"))
+
+
 def classify_product_and_country(text_prod: str, text_country: str = "") -> tuple:
     t = f"{text_prod} {text_country}".lower()
-    if any(k in t for k in ("watch", "ساع", "ساعه", "ساعات")):
+    if "باور بانك صغير للطوارئ" in t:
+        p_cat = "car"
+    elif any(k in t for k in ("watch", "ساع", "ساعه", "ساعات", "سوار رجالي")):
         p_cat = "watch"
-    elif any(k in t for k in ("power", "باور", "شاحن", "voltrx")):
+    elif any(k in t for k in ("power", "باور", "شاحن", "voltrx", "سماعات")):
         p_cat = "power"
     elif any(k in t for k in ("kashaf", "كشاف")):
         p_cat = "kashaf"
@@ -180,6 +187,9 @@ def fetch_sheet_multiwindow_sales(ref_date_str: str = None) -> dict:
         country_raw = (r[3] or "").strip() if len(r) > 3 else ""
         if not utm_raw or not date_raw:
             continue
+        # تجاهل سطر الهدية المرفقة مع الطلب حتى تُحسب الليد مع هديتها كطلب واحد فقط (ليد واحدة)
+        if is_sheet_gift_row(prod_raw):
+            continue
         d_str = date_raw.split(" ")[0]
         if d_str not in d_7d:
             continue
@@ -192,7 +202,7 @@ def fetch_sheet_multiwindow_sales(ref_date_str: str = None) -> dict:
         ukey = f"{utm}|{date_raw}"
         if ukey in seen_keys:
             continue
-        if t_ms > 0 and utm in last_time_by_utm and abs(t_ms - last_time_by_utm[utm]) <= 5000:
+        if t_ms > 0 and utm in last_time_by_utm and abs(t_ms - last_time_by_utm[utm]) <= 60000:
             seen_keys.add(ukey)
             continue
         seen_keys.add(ukey)
@@ -711,10 +721,24 @@ def audit_google_ads_multiwindow() -> dict:
                 time.sleep(6.5)
                 keep_adspower_offscreen(port)
 
-            # 1) Select Today (d0)
+            # 1) Select Today (d0) — with strict verification that dateText starts with 'Today'
             select_date_preset(ws, "Today", port=port)
             tbl_d0 = scrape_google_ads_table(ws)
-            date_d0 = tbl_d0.get("dateText", "Today")
+            date_d0 = tbl_d0.get("dateText", "")
+            if not date_d0.startswith("Today"):
+                # If stuck on Yesterday or 2 days ago, click chevron_right until Today or retry select_date_preset
+                for _ in range(3):
+                    eval_js(ws, """(() => {
+                        const icons = Array.from(document.querySelectorAll('material-date-range-picker material-icon, .date-range-picker material-icon'));
+                        const nxt = icons.find(el => (el.innerText || '').trim() === 'chevron_right');
+                        if (nxt) { const b = nxt.closest('material-button, button, [role="button"]') || nxt; if (!b.disabled && b.getAttribute('aria-disabled') !== 'true') b.click(); }
+                    })()""")
+                    time.sleep(2.2)
+                    tbl_d0 = scrape_google_ads_table(ws)
+                    date_d0 = tbl_d0.get("dateText", "")
+                    if date_d0.startswith("Today"):
+                        break
+            today_verified = date_d0.startswith("Today")
 
             # 2) Click prev day -> Yesterday (d1)
             click_prev_day_js(ws)
@@ -854,6 +878,9 @@ def audit_google_ads_multiwindow() -> dict:
                     elif ad_key == "ad 1" and sp_3d >= 1.00 and eff_3d == 0:
                         pause_reason = f"إعلان باسم عام (Ad 1) بدون كود UTM وصرف ${sp_3d:.2f} بـ 0 مبيعات"
 
+                    if pause_reason and not today_verified:
+                        decision = f"⚠️ تم تخطي الإيقاف مؤقتاً لأن نافذة اليوم لم تتأكد ({date_d0[:25]})"
+                        pause_reason = None
                     if pause_reason:
                         res_p = set_google_ad_status_carefully(ws, camp, ad, "Pause", port=port, ag_name=ag)
                         if res_p == "NOT_FOUND":
