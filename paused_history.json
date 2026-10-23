@@ -10446,6 +10446,34 @@
       "adsquad": "timex — Target Cost Smart+ Broad | 3.30 Bid",
       "reason": "[Ad CPC Rule] صرف الفيديو $8.14 (>= $0.80) | النقرات: 27 | سعر النقرة CPC = $0.301 (> $0.30)",
       "paused_at": "2026-10-23 11:45 GMT+3"
+    },
+    "094c9ecd-8b85-48a4-8b76-3ea22fd59a19": {
+      "name": "21-10_ola_12-10_2_m368de7 [H2]",
+      "campaign": "car scaling new 2 text",
+      "adsquad": "Copy of 21-10 علا جديد (دفعة 12-10 — 5 فيديوهات) [H2]",
+      "reason": "[Global Accumulated Video Stop-Loss 3D] مجموع صرف الفيديو التراكمي لـ 3 أيام على مستوى الحساب = $7.70 (>= $7.00) بدون أي مبيعة",
+      "paused_at": "2026-10-23 13:00 GMT+3"
+    },
+    "6a833bdd-5079-4167-b232-0e94de96c5a4": {
+      "name": "21-10_ola_12-10_2_m368de7 [H2]",
+      "campaign": "car scaling new 2 text",
+      "adsquad": "Copy of 21-10 علا جديد (دفعة 12-10 — 5 فيديوهات) [H1]",
+      "reason": "[Global Accumulated Video Stop-Loss 3D] مجموع صرف الفيديو التراكمي لـ 3 أيام على مستوى الحساب = $7.70 (>= $7.00) بدون أي مبيعة",
+      "paused_at": "2026-10-23 13:00 GMT+3"
+    },
+    "76b69539-c100-46f1-b799-d3c5fcc6304f": {
+      "name": "21-10_ola_12-10_2_m368de7 [H2]",
+      "campaign": "car scaling new 2 text",
+      "adsquad": "21-10 علا جديد (دفعة 12-10 — 5 فيديوهات)",
+      "reason": "[Global Accumulated Video Stop-Loss 3D] مجموع صرف الفيديو التراكمي لـ 3 أيام على مستوى الحساب = $7.70 (>= $7.00) بدون أي مبيعة",
+      "paused_at": "2026-10-23 13:00 GMT+3"
+    },
+    "dc0f7254-e4a4-4548-9686-49a961999406": {
+      "name": "21-10_ola_12-10_2_m368de7 [H4]",
+      "campaign": "car scaling new 2 text",
+      "adsquad": "Copy of 21-10 علا جديد (دفعة 12-10 — 5 فيديوهات) [H4]",
+      "reason": "[Global Accumulated Video Stop-Loss 3D] مجموع صرف الفيديو التراكمي لـ 3 أيام على مستوى الحساب = $7.70 (>= $7.00) بدون أي مبيعة",
+      "paused_at": "2026-10-23 13:00 GMT+3"
     }
   },
   "bid_bumps": {
@@ -12332,13 +12360,26 @@
     "51c15461-ec0c-4092-b571-98b191b92713": "d082adf5-600e-48e1-9b73-79c9980fcf80",
     "36eece66-e035-45d5-8c64-e67874a3302f": "e9027485-9691-4201-b9d1-f6de3528e2c0",
     "92fe0bfd-bf72-4e74-8559-a827709d854a": "0c6da95a-56fc-4a2a-a057-be7ed386c641",
-    "dbab8611-b109-4f7f-a5d2-45eaeb119506": "8778b468-2e18-40b4-926b-f615344f072f",
+    "2f144a49-5fe8-40de-b6bf-20d618d50037": "995bd853-e397-4f42-b784-d54be54445eb",
     "f5fabb10-e20a-4c4f-9fce-e23ed4c35fee": "0c4499b4-cd85-454e-82f6-a8291eea9d1d",
+    "02394457-37cf-4323-8194-e871b4c6b797": "28c5d65c-ef21-4d96-9a6c-c9e07c04dc07",
+    "8399df1a-2d89-439c-8da8-719d4330c5d2": "f4233cef-2593-4a0e-a647-9ef2cb8245dc",
+    "dbab8611-b109-4f7f-a5d2-45eaeb119506": "8778b468-2e18-40b4-926b-f615344f072f",
     "67f0e5af-fc22-4676-bbb7-6852fb8d33cf": "ccf990e1-7b56-4f04-a68c-f5075b658b2a",
     "a334f6e7-503f-4721-bb8c-134c51f11d45": "1e57d5c0-41d7-43fc-b274-691005b04a8f",
-    "2f144a49-5fe8-40de-b6bf-20d618d50037": "995bd853-e397-4f42-b784-d54be54445eb",
-    "02394457-37cf-4323-8194-e871b4c6b797": "28c5d65c-ef21-4d96-9a6c-c9e07c04dc07",
-    "8399df1a-2d89-439c-8da8-719d4330c5d2": "f4233cef-2593-4a0e-a647-9ef2cb8245dc"
+    "06d7f75c-60f1-4a24-b451-21ee23bd0938": "d8010124-bd02-4043-bc26-4a77ed08f8ef",
+    "df173172-ba31-41e8-8450-7a28c6318a2a": "aae4fde2-bafa-45e6-ba88-1cdafda5385b",
+    "d0f4fd5e-dc50-4735-bb02-2aeb61512d8d": "4fa873a8-5213-4be3-8c62-221c6a27d977",
+    "a388ec73-06b3-4633-beaa-54dea859c044": "46d28b07-7cb6-49e4-923a-5b673b84db95",
+    "d5c34001-fed4-44b2-9a93-13a24b08edcb": "abcb6c5a-e7a1-4d03-a075-9cc51c50f46d",
+    "02b6ae0d-2b10-4245-b75b-e912f9f3ec1c": "f6baa34a-229c-46ad-b14f-910c5791e93d",
+    "416e96f5-569b-45ca-9d2e-b29d93d087c3": "ac445b38-5171-4d07-a6d3-357f3e77c2f7",
+    "6cca5928-52e3-4e12-8b56-c405e01504c1": "91ae62c3-decc-4b7d-9c7d-0eb3a090a7ad",
+    "5f10cda1-7976-4ca9-8318-a1b903910b29": "dda1bb5a-4ea1-48e5-9dc2-a22aa0ce04f7",
+    "3cdeddd5-8cdd-49d0-ac4a-082aaec0d368": "595ecf63-a5f7-4966-9c99-7ff0a6c2c8ce",
+    "b0f8f929-2113-44c4-8a38-59ca59031eeb": "dc2e0bc7-8cf1-4c8e-863f-5c561ebc0120",
+    "8ffeb3fe-5471-4444-bd69-59396529b1e6": "9dea1be9-a049-4384-8c61-2f379346f014",
+    "7eddb1bd-03e7-42e5-8be3-edf5c9015292": "b4580d4c-878d-413a-ad11-fa7f0586b199"
   },
   "disabled_videos": {
     "16b7aaf3-7526-49d7-8e68-33df1e0872a7:3bcd9ff7-ec46-4884-9c93-cd1a04ae60a0": {
@@ -12591,6 +12632,17 @@
       "sample_ad_name": "21-10_ola_12-10_2_m368de7 [H3]",
       "reason": "[Headline Variant Lost] [3-Day Audit] [Ad CPC Rule] صرف الفيديو $1.7 (>= $1.00) | النقرات: 6 | سعر النقرة CPC = $0.283 (> $0.28)",
       "disabled_at": "2026-10-23 10:07 GMT+3"
+    },
+    "9be45a26-06ac-4716-8e7b-2fb3a4d65e4c:SA:MEDIA:368de7b2-64e5-444e-82cc-0bfb3dc9cf25": {
+      "campaign_id": "9be45a26-06ac-4716-8e7b-2fb3a4d65e4c",
+      "campaign_name": "car scaling new 2 text",
+      "video_media_id": "SA:MEDIA:368de7b2-64e5-444e-82cc-0bfb3dc9cf25",
+      "sample_ad_name": "21-10_ola_12-10_2_m368de7",
+      "closed_instances": 1,
+      "total_spend": 7.7,
+      "total_purchases": 0,
+      "reason": "[Global Accumulated Video Stop-Loss 3D] مجموع صرف الفيديو التراكمي لـ 3 أيام على مستوى الحساب = $7.70 (>= $7.00) بدون أي مبيعة",
+      "disabled_at": "2026-10-23 13:00 GMT+3"
     }
   },
   "tiktok_campaigns": {
@@ -18699,47 +18751,49 @@
       "spend_3d": 22.8,
       "purchases_3d": 1,
       "cpa_3d": 22.8,
-      "updated_at": "2026-10-23 12:55 GMT+3"
+      "updated_at": "2026-10-23 13:07 GMT+3"
     },
     "4504af26-5609-4e7b-aeca-e11cf9e03846": {
       "name": "smart+ watch suis SA 18-10",
-      "spend_3d": 68.52,
+      "spend_3d": 68.84,
       "purchases_3d": 7,
-      "cpa_3d": 9.79,
-      "updated_at": "2026-10-23 12:55 GMT+3"
+      "cpa_3d": 9.83,
+      "updated_at": "2026-10-23 13:07 GMT+3"
     },
     "4eefa50f-9008-4aea-b159-d370150b60cf": {
       "name": "صندوق دفاتر TIME X 21-10",
-      "reason": "Single-AdSquad Cross-Platform Monitored Product Campaign",
-      "updated_at": "2026-10-23 12:58 GMT+3"
+      "spend_3d": 25.36,
+      "purchases_3d": 2,
+      "cpa_3d": 12.68,
+      "updated_at": "2026-10-23 13:07 GMT+3"
     },
     "a171c141-a6d5-403e-8357-5c8f6c01bce0": {
       "name": "وسادة مايباخ 21-10",
       "spend_3d": 10.25,
       "purchases_3d": 0,
       "cpa_3d": null,
-      "updated_at": "2026-10-23 12:55 GMT+3"
+      "updated_at": "2026-10-23 13:07 GMT+3"
     },
     "c5a7cade-6ec3-4c47-b3a2-c5f08bcf8da0": {
       "name": "وسادة مايباخ 21-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-23 12:55 GMT+3"
+      "updated_at": "2026-10-23 13:07 GMT+3"
     },
     "1879653126110545": {
       "name": "timex books 21-10",
       "aadvid": "7631763556322148369",
       "reason": "Single-Campaign Cross-Platform Monitored Product Campaign",
-      "updated_at": "2026-10-23 12:58 GMT+3"
+      "updated_at": "2026-10-23 13:06 GMT+3"
     },
     "e8f0a5e9-89c5-4c14-aabb-c9c6c657891d": {
       "name": "مسخن الرضاعات اللاسلكي 22-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-23 12:55 GMT+3"
+      "updated_at": "2026-10-23 13:07 GMT+3"
     },
     "f18a3bf4-148a-4f5e-baa1-f90335f1884c": {
       "name": "مسخن الرضاعات اللاسلكي 22-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-23 12:55 GMT+3"
+      "updated_at": "2026-10-23 13:07 GMT+3"
     },
     "1879676075637041": {
       "name": "baby bottle warmer 22-10",
@@ -18758,7 +18812,7 @@
       "spend_3d": 23.96,
       "purchases_3d": 3,
       "cpa_3d": 7.99,
-      "updated_at": "2026-10-23 12:55 GMT+3"
+      "updated_at": "2026-10-23 13:07 GMT+3"
     },
     "1879653022433617": {
       "name": "maybach pillow 21-10",
@@ -18768,79 +18822,24 @@
     },
     "9be45a26-06ac-4716-8e7b-2fb3a4d65e4c": {
       "name": "car scaling new 2 text",
-      "spend_3d": 33.19,
+      "spend_3d": 33.23,
       "purchases_3d": 3,
-      "cpa_3d": 11.06,
-      "updated_at": "2026-10-23 12:55 GMT+3"
+      "cpa_3d": 11.08,
+      "updated_at": "2026-10-23 13:07 GMT+3"
     },
     "baa69314-505c-4b3a-851e-883c10034935": {
       "name": "smart+ cars SA 18-10",
-      "spend_3d": 66.21,
+      "spend_3d": 66.25,
       "purchases_3d": 7,
       "cpa_3d": 9.46,
-      "updated_at": "2026-10-23 12:55 GMT+3"
+      "updated_at": "2026-10-23 13:07 GMT+3"
     },
     "e23e7c95-3f15-4945-9844-8bd73e2d79d3": {
       "name": "باور بانك وينر",
-      "spend_3d": 42.64,
+      "spend_3d": 42.72,
       "purchases_3d": 5,
-      "cpa_3d": 8.53,
-      "updated_at": "2026-10-23 12:55 GMT+3"
-    },
-    "1879689078764737": {
-      "name": "car armrest 21-10 (Hanan 20-10 & 12-10 Edit)",
-      "account": "ROELLINGER RECYCLING",
-      "spend_3d": 189.36,
-      "purchases_3d": 24,
-      "cpa_3d": 7.89,
-      "updated_at": "2026-10-23T12:28:55.910448+03:00"
-    },
-    "1879155925017650": {
-      "name": "power bank winner 16-10 A",
-      "account": "ROELLINGER RECYCLING",
-      "spend_3d": 77.52,
-      "purchases_3d": 10,
-      "cpa_3d": 7.75,
-      "updated_at": "2026-10-23T12:28:56.027439+03:00"
-    },
-    "1879340705037537": {
-      "name": "power bank 18-10 (Ola + Hanan 15-10)",
-      "aadvid": "7631763556322148369",
-      "spend_3d": 68.29,
-      "purchases_3d": 9,
-      "cpa_3d": 7.59,
-      "reason": "3-Day CPA > $7.00 — Duplication Blocked"
-    },
-    "1879581597584850": {
-      "name": "car armrest 20-10 (5 Videos)",
-      "aadvid": "7631763556322148369",
-      "spend_3d": 56.03,
-      "purchases_3d": 6,
-      "cpa_3d": 9.34,
-      "reason": "3-Day CPA > $7.00 — Duplication Blocked"
-    },
-    "1879598580856226": {
-      "name": "car armrest 20-10 (7 Flow Hook Ads A)",
-      "aadvid": "7631763556322148369",
-      "spend_3d": 31.3,
-      "purchases_3d": 3,
-      "cpa_3d": 10.43,
-      "reason": "3-Day CPA > $7.00 — Duplication Blocked"
-    },
-    "1879689071342625": {
-      "name": "car armrest 21-10 (Hanan 20-10 & Ola 12-10)",
-      "aadvid": "7631763556322148369",
-      "spend_3d": 26.47,
-      "purchases_3d": 3,
-      "cpa_3d": 8.82,
-      "reason": "3-Day CPA > $7.00 — Duplication Blocked"
-    },
-    "f8372cfb-ae46-44d0-bbb4-f39790ecc648": {
-      "name": "car scaling camp ",
-      "spend_3d": 82.47,
-      "purchases_3d": 12,
-      "cpa_3d": 6.87,
-      "updated_at": "2026-10-23T12:28:38.591402+03:00"
+      "cpa_3d": 8.54,
+      "updated_at": "2026-10-23 13:07 GMT+3"
     }
   },
   "proactive_scaled_squads": {
@@ -19541,8 +19540,8 @@
       "date": "2026-10-23",
       "name": "Copy of KW_Car Smart+ Broad | 2.8 Bid [H4]",
       "campaign": "وسادة السيارة الكويت 18-10",
-      "bumps_today": 1,
-      "last_action_at": "2026-10-23T09:48:28.067732+00:00",
+      "bumps_today": 0,
+      "last_action_at": null,
       "last_spend": 0.05,
       "last_check_at": "2026-10-23T03:10:14.509959+00:00",
       "scaled_budget_today": false
@@ -19571,8 +19570,8 @@
       "date": "2026-10-23",
       "name": "Copy of KW_Car Smart+ Broad | 2.8 Bid [H5]",
       "campaign": "وسادة السيارة الكويت 18-10",
-      "bumps_today": 1,
-      "last_action_at": "2026-10-23T09:48:28.067732+00:00",
+      "bumps_today": 0,
+      "last_action_at": null,
       "last_spend": 0.07,
       "last_check_at": "2026-10-23T03:10:14.509959+00:00",
       "scaled_budget_today": false
@@ -19841,8 +19840,8 @@
       "date": "2026-10-23",
       "name": "Copy of SA_PB_Manzilk_Batch2 Smart+ Broad | 2.30 Bid [H3]",
       "campaign": "smart+ power bank MANZILK WINNERS 2 SA 18-10",
-      "bumps_today": 1,
-      "last_action_at": "2026-10-23T09:48:28.067732+00:00",
+      "bumps_today": 0,
+      "last_action_at": null,
       "last_spend": 0.0,
       "last_check_at": "2026-10-23T03:10:14.509959+00:00",
       "scaled_budget_today": false
@@ -19871,8 +19870,8 @@
       "date": "2026-10-23",
       "name": "Copy of SA_PB_Manzilk_Batch2 Smart+ Broad | 2.30 Bid [H4]",
       "campaign": "smart+ power bank MANZILK WINNERS 2 SA 18-10",
-      "bumps_today": 1,
-      "last_action_at": "2026-10-23T09:48:28.067732+00:00",
+      "bumps_today": 0,
+      "last_action_at": null,
       "last_spend": 0.01,
       "last_check_at": "2026-10-23T03:10:14.509959+00:00",
       "scaled_budget_today": false
@@ -21288,23 +21287,23 @@
       "scaled_budget_today": false
     },
     "8d922eea-691f-49ff-affa-0bb6f97bd33a": {
-      "date": "2026-10-23",
+      "date": "2026-10-22",
       "name": "20-10 (5 فيديوهات الوسادة)",
       "campaign": "smart+ cars SA 18-10",
       "bumps_today": 1,
-      "last_action_at": "2026-10-23T09:48:28.067732+00:00",
-      "last_spend": 0.1,
-      "last_check_at": "2026-10-23T09:48:28.067732+00:00",
+      "last_action_at": "2026-10-22T08:38:41.662927+00:00",
+      "last_spend": 0.17,
+      "last_check_at": "2026-10-22T08:38:41.662927+00:00",
       "scaled_budget_today": false
     },
     "bebab42f-9762-45f6-8288-9d09ae818aa2": {
-      "date": "2026-10-23",
+      "date": "2026-10-22",
       "name": "20-10 وسادة جديد B (فيديوهات 5-8)",
       "campaign": "smart+ cars SA 18-10",
-      "bumps_today": 1,
-      "last_action_at": "2026-10-23T09:48:28.067732+00:00",
-      "last_spend": 0.76,
-      "last_check_at": "2026-10-23T09:48:28.067732+00:00",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 6.09,
+      "last_check_at": "2026-10-22T08:38:41.662927+00:00",
       "scaled_budget_today": false
     },
     "e4022c04-8275-4f2e-ab04-9d3b3a77fb10": {
@@ -21918,13 +21917,13 @@
       "scaled_budget_today": false
     },
     "8de6349c-cf74-4e1b-b989-b2ca7b10bd83": {
-      "date": "2026-10-23",
+      "date": "2026-10-22",
       "name": "Copy of 16-10 1 [H3]",
       "campaign": "باور بانك وينر",
-      "bumps_today": 1,
-      "last_action_at": "2026-10-23T09:48:28.067732+00:00",
-      "last_spend": 0.76,
-      "last_check_at": "2026-10-23T09:48:28.067732+00:00",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.13,
+      "last_check_at": "2026-10-22T08:38:41.662927+00:00",
       "scaled_budget_today": false
     },
     "9aa99ac3-7437-4b53-bf0e-1e1d42e3d865": {
@@ -21958,13 +21957,13 @@
       "scaled_budget_today": false
     },
     "d9c93c32-8795-4a05-b093-a3fd6b185130": {
-      "date": "2026-10-23",
-      "name": "Copy of 16-10 1 [H4]",
+      "date": "2026-10-21",
+      "name": "Copy of 16-10 1",
       "campaign": "باور بانك وينر",
       "bumps_today": 0,
       "last_action_at": null,
-      "last_spend": 2.27,
-      "last_check_at": "2026-10-23T09:48:28.067732+00:00",
+      "last_spend": 0.0,
+      "last_check_at": "2026-10-21T11:45:28.922827+00:00",
       "scaled_budget_today": false
     },
     "dc2a818c-5b6d-4e87-b216-ee12262ee4aa": {
@@ -22228,13 +22227,13 @@
       "scaled_budget_today": false
     },
     "146a4ec3-fd84-4a2e-ad8a-efc782893bc6": {
-      "date": "2026-10-23",
+      "date": "2026-10-22",
       "name": "21-10 علا جديد (دفعة 12-10 — 5 فيديوهات)",
       "campaign": "car scaling new 2 text",
       "bumps_today": 0,
       "last_action_at": null,
-      "last_spend": 3.01,
-      "last_check_at": "2026-10-23T09:48:28.067732+00:00",
+      "last_spend": 2.69,
+      "last_check_at": "2026-10-22T06:16:33.108870+00:00",
       "scaled_budget_today": false
     },
     "1d6150d5-8518-4a37-a44b-34911db3928a": {
@@ -22248,13 +22247,13 @@
       "scaled_budget_today": false
     },
     "2607808e-0da2-4c4a-9a30-ba2ace8ec450": {
-      "date": "2026-10-23",
+      "date": "2026-10-22",
       "name": "21-10 حنان جديد (دفعة 20-10 — 5 فيديوهات)",
       "campaign": "car scaling new 2 text",
       "bumps_today": 1,
-      "last_action_at": "2026-10-23T09:48:28.067732+00:00",
-      "last_spend": 0.13,
-      "last_check_at": "2026-10-23T09:48:28.067732+00:00",
+      "last_action_at": "2026-10-22T08:38:41.662927+00:00",
+      "last_spend": 1.11,
+      "last_check_at": "2026-10-22T06:16:33.108870+00:00",
       "scaled_budget_today": false
     },
     "81affdde-ac99-4e78-b23b-2e8bc60ac423": {
@@ -22328,13 +22327,13 @@
       "scaled_budget_today": false
     },
     "207e9ac6-82b3-48de-b8e6-f0d9cff12535": {
-      "date": "2026-10-23",
+      "date": "2026-10-22",
       "name": "21-10 علا جديد (دفعة 12-10 — 5 فيديوهات)",
       "campaign": "smart+ cars SA 18-10",
       "bumps_today": 1,
-      "last_action_at": "2026-10-23T09:48:28.067732+00:00",
-      "last_spend": 0.03,
-      "last_check_at": "2026-10-23T09:48:28.067732+00:00",
+      "last_action_at": "2026-10-22T08:38:41.662927+00:00",
+      "last_spend": 0.48,
+      "last_check_at": "2026-10-22T08:38:41.662927+00:00",
       "scaled_budget_today": false
     },
     "631fbad0-35dc-4607-8dca-df3b8bbc3dff": {
@@ -22408,13 +22407,13 @@
       "scaled_budget_today": false
     },
     "5129eb43-175c-4967-94d6-506e741826ba": {
-      "date": "2026-10-23",
+      "date": "2026-10-22",
       "name": "22-10 فولتركس (عنوان 1: الطلب مرتفع والكمية محدودة جداً)",
       "campaign": "باور بانك وينر",
       "bumps_today": 0,
       "last_action_at": null,
-      "last_spend": 1.2,
-      "last_check_at": "2026-10-23T09:48:28.067732+00:00",
+      "last_spend": 2.13,
+      "last_check_at": "2026-10-22T08:38:41.662927+00:00",
       "scaled_budget_today": false
     },
     "6ff5869d-01af-400e-8608-1cd81278212c": {
@@ -22478,13 +22477,13 @@
       "scaled_budget_today": false
     },
     "3b17c260-4223-49f7-b6f7-81b7b0eb012d": {
-      "date": "2026-10-23",
+      "date": "2026-10-22",
       "name": "20-10 (5 فيديوهات الوسادة)",
       "campaign": "car scaling camp ",
       "bumps_today": 1,
-      "last_action_at": "2026-10-23T09:48:28.067732+00:00",
-      "last_spend": 0.71,
-      "last_check_at": "2026-10-23T09:48:28.067732+00:00",
+      "last_action_at": "2026-10-22T08:38:41.662927+00:00",
+      "last_spend": 0.23,
+      "last_check_at": "2026-10-22T08:38:41.662927+00:00",
       "scaled_budget_today": false
     },
     "49943e45-bb7e-4ec8-b7c4-afc4770af321": {
@@ -22568,13 +22567,13 @@
       "scaled_budget_today": false
     },
     "b13ce945-7fa3-4a49-a57b-3d46b57581d4": {
-      "date": "2026-10-23",
+      "date": "2026-10-22",
       "name": "21-10 حنان جديد (دفعة 20-10 — 5 فيديوهات)",
       "campaign": "car scaling camp ",
       "bumps_today": 1,
-      "last_action_at": "2026-10-23T09:48:28.067732+00:00",
-      "last_spend": 0.07,
-      "last_check_at": "2026-10-23T09:48:28.067732+00:00",
+      "last_action_at": "2026-10-22T08:38:41.662927+00:00",
+      "last_spend": 0.56,
+      "last_check_at": "2026-10-22T08:38:41.662927+00:00",
       "scaled_budget_today": false
     },
     "b4aa81a3-7bcc-448c-9b93-ecdef8386cc6": {
@@ -22615,76 +22614,6 @@
       "last_action_at": "2026-10-23T05:10:36.622723+00:00",
       "last_spend": 0.0,
       "last_check_at": "2026-10-23T03:10:14.509959+00:00",
-      "scaled_budget_today": false
-    },
-    "5ed7295d-2793-40d9-899b-1360ca18c23c": {
-      "date": "2026-10-23",
-      "name": "23-10 فولتريكس رأي شخصي دفعة 2 (9 فيديوهات)",
-      "campaign": "smart+ power bank SA 18-10",
-      "bumps_today": 0,
-      "last_action_at": null,
-      "last_spend": 0.0,
-      "last_check_at": "2026-10-23T09:48:28.067732+00:00",
-      "scaled_budget_today": false
-    },
-    "9971f884-5dae-45ea-8acc-87d001f4ac04": {
-      "date": "2026-10-23",
-      "name": "Smart+ Broad 23-10 فولتريكس رأي شخصي (10 فيديوهات)",
-      "campaign": "smart+ power bank SA 18-10",
-      "bumps_today": 0,
-      "last_action_at": null,
-      "last_spend": 0.0,
-      "last_check_at": "2026-10-23T09:48:28.067732+00:00",
-      "scaled_budget_today": false
-    },
-    "7951e0cd-00c0-4225-bfb8-fcc97dd41de8": {
-      "date": "2026-10-23",
-      "name": "Copy of 21-10 علا جديد (دفعة 12-10 — 5 فيديوهات) [H4]",
-      "campaign": "car scaling new 2 text",
-      "bumps_today": 1,
-      "last_action_at": "2026-10-23T09:48:28.067732+00:00",
-      "last_spend": 0.0,
-      "last_check_at": "2026-10-23T09:48:28.067732+00:00",
-      "scaled_budget_today": false
-    },
-    "90d6333d-f4c2-4138-b4b8-ccd280414051": {
-      "date": "2026-10-23",
-      "name": "Copy of 21-10 علا جديد (دفعة 12-10 — 5 فيديوهات) [H1]",
-      "campaign": "car scaling new 2 text",
-      "bumps_today": 1,
-      "last_action_at": "2026-10-23T09:48:28.067732+00:00",
-      "last_spend": 0.0,
-      "last_check_at": "2026-10-23T09:48:28.067732+00:00",
-      "scaled_budget_today": false
-    },
-    "f73ba3a4-f67a-4fb5-bb51-0fd22ab877ce": {
-      "date": "2026-10-23",
-      "name": "Copy of 21-10 علا جديد (دفعة 12-10 — 5 فيديوهات) [H2]",
-      "campaign": "car scaling new 2 text",
-      "bumps_today": 1,
-      "last_action_at": "2026-10-23T09:48:28.067732+00:00",
-      "last_spend": 0.0,
-      "last_check_at": "2026-10-23T09:48:28.067732+00:00",
-      "scaled_budget_today": false
-    },
-    "0c7bd071-58c8-4d58-993a-a3c10437ce47": {
-      "date": "2026-10-23",
-      "name": "23-10 فولتريكس رأي شخصي دفعة 3 (8 فيديوهات)",
-      "campaign": "باور بانك وينر",
-      "bumps_today": 0,
-      "last_action_at": null,
-      "last_spend": 0.0,
-      "last_check_at": "2026-10-23T09:48:28.067732+00:00",
-      "scaled_budget_today": false
-    },
-    "52b3c67d-7cb9-4fd3-a38f-135711834d9e": {
-      "date": "2026-10-23",
-      "name": "Copy of 16-10 1 [H1]",
-      "campaign": "باور بانك وينر",
-      "bumps_today": 0,
-      "last_action_at": null,
-      "last_spend": 3.09,
-      "last_check_at": "2026-10-23T09:48:28.067732+00:00",
       "scaled_budget_today": false
     }
   },
@@ -25856,6 +25785,690 @@
         "deep_link_urls": [],
         "block_preload": true
       }
+    },
+    "fd0deb6a-40dd-437a-b3dd-f68e6004601d": {
+      "name": "mz_pb_11_31_5_147s",
+      "type": "WEB_VIEW",
+      "brand_name": "دار الرمال",
+      "headline": "هدية مجانية في انتظارك مع الطلب",
+      "call_to_action": "ORDER_NOW",
+      "top_snap_media_id": "995bd853-e397-4f42-b784-d54be54445eb",
+      "top_snap_crop_position": "MIDDLE",
+      "forced_view_eligibility": "SIX_SECONDS",
+      "ad_product": "SNAP_AD",
+      "web_view_properties": {
+        "url": "https://www.daralrimal.shop/rluajrRjM/4A-VKbyQu",
+        "allow_snap_javascript_sdk": false,
+        "use_immersive_mode": false,
+        "deep_link_urls": [],
+        "block_preload": true
+      }
+    },
+    "2f144a49-5fe8-40de-b6bf-20d618d50037": {
+      "name": "mz_pb_11_31_5_147s [H2]",
+      "type": "WEB_VIEW",
+      "brand_name": "دار الرمال",
+      "headline": "التوصيل مجاني مع ضمان استرجاع",
+      "call_to_action": "ORDER_NOW",
+      "top_snap_media_id": "995bd853-e397-4f42-b784-d54be54445eb",
+      "top_snap_crop_position": "MIDDLE",
+      "forced_view_eligibility": "SIX_SECONDS",
+      "ad_product": "SNAP_AD",
+      "web_view_properties": {
+        "url": "https://www.daralrimal.shop/rluajrRjM/4A-VKbyQu",
+        "allow_snap_javascript_sdk": false,
+        "use_immersive_mode": false,
+        "deep_link_urls": [],
+        "block_preload": true
+      }
+    },
+    "61c99d50-c032-4293-8817-ef47c4eaa6d5": {
+      "name": "mz_pb_19_33_97s",
+      "type": "WEB_VIEW",
+      "brand_name": "دار الرمال",
+      "headline": "هدية مجانية في انتظارك مع الطلب",
+      "call_to_action": "ORDER_NOW",
+      "top_snap_media_id": "0c4499b4-cd85-454e-82f6-a8291eea9d1d",
+      "top_snap_crop_position": "MIDDLE",
+      "forced_view_eligibility": "SIX_SECONDS",
+      "ad_product": "SNAP_AD",
+      "web_view_properties": {
+        "url": "https://www.daralrimal.shop/rluajrRjM/4A-VKbyQu",
+        "allow_snap_javascript_sdk": false,
+        "use_immersive_mode": false,
+        "deep_link_urls": [],
+        "block_preload": true
+      }
+    },
+    "f5fabb10-e20a-4c4f-9fce-e23ed4c35fee": {
+      "name": "mz_pb_19_33_97s [H2]",
+      "type": "WEB_VIEW",
+      "brand_name": "دار الرمال",
+      "headline": "التوصيل مجاني مع ضمان استرجاع",
+      "call_to_action": "ORDER_NOW",
+      "top_snap_media_id": "0c4499b4-cd85-454e-82f6-a8291eea9d1d",
+      "top_snap_crop_position": "MIDDLE",
+      "forced_view_eligibility": "SIX_SECONDS",
+      "ad_product": "SNAP_AD",
+      "web_view_properties": {
+        "url": "https://www.daralrimal.shop/rluajrRjM/4A-VKbyQu",
+        "allow_snap_javascript_sdk": false,
+        "use_immersive_mode": false,
+        "deep_link_urls": [],
+        "block_preload": true
+      }
+    },
+    "20daef57-4c77-4560-9a6b-91a28527192e": {
+      "name": "mz_pb_13_4_4_2_113s",
+      "type": "WEB_VIEW",
+      "brand_name": "دار الرمال",
+      "headline": "هدية مجانية في انتظارك مع الطلب",
+      "call_to_action": "ORDER_NOW",
+      "top_snap_media_id": "28c5d65c-ef21-4d96-9a6c-c9e07c04dc07",
+      "top_snap_crop_position": "MIDDLE",
+      "forced_view_eligibility": "SIX_SECONDS",
+      "ad_product": "SNAP_AD",
+      "web_view_properties": {
+        "url": "https://www.daralrimal.shop/rluajrRjM/4A-VKbyQu",
+        "allow_snap_javascript_sdk": false,
+        "use_immersive_mode": false,
+        "deep_link_urls": [],
+        "block_preload": true
+      }
+    },
+    "02394457-37cf-4323-8194-e871b4c6b797": {
+      "name": "mz_pb_13_4_4_2_113s [H2]",
+      "type": "WEB_VIEW",
+      "brand_name": "دار الرمال",
+      "headline": "التوصيل مجاني مع ضمان استرجاع",
+      "call_to_action": "ORDER_NOW",
+      "top_snap_media_id": "28c5d65c-ef21-4d96-9a6c-c9e07c04dc07",
+      "top_snap_crop_position": "MIDDLE",
+      "forced_view_eligibility": "SIX_SECONDS",
+      "ad_product": "SNAP_AD",
+      "web_view_properties": {
+        "url": "https://www.daralrimal.shop/rluajrRjM/4A-VKbyQu",
+        "allow_snap_javascript_sdk": false,
+        "use_immersive_mode": false,
+        "deep_link_urls": [],
+        "block_preload": true
+      }
+    },
+    "bd728ca4-f60a-43d1-ba2c-aca74499ddca": {
+      "name": "mz_pb_17_video_preview_3_102s",
+      "type": "WEB_VIEW",
+      "brand_name": "دار الرمال",
+      "headline": "هدية مجانية في انتظارك مع الطلب",
+      "call_to_action": "ORDER_NOW",
+      "top_snap_media_id": "f4233cef-2593-4a0e-a647-9ef2cb8245dc",
+      "top_snap_crop_position": "MIDDLE",
+      "forced_view_eligibility": "SIX_SECONDS",
+      "ad_product": "SNAP_AD",
+      "web_view_properties": {
+        "url": "https://www.daralrimal.shop/rluajrRjM/4A-VKbyQu",
+        "allow_snap_javascript_sdk": false,
+        "use_immersive_mode": false,
+        "deep_link_urls": [],
+        "block_preload": true
+      }
+    },
+    "8399df1a-2d89-439c-8da8-719d4330c5d2": {
+      "name": "mz_pb_17_video_preview_3_102s [H2]",
+      "type": "WEB_VIEW",
+      "brand_name": "دار الرمال",
+      "headline": "التوصيل مجاني مع ضمان استرجاع",
+      "call_to_action": "ORDER_NOW",
+      "top_snap_media_id": "f4233cef-2593-4a0e-a647-9ef2cb8245dc",
+      "top_snap_crop_position": "MIDDLE",
+      "forced_view_eligibility": "SIX_SECONDS",
+      "ad_product": "SNAP_AD",
+      "web_view_properties": {
+        "url": "https://www.daralrimal.shop/rluajrRjM/4A-VKbyQu",
+        "allow_snap_javascript_sdk": false,
+        "use_immersive_mode": false,
+        "deep_link_urls": [],
+        "block_preload": true
+      }
+    },
+    "04339168-b0bd-4aef-aa41-abafe08284d9": {
+      "name": "mz_pb_18_31_4_100s",
+      "type": "WEB_VIEW",
+      "brand_name": "دار الرمال",
+      "headline": "هدية مجانية في انتظارك مع الطلب",
+      "call_to_action": "ORDER_NOW",
+      "top_snap_media_id": "8778b468-2e18-40b4-926b-f615344f072f",
+      "top_snap_crop_position": "MIDDLE",
+      "forced_view_eligibility": "SIX_SECONDS",
+      "ad_product": "SNAP_AD",
+      "web_view_properties": {
+        "url": "https://www.daralrimal.shop/rluajrRjM/4A-VKbyQu",
+        "allow_snap_javascript_sdk": false,
+        "use_immersive_mode": false,
+        "deep_link_urls": [],
+        "block_preload": true
+      }
+    },
+    "dbab8611-b109-4f7f-a5d2-45eaeb119506": {
+      "name": "mz_pb_18_31_4_100s [H2]",
+      "type": "WEB_VIEW",
+      "brand_name": "دار الرمال",
+      "headline": "التوصيل مجاني مع ضمان استرجاع",
+      "call_to_action": "ORDER_NOW",
+      "top_snap_media_id": "8778b468-2e18-40b4-926b-f615344f072f",
+      "top_snap_crop_position": "MIDDLE",
+      "forced_view_eligibility": "SIX_SECONDS",
+      "ad_product": "SNAP_AD",
+      "web_view_properties": {
+        "url": "https://www.daralrimal.shop/rluajrRjM/4A-VKbyQu",
+        "allow_snap_javascript_sdk": false,
+        "use_immersive_mode": false,
+        "deep_link_urls": [],
+        "block_preload": true
+      }
+    },
+    "08aa33cb-8b53-42b5-9828-0f5f876a239a": {
+      "name": "mz_pb_14_3_4_2_106s",
+      "type": "WEB_VIEW",
+      "brand_name": "دار الرمال",
+      "headline": "هدية مجانية في انتظارك مع الطلب",
+      "call_to_action": "ORDER_NOW",
+      "top_snap_media_id": "ccf990e1-7b56-4f04-a68c-f5075b658b2a",
+      "top_snap_crop_position": "MIDDLE",
+      "forced_view_eligibility": "SIX_SECONDS",
+      "ad_product": "SNAP_AD",
+      "web_view_properties": {
+        "url": "https://www.daralrimal.shop/rluajrRjM/4A-VKbyQu",
+        "allow_snap_javascript_sdk": false,
+        "use_immersive_mode": false,
+        "deep_link_urls": [],
+        "block_preload": true
+      }
+    },
+    "67f0e5af-fc22-4676-bbb7-6852fb8d33cf": {
+      "name": "mz_pb_14_3_4_2_106s [H2]",
+      "type": "WEB_VIEW",
+      "brand_name": "دار الرمال",
+      "headline": "التوصيل مجاني مع ضمان استرجاع",
+      "call_to_action": "ORDER_NOW",
+      "top_snap_media_id": "ccf990e1-7b56-4f04-a68c-f5075b658b2a",
+      "top_snap_crop_position": "MIDDLE",
+      "forced_view_eligibility": "SIX_SECONDS",
+      "ad_product": "SNAP_AD",
+      "web_view_properties": {
+        "url": "https://www.daralrimal.shop/rluajrRjM/4A-VKbyQu",
+        "allow_snap_javascript_sdk": false,
+        "use_immersive_mode": false,
+        "deep_link_urls": [],
+        "block_preload": true
+      }
+    },
+    "629169b9-a6f5-4a2d-9df5-4c4b20d1a907": {
+      "name": "mz_pb_20_10_7_4_95s",
+      "type": "WEB_VIEW",
+      "brand_name": "دار الرمال",
+      "headline": "هدية مجانية في انتظارك مع الطلب",
+      "call_to_action": "ORDER_NOW",
+      "top_snap_media_id": "1e57d5c0-41d7-43fc-b274-691005b04a8f",
+      "top_snap_crop_position": "MIDDLE",
+      "forced_view_eligibility": "SIX_SECONDS",
+      "ad_product": "SNAP_AD",
+      "web_view_properties": {
+        "url": "https://www.daralrimal.shop/rluajrRjM/4A-VKbyQu",
+        "allow_snap_javascript_sdk": false,
+        "use_immersive_mode": false,
+        "deep_link_urls": [],
+        "block_preload": true
+      }
+    },
+    "a334f6e7-503f-4721-bb8c-134c51f11d45": {
+      "name": "mz_pb_20_10_7_4_95s [H2]",
+      "type": "WEB_VIEW",
+      "brand_name": "دار الرمال",
+      "headline": "التوصيل مجاني مع ضمان استرجاع",
+      "call_to_action": "ORDER_NOW",
+      "top_snap_media_id": "1e57d5c0-41d7-43fc-b274-691005b04a8f",
+      "top_snap_crop_position": "MIDDLE",
+      "forced_view_eligibility": "SIX_SECONDS",
+      "ad_product": "SNAP_AD",
+      "web_view_properties": {
+        "url": "https://www.daralrimal.shop/rluajrRjM/4A-VKbyQu",
+        "allow_snap_javascript_sdk": false,
+        "use_immersive_mode": false,
+        "deep_link_urls": [],
+        "block_preload": true
+      }
+    },
+    "0a30fcf5-046c-4cf9-997e-ba852ae01164": {
+      "name": "Ola_PB_16_10_6_5-10_5",
+      "type": "WEB_VIEW",
+      "brand_name": "دار الرمال",
+      "headline": "هدية مجانية في انتظارك مع الطلب",
+      "call_to_action": "ORDER_NOW",
+      "top_snap_media_id": "d8010124-bd02-4043-bc26-4a77ed08f8ef",
+      "top_snap_crop_position": "MIDDLE",
+      "forced_view_eligibility": "SIX_SECONDS",
+      "ad_product": "SNAP_AD",
+      "web_view_properties": {
+        "url": "https://www.daralrimal.shop/rluajrRjM/4A-VKbyQu",
+        "allow_snap_javascript_sdk": false,
+        "use_immersive_mode": false,
+        "deep_link_urls": [],
+        "block_preload": true
+      }
+    },
+    "06d7f75c-60f1-4a24-b451-21ee23bd0938": {
+      "name": "Ola_PB_16_10_6_5-10_5 [H2]",
+      "type": "WEB_VIEW",
+      "brand_name": "دار الرمال",
+      "headline": "التوصيل مجاني مع ضمان استرجاع",
+      "call_to_action": "ORDER_NOW",
+      "top_snap_media_id": "d8010124-bd02-4043-bc26-4a77ed08f8ef",
+      "top_snap_crop_position": "MIDDLE",
+      "forced_view_eligibility": "SIX_SECONDS",
+      "ad_product": "SNAP_AD",
+      "web_view_properties": {
+        "url": "https://www.daralrimal.shop/rluajrRjM/4A-VKbyQu",
+        "allow_snap_javascript_sdk": false,
+        "use_immersive_mode": false,
+        "deep_link_urls": [],
+        "block_preload": true
+      }
+    },
+    "b98ae1bc-7ae6-4902-a2b6-02f51cf12cc5": {
+      "name": "PB_Winner_9",
+      "type": "WEB_VIEW",
+      "brand_name": "دار الرمال",
+      "headline": "هدية مجانية في انتظارك مع الطلب",
+      "call_to_action": "ORDER_NOW",
+      "top_snap_media_id": "aae4fde2-bafa-45e6-ba88-1cdafda5385b",
+      "top_snap_crop_position": "MIDDLE",
+      "forced_view_eligibility": "SIX_SECONDS",
+      "ad_product": "SNAP_AD",
+      "web_view_properties": {
+        "url": "https://www.daralrimal.shop/rluajrRjM/4A-VKbyQu",
+        "allow_snap_javascript_sdk": false,
+        "use_immersive_mode": false,
+        "deep_link_urls": [],
+        "block_preload": true
+      }
+    },
+    "df173172-ba31-41e8-8450-7a28c6318a2a": {
+      "name": "PB_Winner_9 [H2]",
+      "type": "WEB_VIEW",
+      "brand_name": "دار الرمال",
+      "headline": "التوصيل مجاني مع ضمان استرجاع",
+      "call_to_action": "ORDER_NOW",
+      "top_snap_media_id": "aae4fde2-bafa-45e6-ba88-1cdafda5385b",
+      "top_snap_crop_position": "MIDDLE",
+      "forced_view_eligibility": "SIX_SECONDS",
+      "ad_product": "SNAP_AD",
+      "web_view_properties": {
+        "url": "https://www.daralrimal.shop/rluajrRjM/4A-VKbyQu",
+        "allow_snap_javascript_sdk": false,
+        "use_immersive_mode": false,
+        "deep_link_urls": [],
+        "block_preload": true
+      }
+    },
+    "d0f4fd5e-dc50-4735-bb02-2aeb61512d8d": {
+      "name": "21-10_ola_12-10_3 [H2]",
+      "type": "WEB_VIEW",
+      "brand_name": "دار الرمال",
+      "headline": "التوصيل مجاني مع ضمان استرجاع",
+      "call_to_action": "ORDER_NOW",
+      "top_snap_media_id": "4fa873a8-5213-4be3-8c62-221c6a27d977",
+      "top_snap_crop_position": "MIDDLE",
+      "forced_view_eligibility": "SIX_SECONDS",
+      "ad_product": "SNAP_AD",
+      "web_view_properties": {
+        "url": "https://www.daralrimal.org/uUspO82ob",
+        "allow_snap_javascript_sdk": false,
+        "use_immersive_mode": false,
+        "deep_link_urls": [],
+        "block_preload": true
+      }
+    },
+    "a388ec73-06b3-4633-beaa-54dea859c044": {
+      "name": "21-10_ola_12-10_4 [H2]",
+      "type": "WEB_VIEW",
+      "brand_name": "دار الرمال",
+      "headline": "التوصيل مجاني مع ضمان استرجاع",
+      "call_to_action": "ORDER_NOW",
+      "top_snap_media_id": "46d28b07-7cb6-49e4-923a-5b673b84db95",
+      "top_snap_crop_position": "MIDDLE",
+      "forced_view_eligibility": "SIX_SECONDS",
+      "ad_product": "SNAP_AD",
+      "web_view_properties": {
+        "url": "https://www.daralrimal.org/uUspO82ob",
+        "allow_snap_javascript_sdk": false,
+        "use_immersive_mode": false,
+        "deep_link_urls": [],
+        "block_preload": true
+      }
+    },
+    "4f915510-98bb-4797-8f5a-4b8c50d3ed14": {
+      "name": "mz_pb_05_7_5_253s",
+      "type": "WEB_VIEW",
+      "brand_name": "دار الرمال",
+      "headline": "هدية مجانية في انتظارك مع الطلب",
+      "call_to_action": "ORDER_NOW",
+      "top_snap_media_id": "abcb6c5a-e7a1-4d03-a075-9cc51c50f46d",
+      "top_snap_crop_position": "MIDDLE",
+      "forced_view_eligibility": "SIX_SECONDS",
+      "ad_product": "SNAP_AD",
+      "web_view_properties": {
+        "url": "https://www.daralrimal.shop/rluajrRjM/4A-VKbyQu",
+        "allow_snap_javascript_sdk": false,
+        "use_immersive_mode": false,
+        "deep_link_urls": [],
+        "block_preload": true
+      }
+    },
+    "d5c34001-fed4-44b2-9a93-13a24b08edcb": {
+      "name": "mz_pb_05_7_5_253s [H2]",
+      "type": "WEB_VIEW",
+      "brand_name": "دار الرمال",
+      "headline": "التوصيل مجاني مع ضمان استرجاع",
+      "call_to_action": "ORDER_NOW",
+      "top_snap_media_id": "abcb6c5a-e7a1-4d03-a075-9cc51c50f46d",
+      "top_snap_crop_position": "MIDDLE",
+      "forced_view_eligibility": "SIX_SECONDS",
+      "ad_product": "SNAP_AD",
+      "web_view_properties": {
+        "url": "https://www.daralrimal.shop/rluajrRjM/4A-VKbyQu",
+        "allow_snap_javascript_sdk": false,
+        "use_immersive_mode": false,
+        "deep_link_urls": [],
+        "block_preload": true
+      }
+    },
+    "963cf817-4e52-4f07-97ec-6373e857c263": {
+      "name": "mz_pb_07_13_230s",
+      "type": "WEB_VIEW",
+      "brand_name": "دار الرمال",
+      "headline": "هدية مجانية في انتظارك مع الطلب",
+      "call_to_action": "ORDER_NOW",
+      "top_snap_media_id": "f6baa34a-229c-46ad-b14f-910c5791e93d",
+      "top_snap_crop_position": "MIDDLE",
+      "forced_view_eligibility": "SIX_SECONDS",
+      "ad_product": "SNAP_AD",
+      "web_view_properties": {
+        "url": "https://www.daralrimal.shop/rluajrRjM/4A-VKbyQu",
+        "allow_snap_javascript_sdk": false,
+        "use_immersive_mode": false,
+        "deep_link_urls": [],
+        "block_preload": true
+      }
+    },
+    "02b6ae0d-2b10-4245-b75b-e912f9f3ec1c": {
+      "name": "mz_pb_07_13_230s [H2]",
+      "type": "WEB_VIEW",
+      "brand_name": "دار الرمال",
+      "headline": "التوصيل مجاني مع ضمان استرجاع",
+      "call_to_action": "ORDER_NOW",
+      "top_snap_media_id": "f6baa34a-229c-46ad-b14f-910c5791e93d",
+      "top_snap_crop_position": "MIDDLE",
+      "forced_view_eligibility": "SIX_SECONDS",
+      "ad_product": "SNAP_AD",
+      "web_view_properties": {
+        "url": "https://www.daralrimal.shop/rluajrRjM/4A-VKbyQu",
+        "allow_snap_javascript_sdk": false,
+        "use_immersive_mode": false,
+        "deep_link_urls": [],
+        "block_preload": true
+      }
+    },
+    "9826d464-028a-42a1-b085-d8a3a0c128a4": {
+      "name": "mz_pb_01_8_5_1_864s",
+      "type": "WEB_VIEW",
+      "brand_name": "دار الرمال",
+      "headline": "هدية مجانية في انتظارك مع الطلب",
+      "call_to_action": "ORDER_NOW",
+      "top_snap_media_id": "ac445b38-5171-4d07-a6d3-357f3e77c2f7",
+      "top_snap_crop_position": "MIDDLE",
+      "forced_view_eligibility": "SIX_SECONDS",
+      "ad_product": "SNAP_AD",
+      "web_view_properties": {
+        "url": "https://www.daralrimal.shop/rluajrRjM/4A-VKbyQu",
+        "allow_snap_javascript_sdk": false,
+        "use_immersive_mode": false,
+        "deep_link_urls": [],
+        "block_preload": true
+      }
+    },
+    "416e96f5-569b-45ca-9d2e-b29d93d087c3": {
+      "name": "mz_pb_01_8_5_1_864s [H2]",
+      "type": "WEB_VIEW",
+      "brand_name": "دار الرمال",
+      "headline": "التوصيل مجاني مع ضمان استرجاع",
+      "call_to_action": "ORDER_NOW",
+      "top_snap_media_id": "ac445b38-5171-4d07-a6d3-357f3e77c2f7",
+      "top_snap_crop_position": "MIDDLE",
+      "forced_view_eligibility": "SIX_SECONDS",
+      "ad_product": "SNAP_AD",
+      "web_view_properties": {
+        "url": "https://www.daralrimal.shop/rluajrRjM/4A-VKbyQu",
+        "allow_snap_javascript_sdk": false,
+        "use_immersive_mode": false,
+        "deep_link_urls": [],
+        "block_preload": true
+      }
+    },
+    "20610631-3ff8-4a1a-bc3f-df75438be877": {
+      "name": "mz_pb_02_vid7_847s",
+      "type": "WEB_VIEW",
+      "brand_name": "دار الرمال",
+      "headline": "هدية مجانية في انتظارك مع الطلب",
+      "call_to_action": "ORDER_NOW",
+      "top_snap_media_id": "91ae62c3-decc-4b7d-9c7d-0eb3a090a7ad",
+      "top_snap_crop_position": "MIDDLE",
+      "forced_view_eligibility": "SIX_SECONDS",
+      "ad_product": "SNAP_AD",
+      "web_view_properties": {
+        "url": "https://www.daralrimal.shop/rluajrRjM/4A-VKbyQu",
+        "allow_snap_javascript_sdk": false,
+        "use_immersive_mode": false,
+        "deep_link_urls": [],
+        "block_preload": true
+      }
+    },
+    "6cca5928-52e3-4e12-8b56-c405e01504c1": {
+      "name": "mz_pb_02_vid7_847s [H2]",
+      "type": "WEB_VIEW",
+      "brand_name": "دار الرمال",
+      "headline": "التوصيل مجاني مع ضمان استرجاع",
+      "call_to_action": "ORDER_NOW",
+      "top_snap_media_id": "91ae62c3-decc-4b7d-9c7d-0eb3a090a7ad",
+      "top_snap_crop_position": "MIDDLE",
+      "forced_view_eligibility": "SIX_SECONDS",
+      "ad_product": "SNAP_AD",
+      "web_view_properties": {
+        "url": "https://www.daralrimal.shop/rluajrRjM/4A-VKbyQu",
+        "allow_snap_javascript_sdk": false,
+        "use_immersive_mode": false,
+        "deep_link_urls": [],
+        "block_preload": true
+      }
+    },
+    "a36caed0-c414-4549-be00-964cf34e79da": {
+      "name": "mz_pb_04_25_5_3_342s",
+      "type": "WEB_VIEW",
+      "brand_name": "دار الرمال",
+      "headline": "هدية مجانية في انتظارك مع الطلب",
+      "call_to_action": "ORDER_NOW",
+      "top_snap_media_id": "dda1bb5a-4ea1-48e5-9dc2-a22aa0ce04f7",
+      "top_snap_crop_position": "MIDDLE",
+      "forced_view_eligibility": "SIX_SECONDS",
+      "ad_product": "SNAP_AD",
+      "web_view_properties": {
+        "url": "https://www.daralrimal.shop/rluajrRjM/4A-VKbyQu",
+        "allow_snap_javascript_sdk": false,
+        "use_immersive_mode": false,
+        "deep_link_urls": [],
+        "block_preload": true
+      }
+    },
+    "5f10cda1-7976-4ca9-8318-a1b903910b29": {
+      "name": "mz_pb_04_25_5_3_342s [H2]",
+      "type": "WEB_VIEW",
+      "brand_name": "دار الرمال",
+      "headline": "التوصيل مجاني مع ضمان استرجاع",
+      "call_to_action": "ORDER_NOW",
+      "top_snap_media_id": "dda1bb5a-4ea1-48e5-9dc2-a22aa0ce04f7",
+      "top_snap_crop_position": "MIDDLE",
+      "forced_view_eligibility": "SIX_SECONDS",
+      "ad_product": "SNAP_AD",
+      "web_view_properties": {
+        "url": "https://www.daralrimal.shop/rluajrRjM/4A-VKbyQu",
+        "allow_snap_javascript_sdk": false,
+        "use_immersive_mode": false,
+        "deep_link_urls": [],
+        "block_preload": true
+      }
+    },
+    "ac4e2050-880d-4f6b-96c9-c178ad0edef9": {
+      "name": "mz_pb_06_0404_1_250s",
+      "type": "WEB_VIEW",
+      "brand_name": "دار الرمال",
+      "headline": "هدية مجانية في انتظارك مع الطلب",
+      "call_to_action": "ORDER_NOW",
+      "top_snap_media_id": "595ecf63-a5f7-4966-9c99-7ff0a6c2c8ce",
+      "top_snap_crop_position": "MIDDLE",
+      "forced_view_eligibility": "SIX_SECONDS",
+      "ad_product": "SNAP_AD",
+      "web_view_properties": {
+        "url": "https://www.daralrimal.shop/rluajrRjM/4A-VKbyQu",
+        "allow_snap_javascript_sdk": false,
+        "use_immersive_mode": false,
+        "deep_link_urls": [],
+        "block_preload": true
+      }
+    },
+    "3cdeddd5-8cdd-49d0-ac4a-082aaec0d368": {
+      "name": "mz_pb_06_0404_1_250s [H2]",
+      "type": "WEB_VIEW",
+      "brand_name": "دار الرمال",
+      "headline": "التوصيل مجاني مع ضمان استرجاع",
+      "call_to_action": "ORDER_NOW",
+      "top_snap_media_id": "595ecf63-a5f7-4966-9c99-7ff0a6c2c8ce",
+      "top_snap_crop_position": "MIDDLE",
+      "forced_view_eligibility": "SIX_SECONDS",
+      "ad_product": "SNAP_AD",
+      "web_view_properties": {
+        "url": "https://www.daralrimal.shop/rluajrRjM/4A-VKbyQu",
+        "allow_snap_javascript_sdk": false,
+        "use_immersive_mode": false,
+        "deep_link_urls": [],
+        "block_preload": true
+      }
+    },
+    "a7269fb8-a0d6-4ac2-a247-f1ab126d13a4": {
+      "name": "mz_pb_09_video_preview_180s",
+      "type": "WEB_VIEW",
+      "brand_name": "دار الرمال",
+      "headline": "هدية مجانية في انتظارك مع الطلب",
+      "call_to_action": "ORDER_NOW",
+      "top_snap_media_id": "dc2e0bc7-8cf1-4c8e-863f-5c561ebc0120",
+      "top_snap_crop_position": "MIDDLE",
+      "forced_view_eligibility": "SIX_SECONDS",
+      "ad_product": "SNAP_AD",
+      "web_view_properties": {
+        "url": "https://www.daralrimal.shop/rluajrRjM/4A-VKbyQu",
+        "allow_snap_javascript_sdk": false,
+        "use_immersive_mode": false,
+        "deep_link_urls": [],
+        "block_preload": true
+      }
+    },
+    "b0f8f929-2113-44c4-8a38-59ca59031eeb": {
+      "name": "mz_pb_09_video_preview_180s [H2]",
+      "type": "WEB_VIEW",
+      "brand_name": "دار الرمال",
+      "headline": "التوصيل مجاني مع ضمان استرجاع",
+      "call_to_action": "ORDER_NOW",
+      "top_snap_media_id": "dc2e0bc7-8cf1-4c8e-863f-5c561ebc0120",
+      "top_snap_crop_position": "MIDDLE",
+      "forced_view_eligibility": "SIX_SECONDS",
+      "ad_product": "SNAP_AD",
+      "web_view_properties": {
+        "url": "https://www.daralrimal.shop/rluajrRjM/4A-VKbyQu",
+        "allow_snap_javascript_sdk": false,
+        "use_immersive_mode": false,
+        "deep_link_urls": [],
+        "block_preload": true
+      }
+    },
+    "6b312066-7cd4-40f1-987b-01aef15e630f": {
+      "name": "mz_pb_08_video_preview_10_212s",
+      "type": "WEB_VIEW",
+      "brand_name": "دار الرمال",
+      "headline": "هدية مجانية في انتظارك مع الطلب",
+      "call_to_action": "ORDER_NOW",
+      "top_snap_media_id": "9dea1be9-a049-4384-8c61-2f379346f014",
+      "top_snap_crop_position": "MIDDLE",
+      "forced_view_eligibility": "SIX_SECONDS",
+      "ad_product": "SNAP_AD",
+      "web_view_properties": {
+        "url": "https://www.daralrimal.shop/rluajrRjM/4A-VKbyQu",
+        "allow_snap_javascript_sdk": false,
+        "use_immersive_mode": false,
+        "deep_link_urls": [],
+        "block_preload": true
+      }
+    },
+    "8ffeb3fe-5471-4444-bd69-59396529b1e6": {
+      "name": "mz_pb_08_video_preview_10_212s [H2]",
+      "type": "WEB_VIEW",
+      "brand_name": "دار الرمال",
+      "headline": "التوصيل مجاني مع ضمان استرجاع",
+      "call_to_action": "ORDER_NOW",
+      "top_snap_media_id": "9dea1be9-a049-4384-8c61-2f379346f014",
+      "top_snap_crop_position": "MIDDLE",
+      "forced_view_eligibility": "SIX_SECONDS",
+      "ad_product": "SNAP_AD",
+      "web_view_properties": {
+        "url": "https://www.daralrimal.shop/rluajrRjM/4A-VKbyQu",
+        "allow_snap_javascript_sdk": false,
+        "use_immersive_mode": false,
+        "deep_link_urls": [],
+        "block_preload": true
+      }
+    },
+    "1b22dda2-412a-4faa-88d5-d35b8eb61398": {
+      "name": "mz_pb_03_vid_14_366s",
+      "type": "WEB_VIEW",
+      "brand_name": "دار الرمال",
+      "headline": "هدية مجانية في انتظارك مع الطلب",
+      "call_to_action": "ORDER_NOW",
+      "top_snap_media_id": "b4580d4c-878d-413a-ad11-fa7f0586b199",
+      "top_snap_crop_position": "MIDDLE",
+      "forced_view_eligibility": "SIX_SECONDS",
+      "ad_product": "SNAP_AD",
+      "web_view_properties": {
+        "url": "https://www.daralrimal.shop/rluajrRjM/4A-VKbyQu",
+        "allow_snap_javascript_sdk": false,
+        "use_immersive_mode": false,
+        "deep_link_urls": [],
+        "block_preload": true
+      }
+    },
+    "7eddb1bd-03e7-42e5-8be3-edf5c9015292": {
+      "name": "mz_pb_03_vid_14_366s [H2]",
+      "type": "WEB_VIEW",
+      "brand_name": "دار الرمال",
+      "headline": "التوصيل مجاني مع ضمان استرجاع",
+      "call_to_action": "ORDER_NOW",
+      "top_snap_media_id": "b4580d4c-878d-413a-ad11-fa7f0586b199",
+      "top_snap_crop_position": "MIDDLE",
+      "forced_view_eligibility": "SIX_SECONDS",
+      "ad_product": "SNAP_AD",
+      "web_view_properties": {
+        "url": "https://www.daralrimal.shop/rluajrRjM/4A-VKbyQu",
+        "allow_snap_javascript_sdk": false,
+        "use_immersive_mode": false,
+        "deep_link_urls": [],
+        "block_preload": true
+      }
     }
   },
   "headline_creatives_cache": {
@@ -25991,7 +26604,27 @@
     "aed7092c-0607-41e4-a941-63d0929f627c|https://www.daralrimal.shop/rluajrRjM/split|هدية مجانية في انتظارك مع الطلب": "93a93b89-38ec-470d-a10a-652af3032a19",
     "c322b187-1abf-4aa2-9d20-ead7d75b237a|https://www.daralrimal.shop/1Hby5-oAB|فخامة سويسرية + هدية مجانية اليوم": "0fe8e8eb-70ef-4ec9-ac4b-188f27ec3708",
     "c322b187-1abf-4aa2-9d20-ead7d75b237a|https://www.daralrimal.shop/1Hby5-oAB|التوصيل مجاني مع ضمان استرجاع": "6c6f3f0a-91da-47cc-a974-fab2b019b7ed",
-    "c322b187-1abf-4aa2-9d20-ead7d75b237a|https://www.daralrimal.shop/1Hby5-oAB|خصم خاص اليوم والكمية محدودة جداً": "bd894b74-a7cb-44c6-a137-abfe300a460d"
+    "c322b187-1abf-4aa2-9d20-ead7d75b237a|https://www.daralrimal.shop/1Hby5-oAB|خصم خاص اليوم والكمية محدودة جداً": "bd894b74-a7cb-44c6-a137-abfe300a460d",
+    "995bd853-e397-4f42-b784-d54be54445eb|https://www.daralrimal.shop/rluajrRjM/4A-VKbyQu|التوصيل مجاني مع ضمان استرجاع": "2f144a49-5fe8-40de-b6bf-20d618d50037",
+    "0c4499b4-cd85-454e-82f6-a8291eea9d1d|https://www.daralrimal.shop/rluajrRjM/4A-VKbyQu|التوصيل مجاني مع ضمان استرجاع": "f5fabb10-e20a-4c4f-9fce-e23ed4c35fee",
+    "28c5d65c-ef21-4d96-9a6c-c9e07c04dc07|https://www.daralrimal.shop/rluajrRjM/4A-VKbyQu|التوصيل مجاني مع ضمان استرجاع": "02394457-37cf-4323-8194-e871b4c6b797",
+    "f4233cef-2593-4a0e-a647-9ef2cb8245dc|https://www.daralrimal.shop/rluajrRjM/4A-VKbyQu|التوصيل مجاني مع ضمان استرجاع": "8399df1a-2d89-439c-8da8-719d4330c5d2",
+    "8778b468-2e18-40b4-926b-f615344f072f|https://www.daralrimal.shop/rluajrRjM/4A-VKbyQu|التوصيل مجاني مع ضمان استرجاع": "dbab8611-b109-4f7f-a5d2-45eaeb119506",
+    "ccf990e1-7b56-4f04-a68c-f5075b658b2a|https://www.daralrimal.shop/rluajrRjM/4A-VKbyQu|التوصيل مجاني مع ضمان استرجاع": "67f0e5af-fc22-4676-bbb7-6852fb8d33cf",
+    "1e57d5c0-41d7-43fc-b274-691005b04a8f|https://www.daralrimal.shop/rluajrRjM/4A-VKbyQu|التوصيل مجاني مع ضمان استرجاع": "a334f6e7-503f-4721-bb8c-134c51f11d45",
+    "d8010124-bd02-4043-bc26-4a77ed08f8ef|https://www.daralrimal.shop/rluajrRjM/4A-VKbyQu|التوصيل مجاني مع ضمان استرجاع": "06d7f75c-60f1-4a24-b451-21ee23bd0938",
+    "aae4fde2-bafa-45e6-ba88-1cdafda5385b|https://www.daralrimal.shop/rluajrRjM/4A-VKbyQu|التوصيل مجاني مع ضمان استرجاع": "df173172-ba31-41e8-8450-7a28c6318a2a",
+    "4fa873a8-5213-4be3-8c62-221c6a27d977|https://www.daralrimal.org/uUspO82ob|التوصيل مجاني مع ضمان استرجاع": "d0f4fd5e-dc50-4735-bb02-2aeb61512d8d",
+    "46d28b07-7cb6-49e4-923a-5b673b84db95|https://www.daralrimal.org/uUspO82ob|التوصيل مجاني مع ضمان استرجاع": "a388ec73-06b3-4633-beaa-54dea859c044",
+    "abcb6c5a-e7a1-4d03-a075-9cc51c50f46d|https://www.daralrimal.shop/rluajrRjM/4A-VKbyQu|التوصيل مجاني مع ضمان استرجاع": "d5c34001-fed4-44b2-9a93-13a24b08edcb",
+    "f6baa34a-229c-46ad-b14f-910c5791e93d|https://www.daralrimal.shop/rluajrRjM/4A-VKbyQu|التوصيل مجاني مع ضمان استرجاع": "02b6ae0d-2b10-4245-b75b-e912f9f3ec1c",
+    "ac445b38-5171-4d07-a6d3-357f3e77c2f7|https://www.daralrimal.shop/rluajrRjM/4A-VKbyQu|التوصيل مجاني مع ضمان استرجاع": "416e96f5-569b-45ca-9d2e-b29d93d087c3",
+    "91ae62c3-decc-4b7d-9c7d-0eb3a090a7ad|https://www.daralrimal.shop/rluajrRjM/4A-VKbyQu|التوصيل مجاني مع ضمان استرجاع": "6cca5928-52e3-4e12-8b56-c405e01504c1",
+    "dda1bb5a-4ea1-48e5-9dc2-a22aa0ce04f7|https://www.daralrimal.shop/rluajrRjM/4A-VKbyQu|التوصيل مجاني مع ضمان استرجاع": "5f10cda1-7976-4ca9-8318-a1b903910b29",
+    "595ecf63-a5f7-4966-9c99-7ff0a6c2c8ce|https://www.daralrimal.shop/rluajrRjM/4A-VKbyQu|التوصيل مجاني مع ضمان استرجاع": "3cdeddd5-8cdd-49d0-ac4a-082aaec0d368",
+    "dc2e0bc7-8cf1-4c8e-863f-5c561ebc0120|https://www.daralrimal.shop/rluajrRjM/4A-VKbyQu|التوصيل مجاني مع ضمان استرجاع": "b0f8f929-2113-44c4-8a38-59ca59031eeb",
+    "9dea1be9-a049-4384-8c61-2f379346f014|https://www.daralrimal.shop/rluajrRjM/4A-VKbyQu|التوصيل مجاني مع ضمان استرجاع": "8ffeb3fe-5471-4444-bd69-59396529b1e6",
+    "b4580d4c-878d-413a-ad11-fa7f0586b199|https://www.daralrimal.shop/rluajrRjM/4A-VKbyQu|التوصيل مجاني مع ضمان استرجاع": "7eddb1bd-03e7-42e5-8be3-edf5c9015292"
   },
   "headline_rotation_idx": {
     "baa69314-505c-4b3a-851e-883c10034935": 3,
