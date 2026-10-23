@@ -270,6 +270,13 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
     for c in all_campaigns_list:
         camp_names[c["id"]] = c.get("name", "")
         if c.get("status") == "ACTIVE":
+            if is_cross_monitored_product_campaign(c.get("name", "")):
+                if not dry_run:
+                    c_off = dict(c)
+                    c_off["status"] = "PAUSED"
+                    api_put(f"/adaccounts/{ad_account_id}/campaigns", token, {"campaigns": [c_off]})
+                    print(f"🛑 [إيقاف دائم للمنتجات الجديدة] تم إيقاف حملة '{c.get('name', '')}' ({c['id']}) بأمر المستخدم.")
+                continue
             active_campaigns.append(c)
 
     squad_cache = {}
