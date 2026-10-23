@@ -267,15 +267,18 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
     all_campaigns_list = api_get_paginated(f"/adaccounts/{ad_account_id}/campaigns?limit=200", token, "campaigns", "campaign")
     camp_names = {}
     active_campaigns = []
+    # قاعدة صارمة دائمة بأمر المستخدم (2026-10-23): إيقاف جميع حملات سناب شات القديمة نهائياً، وعدم السماح إلا بالحملة الجديدة (حملة واحدة + أدست واحدة) التي أُنشئت بعد 2026-10-23T18:00:00Z
+    LEGACY_SNAP_CUTOFF = "2026-10-23T18:00:00"
     for c in all_campaigns_list:
         camp_names[c["id"]] = c.get("name", "")
         if c.get("status") == "ACTIVE":
-            if is_cross_monitored_product_campaign(c.get("name", "")):
+            created_ts = str(c.get("created_at") or "")
+            if is_cross_monitored_product_campaign(c.get("name", "")) or (created_ts and created_ts < LEGACY_SNAP_CUTOFF):
                 if not dry_run:
                     c_off = dict(c)
                     c_off["status"] = "PAUSED"
                     api_put(f"/adaccounts/{ad_account_id}/campaigns", token, {"campaigns": [c_off]})
-                    print(f"🛑 [إيقاف دائم للمنتجات الجديدة] تم إيقاف حملة '{c.get('name', '')}' ({c['id']}) بأمر المستخدم.")
+                    print(f"🛑 [إيقاف دائم لحملات سناب القديمة] تم إيقاف حملة '{c.get('name', '')}' ({c['id']}) بأمر المستخدم.")
                 continue
             active_campaigns.append(c)
 
@@ -382,10 +385,8 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
         except Exception:
             camp_ads_cache[c_id] = []
 
-    # 1A. مراجعة المجموعات التي أطفأها البوت مسبقاً:
-    # - أي مجموعة لا يوجد في اسمها "Copy" يعيد البوت تشغيلها فوراً (ما دامت تحتوي على فيديوهات نشطة) لأن القاعدة هي إطفاء الفيديوهات داخلها فقط وليس المجموعة.
-    # - وأي مجموعة Copy ظهرت لها مبيعة متأخرة وانخفض سعر المبيعة (CPA) تحت الحد المسموح يعيد البوت تشغيلها فوراً!
-    for s_id, info in list(history["adsquads"].items()):
+    # 1A. (موقوف نهائياً بأمر المستخدم: ممنوع إعادة تشغيل أي مجموعة إعلانية موقوفة في سناب شات — التزام كامل بحملة واحدة وأدست واحدة فقط)
+    for s_id, info in []:
         squad = squad_cache.get(s_id, {})
         if not squad:
             continue
@@ -589,8 +590,8 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
                         pass
                 print(f"🧹 تم إيقاف {len(empty_active_squads)} مجموعة فارغة (0 إعلانات نشطة) تلقائياً في حملة '{c.get('name', '')}'")
 
-    # 2A. مراجعة الفيديوهات الفردية التي أطفأها البوت: إذا ظهرت مبيعة متأخرة وكان سعر البيعة الفردي مربحاً (<= $8 للسعودية أو <= $13 للخليج)، يعيد تشغيل النسخة الفردية الرابحة (إلا إذا كان الفيديو التراكمي موقوفاً!)
-    for ad_id, info in list(history["ads"].items()):
+    # 2A. (موقوف نهائياً بأمر المستخدم: ممنوع إعادة تشغيل الفيديوهات أو المجموعات الموقوفة في سناب شات تلقائياً)
+    for ad_id, info in []:
         paused_at_str = str(info.get("paused_at", ""))
         is_recent_pause = (today_d_str in paused_at_str) or (yesterday_d_str in paused_at_str)
         st1_a = ad_stats_map.get(ad_id, {"spend": 0.0, "purchases": 0, "cpa": None})
