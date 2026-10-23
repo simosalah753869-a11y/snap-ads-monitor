@@ -428,7 +428,7 @@ def run_proactive_sales_scaling(sales_3d: dict, sales_today: dict):
             p_sname = str(p_info.get("name", ""))
             if is_banned_kashaf(f"{p_cname} {p_sname}"):
                 continue
-            max_revive_cpa = 10.0 if is_gulf_034_campaign(p_cname, p_sname) else 8.0
+            max_revive_cpa = 10.0 if is_gulf_034_campaign(p_cname, p_sname) else 7.0
             if s2_p["cpa"] <= max_revive_cpa and paused_sid not in revived_squads:
                 try:
                     sq_get = api_get(f"/adsquads/{paused_sid}", token)
@@ -467,11 +467,11 @@ def run_proactive_sales_scaling(sales_3d: dict, sales_today: dict):
             eff_cpa1_camp = round(cst1["spend"] / sh_1d_camp, 2) if sh_1d_camp > 0 else None
             snap_cpa_3d = cst3.get("cpa")
             camp_over_8_3d = (
-                (cst3["spend"] > 8.0 and eff_pu3_camp == 0)
-                or (snap_cpa_3d is not None and snap_cpa_3d > 8.0)
-                or (eff_pu3_camp > 0 and eff_cpa3_camp is not None and eff_cpa3_camp > 8.0)
-                or (cst1["spend"] >= 8.0 and sh_1d_camp == 0)
-                or (sh_1d_camp > 0 and eff_cpa1_camp is not None and eff_cpa1_camp > 8.0)
+                (cst3["spend"] > 7.0 and eff_pu3_camp == 0)
+                or (snap_cpa_3d is not None and snap_cpa_3d > 7.0)
+                or (eff_pu3_camp > 0 and eff_cpa3_camp is not None and eff_cpa3_camp > 7.0)
+                or (cst1["spend"] >= 7.0 and sh_1d_camp == 0)
+                or (sh_1d_camp > 0 and eff_cpa1_camp is not None and eff_cpa1_camp > 7.0)
             )
             if camp_over_8_3d:
                 no_dup_camps[cid] = {
@@ -482,7 +482,7 @@ def run_proactive_sales_scaling(sales_3d: dict, sales_today: dict):
                     "updated_at": datetime.now(SA_TZ).isoformat(),
                 }
                 save_paused_history(history)
-            elif cid in no_dup_camps and snap_cpa_3d is not None and snap_cpa_3d <= 8.0:
+            elif cid in no_dup_camps and snap_cpa_3d is not None and snap_cpa_3d <= 7.0:
                 del no_dup_camps[cid]
                 save_paused_history(history)
 
@@ -504,9 +504,9 @@ def run_proactive_sales_scaling(sales_3d: dict, sales_today: dict):
                 is_copy_sq = "copy" in sname.lower()
                 user_react_sq = history.get("user_reactivated_squads", {})
 
-                # (0) إيقاف المجموعات المستنسخة (التي تحتوي على Copy في اسمها فقط!) إذا صرفت >= 5$ بدون مبيعة أو تخطت CPA > 8$؛
+                # (0) إيقاف المجموعات المستنسخة (التي تحتوي على Copy في اسمها فقط!) إذا صرفت >= 5$ بدون مبيعة أو تخطت CPA > 7$؛
                 # بشرط عدم وجودها في قائمة التفعيل اليدوي أو احتوائها على فيديو رابح محمي بواسطة snap_monitor.py!
-                if is_copy_sq and sid not in user_react_sq and ((s3["spend"] >= 5.0 and s3["purchases"] == 0) or (s3["purchases"] > 0 and s3["cpa"] is not None and s3["cpa"] > 8.0)):
+                if is_copy_sq and sid not in user_react_sq and ((s3["spend"] >= 5.0 and s3["purchases"] == 0) or (s3["purchases"] > 0 and s3["cpa"] is not None and s3["cpa"] > 7.0)):
                     # Check if there is a winning active ad inside before pausing the squad
                     has_protected_win_ad = False
                     try:
@@ -520,7 +520,13 @@ def run_proactive_sales_scaling(sales_3d: dict, sales_today: dict):
                             aid_w = ao.get("id")
                             a3 = ad_st_3d_map.get(aid_w, {"spend": 0.0, "purchases": 0, "cpa": None})
                             a1 = ad_st_1d_map.get(aid_w, {"spend": 0.0, "purchases": 0, "cpa": None})
-                            if a3["purchases"] >= 1 and a3["cpa"] is not None and a3["cpa"] <= 8.50 and not (a1["spend"] >= 4.80 and a1["purchases"] == 0):
+                            if (
+                                a3["purchases"] >= 1
+                                and a3["cpa"] is not None
+                                and a3["cpa"] <= 7.00
+                                and not (a1["spend"] >= 4.80 and a1["purchases"] == 0)
+                                and not (a1["purchases"] > 0 and a1["cpa"] is not None and a1["cpa"] > 7.00)
+                            ):
                                 has_protected_win_ad = True
                                 break
                     except Exception:
@@ -718,9 +724,9 @@ def run_proactive_sales_scaling(sales_3d: dict, sales_today: dict):
                     eff_cpa_today = round(sp1 / eff_conv_today, 2) if eff_conv_today > 0 else 999.0
                     eff_cpa_3d = round(sp3 / eff_conv_3d, 2) if eff_conv_3d > 0 else 999.0
 
-                    # (أ) إعادة تشغيل حملة تيك توك موقوفة إذا سجلت مبيعات متأخرة في الشيت أو المنصة بـ CPA <= $8.00
+                    # (أ) إعادة تشغيل حملة تيك توك موقوفة إذا سجلت مبيعات متأخرة في الشيت أو المنصة بـ CPA <= $7.00
                     if op != "0":
-                        if eff_conv_3d >= 2 and eff_cpa_3d <= 8.00 and cid not in tt_revived:
+                        if eff_conv_3d >= 2 and eff_cpa_3d <= 7.00 and cid not in tt_revived:
                             try:
                                 ok_rev, _ = pause_campaign(session, headers, aadvid, cid, operation="enable")
                                 if ok_rev:
@@ -749,9 +755,9 @@ def run_proactive_sales_scaling(sales_3d: dict, sales_today: dict):
                             f"3أيام=${sp3:.2f} ({cv3} تيك توك / {sh_3d} شيت، CPA=${eff_cpa_3d if eff_conv_3d > 0 else 0:.2f})"
                         )
 
-                    # (أ2) قاعدة الـ 8$ لآخر 3 أيام في تيك توك: عدم إطفاء الحملة، ولكن منع عمل أي Duplicate لها إذا كان سعر البيعة في آخر 3 أيام متعدي 8$
+                    # (أ2) قاعدة الـ 7$ لآخر 3 أيام في تيك توك: عدم إطفاء الحملة، ولكن منع عمل أي Duplicate لها إذا كان سعر البيعة في آخر 3 أيام متعدي 7$
                     no_dup_tt = hist.setdefault("no_duplicate_campaigns", {})
-                    if (sp3 > 8.0 and eff_conv_3d == 0) or (eff_conv_3d > 0 and eff_cpa_3d > 8.00):
+                    if (sp3 > 7.0 and eff_conv_3d == 0) or (eff_conv_3d > 0 and eff_cpa_3d > 7.00):
                         no_dup_tt[cid] = {
                             "name": cname,
                             "account": acc_name,
@@ -761,7 +767,7 @@ def run_proactive_sales_scaling(sales_3d: dict, sales_today: dict):
                             "updated_at": datetime.now(SA_TZ).isoformat(),
                         }
                         save_history(hist)
-                    elif cid in no_dup_tt and eff_conv_3d > 0 and eff_cpa_3d <= 8.00:
+                    elif cid in no_dup_tt and eff_conv_3d > 0 and eff_cpa_3d <= 7.00:
                         del no_dup_tt[cid]
                         save_history(hist)
 
@@ -1168,7 +1174,7 @@ def run_improvements_guardian(sales_3d: dict = None, sales_today: dict = None):
             is_gulf = bool(countries & GULF_COUNTRY_CODES) and "sa" not in countries
             bid_cap = 2.45 if is_gulf else 2.35
             max_copies = 5
-            nosale_cut, cpa_cut = (10.0, 13.0) if is_gulf else (5.0, 8.0)
+            nosale_cut, cpa_cut = (10.0, 12.0) if is_gulf else (5.0, 7.0)
 
             c_sp1 = round(sum(st1.get(s["id"], empty)["spend"] for s in act), 2)
             c_pu1 = sum(st1.get(s["id"], empty)["purchases"] for s in act)
@@ -1199,7 +1205,13 @@ def run_improvements_guardian(sales_3d: dict = None, sales_today: dict = None):
                                     continue
                                 a3_v = ad_st3_g.get(ao["id"], empty)
                                 a1_v = ad_st1_g.get(ao["id"], empty)
-                                if a3_v["purchases"] >= 1 and a3_v["cpa"] is not None and a3_v["cpa"] <= 8.50 and not (a1_v["spend"] >= 4.80 and a1_v["purchases"] == 0):
+                                if (
+                                    a3_v["purchases"] >= 1
+                                    and a3_v["cpa"] is not None
+                                    and a3_v["cpa"] <= 7.00
+                                    and not (a1_v["spend"] >= 4.80 and a1_v["purchases"] == 0)
+                                    and not (a1_v["purchases"] > 0 and a1_v["cpa"] is not None and a1_v["cpa"] > 7.00)
+                                ):
                                     has_prot_win = True
                                 elif a3_v["purchases"] == 0 and a1_v["spend"] >= 1.20 and a1_v["purchases"] == 0:
                                     ao["status"] = "PAUSED"
