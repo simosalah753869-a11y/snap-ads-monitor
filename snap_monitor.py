@@ -580,22 +580,27 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
     for c in active_campaigns:
         c_id = c["id"]
 
-        # تلقائياً: إطفاء أي مجموعة AdSquad نشطة أصبحت فارغة تماماً (0 إعلانات نشطة بداخلها) حتى لا تحجز خانة من الـ 15 مجموعة بدون فائدة
+        # تلقائياً: إطفاء أي مجموعة AdSquad نشطة أصبحت فارغة تماماً (0 إعلانات ACTIVE بداخلها) حتى لا تحجز خانة بدون فائدة
+        # (ملاحظة: لا نعتمد على INVALID_AD_SQUAD_HAS_NO_ACTIVE_ADS وحده لأن الفيديوهات الجديدة قيد المراجعة PENDING تعطي هذا الوسم مؤقتاً!)
         if not dry_run and not is_cross_monitored_product_campaign(c.get("name", "")):
-            empty_active_squads = [
-                sq for sq in camp_squads_cache.get(c_id, [])
-                if sq.get("status") == "ACTIVE"
-                and "INVALID_AD_SQUAD_HAS_NO_ACTIVE_ADS" in (sq.get("delivery_status") or [])
-            ]
-            if empty_active_squads:
-                for esq in empty_active_squads:
-                    esq["status"] = "PAUSED"
-                for i in range(0, len(empty_active_squads), 20):
-                    try:
-                        api_put(f"/campaigns/{c_id}/adsquads", token, {"adsquads": empty_active_squads[i:i+20]})
-                    except Exception:
-                        pass
-                print(f"🧹 تم إيقاف {len(empty_active_squads)} مجموعة فارغة (0 إعلانات نشطة) تلقائياً في حملة '{c.get('name', '')}'")
+            c_ads_list = camp_ads_cache.get(c_id)
+            if c_ads_list is not None:
+                sq_ids_with_active_ads = {a.get("ad_squad_id") for a in c_ads_list if a.get("status") == "ACTIVE"}
+                empty_active_squads = [
+                    sq for sq in camp_squads_cache.get(c_id, [])
+                    if sq.get("status") == "ACTIVE"
+                    and sq["id"] not in sq_ids_with_active_ads
+                    and not is_non_copy_test_adsquad(sq.get("name", ""))
+                ]
+                if empty_active_squads:
+                    for esq in empty_active_squads:
+                        esq["status"] = "PAUSED"
+                    for i in range(0, len(empty_active_squads), 20):
+                        try:
+                            api_put(f"/campaigns/{c_id}/adsquads", token, {"adsquads": empty_active_squads[i:i+20]})
+                        except Exception:
+                            pass
+                    print(f"🧹 تم إيقاف {len(empty_active_squads)} مجموعة فارغة (0 إعلانات نشطة) تلقائياً في حملة '{c.get('name', '')}'")
 
     # 2A. (موقوف نهائياً بأمر المستخدم: ممنوع إعادة تشغيل الفيديوهات أو المجموعات الموقوفة في سناب شات تلقائياً)
     for ad_id, info in []:
@@ -1223,10 +1228,7 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
         dead_to_pause = [
             sq for sq in c_squads
             if sq.get("status") == "ACTIVE"
-            and (
-                sq["id"] not in active_sq_ids_after_2b
-                or "INVALID_AD_SQUAD_HAS_NO_ACTIVE_ADS" in (sq.get("delivery_status") or [])
-            )
+            and sq["id"] not in active_sq_ids_after_2b
         ]
         if dead_to_pause and not dry_run:
             for sq in dead_to_pause:
