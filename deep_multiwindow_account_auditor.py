@@ -795,9 +795,21 @@ def main():
     now_sa = datetime.now(SA_TZ)
     print(f"🚀 بدء الفاحص والمفصّص الشامل متعدد النوافذ (1D / 2D / 3D / 7D) بحد أقصى CPA = $7.00 ({now_sa:%Y-%m-%d %H:%M} GMT+3)", flush=True)
     sheet = fetch_sheet_multiwindow_sales()
-    snap_res = audit_snapchat_multiwindow(sheet)
-    tt_res = audit_tiktok_multiwindow()
-    g_res = audit_google_ads_multiwindow()
+    try:
+        snap_res = audit_snapchat_multiwindow(sheet)
+    except Exception as e:
+        print(f"⚠️ خطأ جزئي في فحص سناب شات: {e}", flush=True)
+        snap_res = {"campaigns": [], "extra_paused": []}
+    try:
+        tt_res = audit_tiktok_multiwindow()
+    except Exception as e:
+        print(f"⚠️ خطأ جزئي في فحص تيك توك: {e}", flush=True)
+        tt_res = {}
+    try:
+        g_res = audit_google_ads_multiwindow()
+    except Exception as e:
+        print(f"⚠️ خطأ جزئي في فحص Google Ads: {e}", flush=True)
+        g_res = {"accounts": [], "actions": []}
 
     lines = [
         f"# 🛡️ تقرير المفصّص الشامل وقاطع النزيف عبر الـ 4 نوافذ (`1D / 2D / 3D / 7D` — سقف `CPA <= $7.00`) — {now_sa:%Y-%m-%d %H:%M} GMT+3",
