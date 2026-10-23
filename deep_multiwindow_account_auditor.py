@@ -403,20 +403,22 @@ def get_total_row_sig(ws):
     (() => {
         const rows = Array.from(document.querySelectorAll('.particle-table-row, ess-table-row'));
         const tot = rows.find(r => (r.innerText || '').includes('Total:'));
-        return tot ? (tot.innerText || '').replace(/\\s+/g, ' ').trim() : '';
+        if (tot) return (tot.innerText || '').replace(/\\s+/g, ' ').trim();
+        return rows.slice(0, 3).map(r => (r.innerText || '').replace(/\\s+/g, ' ').trim().slice(0, 120)).join('||');
     })()
     """
     return eval_js(ws, js) or ""
 
 
-def wait_for_table_change(ws, old_sig, timeout=7.5):
+def wait_for_table_change(ws, old_sig, timeout=8.5):
     t0 = time.time()
     while time.time() - t0 < timeout:
-        time.sleep(0.55)
+        time.sleep(0.6)
         cur_sig = get_total_row_sig(ws)
         if cur_sig and cur_sig != old_sig:
-            time.sleep(0.55)
+            time.sleep(0.8)
             return cur_sig
+    time.sleep(1.2)
     return get_total_row_sig(ws)
 
 
@@ -549,6 +551,7 @@ def scrape_google_ads_table(ws) -> dict:
         }
         if (scroller !== window) scroller.scrollTop = 0;
         else window.scrollTo(0, 0);
+        await sleep(500);
         const dateEl = document.querySelector('material-date-range-picker, .date-range-picker');
         return {
             dateText: dateEl ? (dateEl.innerText || '').replace(/\\s+/g, ' ').trim() : '',
