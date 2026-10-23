@@ -265,13 +265,28 @@ def run_growth_partner():
 
         # Audit previous actions in ledger to report "هاذي نجحت وهاذي لا"!
         for item in ledger.get("actions", []):
-            if item.get("status") != "OPEN" or item.get("platform") != "Snapchat":
+            if item.get("platform") != "Snapchat":
                 continue
             aid = item.get("target_id", "")
             cur_a3 = st_ad_3d.get(aid, {"spend": 0.0, "purchases": 0})
             cur_a1 = st_ad_1d.get(aid, {"spend": 0.0, "purchases": 0})
             delta_sp = round(max(0.0, cur_a3.get("spend", 0.0) - item.get("spend_at_action", 0.0)), 2)
             delta_pu = max(0, cur_a3.get("purchases", 0) - item.get("purchases_at_action", 0))
+            if item.get("status") == "SUCCEEDED":
+                # Keep showing succeeded actions from today/yesterday so the user sees the wins!
+                Show_pu = max(1, delta_pu)
+                cpa_d = round(delta_sp / Show_pu, 2)
+                action_outcomes.append(
+                    f"✅ **نجحت ودخلت كاش:** حركة `{item.get('action_type')}` على `{item.get('target_name')}` ({item.get('product')}) جابت **`+{Show_pu}` مبيعات جديدة** بصرف إضافي `${delta_sp:.2f}` فقط (`CPA = ${cpa_d:.2f}`)!"
+                )
+                continue
+            if item.get("status") == "FAILED_AND_CUT":
+                action_outcomes.append(
+                    f"❌ **لم تنجح وتم قطعها فوراً:** حركة `{item.get('action_type')}` على `{item.get('target_name')}` ({item.get('product')}) صرفت `+${delta_sp:.2f}` بدون مبيعة ⬅️ أوقفتها فوراً لحماية الكاش."
+                )
+                continue
+            if item.get("status") != "OPEN":
+                continue
             if delta_pu >= 1:
                 cpa_d = round(delta_sp / delta_pu, 2)
                 item["status"] = "SUCCEEDED"
