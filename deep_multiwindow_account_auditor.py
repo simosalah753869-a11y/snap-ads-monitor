@@ -366,14 +366,15 @@ def wait_for_table_change(ws, old_sig, timeout=7.5):
 
 def select_date_preset(ws, option_text, port=None):
     old_sig = get_total_row_sig(ws)
+    eval_js(ws, "window.scrollTo(0, 0); document.querySelectorAll('.particle-table-canvas, ess-table-canvas, [role=\"grid\"]').forEach(s => s.scrollTop = 0);")
+    time.sleep(0.25)
     js_open = """
     (() => {
-        window.scrollTo(0, 0);
-        const icons = Array.from(document.querySelectorAll('material-date-range-picker material-icon, .date-range-picker material-icon'));
-        const arrow = icons.find(i => (i.innerText || '').trim() === 'arrow_drop_down');
-        const btn = arrow ? (arrow.closest('[role="button"], material-button, .dropdown-button') || arrow) : document.querySelector('material-date-range-picker .dropdown-button');
-        if (!btn) return null;
+        const picker = document.querySelector('material-date-range-picker, .date-range-picker');
+        if (!picker) return null;
+        const btn = picker.querySelector('.dropdown-button, [role="button"], material-button') || picker;
         const r = btn.getBoundingClientRect();
+        if (r.width <= 0 || r.height <= 0) return null;
         return {x: Math.round(r.left + r.width/2), y: Math.round(r.top + r.height/2)};
     })()
     """
@@ -381,17 +382,22 @@ def select_date_preset(ws, option_text, port=None):
     if not box:
         return "NO_DATE_PICKER"
     cdp_click(ws, box["x"], box["y"])
-    time.sleep(0.9)
+    time.sleep(0.95)
     keep_adspower_offscreen(port)
     js_pick = f"""
     (() => {{
-        const items = Array.from(document.querySelectorAll('material-select-item, [role="option"], [role="menuitem"], .item-label, span'));
-        const target = items.find(el => (el.innerText || '').trim().startsWith({json.dumps(option_text)}) && el.offsetParent !== null);
-        if (target) {{
-            const r = (target.closest('material-select-item, [role="option"], [role="menuitem"]') || target).getBoundingClientRect();
-            return {{found: true, x: Math.round(r.left + r.width/2), y: Math.round(r.top + r.height/2)}};
+        const lists = Array.from(document.querySelectorAll('.preset-list, material-list, .popup-content, [role="listbox"], [role="menu"]'));
+        const items = Array.from(document.querySelectorAll('material-select-item, [role="option"], [role="menuitem"], .item-label'));
+        for (const el of items) {{
+            const t = (el.innerText || '').replace(/\\s+/g, ' ').trim();
+            if ((t === {json.dumps(option_text)} || t.startsWith({json.dumps(option_text)} + ' ')) && el.offsetParent !== null) {{
+                const itemEl = el.closest('material-select-item, [role="option"], [role="menuitem"]') || el;
+                itemEl.scrollIntoView({{block: 'center'}});
+                const r = itemEl.getBoundingClientRect();
+                return {{found: true, x: Math.round(r.left + r.width/2), y: Math.round(r.top + r.height/2)}};
+            }}
         }}
-        return {{found: false}};
+        return {{found: false, lists: lists.length}};
     }})()
     """
     pk = eval_js(ws, js_pick) or {}
@@ -462,6 +468,7 @@ def scrape_google_ads_table(ws) -> dict:
             await sleep(160);
         }
         if (scroller !== window) scroller.scrollTop = 0;
+        else window.scrollTo(0, 0);
         const dateEl = document.querySelector('material-date-range-picker, .date-range-picker');
         return {
             dateText: dateEl ? (dateEl.innerText || '').replace(/\\s+/g, ' ').trim() : '',
@@ -707,6 +714,12 @@ def audit_google_ads_multiwindow() -> dict:
                 sh_3d = sheet["3d"].get(ad_key, 0)
                 sh_7d = sheet["7d"].get(ad_key, 0)
 
+                # If this is a duplicate '#2' campaign sharing the same ad_name as the original campaign,
+                # do not let the 0-UI-conversion duplicate claim the original campaign's Sheet sales!
+                base_camp = camp.split("#")[0].strip()
+                if "#" in camp and (base_camp, ad) in ads_map and ui_7d == 0:
+                    sh_1d = sh_2d = sh_3d = sh_7d = 0
+
                 eff_1d = max(ui_1d, float(sh_1d))
                 eff_2d = max(ui_2d, float(sh_2d))
                 eff_3d = max(ui_3d, float(sh_3d))
@@ -755,6 +768,8 @@ def audit_google_ads_multiwindow() -> dict:
                         pause_reason = f"CPA 7 أيام (7D) مرتفع ${cpa_7d:.2f} (> ${max_cpa_g:.2f}) [صرف ${sp_7d:.2f} / {eff_7d:.0f} مبيعات]"
                     elif sp_1d >= 1.50 and eff_1d == 0 and eff_3d == 0 and (d0["clicks"] == 0 or d0["cpc"] > 0.35):
                         pause_reason = f"CPC مرتفع اليوم (${d0['cpc']:.2f} / نقرات={d0['clicks']}) بعد صرف ${sp_1d:.2f} بـ 0 مبيعات"
+                    elif ad_key == "ad 1" and sp_3d >= 1.00 and eff_3d == 0:
+                        pause_reason = f"إعلان باسم عام (Ad 1) بدون كود UTM وصرف ${sp_3d:.2f} بـ 0 مبيعات"
 
                     if pause_reason:
                         res_p = set_google_ad_status_carefully(ws, camp, ad, "Pause", port=port)
