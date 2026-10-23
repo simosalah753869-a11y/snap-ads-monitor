@@ -712,13 +712,11 @@ def audit_google_ads_multiwindow() -> dict:
         print(f"----------------------------------------------------------------------", flush=True)
         try:
             tabs = json.loads(urllib.request.urlopen(f"http://127.0.0.1:{port}/json/list", timeout=4).read().decode("utf-8"))
-            g_tabs = [t for t in tabs if t.get("type") == "page" and "ads.google.com" in t.get("url", "") and "/campaigns/new" not in t.get("url", "") and "/construction" not in t.get("url", "")]
+            g_tabs = [t for t in tabs if t.get("type") == "page" and "ads.google.com" in t.get("url", "") and "/aw/ads" in t.get("url", "")]
             if not g_tabs:
-                g_tabs = [t for t in tabs if t.get("type") == "page" and "ads.google.com" in t.get("url", "")]
+                g_tabs = [t for t in tabs if t.get("type") == "page" and "ads.google.com" in t.get("url", "") and "/campaigns/new" not in t.get("url", "") and "/demandgen" not in t.get("url", "") and "/construction" not in t.get("url", "")]
             if not g_tabs:
-                g_tabs = [t for t in tabs if t.get("type") == "page"]
-            if not g_tabs:
-                print(f"⚠️ لا توجد تبويبة Google Ads مفتوحة في {label}", flush=True)
+                print(f"⚠️ لا توجد تبويبة Google Ads متاحة للمراقبة في {label}", flush=True)
                 continue
             ws = websocket.create_connection(
                 g_tabs[0]["webSocketDebuggerUrl"].replace("ws://localhost:", "ws://127.0.0.1:"),
@@ -775,17 +773,20 @@ def audit_google_ads_multiwindow() -> dict:
 
             print(f"  📅 النوافذ المقروءة بنجاح: اليوم=({date_d0}) | أمس=({date_d1}) | قبل أمس=({date_d2}) | 7 أيام=({date_l7})", flush=True)
 
-            # Parse the exact calendar date shown in Google Ads UI 'Today' (e.g. 'Today Oct 23, 2026')
+            # Parse the exact calendar date shown in Google Ads UI 'Today' (both 'Today Oct 23, 2026' and 'Today 23 Oct 2026')
             # so that between 00:00 and 02:00 Saudi time (before Google Ads account timezone rolls over),
             # Sheet 1D sales match the exact date displayed in Google Ads UI!
-            m_ui_dt = re.search(r"([A-Z][a-z]{2}\s+\d{1,2},\s+\d{4})", date_d0)
-            if m_ui_dt:
-                try:
-                    ui_dt_parsed = datetime.strptime(m_ui_dt.group(1), "%b %d, %Y")
-                    ui_ref_str = ui_dt_parsed.strftime("%Y-%m-%d")
-                    sheet = fetch_sheet_multiwindow_sales(ui_ref_str)
-                except Exception:
-                    pass
+            m_ui_us = re.search(r"([A-Z][a-z]{2}\s+\d{1,2},\s+\d{4})", date_d0)
+            m_ui_uk = re.search(r"(\d{1,2}\s+[A-Z][a-z]{2}\s+\d{4})", date_d0)
+            try:
+                if m_ui_us:
+                    ui_dt_parsed = datetime.strptime(m_ui_us.group(1), "%b %d, %Y")
+                    sheet = fetch_sheet_multiwindow_sales(ui_dt_parsed.strftime("%Y-%m-%d"))
+                elif m_ui_uk:
+                    ui_dt_parsed = datetime.strptime(m_ui_uk.group(1), "%d %b %Y")
+                    sheet = fetch_sheet_multiwindow_sales(ui_dt_parsed.strftime("%Y-%m-%d"))
+            except Exception:
+                pass
 
             # Aggregate per (camp, ag, ad) across d0, d1, d2, l7
             ads_map = {}
