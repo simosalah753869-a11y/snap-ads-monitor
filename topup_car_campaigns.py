@@ -8,7 +8,7 @@ from duplicate_gulf_campaigns import clone_adsquad_exact, make_session
 sys.stdout.reconfigure(encoding="utf-8")
 
 AD_ACCOUNT_ID = "350cb560-ad77-4fb5-9bbf-4c090c9ad081"
-MIN_ACTIVE_COUNT = 12
+MIN_ACTIVE_COUNT = 15
 
 # الكلمات المفتاحية لحملات السكالينج والدوبليكيت (السعودية + دول الخليج بنفس الطريقة، مع حظر كشاف السعودية فقط)
 SCALING_KEYWORDS = ("scaling", "car", "وينر", "winner", "kashaf qatar", "كشاف قطر")
@@ -100,8 +100,8 @@ def main():
     active_camps = [c for c in campaigns if c.get("status") == "ACTIVE"]
 
     now_sa = datetime.now(ACCOUNT_TZ)
-    allow_topup_window = (6 <= now_sa.hour < 17)
-    print(f"🔍 فحص حملات السكالينج النشطة (التوقيت: {now_sa.strftime('%H:%M')} GMT+3 | التوسع الهادئ قبل 5 مساءً: {'مفعل ✅' if allow_topup_window else 'موقوف لحماية الربح ليلاً ⏸️'}):", flush=True)
+    allow_topup_window = (6 <= now_sa.hour < 23)
+    print(f"🔍 فحص حملات السكالينج النشطة (التوقيت: {now_sa.strftime('%H:%M')} GMT+3 | نافذة التوسع والذروة (06:00-23:00): {'مفعل ✅' if allow_topup_window else 'موقوف بعد منتصف الليل ⏸️'}):", flush=True)
     for c in active_camps:
         cid = c["id"]
         cname = c["name"]
@@ -172,11 +172,11 @@ def main():
             continue
 
         if not allow_topup_window:
-            print("   ⏸️ خارج نافذة التوسع النهارية (بعد 5:00 مساءً) — لا يتم إضافة مجموعات جديدة ليلاً لمنع الخسارة.", flush=True)
+            print("   ⏸️ خارج نافذة التوسع (بعد 11:00 ليلاً) — لا يتم إضافة مجموعات جديدة بعد منتصف الليل.", flush=True)
             continue
 
-        # إضافة هادئة بحد أقصى نسخة واحدة فقط في كل دورة (1 Clone Max) لمنع صدمة المزاد والخسارة
-        needed = min(1, max_cap - active_count)
+        # إضافة منضبطة بحد أقصى نسختين في كل دورة (أو نسخة واحدة لو متوسط الحملة العام مرتفع والمجموعة الأم فائزة)
+        needed = min(2, max_cap - active_count)
         source_squad = pick_best_source_squad(session, active_squads or squads, stats_map)
         if not source_squad:
             print("   ⚠️ لا توجد أي مجموعة إعلانية صالحة للنسخ منها في هذه الحملة.", flush=True)
@@ -186,13 +186,21 @@ def main():
         cpa_limit = 10.0 if is_gulf_camp else 7.0
 
         if is_cpa_over_750:
-            print(
-                f"   🚫 [فرملة منع الخسارة] متوسط الحملة لـ 3 أيام (${cst3.get('cpa')}) فوق $7.50 أو الحملة في قائمة منع التكرار — يُمنع الدوبليكيت نهائياً لحماية الربح.",
-                flush=True,
-            )
+            if st.get("purchases", 0) >= 2 and st.get("cpa") is not None and st["cpa"] <= (cpa_limit - 0.5):
+                needed = 1
+                print(
+                    f"   🚀 [استبدال ذكي من مجموعة فائزة حصراً: المجموعة الأم '{source_squad['name']}' محققة {st['purchases']} مبيعات @ ${st['cpa']}] جاري نسخ 1 مجموعة...",
+                    flush=True,
+                )
+                clone_adsquad_exact(session, source_squad, 1)
+            else:
+                print(
+                    f"   🚫 [فرملة منع الخسارة] متوسط الحملة لـ 3 أيام (${cst3.get('cpa')}) فوق $7.50 والمجموعة المرشحة ليست سوبر رابحة — يُمنع الدوبليكيت لحماية الربح.",
+                    flush=True,
+                )
             continue
 
-        if st.get("purchases", 0) >= 2 and st.get("cpa") is not None and st["cpa"] <= cpa_limit:
+        if st.get("purchases", 0) >= 1 and st.get("cpa") is not None and st["cpa"] <= cpa_limit:
             print(
                 f"   🚀 [توسع آمن: متوسط الحملة <= $7.50 (CPA=${cst3.get('cpa')}) والمجموعة الأم فائزة بـ {st['purchases']} مبيعات @ ${st['cpa']}] جاري نسخ {needed} مجموعة من ('{source_squad['name']}')...",
                 flush=True,
