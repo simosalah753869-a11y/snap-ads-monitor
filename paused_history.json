@@ -10439,6 +10439,13 @@
       "adsquad": "Copy of SA_Watch Target Cost Men 20+ | 2.8 Bid",
       "reason": "[3-Day Audit] [Single Video Max $7 CPA Rule] صرف الفيديو $7.2 | المبيعات: 1 | CPA = $7.2 (> $7.00)",
       "paused_at": "2026-10-23 11:21 GMT+3"
+    },
+    "6ccf4a9e-eff6-4825-9574-46069b3c1396": {
+      "name": "timex_ad_1_female_m07820b",
+      "campaign": "صندوق دفاتر TIME X 21-10",
+      "adsquad": "timex — Target Cost Smart+ Broad | 3.30 Bid",
+      "reason": "[Ad CPC Rule] صرف الفيديو $8.14 (>= $0.80) | النقرات: 27 | سعر النقرة CPC = $0.301 (> $0.30)",
+      "paused_at": "2026-10-23 11:45 GMT+3"
     }
   },
   "bid_bumps": {
@@ -18597,8 +18604,10 @@
     },
     "4eefa50f-9008-4aea-b159-d370150b60cf": {
       "name": "صندوق دفاتر TIME X 21-10",
-      "reason": "Single-AdSquad Cross-Platform Monitored Product Campaign",
-      "updated_at": "2026-10-23 11:50 GMT+3"
+      "spend_3d": 24.85,
+      "purchases_3d": 2,
+      "cpa_3d": 12.43,
+      "updated_at": "2026-10-23 11:45 GMT+3"
     },
     "a171c141-a6d5-403e-8357-5c8f6c01bce0": {
       "name": "وسادة مايباخ 21-10",
@@ -18616,7 +18625,7 @@
       "name": "timex books 21-10",
       "aadvid": "7631763556322148369",
       "reason": "Single-Campaign Cross-Platform Monitored Product Campaign",
-      "updated_at": "2026-10-23 11:50 GMT+3"
+      "updated_at": "2026-10-23 11:39 GMT+3"
     },
     "e8f0a5e9-89c5-4c14-aabb-c9c6c657891d": {
       "name": "مسخن الرضاعات اللاسلكي 22-10",
@@ -18677,7 +18686,7 @@
     "1879340705037537": {
       "name": "power bank 18-10 (Ola + Hanan 15-10)",
       "aadvid": "7631763556322148369",
-      "spend_3d": 67.76,
+      "spend_3d": 67.81,
       "purchases_3d": 9,
       "cpa_3d": 7.53,
       "reason": "3-Day CPA > $7.00 — Duplication Blocked"
