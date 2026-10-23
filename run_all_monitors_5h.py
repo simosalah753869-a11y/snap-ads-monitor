@@ -411,6 +411,7 @@ def run_proactive_sales_scaling(sales_3d: dict, sales_today: dict):
             for c in camps_resp.get("campaigns", [])
             if "campaign" in c and c["campaign"].get("status") == "ACTIVE"
         ]
+        active_camp_ids = {c["id"] for c in active_camps}
         no_dup_camps = history.setdefault("no_duplicate_campaigns", {})
 
         st_1d = {x["id"]: x for x in fetch_account_breakdown_stats(token, TARGET_ACCOUNT_ID, "adsquad", days_back=0)}
@@ -422,8 +423,8 @@ def run_proactive_sales_scaling(sales_3d: dict, sales_today: dict):
         snap_sess = None
         snap_actions = 0
 
-        # (أ) إعادة تشغيل المجموعات الموقوفة التي سجلت مبيعات متأخرة مربحة (CPA <= $8.00 للسعودية / <= $10.00 للخليج)
-        for paused_sid, p_info in list(history.get("adsquads", {}).items()):
+        # (أ) إعادة تشغيل المجموعات الموقوفة التي سجلت مبيعات متأخرة مربحة (CPA <= $8.00 للسعودية / <= $10.00 للخليج) داخل الحملات النشطة فقط
+        for paused_sid, p_info in (list(history.get("adsquads", {}).items()) if active_camp_ids else []):
             s2_p = st_2d.get(paused_sid) or st_3d.get(paused_sid)
             if not s2_p or s2_p.get("purchases", 0) < 1 or s2_p.get("cpa") is None:
                 continue
@@ -436,7 +437,7 @@ def run_proactive_sales_scaling(sales_3d: dict, sales_today: dict):
                 try:
                     sq_get = api_get(f"/adsquads/{paused_sid}", token)
                     sq_obj = (sq_get.get("adsquads") or [{}])[0].get("adsquad")
-                    if sq_obj and sq_obj.get("status") == "PAUSED":
+                    if sq_obj and sq_obj.get("status") == "PAUSED" and sq_obj.get("campaign_id") in active_camp_ids:
                         sq_obj["status"] = "ACTIVE"
                         api_put(f"/campaigns/{sq_obj['campaign_id']}/adsquads", token, {"adsquads": [sq_obj]})
                         revived_squads[paused_sid] = {
