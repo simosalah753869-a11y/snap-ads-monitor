@@ -575,6 +575,12 @@
       "campaign": "باور بانك وينر",
       "reason": "[Consolidation to Top 6 Squads] تقليص التشتت لتركيز الميزانية في المجموعات الرابحة",
       "paused_at": "2026-10-22 22:40 GMT+3"
+    },
+    "1b39f541-4134-41a5-a324-faa5a22f810a": {
+      "name": "Copy of SA_Watch Target Cost Men 20+ | 2.8 Bid",
+      "campaign": "smart+ watch suis SA 18-10",
+      "reason": "[Copy Rule] صرفت $4.72 (>= $4.50) بدون مبيعات",
+      "paused_at": "2026-10-23 11:21 GMT+3"
     }
   },
   "ads": {
@@ -10426,6 +10432,13 @@
       "adsquad": "21-10 علا جديد (دفعة 12-10 — 5 فيديوهات)",
       "reason": "[3-Day Audit] [Ad CPC Rule] صرف الفيديو $1.7 (>= $1.00) | النقرات: 6 | سعر النقرة CPC = $0.283 (> $0.28)",
       "paused_at": "2026-10-23 10:07 GMT+3"
+    },
+    "3edfd5c7-ae30-4b00-bc9c-765292e629c0": {
+      "name": "Watch_W7_3_mc322b1",
+      "campaign": "smart+ watch suis SA 18-10",
+      "adsquad": "Copy of SA_Watch Target Cost Men 20+ | 2.8 Bid",
+      "reason": "[3-Day Audit] [Single Video Max $7 CPA Rule] صرف الفيديو $7.2 | المبيعات: 1 | CPA = $7.2 (> $7.00)",
+      "paused_at": "2026-10-23 11:21 GMT+3"
     }
   },
   "bid_bumps": {
@@ -12280,16 +12293,16 @@
     "0fe8e8eb-70ef-4ec9-ac4b-188f27ec3708": "c322b187-1abf-4aa2-9d20-ead7d75b237a",
     "6c6f3f0a-91da-47cc-a974-fab2b019b7ed": "c322b187-1abf-4aa2-9d20-ead7d75b237a",
     "bd894b74-a7cb-44c6-a137-abfe300a460d": "c322b187-1abf-4aa2-9d20-ead7d75b237a",
-    "f59b07e4-9f02-439e-81b3-273a9fb412e1": "cd0df84c-bcd7-4cf0-9cfa-ff3effb88c51",
     "cdd992b1-23d1-4d51-900c-bbaabe4e1f32": "1d9b778e-feaf-4852-b8f8-69a8547d4aee",
     "421434d2-fdbc-4fab-9217-265b828f6be4": "bc103237-7aec-4860-976a-38e6ab1ef8f8",
-    "40d9871d-c02c-4bed-903e-91f55094cfee": "f0be3dfb-898f-461f-a401-c3e3a4da7859",
+    "c3752951-1c63-478c-9e2d-16b8b9d064f4": "28b3907c-f62b-42c2-9851-bcb9b323cacf",
     "90b58e58-26fc-499a-9d04-38a0c810902d": "39b0acd4-b995-4690-9342-118a589b3ef0",
     "4f677774-f8e4-481e-b11e-b258dfe008ce": "40f53543-acbd-49ea-8b21-81473deb4b3b",
+    "30ccfe47-c52e-4c73-875d-0615975c9b3d": "6e80cae5-127c-4416-80c7-cdd853641ab0",
+    "f59b07e4-9f02-439e-81b3-273a9fb412e1": "cd0df84c-bcd7-4cf0-9cfa-ff3effb88c51",
     "6a3c9016-b51e-4726-babc-9b55b8eed943": "5e236ef3-ad77-4b80-8fc2-e84255e7529b",
-    "c3752951-1c63-478c-9e2d-16b8b9d064f4": "28b3907c-f62b-42c2-9851-bcb9b323cacf",
     "32d8368e-5fed-4c47-aa46-aeb13a09ebfe": "28048707-e277-4002-8687-84b6cfe30ffc",
-    "30ccfe47-c52e-4c73-875d-0615975c9b3d": "6e80cae5-127c-4416-80c7-cdd853641ab0"
+    "40d9871d-c02c-4bed-903e-91f55094cfee": "f0be3dfb-898f-461f-a401-c3e3a4da7859"
   },
   "disabled_videos": {
     "16b7aaf3-7526-49d7-8e68-33df1e0872a7:3bcd9ff7-ec46-4884-9c93-cd1a04ae60a0": {
@@ -18410,7 +18423,7 @@
       "spend_7d": 9.61,
       "conv_7d": 0,
       "reason": "[Global Dup Video Stop-Loss 3D] Total 3-Day Spend $9.61 >= $7.00 with 0 sales",
-      "disabled_at": "2026-10-23T08:22:33.769476+00:00"
+      "disabled_at": "2026-10-23T08:38:03.939026+00:00"
     },
     "22-10_voltrx_hook5_mall_woman": {
       "v_key": "22-10_voltrx_hook5_mall_woman",
@@ -18430,7 +18443,7 @@
       "spend_7d": 9.57,
       "conv_7d": 0,
       "reason": "[Global Dup Video Stop-Loss 2D] Total 2-Day Spend $9.57 >= $7.00 with 0 sales",
-      "disabled_at": "2026-10-23T08:22:33.769499+00:00"
+      "disabled_at": "2026-10-23T08:38:03.940024+00:00"
     },
     "2": {
       "v_key": "2",
@@ -18449,7 +18462,7 @@
       "spend_7d": 8.78,
       "conv_7d": 0,
       "reason": "[Global Dup Video Stop-Loss 3D] Total 3-Day Spend $8.78 >= $7.00 with 0 sales",
-      "disabled_at": "2026-10-23T08:22:33.769529+00:00"
+      "disabled_at": "2026-10-23T08:38:03.940024+00:00"
     },
     "16-10_ola_4": {
       "v_key": "16-10_ola_4",
@@ -18469,7 +18482,7 @@
       "spend_7d": 8.73,
       "conv_7d": 0,
       "reason": "[Global Dup Video Stop-Loss 7D] Total 7-Day Spend $8.73 >= $7.00 with 0 sales",
-      "disabled_at": "2026-10-23T08:22:33.769543+00:00"
+      "disabled_at": "2026-10-23T08:38:03.940024+00:00"
     },
     "15-10_hanan_5": {
       "v_key": "15-10_hanan_5",
@@ -18488,7 +18501,7 @@
       "spend_7d": 8.41,
       "conv_7d": 0,
       "reason": "[Global Dup Video Stop-Loss 7D] Total 7-Day Spend $8.41 >= $7.00 with 0 sales",
-      "disabled_at": "2026-10-23T08:22:33.769555+00:00"
+      "disabled_at": "2026-10-23T08:38:03.940024+00:00"
     },
     "13-10_hanan_1": {
       "v_key": "13-10_hanan_1",
@@ -18507,7 +18520,7 @@
       "spend_7d": 7.94,
       "conv_7d": 0,
       "reason": "[Global Dup Video Stop-Loss 7D] Total 7-Day Spend $7.94 >= $7.00 with 0 sales",
-      "disabled_at": "2026-10-23T08:22:33.769584+00:00"
+      "disabled_at": "2026-10-23T08:38:03.940024+00:00"
     },
     "13-10_hanan_4": {
       "v_key": "13-10_hanan_4",
@@ -18526,7 +18539,7 @@
       "spend_7d": 7.53,
       "conv_7d": 0,
       "reason": "[Global Dup Video Stop-Loss 7D] Total 7-Day Spend $7.53 >= $7.00 with 0 sales",
-      "disabled_at": "2026-10-23T08:22:33.769598+00:00"
+      "disabled_at": "2026-10-23T08:38:03.940024+00:00"
     },
     "20-10_car_hook_ad_6_final_v3": {
       "v_key": "20-10_car_hook_ad_6_final_v3",
@@ -18545,7 +18558,7 @@
       "spend_7d": 7.53,
       "conv_7d": 0,
       "reason": "[Global Dup Video Stop-Loss 3D] Total 3-Day Spend $7.53 >= $7.00 with 0 sales",
-      "disabled_at": "2026-10-23T08:22:33.769606+00:00"
+      "disabled_at": "2026-10-23T08:38:03.940024+00:00"
     },
     "24_6": {
       "v_key": "24_6",
@@ -18564,7 +18577,7 @@
       "spend_7d": 7.15,
       "conv_7d": 0,
       "reason": "[Global Dup Video Stop-Loss 7D] Total 7-Day Spend $7.15 >= $7.00 with 0 sales",
-      "disabled_at": "2026-10-23T08:22:33.769618+00:00"
+      "disabled_at": "2026-10-23T08:38:03.940024+00:00"
     }
   },
   "no_duplicate_campaigns": {
@@ -18573,47 +18586,49 @@
       "spend_3d": 22.8,
       "purchases_3d": 1,
       "cpa_3d": 22.8,
-      "updated_at": "2026-10-23 11:18 GMT+3"
+      "updated_at": "2026-10-23 11:21 GMT+3"
     },
     "4504af26-5609-4e7b-aeca-e11cf9e03846": {
       "name": "smart+ watch suis SA 18-10",
-      "spend_3d": 64.25,
+      "spend_3d": 65.21,
       "purchases_3d": 7,
-      "cpa_3d": 9.18,
-      "updated_at": "2026-10-23 11:18 GMT+3"
+      "cpa_3d": 9.32,
+      "updated_at": "2026-10-23 11:21 GMT+3"
     },
     "4eefa50f-9008-4aea-b159-d370150b60cf": {
       "name": "صندوق دفاتر TIME X 21-10",
-      "reason": "Single-AdSquad Cross-Platform Monitored Product Campaign",
-      "updated_at": "2026-10-23 11:22 GMT+3"
+      "spend_3d": 24.33,
+      "purchases_3d": 2,
+      "cpa_3d": 12.16,
+      "updated_at": "2026-10-23 11:21 GMT+3"
     },
     "a171c141-a6d5-403e-8357-5c8f6c01bce0": {
       "name": "وسادة مايباخ 21-10",
       "spend_3d": 10.25,
       "purchases_3d": 0,
       "cpa_3d": null,
-      "updated_at": "2026-10-23 11:18 GMT+3"
+      "updated_at": "2026-10-23 11:21 GMT+3"
     },
     "c5a7cade-6ec3-4c47-b3a2-c5f08bcf8da0": {
       "name": "وسادة مايباخ 21-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-23 11:18 GMT+3"
+      "updated_at": "2026-10-23 11:21 GMT+3"
     },
     "1879653126110545": {
       "name": "timex books 21-10",
       "aadvid": "7631763556322148369",
       "reason": "Single-Campaign Cross-Platform Monitored Product Campaign",
-      "updated_at": "2026-10-23 11:22 GMT+3"
+      "updated_at": "2026-10-23 10:12 GMT+3"
     },
     "e8f0a5e9-89c5-4c14-aabb-c9c6c657891d": {
       "name": "مسخن الرضاعات اللاسلكي 22-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-23 11:18 GMT+3"
+      "updated_at": "2026-10-23 11:21 GMT+3"
     },
     "f18a3bf4-148a-4f5e-baa1-f90335f1884c": {
       "name": "مسخن الرضاعات اللاسلكي 22-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-23 11:18 GMT+3"
+      "updated_at": "2026-10-23 11:21 GMT+3"
     },
     "1879676075637041": {
       "name": "baby bottle warmer 22-10",
@@ -18632,7 +18647,7 @@
       "spend_3d": 23.96,
       "purchases_3d": 3,
       "cpa_3d": 7.99,
-      "updated_at": "2026-10-23 11:18 GMT+3"
+      "updated_at": "2026-10-23 11:21 GMT+3"
     },
     "1879653022433617": {
       "name": "maybach pillow 21-10",
@@ -18645,44 +18660,28 @@
       "spend_3d": 33.2,
       "purchases_3d": 3,
       "cpa_3d": 11.07,
-      "updated_at": "2026-10-23 11:18 GMT+3"
+      "updated_at": "2026-10-23 11:21 GMT+3"
     },
     "baa69314-505c-4b3a-851e-883c10034935": {
       "name": "smart+ cars SA 18-10",
-      "spend_3d": 65.61,
+      "spend_3d": 66.1,
       "purchases_3d": 7,
-      "cpa_3d": 9.37,
-      "updated_at": "2026-10-23 11:18 GMT+3"
+      "cpa_3d": 9.44,
+      "updated_at": "2026-10-23 11:21 GMT+3"
     },
     "e23e7c95-3f15-4945-9844-8bd73e2d79d3": {
       "name": "باور بانك وينر",
       "spend_3d": 42.63,
       "purchases_3d": 5,
       "cpa_3d": 8.53,
-      "updated_at": "2026-10-23 11:18 GMT+3"
-    },
-    "1879581597584850": {
-      "name": "car armrest 20-10 (5 Videos)",
-      "aadvid": "7631763556322148369",
-      "spend_3d": 55.36,
-      "purchases_3d": 6,
-      "cpa_3d": 9.23,
-      "reason": "3-Day CPA > $8.00 — Duplication Blocked"
-    },
-    "1879689071342625": {
-      "name": "car armrest 21-10 (Hanan 20-10 & Ola 12-10)",
-      "aadvid": "7631763556322148369",
-      "spend_3d": 25.85,
-      "purchases_3d": 3,
-      "cpa_3d": 8.62,
-      "reason": "3-Day CPA > $8.00 — Duplication Blocked"
+      "updated_at": "2026-10-23 11:21 GMT+3"
     },
     "1879340705037537": {
       "name": "power bank 18-10 (Ola + Hanan 15-10)",
       "aadvid": "7631763556322148369",
-      "spend_3d": 67.21,
+      "spend_3d": 67.63,
       "purchases_3d": 9,
-      "cpa_3d": 7.47,
+      "cpa_3d": 7.51,
       "reason": "3-Day CPA > $7.00 — Duplication Blocked"
     }
   },
