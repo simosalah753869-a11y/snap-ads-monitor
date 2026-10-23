@@ -776,6 +776,10 @@ def audit_google_ads_multiwindow() -> dict:
 
                     if pause_reason:
                         res_p = set_google_ad_status_carefully(ws, camp, ad, "Pause", port=port)
+                        if res_p == "NOT_FOUND":
+                            click_prev_day_js(ws)
+                            res_p = set_google_ad_status_carefully(ws, camp, ad, "Pause", port=port)
+                            select_date_preset(ws, "Today", port=port)
                         decision = f"🛑 تم إيقافه فوراً ({res_p}) — {pause_reason}"
                         all_actions.append(f"🛑 Google Ads ({label}): إيقاف الإعلان `{ad}` في حملة `{camp}` — {pause_reason} ({res_p})")
                     else:
