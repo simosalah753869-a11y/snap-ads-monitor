@@ -1259,7 +1259,7 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
     today_local = datetime.now(ACCOUNT_TZ)
     today_date_str = today_local.strftime("%Y-%m-%d")
     is_night_window = (0 <= today_local.hour < 6)
-    is_before_6pm_window = (6 <= today_local.hour < 17)
+    is_before_6pm_window = (6 <= today_local.hour < 23)
     bid_ladder_micro = [2_250_000, 2_350_000, 2_450_000, 2_500_000]
 
     history.setdefault("smart_spend_watchdog", {})
