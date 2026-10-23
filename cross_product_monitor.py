@@ -221,8 +221,8 @@ def run_cross_product_monitor(dry_run: bool = False):
         print(f"   • حملات سناب شات المطابقة: {[c.get('name') + ' (' + c.get('id') + ')' for c in snap_camps]}")
         print(f"   • حملات تيك توك المطابقة: {[str(c.get('campaign_name')) + ' (' + str(c.get('campaign_id')) + ')' for c in tt_camps]}")
 
-        # حظر دائم لإيقاف حملات مسخن الرضاعات ووسادة مايباخ نهائياً بأمر المستخدم
-        if pkey in ("warmer", "maybach"):
+        # حظر دائم لإيقاف حملات المنتجات الجديدة (مسخن الرضاعات، وسادة مايباخ، وصندوق دفاتر تايم إكس) نهائياً بأمر المستخدم
+        if pkey in ("warmer", "maybach", "timex"):
             for sc in snap_camps:
                 if sc.get("status") == "ACTIVE":
                     pause_snap_campaign(snap_token, TARGET_ACCOUNT_ID, sc, f"إيقاف نهائي لحملات منتج {plabel} بأمر المستخدم", history, now_str, dry_run=dry_run)
