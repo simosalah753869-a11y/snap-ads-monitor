@@ -345,10 +345,8 @@ def run_growth_partner():
                         base_u = u.split("?")[0]
                         p_entry["active_urls"][base_u] = (u, "Snapchat")
 
-            # Fast Action: Rescue any choked 3D winning video OR boost budget of today's super-winner
-            is_gulf = sm.is_gulf_034_campaign(cname)
-            cpa_lim = 12.0 if is_gulf else 7.00
-            for a in ads_c:
+            # (موقوف نهائياً بأمر المستخدم: ممنوع إعادة تشغيل الفيديوهات أو المجموعات الموقوفة في سناب شات — التزام كامل بحملة واحدة وأدست واحدة فقط)
+            for a in []:
                 aid = a["id"]
                 a3 = st_ad_3d.get(aid, {})
                 a1 = st_ad_1d.get(aid, {})
