@@ -162,6 +162,9 @@ def fetch_sheet_multiwindow_sales(ref_date_str: str = None) -> dict:
         base_dt = now_sa
 
     d_1d = {base_dt.strftime("%Y-%m-%d"), now_sa.strftime("%Y-%m-%d")}
+    # حماية منتصف الليل (00:00 إلى 04:00 فجراً بتوقيت السعودية): شمل مبيعات يوم أمس في 1D لمنع أي فرق توقيت بين الشيت وحسابات جوجل أدز
+    if now_sa.hour < 4:
+        d_1d.add((now_sa - timedelta(days=1)).strftime("%Y-%m-%d"))
     d_2d = {(base_dt - timedelta(days=i)).strftime("%Y-%m-%d") for i in range(2)} | d_1d
     d_3d = {(base_dt - timedelta(days=i)).strftime("%Y-%m-%d") for i in range(3)} | d_1d
     d_7d = {(base_dt - timedelta(days=i)).strftime("%Y-%m-%d") for i in range(7)} | d_1d
@@ -756,6 +759,27 @@ def audit_google_ads_multiwindow() -> dict:
             if not g_tabs:
                 print(f"⚠️ لا توجد تبويبة Google Ads متاحة للمراقبة في {label}", flush=True)
                 continue
+            try:
+                ws_test = websocket.create_connection(
+                    g_tabs[0]["webSocketDebuggerUrl"].replace("ws://localhost:", "ws://127.0.0.1:"),
+                    suppress_origin=True,
+                    timeout=4,
+                )
+                ws_test.send(json.dumps({"id": 1, "method": "Runtime.evaluate", "params": {"expression": "1+1", "returnByValue": True}}))
+                ws_test.recv()
+                ws_test.close()
+            except Exception:
+                ver_info = json.loads(urllib.request.urlopen(f"http://127.0.0.1:{port}/json/version", timeout=3).read().decode("utf-8"))
+                bws_fix = websocket.create_connection(ver_info["webSocketDebuggerUrl"].replace("ws://localhost:", "ws://127.0.0.1:"), suppress_origin=True, timeout=5)
+                bws_fix.send(json.dumps({"id": 1, "method": "Target.createTarget", "params": {"url": g_tabs[0]["url"]}}))
+                bws_fix.recv()
+                bws_fix.send(json.dumps({"id": 2, "method": "Target.closeTarget", "params": {"targetId": g_tabs[0]["id"]}}))
+                bws_fix.recv()
+                bws_fix.close()
+                keep_adspower_offscreen(port)
+                time.sleep(5.5)
+                tabs = json.loads(urllib.request.urlopen(f"http://127.0.0.1:{port}/json/list", timeout=4).read().decode("utf-8"))
+                g_tabs = [t for t in tabs if t.get("type") == "page" and "ads.google.com" in t.get("url", "") and "/aw/ads" in t.get("url", "")]
             ws = websocket.create_connection(
                 g_tabs[0]["webSocketDebuggerUrl"].replace("ws://localhost:", "ws://127.0.0.1:"),
                 suppress_origin=True,
@@ -995,18 +1019,23 @@ def audit_google_ads_multiwindow() -> dict:
 
 def main():
     now_sa = datetime.now(SA_TZ)
+    skip_snap_tt = "--skip-snap-tiktok" in sys.argv or "--google-only" in sys.argv
     print(f"🚀 بدء الفاحص والمفصّص الشامل متعدد النوافذ (1D / 2D / 3D / 7D) بحد أقصى CPA = $7.00 ({now_sa:%Y-%m-%d %H:%M} GMT+3)", flush=True)
     sheet = fetch_sheet_multiwindow_sales()
-    try:
-        snap_res = audit_snapchat_multiwindow(sheet)
-    except Exception as e:
-        print(f"⚠️ خطأ جزئي في فحص سناب شات: {e}", flush=True)
+    if skip_snap_tt:
         snap_res = {"campaigns": [], "extra_paused": []}
-    try:
-        tt_res = audit_tiktok_multiwindow()
-    except Exception as e:
-        print(f"⚠️ خطأ جزئي في فحص تيك توك: {e}", flush=True)
         tt_res = {}
+    else:
+        try:
+            snap_res = audit_snapchat_multiwindow(sheet)
+        except Exception as e:
+            print(f"⚠️ خطأ جزئي في فحص سناب شات: {e}", flush=True)
+            snap_res = {"campaigns": [], "extra_paused": []}
+        try:
+            tt_res = audit_tiktok_multiwindow()
+        except Exception as e:
+            print(f"⚠️ خطأ جزئي في فحص تيك توك: {e}", flush=True)
+            tt_res = {}
     try:
         g_res = audit_google_ads_multiwindow()
     except Exception as e:
