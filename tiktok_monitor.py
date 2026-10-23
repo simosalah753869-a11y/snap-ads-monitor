@@ -3,6 +3,7 @@ import os
 import re
 import socket
 import sys
+import time
 import urllib.request
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
@@ -63,17 +64,18 @@ ACCOUNTS = [
 # Aggregated Duplicated Video Level (Across ALL Campaigns & ALL Accounts):
 # 1. Duplicated video total spend >= $10.00 (1D/2D/3D/7D) with 0 sales -> Pause video across ALL campaigns & accounts
 # 2. Duplicated video total CPA >= $12.00 (1D/2D/3D/7D, with >= 1 sale) -> Pause video across ALL campaigns & accounts
-MAX_CAMPAIGN_NO_SALE_SPEND = 15.00
-MAX_CAMPAIGN_CPA = 12.00
-MAX_REGULAR_CAMPAIGN_NO_SALE_1D = 18.00
-MAX_REGULAR_CAMPAIGN_NO_SALE_3D = 18.00
-MAX_REGULAR_CAMPAIGN_CPA_3D = 12.00
+MAX_CAMPAIGN_NO_SALE_SPEND = 4.50
+MAX_CAMPAIGN_CPA = 7.00
+MAX_REGULAR_CAMPAIGN_NO_SALE_1D = 7.00
+MAX_REGULAR_CAMPAIGN_NO_SALE_3D = 12.00
+MAX_REGULAR_CAMPAIGN_CPA_3D = 7.00
 MAX_NO_SALE_SPEND = 4.50
 MAX_VIDEO_CPA = 7.00
 GULF_MAX_NO_SALE_SPEND = 8.50
 GULF_MAX_VIDEO_CPA = 12.00
 MIN_SPEND_FOR_CPC = 1.00
 MAX_CPC = 0.32
+MAX_CAMPAIGN_CPC = 0.35
 MAX_DUP_VIDEO_NO_SALE_SPEND = 7.00
 MAX_DUP_VIDEO_CPA = 7.00
 
@@ -685,6 +687,13 @@ def main():
             has_good_today = c_conv_1d > 0 and c_cpa_1d is not None and c_cpa_1d <= good_cpa_lim
             has_good_3d = c_conv_3d > 0 and c_cpa_3d is not None and c_cpa_3d <= good_cpa_lim
             c_cpa_2d = round(c_spend_2d / c_conv_2d, 2) if c_conv_2d > 0 else None
+
+            # Campaign Early CPC Cut: Spend >= $1.00 with 0 sales Today & CPC > $0.35 (or 0 clicks)
+            if not has_good_today and c_spend_1d >= MIN_SPEND_FOR_CPC and c_conv_1d == 0:
+                if c_cpc_1d > MAX_CAMPAIGN_CPC or (c_cpc_1d == 0 and c_spend_1d >= 1.00):
+                    camp_pause_reasons.append(
+                        f"Campaign Today Spend ${c_spend_1d:.2f} >= ${MIN_SPEND_FOR_CPC:.2f} & CPC ${c_cpc_1d:.2f} > ${MAX_CAMPAIGN_CPC:.2f} (0 sales Today)"
+                    )
 
             if is_cloned_camp and not has_good_today:
                 if c_spend_1d >= camp_no_sale_lim and c_conv_1d == 0:
