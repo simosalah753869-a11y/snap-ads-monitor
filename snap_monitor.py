@@ -1219,11 +1219,11 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
     today_date_str = today_local.strftime("%Y-%m-%d")
     is_night_window = (0 <= today_local.hour < 6)
     is_before_6pm_window = (6 <= today_local.hour < 17)
-    bid_ladder_micro = [2_050_000, 2_150_000, 2_250_000, 2_350_000]
+    bid_ladder_micro = [2_250_000, 2_350_000, 2_450_000, 2_500_000]
 
     history.setdefault("smart_spend_watchdog", {})
     print(
-        f"\n🛡️ فحص ضبط سلم البيدات ($2.05-$2.35) + السكيل العمودي للمجموعات الفائزة ($20 -> $35 -> $50) + كشّاف الجمود..."
+        f"\n🛡️ فحص ضبط سلم البيدات ($2.25-$2.55 للماكس بيد / $2.75-$2.85 للتارجت كوست) + السكيل العمودي للمجموعات الفائزة ($20 -> $35 -> $50) + كشّاف الجمود..."
     )
     for c in active_campaigns:
         c_id = c["id"]
@@ -1247,22 +1247,29 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
             st3_sq = squad_stats_3d_map.get(s_id, {"spend": today_spend, "purchases": 0, "cpa": None})
             is_gulf_sq = is_gulf_034_campaign(c_name, s_name, squad)
             is_cross_sq = is_cross_monitored_product_campaign(c_name, s_name)
-            is_winning_today = st_sq.get("purchases", 0) >= 1 and st_sq.get("cpa") is not None and st_sq["cpa"] <= 8.00
+            is_tc_sq = squad.get("bid_strategy") == "TARGET_COST" or bool(squad.get("target_bid"))
+            is_winning_today = (
+                (st_sq.get("purchases", 0) >= 1 and st_sq.get("cpa") is not None and st_sq["cpa"] <= 8.00)
+                or (st3_sq.get("purchases", 0) >= 1 and st3_sq.get("cpa") is not None and st3_sq["cpa"] <= 8.00)
+            )
 
             if is_cross_sq:
                 max_safe_bid_micro = 3_600_000
+            elif is_tc_sq:
+                max_safe_bid_micro = 2_850_000
             else:
-                max_safe_bid_micro = 2_450_000 if is_gulf_sq else 2_350_000
+                max_safe_bid_micro = 2_650_000 if is_gulf_sq else 2_550_000
 
-            # (أ) تهدئة البيدات المتضخمة (> $2.35 للسعودية / > $2.45 للخليج / > $3.60 للمنتجات الجديدة) فوراً إلى سلم البيدات المتدرج ($2.05 / $2.15 / $2.25 / $2.35) لمنع النزيف والخسارة:
+            # (أ) تهدئة البيدات المتضخمة فوق السقف الآمن إلى سلم البيدات المتدرج لمنع النزيف والخسارة:
             if bid_micro > max_safe_bid_micro and not is_winning_today:
                 if is_cross_sq:
-                    is_tc_sq = squad.get("bid_strategy") == "TARGET_COST" or bool(squad.get("target_bid"))
                     target_ladder_micro = 3_400_000 if is_tc_sq else 3_500_000
+                elif is_tc_sq:
+                    target_ladder_micro = 2_750_000
                 else:
                     target_ladder_micro = bid_ladder_micro[idx_sq % len(bid_ladder_micro)]
                     if is_gulf_sq:
-                        target_ladder_micro = min(2_450_000, target_ladder_micro + 100_000)
+                        target_ladder_micro = min(2_650_000, target_ladder_micro + 100_000)
                 old_b = round(bid_micro / 1_000_000, 2)
                 new_b = round(target_ladder_micro / 1_000_000, 2)
                 if dry_run:
@@ -1333,8 +1340,8 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
                     except Exception:
                         pass
 
-            # (ج) كشّاف الجمود (Scout Rule): لا يُحرك البيد إلا إذا كانت الحملة بالكامل متجمدة (< $2.00 اليوم)، ولنسختين اثنتين فقط (2 Scouts) بـ +$0.10 وبسقف أقصى $2.35 للسعودية ($2.45 للخليج)!
-            if is_cross_sq or camp_total_spend_today >= 2.00 or scouts_nudged_in_camp >= 2:
+            # (ج) كشّاف الجمود (Scout Rule): تحريك البيد +$0.10 للمجموعات البطيئة الصرف (< $0.80) بحد أقصى 4 مجموعات في الدورة لكل حملة وبسقف آمن:
+            if is_cross_sq or scouts_nudged_in_camp >= 4:
                 continue
             if today_spend >= 0.80:
                 continue
