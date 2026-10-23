@@ -404,21 +404,23 @@ def get_total_row_sig(ws):
         const rows = Array.from(document.querySelectorAll('.particle-table-row, ess-table-row'));
         const tot = rows.find(r => (r.innerText || '').includes('Total:'));
         if (tot) return (tot.innerText || '').replace(/\\s+/g, ' ').trim();
-        return rows.slice(0, 3).map(r => (r.innerText || '').replace(/\\s+/g, ' ').trim().slice(0, 120)).join('||');
+        const firstAd = rows.find(r => r.querySelector('.ad-name'));
+        return firstAd ? (firstAd.innerText || '').replace(/\\s+/g, ' ').trim().slice(0, 180) : '';
     })()
     """
     return eval_js(ws, js) or ""
 
 
-def wait_for_table_change(ws, old_sig, timeout=8.5):
+def wait_for_table_change(ws, old_sig, timeout=9.0):
+    time.sleep(1.8)
     t0 = time.time()
     while time.time() - t0 < timeout:
-        time.sleep(0.6)
+        time.sleep(0.65)
         cur_sig = get_total_row_sig(ws)
         if cur_sig and cur_sig != old_sig:
-            time.sleep(0.8)
+            time.sleep(1.2)
             return cur_sig
-    time.sleep(1.2)
+    time.sleep(1.5)
     return get_total_row_sig(ws)
 
 
@@ -494,15 +496,21 @@ def click_prev_day_js(ws):
         const prev = icons.find(el => (el.innerText || '').trim() === 'chevron_left');
         if (prev) {
             const btn = prev.closest('material-button, button, [role="button"]') || prev;
+            const r = btn.getBoundingClientRect();
+            if (r.width > 0 && r.height > 0) {
+                return {found: true, x: Math.round(r.left + r.width/2), y: Math.round(r.top + r.height/2)};
+            }
             btn.click();
-            return 'CLICKED_PREV';
+            return {found: true, clicked_js: true};
         }
-        return 'NOT_FOUND';
+        return {found: false};
     })()
     """
-    r = eval_js(ws, js)
-    if r == "CLICKED_PREV":
-        wait_for_table_change(ws, old_sig, timeout=7.5)
+    r = eval_js(ws, js) or {}
+    if r.get("found"):
+        if r.get("x") and r.get("y"):
+            cdp_click(ws, r["x"], r["y"])
+        wait_for_table_change(ws, old_sig, timeout=9.0)
         return True
     return False
 
@@ -705,6 +713,10 @@ def audit_google_ads_multiwindow() -> dict:
         try:
             tabs = json.loads(urllib.request.urlopen(f"http://127.0.0.1:{port}/json/list", timeout=4).read().decode("utf-8"))
             g_tabs = [t for t in tabs if t.get("type") == "page" and "ads.google.com" in t.get("url", "") and "/campaigns/new" not in t.get("url", "") and "/construction" not in t.get("url", "")]
+            if not g_tabs:
+                g_tabs = [t for t in tabs if t.get("type") == "page" and "ads.google.com" in t.get("url", "")]
+            if not g_tabs:
+                g_tabs = [t for t in tabs if t.get("type") == "page"]
             if not g_tabs:
                 print(f"⚠️ لا توجد تبويبة Google Ads مفتوحة في {label}", flush=True)
                 continue
