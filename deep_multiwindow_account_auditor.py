@@ -564,13 +564,16 @@ def scrape_google_ads_table(ws) -> dict:
                 for (const r of rows) {
                     const stCell = r.querySelector('[essfield="status"]');
                     const stImg = stCell ? stCell.querySelector('[role="img"]') : null;
-                    const toggle = stImg ? (stImg.getAttribute('aria-label') || '') : '';
+                    let toggle = stImg ? (stImg.getAttribute('aria-label') || '') : '';
                     const camp = ((r.querySelector('[essfield="campaign_name"]') || {}).innerText || '').trim();
                     const ag = ((r.querySelector('[essfield="ad_group_name"], [essfield="ad_group"]') || {}).innerText || '').trim();
                     const ad = ((r.querySelector('.ad-name') || {}).innerText || '').trim();
                     let txt = (r.innerText || '').replace(/\\s+/g, ' ').trim();
                     if (txt.includes('View asset details')) {
                         txt = txt.split('View asset details')[1].trim();
+                    }
+                    if (toggle === 'Enabled' && /Campaign is paused|Ad group is paused|Campaign ended/i.test(txt)) {
+                        toggle = 'Paused';
                     }
                     const key = toggle + '|' + camp + '|' + ag + '|' + ad + '|' + txt.slice(0, 140);
                     if (txt.length > 5 && !seen.has(key)) {
@@ -618,12 +621,12 @@ def parse_google_ad_metrics(row_obj: dict) -> dict:
     or with 0 clicks: 'Enabled pbw5 power bank WINNERS 20-10 Ad group 1 Eligible (Limited) Demand Gen Video Ad 0 118 0.00% — $1.51 0.00% 0.00 $0.00'
     """
     txt = row_obj.get("text", "")
-    after_status = re.split(r"Eligible(?:\s*\([^)]+\))?|Paused|Pending|Under review|Approved|Disapproved", txt, maxsplit=1)
-    tail = after_status[1] if len(after_status) > 1 else txt
+    after_status = re.split(r"(?:Demand Gen )?video ad|Eligible(?:\s*\([^)]+\))?|Paused|Pending|Under review|Approved|Disapproved", txt, flags=re.IGNORECASE)
+    tail = after_status[-1] if len(after_status) > 1 else txt
 
-    # Match pattern: <clicks> <impr> <ctr>% <cpc_or_dash> $<cost> <conv_rate>% <conv> $<cpa>
+    # Match pattern: <clicks> <impr> <ctr>%_or_dash <cpc_or_dash> $<cost> <after_cost>
     m = re.search(
-        r"(\d[\d,]*)\s+(\d[\d,]*)\s+[\d.]+%\s+(?:(?:US)?\$([\d,]+\.\d{2})|—)\s+(?:US)?\$([\d,]+\.\d{2})\s+[\d.]+%\s+([\d,]+\.\d{2})",
+        r"(\d[\d,]*)\s+(\d[\d,]*)\s+(?:[\d.]+%|—)\s+(?:(?:US)?\$([\d,]+\.\d{2})|—)\s+(?:US)?\$([\d,]+\.\d{2})(.*)",
         tail,
     )
     if m:
@@ -631,88 +634,106 @@ def parse_google_ad_metrics(row_obj: dict) -> dict:
         impr = int(m.group(2).replace(",", ""))
         cpc = float(m.group(3).replace(",", "")) if m.group(3) else 0.0
         cost = float(m.group(4).replace(",", ""))
-        conv = float(m.group(5).replace(",", ""))
+        after_cost = m.group(5) or ""
+        conv_m = re.search(r"(?<![$\d.])([\d,]+\.\d{2})(?!%|\d)", after_cost)
+        conv = float(conv_m.group(1).replace(",", "")) if conv_m else 0.0
         return {"clicks": clicks, "impr": impr, "cpc": cpc, "spend": cost, "ui_conv": conv}
 
     # Fallback parser
     dollars = [float(x.replace(",", "")) for x in re.findall(r"(?:US)?\$([\d,]+\.\d{2})", tail)]
-    has_dash_cpc = bool(re.search(r"%\s+—\s+(?:US)?\$", tail))
+    has_dash_cpc = bool(re.search(r"(?:%|—)\s+—\s+(?:US)?\$", tail))
     if dollars:
         spend = dollars[0] if has_dash_cpc else (dollars[1] if len(dollars) > 1 else dollars[0])
         cpc = 0.0 if has_dash_cpc else (dollars[0] if len(dollars) > 1 else 0.0)
     else:
         spend, cpc = 0.0, 0.0
+    est_clicks = max(1, int(round(spend / cpc))) if (cpc > 0 and spend > 0) else 0
     conv_m = re.search(r"%\s+([\d,]+\.\d{2})\s+(?:US)?\$[\d,]+\.\d{2}\s*$", tail)
     ui_conv = float(conv_m.group(1).replace(",", "")) if conv_m else 0.0
-    return {"clicks": 0, "impr": 0, "cpc": cpc, "spend": spend, "ui_conv": ui_conv}
+    return {"clicks": est_clicks, "impr": 0, "cpc": cpc, "spend": spend, "ui_conv": ui_conv}
 
 
 def set_google_ad_status_carefully(ws, camp_name: str, ad_name: str, desired_status: str, port=None, ag_name: str = None) -> str:
     expected_label = "Enabled" if desired_status == "Enable" else "Paused"
     eval_js(ws, "document.body.click()")
     time.sleep(0.2)
-    for scroll_pos in range(0, 9500, 550):
-        eval_js(
-            ws,
-            f"window.scrollTo(0, {scroll_pos}); document.querySelectorAll('.particle-table-canvas, ess-table-canvas, .ess-table-canvas, [role=\"grid\"]').forEach(s => s.scrollTop = {scroll_pos});",
-        )
-        time.sleep(0.18)
-        js_find = f"""
-        (() => {{
-            const rows = Array.from(document.querySelectorAll('.particle-table-row, ess-table-row'));
-            const wantAg = {json.dumps(ag_name or "")};
-            for (const r of rows) {{
-                const c = ((r.querySelector('[essfield="campaign_name"]') || {{}}).innerText || '').trim();
-                const ag = ((r.querySelector('[essfield="ad_group_name"], [essfield="ad_group"]') || {{}}).innerText || '').trim();
-                const n = ((r.querySelector('.ad-name') || {{}}).innerText || '').trim();
-                if (c === {json.dumps(camp_name)} && n === {json.dumps(ad_name)} && (!wantAg || ag === wantAg)) {{
-                    r.scrollIntoView({{block: 'center'}});
-                    const stCell = r.querySelector('[essfield="status"]');
-                    if (!stCell) continue;
-                    const img = stCell.querySelector('[role="img"]');
-                    const cur = img ? (img.getAttribute('aria-label') || '') : '';
-                    if (cur === {json.dumps(expected_label)}) return {{res: 'ALREADY_' + cur}};
-                    stCell.dispatchEvent(new MouseEvent('mouseenter', {{bubbles: true}}));
-                    stCell.dispatchEvent(new MouseEvent('mouseover', {{bubbles: true}}));
-                    r.dispatchEvent(new MouseEvent('mouseenter', {{bubbles: true}}));
-                    const btn = stCell.querySelector('.ess-edit-icon, [role="button"]');
-                    if (btn) {{
-                        btn.click();
-                        return {{res: 'OPENED', cur}};
-                    }}
-                    return {{res: 'NO_BTN', cur}};
-                }}
-            }}
-            return {{res: 'NOT_FOUND'}};
-        }})()
-        """
-        info = eval_js(ws, js_find) or {}
-        if info.get("res") == "NOT_FOUND":
-            continue
-        if info.get("res", "").startswith("ALREADY_"):
-            return info["res"]
-        if info.get("res") == "OPENED":
-            time.sleep(0.75)
-            keep_adspower_offscreen(port)
-            js_menu = f"""
+    has_first = eval_js(
+        ws,
+        """(() => { const b = document.querySelector('[aria-label="Go to the first page"]'); if (b && !b.disabled && b.getAttribute('aria-disabled') !== 'true') { b.click(); return true; } return false; })()""",
+    )
+    if has_first:
+        time.sleep(1.3)
+
+    for _page_idx in range(4):
+        for scroll_pos in range(0, 9500, 550):
+            eval_js(
+                ws,
+                f"window.scrollTo(0, {scroll_pos}); document.querySelectorAll('.particle-table-canvas, ess-table-canvas, .ess-table-canvas, [role=\"grid\"]').forEach(s => s.scrollTop = {scroll_pos});",
+            )
+            time.sleep(0.18)
+            js_find = f"""
             (() => {{
-                const items = Array.from(document.querySelectorAll('material-select-item, [role="menuitem"], [role="option"]')).filter(el => el.offsetParent !== null);
-                for (const item of items) {{
-                    const t = (item.innerText || '').replace(/\\s+/g, ' ').trim();
-                    if (t === {json.dumps(desired_status)} || t.endsWith(' ' + {json.dumps(desired_status)})) {{
-                        const r = item.getBoundingClientRect();
-                        return {{found: true, t, x: Math.round(r.left + r.width/2), y: Math.round(r.top + r.height/2)}};
+                const rows = Array.from(document.querySelectorAll('.particle-table-row, ess-table-row'));
+                const wantAg = {json.dumps(ag_name or "")};
+                for (const r of rows) {{
+                    const c = ((r.querySelector('[essfield="campaign_name"]') || {{}}).innerText || '').trim();
+                    const ag = ((r.querySelector('[essfield="ad_group_name"], [essfield="ad_group"]') || {{}}).innerText || '').trim();
+                    const n = ((r.querySelector('.ad-name') || {{}}).innerText || '').trim();
+                    if (c === {json.dumps(camp_name)} && n === {json.dumps(ad_name)} && (!wantAg || ag === wantAg)) {{
+                        r.scrollIntoView({{block: 'center'}});
+                        const stCell = r.querySelector('[essfield="status"]');
+                        if (!stCell) continue;
+                        const img = stCell.querySelector('[role="img"]');
+                        const cur = img ? (img.getAttribute('aria-label') || '') : '';
+                        if (cur === {json.dumps(expected_label)}) return {{res: 'ALREADY_' + cur}};
+                        stCell.dispatchEvent(new MouseEvent('mouseenter', {{bubbles: true}}));
+                        stCell.dispatchEvent(new MouseEvent('mouseover', {{bubbles: true}}));
+                        r.dispatchEvent(new MouseEvent('mouseenter', {{bubbles: true}}));
+                        const btn = stCell.querySelector('.ess-edit-icon, [role="button"]');
+                        if (btn) {{
+                            btn.click();
+                            return {{res: 'OPENED', cur}};
+                        }}
+                        return {{res: 'NO_BTN', cur}};
                     }}
                 }}
-                return {{found: false}};
+                return {{res: 'NOT_FOUND'}};
             }})()
             """
-            minfo = eval_js(ws, js_menu) or {}
-            if minfo.get("found"):
-                cdp_click(ws, minfo["x"], minfo["y"])
-                time.sleep(1.5)
+            info = eval_js(ws, js_find) or {}
+            if info.get("res") == "NOT_FOUND":
+                continue
+            if info.get("res", "").startswith("ALREADY_"):
+                return info["res"]
+            if info.get("res") == "OPENED":
+                time.sleep(0.75)
                 keep_adspower_offscreen(port)
-                return f"PAUSED_SUCCESS (was {info.get('cur')})"
+                js_menu = f"""
+                (() => {{
+                    const items = Array.from(document.querySelectorAll('material-select-item, [role="menuitem"], [role="option"]')).filter(el => el.offsetParent !== null);
+                    for (const item of items) {{
+                        const t = (item.innerText || '').replace(/\\s+/g, ' ').trim();
+                        if (t === {json.dumps(desired_status)} || t.endsWith(' ' + {json.dumps(desired_status)})) {{
+                            const r = item.getBoundingClientRect();
+                            return {{found: true, t, x: Math.round(r.left + r.width/2), y: Math.round(r.top + r.height/2)}};
+                        }}
+                    }}
+                    return {{found: false}};
+                }})()
+                """
+                minfo = eval_js(ws, js_menu) or {}
+                if minfo.get("found"):
+                    cdp_click(ws, minfo["x"], minfo["y"])
+                    time.sleep(1.5)
+                    keep_adspower_offscreen(port)
+                    return f"{desired_status.upper()}_SUCCESS (was {info.get('cur')})"
+        has_next = eval_js(
+            ws,
+            """(() => { const b = document.querySelector('[aria-label="Go to the next page"]'); if (b && !b.disabled && b.getAttribute('aria-disabled') !== 'true') { b.click(); return true; } return false; })()""",
+        )
+        if not has_next:
+            break
+        time.sleep(1.5)
     return "NOT_FOUND"
 
 
