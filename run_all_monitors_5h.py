@@ -912,14 +912,20 @@ def run_google_ads_check():
                             const costMatches = Array.from(txt.matchAll(/\\$([0-9,]+\\.[0-9]{{2}})/g)).map(m => parseFloat(m[1].replace(/,/g, '')));
                             if (costMatches.length >= 2) {{
                                 const rowName = txt.split(/(?:US)?\\$[0-9]/)[0].replace(/\\bsettings\\b/gi, '').trim();
+                                const exactAdName = ((r.querySelector('.ad-name') || {{}}).innerText || '').trim().toLowerCase();
+                                const exactCampName = ((r.querySelector('[essfield="campaign_name"]') || {{}}).innerText || '').trim().toLowerCase();
                                 const rnLow = rowName.toLowerCase();
                                 const isAdsTab = location.href.includes('/aw/ads');
                                 if (!isAdsTab) continue; // لا توقف الحملات أبداً في جدول Campaigns أو Overview — يتم إيقاف الفيديوهات الخاسرة الفردية فقط في جدول Ads (/aw/ads)
                                 let sheetConv = 0;
-                                for (const [k, v] of Object.entries(sheetSales)) {{
-                                    if (k && rnLow.includes(k.toLowerCase())) sheetConv = Math.max(sheetConv, v);
+                                if (exactAdName && sheetSales[exactAdName] !== undefined) {{
+                                    sheetConv = sheetSales[exactAdName];
+                                }} else {{
+                                    for (const [k, v] of Object.entries(sheetSales)) {{
+                                        if (k && k.toLowerCase() === exactAdName) sheetConv = Math.max(sheetConv, v);
+                                    }}
                                 }}
-                                const afterStatus = txt.split(/Eligible|Enabled/).slice(1).join(' ');
+                                const afterStatus = txt.split(/Eligible(?:\\s*\\([^)]+\\))?|Enabled/).slice(1).join(' ');
                                 const afterDollars = Array.from(afterStatus.matchAll(/\\$([0-9,]+\\.[0-9]{{2}})/g)).map(m => parseFloat(m[1].replace(/,/g, '')));
                                 // Actual Cost in Ads table is 1st dollar value when Avg. CPC is '—' (0 clicks), else 2nd dollar value (after Avg. CPC)
                                 const hasDashCpc = /%\\s+—\\s+(?:US)?\\$/.test(afterStatus);
@@ -928,13 +934,16 @@ def run_google_ads_check():
                                 let uiConv = 0;
                                 const tcpaMatch = afterStatus.match(/Target CPA\\s+[0-9,]+\\.[0-9]{{2}}\\s+([0-9,]+\\.[0-9]{{2}})/);
                                 const dgMatch = afterStatus.match(/Demand Gen\\s+([0-9,]+\\.[0-9]{{2}})/);
-                                const postCostMatch = afterStatus.match(/\\$(?:[0-9,]+\\.[0-9]{{2}})\\s+([0-9,]+\\.[0-9]{{2}})\\s+[0-9,]+\\.[0-9]{{2}}$/);
+                                const postCostMatch = afterStatus.match(/\\$(?:[0-9,]+\\.[0-9]{{2}})\\s+[0-9.]*%?\\s*([0-9,]+\\.[0-9]{{2}})\\s+(?:US)?\\$[0-9,]+\\.[0-9]{{2}}/);
                                 if (tcpaMatch) uiConv = Math.max(uiConv, parseFloat(tcpaMatch[1].replace(/,/g, '')));
                                 if (dgMatch) uiConv = Math.max(uiConv, parseFloat(dgMatch[1].replace(/,/g, '')));
                                 if (postCostMatch) uiConv = Math.max(uiConv, parseFloat(postCostMatch[1].replace(/,/g, '')));
                                 const effConv = Math.max(uiConv, sheetConv);
                                 const effCpa = effConv >= 1 ? (spend / effConv) : 999;
-                                if ((spend >= 8.00 && effConv < 0.5) || (spend >= 12.00 && effCpa > 9.50)) {{
+                                const isGulf = /عمان|قطر|كويت|بحرين|امارات|oman|qatar|kuwait|bahrain|uae/i.test(exactCampName || rnLow);
+                                const maxCpa = isGulf ? 10.00 : 7.00;
+                                const maxNoSale = isGulf ? 7.00 : 5.00;
+                                if ((spend >= maxNoSale && effConv < 0.5) || (spend >= maxCpa && effConv >= 1 && effCpa > maxCpa)) {{
                                     let btnCoords = null;
                                     const statusBtn = r.querySelector('status-picker [role="button"], status-menu [role="button"], ess-cell[essfield*="status"] [role="button"], [aria-label*="Status"], .status-icon, status-picker, status-menu');
                                     if (statusBtn) {{
