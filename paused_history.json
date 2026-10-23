@@ -581,6 +581,12 @@
       "campaign": "smart+ watch suis SA 18-10",
       "reason": "[Copy Rule] صرفت $4.72 (>= $4.50) بدون مبيعات",
       "paused_at": "2026-10-23 11:21 GMT+3"
+    },
+    "30911f5f-84be-454b-b17e-98fbd0866f70": {
+      "name": "Copy of SA Smart+ Winners | 3.0 Bid",
+      "campaign": "smart+ cars SA 18-10",
+      "reason": "[Copy Rule] سعر البيعة CPA = $7.81 (> $7.00) | الصرف: $7.81 | المبيعات: 1",
+      "paused_at": "2026-10-23 12:06 GMT+3"
     }
   },
   "ads": {
@@ -10446,6 +10452,13 @@
       "adsquad": "timex — Target Cost Smart+ Broad | 3.30 Bid",
       "reason": "[Ad CPC Rule] صرف الفيديو $8.14 (>= $0.80) | النقرات: 27 | سعر النقرة CPC = $0.301 (> $0.30)",
       "paused_at": "2026-10-23 11:45 GMT+3"
+    },
+    "ddc3f0c9-6b3b-4163-ad8b-1b52896db147": {
+      "name": "W5_4_b_m45da6e",
+      "campaign": "smart+ cars SA 18-10",
+      "adsquad": "Copy of SA Smart+ Winners | 3.0 Bid",
+      "reason": "[Single Video Max $7 CPA Rule] صرف الفيديو $7.81 | المبيعات: 1 | CPA = $7.81 (> $7.00)",
+      "paused_at": "2026-10-23 12:06 GMT+3"
     }
   },
   "bid_bumps": {
@@ -12309,7 +12322,29 @@
     "f59b07e4-9f02-439e-81b3-273a9fb412e1": "cd0df84c-bcd7-4cf0-9cfa-ff3effb88c51",
     "6a3c9016-b51e-4726-babc-9b55b8eed943": "5e236ef3-ad77-4b80-8fc2-e84255e7529b",
     "32d8368e-5fed-4c47-aa46-aeb13a09ebfe": "28048707-e277-4002-8687-84b6cfe30ffc",
-    "40d9871d-c02c-4bed-903e-91f55094cfee": "f0be3dfb-898f-461f-a401-c3e3a4da7859"
+    "40d9871d-c02c-4bed-903e-91f55094cfee": "f0be3dfb-898f-461f-a401-c3e3a4da7859",
+    "2fe54cf7-d9c8-41c5-8021-a29a717b662a": "1e7d886d-218a-4ccf-b8cb-807897149f8b",
+    "3ea9e35b-1b16-42f3-9c9c-2c4b417a260b": "86332f99-baed-4a7b-8074-fe112f3d272d",
+    "613002d4-2221-4083-b2de-e892b8ed50b7": "3eb3cf1d-5df3-43f8-8f18-708c39e8434f",
+    "3bfb5e92-6b1f-4e84-b72f-5cb0c312307e": "4584dc54-be50-4a41-8112-f219f8fe4029",
+    "f8fddd81-7f27-420d-8078-8bc502214137": "22758484-adc8-478c-9bd1-a8399a7f6772",
+    "118ec144-1c6d-4bac-a8c8-a9be12d14bc1": "975e29e2-f91e-4579-a8e7-9b1cd09475f7",
+    "4a258d8e-0428-4bb0-a28d-c17c4f7018cf": "c5ed1274-2d39-44b0-896c-40215685cf4f",
+    "98647bf3-f26b-4e41-9bcd-a83eb4441c6a": "3424632a-d8f3-4c0e-a024-12c229f80a91",
+    "64aa47d3-df43-42f1-900a-fff5d13588b8": "23555849-ac85-4d2f-a831-9b5a2baa95c0",
+    "a3252dba-72fb-49a6-8047-ff4158059e89": "9522b39e-603c-4b0e-8d23-b1aba994baff",
+    "257e6763-90e1-4097-8ee6-20891490e9e7": "e74f8aed-fd53-42cb-84b7-06cf056c6126",
+    "ba814bc6-25aa-4381-b15a-a625e6456c1c": "1ef6290e-1f23-492d-b7e6-bb3fcec60d76",
+    "cabcce1e-7fc8-409f-bba0-5d89e9c05202": "b2bc56c8-a403-49a3-b0ae-6bdda3ca093d",
+    "04091967-8ec0-4959-9fcc-af6ed924e6b8": "d5992f15-84b0-4e4e-8097-685a96112ae1",
+    "580f96e1-bef3-4acb-b7c7-9ad23a1d6906": "8f4d8290-5ac9-4c6d-8813-11478b14ee19",
+    "d522cfe4-d3bd-4c31-9701-09e25dd6633b": "826fd1cd-ccf5-4e05-a4d1-8454e9396663",
+    "09252d40-01f1-4a19-9472-2bb646566881": "d6f0f393-7a54-42b7-bb02-734d949f08d4",
+    "6e94d482-cfe7-4aa2-a3e9-c4627e4d4665": "5e310a7b-4cb2-4b0a-b148-2e728a1c8405",
+    "b1d33714-cccd-46b5-b90e-97d49c7445b9": "ca264029-afa6-40d9-8db4-3a40b8207e46",
+    "51c15461-ec0c-4092-b571-98b191b92713": "d082adf5-600e-48e1-9b73-79c9980fcf80",
+    "36eece66-e035-45d5-8c64-e67874a3302f": "e9027485-9691-4201-b9d1-f6de3528e2c0",
+    "92fe0bfd-bf72-4e74-8559-a827709d854a": "0c6da95a-56fc-4a2a-a057-be7ed386c641"
   },
   "disabled_videos": {
     "16b7aaf3-7526-49d7-8e68-33df1e0872a7:3bcd9ff7-ec46-4884-9c93-cd1a04ae60a0": {
@@ -18437,49 +18472,47 @@
       "spend_3d": 22.8,
       "purchases_3d": 1,
       "cpa_3d": 22.8,
-      "updated_at": "2026-10-23 11:45 GMT+3"
+      "updated_at": "2026-10-23 12:06 GMT+3"
     },
     "4504af26-5609-4e7b-aeca-e11cf9e03846": {
       "name": "smart+ watch suis SA 18-10",
-      "spend_3d": 67.62,
+      "spend_3d": 67.85,
       "purchases_3d": 7,
-      "cpa_3d": 9.66,
-      "updated_at": "2026-10-23T11:56:17.495969+03:00"
+      "cpa_3d": 9.69,
+      "updated_at": "2026-10-23 12:06 GMT+3"
     },
     "4eefa50f-9008-4aea-b159-d370150b60cf": {
       "name": "صندوق دفاتر TIME X 21-10",
-      "spend_3d": 24.85,
-      "purchases_3d": 2,
-      "cpa_3d": 12.43,
-      "updated_at": "2026-10-23 11:45 GMT+3"
+      "reason": "Single-AdSquad Cross-Platform Monitored Product Campaign",
+      "updated_at": "2026-10-23 12:10 GMT+3"
     },
     "a171c141-a6d5-403e-8357-5c8f6c01bce0": {
       "name": "وسادة مايباخ 21-10",
       "spend_3d": 10.25,
       "purchases_3d": 0,
       "cpa_3d": null,
-      "updated_at": "2026-10-23 11:45 GMT+3"
+      "updated_at": "2026-10-23 12:06 GMT+3"
     },
     "c5a7cade-6ec3-4c47-b3a2-c5f08bcf8da0": {
       "name": "وسادة مايباخ 21-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-23 11:45 GMT+3"
+      "updated_at": "2026-10-23 12:06 GMT+3"
     },
     "1879653126110545": {
       "name": "timex books 21-10",
       "aadvid": "7631763556322148369",
       "reason": "Single-Campaign Cross-Platform Monitored Product Campaign",
-      "updated_at": "2026-10-23 11:39 GMT+3"
+      "updated_at": "2026-10-23 12:10 GMT+3"
     },
     "e8f0a5e9-89c5-4c14-aabb-c9c6c657891d": {
       "name": "مسخن الرضاعات اللاسلكي 22-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-23 11:45 GMT+3"
+      "updated_at": "2026-10-23 12:06 GMT+3"
     },
     "f18a3bf4-148a-4f5e-baa1-f90335f1884c": {
       "name": "مسخن الرضاعات اللاسلكي 22-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-23 11:45 GMT+3"
+      "updated_at": "2026-10-23 12:06 GMT+3"
     },
     "1879676075637041": {
       "name": "baby bottle warmer 22-10",
@@ -18498,7 +18531,7 @@
       "spend_3d": 23.96,
       "purchases_3d": 3,
       "cpa_3d": 7.99,
-      "updated_at": "2026-10-23 11:45 GMT+3"
+      "updated_at": "2026-10-23 12:06 GMT+3"
     },
     "1879653022433617": {
       "name": "maybach pillow 21-10",
@@ -18511,29 +18544,29 @@
       "spend_3d": 33.2,
       "purchases_3d": 3,
       "cpa_3d": 11.07,
-      "updated_at": "2026-10-23T11:57:12.668400+03:00"
+      "updated_at": "2026-10-23 12:06 GMT+3"
     },
     "baa69314-505c-4b3a-851e-883c10034935": {
       "name": "smart+ cars SA 18-10",
       "spend_3d": 66.2,
       "purchases_3d": 7,
       "cpa_3d": 9.46,
-      "updated_at": "2026-10-23T11:57:25.800624+03:00"
+      "updated_at": "2026-10-23 12:06 GMT+3"
     },
     "e23e7c95-3f15-4945-9844-8bd73e2d79d3": {
       "name": "باور بانك وينر",
       "spend_3d": 42.63,
       "purchases_3d": 5,
       "cpa_3d": 8.53,
-      "updated_at": "2026-10-23T11:57:37.461422+03:00"
+      "updated_at": "2026-10-23 12:06 GMT+3"
     },
     "1879340705037537": {
       "name": "power bank 18-10 (Ola + Hanan 15-10)",
-      "account": "ROELLINGER RECYCLING",
-      "spend_3d": 67.86,
+      "aadvid": "7631763556322148369",
+      "spend_3d": 67.91,
       "purchases_3d": 9,
-      "cpa_3d": 7.54,
-      "updated_at": "2026-10-23T11:59:45.543388+03:00"
+      "cpa_3d": 7.55,
+      "reason": "3-Day CPA > $7.00 — Duplication Blocked"
     },
     "f8372cfb-ae46-44d0-bbb4-f39790ecc648": {
       "name": "car scaling camp ",
@@ -18541,6 +18574,62 @@
       "purchases_3d": 12,
       "cpa_3d": 6.86,
       "updated_at": "2026-10-23T11:59:19.083807+03:00"
+    },
+    "1879689078764737": {
+      "name": "car armrest 21-10 (Hanan 20-10 & 12-10 Edit)",
+      "aadvid": "7631763556322148369",
+      "spend_3d": 189.36,
+      "purchases_3d": 24,
+      "cpa_3d": 7.89,
+      "reason": "3-Day CPA > $7.00 — Duplication Blocked"
+    },
+    "1879155925017650": {
+      "name": "power bank winner 16-10 A",
+      "aadvid": "7631763556322148369",
+      "spend_3d": 77.52,
+      "purchases_3d": 9,
+      "cpa_3d": 8.61,
+      "reason": "3-Day CPA > $7.00 — Duplication Blocked"
+    },
+    "1879581597584850": {
+      "name": "car armrest 20-10 (5 Videos)",
+      "aadvid": "7631763556322148369",
+      "spend_3d": 55.62,
+      "purchases_3d": 6,
+      "cpa_3d": 9.27,
+      "reason": "3-Day CPA > $7.00 — Duplication Blocked"
+    },
+    "1879598580856226": {
+      "name": "car armrest 20-10 (7 Flow Hook Ads A)",
+      "aadvid": "7631763556322148369",
+      "spend_3d": 31.03,
+      "purchases_3d": 3,
+      "cpa_3d": 10.34,
+      "reason": "3-Day CPA > $7.00 — Duplication Blocked"
+    },
+    "1879689071342625": {
+      "name": "car armrest 21-10 (Hanan 20-10 & Ola 12-10)",
+      "aadvid": "7631763556322148369",
+      "spend_3d": 26.32,
+      "purchases_3d": 3,
+      "cpa_3d": 8.77,
+      "reason": "3-Day CPA > $7.00 — Duplication Blocked"
+    },
+    "1879700949085345": {
+      "name": "power bank 22-10 (7 Voltrx Hooks A)",
+      "aadvid": "7631765139798081554",
+      "spend_3d": 8.98,
+      "purchases_3d": 1,
+      "cpa_3d": 8.98,
+      "reason": "3-Day CPA > $7.00 — Duplication Blocked"
+    },
+    "1879700783803490": {
+      "name": "power bank 22-10 (7 Voltrx Hooks A)",
+      "aadvid": "7631765070816509959",
+      "spend_3d": 13.16,
+      "purchases_3d": 1,
+      "cpa_3d": 13.16,
+      "reason": "3-Day CPA > $7.00 — Duplication Blocked"
     }
   },
   "proactive_scaled_squads": {
@@ -19234,8 +19323,8 @@
       "date": "2026-10-23",
       "name": "Copy of KW_Car Smart+ Broad | 2.8 Bid [H4]",
       "campaign": "وسادة السيارة الكويت 18-10",
-      "bumps_today": 0,
-      "last_action_at": null,
+      "bumps_today": 1,
+      "last_action_at": "2026-10-23T09:07:51.306981+00:00",
       "last_spend": 0.05,
       "last_check_at": "2026-10-23T03:10:14.509959+00:00",
       "scaled_budget_today": false
@@ -19264,8 +19353,8 @@
       "date": "2026-10-23",
       "name": "Copy of KW_Car Smart+ Broad | 2.8 Bid [H5]",
       "campaign": "وسادة السيارة الكويت 18-10",
-      "bumps_today": 0,
-      "last_action_at": null,
+      "bumps_today": 1,
+      "last_action_at": "2026-10-23T09:07:51.306981+00:00",
       "last_spend": 0.07,
       "last_check_at": "2026-10-23T03:10:14.509959+00:00",
       "scaled_budget_today": false
@@ -19534,8 +19623,8 @@
       "date": "2026-10-23",
       "name": "Copy of SA_PB_Manzilk_Batch2 Smart+ Broad | 2.30 Bid [H3]",
       "campaign": "smart+ power bank MANZILK WINNERS 2 SA 18-10",
-      "bumps_today": 0,
-      "last_action_at": null,
+      "bumps_today": 1,
+      "last_action_at": "2026-10-23T09:07:51.306981+00:00",
       "last_spend": 0.0,
       "last_check_at": "2026-10-23T03:10:14.509959+00:00",
       "scaled_budget_today": false
@@ -19564,8 +19653,8 @@
       "date": "2026-10-23",
       "name": "Copy of SA_PB_Manzilk_Batch2 Smart+ Broad | 2.30 Bid [H4]",
       "campaign": "smart+ power bank MANZILK WINNERS 2 SA 18-10",
-      "bumps_today": 0,
-      "last_action_at": null,
+      "bumps_today": 1,
+      "last_action_at": "2026-10-23T09:07:51.306981+00:00",
       "last_spend": 0.01,
       "last_check_at": "2026-10-23T03:10:14.509959+00:00",
       "scaled_budget_today": false
@@ -20981,23 +21070,23 @@
       "scaled_budget_today": false
     },
     "8d922eea-691f-49ff-affa-0bb6f97bd33a": {
-      "date": "2026-10-22",
+      "date": "2026-10-23",
       "name": "20-10 (5 فيديوهات الوسادة)",
       "campaign": "smart+ cars SA 18-10",
       "bumps_today": 1,
-      "last_action_at": "2026-10-22T08:38:41.662927+00:00",
-      "last_spend": 0.17,
-      "last_check_at": "2026-10-22T08:38:41.662927+00:00",
+      "last_action_at": "2026-10-23T09:07:51.306981+00:00",
+      "last_spend": 0.1,
+      "last_check_at": "2026-10-23T09:07:51.306981+00:00",
       "scaled_budget_today": false
     },
     "bebab42f-9762-45f6-8288-9d09ae818aa2": {
-      "date": "2026-10-22",
+      "date": "2026-10-23",
       "name": "20-10 وسادة جديد B (فيديوهات 5-8)",
       "campaign": "smart+ cars SA 18-10",
-      "bumps_today": 0,
-      "last_action_at": null,
-      "last_spend": 6.09,
-      "last_check_at": "2026-10-22T08:38:41.662927+00:00",
+      "bumps_today": 1,
+      "last_action_at": "2026-10-23T09:07:51.306981+00:00",
+      "last_spend": 0.76,
+      "last_check_at": "2026-10-23T09:07:51.306981+00:00",
       "scaled_budget_today": false
     },
     "e4022c04-8275-4f2e-ab04-9d3b3a77fb10": {
@@ -21611,13 +21700,13 @@
       "scaled_budget_today": false
     },
     "8de6349c-cf74-4e1b-b989-b2ca7b10bd83": {
-      "date": "2026-10-22",
+      "date": "2026-10-23",
       "name": "Copy of 16-10 1 [H3]",
       "campaign": "باور بانك وينر",
-      "bumps_today": 0,
-      "last_action_at": null,
-      "last_spend": 0.13,
-      "last_check_at": "2026-10-22T08:38:41.662927+00:00",
+      "bumps_today": 1,
+      "last_action_at": "2026-10-23T09:07:51.306981+00:00",
+      "last_spend": 0.76,
+      "last_check_at": "2026-10-23T09:07:51.306981+00:00",
       "scaled_budget_today": false
     },
     "9aa99ac3-7437-4b53-bf0e-1e1d42e3d865": {
@@ -21651,13 +21740,13 @@
       "scaled_budget_today": false
     },
     "d9c93c32-8795-4a05-b093-a3fd6b185130": {
-      "date": "2026-10-21",
-      "name": "Copy of 16-10 1",
+      "date": "2026-10-23",
+      "name": "Copy of 16-10 1 [H4]",
       "campaign": "باور بانك وينر",
       "bumps_today": 0,
       "last_action_at": null,
-      "last_spend": 0.0,
-      "last_check_at": "2026-10-21T11:45:28.922827+00:00",
+      "last_spend": 2.27,
+      "last_check_at": "2026-10-23T09:07:51.306981+00:00",
       "scaled_budget_today": false
     },
     "dc2a818c-5b6d-4e87-b216-ee12262ee4aa": {
@@ -21921,13 +22010,13 @@
       "scaled_budget_today": false
     },
     "146a4ec3-fd84-4a2e-ad8a-efc782893bc6": {
-      "date": "2026-10-22",
+      "date": "2026-10-23",
       "name": "21-10 علا جديد (دفعة 12-10 — 5 فيديوهات)",
       "campaign": "car scaling new 2 text",
       "bumps_today": 0,
       "last_action_at": null,
-      "last_spend": 2.69,
-      "last_check_at": "2026-10-22T06:16:33.108870+00:00",
+      "last_spend": 3.01,
+      "last_check_at": "2026-10-23T09:07:51.306981+00:00",
       "scaled_budget_today": false
     },
     "1d6150d5-8518-4a37-a44b-34911db3928a": {
@@ -21941,13 +22030,13 @@
       "scaled_budget_today": false
     },
     "2607808e-0da2-4c4a-9a30-ba2ace8ec450": {
-      "date": "2026-10-22",
+      "date": "2026-10-23",
       "name": "21-10 حنان جديد (دفعة 20-10 — 5 فيديوهات)",
       "campaign": "car scaling new 2 text",
       "bumps_today": 1,
-      "last_action_at": "2026-10-22T08:38:41.662927+00:00",
-      "last_spend": 1.11,
-      "last_check_at": "2026-10-22T06:16:33.108870+00:00",
+      "last_action_at": "2026-10-23T09:07:51.306981+00:00",
+      "last_spend": 0.13,
+      "last_check_at": "2026-10-23T09:07:51.306981+00:00",
       "scaled_budget_today": false
     },
     "81affdde-ac99-4e78-b23b-2e8bc60ac423": {
@@ -22021,13 +22110,13 @@
       "scaled_budget_today": false
     },
     "207e9ac6-82b3-48de-b8e6-f0d9cff12535": {
-      "date": "2026-10-22",
+      "date": "2026-10-23",
       "name": "21-10 علا جديد (دفعة 12-10 — 5 فيديوهات)",
       "campaign": "smart+ cars SA 18-10",
       "bumps_today": 1,
-      "last_action_at": "2026-10-22T08:38:41.662927+00:00",
-      "last_spend": 0.48,
-      "last_check_at": "2026-10-22T08:38:41.662927+00:00",
+      "last_action_at": "2026-10-23T09:07:51.306981+00:00",
+      "last_spend": 0.03,
+      "last_check_at": "2026-10-23T09:07:51.306981+00:00",
       "scaled_budget_today": false
     },
     "631fbad0-35dc-4607-8dca-df3b8bbc3dff": {
@@ -22101,13 +22190,13 @@
       "scaled_budget_today": false
     },
     "5129eb43-175c-4967-94d6-506e741826ba": {
-      "date": "2026-10-22",
+      "date": "2026-10-23",
       "name": "22-10 فولتركس (عنوان 1: الطلب مرتفع والكمية محدودة جداً)",
       "campaign": "باور بانك وينر",
       "bumps_today": 0,
       "last_action_at": null,
-      "last_spend": 2.13,
-      "last_check_at": "2026-10-22T08:38:41.662927+00:00",
+      "last_spend": 1.2,
+      "last_check_at": "2026-10-23T09:07:51.306981+00:00",
       "scaled_budget_today": false
     },
     "6ff5869d-01af-400e-8608-1cd81278212c": {
@@ -22171,13 +22260,13 @@
       "scaled_budget_today": false
     },
     "3b17c260-4223-49f7-b6f7-81b7b0eb012d": {
-      "date": "2026-10-22",
+      "date": "2026-10-23",
       "name": "20-10 (5 فيديوهات الوسادة)",
       "campaign": "car scaling camp ",
       "bumps_today": 1,
-      "last_action_at": "2026-10-22T08:38:41.662927+00:00",
-      "last_spend": 0.23,
-      "last_check_at": "2026-10-22T08:38:41.662927+00:00",
+      "last_action_at": "2026-10-23T09:07:51.306981+00:00",
+      "last_spend": 0.71,
+      "last_check_at": "2026-10-23T09:07:51.306981+00:00",
       "scaled_budget_today": false
     },
     "49943e45-bb7e-4ec8-b7c4-afc4770af321": {
@@ -22261,13 +22350,13 @@
       "scaled_budget_today": false
     },
     "b13ce945-7fa3-4a49-a57b-3d46b57581d4": {
-      "date": "2026-10-22",
+      "date": "2026-10-23",
       "name": "21-10 حنان جديد (دفعة 20-10 — 5 فيديوهات)",
       "campaign": "car scaling camp ",
       "bumps_today": 1,
-      "last_action_at": "2026-10-22T08:38:41.662927+00:00",
-      "last_spend": 0.56,
-      "last_check_at": "2026-10-22T08:38:41.662927+00:00",
+      "last_action_at": "2026-10-23T09:07:51.306981+00:00",
+      "last_spend": 0.07,
+      "last_check_at": "2026-10-23T09:07:51.306981+00:00",
       "scaled_budget_today": false
     },
     "b4aa81a3-7bcc-448c-9b93-ecdef8386cc6": {
@@ -22308,6 +22397,76 @@
       "last_action_at": "2026-10-23T05:10:36.622723+00:00",
       "last_spend": 0.0,
       "last_check_at": "2026-10-23T03:10:14.509959+00:00",
+      "scaled_budget_today": false
+    },
+    "5ed7295d-2793-40d9-899b-1360ca18c23c": {
+      "date": "2026-10-23",
+      "name": "23-10 فولتريكس رأي شخصي دفعة 2 (9 فيديوهات)",
+      "campaign": "smart+ power bank SA 18-10",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.0,
+      "last_check_at": "2026-10-23T09:07:51.306981+00:00",
+      "scaled_budget_today": false
+    },
+    "9971f884-5dae-45ea-8acc-87d001f4ac04": {
+      "date": "2026-10-23",
+      "name": "Smart+ Broad 23-10 فولتريكس رأي شخصي (10 فيديوهات)",
+      "campaign": "smart+ power bank SA 18-10",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.0,
+      "last_check_at": "2026-10-23T09:07:51.306981+00:00",
+      "scaled_budget_today": false
+    },
+    "7951e0cd-00c0-4225-bfb8-fcc97dd41de8": {
+      "date": "2026-10-23",
+      "name": "Copy of 21-10 علا جديد (دفعة 12-10 — 5 فيديوهات) [H4]",
+      "campaign": "car scaling new 2 text",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.0,
+      "last_check_at": "2026-10-23T09:07:51.306981+00:00",
+      "scaled_budget_today": false
+    },
+    "90d6333d-f4c2-4138-b4b8-ccd280414051": {
+      "date": "2026-10-23",
+      "name": "Copy of 21-10 علا جديد (دفعة 12-10 — 5 فيديوهات) [H1]",
+      "campaign": "car scaling new 2 text",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.0,
+      "last_check_at": "2026-10-23T09:07:51.306981+00:00",
+      "scaled_budget_today": false
+    },
+    "f73ba3a4-f67a-4fb5-bb51-0fd22ab877ce": {
+      "date": "2026-10-23",
+      "name": "Copy of 21-10 علا جديد (دفعة 12-10 — 5 فيديوهات) [H2]",
+      "campaign": "car scaling new 2 text",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.0,
+      "last_check_at": "2026-10-23T09:07:51.306981+00:00",
+      "scaled_budget_today": false
+    },
+    "0c7bd071-58c8-4d58-993a-a3c10437ce47": {
+      "date": "2026-10-23",
+      "name": "23-10 فولتريكس رأي شخصي دفعة 3 (8 فيديوهات)",
+      "campaign": "باور بانك وينر",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.0,
+      "last_check_at": "2026-10-23T09:07:51.306981+00:00",
+      "scaled_budget_today": false
+    },
+    "52b3c67d-7cb9-4fd3-a38f-135711834d9e": {
+      "date": "2026-10-23",
+      "name": "Copy of 16-10 1 [H1]",
+      "campaign": "باور بانك وينر",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 3.09,
+      "last_check_at": "2026-10-23T09:07:51.306981+00:00",
       "scaled_budget_today": false
     }
   },
