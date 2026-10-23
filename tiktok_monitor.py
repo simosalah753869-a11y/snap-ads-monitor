@@ -63,11 +63,11 @@ ACCOUNTS = [
 # Aggregated Duplicated Video Level (Across ALL Campaigns & ALL Accounts):
 # 1. Duplicated video total spend >= $10.00 (1D/2D/3D/7D) with 0 sales -> Pause video across ALL campaigns & accounts
 # 2. Duplicated video total CPA >= $12.00 (1D/2D/3D/7D, with >= 1 sale) -> Pause video across ALL campaigns & accounts
-MAX_CAMPAIGN_NO_SALE_SPEND = 4.50
-MAX_CAMPAIGN_CPA = 7.00
-MAX_REGULAR_CAMPAIGN_NO_SALE_1D = 7.00
-MAX_REGULAR_CAMPAIGN_NO_SALE_3D = 9.00
-MAX_REGULAR_CAMPAIGN_CPA_3D = 7.00
+MAX_CAMPAIGN_NO_SALE_SPEND = 15.00
+MAX_CAMPAIGN_CPA = 12.00
+MAX_REGULAR_CAMPAIGN_NO_SALE_1D = 18.00
+MAX_REGULAR_CAMPAIGN_NO_SALE_3D = 18.00
+MAX_REGULAR_CAMPAIGN_CPA_3D = 12.00
 MAX_NO_SALE_SPEND = 4.50
 MAX_VIDEO_CPA = 7.00
 GULF_MAX_NO_SALE_SPEND = 8.50
@@ -680,17 +680,11 @@ def main():
             reg_no_sale_3d = (GULF_MAX_NO_SALE_SPEND + 2.50) if camp_is_gulf else MAX_REGULAR_CAMPAIGN_NO_SALE_3D
             reg_cpa_3d_lim = GULF_MAX_VIDEO_CPA if camp_is_gulf else MAX_REGULAR_CAMPAIGN_CPA_3D
 
-            is_cloned_camp = any(k in camp_name.lower() for k in ("copy", "scale", "boost", "turbo", "elite", "hooks b", "ads b", "accel"))
+            is_cloned_camp = any(k in camp_name.lower() for k in ("copy", "scale", "boost", "turbo", "elite", "accel"))
             camp_pause_reasons = []
             has_good_today = c_conv_1d > 0 and c_cpa_1d is not None and c_cpa_1d <= good_cpa_lim
             has_good_3d = c_conv_3d > 0 and c_cpa_3d is not None and c_cpa_3d <= good_cpa_lim
             c_cpa_2d = round(c_spend_2d / c_conv_2d, 2) if c_conv_2d > 0 else None
-
-            # CRITICAL RULE 0: Campaign-Level Early CPC Cut (Spend >= $1.00 Today with 0 sales Today and CPC > $0.35 or 0 clicks)
-            if c_spend_1d >= 1.00 and c_conv_1d == 0 and (c_cpc_1d > 0.35 or c_clicks_1d == 0):
-                camp_pause_reasons.append(
-                    f"Campaign Today Early CPC Cut: Spend ${c_spend_1d:.2f} >= $1.00 & CPC ${c_cpc_1d:.2f} > $0.35 (Clicks={c_clicks_1d}, 0 sales Today)"
-                )
 
             if is_cloned_camp and not has_good_today:
                 if c_spend_1d >= camp_no_sale_lim and c_conv_1d == 0:
@@ -701,24 +695,11 @@ def main():
                     camp_pause_reasons.append(f"Cloned/Scale Campaign 3-Day Spend ${c_spend_3d:.2f} >= ${camp_no_sale_lim:.2f} with 0 sales")
                 if c_conv_3d > 0 and c_spend_3d >= camp_no_sale_lim and c_cpa_3d is not None and c_cpa_3d > camp_cpa_lim:
                     camp_pause_reasons.append(f"Cloned/Scale Campaign 3-Day CPA ${c_cpa_3d:.2f} > ${camp_cpa_lim:.2f} (Spend=${c_spend_3d:.2f}, Sales={c_conv_3d})")
-                elif c_conv_2d > 0 and c_spend_2d >= camp_no_sale_lim and c_cpa_2d is not None and c_cpa_2d > camp_cpa_lim:
-                    camp_pause_reasons.append(f"Cloned/Scale Campaign 2-Day CPA ${c_cpa_2d:.2f} > ${camp_cpa_lim:.2f} (Spend=${c_spend_2d:.2f}, Sales={c_conv_2d})")
-                elif c_conv_1d > 0 and c_spend_1d >= camp_no_sale_lim and c_cpa_1d is not None and c_cpa_1d > camp_cpa_lim:
-                    camp_pause_reasons.append(f"Cloned/Scale Campaign Today CPA ${c_cpa_1d:.2f} > ${camp_cpa_lim:.2f} (Spend=${c_spend_1d:.2f}, Sales={c_conv_1d})")
             elif not is_cloned_camp and not has_good_today:
-                # Universal Campaign Stop-Loss for Multi-Video / Regular Campaigns (NEVER excused by old 3D sales if bleeding Today with 0 sales!)
                 if c_spend_1d >= reg_no_sale_1d and c_conv_1d == 0:
-                    camp_pause_reasons.append(f"Universal Campaign Today Spend ${c_spend_1d:.2f} >= ${reg_no_sale_1d:.2f} with 0 sales Today")
-                elif c_spend_2d >= reg_no_sale_1d and c_conv_2d == 0:
-                    camp_pause_reasons.append(f"Universal Campaign 2-Day Spend ${c_spend_2d:.2f} >= ${reg_no_sale_1d:.2f} with 0 sales")
-                elif c_spend_3d >= reg_no_sale_3d and c_conv_3d == 0:
-                    camp_pause_reasons.append(f"Universal Campaign 3-Day Spend ${c_spend_3d:.2f} >= ${reg_no_sale_3d:.2f} with 0 sales")
-                elif c_conv_3d > 0 and c_spend_3d >= 8.0 and c_cpa_3d is not None and c_cpa_3d > camp_cpa_lim:
-                    camp_pause_reasons.append(f"Universal Campaign 3-Day High CPA ${c_cpa_3d:.2f} > ${camp_cpa_lim:.2f} (Spend=${c_spend_3d:.2f}, Sales={c_conv_3d})")
-                elif c_conv_2d > 0 and c_spend_2d >= 7.0 and c_cpa_2d is not None and c_cpa_2d > camp_cpa_lim:
-                    camp_pause_reasons.append(f"Universal Campaign 2-Day High CPA ${c_cpa_2d:.2f} > ${camp_cpa_lim:.2f} (Spend=${c_spend_2d:.2f}, Sales={c_conv_2d})")
-                elif c_conv_1d > 0 and c_spend_1d >= 7.0 and c_cpa_1d is not None and c_cpa_1d > camp_cpa_lim:
-                    camp_pause_reasons.append(f"Universal Campaign Today High CPA ${c_cpa_1d:.2f} > ${camp_cpa_lim:.2f} (Spend=${c_spend_1d:.2f}, Sales={c_conv_1d})")
+                    camp_pause_reasons.append(f"Campaign Today Spend ${c_spend_1d:.2f} >= ${reg_no_sale_1d:.2f} with 0 sales Today")
+                elif c_spend_2d >= reg_no_sale_1d and c_conv_2d == 0 and not has_good_3d:
+                    camp_pause_reasons.append(f"Campaign 2-Day Spend ${c_spend_2d:.2f} >= ${reg_no_sale_1d:.2f} with 0 sales")
 
             if camp_pause_reasons and not is_cross_monitored_product_campaign(camp_name):
                 c_reason_str = " | ".join(camp_pause_reasons)
