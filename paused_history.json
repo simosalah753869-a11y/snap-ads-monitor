@@ -12847,6 +12847,102 @@
       "spend_3d": 96.33,
       "conv_3d": 7,
       "paused_at": "2026-10-23T09:05:47.098840+00:00"
+    },
+    "7631763556322148369:1879689078764737": {
+      "account_name": "ROELLINGER RECYCLING",
+      "aadvid": "7631763556322148369",
+      "campaign_id": "1879689078764737",
+      "campaign_name": "car armrest 21-10 (Hanan 20-10 & 12-10 Edit)",
+      "reason": "Campaign Today Spend $12.68 >= $7.00 with 0 sales Today",
+      "spend_1d": 12.68,
+      "conv_1d": 0,
+      "spend_3d": 189.38,
+      "conv_3d": 24,
+      "paused_at": "2026-10-23T09:38:04.011541+00:00"
+    },
+    "7631763556322148369:1879155925017650": {
+      "account_name": "ROELLINGER RECYCLING",
+      "aadvid": "7631763556322148369",
+      "campaign_id": "1879155925017650",
+      "campaign_name": "power bank winner 16-10 A",
+      "reason": "Campaign Today Spend $3.50 >= $1.00 & CPC $0.39 > $0.35 (0 sales Today)",
+      "spend_1d": 3.5,
+      "conv_1d": 0,
+      "spend_3d": 77.52,
+      "conv_3d": 9,
+      "paused_at": "2026-10-23T09:38:04.742953+00:00"
+    },
+    "7631763556322148369:1879789768969393": {
+      "account_name": "ROELLINGER RECYCLING",
+      "aadvid": "7631763556322148369",
+      "campaign_id": "1879789768969393",
+      "campaign_name": "power bank 23-10 (Hanan & Ola 20-10 Batch)",
+      "reason": "Campaign Today Spend $3.10 >= $1.00 & CPC $3.10 > $0.35 (0 sales Today)",
+      "spend_1d": 3.1,
+      "conv_1d": 0,
+      "spend_3d": 3.1,
+      "conv_3d": 0,
+      "paused_at": "2026-10-23T09:38:05.571338+00:00"
+    },
+    "7631765139798081554:1879700949085345": {
+      "account_name": "ROELLINGER RECYCLING1",
+      "aadvid": "7631765139798081554",
+      "campaign_id": "1879700949085345",
+      "campaign_name": "power bank 22-10 (7 Voltrx Hooks A)",
+      "reason": "Campaign Today Spend $2.22 >= $1.00 & CPC $0.56 > $0.35 (0 sales Today)",
+      "spend_1d": 2.22,
+      "conv_1d": 0,
+      "spend_3d": 8.98,
+      "conv_3d": 1,
+      "paused_at": "2026-10-23T09:39:19.011679+00:00"
+    },
+    "7631765139798081554:1879789905268802": {
+      "account_name": "ROELLINGER RECYCLING1",
+      "aadvid": "7631765139798081554",
+      "campaign_id": "1879789905268802",
+      "campaign_name": "power bank 23-10 (Hanan & Ola 20-10 Batch)",
+      "reason": "Campaign Today Spend $1.72 >= $1.00 & CPC $0.86 > $0.35 (0 sales Today)",
+      "spend_1d": 1.72,
+      "conv_1d": 0,
+      "spend_3d": 1.72,
+      "conv_3d": 0,
+      "paused_at": "2026-10-23T09:39:19.781291+00:00"
+    },
+    "7631765070816509959:1879700783803490": {
+      "account_name": "ROELLINGER RECYCLING2",
+      "aadvid": "7631765070816509959",
+      "campaign_id": "1879700783803490",
+      "campaign_name": "power bank 22-10 (7 Voltrx Hooks A)",
+      "reason": "Campaign Today Spend $3.42 >= $1.00 & CPC $0.86 > $0.35 (0 sales Today)",
+      "spend_1d": 3.42,
+      "conv_1d": 0,
+      "spend_3d": 13.17,
+      "conv_3d": 1,
+      "paused_at": "2026-10-23T09:39:43.929374+00:00"
+    },
+    "7631765070816509959:1879790044082226": {
+      "account_name": "ROELLINGER RECYCLING2",
+      "aadvid": "7631765070816509959",
+      "campaign_id": "1879790044082226",
+      "campaign_name": "power bank 23-10 (Hanan & Ola 20-10 Batch)",
+      "reason": "Campaign Today Spend $2.43 >= $1.00 & CPC $0.49 > $0.35 (0 sales Today)",
+      "spend_1d": 2.43,
+      "conv_1d": 0,
+      "spend_3d": 2.43,
+      "conv_3d": 0,
+      "paused_at": "2026-10-23T09:39:44.626222+00:00"
+    },
+    "7631765070816509959:1879791197261170": {
+      "account_name": "ROELLINGER RECYCLING2",
+      "aadvid": "7631765070816509959",
+      "campaign_id": "1879791197261170",
+      "campaign_name": "power bank 23-10 (Voltrx 9 Latest Ads)",
+      "reason": "Campaign Today Spend $2.40 >= $1.00 & CPC $0.40 > $0.35 (0 sales Today)",
+      "spend_1d": 2.4,
+      "conv_1d": 0,
+      "spend_3d": 2.4,
+      "conv_3d": 0,
+      "paused_at": "2026-10-23T09:39:45.378983+00:00"
     }
   },
   "tiktok_videos": {
@@ -18704,35 +18800,35 @@
     },
     "1879340705037537": {
       "name": "power bank 18-10 (Ola + Hanan 15-10)",
-      "account": "ROELLINGER RECYCLING",
-      "spend_3d": 68.05,
+      "aadvid": "7631763556322148369",
+      "spend_3d": 68.11,
       "purchases_3d": 9,
-      "cpa_3d": 7.56,
-      "updated_at": "2026-10-23T12:28:55.963975+03:00"
+      "cpa_3d": 7.57,
+      "reason": "3-Day CPA > $7.00 — Duplication Blocked"
     },
     "1879581597584850": {
       "name": "car armrest 20-10 (5 Videos)",
-      "account": "ROELLINGER RECYCLING",
-      "spend_3d": 55.63,
+      "aadvid": "7631763556322148369",
+      "spend_3d": 55.85,
       "purchases_3d": 6,
-      "cpa_3d": 9.27,
-      "updated_at": "2026-10-23T12:28:56.090015+03:00"
+      "cpa_3d": 9.31,
+      "reason": "3-Day CPA > $7.00 — Duplication Blocked"
     },
     "1879598580856226": {
       "name": "car armrest 20-10 (7 Flow Hook Ads A)",
-      "account": "ROELLINGER RECYCLING",
+      "aadvid": "7631763556322148369",
       "spend_3d": 31.03,
       "purchases_3d": 3,
       "cpa_3d": 10.34,
-      "updated_at": "2026-10-23T12:28:56.058114+03:00"
+      "reason": "3-Day CPA > $7.00 — Duplication Blocked"
     },
     "1879689071342625": {
       "name": "car armrest 21-10 (Hanan 20-10 & Ola 12-10)",
-      "account": "ROELLINGER RECYCLING",
+      "aadvid": "7631763556322148369",
       "spend_3d": 26.35,
       "purchases_3d": 3,
       "cpa_3d": 8.78,
-      "updated_at": "2026-10-23T12:28:55.997949+03:00"
+      "reason": "3-Day CPA > $7.00 — Duplication Blocked"
     },
     "f8372cfb-ae46-44d0-bbb4-f39790ecc648": {
       "name": "car scaling camp ",
