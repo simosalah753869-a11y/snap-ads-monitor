@@ -18685,11 +18685,11 @@
     },
     "1879340705037537": {
       "name": "power bank 18-10 (Ola + Hanan 15-10)",
-      "aadvid": "7631763556322148369",
-      "spend_3d": 67.81,
+      "account": "ROELLINGER RECYCLING",
+      "spend_3d": 67.86,
       "purchases_3d": 9,
-      "cpa_3d": 7.53,
-      "reason": "3-Day CPA > $7.00 — Duplication Blocked"
+      "cpa_3d": 7.54,
+      "updated_at": "2026-10-23T11:59:45.543388+03:00"
     },
     "f8372cfb-ae46-44d0-bbb4-f39790ecc648": {
       "name": "car scaling camp ",
@@ -19166,6 +19166,13 @@
       "conv_3d": 2,
       "cpa_3d": 6.44,
       "revived_at": "2026-10-23T10:17:46.481139+03:00"
+    },
+    "1879700949085345": {
+      "name": "power bank 22-10 (7 Voltrx Hooks A)",
+      "account": "ROELLINGER RECYCLING1",
+      "conv_3d": 2,
+      "cpa_3d": 4.49,
+      "revived_at": "2026-10-23T11:59:52.695085+03:00"
     }
   },
   "smart_spend_watchdog": {
