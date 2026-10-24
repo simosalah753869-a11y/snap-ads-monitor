@@ -19,6 +19,14 @@ sys.stdout.reconfigure(encoding="utf-8")
 _orig_getaddrinfo = socket.getaddrinfo
 _dns_cache = {}
 def _doh_getaddrinfo(host, port, family=0, type=0, proto=0, flags=0):
+    if host in _dns_cache:
+        return _orig_getaddrinfo(_dns_cache[host], port, socket.AF_INET, type, proto, flags)
+    try:
+        res = _orig_getaddrinfo(host, port, socket.AF_INET, type, proto, flags)
+        if res:
+            return res
+    except Exception:
+        pass
     try:
         return _orig_getaddrinfo(host, port, family, type, proto, flags)
     except Exception:
@@ -36,7 +44,7 @@ def _doh_getaddrinfo(host, port, family=0, type=0, proto=0, flags=0):
             except Exception:
                 pass
         if host in _dns_cache:
-            return _orig_getaddrinfo(_dns_cache[host], port, family, type, proto, flags)
+            return _orig_getaddrinfo(_dns_cache[host], port, socket.AF_INET, type, proto, flags)
         raise
 
 socket.getaddrinfo = _doh_getaddrinfo
@@ -698,39 +706,43 @@ def run_proactive_sales_scaling(sales_3d: dict, sales_today: dict):
                     sp3 = gf(r3, "stat_cost")
                     cv3 = int(gf(r3, "time_attr_convert_cnt"))
 
-                    is_primary_for_name = (primary_cid_by_name.get(cname.lower(), (0.0, cid))[1] == cid)
+                    is_primary_for_name = (sp3 >= 0.50 and primary_cid_by_name.get(cname.lower(), (0.0, cid))[1] == cid)
                     sh_3d = (sales_3d.get(cname.lower(), 0) if is_primary_for_name else 0) + (sales_3d.get(cid.lower(), 0) if cid.lower() != cname.lower() else 0)
                     sh_td = (sales_today.get(cname.lower(), 0) if is_primary_for_name else 0) + (sales_today.get(cid.lower(), 0) if cid.lower() != cname.lower() else 0)
 
                     eff_conv_today = max(cv1, sh_td)
                     eff_conv_3d = max(cv3, cv2, sh_3d)
-                    eff_cpa_today = round(sp1 / eff_conv_today, 2) if eff_conv_today > 0 else 999.0
-                    eff_cpa_3d = round(sp3 / eff_conv_3d, 2) if eff_conv_3d > 0 else 999.0
+                    eff_cpa_today = round(sp1 / eff_conv_today, 2) if (eff_conv_today > 0 and sp1 >= 0.20) else 999.0
+                    eff_cpa_3d = round(sp3 / eff_conv_3d, 2) if (eff_conv_3d > 0 and sp3 >= 0.50) else 999.0
 
-                    # (أ) إعادة تشغيل حملة تيك توك موقوفة فقط إذا سجلت مبيعات متأخرة جديدة بـ CPA <= $7.00 ولم تنزف اليوم بدون مبيعات أو بـ CPC مرتفع
+                    # (أ) إعادة تشغيل حملة تيك توك موقوفة فقط إذا سجلت مبيعات بيكسل متأخرة جديدة بـ CPA <= $7.00 ولم تنزف اليوم بدون مبيعات أو بـ CPC مرتفع
                     if op != "0":
-                        prev_camp_info = hist.get("tiktok_campaigns", {}).get(cid, {})
+                        prev_camp_info = hist.get("tiktok_campaigns", {}).get(f"{aadvid}:{cid}") or hist.get("tiktok_campaigns", {}).get(cid, {})
+                        if not prev_camp_info or "TARGET COST" in str(prev_camp_info.get("reason", "")).upper():
+                            continue
                         prev_c_conv3 = int(prev_camp_info.get("conv_3d", prev_camp_info.get("conv_2d", 0)) or 0)
                         prev_c_conv1 = int(prev_camp_info.get("conv_1d", 0) or 0)
-                        has_new_late_sale = (eff_conv_today > prev_c_conv1) or (eff_conv_3d > prev_c_conv3 and prev_c_conv3 > 0)
-                        bleeding_today = (sp1 >= 1.0 and eff_conv_today == 0 and (cpc1 > 0.35 or clk1 == 0)) or (sp1 >= 4.50 and eff_conv_today == 0)
-                        if has_new_late_sale and not bleeding_today and eff_conv_3d >= 2 and eff_cpa_3d <= 7.00 and cid not in tt_revived:
+                        cpa_pixel_3d = round(sp3 / cv3, 2) if (cv3 > 0 and sp3 >= 0.50) else 999.0
+                        has_new_late_sale = sp3 >= 0.50 and ((cv1 > prev_c_conv1) or (cv3 > prev_c_conv3 and prev_c_conv3 > 0))
+                        bleeding_today = (sp1 >= 1.0 and (cpc1 > 0.35 or clk1 == 0 or cv1 == 0)) or (sp1 >= 4.50 and cv1 == 0)
+                        if has_new_late_sale and not bleeding_today and cv3 >= 2 and 0.10 <= cpa_pixel_3d <= 7.00 and cid not in tt_revived:
                             try:
                                 ok_rev, _ = pause_campaign(session, headers, aadvid, cid, operation="enable")
                                 if ok_rev:
                                     tt_revived[cid] = {
                                         "name": cname,
                                         "account": acc_name,
-                                        "conv_3d": eff_conv_3d,
-                                        "cpa_3d": eff_cpa_3d,
+                                        "conv_3d": cv3,
+                                        "cpa_3d": cpa_pixel_3d,
                                         "revived_at": datetime.now(SA_TZ).isoformat(),
                                     }
+                                    hist.get("tiktok_campaigns", {}).pop(f"{aadvid}:{cid}", None)
                                     hist.get("tiktok_campaigns", {}).pop(cid, None)
                                     save_history(hist)
                                     tt_actions += 1
                                     log_msg(
                                         f"♻️🔥 [تيك توك - إعادة تشغيل حملة رابحة بمبيعات متأخرة] تم تفعيل الحملة '{cname}' ({acc_name}) "
-                                        f"بعد وصول مبيعاتها إلى {eff_conv_3d} بـ CPA=${eff_cpa_3d:.2f}!"
+                                        f"بعد وصول مبيعاتها إلى {cv3} بـ CPA=${cpa_pixel_3d:.2f}!"
                                     )
                             except Exception:
                                 pass
@@ -1367,7 +1379,7 @@ def main():
     log_msg("🚀 انطلاق دورة المراقبة الذاتية والأكشن الفوري الشاملة (كل ساعتين: سناب شات + تيك توك + جوجل أدز)")
     sync_latest_memory_files()
     run_step("مراقب ومحسن سناب شات", "snap_monitor.py")
-    run_step("مكمل مجموعات سناب شات النشطة (Top-Up 15)", "topup_car_campaigns.py")
+    run_step("منظف الأدست الخاسرة في سناب شات (بدون أي دوبليكيت)", "topup_car_campaigns.py")
     run_step("مراقب ومحسن تيك توك (جميع الحسابات الـ 6)", "tiktok_monitor.py")
     run_step("مراقب مايباخ وتايم إكس المشترك (سناب + تيك توك)", "cross_product_monitor.py")
     run_step("المفصّص الشامل وقاطع النزيف عبر 4 نوافذ (1D/2D/3D/7D — سقف 7$)", "deep_multiwindow_account_auditor.py", ["--skip-snap-tiktok"])
