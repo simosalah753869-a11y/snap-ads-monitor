@@ -10390,7 +10390,16 @@
     "df3a385e-2aa3-4da3-aad5-f1d35f94e439": "cc93f9a0-aa82-4dd6-97b1-c2af5d909677",
     "2c636ca9-d350-49ef-ba48-e86d42b9f9e0": "c3d1f4f1-282c-49c8-ac35-cef7d584717a",
     "1e83130d-8254-4892-aaed-c59e78a56fd4": "a1d59b72-9583-4081-a073-1794f8f2cf1f",
-    "48972bb8-7452-4f38-aaf9-1f59fe5f4626": "5bb317cc-9c4f-4aad-95ce-017ff032db00"
+    "48972bb8-7452-4f38-aaf9-1f59fe5f4626": "5bb317cc-9c4f-4aad-95ce-017ff032db00",
+    "48fd3a49-deb2-47b4-a3b6-d60bc4e0535d": "ba41b180-20c6-43be-a906-9c4ebad82d37",
+    "2f1e4b1b-152c-4653-b89b-57f338e7eb32": "0b112adb-a3d1-459d-9732-d168d6615509",
+    "0e33caf1-1d8a-48d1-82e8-18d78c776c15": "8a6597f4-d798-4ade-a054-5112c089f591",
+    "b30398d1-905a-4bbf-8efb-d2200621fe1e": "a2daf742-46dc-45e3-9117-054e96df0271",
+    "4aae4c0c-03b7-47d1-8827-7af7d8fd1e80": "e30b5ad7-fcdf-414b-9a99-2ecfe388a49a",
+    "d1cf01a8-4f98-49ff-b0d9-a6614c02935b": "21b218c3-8bc3-48eb-a9b6-386ad1e2ba83",
+    "5559cb3c-dca1-4ad4-9890-6b99b098f661": "23a9597b-5a49-45d0-af20-65d22922a7a5",
+    "ba6f0d68-ba3b-4456-a4be-e1ebed1db1b0": "c75736a6-2dcc-4b43-9fdf-248ae14ecf28",
+    "3d80f491-152f-4b68-b080-3522c3e5f525": "092872a5-0d5b-4686-8d9a-29b17e297a57"
   },
   "disabled_videos": {
     "16b7aaf3-7526-49d7-8e68-33df1e0872a7:3bcd9ff7-ec46-4884-9c93-cd1a04ae60a0": {
@@ -15909,6 +15918,27 @@
       "spend_7d": 0.28,
       "conv_7d": 0,
       "paused_at": "2026-10-24T02:17:01.397626+00:00"
+    },
+    "7631765139798081554:1879845883154162:1879849564251841": {
+      "aadvid": "7631765139798081554",
+      "account_name": "ROELLINGER RECYCLING1",
+      "ad_id": "1879845883154162",
+      "creative_id": "1879849562268690",
+      "campaign_ad_name": "power bank ym49 23-10 (Voltrx UGC Scripts B1 - 9 Ads) / power bank ym49 23-10 (Voltrx UGC Scripts B1 - 9 Ads) - Creative",
+      "video_name": "23-10_voltrx_ym49_s04.mp4",
+      "draft_ids": [
+        "1879849564251841"
+      ],
+      "reason": "2-Day High CPC $0.36 (Spend=$0.36, Clicks=1, 0 sales)",
+      "spend_1d": 0.13,
+      "conv_1d": 0,
+      "spend_2d": 0.36,
+      "conv_2d": 0,
+      "spend_3d": 0.36,
+      "conv_3d": 0,
+      "spend_7d": 0.36,
+      "conv_7d": 0,
+      "paused_at": "2026-10-24T03:30:58.153433+00:00"
     }
   },
   "tiktok_ads": {},
@@ -16748,19 +16778,19 @@
       "spend_3d": 27.89,
       "purchases_3d": 2,
       "cpa_3d": 13.95,
-      "updated_at": "2026-10-24 05:53 GMT+3"
+      "updated_at": "2026-10-24 06:26 GMT+3"
     },
     "a171c141-a6d5-403e-8357-5c8f6c01bce0": {
       "name": "وسادة مايباخ 21-10",
       "spend_3d": 10.25,
       "purchases_3d": 0,
       "cpa_3d": null,
-      "updated_at": "2026-10-24 05:53 GMT+3"
+      "updated_at": "2026-10-24 06:26 GMT+3"
     },
     "c5a7cade-6ec3-4c47-b3a2-c5f08bcf8da0": {
       "name": "وسادة مايباخ 21-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-24 05:53 GMT+3"
+      "updated_at": "2026-10-24 06:26 GMT+3"
     },
     "1879653126110545": {
       "name": "timex books 21-10",
@@ -16771,12 +16801,12 @@
     "e8f0a5e9-89c5-4c14-aabb-c9c6c657891d": {
       "name": "مسخن الرضاعات اللاسلكي 22-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-24 05:53 GMT+3"
+      "updated_at": "2026-10-24 06:26 GMT+3"
     },
     "f18a3bf4-148a-4f5e-baa1-f90335f1884c": {
       "name": "مسخن الرضاعات اللاسلكي 22-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-24 05:53 GMT+3"
+      "updated_at": "2026-10-24 06:26 GMT+3"
     },
     "1879676075637041": {
       "name": "baby bottle warmer 22-10",
@@ -16795,7 +16825,7 @@
       "spend_3d": 23.96,
       "purchases_3d": 3,
       "cpa_3d": 7.99,
-      "updated_at": "2026-10-24 05:53 GMT+3"
+      "updated_at": "2026-10-24 06:26 GMT+3"
     },
     "1879653022433617": {
       "name": "maybach pillow 21-10",
@@ -16805,10 +16835,10 @@
     },
     "558c5d45-f08e-400c-a499-7668e801c347": {
       "name": "car armrest",
-      "spend_3d": 28.29,
+      "spend_3d": 30.23,
       "purchases_3d": 3,
-      "cpa_3d": 9.43,
-      "updated_at": "2026-10-24 05:55 GMT+3"
+      "cpa_3d": 10.08,
+      "updated_at": "2026-10-24 06:27 GMT+3"
     },
     "1879824619984018": {
       "name": "power bank 23-10 (Voltrx 10 Hooks Ads)",
@@ -17453,6 +17483,1116 @@
       "account": "ROELLINGER RECYCLING2",
       "protected_date": "2026-10-23",
       "protected_at": "2026-10-23T21:29:58.510733+03:00"
+    }
+  },
+  "smart_spend_watchdog": {
+    "637b4a63-185d-4b0e-b3a5-0293e1d1ee3c": {
+      "date": "2026-10-24",
+      "name": "تيست",
+      "campaign": "car scaling new 2 text",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.0,
+      "last_check_at": "2026-10-24T03:27:43.533464+00:00",
+      "scaled_budget_today": false
+    },
+    "09950479-aa98-4582-8ce1-ae0f83fc5cf5": {
+      "date": "2026-10-24",
+      "name": "Copy B - PB 2.1 Max [H2] #12",
+      "campaign": "باور بانك وينر",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.0,
+      "last_check_at": "2026-10-24T03:27:43.533464+00:00",
+      "scaled_budget_today": false
+    },
+    "1745936d-6a40-48b9-a058-a44cebd39a65": {
+      "date": "2026-10-24",
+      "name": "24-10 Flow Hook Ads (فولتريكس - إعلانين جديدين)",
+      "campaign": "باور بانك وينر",
+      "bumps_today": 1,
+      "last_action_at": "2026-10-24T03:27:43.533464+00:00",
+      "last_spend": 0.66,
+      "last_check_at": "2026-10-24T03:27:43.533464+00:00",
+      "scaled_budget_today": false
+    },
+    "1b9145e2-9a7b-4423-b4cb-994e8d5822c1": {
+      "date": "2026-10-24",
+      "name": "Copy A - PB 1.9 Max [H1] #13",
+      "campaign": "باور بانك وينر",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.0,
+      "last_check_at": "2026-10-24T03:27:43.533464+00:00",
+      "scaled_budget_today": false
+    },
+    "4c8709d4-03cb-4805-bd25-e03ee33052ca": {
+      "date": "2026-10-24",
+      "name": "Copy B - PB 2.1 Max [H2] #04",
+      "campaign": "باور بانك وينر",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.01,
+      "last_check_at": "2026-10-24T03:27:43.533464+00:00",
+      "scaled_budget_today": false
+    },
+    "627861d2-c8f5-40ce-a4ff-ccc687b6fc31": {
+      "date": "2026-10-24",
+      "name": "Copy A - PB 1.9 Max [H1] #03",
+      "campaign": "باور بانك وينر",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.01,
+      "last_check_at": "2026-10-24T03:27:43.533464+00:00",
+      "scaled_budget_today": false
+    },
+    "71385a3f-1ae1-4281-a071-51254475df8e": {
+      "date": "2026-10-24",
+      "name": "Copy B - PB 2.1 Max [H2] #05",
+      "campaign": "باور بانك وينر",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.01,
+      "last_check_at": "2026-10-24T03:27:43.533464+00:00",
+      "scaled_budget_today": false
+    },
+    "7b9fc3a8-e608-4c39-a4ac-9c78f2d066ba": {
+      "date": "2026-10-24",
+      "name": "Copy B - PB 2.1 Max [H2] #04",
+      "campaign": "باور بانك وينر",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.0,
+      "last_check_at": "2026-10-24T03:27:43.533464+00:00",
+      "scaled_budget_today": false
+    },
+    "80667ceb-a80d-42bd-aae2-094c3cc799da": {
+      "date": "2026-10-24",
+      "name": "Copy B - PB 2.1 Max [H2] #09",
+      "campaign": "باور بانك وينر",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.0,
+      "last_check_at": "2026-10-24T03:27:43.533464+00:00",
+      "scaled_budget_today": false
+    },
+    "87020326-9953-4911-b662-9a624416f637": {
+      "date": "2026-10-24",
+      "name": "Copy A - PB 1.9 Max [H1] #06",
+      "campaign": "باور بانك وينر",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.0,
+      "last_check_at": "2026-10-24T03:27:43.533464+00:00",
+      "scaled_budget_today": false
+    },
+    "8fb71447-2ee7-457a-9b3d-d64f260f4714": {
+      "date": "2026-10-24",
+      "name": "Copy A - PB 1.9 Max [H1] #15",
+      "campaign": "باور بانك وينر",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.0,
+      "last_check_at": "2026-10-24T03:27:43.533464+00:00",
+      "scaled_budget_today": false
+    },
+    "91f13cd0-6e7f-4c2a-910e-8927e200239e": {
+      "date": "2026-10-24",
+      "name": "Copy A - PB 1.9 Max [H1] #11",
+      "campaign": "باور بانك وينر",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.0,
+      "last_check_at": "2026-10-24T03:27:43.533464+00:00",
+      "scaled_budget_today": false
+    },
+    "98754ac0-b2e1-4504-a882-2df603230dfe": {
+      "date": "2026-10-24",
+      "name": "Copy A - PB 1.9 Max [H1] #14",
+      "campaign": "باور بانك وينر",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.0,
+      "last_check_at": "2026-10-24T03:27:43.533464+00:00",
+      "scaled_budget_today": false
+    },
+    "99f8f44e-acd8-4a7e-86bc-067c131a3c56": {
+      "date": "2026-10-24",
+      "name": "Copy B - PB 2.1 Max [H2] #07",
+      "campaign": "باور بانك وينر",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.0,
+      "last_check_at": "2026-10-24T03:27:43.533464+00:00",
+      "scaled_budget_today": false
+    },
+    "99fa51cf-4ed9-41f7-83cf-973e1b08e8bd": {
+      "date": "2026-10-24",
+      "name": "Copy A - PB 1.9 Max [H1] #07",
+      "campaign": "باور بانك وينر",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.0,
+      "last_check_at": "2026-10-24T03:27:43.533464+00:00",
+      "scaled_budget_today": false
+    },
+    "9b40cce5-d49a-438c-b326-16a3341f5942": {
+      "date": "2026-10-24",
+      "name": "Copy A - PB 1.9 Max [H1] #01",
+      "campaign": "باور بانك وينر",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.0,
+      "last_check_at": "2026-10-24T03:27:43.533464+00:00",
+      "scaled_budget_today": false
+    },
+    "a2154b47-246e-4fcf-bb44-9a16745241db": {
+      "date": "2026-10-24",
+      "name": "Copy A - PB 1.9 Max [H1] #11",
+      "campaign": "باور بانك وينر",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.0,
+      "last_check_at": "2026-10-24T03:27:43.533464+00:00",
+      "scaled_budget_today": false
+    },
+    "af0a7d37-ef53-489e-857a-bdaa2864b88b": {
+      "date": "2026-10-24",
+      "name": "Copy B - PB 2.1 Max [H2] #11",
+      "campaign": "باور بانك وينر",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.0,
+      "last_check_at": "2026-10-24T03:27:43.533464+00:00",
+      "scaled_budget_today": false
+    },
+    "b58b554c-9e7a-43ff-ba73-26bbf7530b05": {
+      "date": "2026-10-24",
+      "name": "Copy B - PB 2.1 Max [H2] #01",
+      "campaign": "باور بانك وينر",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.0,
+      "last_check_at": "2026-10-24T03:27:43.533464+00:00",
+      "scaled_budget_today": false
+    },
+    "b809e049-7bdb-4178-890c-edf6792f475c": {
+      "date": "2026-10-24",
+      "name": "Copy A - PB 1.9 Max [H1] #05",
+      "campaign": "باور بانك وينر",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.0,
+      "last_check_at": "2026-10-24T03:27:43.533464+00:00",
+      "scaled_budget_today": false
+    },
+    "bcf0046d-8d43-44cf-95b6-0069caf48fff": {
+      "date": "2026-10-24",
+      "name": "Copy A - PB 1.9 Max [H1] #02",
+      "campaign": "باور بانك وينر",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.0,
+      "last_check_at": "2026-10-24T03:27:43.533464+00:00",
+      "scaled_budget_today": false
+    },
+    "c0bf3855-29ac-4fd7-b2ef-c42cb2ac19a2": {
+      "date": "2026-10-24",
+      "name": "Copy B - PB 2.1 Max [H2] #13",
+      "campaign": "باور بانك وينر",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.0,
+      "last_check_at": "2026-10-24T03:27:43.533464+00:00",
+      "scaled_budget_today": false
+    },
+    "c875f028-9b2a-4812-8b74-46660460f940": {
+      "date": "2026-10-24",
+      "name": "Copy B - PB 2.1 Max [H2] #02",
+      "campaign": "باور بانك وينر",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.0,
+      "last_check_at": "2026-10-24T03:27:43.533464+00:00",
+      "scaled_budget_today": false
+    },
+    "d28d9518-9766-4e60-8d8c-f32b40038619": {
+      "date": "2026-10-24",
+      "name": "Copy B - PB 2.1 Max [H2] #14",
+      "campaign": "باور بانك وينر",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.0,
+      "last_check_at": "2026-10-24T03:27:43.533464+00:00",
+      "scaled_budget_today": false
+    },
+    "d33d2510-17dc-43f1-8195-758c00b576d1": {
+      "date": "2026-10-24",
+      "name": "Copy B - PB 2.1 Max [H2] #07",
+      "campaign": "باور بانك وينر",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.0,
+      "last_check_at": "2026-10-24T03:27:43.533464+00:00",
+      "scaled_budget_today": false
+    },
+    "d57445db-d39a-4434-9841-62796f9cbd6b": {
+      "date": "2026-10-24",
+      "name": "Copy B - PB 2.1 Max [H2] #03",
+      "campaign": "باور بانك وينر",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.0,
+      "last_check_at": "2026-10-24T03:27:43.533464+00:00",
+      "scaled_budget_today": false
+    },
+    "d6c5aed1-e012-4b19-b044-5a18cab3c020": {
+      "date": "2026-10-24",
+      "name": "Copy A - PB 1.9 Max [H1] #12",
+      "campaign": "باور بانك وينر",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.0,
+      "last_check_at": "2026-10-24T03:27:43.533464+00:00",
+      "scaled_budget_today": false
+    },
+    "dd091f56-0f40-4eb3-99ff-bd23a73ac723": {
+      "date": "2026-10-24",
+      "name": "Copy A - PB 1.9 Max [H1] #09",
+      "campaign": "باور بانك وينر",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.0,
+      "last_check_at": "2026-10-24T03:27:43.533464+00:00",
+      "scaled_budget_today": false
+    },
+    "dd960a20-f3a2-4f08-adf4-426b84d243d0": {
+      "date": "2026-10-24",
+      "name": "Copy A - PB 1.9 Max [H1] #08",
+      "campaign": "باور بانك وينر",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.0,
+      "last_check_at": "2026-10-24T03:27:43.533464+00:00",
+      "scaled_budget_today": false
+    },
+    "eb126b54-12ea-4bc6-bcf9-912582f7e78e": {
+      "date": "2026-10-24",
+      "name": "Copy B - PB 2.1 Max [H2] #08",
+      "campaign": "باور بانك وينر",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.0,
+      "last_check_at": "2026-10-24T03:27:43.533464+00:00",
+      "scaled_budget_today": false
+    },
+    "ec1ef147-fb12-4981-97bf-0f69f1dd2b5f": {
+      "date": "2026-10-24",
+      "name": "Copy A - PB 1.9 Max [H1] #04",
+      "campaign": "باور بانك وينر",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.0,
+      "last_check_at": "2026-10-24T03:27:43.533464+00:00",
+      "scaled_budget_today": false
+    },
+    "05911def-56e5-4203-bd2b-9ae7d82d8c04": {
+      "date": "2026-10-24",
+      "name": "Copy A - Car 1.9 Max [H1] #02",
+      "campaign": "car scaling camp ",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.0,
+      "last_check_at": "2026-10-24T03:27:43.533464+00:00",
+      "scaled_budget_today": false
+    },
+    "186bf4d8-d063-4ef0-ab57-b2bbae09e63f": {
+      "date": "2026-10-24",
+      "name": "Copy A - Car 1.9 Max [H1] #08",
+      "campaign": "car scaling camp ",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.08,
+      "last_check_at": "2026-10-24T03:27:43.533464+00:00",
+      "scaled_budget_today": false
+    },
+    "1cfa9790-7446-434c-80c7-505a480bdc5f": {
+      "date": "2026-10-24",
+      "name": "Copy A - Car 1.9 Max [H1] #13",
+      "campaign": "car scaling camp ",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.04,
+      "last_check_at": "2026-10-24T03:27:43.533464+00:00",
+      "scaled_budget_today": false
+    },
+    "1eec2a86-9eeb-4c7b-99e9-3a357b6c93af": {
+      "date": "2026-10-24",
+      "name": "Copy B - Car 2.1 Max [H2] #15",
+      "campaign": "car scaling camp ",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.1,
+      "last_check_at": "2026-10-24T03:27:43.533464+00:00",
+      "scaled_budget_today": false
+    },
+    "25b691e1-4a87-4650-b01c-a5125b0e993c": {
+      "date": "2026-10-24",
+      "name": "Copy B - Car 2.1 Max [H2] #11",
+      "campaign": "car scaling camp ",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.44,
+      "last_check_at": "2026-10-24T03:27:43.533464+00:00",
+      "scaled_budget_today": false
+    },
+    "25e440fa-2bfc-4c05-823d-05e3514aa5cc": {
+      "date": "2026-10-24",
+      "name": "Copy A - Car 1.9 Max [H1] #13",
+      "campaign": "car scaling camp ",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.55,
+      "last_check_at": "2026-10-24T03:27:43.533464+00:00",
+      "scaled_budget_today": false
+    },
+    "290ef780-4bf8-49a7-a925-f8731c72a6ae": {
+      "date": "2026-10-24",
+      "name": "Copy B - Car 2.1 Max [H2] #04",
+      "campaign": "car scaling camp ",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.07,
+      "last_check_at": "2026-10-24T03:27:43.533464+00:00",
+      "scaled_budget_today": false
+    },
+    "2f88fd34-86fb-4e8b-8220-8725a90907a2": {
+      "date": "2026-10-24",
+      "name": "Copy B - Car 2.1 Max [H2] #05",
+      "campaign": "car scaling camp ",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.08,
+      "last_check_at": "2026-10-24T03:27:43.533464+00:00",
+      "scaled_budget_today": false
+    },
+    "35525e27-9ea2-4bce-ba6a-7c3987daecfc": {
+      "date": "2026-10-24",
+      "name": "Copy B - Car 2.1 Max [H2] #08",
+      "campaign": "car scaling camp ",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 1.45,
+      "last_check_at": "2026-10-24T03:27:43.533464+00:00",
+      "scaled_budget_today": false
+    },
+    "3585c2d5-0601-4f9e-b10b-2c8774a04b08": {
+      "date": "2026-10-24",
+      "name": "Copy A - Car 1.9 Max [H1] #09",
+      "campaign": "car scaling camp ",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.07,
+      "last_check_at": "2026-10-24T03:27:43.533464+00:00",
+      "scaled_budget_today": false
+    },
+    "3da8e661-2987-46d4-b6a5-67c1dab28f9f": {
+      "date": "2026-10-24",
+      "name": "Copy A - Car 1.9 Max [H1] #10",
+      "campaign": "car scaling camp ",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.04,
+      "last_check_at": "2026-10-24T03:27:43.533464+00:00",
+      "scaled_budget_today": false
+    },
+    "45fd9c6e-7a59-4de8-ab71-0cf207d01938": {
+      "date": "2026-10-24",
+      "name": "Copy B - Car 2.1 Max [H2] #13",
+      "campaign": "car scaling camp ",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.92,
+      "last_check_at": "2026-10-24T03:27:43.533464+00:00",
+      "scaled_budget_today": false
+    },
+    "51dacf81-803e-4264-9e67-c200c5dd2924": {
+      "date": "2026-10-24",
+      "name": "Copy A - Car 1.9 Max [H1] #15",
+      "campaign": "car scaling camp ",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.32,
+      "last_check_at": "2026-10-24T03:27:43.533464+00:00",
+      "scaled_budget_today": false
+    },
+    "59a36d61-0f62-42b2-a18f-d656dcd2977c": {
+      "date": "2026-10-24",
+      "name": "Copy B - Car 2.1 Max [H2] #08",
+      "campaign": "car scaling camp ",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.33,
+      "last_check_at": "2026-10-24T03:27:43.533464+00:00",
+      "scaled_budget_today": false
+    },
+    "5cdeeb9a-963c-432d-977f-6fa7125712c6": {
+      "date": "2026-10-24",
+      "name": "Copy B - Car 2.1 Max [H2] #12",
+      "campaign": "car scaling camp ",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.01,
+      "last_check_at": "2026-10-24T03:27:43.533464+00:00",
+      "scaled_budget_today": false
+    },
+    "648f31db-58b2-4a56-9da0-12ce99944a48": {
+      "date": "2026-10-24",
+      "name": "Copy B - Car 2.1 Max [H2] #15",
+      "campaign": "car scaling camp ",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.15,
+      "last_check_at": "2026-10-24T03:27:43.533464+00:00",
+      "scaled_budget_today": false
+    },
+    "649f2102-e111-4001-bddd-685ad1ea84c2": {
+      "date": "2026-10-24",
+      "name": "Copy A - Car 1.9 Max [H1] #04",
+      "campaign": "car scaling camp ",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.01,
+      "last_check_at": "2026-10-24T03:27:43.533464+00:00",
+      "scaled_budget_today": false
+    },
+    "6b7f11f9-3061-41b6-a942-ba451a956355": {
+      "date": "2026-10-24",
+      "name": "Copy B - Car 2.1 Max [H2] #09",
+      "campaign": "car scaling camp ",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.05,
+      "last_check_at": "2026-10-24T03:27:43.533464+00:00",
+      "scaled_budget_today": false
+    },
+    "6c6c5bfb-f528-4032-8b27-e16e8fa6f58a": {
+      "date": "2026-10-24",
+      "name": "Copy B - Car 2.1 Max [H2] #06",
+      "campaign": "car scaling camp ",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.35,
+      "last_check_at": "2026-10-24T03:27:43.533464+00:00",
+      "scaled_budget_today": false
+    },
+    "7698dd7c-c54d-423c-9d96-21ff9d2e9197": {
+      "date": "2026-10-24",
+      "name": "Copy A - Car 1.9 Max [H1] #02",
+      "campaign": "car scaling camp ",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.02,
+      "last_check_at": "2026-10-24T03:27:43.533464+00:00",
+      "scaled_budget_today": false
+    },
+    "833357de-2d82-4d48-9e8c-ccde2b57d693": {
+      "date": "2026-10-24",
+      "name": "Copy B - Car 2.1 Max [H2] #09",
+      "campaign": "car scaling camp ",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.03,
+      "last_check_at": "2026-10-24T03:27:43.533464+00:00",
+      "scaled_budget_today": false
+    },
+    "87169c31-048a-462d-8377-a3118d9630be": {
+      "date": "2026-10-24",
+      "name": "Copy A - Car 1.9 Max [H1] #12",
+      "campaign": "car scaling camp ",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.45,
+      "last_check_at": "2026-10-24T03:27:43.533464+00:00",
+      "scaled_budget_today": false
+    },
+    "8f5fd12e-dd0e-4dd1-b971-34c71900fb8e": {
+      "date": "2026-10-24",
+      "name": "Copy A - Car 1.9 Max [H1] #03",
+      "campaign": "car scaling camp ",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.11,
+      "last_check_at": "2026-10-24T03:27:43.533464+00:00",
+      "scaled_budget_today": false
+    },
+    "97d05b6f-388a-46a3-b316-66e1f61ad886": {
+      "date": "2026-10-24",
+      "name": "Copy B - Car 2.1 Max [H2] #01",
+      "campaign": "car scaling camp ",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.0,
+      "last_check_at": "2026-10-24T03:27:43.533464+00:00",
+      "scaled_budget_today": false
+    },
+    "9e21c549-24cb-458d-aa5f-79313688d23b": {
+      "date": "2026-10-24",
+      "name": "Copy A - Car 1.9 Max [H1] #06",
+      "campaign": "car scaling camp ",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.23,
+      "last_check_at": "2026-10-24T03:27:43.533464+00:00",
+      "scaled_budget_today": false
+    },
+    "a16276d6-cca0-4045-bfd8-0a15da5bec27": {
+      "date": "2026-10-24",
+      "name": "Copy B - Car 2.1 Max [H2] #02",
+      "campaign": "car scaling camp ",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.0,
+      "last_check_at": "2026-10-24T03:27:43.533464+00:00",
+      "scaled_budget_today": false
+    },
+    "a227c1cd-dac4-4aa3-9a80-ba701c65afba": {
+      "date": "2026-10-24",
+      "name": "Copy A - Car 1.9 Max [H1] #14",
+      "campaign": "car scaling camp ",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.06,
+      "last_check_at": "2026-10-24T03:27:43.533464+00:00",
+      "scaled_budget_today": false
+    },
+    "aee74ce6-d361-4f08-8c23-957ac766483b": {
+      "date": "2026-10-24",
+      "name": "Copy A - Car 1.9 Max [H1] #07",
+      "campaign": "car scaling camp ",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.0,
+      "last_check_at": "2026-10-24T03:27:43.533464+00:00",
+      "scaled_budget_today": false
+    },
+    "af1154aa-ea39-437d-8160-53b5955a5e86": {
+      "date": "2026-10-24",
+      "name": "Copy A - Car 1.9 Max [H1] #15",
+      "campaign": "car scaling camp ",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.0,
+      "last_check_at": "2026-10-24T03:27:43.533464+00:00",
+      "scaled_budget_today": false
+    },
+    "b16bd58e-757d-4184-9545-49d230d19157": {
+      "date": "2026-10-24",
+      "name": "Copy A - Car 1.9 Max [H1] #12",
+      "campaign": "car scaling camp ",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.0,
+      "last_check_at": "2026-10-24T03:27:43.533464+00:00",
+      "scaled_budget_today": false
+    },
+    "b5dc18ee-c4b0-46c1-b25c-6b5eaeec356c": {
+      "date": "2026-10-24",
+      "name": "24-10 Flow Hook Ads (الوسادة - إعلانين جديدين)",
+      "campaign": "car scaling camp ",
+      "bumps_today": 1,
+      "last_action_at": "2026-10-24T03:27:43.533464+00:00",
+      "last_spend": 0.36,
+      "last_check_at": "2026-10-24T03:27:43.533464+00:00",
+      "scaled_budget_today": false
+    },
+    "68c1972d-5fb7-4afa-87bb-261cb82f5092": {
+      "date": "2026-10-24",
+      "name": "Copy B - Car 2.1 Max [H2] #11",
+      "campaign": "car armrest",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.95,
+      "last_check_at": "2026-10-24T03:28:01.024050+00:00",
+      "scaled_budget_today": false
+    },
+    "7a3cfcd9-5514-4de2-9b44-c792bfc1af70": {
+      "date": "2026-10-24",
+      "name": "Copy B - Car 2.1 Max [H2] #04",
+      "campaign": "car armrest",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.19,
+      "last_check_at": "2026-10-24T03:28:01.024050+00:00",
+      "scaled_budget_today": false
+    },
+    "7cca6c0a-2bc5-4d93-a658-8934adea9e3b": {
+      "date": "2026-10-24",
+      "name": "Copy B - Car 2.1 Max [H2] #12",
+      "campaign": "car armrest",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.48,
+      "last_check_at": "2026-10-24T03:28:01.024050+00:00",
+      "scaled_budget_today": false
+    },
+    "810b6723-f858-4ba6-87fc-ede84310f8c6": {
+      "date": "2026-10-24",
+      "name": "Copy A - Car 1.9 Max [H1] #03",
+      "campaign": "car armrest",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.22,
+      "last_check_at": "2026-10-24T03:28:01.024050+00:00",
+      "scaled_budget_today": false
+    },
+    "820adfde-5875-4979-b90d-4dfec66fc172": {
+      "date": "2026-10-24",
+      "name": "Copy A - Car 1.9 Max [H1] #07",
+      "campaign": "car armrest",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.87,
+      "last_check_at": "2026-10-24T03:28:01.024050+00:00",
+      "scaled_budget_today": false
+    },
+    "89d5bdb0-9f5f-4f75-93d1-6949942d1061": {
+      "date": "2026-10-24",
+      "name": "Copy A - Car 1.9 Max [H1] #07",
+      "campaign": "car armrest",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.12,
+      "last_check_at": "2026-10-24T03:28:01.024050+00:00",
+      "scaled_budget_today": false
+    },
+    "8bf49eb2-1a68-44fe-aafd-e9bf59ceb6c4": {
+      "date": "2026-10-24",
+      "name": "Copy B - Car 2.1 Max [H2] #14",
+      "campaign": "car armrest",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.21,
+      "last_check_at": "2026-10-24T03:28:01.024050+00:00",
+      "scaled_budget_today": false
+    },
+    "98895d75-289c-425a-adf7-4333ac7c968b": {
+      "date": "2026-10-24",
+      "name": "Copy B - Car 2.1 Max [H2] #14",
+      "campaign": "car armrest",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.51,
+      "last_check_at": "2026-10-24T03:28:01.024050+00:00",
+      "scaled_budget_today": false
+    },
+    "995ce635-c617-4904-98c1-08eb055ed33a": {
+      "date": "2026-10-24",
+      "name": "Copy B - Car 2.1 Max [H2] #06",
+      "campaign": "car armrest",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.34,
+      "last_check_at": "2026-10-24T03:28:01.024050+00:00",
+      "scaled_budget_today": false
+    },
+    "a0df17e5-10ec-49e3-85ce-4b82d7ce40f2": {
+      "date": "2026-10-24",
+      "name": "Copy A - Car 1.9 Max [H1] #06",
+      "campaign": "car armrest",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.17,
+      "last_check_at": "2026-10-24T03:28:01.024050+00:00",
+      "scaled_budget_today": false
+    },
+    "a3d1182a-be66-4b4b-bfaa-b16900348f1c": {
+      "date": "2026-10-24",
+      "name": "Copy A - Car 1.9 Max [H1] #06",
+      "campaign": "car armrest",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.48,
+      "last_check_at": "2026-10-24T03:28:01.024050+00:00",
+      "scaled_budget_today": false
+    },
+    "b0b99324-0dd4-4de2-9b89-dc8739d92d3b": {
+      "date": "2026-10-24",
+      "name": "Copy B - Car 2.1 Max [H2] #06",
+      "campaign": "car armrest",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.86,
+      "last_check_at": "2026-10-24T03:28:01.024050+00:00",
+      "scaled_budget_today": false
+    },
+    "c39744f7-34e0-435e-8150-669cfb50592e": {
+      "date": "2026-10-24",
+      "name": "Copy B - Car 2.1 Max [H2] #01",
+      "campaign": "car armrest",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.43,
+      "last_check_at": "2026-10-24T03:28:01.024050+00:00",
+      "scaled_budget_today": false
+    },
+    "c88f2ce4-84e3-4c3e-8841-4bf9e1bc313e": {
+      "date": "2026-10-24",
+      "name": "Copy B - Car 2.1 Max [H2] #10",
+      "campaign": "car armrest",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.56,
+      "last_check_at": "2026-10-24T03:28:01.024050+00:00",
+      "scaled_budget_today": false
+    },
+    "c8e288aa-9cef-42c9-8e6f-fba74fa24419": {
+      "date": "2026-10-24",
+      "name": "Copy B - Car 2.1 Max [H2] #09",
+      "campaign": "car armrest",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.2,
+      "last_check_at": "2026-10-24T03:28:01.024050+00:00",
+      "scaled_budget_today": false
+    },
+    "c995e688-efa0-4a24-912c-604efceba63e": {
+      "date": "2026-10-24",
+      "name": "Copy B - Car 2.1 Max [H2] #15",
+      "campaign": "car armrest",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.81,
+      "last_check_at": "2026-10-24T03:28:01.024050+00:00",
+      "scaled_budget_today": false
+    },
+    "d5ae0211-7802-4ddb-90a1-212bf9c70f1c": {
+      "date": "2026-10-24",
+      "name": "Copy A - Car 1.9 Max [H1] #10",
+      "campaign": "car armrest",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.12,
+      "last_check_at": "2026-10-24T03:28:01.024050+00:00",
+      "scaled_budget_today": false
+    },
+    "d5ef758a-0687-43a2-afa3-ee9f146dca47": {
+      "date": "2026-10-24",
+      "name": "24-10 Flow Hook Ads (الوسادة - إعلانين جديدين)",
+      "campaign": "car armrest",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 3.87,
+      "last_check_at": "2026-10-24T03:28:01.024050+00:00",
+      "scaled_budget_today": false
+    },
+    "da40f780-9980-41b0-aec5-a583f30bdb91": {
+      "date": "2026-10-24",
+      "name": "Copy A - Car 1.9 Max [H1] #04",
+      "campaign": "car armrest",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.18,
+      "last_check_at": "2026-10-24T03:28:01.024050+00:00",
+      "scaled_budget_today": false
+    },
+    "daf34fc4-1acb-4f53-9cd7-1f39dc6ba1a3": {
+      "date": "2026-10-24",
+      "name": "Copy B - Car 2.1 Max [H2] #05",
+      "campaign": "car armrest",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.18,
+      "last_check_at": "2026-10-24T03:28:01.024050+00:00",
+      "scaled_budget_today": false
+    },
+    "dbcbc324-72a8-4a4f-8af2-eb96bae15c18": {
+      "date": "2026-10-24",
+      "name": "Copy A - Car 1.9 Max [H1] #14",
+      "campaign": "car armrest",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.41,
+      "last_check_at": "2026-10-24T03:28:01.024050+00:00",
+      "scaled_budget_today": false
+    },
+    "e138dd1e-f9df-4acf-b27d-291e232cb760": {
+      "date": "2026-10-24",
+      "name": "Copy A - Car 1.9 Max [H1] #12",
+      "campaign": "car armrest",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.89,
+      "last_check_at": "2026-10-24T03:28:01.024050+00:00",
+      "scaled_budget_today": false
+    },
+    "e9ba70d3-f42c-49cb-8e8d-6ef5690604ac": {
+      "date": "2026-10-24",
+      "name": "Copy A - Car 1.9 Max [H1] #04",
+      "campaign": "car armrest",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.67,
+      "last_check_at": "2026-10-24T03:28:01.024050+00:00",
+      "scaled_budget_today": false
+    },
+    "ea10c7e7-e69c-498a-a6e6-1633e9a5deb1": {
+      "date": "2026-10-24",
+      "name": "Copy A - Car 1.9 Max [H1] #01",
+      "campaign": "car armrest",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.16,
+      "last_check_at": "2026-10-24T03:28:01.024050+00:00",
+      "scaled_budget_today": false
+    },
+    "eb9f7899-6f88-4e46-b5a1-59a15ffcfec2": {
+      "date": "2026-10-24",
+      "name": "Copy A - Car 1.9 Max [H1] #11",
+      "campaign": "car armrest",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.19,
+      "last_check_at": "2026-10-24T03:28:01.024050+00:00",
+      "scaled_budget_today": false
+    },
+    "edfca617-96b5-4129-85cb-4dfd5bb4472b": {
+      "date": "2026-10-24",
+      "name": "Copy B - Car 2.1 Max [H2] #07",
+      "campaign": "car armrest",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.95,
+      "last_check_at": "2026-10-24T03:28:01.024050+00:00",
+      "scaled_budget_today": false
+    },
+    "f0abf709-70cd-4fa9-bb01-afeed635a00c": {
+      "date": "2026-10-24",
+      "name": "Copy A - Car 1.9 Max [H1] #08",
+      "campaign": "car armrest",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.23,
+      "last_check_at": "2026-10-24T03:28:01.024050+00:00",
+      "scaled_budget_today": false
+    },
+    "f693b60d-adc1-4852-ba81-2fe131086835": {
+      "date": "2026-10-24",
+      "name": "Copy A - Car 1.9 Max [H1] #09",
+      "campaign": "car armrest",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.78,
+      "last_check_at": "2026-10-24T03:28:01.024050+00:00",
+      "scaled_budget_today": false
+    },
+    "fd4419c1-e27d-4d32-930c-ebf542d6066a": {
+      "date": "2026-10-24",
+      "name": "Copy B - Car 2.1 Max [H2] #02",
+      "campaign": "car armrest",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.15,
+      "last_check_at": "2026-10-24T03:28:01.024050+00:00",
+      "scaled_budget_today": false
+    },
+    "fee4caeb-15f9-4434-8bb9-c4e5b47b538e": {
+      "date": "2026-10-24",
+      "name": "Copy B - Car 2.1 Max [H2] #15",
+      "campaign": "car armrest",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.22,
+      "last_check_at": "2026-10-24T03:28:01.024050+00:00",
+      "scaled_budget_today": false
+    },
+    "ff82bbef-da04-4d67-9da5-2e856805a9c7": {
+      "date": "2026-10-24",
+      "name": "Copy A - Car 1.9 Max [H1] #15",
+      "campaign": "car armrest",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.48,
+      "last_check_at": "2026-10-24T03:28:01.024050+00:00",
+      "scaled_budget_today": false
+    },
+    "91b8f673-4d2f-46bc-b411-a817db10cf3d": {
+      "date": "2026-10-24",
+      "name": "Copy A - PB 1.9 Max [H1] #13",
+      "campaign": "باور بانك وينر - سمارت",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.15,
+      "last_check_at": "2026-10-24T03:28:01.024050+00:00",
+      "scaled_budget_today": false
+    },
+    "92cdd0c5-7bfc-4c73-aeeb-23788e3ebf15": {
+      "date": "2026-10-24",
+      "name": "Copy A - PB 1.9 Max [H1] #15",
+      "campaign": "باور بانك وينر - سمارت",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.0,
+      "last_check_at": "2026-10-24T03:28:01.024050+00:00",
+      "scaled_budget_today": false
+    },
+    "94e88bc4-dd72-41bc-9db8-8a469cf18410": {
+      "date": "2026-10-24",
+      "name": "Copy A - PB 1.9 Max [H1] #06",
+      "campaign": "باور بانك وينر - سمارت",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.07,
+      "last_check_at": "2026-10-24T03:28:01.024050+00:00",
+      "scaled_budget_today": false
+    },
+    "a03913e2-76d6-4999-be5c-eb529fbed194": {
+      "date": "2026-10-24",
+      "name": "Copy B - PB 2.1 Max [H2] #10",
+      "campaign": "باور بانك وينر - سمارت",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.02,
+      "last_check_at": "2026-10-24T03:28:01.024050+00:00",
+      "scaled_budget_today": false
+    },
+    "a08d7255-b293-40f8-8523-064173ae76e6": {
+      "date": "2026-10-24",
+      "name": "Copy A - PB 1.9 Max [H1] #05",
+      "campaign": "باور بانك وينر - سمارت",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.0,
+      "last_check_at": "2026-10-24T03:28:01.024050+00:00",
+      "scaled_budget_today": false
+    },
+    "a4a81891-a91a-4378-90c2-eceedd847774": {
+      "date": "2026-10-24",
+      "name": "Copy A - PB 1.9 Max [H1] #14",
+      "campaign": "باور بانك وينر - سمارت",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.0,
+      "last_check_at": "2026-10-24T03:28:01.024050+00:00",
+      "scaled_budget_today": false
+    },
+    "a6da6aa1-f973-4ba6-96e8-dec24f8c1384": {
+      "date": "2026-10-24",
+      "name": "Copy B - PB 2.1 Max [H2] #13",
+      "campaign": "باور بانك وينر - سمارت",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.0,
+      "last_check_at": "2026-10-24T03:28:01.024050+00:00",
+      "scaled_budget_today": false
+    },
+    "aae16d58-9ee8-46ca-8ba1-7f9cc9644812": {
+      "date": "2026-10-24",
+      "name": "Copy A - PB 1.9 Max [H1] #12",
+      "campaign": "باور بانك وينر - سمارت",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.0,
+      "last_check_at": "2026-10-24T03:28:01.024050+00:00",
+      "scaled_budget_today": false
+    },
+    "ab76bd95-7fac-4041-8b65-19c3ccb25ff3": {
+      "date": "2026-10-24",
+      "name": "Copy A - PB 1.9 Max [H1] #02",
+      "campaign": "باور بانك وينر - سمارت",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.0,
+      "last_check_at": "2026-10-24T03:28:01.024050+00:00",
+      "scaled_budget_today": false
+    },
+    "ac7ee6f3-414d-45b6-bae6-c17ea6a96c4d": {
+      "date": "2026-10-24",
+      "name": "Copy B - PB 2.1 Max [H2] #14",
+      "campaign": "باور بانك وينر - سمارت",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.0,
+      "last_check_at": "2026-10-24T03:28:01.024050+00:00",
+      "scaled_budget_today": false
+    },
+    "af6f27fa-af1f-4cd4-b90b-e1f184a8d691": {
+      "date": "2026-10-24",
+      "name": "Copy B - PB 2.1 Max [H2] #15",
+      "campaign": "باور بانك وينر - سمارت",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.01,
+      "last_check_at": "2026-10-24T03:28:01.024050+00:00",
+      "scaled_budget_today": false
+    },
+    "b0f91704-df30-4f14-afa2-26ab5aeb517b": {
+      "date": "2026-10-24",
+      "name": "Copy A - PB 1.9 Max [H1] #10",
+      "campaign": "باور بانك وينر - سمارت",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.01,
+      "last_check_at": "2026-10-24T03:28:01.024050+00:00",
+      "scaled_budget_today": false
+    },
+    "b5905d6a-d3df-4ffb-a031-2483a5355bfa": {
+      "date": "2026-10-24",
+      "name": "Copy B - PB 2.1 Max [H2] #14",
+      "campaign": "باور بانك وينر - سمارت",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.02,
+      "last_check_at": "2026-10-24T03:28:01.024050+00:00",
+      "scaled_budget_today": false
+    },
+    "ba12c0eb-ea7e-4abf-9e04-9cd070f7a502": {
+      "date": "2026-10-24",
+      "name": "Copy B - PB 2.1 Max [H2] #12",
+      "campaign": "باور بانك وينر - سمارت",
+      "bumps_today": 0,
+      "last_action_at": null,
+      "last_spend": 0.01,
+      "last_check_at": "2026-10-24T03:28:01.024050+00:00",
+      "scaled_budget_today": false
+    },
+    "bd1fe8d6-ace0-46e3-b512-336b734477d4": {
+      "date": "2026-10-24",
+      "name": "24-10 Flow Hook Ads (فولتريكس - إعلانين جديدين)",
+      "campaign": "باور بانك وينر - سمارت",
+      "bumps_today": 1,
+      "last_action_at": "2026-10-24T03:28:01.024050+00:00",
+      "last_spend": 0.18,
+      "last_check_at": "2026-10-24T03:28:01.024050+00:00",
+      "scaled_budget_today": false
+    }
+  },
+  "cohort_15x_reduplications": {
+    "2026-10-24:350cb560-ad77-4fb5-9bbf-4c090c9ad081:f8372cfb-ae46-44d0-bbb4-f39790ecc648:A": {
+      "account_name": "CSP9860",
+      "campaign_id": "f8372cfb-ae46-44d0-bbb4-f39790ecc648",
+      "cohort_prefix": "Copy A - Car 1.9 Max [H1]",
+      "spend": 2.71,
+      "purchases": 2,
+      "cpa": 1.35,
+      "created_squad_ids": [
+        "38d93525-1b3d-4bd1-84dd-c6a57002dd40",
+        "244c18c0-e15f-4d25-9735-db425a325b3d",
+        "03105187-5949-41bd-a234-22b346ea48c0",
+        "ba831419-8d0c-4c9b-a26d-34d8b6efe63c",
+        "b7882803-342f-443b-ae75-7793cfa9dc41",
+        "5dd054ab-8464-4d0a-875e-bcd3b335b35e",
+        "26eb633b-865f-4b01-a82f-6209967b28b6",
+        "554752f8-ee9d-4cdb-bd4f-712aebeee044",
+        "3919dacd-4f33-45c4-b41c-3ee82304b93f",
+        "33e53752-f940-4d84-916b-f2194efde88b",
+        "b9c44678-e3b7-47ba-9baa-78c76d11f21b",
+        "6aa69f45-8886-4fb5-9be4-235f0b94e11d",
+        "e165e392-8256-400c-9b32-8de85c841c08",
+        "893aaa78-f373-44d7-bc44-f2b0c302901d",
+        "380916a8-ae4a-40e4-a57d-8111c87aae22"
+      ],
+      "duplicated_at": "2026-10-24T06:28:59.970728+03:00"
     }
   }
 }
