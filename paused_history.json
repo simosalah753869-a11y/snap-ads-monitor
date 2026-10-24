@@ -317,6 +317,24 @@
       "campaign": "car armrest",
       "reason": "[AdSquad CPC > $0.35 Rule] صرفت المجموعة $2.66 بدون مبيعات وسعر النقرة CPC=$0.443 (> $0.35) بغض النظر عن باقي الفيديوهات",
       "paused_at": "2026-10-24 10:53 GMT+3"
+    },
+    "c39744f7-34e0-435e-8150-669cfb50592e": {
+      "name": "Copy B - Car 2.1 Max [H2] #01",
+      "campaign": "car armrest",
+      "reason": "[AdSquad CPC > $0.35 Rule] صرفت المجموعة $3.82 بدون مبيعات وسعر النقرة CPC=$0.477 (> $0.35) بغض النظر عن باقي الفيديوهات",
+      "paused_at": "2026-10-24 11:27 GMT+3"
+    },
+    "b5905d6a-d3df-4ffb-a031-2483a5355bfa": {
+      "name": "Copy B - PB 2.1 Max [H2] #14",
+      "campaign": "باور بانك وينر - سمارت",
+      "reason": "[AdSquad CPC > $0.35 Rule] صرفت المجموعة $0.73 بدون مبيعات وسعر النقرة CPC=$0.365 (> $0.35) بغض النظر عن باقي الفيديوهات",
+      "paused_at": "2026-10-24 11:27 GMT+3"
+    },
+    "c88f2ce4-84e3-4c3e-8841-4bf9e1bc313e": {
+      "name": "Copy B - Car 2.1 Max [H2] #10",
+      "campaign": "car armrest",
+      "reason": "[AdSquad CPC > $0.35 Rule] صرفت المجموعة $2.20 بدون مبيعات وسعر النقرة CPC=$0.367 (> $0.35) بغض النظر عن باقي الفيديوهات",
+      "paused_at": "2026-10-24 11:27 GMT+3"
     }
   },
   "ads": {
@@ -8649,6 +8667,97 @@
       "adsquad": "Copy B - Car 2.1 Max [H2] #12",
       "reason": "[Copy Early High-CPC Cut] نسخة Copy دخلت جمهوراً غالياً: صرفت $2.93 (>= $2.50) بدون مبيعات بـ CPC=$0.733 (> $0.35)",
       "paused_at": "2026-10-24 10:53 GMT+3"
+    },
+    "e6e37644-c9bd-43c9-a538-958a7a5a43fe": {
+      "name": "Car_v9_21_10_hananE1_m89630b [H2]",
+      "campaign": "car armrest",
+      "adsquad": "Copy B - Car 2.1 Max [H2] #01",
+      "reason": "[Ad CPC Rule] صرف الفيديو $1.67 (>= $1.00) | النقرات: 1 | سعر النقرة CPC = $1.67 (> $0.35)",
+      "paused_at": "2026-10-24 11:27 GMT+3"
+    },
+    "2288b653-4fee-431e-abb1-6e9f193030de": {
+      "name": "Car_v5_20-10_h1_m736812 [H2]",
+      "campaign": "car armrest",
+      "adsquad": "Copy B - Car 2.1 Max [H2] #06",
+      "reason": "[Aggregated Video Stop-Loss 1D - السعودية] مجموع صرف الفيديو التراكمي اليوم عبر كل الـ AdSquads = $7.68 (>= $7.00) بدون أي مبيعة اليوم",
+      "paused_at": "2026-10-24 11:27 GMT+3"
+    },
+    "27a79944-838f-4d18-be9e-8d34f9a84f4a": {
+      "name": "Car_v5_20-10_h1_m736812 [H2]",
+      "campaign": "car armrest",
+      "adsquad": "Copy B - Car 2.1 Max [H2] #15",
+      "reason": "[Aggregated Video Stop-Loss 1D - السعودية] مجموع صرف الفيديو التراكمي اليوم عبر كل الـ AdSquads = $7.68 (>= $7.00) بدون أي مبيعة اليوم",
+      "paused_at": "2026-10-24 11:27 GMT+3"
+    },
+    "6e8aa797-ac1e-459d-b29d-bdb69d0dd0fe": {
+      "name": "Car_v5_20-10_h1_m736812 [H1]",
+      "campaign": "car armrest",
+      "adsquad": "Copy A - Car 1.9 Max [H1] #06",
+      "reason": "[Aggregated Video Stop-Loss 1D - السعودية] مجموع صرف الفيديو التراكمي اليوم عبر كل الـ AdSquads = $7.68 (>= $7.00) بدون أي مبيعة اليوم",
+      "paused_at": "2026-10-24 11:27 GMT+3"
+    },
+    "747ab3e0-a3f2-4859-ab9a-6097a2b84b3e": {
+      "name": "Car_v5_20-10_h1_m736812 [H1]",
+      "campaign": "car armrest",
+      "adsquad": "Copy A - Car 1.9 Max [H1] #07",
+      "reason": "[Aggregated Video Stop-Loss 1D - السعودية] مجموع صرف الفيديو التراكمي اليوم عبر كل الـ AdSquads = $7.68 (>= $7.00) بدون أي مبيعة اليوم",
+      "paused_at": "2026-10-24 11:27 GMT+3"
+    },
+    "7d0ade52-f2b2-400f-9cd8-460b357af147": {
+      "name": "Car_v5_20-10_h1_m736812 [H1]",
+      "campaign": "car armrest",
+      "adsquad": "Copy A - Car 1.9 Max [H1] #12",
+      "reason": "[Aggregated Video Stop-Loss 1D - السعودية] مجموع صرف الفيديو التراكمي اليوم عبر كل الـ AdSquads = $7.68 (>= $7.00) بدون أي مبيعة اليوم",
+      "paused_at": "2026-10-24 11:27 GMT+3"
+    },
+    "7e12a4b2-644d-4eac-a461-0b1dd05836f7": {
+      "name": "Car_v5_20-10_h1_m736812 [H2]",
+      "campaign": "car armrest",
+      "adsquad": "Copy B - Car 2.1 Max [H2] #14",
+      "reason": "[Aggregated Video Stop-Loss 1D - السعودية] مجموع صرف الفيديو التراكمي اليوم عبر كل الـ AdSquads = $7.68 (>= $7.00) بدون أي مبيعة اليوم",
+      "paused_at": "2026-10-24 11:27 GMT+3"
+    },
+    "7e441ff8-835f-4dbb-85ac-08de11eb9295": {
+      "name": "Car_v5_20-10_h1_m736812 [H1]",
+      "campaign": "car armrest",
+      "adsquad": "Copy A - Car 1.9 Max [H1] #09",
+      "reason": "[Aggregated Video Stop-Loss 1D - السعودية] مجموع صرف الفيديو التراكمي اليوم عبر كل الـ AdSquads = $7.68 (>= $7.00) بدون أي مبيعة اليوم",
+      "paused_at": "2026-10-24 11:27 GMT+3"
+    },
+    "7faa0728-4ca1-4876-b209-9adcde6622b7": {
+      "name": "Car_v5_20-10_h1_m736812 [H2]",
+      "campaign": "car armrest",
+      "adsquad": "Copy B - Car 2.1 Max [H2] #02",
+      "reason": "[Aggregated Video Stop-Loss 1D - السعودية] مجموع صرف الفيديو التراكمي اليوم عبر كل الـ AdSquads = $7.68 (>= $7.00) بدون أي مبيعة اليوم",
+      "paused_at": "2026-10-24 11:27 GMT+3"
+    },
+    "a3f330ff-ba56-4dc7-84d0-ba49c0ed93de": {
+      "name": "Car_v5_20-10_h1_m736812 [H1]",
+      "campaign": "car armrest",
+      "adsquad": "Copy A - Car 1.9 Max [H1] #15",
+      "reason": "[Aggregated Video Stop-Loss 1D - السعودية] مجموع صرف الفيديو التراكمي اليوم عبر كل الـ AdSquads = $7.68 (>= $7.00) بدون أي مبيعة اليوم",
+      "paused_at": "2026-10-24 11:27 GMT+3"
+    },
+    "cce22320-b014-49f8-b10e-cc28cd247d8d": {
+      "name": "Car_v5_20-10_h1_m736812 [H1]",
+      "campaign": "car armrest",
+      "adsquad": "Copy A - Car 1.9 Max [H1] #04",
+      "reason": "[Aggregated Video Stop-Loss 1D - السعودية] مجموع صرف الفيديو التراكمي اليوم عبر كل الـ AdSquads = $7.68 (>= $7.00) بدون أي مبيعة اليوم",
+      "paused_at": "2026-10-24 11:27 GMT+3"
+    },
+    "d0c15fbd-4c4b-471b-82a0-c01ff63e7972": {
+      "name": "Car_v5_20-10_h1_m736812 [H2]",
+      "campaign": "car armrest",
+      "adsquad": "Copy B - Car 2.1 Max [H2] #07",
+      "reason": "[Aggregated Video Stop-Loss 1D - السعودية] مجموع صرف الفيديو التراكمي اليوم عبر كل الـ AdSquads = $7.68 (>= $7.00) بدون أي مبيعة اليوم",
+      "paused_at": "2026-10-24 11:27 GMT+3"
+    },
+    "db704b68-b095-4c5a-8ee0-b8d860c385eb": {
+      "name": "Car_v5_20-10_h1_m736812 [H2]",
+      "campaign": "car armrest",
+      "adsquad": "Copy B - Car 2.1 Max [H2] #11",
+      "reason": "[Aggregated Video Stop-Loss 1D - السعودية] مجموع صرف الفيديو التراكمي اليوم عبر كل الـ AdSquads = $7.68 (>= $7.00) بدون أي مبيعة اليوم",
+      "paused_at": "2026-10-24 11:27 GMT+3"
     }
   },
   "bid_bumps": {
@@ -11147,6 +11256,17 @@
       "total_purchases": 0,
       "reason": "[Aggregated Video Stop-Loss 1D - السعودية] مجموع صرف الفيديو التراكمي اليوم عبر كل الـ AdSquads = $9.92 (>= $7.00) بدون أي مبيعة اليوم",
       "disabled_at": "2026-10-24 10:06 GMT+3"
+    },
+    "558c5d45-f08e-400c-a499-7668e801c347:MEDIA:736812bb-b0dc-49ca-8a2f-e765c442f04a": {
+      "campaign_id": "558c5d45-f08e-400c-a499-7668e801c347",
+      "campaign_name": "car armrest",
+      "video_media_id": "736812bb-b0dc-49ca-8a2f-e765c442f04a",
+      "sample_ad_name": "Car_v5_20-10_h1_m736812",
+      "closed_instances": 12,
+      "total_spend": 7.74,
+      "total_purchases": 0,
+      "reason": "[Aggregated Video Stop-Loss 1D - السعودية] مجموع صرف الفيديو التراكمي اليوم عبر كل الـ AdSquads = $7.68 (>= $7.00) بدون أي مبيعة اليوم",
+      "disabled_at": "2026-10-24 11:27 GMT+3"
     }
   },
   "tiktok_campaigns": {
@@ -16522,6 +16642,27 @@
       "spend_7d": 0.34,
       "conv_7d": 0,
       "paused_at": "2026-10-24T07:56:03.543538+00:00"
+    },
+    "7631765070816509959:1879880818012466:1879880820808722": {
+      "aadvid": "7631765070816509959",
+      "account_name": "ROELLINGER RECYCLING2",
+      "ad_id": "1879880818012466",
+      "creative_id": "1879880818368802",
+      "campaign_ad_name": "power bank 24-10 (2 Flow Hook Ads) / power bank 24-10 (2 Flow Hook Ads) - Creative",
+      "video_name": "24-10_flow_pb_ad4_2cables_price.mp4",
+      "draft_ids": [
+        "1879880820808722"
+      ],
+      "reason": "Today Early High CPC $0.70 (Spend=$0.70, Clicks=1, 0 sales)",
+      "spend_1d": 0.7,
+      "conv_1d": 0,
+      "spend_2d": 0.7,
+      "conv_2d": 0,
+      "spend_3d": 0.7,
+      "conv_3d": 0,
+      "spend_7d": 0.7,
+      "conv_7d": 0,
+      "paused_at": "2026-10-24T08:30:35.848775+00:00"
     }
   },
   "tiktok_ads": {},
@@ -17361,19 +17502,19 @@
       "spend_3d": 27.89,
       "purchases_3d": 3,
       "cpa_3d": 9.3,
-      "updated_at": "2026-10-24 10:51 GMT+3"
+      "updated_at": "2026-10-24 11:25 GMT+3"
     },
     "a171c141-a6d5-403e-8357-5c8f6c01bce0": {
       "name": "وسادة مايباخ 21-10",
       "spend_3d": 10.25,
       "purchases_3d": 0,
       "cpa_3d": null,
-      "updated_at": "2026-10-24 10:51 GMT+3"
+      "updated_at": "2026-10-24 11:25 GMT+3"
     },
     "c5a7cade-6ec3-4c47-b3a2-c5f08bcf8da0": {
       "name": "وسادة مايباخ 21-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-24 10:51 GMT+3"
+      "updated_at": "2026-10-24 11:25 GMT+3"
     },
     "1879653126110545": {
       "name": "timex books 21-10",
@@ -17384,12 +17525,12 @@
     "e8f0a5e9-89c5-4c14-aabb-c9c6c657891d": {
       "name": "مسخن الرضاعات اللاسلكي 22-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-24 10:51 GMT+3"
+      "updated_at": "2026-10-24 11:25 GMT+3"
     },
     "f18a3bf4-148a-4f5e-baa1-f90335f1884c": {
       "name": "مسخن الرضاعات اللاسلكي 22-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-24 10:51 GMT+3"
+      "updated_at": "2026-10-24 11:25 GMT+3"
     },
     "1879676075637041": {
       "name": "baby bottle warmer 22-10",
@@ -17408,7 +17549,7 @@
       "spend_3d": 23.96,
       "purchases_3d": 3,
       "cpa_3d": 7.99,
-      "updated_at": "2026-10-24 10:51 GMT+3"
+      "updated_at": "2026-10-24 11:25 GMT+3"
     },
     "1879653022433617": {
       "name": "maybach pillow 21-10",
@@ -17418,10 +17559,10 @@
     },
     "558c5d45-f08e-400c-a499-7668e801c347": {
       "name": "car armrest",
-      "spend_3d": 78.45,
-      "purchases_3d": 5,
-      "cpa_3d": 15.69,
-      "updated_at": "2026-10-24 10:53 GMT+3"
+      "spend_3d": 84.46,
+      "purchases_3d": 6,
+      "cpa_3d": 14.08,
+      "updated_at": "2026-10-24 11:27 GMT+3"
     },
     "1879824619984018": {
       "name": "power bank 23-10 (Voltrx 10 Hooks Ads)",
@@ -17478,10 +17619,10 @@
     },
     "803324e6-052e-441b-99fb-4d43e56c5c78": {
       "name": "باور بانك وينر - سمارت",
-      "spend_3d": 7.66,
+      "spend_3d": 7.83,
       "purchases_3d": 1,
-      "cpa_3d": 7.66,
-      "updated_at": "2026-10-24 10:53 GMT+3"
+      "cpa_3d": 7.83,
+      "updated_at": "2026-10-24 11:27 GMT+3"
     }
   },
   "proactive_scaled_squads": {
