@@ -1341,19 +1341,17 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
                     f"🛑 [شرط سقف 30 نسخة أدست] تم إيقاف {len(excess_to_pause)} مجموعة زائدة في حملة '{c_name}' (النشط الآن: {len(kept_copy)} <= 30)."
                 )
 
-    # 3. نظام زيادة البيد التلقائي لأدست السكايلينغ في سناب شات:
-    # - زيادة أولية +$0.10 لكل أدست سكايلينغ.
-    # - بعد كل ساعتين (2 hours): إذا لم تصرف الأدست $1.00 (today_spend < $1.00)، يتم زيادة البيد +$0.10 أخرى وتكرارها كل ساعتين.
-    # - شرط صارم لا استثناء فيه: ألا يتعدى إجمالي الزيادة +$0.30 في كل أدست نهائياً (بحد أقصى 3 زيادات: Copy A من $1.90 حتى سقف $2.20، و Copy B من $2.10 حتى سقف $2.40).
+    # 3. نظام تثبيت البيد الصارم في جميع أدست سناب شات على 1.90$ و 2.10$ فقط (بدون أي زيادة بيد +0.10$ نهائياً):
+    # - Copy A / [H1] / 1.9 Max -> ثابت على $1.90 (1,900,000 micro) فقط.
+    # - Copy B / [H2] / 2.1 Max (وبقية الأدست) -> ثابت على $2.10 (2,100,000 micro) فقط.
     now_utc = datetime.now(timezone.utc)
     today_local = datetime.now(ACCOUNT_TZ)
     today_date_str = today_local.strftime("%Y-%m-%d")
     is_night_window = (0 <= today_local.hour < 6)
 
     history.setdefault("smart_spend_watchdog", {})
-    scaling_bumps = history.setdefault("scaling_bid_bumps", {})
     print(
-        f"\n🛡️ فحص بيدات أدست السكايلينغ (+0.10$ كل ساعتين لمن لم تصرف 1$ وبشرط عدم تجاوز +0.30$ زيادة لكل أدست نهائياً)..."
+        f"\n🛡️ فحص وتثبيت البيد في جميع الأدست على 1.90$ و 2.10$ فقط (صفر زيادة بيد)..."
     )
     for c in active_campaigns:
         c_id = c["id"]
@@ -1363,7 +1361,6 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
             c_squads = api_get_paginated(f"/campaigns/{c_id}/adsquads?limit=200", token, "adsquads", "adsquad")
 
         squads_to_update_batch = []
-        bumps_logged = []
         clamps_logged = []
 
         for idx_sq, squad in enumerate(c_squads):
@@ -1376,60 +1373,26 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
             today_spend = spend_by_squad.get(s_id, 0.0)
             st_sq = squad_stats_map.get(s_id, {"spend": today_spend, "purchases": 0, "cpa": None})
             st3_sq = squad_stats_3d_map.get(s_id, {"spend": today_spend, "purchases": 0, "cpa": None})
-            is_cross_sq = is_cross_monitored_product_campaign(c_name, s_name)
-            is_test_sq_bid = is_non_copy_test_adsquad(s_name)
 
-            if is_cross_sq or is_test_sq_bid:
-                continue
-
-            # تحديد البيد الأساسي (Base Bid) والسقف الأقصى المسموح (+0.30$ كحد أقصى للزيادة في كل أدست)
-            b_rec = scaling_bumps.get(s_id, {})
+            # تحديد البيد الثابت الصارم ($1.90 أو $2.10 فقط)
             s_name_l = s_name.lower()
-            if "1.9 max" in s_name_l or s_name.startswith("Copy A -"):
-                base_bid_micro = 1_900_000  # $1.90
-            elif "2.1 max" in s_name_l or s_name.startswith("Copy B -"):
-                base_bid_micro = 2_100_000  # $2.10
+            if "1.9" in s_name_l or "copy a" in s_name_l or "[h1]" in s_name_l:
+                target_bid_micro = 1_900_000  # $1.90 فقط
+            elif "2.1" in s_name_l or "copy b" in s_name_l or "[h2]" in s_name_l:
+                target_bid_micro = 2_100_000  # $2.10 فقط
             else:
-                base_bid_micro = int(b_rec.get("base_bid_micro") or bid_micro or 1_900_000)
+                target_bid_micro = 1_900_000 if bid_micro == 1_900_000 else 2_100_000
 
-            max_allowed_bid_micro = base_bid_micro + 300_000  # سقف صارم: لا يتعدى +$0.30 فوق البيد الأساسي أبداً
-
-            # (أ) حماية السقف الصارم (+0.30$ كحد أقصى لكل أدست): إذا تجاوز البيد السقف المسموح، يُعاد فوراً إلى السقف
-            if bid_micro > max_allowed_bid_micro:
+            # (أ) تثبيت البيد فوراً إذا اختلف عن $1.90 أو $2.10
+            if bid_micro != target_bid_micro or squad.get("bid_strategy") != "LOWEST_COST_WITH_MAX_BID":
                 old_b = round(bid_micro / 1_000_000, 2)
-                new_b = round(max_allowed_bid_micro / 1_000_000, 2)
-                squad["bid_micro"] = max_allowed_bid_micro
-                bid_micro = max_allowed_bid_micro
-                b_rec.update({
-                    "name": s_name,
-                    "campaign": c_name,
-                    "base_bid_micro": base_bid_micro,
-                    "current_bid_micro": max_allowed_bid_micro,
-                    "max_bid_micro": max_allowed_bid_micro,
-                    "bumps_count": 3,
-                    "total_bump_micro": 300_000,
-                    "last_bump_at": b_rec.get("last_bump_at") or now_utc.isoformat(),
-                })
-                scaling_bumps[s_id] = b_rec
+                new_b = round(target_bid_micro / 1_000_000, 2)
+                squad["bid_micro"] = target_bid_micro
+                squad["bid_strategy"] = "LOWEST_COST_WITH_MAX_BID"
+                squad["auto_bid"] = False
+                squad["target_bid"] = False
                 squads_to_update_batch.append(squad)
                 clamps_logged.append(f"'{s_name}' (${old_b:.2f} -> ${new_b:.2f})")
-                continue
-
-            # حساب عدد الزيادات الحالية (كل زيادة 0.10$ = 100,000 ميكرو، بحد أقصى 3 زيادات = 0.30$)
-            inferred_bumps = int(round(max(0, bid_micro - base_bid_micro) / 100_000))
-            bumps_done = max(int(b_rec.get("bumps_count", 0)), inferred_bumps)
-            if s_id not in scaling_bumps:
-                b_rec = {
-                    "name": s_name,
-                    "campaign": c_name,
-                    "base_bid_micro": base_bid_micro,
-                    "current_bid_micro": bid_micro,
-                    "max_bid_micro": max_allowed_bid_micro,
-                    "bumps_count": bumps_done,
-                    "total_bump_micro": max(0, bid_micro - base_bid_micro),
-                    "last_bump_at": b_rec.get("last_bump_at"),
-                }
-                scaling_bumps[s_id] = b_rec
 
             # (ب) السكيل العمودي الفوري ($20 -> $35 -> $50) لأي مجموعة نشطة تجلب >= 2 مبيعات بـ CPA <= $7.00 وتصرف >= 45% من ميزانيتها (بدون لمس البيد نهائياً!)
             w_rec = history["smart_spend_watchdog"].get(s_id, {})
@@ -1476,60 +1439,10 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
                         f"| المبيعات اليوم: {st_sq['purchases']} (CPA=${st_sq['cpa']}) | الميزانية: ${daily_budget:.0f} -> ${new_budget_micro/1e6:.0f}"
                     )
 
-            # (ج) قاعدة زيادة البيد +$0.10 لأدست السكايلينغ:
-            # 1) إذا لم تأخذ الزيادة الأولى بعد (bumps_done == 0): تزيد +$0.10 فوراً.
-            # 2) بعد ساعتين (2 hours) من آخر زيادة: إذا لم تصرف الأدست $1.00 (today_spend < 1.00)، تزيد +$0.10 أخرى وتتكرر كل ساعتين بشرط ألا تتعدى +$0.30 (3 زيادات بحد أقصى).
-            if bumps_done >= 3 or bid_micro >= max_allowed_bid_micro:
-                continue
-
-            if bumps_done >= 1 and today_spend >= 1.00:
-                # صرفت $1.00 أو أكثر، لا نزيد البيد
-                continue
-
-            should_bump_now = False
-            if bumps_done == 0:
-                should_bump_now = True
-            else:
-                last_bump_dt = parse_iso_utc(b_rec.get("last_bump_at", ""))
-                if not last_bump_dt:
-                    last_bump_dt = parse_iso_utc(squad.get("updated_at", ""))
-                if last_bump_dt and (now_utc - last_bump_dt) >= timedelta(hours=2):
-                    should_bump_now = True
-
-            if not should_bump_now:
-                continue
-
-            new_bid_micro = min(max_allowed_bid_micro, bid_micro + 100_000)
-            if new_bid_micro <= bid_micro:
-                continue
-
-            old_b = round(bid_micro / 1_000_000, 2)
-            new_b = round(new_bid_micro / 1_000_000, 2)
-            new_bumps_cnt = int(round((new_bid_micro - base_bid_micro) / 100_000))
-            tot_added_d = round((new_bid_micro - base_bid_micro) / 1_000_000, 2)
-
-            squad["bid_micro"] = new_bid_micro
-            b_rec.update({
-                "name": s_name,
-                "campaign": c_name,
-                "base_bid_micro": base_bid_micro,
-                "current_bid_micro": new_bid_micro,
-                "max_bid_micro": max_allowed_bid_micro,
-                "bumps_count": new_bumps_cnt,
-                "total_bump_micro": new_bid_micro - base_bid_micro,
-                "last_bump_at": now_utc.isoformat(),
-                "spend_at_bump": today_spend,
-            })
-            scaling_bumps[s_id] = b_rec
-            squads_to_update_batch.append(squad)
-            bumps_logged.append(
-                f"'{s_name}' (${old_b:.2f} -> ${new_b:.2f} | زيادة {new_bumps_cnt}/3 = +${tot_added_d:.2f} | الصرف=${today_spend:.2f})"
-            )
-
         if squads_to_update_batch:
             if dry_run:
                 print(
-                    f"🔍 [Dry-Run | حملة '{c_name}'] سيتم تحديث بيدات {len(bumps_logged)} أدست سكايلينغ (+$0.10) وتهدئة {len(clamps_logged)} أدست."
+                    f"🔍 [Dry-Run | حملة '{c_name}'] سيتم تثبيت بيدات {len(clamps_logged)} أدست على $1.90 و $2.10 فقط."
                 )
             else:
                 # إزالة التكرار مع الحفاظ على آخر نسخة من كل squad
@@ -1543,11 +1456,7 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
                         print(f"⚠️ خطأ أثناء تحديث بيدات دفعة في حملة '{c_name}': {e_put}")
                 save_paused_history(history)
                 if clamps_logged:
-                    print(f"📉✅ [سقف +$0.30 الأقصى | حملة '{c_name}'] تم ضبط {len(clamps_logged)} أدست: {', '.join(clamps_logged[:6])}")
-                if bumps_logged:
-                    print(
-                        f"⚡✅ [زيادة بيد السكايلينغ +$0.10 | حملة '{c_name}'] تم رفع البيد لـ {len(bumps_logged)} أدست (السقف الأقصى +$0.30): {', '.join(bumps_logged[:6])}"
-                    )
+                    print(f"📉✅ [تثبيت البيد 1.9$ و 2.1$ فقط | حملة '{c_name}'] تم ضبط {len(clamps_logged)} أدست: {', '.join(clamps_logged[:6])}")
 
 
 def recheck_gulf_adsquads(token: str):
