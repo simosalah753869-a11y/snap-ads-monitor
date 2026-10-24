@@ -162,9 +162,6 @@ def fetch_sheet_multiwindow_sales(ref_date_str: str = None) -> dict:
         base_dt = now_sa
 
     d_1d = {base_dt.strftime("%Y-%m-%d"), now_sa.strftime("%Y-%m-%d")}
-    # حماية منتصف الليل (00:00 إلى 04:00 فجراً بتوقيت السعودية): شمل مبيعات يوم أمس في 1D لمنع أي فرق توقيت بين الشيت وحسابات جوجل أدز
-    if now_sa.hour < 4:
-        d_1d.add((now_sa - timedelta(days=1)).strftime("%Y-%m-%d"))
     d_2d = {(base_dt - timedelta(days=i)).strftime("%Y-%m-%d") for i in range(2)} | d_1d
     d_3d = {(base_dt - timedelta(days=i)).strftime("%Y-%m-%d") for i in range(3)} | d_1d
     d_7d = {(base_dt - timedelta(days=i)).strftime("%Y-%m-%d") for i in range(7)} | d_1d
@@ -951,16 +948,17 @@ def audit_google_ads_multiwindow() -> dict:
                     sh_3d = sheet["3d"].get(ad_key, 0)
                     sh_7d = sheet["7d"].get(ad_key, 0)
 
-                # If this is a duplicate '#2' campaign sharing the same ad_name as the original campaign,
-                # do not let the 0-UI-conversion duplicate claim the original campaign's Sheet sales!
-                base_camp = camp.split("#")[0].strip()
-                if "#" in camp and any(k[0] == base_camp and k[2] == ad for k in ads_map) and ui_7d == 0:
+                # If an ad_name (e.g. c7, c9) is shared across multiple campaigns (#2, #3, etc.),
+                # apportion or zero out shared Sheet UTM sales when UI conversions show poor CPA,
+                # so a losing campaign (like c7 at $54.95 / 2 UI conv = $27.49 CPA) NEVER hides behind shared UTM sales!
+                same_ad_camps = [k for k in ads_map if k[2].strip().lower() == ad_key]
+                if len(same_ad_camps) > 1 and ui_7d == 0:
                     sh_1d = sh_2d = sh_3d = sh_7d = 0
 
-                eff_1d = max(ui_1d, float(sh_1d))
-                eff_2d = max(ui_2d, float(sh_2d))
-                eff_3d = max(ui_3d, float(sh_3d))
-                eff_7d = max(ui_7d, float(sh_7d))
+                eff_1d = ui_1d if (sp_1d >= 7.00 and (ui_1d == 0 or (sp_1d / ui_1d) > max_cpa_g if "max_cpa_g" in locals() else 7.0)) else max(ui_1d, float(sh_1d))
+                eff_2d = ui_2d if (sp_2d >= 7.00 and (ui_2d == 0 or (sp_2d / ui_2d) > 7.0)) else max(ui_2d, float(sh_2d))
+                eff_3d = ui_3d if (sp_3d >= 7.00 and (ui_3d == 0 or (sp_3d / ui_3d) > 7.0)) else max(ui_3d, float(sh_3d))
+                eff_7d = ui_7d if (sp_7d >= 7.00 and (ui_7d == 0 or (sp_7d / ui_7d) > 7.0)) else max(ui_7d, float(sh_7d))
 
                 cpa_1d = round(sp_1d / eff_1d, 2) if eff_1d > 0 else None
                 cpa_2d = round(sp_2d / eff_2d, 2) if eff_2d > 0 else None
