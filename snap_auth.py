@@ -10,24 +10,43 @@ from pathlib import Path
 _orig_getaddrinfo = socket.getaddrinfo
 _dns_cache = {}
 def _doh_getaddrinfo(host, port, family=0, type=0, proto=0, flags=0):
+    if host in _dns_cache:
+        try:
+            return _orig_getaddrinfo(_dns_cache[host], port, socket.AF_INET, type, proto, flags)
+        except Exception:
+            pass
+    try:
+        res = _orig_getaddrinfo(host, port, socket.AF_INET, type, proto, flags)
+        if res:
+            ip = res[0][4][0]
+            if ip and not str(host).replace(".", "").isdigit():
+                _dns_cache[host] = ip
+            return res
+    except Exception:
+        pass
     try:
         return _orig_getaddrinfo(host, port, family, type, proto, flags)
     except Exception:
         if host not in _dns_cache:
-            try:
-                req = urllib.request.Request(
-                    f"https://1.1.1.1/dns-query?name={host}&type=A",
-                    headers={"accept": "application/dns-json"},
-                )
-                with urllib.request.urlopen(req, timeout=5) as resp:
-                    r = json.loads(resp.read().decode("utf-8"))
-                ips = [a["data"] for a in r.get("Answer", []) if a.get("type") == 1]
-                if ips:
-                    _dns_cache[host] = ips[0]
-            except Exception:
-                pass
+            for doh_url in (
+                f"https://8.8.8.8/resolve?name={host}&type=A",
+                f"https://1.1.1.1/dns-query?name={host}&type=A",
+            ):
+                try:
+                    req = urllib.request.Request(
+                        doh_url,
+                        headers={"accept": "application/dns-json"},
+                    )
+                    with urllib.request.urlopen(req, timeout=3) as resp:
+                        r = json.loads(resp.read().decode("utf-8"))
+                    ips = [a["data"] for a in r.get("Answer", []) if a.get("type") == 1]
+                    if ips:
+                        _dns_cache[host] = ips[0]
+                        break
+                except Exception:
+                    pass
         if host in _dns_cache:
-            return _orig_getaddrinfo(_dns_cache[host], port, family, type, proto, flags)
+            return _orig_getaddrinfo(_dns_cache[host], port, socket.AF_INET, type, proto, flags)
         raise
 
 socket.getaddrinfo = _doh_getaddrinfo
@@ -92,23 +111,39 @@ def refresh_access_token(cfg: dict) -> str:
     return cfg["access_token"]
 
 
+_SNAP_SESSION = None
+
+
+def _get_snap_session():
+    global _SNAP_SESSION
+    if _SNAP_SESSION is None:
+        import requests
+        from requests.adapters import HTTPAdapter
+        _SNAP_SESSION = requests.Session()
+        adapter = HTTPAdapter(pool_connections=10, pool_maxsize=20)
+        _SNAP_SESSION.mount("https://", adapter)
+        _SNAP_SESSION.mount("http://", adapter)
+    return _SNAP_SESSION
+
+
 def api_get(endpoint: str, token: str) -> dict:
-    import time, requests
+    import time
     url = f"{API_BASE}{endpoint}" if endpoint.startswith("/") else endpoint
-    for attempt in range(6):
+    sess = _get_snap_session()
+    for attempt in range(4):
         try:
-            r = requests.get(url, headers={"Authorization": f"Bearer {token}", "Connection": "close"}, timeout=30)
+            r = sess.get(url, headers={"Authorization": f"Bearer {token}"}, timeout=15)
             if r.status_code == 200:
                 return r.json()
         except Exception:
             try:
-                req = urllib.request.Request(url, headers={"Authorization": f"Bearer {token}", "Connection": "close"})
-                with urllib.request.urlopen(req, timeout=30) as resp:
+                req = urllib.request.Request(url, headers={"Authorization": f"Bearer {token}"})
+                with urllib.request.urlopen(req, timeout=15) as resp:
                     return json.loads(resp.read().decode("utf-8"))
             except Exception:
-                if attempt == 5:
+                if attempt == 3:
                     raise
-                time.sleep(1.5 * (attempt + 1))
+                time.sleep(1.0 * (attempt + 1))
     return {}
 
 
