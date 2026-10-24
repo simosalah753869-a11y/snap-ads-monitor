@@ -507,9 +507,10 @@ def run_proactive_sales_scaling(sales_3d: dict, sales_today: dict):
                 s3 = st_3d.get(sid, {"spend": 0.0, "purchases": 0, "cpa": None, "cpc": 0.0, "swipes": 0})
 
                 is_copy_sq = "copy" in sname.lower()
+                is_test_sq = sname.strip().lower() in ("تيست", "تست", "test") or (("تيست" in sname.lower() or "تست" in sname.lower() or "test" in sname.lower()) and not is_copy_sq)
                 user_react_sq = history.get("user_reactivated_squads", {})
 
-                # (0) إيقاف أي مجموعة (AdSquad) تصرف >= $4.00 بـ 0 مبيعات أو يتعدى فيها سعر النقرة CPC > $0.35 بدون مبيعات، أو تتخطى CPA > $7.00 — بغض النظر لو بعض الفيديوهات بداخلها لم تأخذ فرصتها بعد!
+                # (0) إيقاف أي مجموعة (AdSquad) تصرف >= $4.00 بـ 0 مبيعات أو يتعدى فيها سعر النقرة CPC > $0.35 بدون مبيعات، أو تتخطى CPA > $7.00 — بغض النظر لو بعض الفيديوهات بداخلها لم تأخذ فرصتها بعد! (مع استثناء أدست الاختبار السريع تيست)
                 high_cpc_no_sale = (
                     s1["purchases"] == 0
                     and (
@@ -525,7 +526,7 @@ def run_proactive_sales_scaling(sales_3d: dict, sales_today: dict):
                 )
                 hit_4_stop_loss = (s1["spend"] >= 4.00 and s1["purchases"] == 0) or (s3["spend"] >= 4.00 and s3["purchases"] == 0)
                 hit_high_cpa = is_copy_sq and (s3["purchases"] > 0 and s3["cpa"] is not None and s3["cpa"] > 7.0)
-                if sid not in user_react_sq and (high_cpc_no_sale or hit_4_stop_loss or hit_high_cpa):
+                if (not is_test_sq) and sid not in user_react_sq and (high_cpc_no_sale or hit_4_stop_loss or hit_high_cpa):
                     sq["status"] = "PAUSED"
                     try:
                         api_put(f"/campaigns/{cid}/adsquads", token, {"adsquads": [sq]})
@@ -1122,12 +1123,11 @@ def run_improvements_guardian(sales_3d: dict = None, sales_today: dict = None):
                                   is_cross_monitored_product_campaign, load_paused_history)
         tok = refresh_access_token(load_config())
         user_react_sq_guard = load_paused_history().get("user_reactivated_squads", {})
-        camps = api_get_paginated(f"/adaccounts/{TARGET_ACCOUNT_ID}/campaigns", tok, "campaigns", "campaign")
-        squads = api_get_paginated(f"/adaccounts/{TARGET_ACCOUNT_ID}/adsquads", tok, "adsquads", "adsquad", max_pages=40)
+        camps = api_get_paginated(f"/adaccounts/{TARGET_ACCOUNT_ID}/campaigns", tok, "campaigns", "campaign", max_pages=5)
         st1 = {x["id"]: x for x in fetch_account_breakdown_stats(tok, TARGET_ACCOUNT_ID, "adsquad", days_back=0)}
         st3 = {x["id"]: x for x in fetch_account_breakdown_stats(tok, TARGET_ACCOUNT_ID, "adsquad", days_back=2)}
-        ad_st1_g = {x["id"]: x for x in fetch_account_breakdown_stats(tok, TARGET_ACCOUNT_ID, "ad", days_back=0)}
-        ad_st3_g = {x["id"]: x for x in fetch_account_breakdown_stats(tok, TARGET_ACCOUNT_ID, "ad", days_back=2)}
+        ad_st1_g = {}
+        ad_st3_g = {}
         empty = {"spend": 0.0, "purchases": 0, "cpa": None, "cpc": 0.0, "swipes": 0}
 
         def put_squad(sq):
@@ -1139,7 +1139,8 @@ def run_improvements_guardian(sales_3d: dict = None, sales_today: dict = None):
             if is_cross_monitored_product_campaign(camp.get("name", "")):
                 continue  # مايباخ/تايم إكس لها مراقب مستقل (cross_product_monitor.py) وبيدات خاصة
             cid, cname = camp["id"], camp.get("name", "")
-            act = [s for s in squads if s.get("campaign_id") == cid and s.get("status") == "ACTIVE"]
+            sq_resp_g = api_get(f"/campaigns/{cid}/adsquads?limit=200", tok)
+            act = [x["adsquad"] for x in sq_resp_g.get("adsquads", []) if "adsquad" in x and x["adsquad"].get("status") == "ACTIVE"]
             if not act:
                 continue
             countries = set()
@@ -1147,8 +1148,8 @@ def run_improvements_guardian(sales_3d: dict = None, sales_today: dict = None):
                 countries |= get_squad_countries(s)
             is_gulf = bool(countries & GULF_COUNTRY_CODES) and "sa" not in countries
             bid_cap = 2.45 if is_gulf else 2.35
-            max_copies = 5
-            nosale_cut, cpa_cut = (10.0, 12.0) if is_gulf else (5.0, 7.0)
+            max_copies = 30
+            nosale_cut, cpa_cut = (8.0, 12.0) if is_gulf else (4.0, 7.0)
 
             c_sp1 = round(sum(st1.get(s["id"], empty)["spend"] for s in act), 2)
             c_pu1 = sum(st1.get(s["id"], empty)["purchases"] for s in act)
@@ -1219,15 +1220,18 @@ def run_improvements_guardian(sales_3d: dict = None, sales_today: dict = None):
                         still_active.remove(s)
                         actions.append(f"سناب: تقليص التشتت فوق {max_copies} مجموعات في '{cname}' — إيقاف '{s.get('name','')}'")
 
-            # (C) سلّم البيدات: تهدئة أي بيد فوق السقف (عدا الفائز CPA<=5 اليوم)
+            # (C) سلّم البيدات: تهدئة أي بيد فوق السقف (عدا الفائز CPA<=5 اليوم أو أدست الاختبار تيست ذات سقف $3.00)
             for s in still_active:
+                nm_s = (s.get("name") or "").strip().lower()
+                is_test_sq_g = nm_s in ("تيست", "تست", "test") or (("تيست" in nm_s or "تست" in nm_s or "test" in nm_s) and "copy" not in nm_s)
+                eff_bid_cap = 3.00 if is_test_sq_g else bid_cap
                 bid = (s.get("bid_micro") or 0) / 1e6
                 st = st1.get(s["id"], empty)
                 is_winner = st["purchases"] >= 1 and (st["cpa"] or 99) <= 5.0
-                if bid > bid_cap + 0.001 and not is_winner:
-                    s["bid_micro"] = int(bid_cap * 1_000_000)
+                if bid > eff_bid_cap + 0.001 and not is_winner:
+                    s["bid_micro"] = int(eff_bid_cap * 1_000_000)
                     put_squad(s)
-                    actions.append(f"سناب: تهدئة بيد '{s.get('name','')}' من ${bid:.2f} إلى ${bid_cap:.2f}")
+                    actions.append(f"سناب: تهدئة بيد '{s.get('name','')}' من ${bid:.2f} إلى ${eff_bid_cap:.2f}")
 
             # (D) حماية الميزانية: إرجاع السكيل العمودي خطوة عند تدهور CPA 3 أيام
             for s in still_active:
