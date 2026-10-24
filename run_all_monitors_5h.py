@@ -510,19 +510,11 @@ def run_proactive_sales_scaling(sales_3d: dict, sales_today: dict):
                 is_test_sq = sname.strip().lower() in ("تيست", "تست", "test") or (("تيست" in sname.lower() or "تست" in sname.lower() or "test" in sname.lower()) and not is_copy_sq)
                 user_react_sq = history.get("user_reactivated_squads", {})
 
-                # (0) إيقاف أي مجموعة (AdSquad) تصرف >= $4.00 بـ 0 مبيعات أو يتعدى فيها سعر النقرة CPC > $0.35 بدون مبيعات، أو تتخطى CPA > $7.00 — بغض النظر لو بعض الفيديوهات بداخلها لم تأخذ فرصتها بعد! (مع استثناء أدست الاختبار السريع تيست)
+                # (0) إيقاف أي مجموعة (AdSquad) تصرف >= $4.00 بـ 0 مبيعات أو يتعدى فيها سعر النقرة CPC > $0.28 بعد أول $1.00، أو تتخطى CPA > $7.00 — على طول (مع استثناء أدست الاختبار السريع تيست)
                 high_cpc_no_sale = (
-                    s1["purchases"] == 0
-                    and (
-                        (s1["spend"] >= 1.00 and s1.get("swipes", 0) == 0)
-                        or (s1["spend"] >= 0.70 and s1.get("swipes", 0) > 0 and s1.get("cpc", 0.0) > 0.35)
-                    )
+                    s1["spend"] >= 1.00 and (s1.get("swipes", 0) == 0 or s1.get("cpc", 0.0) > 0.28)
                 ) or (
-                    s3["purchases"] == 0
-                    and (
-                        (s3["spend"] >= 1.00 and s3.get("swipes", 0) == 0)
-                        or (s3["spend"] >= 0.70 and s3.get("swipes", 0) > 0 and s3.get("cpc", 0.0) > 0.35)
-                    )
+                    s3["spend"] >= 1.00 and (s3.get("swipes", 0) == 0 or s3.get("cpc", 0.0) > 0.28)
                 )
                 hit_4_stop_loss = (s1["spend"] >= 4.00 and s1["purchases"] == 0) or (s3["spend"] >= 4.00 and s3["purchases"] == 0)
                 hit_high_cpa = is_copy_sq and (s3["purchases"] > 0 and s3["cpa"] is not None and s3["cpa"] > 7.0)
