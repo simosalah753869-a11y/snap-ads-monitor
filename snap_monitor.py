@@ -120,7 +120,10 @@ def api_get_paginated(endpoint: str, token: str, list_key: str, item_key: str, m
     for _ in range(max_pages):
         if not next_url:
             break
-        resp = api_get(next_url, token)
+        try:
+            resp = api_get(next_url, token)
+        except Exception:
+            break
         for wrap in resp.get(list_key, []):
             obj = wrap.get(item_key)
             if obj:
@@ -145,7 +148,11 @@ def fetch_account_breakdown_stats(token: str, ad_account_id: str, breakdown: str
         f"&breakdown={breakdown}&fields={fields}"
         f"&swipe_up_attribution_window=1_DAY&view_attribution_window=1_DAY"
     )
-    resp = api_get(url, token)
+    try:
+        resp = api_get(url, token)
+    except Exception as e:
+        print(f"⚠️ تخطي استعلام إحصائيات ({breakdown}, days_back={days_back}) بسبب مهلة الاتصال: {e}")
+        return []
     breakdown_list = (
         resp.get("total_stats", [{}])[0]
         .get("total_stat", {})
@@ -249,7 +256,7 @@ def evaluate_single_ad_rule(st: dict, campaign_name: str, adsquad_name: str, squ
                 return True, f"[Test AdSquad Video Rule: CPC > $0.30] صرف الفيديو ${spend} | النقرات: {swipes} | سعر النقرة CPC = ${cpc} (> $0.30)"
         return False, ""
 
-    max_cpc = 0.30 if is_cross_prod else 0.35
+    max_cpc = 0.30 if is_cross_prod else (0.35 if is_gulf else 0.28)
     min_cpc_spend = 0.80 if is_cross_prod else 1.0
     max_cpa = 12.0 if is_gulf else 7.0
     no_sale_stop = 10.0 if is_gulf else 4.0
@@ -270,9 +277,9 @@ def evaluate_single_ad_rule(st: dict, campaign_name: str, adsquad_name: str, squ
     if not is_cross_prod and spend >= no_sale_stop and purchases == 0:
         return True, f"[Single Video ${no_sale_stop:.0f} Stop-Loss] صرف الفيديو ${spend} (>= ${no_sale_stop:.2f}) بدون مبيعة"
 
-    # 2B. فلتر النقرة داخل نسخ الـ Copy (> $0.35 CPC)
+    # 2B. فلتر النقرة داخل نسخ الـ Copy (> $0.28 CPC للسعودية / > $0.35 للخليج)
     if is_copy and not is_cross_prod and spend >= 2.50 and purchases == 0:
-        copy_early_cpc = 0.35
+        copy_early_cpc = 0.35 if is_gulf else 0.28
         if swipes == 0 or cpc > copy_early_cpc:
             return True, f"[Copy Early High-CPC Cut] نسخة Copy دخلت جمهوراً غالياً: صرفت ${spend} (>= $2.50) بدون مبيعات بـ CPC=${cpc} (> ${copy_early_cpc})"
 
@@ -351,8 +358,8 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
     squad_stats_2d_map = {st["id"]: st for st in squad_stats_2d}
     squad_stats_3d = fetch_account_breakdown_stats(token, ad_account_id, "adsquad", days_back=2)
     squad_stats_3d_map = {st["id"]: st for st in squad_stats_3d}
-    squad_stats_7d = fetch_account_breakdown_stats(token, ad_account_id, "adsquad", days_back=6)
-    squad_stats_7d_map = {st["id"]: st for st in squad_stats_7d}
+    squad_stats_7d = list(squad_stats_3d)
+    squad_stats_7d_map = dict(squad_stats_3d_map)
     camp_stats_3d = fetch_account_breakdown_stats(token, ad_account_id, "campaign", days_back=2)
     camp_stats_3d_map = {st["id"]: st for st in camp_stats_3d}
 
@@ -400,7 +407,7 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
     for c in active_campaigns:
         c_id = c["id"]
         try:
-            c_squads = api_get_paginated(f"/campaigns/{c_id}/adsquads?limit=100", token, "adsquads", "adsquad", max_pages=50)
+            c_squads = api_get_paginated(f"/campaigns/{c_id}/adsquads?limit=200", token, "adsquads", "adsquad", max_pages=15)
             camp_squads_cache[c_id] = c_squads
             for sq in c_squads:
                 squad_cache[sq["id"]] = sq
@@ -414,8 +421,8 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
     ad_stats_2d_map = {st["id"]: st for st in ad_stats_2d}
     ad_stats_3d = fetch_account_breakdown_stats(token, ad_account_id, "ad", days_back=2)
     ad_stats_3d_map = {st["id"]: st for st in ad_stats_3d}
-    ad_stats_7d = fetch_account_breakdown_stats(token, ad_account_id, "ad", days_back=6)
-    ad_stats_7d_map = {st["id"]: st for st in ad_stats_7d}
+    ad_stats_7d = list(ad_stats_3d)
+    ad_stats_7d_map = dict(ad_stats_3d_map)
 
     def clean_base_ad_name(raw_nm: str) -> str:
         s = (raw_nm or "").strip()
@@ -432,7 +439,7 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
     for c in active_campaigns:
         c_id = c["id"]
         try:
-            c_ads = api_get_paginated(f"/campaigns/{c_id}/ads?limit=100", token, "ads", "ad", max_pages=60)
+            c_ads = api_get_paginated(f"/campaigns/{c_id}/ads?limit=200", token, "ads", "ad", max_pages=15)
             camp_ads_cache[c_id] = c_ads
             for a in c_ads:
                 ad_cache[a["id"]] = a
@@ -722,14 +729,22 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
         c_name = camp_names.get(c_id, "")
 
         is_test_sq = is_non_copy_test_adsquad(s_name)
+        is_gulf_sq = is_gulf_034_campaign(c_name, s_name, squad)
         min_spend_chk = 0.60 if is_test_sq else (0.80 if is_cross_monitored_product_campaign(c_name, s_name) else 1.0)
-        max_cpa_3d_ind = 6.99 if is_test_sq else (12.0 if is_gulf_034_campaign(c_name, s_name, squad) else 7.0)
-        no_sale_1d_ind = 4.0 if is_test_sq else (10.0 if is_gulf_034_campaign(c_name, s_name, squad) else 5.0)
+        max_cpa_3d_ind = 6.99 if is_test_sq else (12.0 if is_gulf_sq else 7.0)
+        no_sale_1d_ind = 4.0 if is_test_sq else (10.0 if is_gulf_sq else 4.0)
+        max_cpc_1d_ind = 0.30 if is_test_sq else (0.35 if is_gulf_sq else 0.28)
+        has_today_high_cpc_bleed = (
+            st["spend"] >= min_spend_chk
+            and st["purchases"] == 0
+            and (st["swipes"] == 0 or st["cpc"] > max_cpc_1d_ind)
+        )
         is_proven_3d_winner = (
             st3["purchases"] >= 1
             and st3["cpa"] is not None
             and st3["cpa"] <= max_cpa_3d_ind
             and not (st["spend"] >= no_sale_1d_ind and st["purchases"] == 0)
+            and not has_today_high_cpc_bleed
             and not (st["purchases"] > 0 and st["cpa"] is not None and st["cpa"] > max_cpa_3d_ind)
             and not (st2["purchases"] > 0 and st2["cpa"] is not None and st2["cpa"] > max_cpa_3d_ind)
         )
@@ -823,6 +838,16 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
 
         video_groups = {}
         for a in c_ads:
+            aid_cur = a.get("id")
+            is_act_in_act_sq = (a.get("status") == "ACTIVE" and squad_status_map.get(a.get("ad_squad_id")) == "ACTIVE")
+            if (
+                not is_act_in_act_sq
+                and aid_cur not in ad_stats_map
+                and aid_cur not in ad_stats_2d_map
+                and aid_cur not in ad_stats_3d_map
+                and aid_cur not in ad_stats_7d_map
+            ):
+                continue
             cr_id = a.get("creative_id")
             ad_nm = (a.get("name") or "").strip()
             base_nm = clean_base_ad_name(ad_nm)
