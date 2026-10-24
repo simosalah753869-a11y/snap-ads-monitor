@@ -157,11 +157,8 @@ def make_session(token: str) -> requests.Session:
 
 
 def clone_adsquad_exact(session: requests.Session, src: dict, copies_count: int) -> list[str]:
-    source_squad_id = src["id"]
-    campaign_id = src["campaign_id"]
-    src_name = src["name"]
-    base_clean_squad_name = src_name.split(" [H")[0].strip()
-    new_name_base = base_clean_squad_name if base_clean_squad_name.lower().startswith("copy of") else f"Copy of {base_clean_squad_name}"
+    print("   🚫 الدوبليكيت في سناب شات متوقف نهائياً بأمر المستخدم.", flush=True)
+    return []
 
     ra = session.get(f"{API_BASE}/adsquads/{source_squad_id}/ads", timeout=20)
     ra.raise_for_status()
