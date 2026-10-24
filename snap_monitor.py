@@ -6,7 +6,7 @@ import sys
 import time
 import urllib.parse
 import urllib.request
-from snap_auth import API_BASE, api_get, load_config, refresh_access_token
+from snap_auth import API_BASE, _get_snap_session, api_get, load_config, refresh_access_token
 from duplicate_gulf_campaigns import clone_adsquad_exact, make_session
 
 sys.stdout.reconfigure(encoding="utf-8")
@@ -94,24 +94,22 @@ def save_paused_history(history: dict):
 
 def api_put(endpoint: str, token: str, payload: dict) -> dict:
     url = f"{API_BASE}{endpoint}" if endpoint.startswith("/") else endpoint
-    data = json.dumps(payload).encode("utf-8")
-    for attempt in range(4):
+    sess = _get_snap_session()
+    for attempt in range(3):
         try:
-            req = urllib.request.Request(
+            r = sess.put(
                 url,
-                data=data,
-                headers={
-                    "Authorization": f"Bearer {token}",
-                    "Content-Type": "application/json",
-                },
-                method="PUT",
+                json=payload,
+                headers={"Authorization": f"Bearer {token}"},
+                timeout=20,
             )
-            with urllib.request.urlopen(req, timeout=25) as resp:
-                return json.loads(resp.read().decode("utf-8"))
-        except Exception as e:
-            if attempt == 3:
+            if r.ok:
+                return r.json()
+        except Exception:
+            if attempt == 2:
                 raise
-            time.sleep(1.5 * (attempt + 1))
+            time.sleep(1.0)
+    return {}
 
 
 def api_get_paginated(endpoint: str, token: str, list_key: str, item_key: str, max_pages: int = 30) -> list[dict]:
@@ -219,12 +217,9 @@ def evaluate_adsquad_rule(adsquad_name: str, st: dict, campaign_name: str = "", 
     if spend >= no_sale_lim and purchases == 0:
         return True, f"[AdSquad $4.00 Stop-Loss] صرفت المجموعة ${spend:.2f} (>= ${no_sale_lim:.2f}) بدون أي مبيعة (0 مبيعات)"
 
-    if not is_copy:
-        return False, ""
-
-    # 3) إيقاف المجموعة إذا تخطت الحد الأقصى للـ CPA:
+    # 3) إيقاف أي مجموعة إعلانية إذا تخطت الحد الأقصى للـ CPA (> $7.00 للسعودية / > $12.00 للخليج):
     if purchases > 0 and cpa is not None and cpa > max_cpa_lim:
-        return True, f"[Copy Rule] سعر البيعة CPA = ${cpa} (> ${max_cpa_lim:.2f}) | الصرف: ${spend} | المبيعات: {purchases}"
+        return True, f"[AdSquad Max CPA Rule] سعر البيعة CPA = ${cpa} (> ${max_cpa_lim:.2f}) | الصرف: ${spend} | المبيعات: {purchases}"
 
     return False, ""
 
@@ -545,10 +540,6 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
             c_resp = api_get(f"/campaigns/{c_id}", token)
             camp_names[c_id] = c_resp.get("campaigns", [{}])[0].get("campaign", {}).get("name", "")
         c_name = camp_names.get(c_id, "")
-
-        if s_id in history["adsquads"]:
-            print(f"⏭️ تجاهل المجموعة '{s_name}' — أعدتَ تشغيلها يدوياً (فرصة أخرى).")
-            continue
 
         if is_cross_monitored_product_campaign(c_name, s_name):
             # هذه الحملات (وسادة مايباخ ودفاتر TIME X) يراقبها cross_product_monitor.py بمجموع الصرف في سناب وتيكتوك معاً (20$)
