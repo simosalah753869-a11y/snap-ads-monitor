@@ -96,53 +96,8 @@ def clone_cohort_15x(
     count_to_create: int,
     start_index: int,
 ) -> list[str]:
-    now_iso = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%S.000Z")
-    payloads = []
-    for idx in range(start_index, start_index + count_to_create):
-        sq_copy = {
-            "name": f"{cohort_prefix} #{idx:02d}",
-            "status": "ACTIVE",
-            "campaign_id": camp_id,
-            "type": template_squad.get("type", "SNAP_ADS"),
-            "targeting": template_squad.get("targeting"),
-            "placement_v2": template_squad.get("placement_v2", {"config": "AUTOMATIC"}),
-            "billing_event": template_squad.get("billing_event", "IMPRESSION"),
-            "bid_micro": bid_micro,
-            "auto_bid": False,
-            "target_bid": False,
-            "bid_strategy": "LOWEST_COST_WITH_MAX_BID",
-            "daily_budget_micro": template_squad.get("daily_budget_micro", 20_000_000),
-            "start_time": now_iso,
-            "optimization_goal": template_squad.get("optimization_goal", "PIXEL_PURCHASE"),
-            "conversion_window": template_squad.get("conversion_window", "SWIPE_28DAY_VIEW_1DAY"),
-            "pixel_id": template_squad.get("pixel_id"),
-            "pacing_type": template_squad.get("pacing_type", "STANDARD"),
-            "child_ad_type": template_squad.get("child_ad_type", "REMOTE_WEBPAGE"),
-            "forced_view_setting": template_squad.get("forced_view_setting", "NONE"),
-            "brand_safety_config": template_squad.get("brand_safety_config", {"inventory_option": "FULL_INVENTORY"}),
-        }
-        payloads.append(sq_copy)
-
-    r_sq = s.post(f"{API_BASE}/campaigns/{camp_id}/adsquads", json={"adsquads": payloads}, timeout=30)
-    r_sq.raise_for_status()
-    created_squads = [x["adsquad"] for x in r_sq.json().get("adsquads", []) if "adsquad" in x]
-    created_ids = []
-    for new_sq in created_squads:
-        sq_id = new_sq["id"]
-        created_ids.append(sq_id)
-        ads_payload = [
-            {
-                "ad_squad_id": sq_id,
-                "creative_id": a["creative_id"],
-                "name": a["name"],
-                "status": "ACTIVE",
-                "type": a.get("type", "REMOTE_WEBPAGE"),
-            }
-            for a in template_ads
-        ]
-        if ads_payload:
-            s.post(f"{API_BASE}/adsquads/{sq_id}/ads", json={"ads": ads_payload}, timeout=25)
-    return created_ids
+    print("   🚫 الدوبليكيت في سناب شات متوقف نهائياً بأمر المستخدم.", flush=True)
+    return []
 
 
 def main(dry_run: bool = False):
@@ -262,155 +217,17 @@ def main(dry_run: bool = False):
                 active_cohort_squads = active_cohort_squads[:15]
                 print(f"   🛑 [سقف 15 للمجموعة / 30 للحملة] تم إيقاف {len(excess_cohort)} نسخة زائدة في '{c_prefix}'.", flush=True)
 
-            is_good_selling_cohort = (
-                eff_purch >= GOOD_COHORT_MIN_SALES
-                and cohort_cpa is not None
-                and cohort_cpa <= GOOD_COHORT_MAX_CPA
+            # إيقاف الدوبليكيت في سناب شات نهائياً بأمر المستخدم: نكتفي بإطفاء أي أدست خاسرة دون إنشاء أي نسخ جديدة
+            print(
+                f"   🚫 الدوبليكيت متوقف نهائياً في سناب شات — الإبقاء على {len(active_cohort_squads)} أدست رابحة/سليمة فقط في '{c_prefix}'.",
+                flush=True,
             )
-
-            if not is_good_selling_cohort:
-                print(
-                    f"   ⏸️ المجموعة '{c_prefix}' لم تحقق شرط البيع المربح (مبيعات >= {GOOD_COHORT_MIN_SALES} بـ CPA <= ${GOOD_COHORT_MAX_CPA:.2f}) — لن يُعاد نسخها وتُترك كما هي.",
-                    flush=True,
-                )
-                continue
-
-            # حساب العدد المسموح بإنشائه بحيث لا تتعدى المجموعة الفرعية 15 نسخة نشطة ولا تتعدى الحملة 30 نسخة أدست نشطة نهائياً
-            all_active_copy_in_camp = [
-                sq_x for sq_x in squads
-                if sq_x.get("status") == "ACTIVE" and "copy" in (sq_x.get("name") or "").lower()
-            ]
-            missing_in_cohort = max(0, 15 - len(active_cohort_squads))
-            available_in_camp = max(0, 30 - len(all_active_copy_in_camp))
-            count_to_create = min(missing_in_cohort, available_in_camp)
-            if count_to_create <= 0:
-                print(
-                    f"   ✅ الحملة وصلت للسقف الأقصى المسموح ({len(all_active_copy_in_camp)}/30 أدست نشطة، و {len(active_cohort_squads)}/15 في '{c_prefix}') — لن يتم تجاوز 30 نسخة.",
-                    flush=True,
-                )
-                continue
-
-            dup_key = f"{today_str}:{acc_id}:{camp_id}:{c_key}"
-            if dup_key in cohort_dup_log:
-                print(f"   ✅ تم بالفعل تعويض النسخ المسموحة لـ '{c_prefix}' اليوم.", flush=True)
-                continue
-
-            # Pick a template squad with active ads
-            tmpl_sq = (active_cohort_squads or cohort_squads)[0]
-            tmpl_ads = [a for a in ads_by_sq.get(tmpl_sq["id"], []) if a.get("status") == "ACTIVE"]
-            if not tmpl_ads:
-                for sq_cand in cohort_squads:
-                    cand_ads = [a for a in ads_by_sq.get(sq_cand["id"], []) if a.get("status") == "ACTIVE"]
-                    if cand_ads:
-                        tmpl_sq = sq_cand
-                        tmpl_ads = cand_ads
-                        break
-            if not tmpl_ads:
-                tmpl_ads = ads_by_sq.get(tmpl_sq["id"], [])
-
-            if dry_run:
-                print(
-                    f"   🔍 [Dry-Run] سيتم إنشاء {count_to_create} مجموعة تعويضية (حتى سقف 15/30) من المجموعة الرابحة '{c_prefix}' (مبيعات={eff_purch}, CPA=${cohort_cpa})!",
-                    flush=True,
-                )
-            else:
-                new_ids = clone_cohort_15x(
-                    s=s,
-                    camp_id=camp_id,
-                    template_squad=tmpl_sq,
-                    template_ads=tmpl_ads,
-                    cohort_prefix=c_prefix,
-                    bid_micro=bid_micro,
-                    count_to_create=count_to_create,
-                    start_index=len(cohort_squads) + 1,
-                )
-                cohort_dup_log[dup_key] = {
-                    "account_name": acc_name,
-                    "campaign_id": camp_id,
-                    "cohort_prefix": c_prefix,
-                    "spend": eff_spend,
-                    "purchases": eff_purch,
-                    "cpa": cohort_cpa,
-                    "created_squad_ids": new_ids,
-                    "duplicated_at": datetime.now(ACCOUNT_TZ).isoformat(),
-                }
-                save_paused_history(history)
-                print(
-                    f"   🔥🚀 تم إنشاء {len(new_ids)} مجموعة تعويضية للمجموعة الفائزة '{c_prefix}' دون تجاوز سقف 30 أدست في الحملة!",
-                    flush=True,
-                )
+            continue
 
 
 def enforce_exact_15_per_cohort(target_start_iso: str = "2026-10-24T03:00:00.000Z"):
-    cfg = load_config()
-    token = refresh_access_token(cfg)
-    s = make_session(token)
-    for it in CAMPAIGNS_TO_MANAGE:
-        acc_id = it["account_id"]
-        cid = it["campaign_id"]
-        prod = it["prod_prefix"]
-        rc = s.get(f"{API_BASE}/campaigns/{cid}", timeout=20).json()
-        camp_obj = (rc.get("campaigns") or [{}])[0].get("campaign", {})
-        if camp_obj and camp_obj.get("status") != "ACTIVE":
-            camp_obj["status"] = "ACTIVE"
-            s.put(f"{API_BASE}/adaccounts/{acc_id}/campaigns", json={"campaigns": [camp_obj]}, timeout=20)
-            print(f"✅ [{it['account_name']}] تفعيل الحملة '{camp_obj.get('name')}' ({cid})", flush=True)
-
-        sqs = get_all_pages(s, f"/campaigns/{cid}/adsquads?limit=100", "adsquads")
-        ads = get_all_pages(s, f"/campaigns/{cid}/ads?limit=100", "ads")
-        by_sq = {}
-        for a in ads:
-            by_sq.setdefault(a.get("ad_squad_id"), []).append(a)
-
-        kept_ids = set()
-        for cs in COHORT_SPECS:
-            cp = cs["prefix_tpl"].format(prod=prod)
-            csqs = [x for x in sqs if (x.get("name") or "").startswith(cp)]
-            with_ads = [x for x in csqs if by_sq.get(x["id"])]
-            tmpl_ads = by_sq.get(with_ads[0]["id"], []) if with_ads else []
-            keep15 = csqs[-15:]
-            pause_rest = csqs[:-15]
-            to_upd = []
-            for x in keep15:
-                kept_ids.add(x["id"])
-                if not by_sq.get(x["id"]) and tmpl_ads:
-                    s.post(
-                        f"{API_BASE}/adsquads/{x['id']}/ads",
-                        json={
-                            "ads": [
-                                {
-                                    "ad_squad_id": x["id"],
-                                    "creative_id": a["creative_id"],
-                                    "name": a["name"],
-                                    "status": "ACTIVE",
-                                    "type": "REMOTE_WEBPAGE",
-                                }
-                                for a in tmpl_ads
-                            ]
-                        },
-                        timeout=25,
-                    )
-                if x.get("status") != "ACTIVE" or x.get("start_time") != target_start_iso:
-                    x["status"] = "ACTIVE"
-                    x["start_time"] = target_start_iso
-                    to_upd.append(x)
-            for x in pause_rest:
-                if x.get("status") == "ACTIVE":
-                    x["status"] = "PAUSED"
-                    to_upd.append(x)
-            if to_upd:
-                for i in range(0, len(to_upd), 20):
-                    s.put(f"{API_BASE}/campaigns/{cid}/adsquads", json={"adsquads": to_upd[i : i + 20]}, timeout=25)
-            act_cnt = len([x for x in keep15 if x.get("status") == "ACTIVE"])
-            print(f"✅ [{it['account_name']} | {cp}] النشط الآن بالضبط: {act_cnt}/15 (مجدول 6:00 صباحاً -> {target_start_iso})", flush=True)
-
-        other_active = [x for x in sqs if x["id"] not in kept_ids and x.get("status") == "ACTIVE"]
-        if other_active:
-            for x in other_active:
-                x["status"] = "PAUSED"
-            for i in range(0, len(other_active), 20):
-                s.put(f"{API_BASE}/campaigns/{cid}/adsquads", json={"adsquads": other_active[i : i + 20]}, timeout=25)
-            print(f"🛑 [{it['account_name']}] إيقاف {len(other_active)} مجموعة قديمة أخرى داخل الحملة.", flush=True)
+    print("🚫 الدوبليكيت وإعادة تفعيل الأدست الموقوفة في سناب شات متوقفان نهائياً بأمر المستخدم.", flush=True)
+    return
 
 
 if __name__ == "__main__":
