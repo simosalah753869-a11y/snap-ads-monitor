@@ -16,9 +16,14 @@ sys.stdout.reconfigure(encoding="utf-8")
 _orig_getaddrinfo = socket.getaddrinfo
 _dns_cache = {}
 def _doh_getaddrinfo(host, port, family=0, type=0, proto=0, flags=0):
+    if host in _dns_cache:
+        return _orig_getaddrinfo(_dns_cache[host], port, socket.AF_INET, type, proto, flags)
     try:
         res = _orig_getaddrinfo(host, port, socket.AF_INET, type, proto, flags)
         if res:
+            ip = res[0][4][0]
+            if ip and not str(host).replace(".", "").isdigit():
+                _dns_cache[host] = ip
             return res
     except Exception:
         pass
