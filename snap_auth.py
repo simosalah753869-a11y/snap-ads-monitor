@@ -130,20 +130,15 @@ def api_get(endpoint: str, token: str) -> dict:
     import time
     url = f"{API_BASE}{endpoint}" if endpoint.startswith("/") else endpoint
     sess = _get_snap_session()
-    for attempt in range(4):
+    for attempt in range(2):
         try:
-            r = sess.get(url, headers={"Authorization": f"Bearer {token}"}, timeout=15)
+            r = sess.get(url, headers={"Authorization": f"Bearer {token}"}, timeout=20)
             if r.status_code == 200:
                 return r.json()
         except Exception:
-            try:
-                req = urllib.request.Request(url, headers={"Authorization": f"Bearer {token}"})
-                with urllib.request.urlopen(req, timeout=15) as resp:
-                    return json.loads(resp.read().decode("utf-8"))
-            except Exception:
-                if attempt == 3:
-                    raise
-                time.sleep(1.0 * (attempt + 1))
+            if attempt == 1:
+                raise
+            time.sleep(1.0)
     return {}
 
 
