@@ -299,6 +299,24 @@
       "campaign": "باور بانك وينر - سمارت",
       "reason": "[AdSquad CPC > $0.35 Rule] صرفت المجموعة $2.52 بدون مبيعات وسعر النقرة CPC=$0.360 (> $0.35) بغض النظر عن باقي الفيديوهات",
       "paused_at": "2026-10-24 10:06 GMT+3"
+    },
+    "bd1fe8d6-ace0-46e3-b512-336b734477d4": {
+      "name": "24-10 Flow Hook Ads (فولتريكس - إعلانين جديدين)",
+      "campaign": "باور بانك وينر - سمارت",
+      "reason": "[AdSquad CPC > $0.35 Rule] صرفت المجموعة $0.84 بدون مبيعات وسعر النقرة CPC=$0.840 (> $0.35) بغض النظر عن باقي الفيديوهات",
+      "paused_at": "2026-10-24 10:53 GMT+3"
+    },
+    "dbcbc324-72a8-4a4f-8af2-eb96bae15c18": {
+      "name": "Copy A - Car 1.9 Max [H1] #14",
+      "campaign": "car armrest",
+      "reason": "[AdSquad CPC > $0.35 Rule] صرفت المجموعة $1.28 بدون مبيعات وسعر النقرة CPC=$0.427 (> $0.35) بغض النظر عن باقي الفيديوهات",
+      "paused_at": "2026-10-24 10:53 GMT+3"
+    },
+    "c8e288aa-9cef-42c9-8e6f-fba74fa24419": {
+      "name": "Copy B - Car 2.1 Max [H2] #09",
+      "campaign": "car armrest",
+      "reason": "[AdSquad CPC > $0.35 Rule] صرفت المجموعة $2.66 بدون مبيعات وسعر النقرة CPC=$0.443 (> $0.35) بغض النظر عن باقي الفيديوهات",
+      "paused_at": "2026-10-24 10:53 GMT+3"
     }
   },
   "ads": {
@@ -8617,6 +8635,20 @@
       "adsquad": "Copy A - Car 1.9 Max [H1] #08",
       "reason": "[Aggregated Video Stop-Loss 1D - السعودية] مجموع صرف الفيديو التراكمي اليوم عبر كل الـ AdSquads = $9.92 (>= $7.00) بدون أي مبيعة اليوم",
       "paused_at": "2026-10-24 10:06 GMT+3"
+    },
+    "f4a5403d-04af-42fd-a56c-07b69a2ceb0e": {
+      "name": "Car_v6_21_10_hanan1_mbff898 [H2]",
+      "campaign": "car armrest",
+      "adsquad": "Copy B - Car 2.1 Max [H2] #12",
+      "reason": "[Ad CPC Rule] صرف الفيديو $2.24 (>= $1.00) بدون أي نقرة (الحد الأقصى $0.35)",
+      "paused_at": "2026-10-24 10:53 GMT+3"
+    },
+    "f3403a9d-90eb-4ae4-bc70-138195dfd789": {
+      "name": "Car_v2_15_10_4_mf01fe6 [H2]",
+      "campaign": "car armrest",
+      "adsquad": "Copy B - Car 2.1 Max [H2] #12",
+      "reason": "[Copy Early High-CPC Cut] نسخة Copy دخلت جمهوراً غالياً: صرفت $2.93 (>= $2.50) بدون مبيعات بـ CPC=$0.733 (> $0.35)",
+      "paused_at": "2026-10-24 10:53 GMT+3"
     }
   },
   "bid_bumps": {
@@ -11586,6 +11618,18 @@
       "spend_3d": 1.02,
       "conv_3d": 0,
       "paused_at": "2026-10-24T07:10:46.134360+00:00"
+    },
+    "7631765070816509959:1879885970722097": {
+      "account_name": "ROELLINGER RECYCLING2",
+      "aadvid": "7631765070816509959",
+      "campaign_id": "1879885970722097",
+      "campaign_name": "power bank 24-10 v2 (2 Flow Hook Ads)",
+      "reason": "Campaign Today Spend $1.06 >= $1.00 & CPC $0.53 > $0.35 (0 sales Today) | Campaign 2-Day Spend $1.06 >= $1.00 & CPC $0.53 > $0.35 (0 sales) | Campaign 3-Day Spend $1.06 >= $1.00 & CPC $0.53 > $0.35 (0 sales)",
+      "spend_1d": 1.06,
+      "conv_1d": 0,
+      "spend_3d": 1.06,
+      "conv_3d": 0,
+      "paused_at": "2026-10-24T07:56:18.822102+00:00"
     }
   },
   "tiktok_videos": {
@@ -16457,6 +16501,27 @@
       "spend_7d": 1.03,
       "conv_7d": 0,
       "paused_at": "2026-10-24T07:10:32.649783+00:00"
+    },
+    "7631765139798081554:1879885925864098:1879885928165922": {
+      "aadvid": "7631765139798081554",
+      "account_name": "ROELLINGER RECYCLING1",
+      "ad_id": "1879885925864098",
+      "creative_id": "1879885928074993",
+      "campaign_ad_name": "power bank 24-10 v2 (2 Flow Hook Ads) / power bank 24-10 v2 (2 Flow Hook Ads) - Creative",
+      "video_name": "24-10_flow_v2_pb_ad4_2cables_price.mp4",
+      "draft_ids": [
+        "1879885928165922"
+      ],
+      "reason": "Today Early High CPC $0.34 (Spend=$0.34, Clicks=1, 0 sales)",
+      "spend_1d": 0.34,
+      "conv_1d": 0,
+      "spend_2d": 0.34,
+      "conv_2d": 0,
+      "spend_3d": 0.34,
+      "conv_3d": 0,
+      "spend_7d": 0.34,
+      "conv_7d": 0,
+      "paused_at": "2026-10-24T07:56:03.543538+00:00"
     }
   },
   "tiktok_ads": {},
@@ -17294,21 +17359,21 @@
     "4eefa50f-9008-4aea-b159-d370150b60cf": {
       "name": "صندوق دفاتر TIME X 21-10",
       "spend_3d": 27.89,
-      "purchases_3d": 2,
-      "cpa_3d": 13.95,
-      "updated_at": "2026-10-24 10:05 GMT+3"
+      "purchases_3d": 3,
+      "cpa_3d": 9.3,
+      "updated_at": "2026-10-24 10:51 GMT+3"
     },
     "a171c141-a6d5-403e-8357-5c8f6c01bce0": {
       "name": "وسادة مايباخ 21-10",
       "spend_3d": 10.25,
       "purchases_3d": 0,
       "cpa_3d": null,
-      "updated_at": "2026-10-24 10:05 GMT+3"
+      "updated_at": "2026-10-24 10:51 GMT+3"
     },
     "c5a7cade-6ec3-4c47-b3a2-c5f08bcf8da0": {
       "name": "وسادة مايباخ 21-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-24 10:05 GMT+3"
+      "updated_at": "2026-10-24 10:51 GMT+3"
     },
     "1879653126110545": {
       "name": "timex books 21-10",
@@ -17319,12 +17384,12 @@
     "e8f0a5e9-89c5-4c14-aabb-c9c6c657891d": {
       "name": "مسخن الرضاعات اللاسلكي 22-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-24 10:05 GMT+3"
+      "updated_at": "2026-10-24 10:51 GMT+3"
     },
     "f18a3bf4-148a-4f5e-baa1-f90335f1884c": {
       "name": "مسخن الرضاعات اللاسلكي 22-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-24 10:05 GMT+3"
+      "updated_at": "2026-10-24 10:51 GMT+3"
     },
     "1879676075637041": {
       "name": "baby bottle warmer 22-10",
@@ -17343,7 +17408,7 @@
       "spend_3d": 23.96,
       "purchases_3d": 3,
       "cpa_3d": 7.99,
-      "updated_at": "2026-10-24 10:05 GMT+3"
+      "updated_at": "2026-10-24 10:51 GMT+3"
     },
     "1879653022433617": {
       "name": "maybach pillow 21-10",
@@ -17353,10 +17418,10 @@
     },
     "558c5d45-f08e-400c-a499-7668e801c347": {
       "name": "car armrest",
-      "spend_3d": 66.59,
+      "spend_3d": 78.45,
       "purchases_3d": 5,
-      "cpa_3d": 13.32,
-      "updated_at": "2026-10-24 10:06 GMT+3"
+      "cpa_3d": 15.69,
+      "updated_at": "2026-10-24 10:53 GMT+3"
     },
     "1879824619984018": {
       "name": "power bank 23-10 (Voltrx 10 Hooks Ads)",
@@ -17410,6 +17475,13 @@
       "purchases_3d": 1,
       "cpa_3d": 7.15,
       "reason": "3-Day CPA > $7.00 — Duplication Blocked"
+    },
+    "803324e6-052e-441b-99fb-4d43e56c5c78": {
+      "name": "باور بانك وينر - سمارت",
+      "spend_3d": 7.66,
+      "purchases_3d": 1,
+      "cpa_3d": 7.66,
+      "updated_at": "2026-10-24 10:53 GMT+3"
     }
   },
   "proactive_scaled_squads": {
