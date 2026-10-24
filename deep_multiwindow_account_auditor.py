@@ -24,6 +24,12 @@ _dns_cache = {}
 
 def _doh_getaddrinfo(host, port, family=0, type=0, proto=0, flags=0):
     try:
+        res = _orig_getaddrinfo(host, port, socket.AF_INET, type, proto, flags)
+        if res:
+            return res
+    except Exception:
+        pass
+    try:
         return _orig_getaddrinfo(host, port, family, type, proto, flags)
     except Exception:
         if host not in _dns_cache:
@@ -40,7 +46,7 @@ def _doh_getaddrinfo(host, port, family=0, type=0, proto=0, flags=0):
             except Exception:
                 pass
         if host in _dns_cache:
-            return _orig_getaddrinfo(_dns_cache[host], port, family, type, proto, flags)
+            return _orig_getaddrinfo(_dns_cache[host], port, socket.AF_INET, type, proto, flags)
         raise
 
 
