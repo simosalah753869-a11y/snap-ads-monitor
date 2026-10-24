@@ -245,6 +245,12 @@
       "campaign": "smart+ cars SA 18-10",
       "reason": "[Copy Rule] سعر البيعة CPA = $7.85 (> $7.00) | الصرف: $7.85 | المبيعات: 1",
       "paused_at": "2026-10-23 14:00 GMT+3"
+    },
+    "1b35dac1-499a-4717-8725-2433e8a0974b": {
+      "name": "Copy B - Car 2.1 Max [H2] #03",
+      "campaign": "car scaling camp ",
+      "reason": "[AdSquad CPC > $0.35 Rule] صرفت المجموعة $0.99 بدون مبيعات وسعر النقرة CPC=$0.495 (> $0.35) بغض النظر عن باقي الفيديوهات",
+      "paused_at": "2026-10-24 05:12 GMT+3"
     }
   },
   "ads": {
@@ -15756,6 +15762,153 @@
       "spend_7d": 0.35,
       "conv_7d": 0,
       "paused_at": "2026-10-24T00:43:52.476996+00:00"
+    },
+    "7631765139798081554:1879845883154162:1879849564252705": {
+      "aadvid": "7631765139798081554",
+      "account_name": "ROELLINGER RECYCLING1",
+      "ad_id": "1879845883154162",
+      "creative_id": "1879849562268690",
+      "campaign_ad_name": "power bank ym49 23-10 (Voltrx UGC Scripts B1 - 9 Ads) / power bank ym49 23-10 (Voltrx UGC Scripts B1 - 9 Ads) - Creative",
+      "video_name": "23-10_voltrx_ym49_s05.mp4",
+      "draft_ids": [
+        "1879849564252705"
+      ],
+      "reason": "2-Day High CPC $0.35 (Spend=$0.35, Clicks=1, 0 sales)",
+      "spend_1d": 0.09,
+      "conv_1d": 0,
+      "spend_2d": 0.35,
+      "conv_2d": 0,
+      "spend_3d": 0.35,
+      "conv_3d": 0,
+      "spend_7d": 0.35,
+      "conv_7d": 0,
+      "paused_at": "2026-10-24T02:16:32.381514+00:00"
+    },
+    "7631765070816509959:1879846162789890:1879849617184081": {
+      "aadvid": "7631765070816509959",
+      "account_name": "ROELLINGER RECYCLING2",
+      "ad_id": "1879846162789890",
+      "creative_id": "1879849615710306",
+      "campaign_ad_name": "power bank ym49 23-10 (Voltrx UGC Scripts B1 - 9 Ads) / power bank ym49 23-10 (Voltrx UGC Scripts B1 - 9 Ads) - Creative",
+      "video_name": "23-10_voltrx_ym49_s10.mp4",
+      "draft_ids": [
+        "1879849617184081"
+      ],
+      "reason": "Sibling 0-Sale Video Pruned to Protect Winning Video in Elevated-CPA Campaign (3D=$0.89, 7D=$0.89, 0 sales)",
+      "spend_1d": 0.09,
+      "conv_1d": 0,
+      "spend_2d": 0.89,
+      "conv_2d": 0,
+      "spend_3d": 0.89,
+      "conv_3d": 0,
+      "spend_7d": 0.89,
+      "conv_7d": 0,
+      "paused_at": "2026-10-24T02:16:58.303353+00:00"
+    },
+    "7631765070816509959:1879846162789890:1879849617182977": {
+      "aadvid": "7631765070816509959",
+      "account_name": "ROELLINGER RECYCLING2",
+      "ad_id": "1879846162789890",
+      "creative_id": "1879849615710306",
+      "campaign_ad_name": "power bank ym49 23-10 (Voltrx UGC Scripts B1 - 9 Ads) / power bank ym49 23-10 (Voltrx UGC Scripts B1 - 9 Ads) - Creative",
+      "video_name": "23-10_voltrx_ym49_s09.mp4",
+      "draft_ids": [
+        "1879849617182977"
+      ],
+      "reason": "Sibling 0-Sale Video Pruned to Protect Winning Video in Elevated-CPA Campaign (3D=$0.66, 7D=$0.66, 0 sales)",
+      "spend_1d": 0.01,
+      "conv_1d": 0,
+      "spend_2d": 0.66,
+      "conv_2d": 0,
+      "spend_3d": 0.66,
+      "conv_3d": 0,
+      "spend_7d": 0.66,
+      "conv_7d": 0,
+      "paused_at": "2026-10-24T02:16:58.909293+00:00"
+    },
+    "7631765070816509959:1879846162789890:1879849617184113": {
+      "aadvid": "7631765070816509959",
+      "account_name": "ROELLINGER RECYCLING2",
+      "ad_id": "1879846162789890",
+      "creative_id": "1879849615710306",
+      "campaign_ad_name": "power bank ym49 23-10 (Voltrx UGC Scripts B1 - 9 Ads) / power bank ym49 23-10 (Voltrx UGC Scripts B1 - 9 Ads) - Creative",
+      "video_name": "23-10_voltrx_ym49_s12.mp4",
+      "draft_ids": [
+        "1879849617184113"
+      ],
+      "reason": "Sibling 0-Sale Video Pruned to Protect Winning Video in Elevated-CPA Campaign (3D=$0.47, 7D=$0.47, 0 sales)",
+      "spend_1d": 0.04,
+      "conv_1d": 0,
+      "spend_2d": 0.47,
+      "conv_2d": 0,
+      "spend_3d": 0.47,
+      "conv_3d": 0,
+      "spend_7d": 0.47,
+      "conv_7d": 0,
+      "paused_at": "2026-10-24T02:16:59.532164+00:00"
+    },
+    "7631765070816509959:1879846162789890:1879849617184097": {
+      "aadvid": "7631765070816509959",
+      "account_name": "ROELLINGER RECYCLING2",
+      "ad_id": "1879846162789890",
+      "creative_id": "1879849615710306",
+      "campaign_ad_name": "power bank ym49 23-10 (Voltrx UGC Scripts B1 - 9 Ads) / power bank ym49 23-10 (Voltrx UGC Scripts B1 - 9 Ads) - Creative",
+      "video_name": "23-10_voltrx_ym49_s11.mp4",
+      "draft_ids": [
+        "1879849617184097"
+      ],
+      "reason": "Sibling 0-Sale Video Pruned to Protect Winning Video in Elevated-CPA Campaign (3D=$0.46, 7D=$0.46, 0 sales)",
+      "spend_1d": 0.03,
+      "conv_1d": 0,
+      "spend_2d": 0.46,
+      "conv_2d": 0,
+      "spend_3d": 0.46,
+      "conv_3d": 0,
+      "spend_7d": 0.46,
+      "conv_7d": 0,
+      "paused_at": "2026-10-24T02:17:00.165506+00:00"
+    },
+    "7631765070816509959:1879846162789890:1879849617182065": {
+      "aadvid": "7631765070816509959",
+      "account_name": "ROELLINGER RECYCLING2",
+      "ad_id": "1879846162789890",
+      "creative_id": "1879849615710306",
+      "campaign_ad_name": "power bank ym49 23-10 (Voltrx UGC Scripts B1 - 9 Ads) / power bank ym49 23-10 (Voltrx UGC Scripts B1 - 9 Ads) - Creative",
+      "video_name": "23-10_voltrx_ym49_s04.mp4",
+      "draft_ids": [
+        "1879849617182065"
+      ],
+      "reason": "Sibling 0-Sale Video Pruned to Protect Winning Video in Elevated-CPA Campaign (3D=$0.36, 7D=$0.36, 0 sales)",
+      "spend_1d": 0.1,
+      "conv_1d": 0,
+      "spend_2d": 0.36,
+      "conv_2d": 0,
+      "spend_3d": 0.36,
+      "conv_3d": 0,
+      "spend_7d": 0.36,
+      "conv_7d": 0,
+      "paused_at": "2026-10-24T02:17:00.773025+00:00"
+    },
+    "7631765070816509959:1879846162789890:1879849617182929": {
+      "aadvid": "7631765070816509959",
+      "account_name": "ROELLINGER RECYCLING2",
+      "ad_id": "1879846162789890",
+      "creative_id": "1879849615710306",
+      "campaign_ad_name": "power bank ym49 23-10 (Voltrx UGC Scripts B1 - 9 Ads) / power bank ym49 23-10 (Voltrx UGC Scripts B1 - 9 Ads) - Creative",
+      "video_name": "23-10_voltrx_ym49_s05.mp4",
+      "draft_ids": [
+        "1879849617182929"
+      ],
+      "reason": "Sibling 0-Sale Video Pruned to Protect Winning Video in Elevated-CPA Campaign (3D=$0.28, 7D=$0.28, 0 sales)",
+      "spend_1d": 0.04,
+      "conv_1d": 0,
+      "spend_2d": 0.28,
+      "conv_2d": 0,
+      "spend_3d": 0.28,
+      "conv_3d": 0,
+      "spend_7d": 0.28,
+      "conv_7d": 0,
+      "paused_at": "2026-10-24T02:17:01.397626+00:00"
     }
   },
   "tiktok_ads": {},
@@ -16595,19 +16748,19 @@
       "spend_3d": 27.89,
       "purchases_3d": 2,
       "cpa_3d": 13.95,
-      "updated_at": "2026-10-24 04:30 GMT+3"
+      "updated_at": "2026-10-24 05:12 GMT+3"
     },
     "a171c141-a6d5-403e-8357-5c8f6c01bce0": {
       "name": "وسادة مايباخ 21-10",
       "spend_3d": 10.25,
       "purchases_3d": 0,
       "cpa_3d": null,
-      "updated_at": "2026-10-24 04:30 GMT+3"
+      "updated_at": "2026-10-24 05:12 GMT+3"
     },
     "c5a7cade-6ec3-4c47-b3a2-c5f08bcf8da0": {
       "name": "وسادة مايباخ 21-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-24 04:30 GMT+3"
+      "updated_at": "2026-10-24 05:12 GMT+3"
     },
     "1879653126110545": {
       "name": "timex books 21-10",
@@ -16618,12 +16771,12 @@
     "e8f0a5e9-89c5-4c14-aabb-c9c6c657891d": {
       "name": "مسخن الرضاعات اللاسلكي 22-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-24 04:30 GMT+3"
+      "updated_at": "2026-10-24 05:12 GMT+3"
     },
     "f18a3bf4-148a-4f5e-baa1-f90335f1884c": {
       "name": "مسخن الرضاعات اللاسلكي 22-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-24 04:30 GMT+3"
+      "updated_at": "2026-10-24 05:12 GMT+3"
     },
     "1879676075637041": {
       "name": "baby bottle warmer 22-10",
@@ -16642,7 +16795,7 @@
       "spend_3d": 23.96,
       "purchases_3d": 3,
       "cpa_3d": 7.99,
-      "updated_at": "2026-10-24 04:30 GMT+3"
+      "updated_at": "2026-10-24 05:12 GMT+3"
     },
     "1879653022433617": {
       "name": "maybach pillow 21-10",
@@ -16652,10 +16805,10 @@
     },
     "558c5d45-f08e-400c-a499-7668e801c347": {
       "name": "car armrest",
-      "spend_3d": 25.42,
+      "spend_3d": 27.27,
       "purchases_3d": 2,
-      "cpa_3d": 12.71,
-      "updated_at": "2026-10-24 04:31 GMT+3"
+      "cpa_3d": 13.63,
+      "updated_at": "2026-10-24 05:13 GMT+3"
     },
     "1879824619984018": {
       "name": "power bank 23-10 (Voltrx 10 Hooks Ads)",
@@ -16700,6 +16853,14 @@
       "spend_3d": 14.83,
       "purchases_3d": 1,
       "cpa_3d": 14.83,
+      "reason": "3-Day CPA > $7.00 — Duplication Blocked"
+    },
+    "1879846162787858": {
+      "name": "power bank ym49 23-10 (Voltrx UGC Scripts B1 - 9 Ads)",
+      "aadvid": "7631765070816509959",
+      "spend_3d": 7.15,
+      "purchases_3d": 1,
+      "cpa_3d": 7.15,
       "reason": "3-Day CPA > $7.00 — Duplication Blocked"
     }
   },
