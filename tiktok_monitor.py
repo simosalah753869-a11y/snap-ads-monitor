@@ -673,6 +673,19 @@ def main():
                     total_campaigns_paused += 1
                     print(f"    🛑 [PERMANENT SHUTOFF NEW PRODUCT] '{camp_name}' ({camp_id}) -> Paused permanently per user command")
                 continue
+
+            # Strict Target Cost (Cost Cap) enforcement: NEVER allow Maximum Delivery / Maximum Bid without Target CPA
+            camp_active_adsets = [a for a in active_ads if str(a.get("campaign_id") or "") == camp_id]
+            non_target_cost_adsets = [
+                a for a in camp_active_adsets
+                if float((a.get("row_data") or {}).get("cpa_bid") or a.get("cpa_bid") or 0.0) <= 0.0
+            ]
+            if non_target_cost_adsets:
+                ok_mb_p, _ = pause_campaign(session, headers, aadvid, camp_id, operation="disable")
+                if ok_mb_p:
+                    total_campaigns_paused += 1
+                    print(f"    🛑 [STRICT TARGET COST ENFORCEMENT] '{camp_name}' ({camp_id}) -> Paused immediately because it has NO Target Cost (cpa_bid=0 / Maximum Delivery)")
+                continue
             c1 = camp_1d_map.get(camp_id, {})
             cy = camp_yest_map.get(camp_id, {})
             c2 = camp_2d_map.get(camp_id, {})
