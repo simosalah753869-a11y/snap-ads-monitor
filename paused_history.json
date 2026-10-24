@@ -10025,7 +10025,13 @@
     "de65b4a3-3614-4117-bc43-79ad1141005c": "d2b46953-0d82-43aa-85e1-df018838174a",
     "4e427a03-c4c1-49b1-ac99-68779882b53d": "87114ac3-b272-44ba-856d-bb6f90e2b229",
     "9145ab0b-8839-4c74-994c-d2f1ee58e9d7": "c2bc972b-363e-486e-a330-bb4feaf0612d",
-    "acad41b6-d077-4cbf-b9da-06e83b0237ab": "db91088a-ed5a-49ac-a49b-1492e37e0221"
+    "acad41b6-d077-4cbf-b9da-06e83b0237ab": "db91088a-ed5a-49ac-a49b-1492e37e0221",
+    "18e427e1-aa46-4ce8-9d68-e1c8361c295b": "0ee55522-6bbb-4e75-b470-27730b0b738c",
+    "bfcfa68e-31fb-4d02-bc43-a18a582c4389": "74805a7e-d104-4d37-a512-f6753f81adce",
+    "52dfe90b-c91b-42cd-b69d-57827fdd6a5f": "9c08401b-d310-4950-befa-65e141932d9f",
+    "a00d4e66-24ed-484f-a1e7-9105e0d51216": "e04dc3bd-d703-42cc-b5b4-1294f181cd5b",
+    "fb8ee57c-7a5e-4476-8cc2-ac7de07f1fb0": "66f7853b-6a31-49aa-a5eb-0e0822fa2e8d",
+    "c9e7e899-72a1-44f2-8d59-0e1acea3685e": "49ceea83-0273-4682-8cac-5daa633f9d8a"
   },
   "disabled_videos": {
     "e23e7c95-3f15-4945-9844-8bd73e2d79d3:cc7aeeac-37af-4dec-980a-2b8a544e949d": {
@@ -16346,19 +16352,19 @@
       "spend_3d": 27.89,
       "purchases_3d": 3,
       "cpa_3d": 9.3,
-      "updated_at": "2026-10-24 12:07 GMT+3"
+      "updated_at": "2026-10-24 12:51 GMT+3"
     },
     "a171c141-a6d5-403e-8357-5c8f6c01bce0": {
       "name": "وسادة مايباخ 21-10",
       "spend_3d": 10.25,
       "purchases_3d": 0,
       "cpa_3d": null,
-      "updated_at": "2026-10-24 12:07 GMT+3"
+      "updated_at": "2026-10-24 12:51 GMT+3"
     },
     "c5a7cade-6ec3-4c47-b3a2-c5f08bcf8da0": {
       "name": "وسادة مايباخ 21-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-24 12:07 GMT+3"
+      "updated_at": "2026-10-24 12:51 GMT+3"
     },
     "1879653126110545": {
       "name": "timex books 21-10",
@@ -16369,12 +16375,12 @@
     "e8f0a5e9-89c5-4c14-aabb-c9c6c657891d": {
       "name": "مسخن الرضاعات اللاسلكي 22-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-24 12:07 GMT+3"
+      "updated_at": "2026-10-24 12:51 GMT+3"
     },
     "f18a3bf4-148a-4f5e-baa1-f90335f1884c": {
       "name": "مسخن الرضاعات اللاسلكي 22-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-24 12:07 GMT+3"
+      "updated_at": "2026-10-24 12:51 GMT+3"
     },
     "1879676075637041": {
       "name": "baby bottle warmer 22-10",
@@ -16393,7 +16399,7 @@
       "spend_3d": 23.96,
       "purchases_3d": 3,
       "cpa_3d": 7.99,
-      "updated_at": "2026-10-24 12:07 GMT+3"
+      "updated_at": "2026-10-24 12:51 GMT+3"
     },
     "1879653022433617": {
       "name": "maybach pillow 21-10",
@@ -16403,17 +16409,17 @@
     },
     "803324e6-052e-441b-99fb-4d43e56c5c78": {
       "name": "باور بانك وينر - سمارت",
-      "spend_3d": 8.18,
+      "spend_3d": 8.62,
       "purchases_3d": 1,
-      "cpa_3d": 8.18,
-      "updated_at": "2026-10-24 12:08 GMT+3"
+      "cpa_3d": 8.62,
+      "updated_at": "2026-10-24 12:53 GMT+3"
     },
     "558c5d45-f08e-400c-a499-7668e801c347": {
       "name": "car armrest",
-      "spend_3d": 92.5,
+      "spend_3d": 99.35,
       "purchases_3d": 6,
-      "cpa_3d": 15.42,
-      "updated_at": "2026-10-24 12:08 GMT+3"
+      "cpa_3d": 16.56,
+      "updated_at": "2026-10-24 12:53 GMT+3"
     },
     "1879824619984018": {
       "name": "power bank 23-10 (Voltrx 10 Hooks Ads)",
