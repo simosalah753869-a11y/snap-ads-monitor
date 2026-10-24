@@ -320,7 +320,7 @@ def main(dry_run: bool = False):
                     template_squad=tmpl_sq,
                     template_ads=tmpl_ads,
                     cohort_prefix=c_prefix,
-                    bid_micro=bid_micro + 100_000,
+                    bid_micro=bid_micro,
                     count_to_create=count_to_create,
                     start_index=len(cohort_squads) + 1,
                 )
