@@ -473,6 +473,24 @@
       "campaign": "car armrest",
       "reason": "[AdSquad $4.00 Stop-Loss] صرفت المجموعة $4.23 (>= $4.00) بدون أي مبيعة (0 مبيعات)",
       "paused_at": "2026-10-24 13:25 GMT+3"
+    },
+    "98895d75-289c-425a-adf7-4333ac7c968b": {
+      "name": "Copy B - Car 2.1 Max [H2] #14",
+      "campaign": "car armrest",
+      "reason": "[AdSquad $4.00 Stop-Loss] صرفت المجموعة $4.41 (>= $4.00) بدون أي مبيعة (0 مبيعات)",
+      "paused_at": "2026-10-24 14:07 GMT+3"
+    },
+    "b0b99324-0dd4-4de2-9b89-dc8739d92d3b": {
+      "name": "Copy B - Car 2.1 Max [H2] #06",
+      "campaign": "car armrest",
+      "reason": "[AdSquad $4.00 Stop-Loss] صرفت المجموعة $4.46 (>= $4.00) بدون أي مبيعة (0 مبيعات)",
+      "paused_at": "2026-10-24 14:07 GMT+3"
+    },
+    "edfca617-96b5-4129-85cb-4dfd5bb4472b": {
+      "name": "Copy B - Car 2.1 Max [H2] #07",
+      "campaign": "car armrest",
+      "reason": "[AdSquad $4.00 Stop-Loss] صرفت المجموعة $4.25 (>= $4.00) بدون أي مبيعة (0 مبيعات)",
+      "paused_at": "2026-10-24 14:07 GMT+3"
     }
   },
   "ads": {
@@ -7895,6 +7913,20 @@
       "adsquad": "Copy B - Car 2.1 Max [H2] #15",
       "reason": "[Ad CPC Rule] صرف الفيديو $1.01 (>= $1.00) | النقرات: 2 | سعر النقرة CPC = $0.505 (> $0.35)",
       "paused_at": "2026-10-24 13:25 GMT+3"
+    },
+    "f2732084-934b-45e5-9fd3-f1b81e816ebf": {
+      "name": "Car_v3_12-10_1_mbe6c15 [H2]",
+      "campaign": "car armrest",
+      "adsquad": "Copy B - Car 2.1 Max [H2] #06",
+      "reason": "[Ad CPC Rule] صرف الفيديو $1.25 (>= $1.00) | النقرات: 2 | سعر النقرة CPC = $0.625 (> $0.35)",
+      "paused_at": "2026-10-24 14:07 GMT+3"
+    },
+    "f6877c7d-097a-4c17-8737-f381567d12ba": {
+      "name": "Car_v1_21_9_2_m42c43a [H2]",
+      "campaign": "car armrest",
+      "adsquad": "Copy B - Car 2.1 Max [H2] #06",
+      "reason": "[Ad CPC Rule] صرف الفيديو $2.21 (>= $1.00) | النقرات: 6 | سعر النقرة CPC = $0.368 (> $0.35)",
+      "paused_at": "2026-10-24 14:07 GMT+3"
     }
   },
   "bid_bumps": {
@@ -10044,7 +10076,9 @@
     "52dfe90b-c91b-42cd-b69d-57827fdd6a5f": "9c08401b-d310-4950-befa-65e141932d9f",
     "a00d4e66-24ed-484f-a1e7-9105e0d51216": "e04dc3bd-d703-42cc-b5b4-1294f181cd5b",
     "fb8ee57c-7a5e-4476-8cc2-ac7de07f1fb0": "66f7853b-6a31-49aa-a5eb-0e0822fa2e8d",
-    "c9e7e899-72a1-44f2-8d59-0e1acea3685e": "49ceea83-0273-4682-8cac-5daa633f9d8a"
+    "c9e7e899-72a1-44f2-8d59-0e1acea3685e": "49ceea83-0273-4682-8cac-5daa633f9d8a",
+    "bc23464f-720a-4722-bf0c-e2aac06426f6": "8c560e12-4aae-4757-b9be-17f1048625d3",
+    "0197ecdc-84ea-42b9-9649-feae2814f2c6": "8f1d6b24-4c54-47c0-b3e2-5eca009c1949"
   },
   "disabled_videos": {
     "e23e7c95-3f15-4945-9844-8bd73e2d79d3:cc7aeeac-37af-4dec-980a-2b8a544e949d": {
@@ -16365,19 +16399,19 @@
       "spend_3d": 27.89,
       "purchases_3d": 3,
       "cpa_3d": 9.3,
-      "updated_at": "2026-10-24 13:23 GMT+3"
+      "updated_at": "2026-10-24 14:04 GMT+3"
     },
     "a171c141-a6d5-403e-8357-5c8f6c01bce0": {
       "name": "وسادة مايباخ 21-10",
       "spend_3d": 10.25,
       "purchases_3d": 0,
       "cpa_3d": null,
-      "updated_at": "2026-10-24 13:23 GMT+3"
+      "updated_at": "2026-10-24 14:04 GMT+3"
     },
     "c5a7cade-6ec3-4c47-b3a2-c5f08bcf8da0": {
       "name": "وسادة مايباخ 21-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-24 13:23 GMT+3"
+      "updated_at": "2026-10-24 14:04 GMT+3"
     },
     "1879653126110545": {
       "name": "timex books 21-10",
@@ -16388,12 +16422,12 @@
     "e8f0a5e9-89c5-4c14-aabb-c9c6c657891d": {
       "name": "مسخن الرضاعات اللاسلكي 22-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-24 13:23 GMT+3"
+      "updated_at": "2026-10-24 14:04 GMT+3"
     },
     "f18a3bf4-148a-4f5e-baa1-f90335f1884c": {
       "name": "مسخن الرضاعات اللاسلكي 22-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-24 13:23 GMT+3"
+      "updated_at": "2026-10-24 14:04 GMT+3"
     },
     "1879676075637041": {
       "name": "baby bottle warmer 22-10",
@@ -16412,7 +16446,7 @@
       "spend_3d": 23.96,
       "purchases_3d": 3,
       "cpa_3d": 7.99,
-      "updated_at": "2026-10-24 13:23 GMT+3"
+      "updated_at": "2026-10-24 14:04 GMT+3"
     },
     "1879653022433617": {
       "name": "maybach pillow 21-10",
@@ -16422,17 +16456,17 @@
     },
     "803324e6-052e-441b-99fb-4d43e56c5c78": {
       "name": "باور بانك وينر - سمارت",
-      "spend_3d": 9.34,
+      "spend_3d": 10.02,
       "purchases_3d": 1,
-      "cpa_3d": 9.34,
-      "updated_at": "2026-10-24 13:25 GMT+3"
+      "cpa_3d": 10.02,
+      "updated_at": "2026-10-24 14:07 GMT+3"
     },
     "558c5d45-f08e-400c-a499-7668e801c347": {
       "name": "car armrest",
-      "spend_3d": 106.81,
+      "spend_3d": 118.58,
       "purchases_3d": 10,
-      "cpa_3d": 10.68,
-      "updated_at": "2026-10-24 13:25 GMT+3"
+      "cpa_3d": 11.86,
+      "updated_at": "2026-10-24 14:07 GMT+3"
     },
     "1879824619984018": {
       "name": "power bank 23-10 (Voltrx 10 Hooks Ads)",
@@ -17064,132 +17098,132 @@
       "name": "Copy B - PB 2.1 Max [H2] #12",
       "campaign": "باور بانك وينر",
       "base_bid_micro": 2100000,
-      "current_bid_micro": 2200000,
+      "current_bid_micro": 2300000,
       "max_bid_micro": 2400000,
-      "bumps_count": 1,
-      "total_bump_micro": 100000,
-      "last_bump_at": "2026-10-24T08:45:41.743224+00:00",
+      "bumps_count": 2,
+      "total_bump_micro": 200000,
+      "last_bump_at": "2026-10-24T11:06:50.357343+00:00",
       "spend_at_bump": 0.0
     },
     "1b9145e2-9a7b-4423-b4cb-994e8d5822c1": {
       "name": "Copy A - PB 1.9 Max [H1] #13",
       "campaign": "باور بانك وينر",
       "base_bid_micro": 1900000,
-      "current_bid_micro": 2000000,
+      "current_bid_micro": 2100000,
       "max_bid_micro": 2200000,
-      "bumps_count": 1,
-      "total_bump_micro": 100000,
-      "last_bump_at": "2026-10-24T08:45:41.743224+00:00",
+      "bumps_count": 2,
+      "total_bump_micro": 200000,
+      "last_bump_at": "2026-10-24T11:06:50.357343+00:00",
       "spend_at_bump": 0.0
     },
     "4c8709d4-03cb-4805-bd25-e03ee33052ca": {
       "name": "Copy B - PB 2.1 Max [H2] #04",
       "campaign": "باور بانك وينر",
       "base_bid_micro": 2100000,
-      "current_bid_micro": 2200000,
+      "current_bid_micro": 2300000,
       "max_bid_micro": 2400000,
-      "bumps_count": 1,
-      "total_bump_micro": 100000,
-      "last_bump_at": "2026-10-24T08:45:41.743224+00:00",
+      "bumps_count": 2,
+      "total_bump_micro": 200000,
+      "last_bump_at": "2026-10-24T11:06:50.357343+00:00",
       "spend_at_bump": 0.01
     },
     "627861d2-c8f5-40ce-a4ff-ccc687b6fc31": {
       "name": "Copy A - PB 1.9 Max [H1] #03",
       "campaign": "باور بانك وينر",
       "base_bid_micro": 1900000,
-      "current_bid_micro": 2000000,
+      "current_bid_micro": 2100000,
       "max_bid_micro": 2200000,
-      "bumps_count": 1,
-      "total_bump_micro": 100000,
-      "last_bump_at": "2026-10-24T08:45:41.743224+00:00",
+      "bumps_count": 2,
+      "total_bump_micro": 200000,
+      "last_bump_at": "2026-10-24T11:06:50.357343+00:00",
       "spend_at_bump": 0.01
     },
     "71385a3f-1ae1-4281-a071-51254475df8e": {
       "name": "Copy B - PB 2.1 Max [H2] #05",
       "campaign": "باور بانك وينر",
       "base_bid_micro": 2100000,
-      "current_bid_micro": 2200000,
+      "current_bid_micro": 2300000,
       "max_bid_micro": 2400000,
-      "bumps_count": 1,
-      "total_bump_micro": 100000,
-      "last_bump_at": "2026-10-24T08:45:41.743224+00:00",
+      "bumps_count": 2,
+      "total_bump_micro": 200000,
+      "last_bump_at": "2026-10-24T11:06:50.357343+00:00",
       "spend_at_bump": 0.01
     },
     "80667ceb-a80d-42bd-aae2-094c3cc799da": {
       "name": "Copy B - PB 2.1 Max [H2] #09",
       "campaign": "باور بانك وينر",
       "base_bid_micro": 2100000,
-      "current_bid_micro": 2200000,
+      "current_bid_micro": 2300000,
       "max_bid_micro": 2400000,
-      "bumps_count": 1,
-      "total_bump_micro": 100000,
-      "last_bump_at": "2026-10-24T08:45:41.743224+00:00",
+      "bumps_count": 2,
+      "total_bump_micro": 200000,
+      "last_bump_at": "2026-10-24T11:06:50.357343+00:00",
       "spend_at_bump": 0.0
     },
     "87020326-9953-4911-b662-9a624416f637": {
       "name": "Copy A - PB 1.9 Max [H1] #06",
       "campaign": "باور بانك وينر",
       "base_bid_micro": 1900000,
-      "current_bid_micro": 2000000,
+      "current_bid_micro": 2100000,
       "max_bid_micro": 2200000,
-      "bumps_count": 1,
-      "total_bump_micro": 100000,
-      "last_bump_at": "2026-10-24T08:45:41.743224+00:00",
+      "bumps_count": 2,
+      "total_bump_micro": 200000,
+      "last_bump_at": "2026-10-24T11:06:50.357343+00:00",
       "spend_at_bump": 0.0
     },
     "8fb71447-2ee7-457a-9b3d-d64f260f4714": {
       "name": "Copy A - PB 1.9 Max [H1] #15",
       "campaign": "باور بانك وينر",
       "base_bid_micro": 1900000,
-      "current_bid_micro": 2000000,
+      "current_bid_micro": 2100000,
       "max_bid_micro": 2200000,
-      "bumps_count": 1,
-      "total_bump_micro": 100000,
-      "last_bump_at": "2026-10-24T08:45:41.743224+00:00",
+      "bumps_count": 2,
+      "total_bump_micro": 200000,
+      "last_bump_at": "2026-10-24T11:06:50.357343+00:00",
       "spend_at_bump": 0.0
     },
     "91f13cd0-6e7f-4c2a-910e-8927e200239e": {
       "name": "Copy A - PB 1.9 Max [H1] #11",
       "campaign": "باور بانك وينر",
       "base_bid_micro": 1900000,
-      "current_bid_micro": 2000000,
+      "current_bid_micro": 2100000,
       "max_bid_micro": 2200000,
-      "bumps_count": 1,
-      "total_bump_micro": 100000,
-      "last_bump_at": "2026-10-24T08:45:41.743224+00:00",
+      "bumps_count": 2,
+      "total_bump_micro": 200000,
+      "last_bump_at": "2026-10-24T11:06:50.357343+00:00",
       "spend_at_bump": 0.0
     },
     "98754ac0-b2e1-4504-a882-2df603230dfe": {
       "name": "Copy A - PB 1.9 Max [H1] #14",
       "campaign": "باور بانك وينر",
       "base_bid_micro": 1900000,
-      "current_bid_micro": 2000000,
+      "current_bid_micro": 2100000,
       "max_bid_micro": 2200000,
-      "bumps_count": 1,
-      "total_bump_micro": 100000,
-      "last_bump_at": "2026-10-24T08:45:41.743224+00:00",
+      "bumps_count": 2,
+      "total_bump_micro": 200000,
+      "last_bump_at": "2026-10-24T11:06:50.357343+00:00",
       "spend_at_bump": 0.0
     },
     "99fa51cf-4ed9-41f7-83cf-973e1b08e8bd": {
       "name": "Copy A - PB 1.9 Max [H1] #07",
       "campaign": "باور بانك وينر",
       "base_bid_micro": 1900000,
-      "current_bid_micro": 2000000,
+      "current_bid_micro": 2100000,
       "max_bid_micro": 2200000,
-      "bumps_count": 1,
-      "total_bump_micro": 100000,
-      "last_bump_at": "2026-10-24T08:45:41.743224+00:00",
+      "bumps_count": 2,
+      "total_bump_micro": 200000,
+      "last_bump_at": "2026-10-24T11:06:50.357343+00:00",
       "spend_at_bump": 0.0
     },
     "9b40cce5-d49a-438c-b326-16a3341f5942": {
       "name": "Copy A - PB 1.9 Max [H1] #01",
       "campaign": "باور بانك وينر",
       "base_bid_micro": 1900000,
-      "current_bid_micro": 2000000,
+      "current_bid_micro": 2100000,
       "max_bid_micro": 2200000,
-      "bumps_count": 1,
-      "total_bump_micro": 100000,
-      "last_bump_at": "2026-10-24T08:45:41.743224+00:00",
+      "bumps_count": 2,
+      "total_bump_micro": 200000,
+      "last_bump_at": "2026-10-24T11:06:50.357343+00:00",
       "spend_at_bump": 0.0
     },
     "a2154b47-246e-4fcf-bb44-9a16745241db": {
@@ -17207,276 +17241,276 @@
       "name": "Copy B - PB 2.1 Max [H2] #11",
       "campaign": "باور بانك وينر",
       "base_bid_micro": 2100000,
-      "current_bid_micro": 2200000,
+      "current_bid_micro": 2300000,
       "max_bid_micro": 2400000,
-      "bumps_count": 1,
-      "total_bump_micro": 100000,
-      "last_bump_at": "2026-10-24T08:45:41.743224+00:00",
+      "bumps_count": 2,
+      "total_bump_micro": 200000,
+      "last_bump_at": "2026-10-24T11:06:50.357343+00:00",
       "spend_at_bump": 0.0
     },
     "b58b554c-9e7a-43ff-ba73-26bbf7530b05": {
       "name": "Copy B - PB 2.1 Max [H2] #01",
       "campaign": "باور بانك وينر",
       "base_bid_micro": 2100000,
-      "current_bid_micro": 2200000,
+      "current_bid_micro": 2300000,
       "max_bid_micro": 2400000,
-      "bumps_count": 1,
-      "total_bump_micro": 100000,
-      "last_bump_at": "2026-10-24T08:45:41.743224+00:00",
+      "bumps_count": 2,
+      "total_bump_micro": 200000,
+      "last_bump_at": "2026-10-24T11:06:50.357343+00:00",
       "spend_at_bump": 0.0
     },
     "b809e049-7bdb-4178-890c-edf6792f475c": {
       "name": "Copy A - PB 1.9 Max [H1] #05",
       "campaign": "باور بانك وينر",
       "base_bid_micro": 1900000,
-      "current_bid_micro": 2000000,
+      "current_bid_micro": 2100000,
       "max_bid_micro": 2200000,
-      "bumps_count": 1,
-      "total_bump_micro": 100000,
-      "last_bump_at": "2026-10-24T08:45:41.743224+00:00",
+      "bumps_count": 2,
+      "total_bump_micro": 200000,
+      "last_bump_at": "2026-10-24T11:06:50.357343+00:00",
       "spend_at_bump": 0.0
     },
     "bcf0046d-8d43-44cf-95b6-0069caf48fff": {
       "name": "Copy A - PB 1.9 Max [H1] #02",
       "campaign": "باور بانك وينر",
       "base_bid_micro": 1900000,
-      "current_bid_micro": 2000000,
+      "current_bid_micro": 2100000,
       "max_bid_micro": 2200000,
-      "bumps_count": 1,
-      "total_bump_micro": 100000,
-      "last_bump_at": "2026-10-24T08:45:41.743224+00:00",
+      "bumps_count": 2,
+      "total_bump_micro": 200000,
+      "last_bump_at": "2026-10-24T11:06:50.357343+00:00",
       "spend_at_bump": 0.0
     },
     "c0bf3855-29ac-4fd7-b2ef-c42cb2ac19a2": {
       "name": "Copy B - PB 2.1 Max [H2] #13",
       "campaign": "باور بانك وينر",
       "base_bid_micro": 2100000,
-      "current_bid_micro": 2200000,
+      "current_bid_micro": 2300000,
       "max_bid_micro": 2400000,
-      "bumps_count": 1,
-      "total_bump_micro": 100000,
-      "last_bump_at": "2026-10-24T08:45:41.743224+00:00",
+      "bumps_count": 2,
+      "total_bump_micro": 200000,
+      "last_bump_at": "2026-10-24T11:06:50.357343+00:00",
       "spend_at_bump": 0.0
     },
     "c875f028-9b2a-4812-8b74-46660460f940": {
       "name": "Copy B - PB 2.1 Max [H2] #02",
       "campaign": "باور بانك وينر",
       "base_bid_micro": 2100000,
-      "current_bid_micro": 2200000,
+      "current_bid_micro": 2300000,
       "max_bid_micro": 2400000,
-      "bumps_count": 1,
-      "total_bump_micro": 100000,
-      "last_bump_at": "2026-10-24T08:45:41.743224+00:00",
+      "bumps_count": 2,
+      "total_bump_micro": 200000,
+      "last_bump_at": "2026-10-24T11:06:50.357343+00:00",
       "spend_at_bump": 0.0
     },
     "d28d9518-9766-4e60-8d8c-f32b40038619": {
       "name": "Copy B - PB 2.1 Max [H2] #14",
       "campaign": "باور بانك وينر",
       "base_bid_micro": 2100000,
-      "current_bid_micro": 2200000,
+      "current_bid_micro": 2300000,
       "max_bid_micro": 2400000,
-      "bumps_count": 1,
-      "total_bump_micro": 100000,
-      "last_bump_at": "2026-10-24T08:45:41.743224+00:00",
+      "bumps_count": 2,
+      "total_bump_micro": 200000,
+      "last_bump_at": "2026-10-24T11:06:50.357343+00:00",
       "spend_at_bump": 0.0
     },
     "d33d2510-17dc-43f1-8195-758c00b576d1": {
       "name": "Copy B - PB 2.1 Max [H2] #07",
       "campaign": "باور بانك وينر",
       "base_bid_micro": 2100000,
-      "current_bid_micro": 2200000,
+      "current_bid_micro": 2300000,
       "max_bid_micro": 2400000,
-      "bumps_count": 1,
-      "total_bump_micro": 100000,
-      "last_bump_at": "2026-10-24T08:45:41.743224+00:00",
+      "bumps_count": 2,
+      "total_bump_micro": 200000,
+      "last_bump_at": "2026-10-24T11:06:50.357343+00:00",
       "spend_at_bump": 0.0
     },
     "d57445db-d39a-4434-9841-62796f9cbd6b": {
       "name": "Copy B - PB 2.1 Max [H2] #03",
       "campaign": "باور بانك وينر",
       "base_bid_micro": 2100000,
-      "current_bid_micro": 2200000,
+      "current_bid_micro": 2300000,
       "max_bid_micro": 2400000,
-      "bumps_count": 1,
-      "total_bump_micro": 100000,
-      "last_bump_at": "2026-10-24T08:45:41.743224+00:00",
+      "bumps_count": 2,
+      "total_bump_micro": 200000,
+      "last_bump_at": "2026-10-24T11:06:50.357343+00:00",
       "spend_at_bump": 0.0
     },
     "d6c5aed1-e012-4b19-b044-5a18cab3c020": {
       "name": "Copy A - PB 1.9 Max [H1] #12",
       "campaign": "باور بانك وينر",
       "base_bid_micro": 1900000,
-      "current_bid_micro": 2000000,
+      "current_bid_micro": 2100000,
       "max_bid_micro": 2200000,
-      "bumps_count": 1,
-      "total_bump_micro": 100000,
-      "last_bump_at": "2026-10-24T08:45:41.743224+00:00",
+      "bumps_count": 2,
+      "total_bump_micro": 200000,
+      "last_bump_at": "2026-10-24T11:06:50.357343+00:00",
       "spend_at_bump": 0.0
     },
     "dd091f56-0f40-4eb3-99ff-bd23a73ac723": {
       "name": "Copy A - PB 1.9 Max [H1] #09",
       "campaign": "باور بانك وينر",
       "base_bid_micro": 1900000,
-      "current_bid_micro": 2000000,
+      "current_bid_micro": 2100000,
       "max_bid_micro": 2200000,
-      "bumps_count": 1,
-      "total_bump_micro": 100000,
-      "last_bump_at": "2026-10-24T08:45:41.743224+00:00",
+      "bumps_count": 2,
+      "total_bump_micro": 200000,
+      "last_bump_at": "2026-10-24T11:06:50.357343+00:00",
       "spend_at_bump": 0.0
     },
     "dd960a20-f3a2-4f08-adf4-426b84d243d0": {
       "name": "Copy A - PB 1.9 Max [H1] #08",
       "campaign": "باور بانك وينر",
       "base_bid_micro": 1900000,
-      "current_bid_micro": 2000000,
+      "current_bid_micro": 2100000,
       "max_bid_micro": 2200000,
-      "bumps_count": 1,
-      "total_bump_micro": 100000,
-      "last_bump_at": "2026-10-24T08:45:41.743224+00:00",
+      "bumps_count": 2,
+      "total_bump_micro": 200000,
+      "last_bump_at": "2026-10-24T11:06:50.357343+00:00",
       "spend_at_bump": 0.0
     },
     "eb126b54-12ea-4bc6-bcf9-912582f7e78e": {
       "name": "Copy B - PB 2.1 Max [H2] #08",
       "campaign": "باور بانك وينر",
       "base_bid_micro": 2100000,
-      "current_bid_micro": 2200000,
+      "current_bid_micro": 2300000,
       "max_bid_micro": 2400000,
-      "bumps_count": 1,
-      "total_bump_micro": 100000,
-      "last_bump_at": "2026-10-24T08:45:41.743224+00:00",
+      "bumps_count": 2,
+      "total_bump_micro": 200000,
+      "last_bump_at": "2026-10-24T11:06:50.357343+00:00",
       "spend_at_bump": 0.0
     },
     "ec1ef147-fb12-4981-97bf-0f69f1dd2b5f": {
       "name": "Copy A - PB 1.9 Max [H1] #04",
       "campaign": "باور بانك وينر",
       "base_bid_micro": 1900000,
-      "current_bid_micro": 2000000,
+      "current_bid_micro": 2100000,
       "max_bid_micro": 2200000,
-      "bumps_count": 1,
-      "total_bump_micro": 100000,
-      "last_bump_at": "2026-10-24T08:45:41.743224+00:00",
+      "bumps_count": 2,
+      "total_bump_micro": 200000,
+      "last_bump_at": "2026-10-24T11:06:50.357343+00:00",
       "spend_at_bump": 0.0
     },
     "03105187-5949-41bd-a234-22b346ea48c0": {
       "name": "Copy A - Car 1.9 Max [H1] #33",
       "campaign": "car scaling camp ",
       "base_bid_micro": 1900000,
-      "current_bid_micro": 2000000,
+      "current_bid_micro": 2100000,
       "max_bid_micro": 2200000,
-      "bumps_count": 1,
-      "total_bump_micro": 100000,
-      "last_bump_at": "2026-10-24T08:45:41.743224+00:00",
-      "spend_at_bump": 0.05
+      "bumps_count": 2,
+      "total_bump_micro": 200000,
+      "last_bump_at": "2026-10-24T11:06:50.357343+00:00",
+      "spend_at_bump": 0.13
     },
     "05911def-56e5-4203-bd2b-9ae7d82d8c04": {
       "name": "Copy A - Car 1.9 Max [H1] #02",
       "campaign": "car scaling camp ",
       "base_bid_micro": 1900000,
-      "current_bid_micro": 2000000,
+      "current_bid_micro": 2100000,
       "max_bid_micro": 2200000,
-      "bumps_count": 1,
-      "total_bump_micro": 100000,
-      "last_bump_at": "2026-10-24T08:45:41.743224+00:00",
-      "spend_at_bump": 0.03
+      "bumps_count": 2,
+      "total_bump_micro": 200000,
+      "last_bump_at": "2026-10-24T11:06:50.357343+00:00",
+      "spend_at_bump": 0.07
     },
     "186bf4d8-d063-4ef0-ab57-b2bbae09e63f": {
       "name": "Copy A - Car 1.9 Max [H1] #08",
       "campaign": "car scaling camp ",
       "base_bid_micro": 1900000,
-      "current_bid_micro": 2000000,
+      "current_bid_micro": 2100000,
       "max_bid_micro": 2200000,
-      "bumps_count": 1,
-      "total_bump_micro": 100000,
-      "last_bump_at": "2026-10-24T08:45:41.743224+00:00",
-      "spend_at_bump": 0.08
+      "bumps_count": 2,
+      "total_bump_micro": 200000,
+      "last_bump_at": "2026-10-24T11:06:50.357343+00:00",
+      "spend_at_bump": 0.09
     },
     "1cfa9790-7446-434c-80c7-505a480bdc5f": {
       "name": "Copy A - Car 1.9 Max [H1] #13",
       "campaign": "car scaling camp ",
       "base_bid_micro": 1900000,
-      "current_bid_micro": 2000000,
+      "current_bid_micro": 2100000,
       "max_bid_micro": 2200000,
-      "bumps_count": 1,
-      "total_bump_micro": 100000,
-      "last_bump_at": "2026-10-24T08:45:41.743224+00:00",
-      "spend_at_bump": 0.1
+      "bumps_count": 2,
+      "total_bump_micro": 200000,
+      "last_bump_at": "2026-10-24T11:06:50.357343+00:00",
+      "spend_at_bump": 0.15
     },
     "1eec2a86-9eeb-4c7b-99e9-3a357b6c93af": {
       "name": "Copy B - Car 2.1 Max [H2] #15",
       "campaign": "car scaling camp ",
       "base_bid_micro": 2100000,
-      "current_bid_micro": 2200000,
+      "current_bid_micro": 2300000,
       "max_bid_micro": 2400000,
-      "bumps_count": 1,
-      "total_bump_micro": 100000,
-      "last_bump_at": "2026-10-24T08:45:41.743224+00:00",
-      "spend_at_bump": 0.2
+      "bumps_count": 2,
+      "total_bump_micro": 200000,
+      "last_bump_at": "2026-10-24T11:06:50.357343+00:00",
+      "spend_at_bump": 0.31
     },
     "290ef780-4bf8-49a7-a925-f8731c72a6ae": {
       "name": "Copy B - Car 2.1 Max [H2] #04",
       "campaign": "car scaling camp ",
       "base_bid_micro": 2100000,
-      "current_bid_micro": 2200000,
+      "current_bid_micro": 2300000,
       "max_bid_micro": 2400000,
-      "bumps_count": 1,
-      "total_bump_micro": 100000,
-      "last_bump_at": "2026-10-24T08:45:41.743224+00:00",
-      "spend_at_bump": 0.12
+      "bumps_count": 2,
+      "total_bump_micro": 200000,
+      "last_bump_at": "2026-10-24T11:06:50.357343+00:00",
+      "spend_at_bump": 0.22
     },
     "2f88fd34-86fb-4e8b-8220-8725a90907a2": {
       "name": "Copy B - Car 2.1 Max [H2] #05",
       "campaign": "car scaling camp ",
       "base_bid_micro": 2100000,
-      "current_bid_micro": 2200000,
+      "current_bid_micro": 2300000,
       "max_bid_micro": 2400000,
-      "bumps_count": 1,
-      "total_bump_micro": 100000,
-      "last_bump_at": "2026-10-24T08:45:41.743224+00:00",
+      "bumps_count": 2,
+      "total_bump_micro": 200000,
+      "last_bump_at": "2026-10-24T11:06:50.357343+00:00",
       "spend_at_bump": 0.08
     },
     "3585c2d5-0601-4f9e-b10b-2c8774a04b08": {
       "name": "Copy A - Car 1.9 Max [H1] #09",
       "campaign": "car scaling camp ",
       "base_bid_micro": 1900000,
-      "current_bid_micro": 2000000,
+      "current_bid_micro": 2100000,
       "max_bid_micro": 2200000,
-      "bumps_count": 1,
-      "total_bump_micro": 100000,
-      "last_bump_at": "2026-10-24T08:45:41.743224+00:00",
-      "spend_at_bump": 0.3
+      "bumps_count": 2,
+      "total_bump_micro": 200000,
+      "last_bump_at": "2026-10-24T11:06:50.357343+00:00",
+      "spend_at_bump": 0.41
     },
     "3da8e661-2987-46d4-b6a5-67c1dab28f9f": {
       "name": "Copy A - Car 1.9 Max [H1] #10",
       "campaign": "car scaling camp ",
       "base_bid_micro": 1900000,
-      "current_bid_micro": 2000000,
+      "current_bid_micro": 2100000,
       "max_bid_micro": 2200000,
-      "bumps_count": 1,
-      "total_bump_micro": 100000,
-      "last_bump_at": "2026-10-24T08:45:41.743224+00:00",
-      "spend_at_bump": 0.04
+      "bumps_count": 2,
+      "total_bump_micro": 200000,
+      "last_bump_at": "2026-10-24T11:06:50.357343+00:00",
+      "spend_at_bump": 0.1
     },
     "45fd9c6e-7a59-4de8-ab71-0cf207d01938": {
       "name": "Copy B - Car 2.1 Max [H2] #13",
       "campaign": "car scaling camp ",
       "base_bid_micro": 2100000,
-      "current_bid_micro": 2200000,
+      "current_bid_micro": 2300000,
       "max_bid_micro": 2400000,
-      "bumps_count": 1,
-      "total_bump_micro": 100000,
-      "last_bump_at": "2026-10-24T08:45:41.743224+00:00",
-      "spend_at_bump": 0.93
+      "bumps_count": 2,
+      "total_bump_micro": 200000,
+      "last_bump_at": "2026-10-24T11:06:50.357343+00:00",
+      "spend_at_bump": 0.94
     },
     "51dacf81-803e-4264-9e67-c200c5dd2924": {
       "name": "Copy A - Car 1.9 Max [H1] #15",
       "campaign": "car scaling camp ",
       "base_bid_micro": 1900000,
-      "current_bid_micro": 2000000,
+      "current_bid_micro": 2100000,
       "max_bid_micro": 2200000,
-      "bumps_count": 1,
-      "total_bump_micro": 100000,
-      "last_bump_at": "2026-10-24T08:45:41.743224+00:00",
-      "spend_at_bump": 0.38
+      "bumps_count": 2,
+      "total_bump_micro": 200000,
+      "last_bump_at": "2026-10-24T11:06:50.357343+00:00",
+      "spend_at_bump": 0.4
     },
     "59a36d61-0f62-42b2-a18f-d656dcd2977c": {
       "name": "Copy B - Car 2.1 Max [H2] #08",
@@ -17493,23 +17527,23 @@
       "name": "Copy B - Car 2.1 Max [H2] #12",
       "campaign": "car scaling camp ",
       "base_bid_micro": 2100000,
-      "current_bid_micro": 2200000,
+      "current_bid_micro": 2300000,
       "max_bid_micro": 2400000,
-      "bumps_count": 1,
-      "total_bump_micro": 100000,
-      "last_bump_at": "2026-10-24T08:45:41.743224+00:00",
-      "spend_at_bump": 0.02
+      "bumps_count": 2,
+      "total_bump_micro": 200000,
+      "last_bump_at": "2026-10-24T11:06:50.357343+00:00",
+      "spend_at_bump": 0.03
     },
     "6b7f11f9-3061-41b6-a942-ba451a956355": {
       "name": "Copy B - Car 2.1 Max [H2] #09",
       "campaign": "car scaling camp ",
       "base_bid_micro": 2100000,
-      "current_bid_micro": 2200000,
+      "current_bid_micro": 2300000,
       "max_bid_micro": 2400000,
-      "bumps_count": 1,
-      "total_bump_micro": 100000,
-      "last_bump_at": "2026-10-24T08:45:41.743224+00:00",
-      "spend_at_bump": 0.16
+      "bumps_count": 2,
+      "total_bump_micro": 200000,
+      "last_bump_at": "2026-10-24T11:06:50.357343+00:00",
+      "spend_at_bump": 0.25
     },
     "6c6c5bfb-f528-4032-8b27-e16e8fa6f58a": {
       "name": "Copy B - Car 2.1 Max [H2] #06",
@@ -17526,166 +17560,166 @@
       "name": "Copy A - Car 1.9 Max [H1] #02",
       "campaign": "car scaling camp ",
       "base_bid_micro": 1900000,
-      "current_bid_micro": 2000000,
+      "current_bid_micro": 2100000,
       "max_bid_micro": 2200000,
-      "bumps_count": 1,
-      "total_bump_micro": 100000,
-      "last_bump_at": "2026-10-24T08:45:41.743224+00:00",
-      "spend_at_bump": 0.05
+      "bumps_count": 2,
+      "total_bump_micro": 200000,
+      "last_bump_at": "2026-10-24T11:06:50.357343+00:00",
+      "spend_at_bump": 0.06
     },
     "833357de-2d82-4d48-9e8c-ccde2b57d693": {
       "name": "Copy B - Car 2.1 Max [H2] #09",
       "campaign": "car scaling camp ",
       "base_bid_micro": 2100000,
-      "current_bid_micro": 2200000,
+      "current_bid_micro": 2300000,
       "max_bid_micro": 2400000,
-      "bumps_count": 1,
-      "total_bump_micro": 100000,
-      "last_bump_at": "2026-10-24T08:45:41.743224+00:00",
-      "spend_at_bump": 0.16
+      "bumps_count": 2,
+      "total_bump_micro": 200000,
+      "last_bump_at": "2026-10-24T11:06:50.357343+00:00",
+      "spend_at_bump": 0.18
     },
     "87169c31-048a-462d-8377-a3118d9630be": {
       "name": "Copy A - Car 1.9 Max [H1] #12",
       "campaign": "car scaling camp ",
       "base_bid_micro": 1900000,
-      "current_bid_micro": 2000000,
+      "current_bid_micro": 2100000,
       "max_bid_micro": 2200000,
-      "bumps_count": 1,
-      "total_bump_micro": 100000,
-      "last_bump_at": "2026-10-24T08:45:41.743224+00:00",
-      "spend_at_bump": 0.46
+      "bumps_count": 2,
+      "total_bump_micro": 200000,
+      "last_bump_at": "2026-10-24T11:06:50.357343+00:00",
+      "spend_at_bump": 0.59
     },
     "8f5fd12e-dd0e-4dd1-b971-34c71900fb8e": {
       "name": "Copy A - Car 1.9 Max [H1] #03",
       "campaign": "car scaling camp ",
       "base_bid_micro": 1900000,
-      "current_bid_micro": 2000000,
+      "current_bid_micro": 2100000,
       "max_bid_micro": 2200000,
-      "bumps_count": 1,
-      "total_bump_micro": 100000,
-      "last_bump_at": "2026-10-24T08:45:41.743224+00:00",
-      "spend_at_bump": 0.15
+      "bumps_count": 2,
+      "total_bump_micro": 200000,
+      "last_bump_at": "2026-10-24T11:06:50.357343+00:00",
+      "spend_at_bump": 0.16
     },
     "97d05b6f-388a-46a3-b316-66e1f61ad886": {
       "name": "Copy B - Car 2.1 Max [H2] #01",
       "campaign": "car scaling camp ",
       "base_bid_micro": 2100000,
-      "current_bid_micro": 2200000,
+      "current_bid_micro": 2300000,
       "max_bid_micro": 2400000,
-      "bumps_count": 1,
-      "total_bump_micro": 100000,
-      "last_bump_at": "2026-10-24T08:45:41.743224+00:00",
-      "spend_at_bump": 0.04
+      "bumps_count": 2,
+      "total_bump_micro": 200000,
+      "last_bump_at": "2026-10-24T11:06:50.357343+00:00",
+      "spend_at_bump": 0.06
     },
     "9e21c549-24cb-458d-aa5f-79313688d23b": {
       "name": "Copy A - Car 1.9 Max [H1] #06",
       "campaign": "car scaling camp ",
       "base_bid_micro": 1900000,
-      "current_bid_micro": 2000000,
+      "current_bid_micro": 2100000,
       "max_bid_micro": 2200000,
-      "bumps_count": 1,
-      "total_bump_micro": 100000,
-      "last_bump_at": "2026-10-24T08:45:41.743224+00:00",
-      "spend_at_bump": 0.3
+      "bumps_count": 2,
+      "total_bump_micro": 200000,
+      "last_bump_at": "2026-10-24T11:06:50.357343+00:00",
+      "spend_at_bump": 0.32
     },
     "a16276d6-cca0-4045-bfd8-0a15da5bec27": {
       "name": "Copy B - Car 2.1 Max [H2] #02",
       "campaign": "car scaling camp ",
       "base_bid_micro": 2100000,
-      "current_bid_micro": 2200000,
+      "current_bid_micro": 2300000,
       "max_bid_micro": 2400000,
-      "bumps_count": 1,
-      "total_bump_micro": 100000,
-      "last_bump_at": "2026-10-24T08:45:41.743224+00:00",
-      "spend_at_bump": 0.15
+      "bumps_count": 2,
+      "total_bump_micro": 200000,
+      "last_bump_at": "2026-10-24T11:06:50.357343+00:00",
+      "spend_at_bump": 0.25
     },
     "a227c1cd-dac4-4aa3-9a80-ba701c65afba": {
       "name": "Copy A - Car 1.9 Max [H1] #14",
       "campaign": "car scaling camp ",
       "base_bid_micro": 1900000,
-      "current_bid_micro": 2000000,
+      "current_bid_micro": 2100000,
       "max_bid_micro": 2200000,
-      "bumps_count": 1,
-      "total_bump_micro": 100000,
-      "last_bump_at": "2026-10-24T08:45:41.743224+00:00",
+      "bumps_count": 2,
+      "total_bump_micro": 200000,
+      "last_bump_at": "2026-10-24T11:06:50.357343+00:00",
       "spend_at_bump": 0.06
     },
     "aee74ce6-d361-4f08-8c23-957ac766483b": {
       "name": "Copy A - Car 1.9 Max [H1] #07",
       "campaign": "car scaling camp ",
       "base_bid_micro": 1900000,
-      "current_bid_micro": 2000000,
+      "current_bid_micro": 2100000,
       "max_bid_micro": 2200000,
-      "bumps_count": 1,
-      "total_bump_micro": 100000,
-      "last_bump_at": "2026-10-24T08:45:41.743224+00:00",
-      "spend_at_bump": 0.13
+      "bumps_count": 2,
+      "total_bump_micro": 200000,
+      "last_bump_at": "2026-10-24T11:06:50.357343+00:00",
+      "spend_at_bump": 0.14
     },
     "b7882803-342f-443b-ae75-7793cfa9dc41": {
       "name": "Copy A - Car 1.9 Max [H1] #35",
       "campaign": "car scaling camp ",
       "base_bid_micro": 1900000,
-      "current_bid_micro": 2000000,
+      "current_bid_micro": 2100000,
       "max_bid_micro": 2200000,
-      "bumps_count": 1,
-      "total_bump_micro": 100000,
-      "last_bump_at": "2026-10-24T08:45:41.743224+00:00",
-      "spend_at_bump": 0.04
+      "bumps_count": 2,
+      "total_bump_micro": 200000,
+      "last_bump_at": "2026-10-24T11:06:50.357343+00:00",
+      "spend_at_bump": 0.19
     },
     "e6acd573-0bb8-4aca-8956-2ed28f918901": {
       "name": "Copy B - Car 2.1 Max [H2] #34",
       "campaign": "car scaling camp ",
       "base_bid_micro": 2100000,
-      "current_bid_micro": 2200000,
+      "current_bid_micro": 2300000,
       "max_bid_micro": 2400000,
-      "bumps_count": 1,
-      "total_bump_micro": 100000,
-      "last_bump_at": "2026-10-24T08:45:41.743224+00:00",
-      "spend_at_bump": 0.01
+      "bumps_count": 2,
+      "total_bump_micro": 200000,
+      "last_bump_at": "2026-10-24T11:06:50.357343+00:00",
+      "spend_at_bump": 0.38
     },
     "ec9b1dba-6a1c-4b4d-901c-f91597f4ae09": {
       "name": "Copy B - Car 2.1 Max [H2] #41",
       "campaign": "car scaling camp ",
       "base_bid_micro": 2100000,
-      "current_bid_micro": 2200000,
+      "current_bid_micro": 2300000,
       "max_bid_micro": 2400000,
-      "bumps_count": 1,
-      "total_bump_micro": 100000,
-      "last_bump_at": "2026-10-24T08:45:41.743224+00:00",
-      "spend_at_bump": 0.01
+      "bumps_count": 2,
+      "total_bump_micro": 200000,
+      "last_bump_at": "2026-10-24T11:06:50.357343+00:00",
+      "spend_at_bump": 0.25
     },
     "f7fd9aed-9ff1-4406-9d28-0f8c279d4d0d": {
       "name": "Copy A - Car 1.9 Max [H1] #09",
       "campaign": "car scaling camp ",
       "base_bid_micro": 1900000,
-      "current_bid_micro": 2000000,
+      "current_bid_micro": 2100000,
       "max_bid_micro": 2200000,
-      "bumps_count": 1,
-      "total_bump_micro": 100000,
-      "last_bump_at": "2026-10-24T08:45:41.743224+00:00",
+      "bumps_count": 2,
+      "total_bump_micro": 200000,
+      "last_bump_at": "2026-10-24T11:06:50.357343+00:00",
       "spend_at_bump": 0.03
     },
     "f96727dc-2ec2-4164-a1a6-c49592e1753d": {
       "name": "Copy B - Car 2.1 Max [H2] #14",
       "campaign": "car scaling camp ",
       "base_bid_micro": 2100000,
-      "current_bid_micro": 2200000,
+      "current_bid_micro": 2300000,
       "max_bid_micro": 2400000,
-      "bumps_count": 1,
-      "total_bump_micro": 100000,
-      "last_bump_at": "2026-10-24T08:45:41.743224+00:00",
-      "spend_at_bump": 0.04
+      "bumps_count": 2,
+      "total_bump_micro": 200000,
+      "last_bump_at": "2026-10-24T11:06:50.357343+00:00",
+      "spend_at_bump": 0.09
     },
     "fc42afd5-b6a0-4c74-922b-5a5be1bab6cd": {
       "name": "Copy B - Car 2.1 Max [H2] #11",
       "campaign": "car scaling camp ",
       "base_bid_micro": 2100000,
-      "current_bid_micro": 2200000,
+      "current_bid_micro": 2300000,
       "max_bid_micro": 2400000,
-      "bumps_count": 1,
-      "total_bump_micro": 100000,
-      "last_bump_at": "2026-10-24T08:45:41.743224+00:00",
-      "spend_at_bump": 0.13
+      "bumps_count": 2,
+      "total_bump_micro": 200000,
+      "last_bump_at": "2026-10-24T11:06:50.357343+00:00",
+      "spend_at_bump": 0.18
     },
     "68c1972d-5fb7-4afa-87bb-261cb82f5092": {
       "name": "Copy B - Car 2.1 Max [H2] #11",
@@ -17922,309 +17956,917 @@
       "name": "Copy A - PB 1.9 Max [H1] #13",
       "campaign": "باور بانك وينر - سمارت",
       "base_bid_micro": 1900000,
-      "current_bid_micro": 2000000,
+      "current_bid_micro": 2100000,
       "max_bid_micro": 2200000,
-      "bumps_count": 1,
-      "total_bump_micro": 100000,
-      "last_bump_at": "2026-10-24T08:47:42.946012+00:00",
-      "spend_at_bump": 0.47
+      "bumps_count": 2,
+      "total_bump_micro": 200000,
+      "last_bump_at": "2026-10-24T11:08:15.096630+00:00",
+      "spend_at_bump": 0.69
     },
     "92cdd0c5-7bfc-4c73-aeeb-23788e3ebf15": {
       "name": "Copy A - PB 1.9 Max [H1] #15",
       "campaign": "باور بانك وينر - سمارت",
       "base_bid_micro": 1900000,
-      "current_bid_micro": 2000000,
+      "current_bid_micro": 2100000,
       "max_bid_micro": 2200000,
-      "bumps_count": 1,
-      "total_bump_micro": 100000,
-      "last_bump_at": "2026-10-24T08:47:42.946012+00:00",
+      "bumps_count": 2,
+      "total_bump_micro": 200000,
+      "last_bump_at": "2026-10-24T11:08:15.096630+00:00",
       "spend_at_bump": 0.01
     },
     "94e88bc4-dd72-41bc-9db8-8a469cf18410": {
       "name": "Copy A - PB 1.9 Max [H1] #06",
       "campaign": "باور بانك وينر - سمارت",
       "base_bid_micro": 1900000,
-      "current_bid_micro": 2000000,
+      "current_bid_micro": 2100000,
       "max_bid_micro": 2200000,
-      "bumps_count": 1,
-      "total_bump_micro": 100000,
-      "last_bump_at": "2026-10-24T08:47:42.946012+00:00",
-      "spend_at_bump": 0.24
+      "bumps_count": 2,
+      "total_bump_micro": 200000,
+      "last_bump_at": "2026-10-24T11:08:15.096630+00:00",
+      "spend_at_bump": 0.33
     },
     "a03913e2-76d6-4999-be5c-eb529fbed194": {
       "name": "Copy B - PB 2.1 Max [H2] #10",
       "campaign": "باور بانك وينر - سمارت",
       "base_bid_micro": 2100000,
-      "current_bid_micro": 2200000,
+      "current_bid_micro": 2300000,
       "max_bid_micro": 2400000,
-      "bumps_count": 1,
-      "total_bump_micro": 100000,
-      "last_bump_at": "2026-10-24T08:47:42.946012+00:00",
-      "spend_at_bump": 0.18
+      "bumps_count": 2,
+      "total_bump_micro": 200000,
+      "last_bump_at": "2026-10-24T11:08:15.096630+00:00",
+      "spend_at_bump": 0.19
     },
     "a08d7255-b293-40f8-8523-064173ae76e6": {
       "name": "Copy A - PB 1.9 Max [H1] #05",
       "campaign": "باور بانك وينر - سمارت",
       "base_bid_micro": 1900000,
-      "current_bid_micro": 2000000,
+      "current_bid_micro": 2100000,
       "max_bid_micro": 2200000,
-      "bumps_count": 1,
-      "total_bump_micro": 100000,
-      "last_bump_at": "2026-10-24T08:47:42.946012+00:00",
+      "bumps_count": 2,
+      "total_bump_micro": 200000,
+      "last_bump_at": "2026-10-24T11:08:15.096630+00:00",
       "spend_at_bump": 0.01
     },
     "a4a81891-a91a-4378-90c2-eceedd847774": {
       "name": "Copy A - PB 1.9 Max [H1] #14",
       "campaign": "باور بانك وينر - سمارت",
       "base_bid_micro": 1900000,
-      "current_bid_micro": 2000000,
+      "current_bid_micro": 2100000,
       "max_bid_micro": 2200000,
-      "bumps_count": 1,
-      "total_bump_micro": 100000,
-      "last_bump_at": "2026-10-24T08:47:42.946012+00:00",
-      "spend_at_bump": 0.0
+      "bumps_count": 2,
+      "total_bump_micro": 200000,
+      "last_bump_at": "2026-10-24T11:08:15.096630+00:00",
+      "spend_at_bump": 0.01
     },
     "a6da6aa1-f973-4ba6-96e8-dec24f8c1384": {
       "name": "Copy B - PB 2.1 Max [H2] #13",
       "campaign": "باور بانك وينر - سمارت",
       "base_bid_micro": 2100000,
-      "current_bid_micro": 2200000,
+      "current_bid_micro": 2300000,
       "max_bid_micro": 2400000,
-      "bumps_count": 1,
-      "total_bump_micro": 100000,
-      "last_bump_at": "2026-10-24T08:47:42.946012+00:00",
-      "spend_at_bump": 0.04
+      "bumps_count": 2,
+      "total_bump_micro": 200000,
+      "last_bump_at": "2026-10-24T11:08:15.096630+00:00",
+      "spend_at_bump": 0.06
     },
     "aae16d58-9ee8-46ca-8ba1-7f9cc9644812": {
       "name": "Copy A - PB 1.9 Max [H1] #12",
       "campaign": "باور بانك وينر - سمارت",
       "base_bid_micro": 1900000,
-      "current_bid_micro": 2000000,
+      "current_bid_micro": 2100000,
       "max_bid_micro": 2200000,
-      "bumps_count": 1,
-      "total_bump_micro": 100000,
-      "last_bump_at": "2026-10-24T08:47:42.946012+00:00",
+      "bumps_count": 2,
+      "total_bump_micro": 200000,
+      "last_bump_at": "2026-10-24T11:08:15.096630+00:00",
       "spend_at_bump": 0.02
     },
     "ab76bd95-7fac-4041-8b65-19c3ccb25ff3": {
       "name": "Copy A - PB 1.9 Max [H1] #02",
       "campaign": "باور بانك وينر - سمارت",
       "base_bid_micro": 1900000,
-      "current_bid_micro": 2000000,
+      "current_bid_micro": 2100000,
       "max_bid_micro": 2200000,
-      "bumps_count": 1,
-      "total_bump_micro": 100000,
-      "last_bump_at": "2026-10-24T08:47:42.946012+00:00",
-      "spend_at_bump": 0.02
+      "bumps_count": 2,
+      "total_bump_micro": 200000,
+      "last_bump_at": "2026-10-24T11:08:15.096630+00:00",
+      "spend_at_bump": 0.06
     },
     "ac7ee6f3-414d-45b6-bae6-c17ea6a96c4d": {
       "name": "Copy B - PB 2.1 Max [H2] #14",
       "campaign": "باور بانك وينر - سمارت",
       "base_bid_micro": 2100000,
-      "current_bid_micro": 2200000,
+      "current_bid_micro": 2300000,
       "max_bid_micro": 2400000,
-      "bumps_count": 1,
-      "total_bump_micro": 100000,
-      "last_bump_at": "2026-10-24T08:47:42.946012+00:00",
-      "spend_at_bump": 0.0
+      "bumps_count": 2,
+      "total_bump_micro": 200000,
+      "last_bump_at": "2026-10-24T11:08:15.096630+00:00",
+      "spend_at_bump": 0.03
     },
     "af6f27fa-af1f-4cd4-b90b-e1f184a8d691": {
       "name": "Copy B - PB 2.1 Max [H2] #15",
       "campaign": "باور بانك وينر - سمارت",
       "base_bid_micro": 2100000,
-      "current_bid_micro": 2200000,
+      "current_bid_micro": 2300000,
       "max_bid_micro": 2400000,
-      "bumps_count": 1,
-      "total_bump_micro": 100000,
-      "last_bump_at": "2026-10-24T08:47:42.946012+00:00",
-      "spend_at_bump": 0.03
+      "bumps_count": 2,
+      "total_bump_micro": 200000,
+      "last_bump_at": "2026-10-24T11:08:15.096630+00:00",
+      "spend_at_bump": 0.04
     },
     "b0f91704-df30-4f14-afa2-26ab5aeb517b": {
       "name": "Copy A - PB 1.9 Max [H1] #10",
       "campaign": "باور بانك وينر - سمارت",
       "base_bid_micro": 1900000,
-      "current_bid_micro": 2000000,
+      "current_bid_micro": 2100000,
       "max_bid_micro": 2200000,
-      "bumps_count": 1,
-      "total_bump_micro": 100000,
-      "last_bump_at": "2026-10-24T08:47:42.946012+00:00",
-      "spend_at_bump": 0.02
+      "bumps_count": 2,
+      "total_bump_micro": 200000,
+      "last_bump_at": "2026-10-24T11:08:15.096630+00:00",
+      "spend_at_bump": 0.03
     },
     "ba12c0eb-ea7e-4abf-9e04-9cd070f7a502": {
       "name": "Copy B - PB 2.1 Max [H2] #12",
       "campaign": "باور بانك وينر - سمارت",
       "base_bid_micro": 2100000,
-      "current_bid_micro": 2200000,
+      "current_bid_micro": 2300000,
       "max_bid_micro": 2400000,
-      "bumps_count": 1,
-      "total_bump_micro": 100000,
-      "last_bump_at": "2026-10-24T08:47:42.946012+00:00",
-      "spend_at_bump": 0.02
+      "bumps_count": 2,
+      "total_bump_micro": 200000,
+      "last_bump_at": "2026-10-24T11:08:15.096630+00:00",
+      "spend_at_bump": 0.04
     },
     "becc78c5-0482-4f53-9af4-7d76a59bc9d5": {
       "name": "Copy A - PB 1.9 Max [H1] #05",
       "campaign": "باور بانك وينر - سمارت",
       "base_bid_micro": 1900000,
-      "current_bid_micro": 2000000,
+      "current_bid_micro": 2100000,
       "max_bid_micro": 2200000,
-      "bumps_count": 1,
-      "total_bump_micro": 100000,
-      "last_bump_at": "2026-10-24T08:47:42.946012+00:00",
+      "bumps_count": 2,
+      "total_bump_micro": 200000,
+      "last_bump_at": "2026-10-24T11:08:15.096630+00:00",
       "spend_at_bump": 0.0
     },
     "c1299bb9-b7db-4caa-a4f2-a7cd515d6459": {
       "name": "Copy B - PB 2.1 Max [H2] #03",
       "campaign": "باور بانك وينر - سمارت",
       "base_bid_micro": 2100000,
-      "current_bid_micro": 2200000,
+      "current_bid_micro": 2300000,
       "max_bid_micro": 2400000,
-      "bumps_count": 1,
-      "total_bump_micro": 100000,
-      "last_bump_at": "2026-10-24T08:47:42.946012+00:00",
-      "spend_at_bump": 0.22
+      "bumps_count": 2,
+      "total_bump_micro": 200000,
+      "last_bump_at": "2026-10-24T11:08:15.096630+00:00",
+      "spend_at_bump": 0.61
     },
     "c2d91512-45c4-48da-8e94-605e4d45c1cb": {
       "name": "Copy A - PB 1.9 Max [H1] #11",
       "campaign": "باور بانك وينر - سمارت",
       "base_bid_micro": 1900000,
-      "current_bid_micro": 2000000,
+      "current_bid_micro": 2100000,
       "max_bid_micro": 2200000,
-      "bumps_count": 1,
-      "total_bump_micro": 100000,
-      "last_bump_at": "2026-10-24T08:47:42.946012+00:00",
+      "bumps_count": 2,
+      "total_bump_micro": 200000,
+      "last_bump_at": "2026-10-24T11:08:15.096630+00:00",
       "spend_at_bump": 0.03
     },
     "d38cc009-b293-41e7-a5e7-dabb9dfaeeaa": {
       "name": "Copy A - PB 1.9 Max [H1] #11",
       "campaign": "باور بانك وينر - سمارت",
       "base_bid_micro": 1900000,
-      "current_bid_micro": 2000000,
+      "current_bid_micro": 2100000,
       "max_bid_micro": 2200000,
-      "bumps_count": 1,
-      "total_bump_micro": 100000,
-      "last_bump_at": "2026-10-24T08:47:42.946012+00:00",
-      "spend_at_bump": 0.0
+      "bumps_count": 2,
+      "total_bump_micro": 200000,
+      "last_bump_at": "2026-10-24T11:08:15.096630+00:00",
+      "spend_at_bump": 0.02
     },
     "d5e726a7-dbba-49c3-8bac-6d015e6d373f": {
       "name": "Copy A - PB 1.9 Max [H1] #02",
       "campaign": "باور بانك وينر - سمارت",
       "base_bid_micro": 1900000,
-      "current_bid_micro": 2000000,
+      "current_bid_micro": 2100000,
       "max_bid_micro": 2200000,
-      "bumps_count": 1,
-      "total_bump_micro": 100000,
-      "last_bump_at": "2026-10-24T08:47:42.946012+00:00",
-      "spend_at_bump": 0.01
+      "bumps_count": 2,
+      "total_bump_micro": 200000,
+      "last_bump_at": "2026-10-24T11:08:15.096630+00:00",
+      "spend_at_bump": 0.03
     },
     "d84446a1-10ed-4fe8-94a1-28dfaff24370": {
       "name": "Copy A - PB 1.9 Max [H1] #01",
       "campaign": "باور بانك وينر - سمارت",
       "base_bid_micro": 1900000,
-      "current_bid_micro": 2000000,
+      "current_bid_micro": 2100000,
       "max_bid_micro": 2200000,
-      "bumps_count": 1,
-      "total_bump_micro": 100000,
-      "last_bump_at": "2026-10-24T08:47:42.946012+00:00",
-      "spend_at_bump": 0.01
+      "bumps_count": 2,
+      "total_bump_micro": 200000,
+      "last_bump_at": "2026-10-24T11:08:15.096630+00:00",
+      "spend_at_bump": 0.02
     },
     "daf80dbc-e55b-4f76-bad2-a43a8bfdae32": {
       "name": "Copy B - PB 2.1 Max [H2] #08",
       "campaign": "باور بانك وينر - سمارت",
       "base_bid_micro": 2100000,
-      "current_bid_micro": 2200000,
+      "current_bid_micro": 2300000,
       "max_bid_micro": 2400000,
-      "bumps_count": 1,
-      "total_bump_micro": 100000,
-      "last_bump_at": "2026-10-24T08:47:42.946012+00:00",
+      "bumps_count": 2,
+      "total_bump_micro": 200000,
+      "last_bump_at": "2026-10-24T11:08:15.096630+00:00",
       "spend_at_bump": 0.01
     },
     "dd6e5014-7747-4483-9a55-0d81799fc563": {
       "name": "Copy B - PB 2.1 Max [H2] #12",
       "campaign": "باور بانك وينر - سمارت",
       "base_bid_micro": 2100000,
-      "current_bid_micro": 2200000,
+      "current_bid_micro": 2300000,
       "max_bid_micro": 2400000,
-      "bumps_count": 1,
-      "total_bump_micro": 100000,
-      "last_bump_at": "2026-10-24T08:47:42.946012+00:00",
-      "spend_at_bump": 0.11
+      "bumps_count": 2,
+      "total_bump_micro": 200000,
+      "last_bump_at": "2026-10-24T11:08:15.096630+00:00",
+      "spend_at_bump": 0.85
     },
     "de59c5e9-5aab-4ab0-baf2-ed4732fc8ac7": {
       "name": "Copy B - PB 2.1 Max [H2] #04",
       "campaign": "باور بانك وينر - سمارت",
       "base_bid_micro": 2100000,
-      "current_bid_micro": 2200000,
+      "current_bid_micro": 2300000,
       "max_bid_micro": 2400000,
-      "bumps_count": 1,
-      "total_bump_micro": 100000,
-      "last_bump_at": "2026-10-24T08:47:42.946012+00:00",
+      "bumps_count": 2,
+      "total_bump_micro": 200000,
+      "last_bump_at": "2026-10-24T11:08:15.096630+00:00",
       "spend_at_bump": 0.03
     },
     "e129901c-6f2d-4fc0-8ef2-5a86f470c197": {
       "name": "Copy B - PB 2.1 Max [H2] #10",
       "campaign": "باور بانك وينر - سمارت",
       "base_bid_micro": 2100000,
-      "current_bid_micro": 2200000,
+      "current_bid_micro": 2300000,
       "max_bid_micro": 2400000,
-      "bumps_count": 1,
-      "total_bump_micro": 100000,
-      "last_bump_at": "2026-10-24T08:47:42.946012+00:00",
-      "spend_at_bump": 0.14
+      "bumps_count": 2,
+      "total_bump_micro": 200000,
+      "last_bump_at": "2026-10-24T11:08:15.096630+00:00",
+      "spend_at_bump": 0.29
     },
     "e3b0dedd-cb14-48ca-8c03-e6bba280cbf0": {
       "name": "Copy B - PB 2.1 Max [H2] #05",
       "campaign": "باور بانك وينر - سمارت",
       "base_bid_micro": 2100000,
-      "current_bid_micro": 2200000,
+      "current_bid_micro": 2300000,
       "max_bid_micro": 2400000,
-      "bumps_count": 1,
-      "total_bump_micro": 100000,
-      "last_bump_at": "2026-10-24T08:47:42.946012+00:00",
-      "spend_at_bump": 0.04
+      "bumps_count": 2,
+      "total_bump_micro": 200000,
+      "last_bump_at": "2026-10-24T11:08:15.096630+00:00",
+      "spend_at_bump": 0.07
     },
     "e7960ea6-ac44-43ba-b200-29bd131dee55": {
       "name": "Copy A - PB 1.9 Max [H1] #08",
       "campaign": "باور بانك وينر - سمارت",
       "base_bid_micro": 1900000,
-      "current_bid_micro": 2000000,
+      "current_bid_micro": 2100000,
       "max_bid_micro": 2200000,
-      "bumps_count": 1,
-      "total_bump_micro": 100000,
-      "last_bump_at": "2026-10-24T08:47:42.946012+00:00",
+      "bumps_count": 2,
+      "total_bump_micro": 200000,
+      "last_bump_at": "2026-10-24T11:08:15.096630+00:00",
       "spend_at_bump": 0.04
     },
     "ef76e209-d1e9-4c39-ae84-57c577e0c0f0": {
       "name": "Copy B - PB 2.1 Max [H2] #07",
       "campaign": "باور بانك وينر - سمارت",
       "base_bid_micro": 2100000,
-      "current_bid_micro": 2200000,
+      "current_bid_micro": 2300000,
       "max_bid_micro": 2400000,
-      "bumps_count": 1,
-      "total_bump_micro": 100000,
-      "last_bump_at": "2026-10-24T08:47:42.946012+00:00",
-      "spend_at_bump": 0.1
+      "bumps_count": 2,
+      "total_bump_micro": 200000,
+      "last_bump_at": "2026-10-24T11:08:15.096630+00:00",
+      "spend_at_bump": 0.27
     },
     "f52dec5d-ee3b-490c-a9e5-f7d521ef71e9": {
       "name": "Copy B - PB 2.1 Max [H2] #03",
       "campaign": "باور بانك وينر - سمارت",
       "base_bid_micro": 2100000,
-      "current_bid_micro": 2200000,
+      "current_bid_micro": 2300000,
       "max_bid_micro": 2400000,
-      "bumps_count": 1,
-      "total_bump_micro": 100000,
-      "last_bump_at": "2026-10-24T08:47:42.946012+00:00",
-      "spend_at_bump": 0.03
+      "bumps_count": 2,
+      "total_bump_micro": 200000,
+      "last_bump_at": "2026-10-24T11:08:15.096630+00:00",
+      "spend_at_bump": 0.07
     },
     "f8ead837-67ec-44d9-b557-ed9a461d5727": {
       "name": "Copy A - PB 1.9 Max [H1] #06",
       "campaign": "باور بانك وينر - سمارت",
       "base_bid_micro": 1900000,
-      "current_bid_micro": 2000000,
+      "current_bid_micro": 2100000,
       "max_bid_micro": 2200000,
-      "bumps_count": 1,
-      "total_bump_micro": 100000,
-      "last_bump_at": "2026-10-24T08:47:42.946012+00:00",
-      "spend_at_bump": 0.0
+      "bumps_count": 2,
+      "total_bump_micro": 200000,
+      "last_bump_at": "2026-10-24T11:08:15.096630+00:00",
+      "spend_at_bump": 0.01
+    }
+  },
+  "smart_spend_watchdog": {
+    "09950479-aa98-4582-8ce1-ae0f83fc5cf5": {
+      "date": "2026-10-24",
+      "name": "Copy B - PB 2.1 Max [H2] #12",
+      "campaign": "باور بانك وينر",
+      "scaled_budget_today": false
+    },
+    "1b9145e2-9a7b-4423-b4cb-994e8d5822c1": {
+      "date": "2026-10-24",
+      "name": "Copy A - PB 1.9 Max [H1] #13",
+      "campaign": "باور بانك وينر",
+      "scaled_budget_today": false
+    },
+    "4c8709d4-03cb-4805-bd25-e03ee33052ca": {
+      "date": "2026-10-24",
+      "name": "Copy B - PB 2.1 Max [H2] #04",
+      "campaign": "باور بانك وينر",
+      "scaled_budget_today": false
+    },
+    "627861d2-c8f5-40ce-a4ff-ccc687b6fc31": {
+      "date": "2026-10-24",
+      "name": "Copy A - PB 1.9 Max [H1] #03",
+      "campaign": "باور بانك وينر",
+      "scaled_budget_today": false
+    },
+    "71385a3f-1ae1-4281-a071-51254475df8e": {
+      "date": "2026-10-24",
+      "name": "Copy B - PB 2.1 Max [H2] #05",
+      "campaign": "باور بانك وينر",
+      "scaled_budget_today": false
+    },
+    "80667ceb-a80d-42bd-aae2-094c3cc799da": {
+      "date": "2026-10-24",
+      "name": "Copy B - PB 2.1 Max [H2] #09",
+      "campaign": "باور بانك وينر",
+      "scaled_budget_today": false
+    },
+    "87020326-9953-4911-b662-9a624416f637": {
+      "date": "2026-10-24",
+      "name": "Copy A - PB 1.9 Max [H1] #06",
+      "campaign": "باور بانك وينر",
+      "scaled_budget_today": false
+    },
+    "8fb71447-2ee7-457a-9b3d-d64f260f4714": {
+      "date": "2026-10-24",
+      "name": "Copy A - PB 1.9 Max [H1] #15",
+      "campaign": "باور بانك وينر",
+      "scaled_budget_today": false
+    },
+    "91f13cd0-6e7f-4c2a-910e-8927e200239e": {
+      "date": "2026-10-24",
+      "name": "Copy A - PB 1.9 Max [H1] #11",
+      "campaign": "باور بانك وينر",
+      "scaled_budget_today": false
+    },
+    "98754ac0-b2e1-4504-a882-2df603230dfe": {
+      "date": "2026-10-24",
+      "name": "Copy A - PB 1.9 Max [H1] #14",
+      "campaign": "باور بانك وينر",
+      "scaled_budget_today": false
+    },
+    "99fa51cf-4ed9-41f7-83cf-973e1b08e8bd": {
+      "date": "2026-10-24",
+      "name": "Copy A - PB 1.9 Max [H1] #07",
+      "campaign": "باور بانك وينر",
+      "scaled_budget_today": false
+    },
+    "9b40cce5-d49a-438c-b326-16a3341f5942": {
+      "date": "2026-10-24",
+      "name": "Copy A - PB 1.9 Max [H1] #01",
+      "campaign": "باور بانك وينر",
+      "scaled_budget_today": false
+    },
+    "a2154b47-246e-4fcf-bb44-9a16745241db": {
+      "date": "2026-10-24",
+      "name": "Copy A - PB 1.9 Max [H1] #11",
+      "campaign": "باور بانك وينر",
+      "scaled_budget_today": false
+    },
+    "af0a7d37-ef53-489e-857a-bdaa2864b88b": {
+      "date": "2026-10-24",
+      "name": "Copy B - PB 2.1 Max [H2] #11",
+      "campaign": "باور بانك وينر",
+      "scaled_budget_today": false
+    },
+    "b58b554c-9e7a-43ff-ba73-26bbf7530b05": {
+      "date": "2026-10-24",
+      "name": "Copy B - PB 2.1 Max [H2] #01",
+      "campaign": "باور بانك وينر",
+      "scaled_budget_today": false
+    },
+    "b809e049-7bdb-4178-890c-edf6792f475c": {
+      "date": "2026-10-24",
+      "name": "Copy A - PB 1.9 Max [H1] #05",
+      "campaign": "باور بانك وينر",
+      "scaled_budget_today": false
+    },
+    "bcf0046d-8d43-44cf-95b6-0069caf48fff": {
+      "date": "2026-10-24",
+      "name": "Copy A - PB 1.9 Max [H1] #02",
+      "campaign": "باور بانك وينر",
+      "scaled_budget_today": false
+    },
+    "c0bf3855-29ac-4fd7-b2ef-c42cb2ac19a2": {
+      "date": "2026-10-24",
+      "name": "Copy B - PB 2.1 Max [H2] #13",
+      "campaign": "باور بانك وينر",
+      "scaled_budget_today": false
+    },
+    "c875f028-9b2a-4812-8b74-46660460f940": {
+      "date": "2026-10-24",
+      "name": "Copy B - PB 2.1 Max [H2] #02",
+      "campaign": "باور بانك وينر",
+      "scaled_budget_today": false
+    },
+    "d28d9518-9766-4e60-8d8c-f32b40038619": {
+      "date": "2026-10-24",
+      "name": "Copy B - PB 2.1 Max [H2] #14",
+      "campaign": "باور بانك وينر",
+      "scaled_budget_today": false
+    },
+    "d33d2510-17dc-43f1-8195-758c00b576d1": {
+      "date": "2026-10-24",
+      "name": "Copy B - PB 2.1 Max [H2] #07",
+      "campaign": "باور بانك وينر",
+      "scaled_budget_today": false
+    },
+    "d57445db-d39a-4434-9841-62796f9cbd6b": {
+      "date": "2026-10-24",
+      "name": "Copy B - PB 2.1 Max [H2] #03",
+      "campaign": "باور بانك وينر",
+      "scaled_budget_today": false
+    },
+    "d6c5aed1-e012-4b19-b044-5a18cab3c020": {
+      "date": "2026-10-24",
+      "name": "Copy A - PB 1.9 Max [H1] #12",
+      "campaign": "باور بانك وينر",
+      "scaled_budget_today": false
+    },
+    "dd091f56-0f40-4eb3-99ff-bd23a73ac723": {
+      "date": "2026-10-24",
+      "name": "Copy A - PB 1.9 Max [H1] #09",
+      "campaign": "باور بانك وينر",
+      "scaled_budget_today": false
+    },
+    "dd960a20-f3a2-4f08-adf4-426b84d243d0": {
+      "date": "2026-10-24",
+      "name": "Copy A - PB 1.9 Max [H1] #08",
+      "campaign": "باور بانك وينر",
+      "scaled_budget_today": false
+    },
+    "eb126b54-12ea-4bc6-bcf9-912582f7e78e": {
+      "date": "2026-10-24",
+      "name": "Copy B - PB 2.1 Max [H2] #08",
+      "campaign": "باور بانك وينر",
+      "scaled_budget_today": false
+    },
+    "ec1ef147-fb12-4981-97bf-0f69f1dd2b5f": {
+      "date": "2026-10-24",
+      "name": "Copy A - PB 1.9 Max [H1] #04",
+      "campaign": "باور بانك وينر",
+      "scaled_budget_today": false
+    },
+    "03105187-5949-41bd-a234-22b346ea48c0": {
+      "date": "2026-10-24",
+      "name": "Copy A - Car 1.9 Max [H1] #33",
+      "campaign": "car scaling camp ",
+      "scaled_budget_today": false
+    },
+    "05911def-56e5-4203-bd2b-9ae7d82d8c04": {
+      "date": "2026-10-24",
+      "name": "Copy A - Car 1.9 Max [H1] #02",
+      "campaign": "car scaling camp ",
+      "scaled_budget_today": false
+    },
+    "186bf4d8-d063-4ef0-ab57-b2bbae09e63f": {
+      "date": "2026-10-24",
+      "name": "Copy A - Car 1.9 Max [H1] #08",
+      "campaign": "car scaling camp ",
+      "scaled_budget_today": false
+    },
+    "1cfa9790-7446-434c-80c7-505a480bdc5f": {
+      "date": "2026-10-24",
+      "name": "Copy A - Car 1.9 Max [H1] #13",
+      "campaign": "car scaling camp ",
+      "scaled_budget_today": false
+    },
+    "1eec2a86-9eeb-4c7b-99e9-3a357b6c93af": {
+      "date": "2026-10-24",
+      "name": "Copy B - Car 2.1 Max [H2] #15",
+      "campaign": "car scaling camp ",
+      "scaled_budget_today": false
+    },
+    "290ef780-4bf8-49a7-a925-f8731c72a6ae": {
+      "date": "2026-10-24",
+      "name": "Copy B - Car 2.1 Max [H2] #04",
+      "campaign": "car scaling camp ",
+      "scaled_budget_today": false
+    },
+    "2f88fd34-86fb-4e8b-8220-8725a90907a2": {
+      "date": "2026-10-24",
+      "name": "Copy B - Car 2.1 Max [H2] #05",
+      "campaign": "car scaling camp ",
+      "scaled_budget_today": false
+    },
+    "3585c2d5-0601-4f9e-b10b-2c8774a04b08": {
+      "date": "2026-10-24",
+      "name": "Copy A - Car 1.9 Max [H1] #09",
+      "campaign": "car scaling camp ",
+      "scaled_budget_today": false
+    },
+    "3da8e661-2987-46d4-b6a5-67c1dab28f9f": {
+      "date": "2026-10-24",
+      "name": "Copy A - Car 1.9 Max [H1] #10",
+      "campaign": "car scaling camp ",
+      "scaled_budget_today": false
+    },
+    "45fd9c6e-7a59-4de8-ab71-0cf207d01938": {
+      "date": "2026-10-24",
+      "name": "Copy B - Car 2.1 Max [H2] #13",
+      "campaign": "car scaling camp ",
+      "scaled_budget_today": false
+    },
+    "51dacf81-803e-4264-9e67-c200c5dd2924": {
+      "date": "2026-10-24",
+      "name": "Copy A - Car 1.9 Max [H1] #15",
+      "campaign": "car scaling camp ",
+      "scaled_budget_today": false
+    },
+    "59a36d61-0f62-42b2-a18f-d656dcd2977c": {
+      "date": "2026-10-24",
+      "name": "Copy B - Car 2.1 Max [H2] #08",
+      "campaign": "car scaling camp ",
+      "scaled_budget_today": false
+    },
+    "5cdeeb9a-963c-432d-977f-6fa7125712c6": {
+      "date": "2026-10-24",
+      "name": "Copy B - Car 2.1 Max [H2] #12",
+      "campaign": "car scaling camp ",
+      "scaled_budget_today": false
+    },
+    "6b7f11f9-3061-41b6-a942-ba451a956355": {
+      "date": "2026-10-24",
+      "name": "Copy B - Car 2.1 Max [H2] #09",
+      "campaign": "car scaling camp ",
+      "scaled_budget_today": false
+    },
+    "6c6c5bfb-f528-4032-8b27-e16e8fa6f58a": {
+      "date": "2026-10-24",
+      "name": "Copy B - Car 2.1 Max [H2] #06",
+      "campaign": "car scaling camp ",
+      "scaled_budget_today": false
+    },
+    "7698dd7c-c54d-423c-9d96-21ff9d2e9197": {
+      "date": "2026-10-24",
+      "name": "Copy A - Car 1.9 Max [H1] #02",
+      "campaign": "car scaling camp ",
+      "scaled_budget_today": false
+    },
+    "833357de-2d82-4d48-9e8c-ccde2b57d693": {
+      "date": "2026-10-24",
+      "name": "Copy B - Car 2.1 Max [H2] #09",
+      "campaign": "car scaling camp ",
+      "scaled_budget_today": false
+    },
+    "87169c31-048a-462d-8377-a3118d9630be": {
+      "date": "2026-10-24",
+      "name": "Copy A - Car 1.9 Max [H1] #12",
+      "campaign": "car scaling camp ",
+      "scaled_budget_today": false
+    },
+    "8f5fd12e-dd0e-4dd1-b971-34c71900fb8e": {
+      "date": "2026-10-24",
+      "name": "Copy A - Car 1.9 Max [H1] #03",
+      "campaign": "car scaling camp ",
+      "scaled_budget_today": false
+    },
+    "97d05b6f-388a-46a3-b316-66e1f61ad886": {
+      "date": "2026-10-24",
+      "name": "Copy B - Car 2.1 Max [H2] #01",
+      "campaign": "car scaling camp ",
+      "scaled_budget_today": false
+    },
+    "9e21c549-24cb-458d-aa5f-79313688d23b": {
+      "date": "2026-10-24",
+      "name": "Copy A - Car 1.9 Max [H1] #06",
+      "campaign": "car scaling camp ",
+      "scaled_budget_today": false
+    },
+    "a16276d6-cca0-4045-bfd8-0a15da5bec27": {
+      "date": "2026-10-24",
+      "name": "Copy B - Car 2.1 Max [H2] #02",
+      "campaign": "car scaling camp ",
+      "scaled_budget_today": false
+    },
+    "a227c1cd-dac4-4aa3-9a80-ba701c65afba": {
+      "date": "2026-10-24",
+      "name": "Copy A - Car 1.9 Max [H1] #14",
+      "campaign": "car scaling camp ",
+      "scaled_budget_today": false
+    },
+    "aee74ce6-d361-4f08-8c23-957ac766483b": {
+      "date": "2026-10-24",
+      "name": "Copy A - Car 1.9 Max [H1] #07",
+      "campaign": "car scaling camp ",
+      "scaled_budget_today": false
+    },
+    "b7882803-342f-443b-ae75-7793cfa9dc41": {
+      "date": "2026-10-24",
+      "name": "Copy A - Car 1.9 Max [H1] #35",
+      "campaign": "car scaling camp ",
+      "scaled_budget_today": false
+    },
+    "e6acd573-0bb8-4aca-8956-2ed28f918901": {
+      "date": "2026-10-24",
+      "name": "Copy B - Car 2.1 Max [H2] #34",
+      "campaign": "car scaling camp ",
+      "scaled_budget_today": false
+    },
+    "ec9b1dba-6a1c-4b4d-901c-f91597f4ae09": {
+      "date": "2026-10-24",
+      "name": "Copy B - Car 2.1 Max [H2] #41",
+      "campaign": "car scaling camp ",
+      "scaled_budget_today": false
+    },
+    "f7fd9aed-9ff1-4406-9d28-0f8c279d4d0d": {
+      "date": "2026-10-24",
+      "name": "Copy A - Car 1.9 Max [H1] #09",
+      "campaign": "car scaling camp ",
+      "scaled_budget_today": false
+    },
+    "f96727dc-2ec2-4164-a1a6-c49592e1753d": {
+      "date": "2026-10-24",
+      "name": "Copy B - Car 2.1 Max [H2] #14",
+      "campaign": "car scaling camp ",
+      "scaled_budget_today": false
+    },
+    "fc42afd5-b6a0-4c74-922b-5a5be1bab6cd": {
+      "date": "2026-10-24",
+      "name": "Copy B - Car 2.1 Max [H2] #11",
+      "campaign": "car scaling camp ",
+      "scaled_budget_today": false
+    },
+    "89d5bdb0-9f5f-4f75-93d1-6949942d1061": {
+      "date": "2026-10-24",
+      "name": "Copy A - Car 1.9 Max [H1] #07",
+      "campaign": "car armrest",
+      "scaled_budget_today": false
+    },
+    "8bf49eb2-1a68-44fe-aafd-e9bf59ceb6c4": {
+      "date": "2026-10-24",
+      "name": "Copy B - Car 2.1 Max [H2] #14",
+      "campaign": "car armrest",
+      "scaled_budget_today": false
+    },
+    "995ce635-c617-4904-98c1-08eb055ed33a": {
+      "date": "2026-10-24",
+      "name": "Copy B - Car 2.1 Max [H2] #06",
+      "campaign": "car armrest",
+      "scaled_budget_today": false
+    },
+    "a0df17e5-10ec-49e3-85ce-4b82d7ce40f2": {
+      "date": "2026-10-24",
+      "name": "Copy A - Car 1.9 Max [H1] #06",
+      "campaign": "car armrest",
+      "scaled_budget_today": false
+    },
+    "a3d1182a-be66-4b4b-bfaa-b16900348f1c": {
+      "date": "2026-10-24",
+      "name": "Copy A - Car 1.9 Max [H1] #06",
+      "campaign": "car armrest",
+      "scaled_budget_today": false
+    },
+    "c995e688-efa0-4a24-912c-604efceba63e": {
+      "date": "2026-10-24",
+      "name": "Copy B - Car 2.1 Max [H2] #15",
+      "campaign": "car armrest",
+      "scaled_budget_today": false
+    },
+    "d5ae0211-7802-4ddb-90a1-212bf9c70f1c": {
+      "date": "2026-10-24",
+      "name": "Copy A - Car 1.9 Max [H1] #10",
+      "campaign": "car armrest",
+      "scaled_budget_today": false
+    },
+    "da40f780-9980-41b0-aec5-a583f30bdb91": {
+      "date": "2026-10-24",
+      "name": "Copy A - Car 1.9 Max [H1] #04",
+      "campaign": "car armrest",
+      "scaled_budget_today": false
+    },
+    "e138dd1e-f9df-4acf-b27d-291e232cb760": {
+      "date": "2026-10-24",
+      "name": "Copy A - Car 1.9 Max [H1] #12",
+      "campaign": "car armrest",
+      "scaled_budget_today": false
+    },
+    "e9ba70d3-f42c-49cb-8e8d-6ef5690604ac": {
+      "date": "2026-10-24",
+      "name": "Copy A - Car 1.9 Max [H1] #04",
+      "campaign": "car armrest",
+      "scaled_budget_today": false
+    },
+    "ea10c7e7-e69c-498a-a6e6-1633e9a5deb1": {
+      "date": "2026-10-24",
+      "name": "Copy A - Car 1.9 Max [H1] #01",
+      "campaign": "car armrest",
+      "scaled_budget_today": false
+    },
+    "eb9f7899-6f88-4e46-b5a1-59a15ffcfec2": {
+      "date": "2026-10-24",
+      "name": "Copy A - Car 1.9 Max [H1] #11",
+      "campaign": "car armrest",
+      "scaled_budget_today": false
+    },
+    "f0abf709-70cd-4fa9-bb01-afeed635a00c": {
+      "date": "2026-10-24",
+      "name": "Copy A - Car 1.9 Max [H1] #08",
+      "campaign": "car armrest",
+      "scaled_budget_today": false
+    },
+    "f693b60d-adc1-4852-ba81-2fe131086835": {
+      "date": "2026-10-24",
+      "name": "Copy A - Car 1.9 Max [H1] #09",
+      "campaign": "car armrest",
+      "scaled_budget_today": false
+    },
+    "fd4419c1-e27d-4d32-930c-ebf542d6066a": {
+      "date": "2026-10-24",
+      "name": "Copy B - Car 2.1 Max [H2] #02",
+      "campaign": "car armrest",
+      "scaled_budget_today": false
+    },
+    "ff82bbef-da04-4d67-9da5-2e856805a9c7": {
+      "date": "2026-10-24",
+      "name": "Copy A - Car 1.9 Max [H1] #15",
+      "campaign": "car armrest",
+      "scaled_budget_today": false
+    },
+    "91b8f673-4d2f-46bc-b411-a817db10cf3d": {
+      "date": "2026-10-24",
+      "name": "Copy A - PB 1.9 Max [H1] #13",
+      "campaign": "باور بانك وينر - سمارت",
+      "scaled_budget_today": false
+    },
+    "92cdd0c5-7bfc-4c73-aeeb-23788e3ebf15": {
+      "date": "2026-10-24",
+      "name": "Copy A - PB 1.9 Max [H1] #15",
+      "campaign": "باور بانك وينر - سمارت",
+      "scaled_budget_today": false
+    },
+    "94e88bc4-dd72-41bc-9db8-8a469cf18410": {
+      "date": "2026-10-24",
+      "name": "Copy A - PB 1.9 Max [H1] #06",
+      "campaign": "باور بانك وينر - سمارت",
+      "scaled_budget_today": false
+    },
+    "a03913e2-76d6-4999-be5c-eb529fbed194": {
+      "date": "2026-10-24",
+      "name": "Copy B - PB 2.1 Max [H2] #10",
+      "campaign": "باور بانك وينر - سمارت",
+      "scaled_budget_today": false
+    },
+    "a08d7255-b293-40f8-8523-064173ae76e6": {
+      "date": "2026-10-24",
+      "name": "Copy A - PB 1.9 Max [H1] #05",
+      "campaign": "باور بانك وينر - سمارت",
+      "scaled_budget_today": false
+    },
+    "a4a81891-a91a-4378-90c2-eceedd847774": {
+      "date": "2026-10-24",
+      "name": "Copy A - PB 1.9 Max [H1] #14",
+      "campaign": "باور بانك وينر - سمارت",
+      "scaled_budget_today": false
+    },
+    "a6da6aa1-f973-4ba6-96e8-dec24f8c1384": {
+      "date": "2026-10-24",
+      "name": "Copy B - PB 2.1 Max [H2] #13",
+      "campaign": "باور بانك وينر - سمارت",
+      "scaled_budget_today": false
+    },
+    "aae16d58-9ee8-46ca-8ba1-7f9cc9644812": {
+      "date": "2026-10-24",
+      "name": "Copy A - PB 1.9 Max [H1] #12",
+      "campaign": "باور بانك وينر - سمارت",
+      "scaled_budget_today": false
+    },
+    "ab76bd95-7fac-4041-8b65-19c3ccb25ff3": {
+      "date": "2026-10-24",
+      "name": "Copy A - PB 1.9 Max [H1] #02",
+      "campaign": "باور بانك وينر - سمارت",
+      "scaled_budget_today": false
+    },
+    "ac7ee6f3-414d-45b6-bae6-c17ea6a96c4d": {
+      "date": "2026-10-24",
+      "name": "Copy B - PB 2.1 Max [H2] #14",
+      "campaign": "باور بانك وينر - سمارت",
+      "scaled_budget_today": false
+    },
+    "af6f27fa-af1f-4cd4-b90b-e1f184a8d691": {
+      "date": "2026-10-24",
+      "name": "Copy B - PB 2.1 Max [H2] #15",
+      "campaign": "باور بانك وينر - سمارت",
+      "scaled_budget_today": false
+    },
+    "b0f91704-df30-4f14-afa2-26ab5aeb517b": {
+      "date": "2026-10-24",
+      "name": "Copy A - PB 1.9 Max [H1] #10",
+      "campaign": "باور بانك وينر - سمارت",
+      "scaled_budget_today": false
+    },
+    "ba12c0eb-ea7e-4abf-9e04-9cd070f7a502": {
+      "date": "2026-10-24",
+      "name": "Copy B - PB 2.1 Max [H2] #12",
+      "campaign": "باور بانك وينر - سمارت",
+      "scaled_budget_today": false
+    },
+    "becc78c5-0482-4f53-9af4-7d76a59bc9d5": {
+      "date": "2026-10-24",
+      "name": "Copy A - PB 1.9 Max [H1] #05",
+      "campaign": "باور بانك وينر - سمارت",
+      "scaled_budget_today": false
+    },
+    "c1299bb9-b7db-4caa-a4f2-a7cd515d6459": {
+      "date": "2026-10-24",
+      "name": "Copy B - PB 2.1 Max [H2] #03",
+      "campaign": "باور بانك وينر - سمارت",
+      "scaled_budget_today": false
+    },
+    "c2d91512-45c4-48da-8e94-605e4d45c1cb": {
+      "date": "2026-10-24",
+      "name": "Copy A - PB 1.9 Max [H1] #11",
+      "campaign": "باور بانك وينر - سمارت",
+      "scaled_budget_today": false
+    },
+    "d38cc009-b293-41e7-a5e7-dabb9dfaeeaa": {
+      "date": "2026-10-24",
+      "name": "Copy A - PB 1.9 Max [H1] #11",
+      "campaign": "باور بانك وينر - سمارت",
+      "scaled_budget_today": false
+    },
+    "d5e726a7-dbba-49c3-8bac-6d015e6d373f": {
+      "date": "2026-10-24",
+      "name": "Copy A - PB 1.9 Max [H1] #02",
+      "campaign": "باور بانك وينر - سمارت",
+      "scaled_budget_today": false
+    },
+    "d84446a1-10ed-4fe8-94a1-28dfaff24370": {
+      "date": "2026-10-24",
+      "name": "Copy A - PB 1.9 Max [H1] #01",
+      "campaign": "باور بانك وينر - سمارت",
+      "scaled_budget_today": false
+    },
+    "daf80dbc-e55b-4f76-bad2-a43a8bfdae32": {
+      "date": "2026-10-24",
+      "name": "Copy B - PB 2.1 Max [H2] #08",
+      "campaign": "باور بانك وينر - سمارت",
+      "scaled_budget_today": false
+    },
+    "dd6e5014-7747-4483-9a55-0d81799fc563": {
+      "date": "2026-10-24",
+      "name": "Copy B - PB 2.1 Max [H2] #12",
+      "campaign": "باور بانك وينر - سمارت",
+      "scaled_budget_today": false
+    },
+    "de59c5e9-5aab-4ab0-baf2-ed4732fc8ac7": {
+      "date": "2026-10-24",
+      "name": "Copy B - PB 2.1 Max [H2] #04",
+      "campaign": "باور بانك وينر - سمارت",
+      "scaled_budget_today": false
+    },
+    "e129901c-6f2d-4fc0-8ef2-5a86f470c197": {
+      "date": "2026-10-24",
+      "name": "Copy B - PB 2.1 Max [H2] #10",
+      "campaign": "باور بانك وينر - سمارت",
+      "scaled_budget_today": false
+    },
+    "e3b0dedd-cb14-48ca-8c03-e6bba280cbf0": {
+      "date": "2026-10-24",
+      "name": "Copy B - PB 2.1 Max [H2] #05",
+      "campaign": "باور بانك وينر - سمارت",
+      "scaled_budget_today": false
+    },
+    "e7960ea6-ac44-43ba-b200-29bd131dee55": {
+      "date": "2026-10-24",
+      "name": "Copy A - PB 1.9 Max [H1] #08",
+      "campaign": "باور بانك وينر - سمارت",
+      "scaled_budget_today": false
+    },
+    "ef76e209-d1e9-4c39-ae84-57c577e0c0f0": {
+      "date": "2026-10-24",
+      "name": "Copy B - PB 2.1 Max [H2] #07",
+      "campaign": "باور بانك وينر - سمارت",
+      "scaled_budget_today": false
+    },
+    "f52dec5d-ee3b-490c-a9e5-f7d521ef71e9": {
+      "date": "2026-10-24",
+      "name": "Copy B - PB 2.1 Max [H2] #03",
+      "campaign": "باور بانك وينر - سمارت",
+      "scaled_budget_today": false
+    },
+    "f8ead837-67ec-44d9-b557-ed9a461d5727": {
+      "date": "2026-10-24",
+      "name": "Copy A - PB 1.9 Max [H1] #06",
+      "campaign": "باور بانك وينر - سمارت",
+      "scaled_budget_today": false
     }
   }
 }
