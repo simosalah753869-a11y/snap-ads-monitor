@@ -557,6 +557,12 @@
       "campaign": "باور بانك وينر - سمارت",
       "reason": "[AdSquad CPC > $0.28 Rule] صرفت المجموعة $1.00 (>= $1.00) وسعر النقرة CPC=$1.000 (> $0.28)",
       "paused_at": "2026-10-24 18:51 GMT+3"
+    },
+    "a3d1182a-be66-4b4b-bfaa-b16900348f1c": {
+      "name": "Copy A - Car 1.9 Max [H1] #06",
+      "campaign": "car armrest",
+      "reason": "[AdSquad $4.00 Stop-Loss] صرفت المجموعة $4.33 (>= $4.00) بدون أي مبيعة (0 مبيعات)",
+      "paused_at": "2026-10-24 19:25 GMT+3"
     }
   },
   "ads": {
@@ -8028,6 +8034,13 @@
       "adsquad": "Copy A - Car 1.9 Max [H1] #08",
       "reason": "[Aggregated Video High CPA 3D - السعودية] مجموع صرف الفيديو التراكمي لـ 3 أيام = $15.46 | المبيعات = 1 | CPA التراكمي = $15.46 (>= $15.00)",
       "paused_at": "2026-10-24 15:29 GMT+3"
+    },
+    "13ed93ea-3ae5-46cb-8391-1228f5b52669": {
+      "name": "Car_v5_12_10_2_mf2aa33 [H1]",
+      "campaign": "car armrest",
+      "adsquad": "Copy A - Car 1.9 Max [H1] #08",
+      "reason": "[Ad CPC Rule] صرف الفيديو $1.47 (>= $1.00) | النقرات: 4 | سعر النقرة CPC = $0.367 (> $0.35)",
+      "paused_at": "2026-10-24 19:25 GMT+3"
     }
   },
   "bid_bumps": {
@@ -16500,19 +16513,19 @@
       "spend_3d": 27.89,
       "purchases_3d": 3,
       "cpa_3d": 9.3,
-      "updated_at": "2026-10-24 18:49 GMT+3"
+      "updated_at": "2026-10-24 19:23 GMT+3"
     },
     "a171c141-a6d5-403e-8357-5c8f6c01bce0": {
       "name": "وسادة مايباخ 21-10",
       "spend_3d": 10.25,
       "purchases_3d": 0,
       "cpa_3d": null,
-      "updated_at": "2026-10-24 18:49 GMT+3"
+      "updated_at": "2026-10-24 19:23 GMT+3"
     },
     "c5a7cade-6ec3-4c47-b3a2-c5f08bcf8da0": {
       "name": "وسادة مايباخ 21-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-24 18:49 GMT+3"
+      "updated_at": "2026-10-24 19:23 GMT+3"
     },
     "1879653126110545": {
       "name": "timex books 21-10",
@@ -16523,12 +16536,12 @@
     "e8f0a5e9-89c5-4c14-aabb-c9c6c657891d": {
       "name": "مسخن الرضاعات اللاسلكي 22-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-24 18:49 GMT+3"
+      "updated_at": "2026-10-24 19:23 GMT+3"
     },
     "f18a3bf4-148a-4f5e-baa1-f90335f1884c": {
       "name": "مسخن الرضاعات اللاسلكي 22-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-24 18:49 GMT+3"
+      "updated_at": "2026-10-24 19:23 GMT+3"
     },
     "1879676075637041": {
       "name": "baby bottle warmer 22-10",
@@ -16547,7 +16560,7 @@
       "spend_3d": 23.96,
       "purchases_3d": 3,
       "cpa_3d": 7.99,
-      "updated_at": "2026-10-24 18:49 GMT+3"
+      "updated_at": "2026-10-24 19:23 GMT+3"
     },
     "1879653022433617": {
       "name": "maybach pillow 21-10",
@@ -16557,17 +16570,17 @@
     },
     "803324e6-052e-441b-99fb-4d43e56c5c78": {
       "name": "باور بانك وينر - سمارت",
-      "spend_3d": 16.32,
+      "spend_3d": 16.67,
       "purchases_3d": 2,
-      "cpa_3d": 8.16,
-      "updated_at": "2026-10-24 18:51 GMT+3"
+      "cpa_3d": 8.34,
+      "updated_at": "2026-10-24 19:25 GMT+3"
     },
     "558c5d45-f08e-400c-a499-7668e801c347": {
       "name": "car armrest",
-      "spend_3d": 157.08,
+      "spend_3d": 160.05,
       "purchases_3d": 13,
-      "cpa_3d": 12.08,
-      "updated_at": "2026-10-24 18:51 GMT+3"
+      "cpa_3d": 12.31,
+      "updated_at": "2026-10-24 19:25 GMT+3"
     },
     "1879824619984018": {
       "name": "power bank 23-10 (Voltrx 10 Hooks Ads)",
@@ -18781,7 +18794,7 @@
       "date": "2026-10-24",
       "name": "Copy A - Car 1.9 Max [H1] #08",
       "campaign": "car armrest",
-      "scaled_budget_today": false
+      "scaled_budget_today": true
     },
     "f693b60d-adc1-4852-ba81-2fe131086835": {
       "date": "2026-10-24",
