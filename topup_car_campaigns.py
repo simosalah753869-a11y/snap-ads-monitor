@@ -222,7 +222,8 @@ def main(dry_run: bool = False):
             )
 
             # قاعدة المستخدم الصارمة:
-            # "المجموعة 15 اللي جابت بيع كويس يعاود فيها النسخ 15 مرة اخرى و15 اللي جابت كوست تعبان لا يعيد فيها النسخ ويخليها زي ما هيا ويطفي اي ادست فيها مش شغالة"
+            # 1) إطفاء أي أدست فيها CPC > $0.28 بعد أول $1.00 على طول، أو صرفت >= $4.00 بدون مبيعات، أو CPA > $6.00
+            # 2) عدم تجاوز 30 نسخة أدست في كل حملة نهائياً (15 كحد أقصى لـ Copy A و 15 كحد أقصى لـ Copy B = 30 إجمالاً)
             non_working_to_pause = []
             for sq in active_cohort_squads:
                 sid = sq["id"]
@@ -233,8 +234,8 @@ def main(dry_run: bool = False):
                     "INVALID_AD_SQUAD_HAS_NO_ACTIVE_ADS" in deliv
                     or (s1["spend"] >= 4.00 and s1["purchases"] == 0)
                     or (s3["spend"] >= 4.00 and s3["purchases"] == 0)
-                    or (s1["spend"] >= 0.70 and s1["purchases"] == 0 and s1.get("swipes", 0) > 0 and s1.get("cpc", 0.0) > 0.35)
-                    or (s1["spend"] >= 1.00 and s1["purchases"] == 0 and s1.get("swipes", 0) == 0)
+                    or (s1["spend"] >= 1.00 and (s1.get("swipes", 0) == 0 or s1.get("cpc", 0.0) > 0.28))
+                    or (s3["spend"] >= 1.00 and (s3.get("swipes", 0) == 0 or s3.get("cpc", 0.0) > 0.28))
                     or (s1["purchases"] > 0 and (s1["spend"] / s1["purchases"]) > GOOD_COHORT_MAX_CPA)
                 )
                 if is_broken_or_bad:
@@ -251,6 +252,16 @@ def main(dry_run: bool = False):
                 )
                 active_cohort_squads = [sq for sq in active_cohort_squads if sq.get("status") == "ACTIVE"]
 
+            # تقليص أي نسخ زائدة فوق 15 في نفس المجموعة الفرعية (لضمان عدم تجاوز 30 أدست في الحملة)
+            if len(active_cohort_squads) > 15 and not dry_run:
+                excess_cohort = active_cohort_squads[15:]
+                for sq_ex in excess_cohort:
+                    sq_ex["status"] = "PAUSED"
+                for i in range(0, len(excess_cohort), 20):
+                    s.put(f"{API_BASE}/campaigns/{camp_id}/adsquads", json={"adsquads": excess_cohort[i : i + 20]}, timeout=25)
+                active_cohort_squads = active_cohort_squads[:15]
+                print(f"   🛑 [سقف 15 للمجموعة / 30 للحملة] تم إيقاف {len(excess_cohort)} نسخة زائدة في '{c_prefix}'.", flush=True)
+
             is_good_selling_cohort = (
                 eff_purch >= GOOD_COHORT_MIN_SALES
                 and cohort_cpa is not None
@@ -264,9 +275,24 @@ def main(dry_run: bool = False):
                 )
                 continue
 
+            # حساب العدد المسموح بإنشائه بحيث لا تتعدى المجموعة الفرعية 15 نسخة نشطة ولا تتعدى الحملة 30 نسخة أدست نشطة نهائياً
+            all_active_copy_in_camp = [
+                sq_x for sq_x in squads
+                if sq_x.get("status") == "ACTIVE" and "copy" in (sq_x.get("name") or "").lower()
+            ]
+            missing_in_cohort = max(0, 15 - len(active_cohort_squads))
+            available_in_camp = max(0, 30 - len(all_active_copy_in_camp))
+            count_to_create = min(missing_in_cohort, available_in_camp)
+            if count_to_create <= 0:
+                print(
+                    f"   ✅ الحملة وصلت للسقف الأقصى المسموح ({len(all_active_copy_in_camp)}/30 أدست نشطة، و {len(active_cohort_squads)}/15 في '{c_prefix}') — لن يتم تجاوز 30 نسخة.",
+                    flush=True,
+                )
+                continue
+
             dup_key = f"{today_str}:{acc_id}:{camp_id}:{c_key}"
             if dup_key in cohort_dup_log:
-                print(f"   ✅ تم بالفعل إعادة نسخ 15 مجموعة إضافية لـ '{c_prefix}' اليوم.", flush=True)
+                print(f"   ✅ تم بالفعل تعويض النسخ المسموحة لـ '{c_prefix}' اليوم.", flush=True)
                 continue
 
             # Pick a template squad with active ads
@@ -284,7 +310,7 @@ def main(dry_run: bool = False):
 
             if dry_run:
                 print(
-                    f"   🔍 [Dry-Run] سيتم إعادة نسخ 15 مجموعة جديدة من المجموعة الرابحة '{c_prefix}' (مبيعات={eff_purch}, CPA=${cohort_cpa})!",
+                    f"   🔍 [Dry-Run] سيتم إنشاء {count_to_create} مجموعة تعويضية (حتى سقف 15/30) من المجموعة الرابحة '{c_prefix}' (مبيعات={eff_purch}, CPA=${cohort_cpa})!",
                     flush=True,
                 )
             else:
@@ -294,8 +320,8 @@ def main(dry_run: bool = False):
                     template_squad=tmpl_sq,
                     template_ads=tmpl_ads,
                     cohort_prefix=c_prefix,
-                    bid_micro=bid_micro,
-                    count_to_create=15,
+                    bid_micro=bid_micro + 100_000,
+                    count_to_create=count_to_create,
                     start_index=len(cohort_squads) + 1,
                 )
                 cohort_dup_log[dup_key] = {
@@ -310,7 +336,7 @@ def main(dry_run: bool = False):
                 }
                 save_paused_history(history)
                 print(
-                    f"   🔥🚀 تم إعادة نسخ 15 مجموعة إضافية للمجموعة الفائزة '{c_prefix}' (المبيعات: {eff_purch} | CPA=${cohort_cpa})!",
+                    f"   🔥🚀 تم إنشاء {len(new_ids)} مجموعة تعويضية للمجموعة الفائزة '{c_prefix}' دون تجاوز سقف 30 أدست في الحملة!",
                     flush=True,
                 )
 
