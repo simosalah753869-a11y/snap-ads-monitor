@@ -257,6 +257,18 @@
       "campaign": "car scaling camp ",
       "reason": "[AdSquad CPC > $0.35 Rule] صرفت المجموعة $2.14 بدون مبيعات وسعر النقرة CPC=$0.428 (> $0.35) بغض النظر عن باقي الفيديوهات",
       "paused_at": "2026-10-24 07:10 GMT+3"
+    },
+    "25e440fa-2bfc-4c05-823d-05e3514aa5cc": {
+      "name": "Copy A - Car 1.9 Max [H1] #13",
+      "campaign": "car scaling camp ",
+      "reason": "[AdSquad CPC > $0.35 Rule] صرفت المجموعة $0.71 بدون مبيعات وسعر النقرة CPC=$0.355 (> $0.35) بغض النظر عن باقي الفيديوهات",
+      "paused_at": "2026-10-24 07:51 GMT+3"
+    },
+    "daf34fc4-1acb-4f53-9cd7-1f39dc6ba1a3": {
+      "name": "Copy B - Car 2.1 Max [H2] #05",
+      "campaign": "car armrest",
+      "reason": "[AdSquad CPC > $0.35 Rule] صرفت المجموعة $0.73 بدون مبيعات وسعر النقرة CPC=$0.365 (> $0.35) بغض النظر عن باقي الفيديوهات",
+      "paused_at": "2026-10-24 07:54 GMT+3"
     }
   },
   "ads": {
@@ -16833,19 +16845,19 @@
       "spend_3d": 27.89,
       "purchases_3d": 2,
       "cpa_3d": 13.95,
-      "updated_at": "2026-10-24 07:10 GMT+3"
+      "updated_at": "2026-10-24 07:51 GMT+3"
     },
     "a171c141-a6d5-403e-8357-5c8f6c01bce0": {
       "name": "وسادة مايباخ 21-10",
       "spend_3d": 10.25,
       "purchases_3d": 0,
       "cpa_3d": null,
-      "updated_at": "2026-10-24 07:10 GMT+3"
+      "updated_at": "2026-10-24 07:51 GMT+3"
     },
     "c5a7cade-6ec3-4c47-b3a2-c5f08bcf8da0": {
       "name": "وسادة مايباخ 21-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-24 07:10 GMT+3"
+      "updated_at": "2026-10-24 07:51 GMT+3"
     },
     "1879653126110545": {
       "name": "timex books 21-10",
@@ -16856,12 +16868,12 @@
     "e8f0a5e9-89c5-4c14-aabb-c9c6c657891d": {
       "name": "مسخن الرضاعات اللاسلكي 22-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-24 07:10 GMT+3"
+      "updated_at": "2026-10-24 07:51 GMT+3"
     },
     "f18a3bf4-148a-4f5e-baa1-f90335f1884c": {
       "name": "مسخن الرضاعات اللاسلكي 22-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-24 07:10 GMT+3"
+      "updated_at": "2026-10-24 07:51 GMT+3"
     },
     "1879676075637041": {
       "name": "baby bottle warmer 22-10",
@@ -16880,7 +16892,7 @@
       "spend_3d": 23.96,
       "purchases_3d": 3,
       "cpa_3d": 7.99,
-      "updated_at": "2026-10-24 07:10 GMT+3"
+      "updated_at": "2026-10-24 07:51 GMT+3"
     },
     "1879653022433617": {
       "name": "maybach pillow 21-10",
@@ -16890,10 +16902,10 @@
     },
     "558c5d45-f08e-400c-a499-7668e801c347": {
       "name": "car armrest",
-      "spend_3d": 37.66,
+      "spend_3d": 43.65,
       "purchases_3d": 3,
-      "cpa_3d": 12.55,
-      "updated_at": "2026-10-24 07:11 GMT+3"
+      "cpa_3d": 14.55,
+      "updated_at": "2026-10-24 07:54 GMT+3"
     },
     "1879824619984018": {
       "name": "power bank 23-10 (Voltrx 10 Hooks Ads)",
