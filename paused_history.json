@@ -503,6 +503,24 @@
       "campaign": "car scaling camp ",
       "reason": "[AdSquad CPC > $0.28 Rule] صرفت المجموعة $1.77 (>= $1.00) وسعر النقرة CPC=$0.295 (> $0.28)",
       "paused_at": "2026-10-25 11:27 GMT+3"
+    },
+    "87169c31-048a-462d-8377-a3118d9630be": {
+      "name": "Copy A - Car 1.9 Max [H1] #12",
+      "campaign": "car scaling camp ",
+      "reason": "[2-Day Audit] [AdSquad $4.00 Stop-Loss] صرفت المجموعة $4.08 (>= $4.00) بدون أي مبيعة (0 مبيعات)",
+      "paused_at": "2026-10-25 12:07 GMT+3"
+    },
+    "9e21c549-24cb-458d-aa5f-79313688d23b": {
+      "name": "Copy A - Car 1.9 Max [H1] #06",
+      "campaign": "car scaling camp ",
+      "reason": "[AdSquad CPC > $0.28 Rule] صرفت المجموعة $1.16 (>= $1.00) وسعر النقرة CPC=$0.290 (> $0.28)",
+      "paused_at": "2026-10-25 12:07 GMT+3"
+    },
+    "e3b0dedd-cb14-48ca-8c03-e6bba280cbf0": {
+      "name": "Copy B - PB 2.1 Max [H2] #05",
+      "campaign": "باور بانك وينر - سمارت",
+      "reason": "[2-Day Audit] [AdSquad CPC > $0.28 Rule] صرفت المجموعة $1.01 (>= $1.00) وسعر النقرة CPC=$1.010 (> $0.28)",
+      "paused_at": "2026-10-25 12:08 GMT+3"
     }
   },
   "ads": {
@@ -7946,6 +7964,13 @@
       "adsquad": "Copy B - Car 2.1 Max [H2] #06",
       "reason": "[Ad CPC Rule] صرف الفيديو $1.04 (>= $1.00) | النقرات: 2 | سعر النقرة CPC = $0.52 (> $0.28)",
       "paused_at": "2026-10-25 06:55 GMT+3"
+    },
+    "f50543c1-384a-400f-907f-cf3a4c0a7a00": {
+      "name": "Car_v3_13_10_hanan5_m9edae8 [H2]",
+      "campaign": "car scaling camp ",
+      "adsquad": "Copy B - Car 2.1 Max [H2] #11",
+      "reason": "[2-Day Audit] [Ad CPC Rule] صرف الفيديو $1.07 (>= $1.00) | النقرات: 3 | سعر النقرة CPC = $0.357 (> $0.28)",
+      "paused_at": "2026-10-25 12:07 GMT+3"
     }
   },
   "bid_bumps": {
@@ -16435,17 +16460,17 @@
       "spend_3d": 11.19,
       "purchases_3d": 1,
       "cpa_3d": 11.19,
-      "updated_at": "2026-10-25 11:27 GMT+3"
+      "updated_at": "2026-10-25 12:07 GMT+3"
     },
     "a171c141-a6d5-403e-8357-5c8f6c01bce0": {
       "name": "وسادة مايباخ 21-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-25 11:27 GMT+3"
+      "updated_at": "2026-10-25 12:07 GMT+3"
     },
     "c5a7cade-6ec3-4c47-b3a2-c5f08bcf8da0": {
       "name": "وسادة مايباخ 21-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-25 11:27 GMT+3"
+      "updated_at": "2026-10-25 12:07 GMT+3"
     },
     "1879653126110545": {
       "name": "timex books 21-10",
@@ -16456,12 +16481,12 @@
     "e8f0a5e9-89c5-4c14-aabb-c9c6c657891d": {
       "name": "مسخن الرضاعات اللاسلكي 22-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-25 11:27 GMT+3"
+      "updated_at": "2026-10-25 12:07 GMT+3"
     },
     "f18a3bf4-148a-4f5e-baa1-f90335f1884c": {
       "name": "مسخن الرضاعات اللاسلكي 22-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-25 11:27 GMT+3"
+      "updated_at": "2026-10-25 12:07 GMT+3"
     },
     "1879676075637041": {
       "name": "baby bottle warmer 22-10",
@@ -16478,7 +16503,7 @@
     "29891f22-e046-4cc8-b9ee-9921d2d65f0b": {
       "name": "مسخن الرضاعات اللاسلكي 22-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-25 11:27 GMT+3"
+      "updated_at": "2026-10-25 12:07 GMT+3"
     },
     "1879653022433617": {
       "name": "maybach pillow 21-10",
@@ -16523,17 +16548,17 @@
     },
     "803324e6-052e-441b-99fb-4d43e56c5c78": {
       "name": "باور بانك وينر - سمارت",
-      "spend_3d": 24.6,
+      "spend_3d": 24.92,
       "purchases_3d": 2,
-      "cpa_3d": 12.3,
-      "updated_at": "2026-10-25 11:28 GMT+3"
+      "cpa_3d": 12.46,
+      "updated_at": "2026-10-25 12:08 GMT+3"
     },
     "558c5d45-f08e-400c-a499-7668e801c347": {
       "name": "car armrest",
-      "spend_3d": 164.88,
+      "spend_3d": 164.89,
       "purchases_3d": 13,
       "cpa_3d": 12.68,
-      "updated_at": "2026-10-25 11:28 GMT+3"
+      "updated_at": "2026-10-25 12:08 GMT+3"
     }
   },
   "proactive_scaled_squads": {
