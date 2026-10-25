@@ -575,6 +575,12 @@
       "campaign": "car scaling camp ",
       "reason": "[2-Day Audit] [AdSquad CPC > $0.28 Rule] صرفت المجموعة $1.08 (>= $1.00) وسعر النقرة CPC=$0.360 (> $0.28)",
       "paused_at": "2026-10-25 18:04 GMT+3"
+    },
+    "05d9d494-76f2-4101-a33d-40e8e755535d": {
+      "name": "Copy - Car 2.20 Max [H2] #30",
+      "campaign": "car scaling camp ",
+      "reason": "[AdSquad CPC > $0.28 Rule] صرفت المجموعة $1.02 (>= $1.00) وسعر النقرة CPC=$0.340 (> $0.28)",
+      "paused_at": "2026-10-25 20:07 GMT+3"
     }
   },
   "ads": {
@@ -16514,17 +16520,17 @@
       "spend_3d": 11.19,
       "purchases_3d": 1,
       "cpa_3d": 11.19,
-      "updated_at": "2026-10-25 19:24 GMT+3"
+      "updated_at": "2026-10-25 20:07 GMT+3"
     },
     "a171c141-a6d5-403e-8357-5c8f6c01bce0": {
       "name": "وسادة مايباخ 21-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-25 19:24 GMT+3"
+      "updated_at": "2026-10-25 20:07 GMT+3"
     },
     "c5a7cade-6ec3-4c47-b3a2-c5f08bcf8da0": {
       "name": "وسادة مايباخ 21-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-25 19:24 GMT+3"
+      "updated_at": "2026-10-25 20:07 GMT+3"
     },
     "1879653126110545": {
       "name": "timex books 21-10",
@@ -16535,12 +16541,12 @@
     "e8f0a5e9-89c5-4c14-aabb-c9c6c657891d": {
       "name": "مسخن الرضاعات اللاسلكي 22-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-25 19:24 GMT+3"
+      "updated_at": "2026-10-25 20:07 GMT+3"
     },
     "f18a3bf4-148a-4f5e-baa1-f90335f1884c": {
       "name": "مسخن الرضاعات اللاسلكي 22-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-25 19:24 GMT+3"
+      "updated_at": "2026-10-25 20:07 GMT+3"
     },
     "1879676075637041": {
       "name": "baby bottle warmer 22-10",
@@ -16557,7 +16563,7 @@
     "29891f22-e046-4cc8-b9ee-9921d2d65f0b": {
       "name": "مسخن الرضاعات اللاسلكي 22-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-25 19:24 GMT+3"
+      "updated_at": "2026-10-25 20:07 GMT+3"
     },
     "1879653022433617": {
       "name": "maybach pillow 21-10",
@@ -16602,17 +16608,17 @@
     },
     "803324e6-052e-441b-99fb-4d43e56c5c78": {
       "name": "باور بانك وينر - سمارت",
-      "spend_3d": 27.68,
+      "spend_3d": 27.67,
       "purchases_3d": 3,
-      "cpa_3d": 9.23,
-      "updated_at": "2026-10-25 19:26 GMT+3"
+      "cpa_3d": 9.22,
+      "updated_at": "2026-10-25 20:11 GMT+3"
     },
     "558c5d45-f08e-400c-a499-7668e801c347": {
       "name": "car armrest",
-      "spend_3d": 172.86,
+      "spend_3d": 173.18,
       "purchases_3d": 13,
-      "cpa_3d": 13.3,
-      "updated_at": "2026-10-25 19:26 GMT+3"
+      "cpa_3d": 13.32,
+      "updated_at": "2026-10-25 20:11 GMT+3"
     }
   },
   "proactive_scaled_squads": {
@@ -18087,6 +18093,96 @@
     "fbc08a06-cb80-45e8-b626-f7d233da7908": {
       "date": "2026-10-25",
       "name": "Copy - PB 1.80 TC [H1] #03",
+      "campaign": "باور بانك وينر - تارقيت كوست",
+      "scaled_budget_today": false
+    },
+    "0c28fd16-db2d-4321-90ff-419db94c9219": {
+      "date": "2026-10-25",
+      "name": "Copy - PB 1.90 TC [H1] #10",
+      "campaign": "باور بانك وينر - تارقيت كوست",
+      "scaled_budget_today": false
+    },
+    "17032d60-dc97-46f5-a70c-aa993997b9cb": {
+      "date": "2026-10-25",
+      "name": "Copy - PB 1.95 TC [H1] #13",
+      "campaign": "باور بانك وينر - تارقيت كوست",
+      "scaled_budget_today": false
+    },
+    "1b8e50ac-1145-4bd7-b57c-ef8b8e91e275": {
+      "date": "2026-10-25",
+      "name": "Copy - PB 1.95 TC [H1] #12",
+      "campaign": "باور بانك وينر - تارقيت كوست",
+      "scaled_budget_today": false
+    },
+    "26b2101f-c66a-41ec-999c-5cca93d039a7": {
+      "date": "2026-10-25",
+      "name": "Copy - PB 1.95 TC [H1] #15",
+      "campaign": "باور بانك وينر - تارقيت كوست",
+      "scaled_budget_today": false
+    },
+    "4b08fbf1-daff-40f8-908f-bca25345adc6": {
+      "date": "2026-10-25",
+      "name": "Copy - PB 1.80 TC [H1] #04",
+      "campaign": "باور بانك وينر - تارقيت كوست",
+      "scaled_budget_today": false
+    },
+    "59782689-c60e-43bf-8cce-12cf8a4ce355": {
+      "date": "2026-10-25",
+      "name": "Copy - PB 1.80 TC [H1] #02",
+      "campaign": "باور بانك وينر - تارقيت كوست",
+      "scaled_budget_today": false
+    },
+    "5c53f7fc-8360-43a7-8a41-4382e6ba841d": {
+      "date": "2026-10-25",
+      "name": "Copy - PB 1.95 TC [H1] #14",
+      "campaign": "باور بانك وينر - تارقيت كوست",
+      "scaled_budget_today": false
+    },
+    "895db178-9da4-4e4b-b3f8-a648a9b47041": {
+      "date": "2026-10-25",
+      "name": "Copy - PB 1.95 TC [H1] #11",
+      "campaign": "باور بانك وينر - تارقيت كوست",
+      "scaled_budget_today": false
+    },
+    "91fde269-cda0-4e6d-9219-12d8e7b644ee": {
+      "date": "2026-10-25",
+      "name": "Copy - PB 1.90 TC [H1] #06",
+      "campaign": "باور بانك وينر - تارقيت كوست",
+      "scaled_budget_today": false
+    },
+    "a4c86ac1-3d8c-491e-9254-848a030f2a0f": {
+      "date": "2026-10-25",
+      "name": "Copy - PB 1.80 TC [H1] #05",
+      "campaign": "باور بانك وينر - تارقيت كوست",
+      "scaled_budget_today": false
+    },
+    "da19d31b-c7ee-44b4-b2c6-9acf84834387": {
+      "date": "2026-10-25",
+      "name": "Copy - PB 1.90 TC [H1] #09",
+      "campaign": "باور بانك وينر - تارقيت كوست",
+      "scaled_budget_today": false
+    },
+    "db48f12e-178b-47d9-8c8e-c71dee6d397c": {
+      "date": "2026-10-25",
+      "name": "Copy - PB 1.80 TC [H1] #03",
+      "campaign": "باور بانك وينر - تارقيت كوست",
+      "scaled_budget_today": false
+    },
+    "e3228c24-59d3-4bba-a091-f3caa58158f2": {
+      "date": "2026-10-25",
+      "name": "Copy - PB 1.90 TC [H1] #08",
+      "campaign": "باور بانك وينر - تارقيت كوست",
+      "scaled_budget_today": false
+    },
+    "e9d1b665-e381-4e88-af01-a34aeac54b16": {
+      "date": "2026-10-25",
+      "name": "Copy - PB 1.90 TC [H1] #07",
+      "campaign": "باور بانك وينر - تارقيت كوست",
+      "scaled_budget_today": false
+    },
+    "f59b17bf-33c5-4762-80c1-96ad9189e58b": {
+      "date": "2026-10-25",
+      "name": "Copy - PB 1.80 TC [H1] #01",
       "campaign": "باور بانك وينر - تارقيت كوست",
       "scaled_budget_today": false
     }
