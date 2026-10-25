@@ -10178,7 +10178,9 @@
     "fb8ee57c-7a5e-4476-8cc2-ac7de07f1fb0": "66f7853b-6a31-49aa-a5eb-0e0822fa2e8d",
     "c9e7e899-72a1-44f2-8d59-0e1acea3685e": "49ceea83-0273-4682-8cac-5daa633f9d8a",
     "18e427e1-aa46-4ce8-9d68-e1c8361c295b": "0ee55522-6bbb-4e75-b470-27730b0b738c",
-    "bfcfa68e-31fb-4d02-bc43-a18a582c4389": "74805a7e-d104-4d37-a512-f6753f81adce"
+    "bfcfa68e-31fb-4d02-bc43-a18a582c4389": "74805a7e-d104-4d37-a512-f6753f81adce",
+    "a00d4e66-24ed-484f-a1e7-9105e0d51216": "e04dc3bd-d703-42cc-b5b4-1294f181cd5b",
+    "0a1ecf55-0ed3-47ca-b71a-d8807c74ebeb": "001ba8a4-3fbe-49db-a4c5-1c69d15a5ede"
   },
   "disabled_videos": {
     "e23e7c95-3f15-4945-9844-8bd73e2d79d3:cc7aeeac-37af-4dec-980a-2b8a544e949d": {
@@ -16520,17 +16522,17 @@
       "spend_3d": 11.19,
       "purchases_3d": 1,
       "cpa_3d": 11.19,
-      "updated_at": "2026-10-25 20:07 GMT+3"
+      "updated_at": "2026-10-25 20:47 GMT+3"
     },
     "a171c141-a6d5-403e-8357-5c8f6c01bce0": {
       "name": "وسادة مايباخ 21-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-25 20:07 GMT+3"
+      "updated_at": "2026-10-25 20:47 GMT+3"
     },
     "c5a7cade-6ec3-4c47-b3a2-c5f08bcf8da0": {
       "name": "وسادة مايباخ 21-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-25 20:07 GMT+3"
+      "updated_at": "2026-10-25 20:47 GMT+3"
     },
     "1879653126110545": {
       "name": "timex books 21-10",
@@ -16541,12 +16543,12 @@
     "e8f0a5e9-89c5-4c14-aabb-c9c6c657891d": {
       "name": "مسخن الرضاعات اللاسلكي 22-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-25 20:07 GMT+3"
+      "updated_at": "2026-10-25 20:47 GMT+3"
     },
     "f18a3bf4-148a-4f5e-baa1-f90335f1884c": {
       "name": "مسخن الرضاعات اللاسلكي 22-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-25 20:07 GMT+3"
+      "updated_at": "2026-10-25 20:47 GMT+3"
     },
     "1879676075637041": {
       "name": "baby bottle warmer 22-10",
@@ -16563,7 +16565,7 @@
     "29891f22-e046-4cc8-b9ee-9921d2d65f0b": {
       "name": "مسخن الرضاعات اللاسلكي 22-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-25 20:07 GMT+3"
+      "updated_at": "2026-10-25 20:47 GMT+3"
     },
     "1879653022433617": {
       "name": "maybach pillow 21-10",
@@ -16611,14 +16613,14 @@
       "spend_3d": 27.67,
       "purchases_3d": 3,
       "cpa_3d": 9.22,
-      "updated_at": "2026-10-25 20:11 GMT+3"
+      "updated_at": "2026-10-25 20:50 GMT+3"
     },
     "558c5d45-f08e-400c-a499-7668e801c347": {
       "name": "car armrest",
-      "spend_3d": 173.18,
+      "spend_3d": 175.69,
       "purchases_3d": 13,
-      "cpa_3d": 13.32,
-      "updated_at": "2026-10-25 20:11 GMT+3"
+      "cpa_3d": 13.51,
+      "updated_at": "2026-10-25 20:50 GMT+3"
     }
   },
   "proactive_scaled_squads": {
@@ -18184,6 +18186,12 @@
       "date": "2026-10-25",
       "name": "Copy - PB 1.80 TC [H1] #01",
       "campaign": "باور بانك وينر - تارقيت كوست",
+      "scaled_budget_today": false
+    },
+    "6390b7a9-0bff-4026-8bb0-4ab4cc1e694f": {
+      "date": "2026-10-25",
+      "name": "test adset",
+      "campaign": "باور بانك وينر",
       "scaled_budget_today": false
     }
   }
