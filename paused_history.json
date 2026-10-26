@@ -250,7 +250,7 @@
       "name": "24-10 Flow Hook Ads (الوسادة - إعلانين جديدين)",
       "campaign": "car scaling camp ",
       "reason": "[Max 30 Copy AdSquads Cap] إيقاف النسخ الزائدة لعدم تجاوز 30 أدست في الحملة",
-      "paused_at": "2026-10-27 02:09 GMT+3"
+      "paused_at": "2026-10-27 02:50 GMT+3"
     },
     "b9c44678-e3b7-47ba-9baa-78c76d11f21b": {
       "name": "Copy A - Car 1.9 Max [H1] #41",
@@ -466,7 +466,7 @@
       "name": "24-10 Flow Hook Ads (الوسادة - إعلانين جديدين)",
       "campaign": "car armrest",
       "reason": "[Max 30 Copy AdSquads Cap] إيقاف النسخ الزائدة لعدم تجاوز 30 أدست في الحملة",
-      "paused_at": "2026-10-27 02:14 GMT+3"
+      "paused_at": "2026-10-27 02:54 GMT+3"
     },
     "c1299bb9-b7db-4caa-a4f2-a7cd515d6459": {
       "name": "Copy B - PB 2.1 Max [H2] #03",
@@ -556,7 +556,7 @@
       "name": "Copy A - PB 1.9 Max [H1] #15",
       "campaign": "باور بانك وينر - سمارت",
       "reason": "[3-Day Audit] [AdSquad CPC > $0.28 Rule] صرفت المجموعة $1.03 (>= $1.00) وسعر النقرة CPC=$0.343 (> $0.28)",
-      "paused_at": "2026-10-27 02:14 GMT+3"
+      "paused_at": "2026-10-27 02:54 GMT+3"
     },
     "51dacf81-803e-4264-9e67-c200c5dd2924": {
       "name": "Copy A - Car 1.9 Max [H1] #15",
@@ -664,25 +664,25 @@
       "name": "Copy - Car 3.00 TC [H1] #02",
       "campaign": "car armrest",
       "reason": "[2-Day Audit] [AdSquad CPC > $0.28 Rule] صرفت المجموعة $1.30 (>= $1.00) وسعر النقرة CPC=$0.325 (> $0.28)",
-      "paused_at": "2026-10-27 02:14 GMT+3"
+      "paused_at": "2026-10-27 02:54 GMT+3"
     },
     "1745936d-6a40-48b9-a058-a44cebd39a65": {
       "name": "24-10 Flow Hook Ads (فولتريكس - إعلانين جديدين)",
       "campaign": "باور بانك وينر",
       "reason": "[Max 30 Copy AdSquads Cap] إيقاف النسخ الزائدة لعدم تجاوز 30 أدست في الحملة",
-      "paused_at": "2026-10-27 02:09 GMT+3"
+      "paused_at": "2026-10-27 02:50 GMT+3"
     },
     "bd1fe8d6-ace0-46e3-b512-336b734477d4": {
       "name": "24-10 Flow Hook Ads (فولتريكس - إعلانين جديدين)",
       "campaign": "باور بانك وينر - سمارت",
       "reason": "[Max 30 Copy AdSquads Cap] إيقاف النسخ الزائدة لعدم تجاوز 30 أدست في الحملة",
-      "paused_at": "2026-10-27 02:14 GMT+3"
+      "paused_at": "2026-10-27 02:54 GMT+3"
     },
     "ecb11329-b3d7-47ec-962c-f6334abf919c": {
       "name": "Copy - PB 3.00 TC [H2] #21",
       "campaign": "باور بانك وينر - تارقيت كوست",
       "reason": "[2-Day Audit] [AdSquad $4.00 Stop-Loss] صرفت المجموعة $6.50 (>= $4.00) بدون أي مبيعة (0 مبيعات)",
-      "paused_at": "2026-10-27 01:35 GMT+3"
+      "paused_at": "2026-10-27 02:54 GMT+3"
     }
   },
   "ads": {
@@ -8866,15 +8866,15 @@
       "name": "Car_v3_13_10_hanan5_m0f2f0a [H1]",
       "campaign": "car armrest",
       "adsquad": "Copy - Car 3.00 TC [H1] #03",
-      "reason": "[Aggregated Video High CPA 3D - السعودية] مجموع صرف الفيديو التراكمي لـ 3 أيام = $32.37 | المبيعات = 2 | CPA التراكمي = $16.18 (>= $15.00)",
-      "paused_at": "2026-10-27 02:14 GMT+3"
+      "reason": "[Aggregated Video High CPA 3D - السعودية] مجموع صرف الفيديو التراكمي لـ 3 أيام = $32.38 | المبيعات = 2 | CPA التراكمي = $16.19 (>= $15.00)",
+      "paused_at": "2026-10-27 02:54 GMT+3"
     },
     "1e300ea9-16cb-4490-8d1b-31906e719f42": {
       "name": "Car_v3_13_10_hanan5_m0f2f0a [H1]",
       "campaign": "car armrest",
       "adsquad": "Copy - Car 3.00 TC [H1] #01",
-      "reason": "[Aggregated Video High CPA 3D - السعودية] مجموع صرف الفيديو التراكمي لـ 3 أيام = $32.37 | المبيعات = 2 | CPA التراكمي = $16.18 (>= $15.00)",
-      "paused_at": "2026-10-27 02:14 GMT+3"
+      "reason": "[Aggregated Video High CPA 3D - السعودية] مجموع صرف الفيديو التراكمي لـ 3 أيام = $32.38 | المبيعات = 2 | CPA التراكمي = $16.19 (>= $15.00)",
+      "paused_at": "2026-10-27 02:54 GMT+3"
     },
     "1f7a02d0-ec02-4795-a84a-83bfe37d4469": {
       "name": "Car_v3_13_10_hanan5_m0f2f0a [H1]",
@@ -9076,8 +9076,8 @@
       "name": "Car_v3_13_10_hanan5_m0f2f0a [H2]",
       "campaign": "car armrest",
       "adsquad": "Copy - Car 3.00 TC [H2] #25",
-      "reason": "[Aggregated Video High CPA 3D - السعودية] مجموع صرف الفيديو التراكمي لـ 3 أيام = $32.37 | المبيعات = 2 | CPA التراكمي = $16.18 (>= $15.00)",
-      "paused_at": "2026-10-27 02:14 GMT+3"
+      "reason": "[Aggregated Video High CPA 3D - السعودية] مجموع صرف الفيديو التراكمي لـ 3 أيام = $32.38 | المبيعات = 2 | CPA التراكمي = $16.19 (>= $15.00)",
+      "paused_at": "2026-10-27 02:54 GMT+3"
     }
   },
   "bid_bumps": {
@@ -17638,17 +17638,17 @@
     "4eefa50f-9008-4aea-b159-d370150b60cf": {
       "name": "صندوق دفاتر TIME X 21-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-27 02:09 GMT+3"
+      "updated_at": "2026-10-27 02:50 GMT+3"
     },
     "a171c141-a6d5-403e-8357-5c8f6c01bce0": {
       "name": "وسادة مايباخ 21-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-27 02:09 GMT+3"
+      "updated_at": "2026-10-27 02:50 GMT+3"
     },
     "c5a7cade-6ec3-4c47-b3a2-c5f08bcf8da0": {
       "name": "وسادة مايباخ 21-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-27 02:09 GMT+3"
+      "updated_at": "2026-10-27 02:50 GMT+3"
     },
     "1879653126110545": {
       "name": "timex books 21-10",
@@ -17659,12 +17659,12 @@
     "e8f0a5e9-89c5-4c14-aabb-c9c6c657891d": {
       "name": "مسخن الرضاعات اللاسلكي 22-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-27 02:09 GMT+3"
+      "updated_at": "2026-10-27 02:50 GMT+3"
     },
     "f18a3bf4-148a-4f5e-baa1-f90335f1884c": {
       "name": "مسخن الرضاعات اللاسلكي 22-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-27 02:09 GMT+3"
+      "updated_at": "2026-10-27 02:50 GMT+3"
     },
     "1879676075637041": {
       "name": "baby bottle warmer 22-10",
@@ -17681,7 +17681,7 @@
     "29891f22-e046-4cc8-b9ee-9921d2d65f0b": {
       "name": "مسخن الرضاعات اللاسلكي 22-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-27 02:09 GMT+3"
+      "updated_at": "2026-10-27 02:50 GMT+3"
     },
     "1879653022433617": {
       "name": "maybach pillow 21-10",
@@ -17733,10 +17733,10 @@
     },
     "558c5d45-f08e-400c-a499-7668e801c347": {
       "name": "car armrest",
-      "spend_3d": 123.77,
-      "purchases_3d": 7,
-      "cpa_3d": 17.68,
-      "updated_at": "2026-10-27 02:14 GMT+3"
+      "spend_3d": 128.52,
+      "purchases_3d": 8,
+      "cpa_3d": 16.07,
+      "updated_at": "2026-10-27 02:54 GMT+3"
     },
     "dab749f9-2dca-497b-a8c3-39f2201162a7": {
       "name": "باور بانك وينر - تارقيت كوست",
@@ -20520,6 +20520,156 @@
     "ec5b3543-fd66-4ea3-9ba0-ae9adf35a6ee": {
       "date": "2026-10-27",
       "name": "Copy - Car 3.00 TC [H1] #08",
+      "campaign": "car armrest",
+      "scaled_budget_today": false
+    },
+    "093ad799-07f7-4c36-9dab-e9dfefc3dcb1": {
+      "date": "2026-10-27",
+      "name": "Copy - Car 3.00 TC [H2] #18",
+      "campaign": "car armrest",
+      "scaled_budget_today": false
+    },
+    "0a169cb3-3340-48ee-bfe9-30a34e977f91": {
+      "date": "2026-10-27",
+      "name": "Copy - Car 3.00 TC [H2] #27",
+      "campaign": "car armrest",
+      "scaled_budget_today": false
+    },
+    "1f8e633e-1298-4831-8fd1-17827b75339d": {
+      "date": "2026-10-27",
+      "name": "Copy - Car 3.00 TC [H1] #09",
+      "campaign": "car armrest",
+      "scaled_budget_today": false
+    },
+    "2c607b67-f7cf-4b48-9a93-2af9fe94a9a9": {
+      "date": "2026-10-27",
+      "name": "Copy - Car 3.00 TC [H1] #03",
+      "campaign": "car armrest",
+      "scaled_budget_today": false
+    },
+    "2cba7296-ed8d-4bff-ab57-0c5e149906e5": {
+      "date": "2026-10-27",
+      "name": "Copy - Car 3.00 TC [H1] #05",
+      "campaign": "car armrest",
+      "scaled_budget_today": false
+    },
+    "32a9c5ab-5f1d-4229-ae85-65a08b51e834": {
+      "date": "2026-10-27",
+      "name": "Copy - Car 3.00 TC [H1] #11",
+      "campaign": "car armrest",
+      "scaled_budget_today": false
+    },
+    "47e204e2-f304-4ce5-82e1-2fd2f461b545": {
+      "date": "2026-10-27",
+      "name": "Copy - Car 3.00 TC [H2] #20",
+      "campaign": "car armrest",
+      "scaled_budget_today": false
+    },
+    "48634a62-fb09-46aa-9093-aa6b84747d83": {
+      "date": "2026-10-27",
+      "name": "Copy - Car 3.00 TC [H2] #16",
+      "campaign": "car armrest",
+      "scaled_budget_today": false
+    },
+    "5248e44f-306f-444c-8f34-decf74eeb548": {
+      "date": "2026-10-27",
+      "name": "Copy - Car 3.00 TC [H1] #01",
+      "campaign": "car armrest",
+      "scaled_budget_today": false
+    },
+    "630a4df7-eded-49bb-be5b-3bf43c38b70b": {
+      "date": "2026-10-27",
+      "name": "Copy - Car 3.00 TC [H1] #13",
+      "campaign": "car armrest",
+      "scaled_budget_today": false
+    },
+    "6394bc62-e17d-46f5-9ec8-e8e337ef088b": {
+      "date": "2026-10-27",
+      "name": "Copy - Car 3.00 TC [H1] #06",
+      "campaign": "car armrest",
+      "scaled_budget_today": false
+    },
+    "6c480c96-def4-4743-bf52-e0336582aa96": {
+      "date": "2026-10-27",
+      "name": "Copy - Car 3.00 TC [H2] #24",
+      "campaign": "car armrest",
+      "scaled_budget_today": false
+    },
+    "7a36aadb-5071-4ebb-8d56-d718fd0667c9": {
+      "date": "2026-10-27",
+      "name": "Copy - Car 3.00 TC [H1] #15",
+      "campaign": "car armrest",
+      "scaled_budget_today": false
+    },
+    "87a05e43-7b09-4d4c-b884-f103792e5454": {
+      "date": "2026-10-27",
+      "name": "Copy - Car 3.00 TC [H1] #08",
+      "campaign": "car armrest",
+      "scaled_budget_today": false
+    },
+    "947021ba-7578-430c-939d-627d5ec7d6f3": {
+      "date": "2026-10-27",
+      "name": "Copy - Car 3.00 TC [H2] #30",
+      "campaign": "car armrest",
+      "scaled_budget_today": false
+    },
+    "9ce2f9b7-1b41-4d7e-92aa-715afd1d5b69": {
+      "date": "2026-10-27",
+      "name": "Copy - Car 3.00 TC [H2] #25",
+      "campaign": "car armrest",
+      "scaled_budget_today": false
+    },
+    "a1681333-fe2f-484e-8aab-4ce68c0e32c2": {
+      "date": "2026-10-27",
+      "name": "Copy - Car 3.00 TC [H1] #07",
+      "campaign": "car armrest",
+      "scaled_budget_today": false
+    },
+    "ad6f5c9b-5f0f-42e3-900a-40f34a003f75": {
+      "date": "2026-10-27",
+      "name": "Copy - Car 3.00 TC [H2] #29",
+      "campaign": "car armrest",
+      "scaled_budget_today": false
+    },
+    "adb2e6a6-f6c0-4ad1-b6b9-030f248e5592": {
+      "date": "2026-10-27",
+      "name": "Copy - Car 3.00 TC [H2] #17",
+      "campaign": "car armrest",
+      "scaled_budget_today": false
+    },
+    "af3a33ed-7145-438c-96ae-420f8ec9631a": {
+      "date": "2026-10-27",
+      "name": "Copy - Car 3.00 TC [H2] #21",
+      "campaign": "car armrest",
+      "scaled_budget_today": false
+    },
+    "b78d6ce5-99f6-495e-93f0-b4c8fcf01ab5": {
+      "date": "2026-10-27",
+      "name": "Copy - Car 3.00 TC [H2] #26",
+      "campaign": "car armrest",
+      "scaled_budget_today": false
+    },
+    "d4e775c0-3b5c-42e1-8033-bfa1ba4c8783": {
+      "date": "2026-10-27",
+      "name": "Copy - Car 3.00 TC [H2] #22",
+      "campaign": "car armrest",
+      "scaled_budget_today": false
+    },
+    "d52095fd-bbe2-4660-ace0-1d04caa2e669": {
+      "date": "2026-10-27",
+      "name": "Copy - Car 3.00 TC [H2] #23",
+      "campaign": "car armrest",
+      "scaled_budget_today": false
+    },
+    "d9568261-d5e4-4513-b0dc-1ba6ab7ff09b": {
+      "date": "2026-10-27",
+      "name": "Copy - Car 3.00 TC [H1] #04",
+      "campaign": "car armrest",
+      "scaled_budget_today": false
+    },
+    "ee3c218b-a1a5-4b21-a14d-ec9ec49fdaa9": {
+      "date": "2026-10-27",
+      "name": "Copy - Car 3.00 TC [H1] #12",
       "campaign": "car armrest",
       "scaled_budget_today": false
     }
