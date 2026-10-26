@@ -250,7 +250,7 @@
       "name": "24-10 Flow Hook Ads (الوسادة - إعلانين جديدين)",
       "campaign": "car scaling camp ",
       "reason": "[Max 30 Copy AdSquads Cap] إيقاف النسخ الزائدة لعدم تجاوز 30 أدست في الحملة",
-      "paused_at": "2026-10-25 13:23 GMT+3"
+      "paused_at": "2026-10-26 23:32 GMT+3"
     },
     "b9c44678-e3b7-47ba-9baa-78c76d11f21b": {
       "name": "Copy A - Car 1.9 Max [H1] #41",
@@ -561,8 +561,8 @@
     "51dacf81-803e-4264-9e67-c200c5dd2924": {
       "name": "Copy A - Car 1.9 Max [H1] #15",
       "campaign": "car scaling camp ",
-      "reason": "[AdSquad CPC > $0.28 Rule] صرفت المجموعة $1.01 (>= $1.00) وسعر النقرة CPC=$0.505 (> $0.28)",
-      "paused_at": "2026-10-25 16:15 GMT+3"
+      "reason": "[2-Day Audit] [AdSquad CPC > $0.28 Rule] صرفت المجموعة $1.05 (>= $1.00) وسعر النقرة CPC=$0.525 (> $0.28)",
+      "paused_at": "2026-10-26 23:32 GMT+3"
     },
     "409fd69a-7c93-46da-bb09-fe88b66dad22": {
       "name": "Copy B - Car 2.1 Max [H2] #03",
@@ -573,8 +573,8 @@
     "2f88fd34-86fb-4e8b-8220-8725a90907a2": {
       "name": "Copy B - Car 2.1 Max [H2] #05",
       "campaign": "car scaling camp ",
-      "reason": "[2-Day Audit] [AdSquad CPC > $0.28 Rule] صرفت المجموعة $1.08 (>= $1.00) وسعر النقرة CPC=$0.360 (> $0.28)",
-      "paused_at": "2026-10-25 18:04 GMT+3"
+      "reason": "[3-Day Audit] [AdSquad CPC > $0.28 Rule] صرفت المجموعة $1.08 (>= $1.00) وسعر النقرة CPC=$0.360 (> $0.28)",
+      "paused_at": "2026-10-26 23:32 GMT+3"
     },
     "05d9d494-76f2-4101-a33d-40e8e755535d": {
       "name": "Copy - Car 2.20 Max [H2] #30",
@@ -647,6 +647,24 @@
       "campaign": "car armrest",
       "reason": "[AdSquad CPC > $0.28 Rule] صرفت المجموعة $1.96 (>= $1.00) وسعر النقرة CPC=$0.327 (> $0.28)",
       "paused_at": "2026-10-26 11:42 GMT+3"
+    },
+    "45fd9c6e-7a59-4de8-ab71-0cf207d01938": {
+      "name": "Copy B - Car 2.1 Max [H2] #13",
+      "campaign": "car scaling camp ",
+      "reason": "[3-Day Audit] [AdSquad CPC > $0.28 Rule] صرفت المجموعة $1.42 (>= $1.00) وسعر النقرة CPC=$0.284 (> $0.28)",
+      "paused_at": "2026-10-26 23:32 GMT+3"
+    },
+    "86039f48-cf48-48fa-9930-90dc73e59529": {
+      "name": "Copy - PB 3.00 TC [H2] #28",
+      "campaign": "باور بانك وينر - تارقيت كوست",
+      "reason": "[2-Day Audit] [AdSquad Max CPA Rule] سعر البيعة CPA = $7.85 (> $7.00) | الصرف: $7.85 | المبيعات: 1",
+      "paused_at": "2026-10-26 23:37 GMT+3"
+    },
+    "a924a17e-6bb5-4fa0-aeb1-f68afceaa795": {
+      "name": "Copy - Car 1.80 TC [H1] #02",
+      "campaign": "car armrest",
+      "reason": "[AdSquad CPC > $0.28 Rule] صرفت المجموعة $1.30 (>= $1.00) وسعر النقرة CPC=$0.325 (> $0.28)",
+      "paused_at": "2026-10-26 23:37 GMT+3"
     }
   },
   "ads": {
@@ -8867,6 +8885,13 @@
       "adsquad": "Copy - Car 3.00 TC [H1] #05",
       "reason": "[Aggregated Video High CPA 2D - السعودية] مجموع صرف الفيديو التراكمي ليومين = $32.23 | المبيعات = 2 | CPA التراكمي = $16.11 (>= $15.00)",
       "paused_at": "2026-10-26 14:24 GMT+3"
+    },
+    "8d4b3f5f-c8a3-4b7e-a09d-31451f9e49cd": {
+      "name": "Car_v2_15_10_4_m1efb6f [H1]",
+      "campaign": "car scaling camp ",
+      "adsquad": "Copy A - Car 1.9 Max [H1] #06",
+      "reason": "[Aggregated Video High CPA 3D - السعودية] مجموع صرف الفيديو التراكمي لـ 3 أيام = $15.36 | المبيعات = 1 | CPA التراكمي = $15.36 (>= $15.00)",
+      "paused_at": "2026-10-26 23:32 GMT+3"
     }
   },
   "bid_bumps": {
@@ -17396,17 +17421,17 @@
     "4eefa50f-9008-4aea-b159-d370150b60cf": {
       "name": "صندوق دفاتر TIME X 21-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-26 22:56 GMT+3"
+      "updated_at": "2026-10-26 23:32 GMT+3"
     },
     "a171c141-a6d5-403e-8357-5c8f6c01bce0": {
       "name": "وسادة مايباخ 21-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-26 22:56 GMT+3"
+      "updated_at": "2026-10-26 23:32 GMT+3"
     },
     "c5a7cade-6ec3-4c47-b3a2-c5f08bcf8da0": {
       "name": "وسادة مايباخ 21-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-26 22:56 GMT+3"
+      "updated_at": "2026-10-26 23:32 GMT+3"
     },
     "1879653126110545": {
       "name": "timex books 21-10",
@@ -17417,12 +17442,12 @@
     "e8f0a5e9-89c5-4c14-aabb-c9c6c657891d": {
       "name": "مسخن الرضاعات اللاسلكي 22-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-26 22:56 GMT+3"
+      "updated_at": "2026-10-26 23:32 GMT+3"
     },
     "f18a3bf4-148a-4f5e-baa1-f90335f1884c": {
       "name": "مسخن الرضاعات اللاسلكي 22-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-26 22:56 GMT+3"
+      "updated_at": "2026-10-26 23:32 GMT+3"
     },
     "1879676075637041": {
       "name": "baby bottle warmer 22-10",
@@ -17439,7 +17464,7 @@
     "29891f22-e046-4cc8-b9ee-9921d2d65f0b": {
       "name": "مسخن الرضاعات اللاسلكي 22-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-26 22:56 GMT+3"
+      "updated_at": "2026-10-26 23:32 GMT+3"
     },
     "1879653022433617": {
       "name": "maybach pillow 21-10",
@@ -17487,14 +17512,14 @@
       "spend_3d": 27.65,
       "purchases_3d": 3,
       "cpa_3d": 9.22,
-      "updated_at": "2026-10-26 23:01 GMT+3"
+      "updated_at": "2026-10-26 23:37 GMT+3"
     },
     "558c5d45-f08e-400c-a499-7668e801c347": {
       "name": "car armrest",
       "spend_3d": 282.8,
       "purchases_3d": 20,
       "cpa_3d": 14.14,
-      "updated_at": "2026-10-26 23:01 GMT+3"
+      "updated_at": "2026-10-26 23:37 GMT+3"
     },
     "dab749f9-2dca-497b-a8c3-39f2201162a7": {
       "name": "باور بانك وينر - تارقيت كوست",
@@ -19895,6 +19920,18 @@
       "date": "2026-10-26",
       "name": "Copy - PB 3.00 TC [H1] #14",
       "campaign": "باور بانك وينر - تارقيت كوست",
+      "scaled_budget_today": false
+    },
+    "6c6c5bfb-f528-4032-8b27-e16e8fa6f58a": {
+      "date": "2026-10-26",
+      "name": "Copy B - Car 2.1 Max [H2] #06",
+      "campaign": "car scaling camp ",
+      "scaled_budget_today": false
+    },
+    "9e21c549-24cb-458d-aa5f-79313688d23b": {
+      "date": "2026-10-26",
+      "name": "Copy A - Car 1.9 Max [H1] #06",
+      "campaign": "car scaling camp ",
       "scaled_budget_today": false
     }
   }
