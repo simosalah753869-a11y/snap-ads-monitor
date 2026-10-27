@@ -250,7 +250,7 @@
       "name": "24-10 Flow Hook Ads (الوسادة - إعلانين جديدين)",
       "campaign": "car scaling camp ",
       "reason": "[Max 30 Copy AdSquads Cap] إيقاف النسخ الزائدة لعدم تجاوز 30 أدست في الحملة",
-      "paused_at": "2026-10-27 11:03 GMT+3"
+      "paused_at": "2026-10-27 12:02 GMT+3"
     },
     "b9c44678-e3b7-47ba-9baa-78c76d11f21b": {
       "name": "Copy A - Car 1.9 Max [H1] #41",
@@ -465,8 +465,8 @@
     "d5ef758a-0687-43a2-afa3-ee9f146dca47": {
       "name": "24-10 Flow Hook Ads (الوسادة - إعلانين جديدين)",
       "campaign": "car armrest",
-      "reason": "[Max 30 Copy AdSquads Cap] إيقاف النسخ الزائدة لعدم تجاوز 30 أدست في الحملة",
-      "paused_at": "2026-10-27 11:09 GMT+3"
+      "reason": "[AdSquad $4.00 Stop-Loss] صرفت المجموعة $4.34 (>= $4.00) بدون أي مبيعة (0 مبيعات)",
+      "paused_at": "2026-10-27 12:08 GMT+3"
     },
     "c1299bb9-b7db-4caa-a4f2-a7cd515d6459": {
       "name": "Copy B - PB 2.1 Max [H2] #03",
@@ -556,7 +556,7 @@
       "name": "Copy A - PB 1.9 Max [H1] #15",
       "campaign": "باور بانك وينر - سمارت",
       "reason": "[3-Day Audit] [AdSquad CPC > $0.28 Rule] صرفت المجموعة $1.03 (>= $1.00) وسعر النقرة CPC=$0.343 (> $0.28)",
-      "paused_at": "2026-10-27 11:09 GMT+3"
+      "paused_at": "2026-10-27 12:08 GMT+3"
     },
     "51dacf81-803e-4264-9e67-c200c5dd2924": {
       "name": "Copy A - Car 1.9 Max [H1] #15",
@@ -670,13 +670,13 @@
       "name": "24-10 Flow Hook Ads (فولتريكس - إعلانين جديدين)",
       "campaign": "باور بانك وينر",
       "reason": "[AdSquad CPC > $0.28 Rule] صرفت المجموعة $1.05 (>= $1.00) وسعر النقرة CPC=$0.350 (> $0.28)",
-      "paused_at": "2026-10-27 11:03 GMT+3"
+      "paused_at": "2026-10-27 12:02 GMT+3"
     },
     "bd1fe8d6-ace0-46e3-b512-336b734477d4": {
       "name": "24-10 Flow Hook Ads (فولتريكس - إعلانين جديدين)",
       "campaign": "باور بانك وينر - سمارت",
       "reason": "[Max 30 Copy AdSquads Cap] إيقاف النسخ الزائدة لعدم تجاوز 30 أدست في الحملة",
-      "paused_at": "2026-10-27 08:35 GMT+3"
+      "paused_at": "2026-10-27 12:08 GMT+3"
     },
     "ecb11329-b3d7-47ec-962c-f6334abf919c": {
       "name": "Copy - PB 3.00 TC [H2] #21",
@@ -687,8 +687,8 @@
     "3f1fec96-e594-45d6-bdc8-4e9dd38ea8bd": {
       "name": "Copy - Car 2.40 Max [H2] #17",
       "campaign": "car scaling camp ",
-      "reason": "[2-Day Audit] [AdSquad $4.00 Stop-Loss] صرفت المجموعة $4.31 (>= $4.00) بدون أي مبيعة (0 مبيعات)",
-      "paused_at": "2026-10-27 11:03 GMT+3"
+      "reason": "[2-Day Audit] [AdSquad $4.00 Stop-Loss] صرفت المجموعة $4.37 (>= $4.00) بدون أي مبيعة (0 مبيعات)",
+      "paused_at": "2026-10-27 12:02 GMT+3"
     }
   },
   "ads": {
@@ -18029,17 +18029,17 @@
     "4eefa50f-9008-4aea-b159-d370150b60cf": {
       "name": "صندوق دفاتر TIME X 21-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-27 11:03 GMT+3"
+      "updated_at": "2026-10-27 12:02 GMT+3"
     },
     "a171c141-a6d5-403e-8357-5c8f6c01bce0": {
       "name": "وسادة مايباخ 21-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-27 11:03 GMT+3"
+      "updated_at": "2026-10-27 12:02 GMT+3"
     },
     "c5a7cade-6ec3-4c47-b3a2-c5f08bcf8da0": {
       "name": "وسادة مايباخ 21-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-27 11:03 GMT+3"
+      "updated_at": "2026-10-27 12:02 GMT+3"
     },
     "1879653126110545": {
       "name": "timex books 21-10",
@@ -18050,12 +18050,12 @@
     "e8f0a5e9-89c5-4c14-aabb-c9c6c657891d": {
       "name": "مسخن الرضاعات اللاسلكي 22-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-27 11:03 GMT+3"
+      "updated_at": "2026-10-27 12:02 GMT+3"
     },
     "f18a3bf4-148a-4f5e-baa1-f90335f1884c": {
       "name": "مسخن الرضاعات اللاسلكي 22-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-27 11:03 GMT+3"
+      "updated_at": "2026-10-27 12:02 GMT+3"
     },
     "1879676075637041": {
       "name": "baby bottle warmer 22-10",
@@ -18072,7 +18072,7 @@
     "29891f22-e046-4cc8-b9ee-9921d2d65f0b": {
       "name": "مسخن الرضاعات اللاسلكي 22-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-27 11:03 GMT+3"
+      "updated_at": "2026-10-27 12:02 GMT+3"
     },
     "1879653022433617": {
       "name": "maybach pillow 21-10",
@@ -18124,10 +18124,10 @@
     },
     "558c5d45-f08e-400c-a499-7668e801c347": {
       "name": "car armrest",
-      "spend_3d": 172.12,
-      "purchases_3d": 10,
-      "cpa_3d": 17.21,
-      "updated_at": "2026-10-27 11:09 GMT+3"
+      "spend_3d": 178.06,
+      "purchases_3d": 11,
+      "cpa_3d": 16.19,
+      "updated_at": "2026-10-27 12:08 GMT+3"
     },
     "dab749f9-2dca-497b-a8c3-39f2201162a7": {
       "name": "باور بانك وينر - تارقيت كوست",
@@ -21572,6 +21572,72 @@
       "date": "2026-10-27",
       "name": "Copy - Car 3.00 TC [H2] #25",
       "campaign": "car armrest",
+      "scaled_budget_today": false
+    },
+    "6646f181-f00a-4039-b26d-350545629bf6": {
+      "date": "2026-10-27",
+      "name": "Copy - Car 2.40 Max [H2] #30",
+      "campaign": "car scaling camp ",
+      "scaled_budget_today": false
+    },
+    "67c90781-a0c2-4045-bf11-14c043362fa4": {
+      "date": "2026-10-27",
+      "name": "Copy - Car 2.40 Max [H1] #13",
+      "campaign": "car scaling camp ",
+      "scaled_budget_today": false
+    },
+    "6d1ca829-c7da-472e-b3d5-fe205edaa94a": {
+      "date": "2026-10-27",
+      "name": "Copy - Car 2.40 Max [H1] #15",
+      "campaign": "car scaling camp ",
+      "scaled_budget_today": false
+    },
+    "6fe4e64d-a0af-4f09-b3a8-f93940673a4a": {
+      "date": "2026-10-27",
+      "name": "Copy - Car 2.40 Max [H2] #18",
+      "campaign": "car scaling camp ",
+      "scaled_budget_today": false
+    },
+    "7deb949f-fc84-427c-960a-3f03c671040f": {
+      "date": "2026-10-27",
+      "name": "Copy - Car 2.40 Max [H2] #20",
+      "campaign": "car scaling camp ",
+      "scaled_budget_today": false
+    },
+    "a980394a-7e07-41b6-b28b-a799d5a81a2a": {
+      "date": "2026-10-27",
+      "name": "Copy - Car 2.40 Max [H1] #03",
+      "campaign": "car scaling camp ",
+      "scaled_budget_today": false
+    },
+    "acb15465-f7da-448a-bf0b-7d05d722689a": {
+      "date": "2026-10-27",
+      "name": "Copy - Car 2.40 Max [H1] #09",
+      "campaign": "car scaling camp ",
+      "scaled_budget_today": false
+    },
+    "b7097d71-b609-4d64-91cd-268c49feecaf": {
+      "date": "2026-10-27",
+      "name": "Copy - Car 2.40 Max [H1] #11",
+      "campaign": "car scaling camp ",
+      "scaled_budget_today": false
+    },
+    "bfcc683f-e28e-40e9-8991-adfd3022297d": {
+      "date": "2026-10-27",
+      "name": "Copy - Car 2.40 Max [H1] #10",
+      "campaign": "car scaling camp ",
+      "scaled_budget_today": false
+    },
+    "c76ba90c-0120-4a01-9a31-a3824510bc16": {
+      "date": "2026-10-27",
+      "name": "Copy - Car 2.40 Max [H2] #16",
+      "campaign": "car scaling camp ",
+      "scaled_budget_today": false
+    },
+    "f19c695b-a962-40b6-a51e-6ba1641ac2d4": {
+      "date": "2026-10-27",
+      "name": "Copy - Car 2.40 Max [H1] #12",
+      "campaign": "car scaling camp ",
       "scaled_budget_today": false
     }
   }
