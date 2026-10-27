@@ -735,8 +735,8 @@
     "786b107f-5c7a-482e-b48f-afc3c2cf7a8c": {
       "name": "Copy - PB 3.00 TC [H1] #12",
       "campaign": "باور بانك وينر - تارقيت كوست",
-      "reason": "[2-Day Audit] [AdSquad Max CPA Rule] سعر البيعة CPA = $7.13 (> $7.00) | الصرف: $7.13 | المبيعات: 1",
-      "paused_at": "2026-10-27 20:08 GMT+3"
+      "reason": "[2-Day Audit] [AdSquad Max CPA Rule] سعر البيعة CPA = $7.17 (> $7.00) | الصرف: $7.17 | المبيعات: 1",
+      "paused_at": "2026-10-27 22:58 GMT+3"
     },
     "01cb2623-edaf-4e71-beb5-8c4229e185bc": {
       "name": "Copy - PB 3.00 TC [H1] #09",
@@ -747,8 +747,8 @@
     "ac777b56-3354-458d-9a2c-3d44fd30532d": {
       "name": "Copy - Car 3.00 TC [H1] #07",
       "campaign": "car armrest",
-      "reason": "[AdSquad CPC > $0.28 Rule] صرفت المجموعة $3.56 (>= $1.00) وسعر النقرة CPC=$0.297 (> $0.28)",
-      "paused_at": "2026-10-27 21:02 GMT+3"
+      "reason": "[AdSquad CPC > $0.28 Rule] صرفت المجموعة $3.57 (>= $1.00) وسعر النقرة CPC=$0.297 (> $0.28)",
+      "paused_at": "2026-10-27 22:58 GMT+3"
     },
     "85e8cb0e-8105-49a2-8e9a-eb22d5fbef6c": {
       "name": "Copy - Car 3.00 TC [H1] #01",
@@ -807,8 +807,8 @@
     "fb53d9a6-531f-4597-9fe5-b85f48bbb9a1": {
       "name": "Copy - Car 2.40 Max [H2] #24",
       "campaign": "car scaling camp ",
-      "reason": "[AdSquad CPC > $0.28 Rule] صرفت المجموعة $1.62 (>= $1.00) وسعر النقرة CPC=$0.405 (> $0.28)",
-      "paused_at": "2026-10-27 21:00 GMT+3"
+      "reason": "[AdSquad $4.00 Stop-Loss] صرفت المجموعة $4.58 (>= $4.00) بدون أي مبيعة (0 مبيعات)",
+      "paused_at": "2026-10-27 22:56 GMT+3"
     },
     "d3f5d069-8e6b-4df9-bbec-c94109f51b98": {
       "name": "Copy - PB 3.00 TC [H2] #17",
@@ -9931,6 +9931,13 @@
       "adsquad": "Copy - Car 2.40 Max [H2] #17",
       "reason": "[2-Day Audit] [Ad CPC Rule] صرف الفيديو $1.01 (>= $1.00) | النقرات: 3 | سعر النقرة CPC = $0.337 (> $0.28)",
       "paused_at": "2026-10-27 22:05 GMT+3"
+    },
+    "d2bcde6e-4b86-466c-810a-3ae4f93146c0": {
+      "name": "PB_v10_VoltrxH7_mbf3fa9 [H2]",
+      "campaign": "باور بانك وينر - تارقيت كوست",
+      "adsquad": "Copy - PB 3.00 TC [H2] #21",
+      "reason": "[Ad CPC Rule] صرف الفيديو $1.02 (>= $1.00) | النقرات: 2 | سعر النقرة CPC = $0.51 (> $0.28)",
+      "paused_at": "2026-10-27 22:58 GMT+3"
     }
   },
   "bid_bumps": {
@@ -18540,17 +18547,17 @@
     "4eefa50f-9008-4aea-b159-d370150b60cf": {
       "name": "صندوق دفاتر TIME X 21-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-27 22:05 GMT+3"
+      "updated_at": "2026-10-27 22:56 GMT+3"
     },
     "a171c141-a6d5-403e-8357-5c8f6c01bce0": {
       "name": "وسادة مايباخ 21-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-27 22:05 GMT+3"
+      "updated_at": "2026-10-27 22:56 GMT+3"
     },
     "c5a7cade-6ec3-4c47-b3a2-c5f08bcf8da0": {
       "name": "وسادة مايباخ 21-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-27 22:05 GMT+3"
+      "updated_at": "2026-10-27 22:56 GMT+3"
     },
     "1879653126110545": {
       "name": "timex books 21-10",
@@ -18561,12 +18568,12 @@
     "e8f0a5e9-89c5-4c14-aabb-c9c6c657891d": {
       "name": "مسخن الرضاعات اللاسلكي 22-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-27 22:05 GMT+3"
+      "updated_at": "2026-10-27 22:56 GMT+3"
     },
     "f18a3bf4-148a-4f5e-baa1-f90335f1884c": {
       "name": "مسخن الرضاعات اللاسلكي 22-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-27 22:05 GMT+3"
+      "updated_at": "2026-10-27 22:56 GMT+3"
     },
     "1879676075637041": {
       "name": "baby bottle warmer 22-10",
@@ -18583,7 +18590,7 @@
     "29891f22-e046-4cc8-b9ee-9921d2d65f0b": {
       "name": "مسخن الرضاعات اللاسلكي 22-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-27 22:05 GMT+3"
+      "updated_at": "2026-10-27 22:56 GMT+3"
     },
     "1879653022433617": {
       "name": "maybach pillow 21-10",
@@ -18635,10 +18642,10 @@
     },
     "558c5d45-f08e-400c-a499-7668e801c347": {
       "name": "car armrest",
-      "spend_3d": 245.67,
+      "spend_3d": 246.53,
       "purchases_3d": 15,
-      "cpa_3d": 16.38,
-      "updated_at": "2026-10-27 22:07 GMT+3"
+      "cpa_3d": 16.44,
+      "updated_at": "2026-10-27 22:58 GMT+3"
     },
     "dab749f9-2dca-497b-a8c3-39f2201162a7": {
       "name": "باور بانك وينر - تارقيت كوست",
