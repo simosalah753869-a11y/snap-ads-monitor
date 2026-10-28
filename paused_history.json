@@ -250,7 +250,7 @@
       "name": "24-10 Flow Hook Ads (الوسادة - إعلانين جديدين)",
       "campaign": "car scaling camp ",
       "reason": "[Max 30 Copy AdSquads Cap] إيقاف النسخ الزائدة لعدم تجاوز 30 أدست في الحملة",
-      "paused_at": "2026-10-29 01:39 GMT+3"
+      "paused_at": "2026-10-29 02:18 GMT+3"
     },
     "b9c44678-e3b7-47ba-9baa-78c76d11f21b": {
       "name": "Copy A - Car 1.9 Max [H1] #41",
@@ -670,7 +670,7 @@
       "name": "24-10 Flow Hook Ads (فولتريكس - إعلانين جديدين)",
       "campaign": "باور بانك وينر",
       "reason": "[3-Day Audit] [AdSquad CPC > $0.28 Rule] صرفت المجموعة $1.27 (>= $1.00) وسعر النقرة CPC=$0.318 (> $0.28)",
-      "paused_at": "2026-10-29 01:39 GMT+3"
+      "paused_at": "2026-10-29 02:18 GMT+3"
     },
     "bd1fe8d6-ace0-46e3-b512-336b734477d4": {
       "name": "24-10 Flow Hook Ads (فولتريكس - إعلانين جديدين)",
@@ -975,8 +975,20 @@
     "201be18b-b811-4094-bcbd-dbc04d6763b2": {
       "name": "Copy - PB 3.00 TC [H2] #28",
       "campaign": "باور بانك وينر - تارقيت كوست",
-      "reason": "[2-Day Audit] [AdSquad CPC > $0.28 Rule] صرفت المجموعة $1.52 (>= $1.00) وسعر النقرة CPC=$0.507 (> $0.28)",
-      "paused_at": "2026-10-29 01:43 GMT+3"
+      "reason": "[2-Day Audit] [AdSquad CPC > $0.28 Rule] صرفت المجموعة $2.21 (>= $1.00) وسعر النقرة CPC=$0.368 (> $0.28)",
+      "paused_at": "2026-10-29 02:23 GMT+3"
+    },
+    "d27731fe-12ac-4276-bcdd-7a1e9a8ccd22": {
+      "name": "Copy - PB 3.00 TC [H2] #24",
+      "campaign": "باور بانك وينر - تارقيت كوست",
+      "reason": "[Max 30 Copy AdSquads Cap] إيقاف النسخ الزائدة لعدم تجاوز 30 أدست في الحملة",
+      "paused_at": "2026-10-29 02:23 GMT+3"
+    },
+    "f46d35be-5ff0-4459-998d-4967304ca959": {
+      "name": "Copy - PB 3.00 TC [H2] #26",
+      "campaign": "باور بانك وينر - تارقيت كوست",
+      "reason": "[Max 30 Copy AdSquads Cap] إيقاف النسخ الزائدة لعدم تجاوز 30 أدست في الحملة",
+      "paused_at": "2026-10-29 02:23 GMT+3"
     }
   },
   "ads": {
@@ -10014,8 +10026,8 @@
       "name": "PB_v7_Hist64_mfae396 [H2]",
       "campaign": "باور بانك وينر - تارقيت كوست",
       "adsquad": "Copy - PB 3.00 TC [H2] #18",
-      "reason": "[Aggregated Video High CPA 1D - السعودية] مجموع صرف الفيديو التراكمي اليوم = $16.98 | المبيعات = 1 | CPA التراكمي = $16.98 (>= $15.00)",
-      "paused_at": "2026-10-27 17:14 GMT+3"
+      "reason": "[Aggregated Video Stop-Loss 2D - السعودية] مجموع صرف الفيديو التراكمي ليومين عبر كل الـ AdSquads = $14.37 (>= $13.00) بدون أي مبيعة في يومين",
+      "paused_at": "2026-10-29 02:23 GMT+3"
     },
     "e350fb4f-072e-45e3-9d70-0c759e3fc33d": {
       "name": "PB_v7_Hist64_mfae396 [H1]",
@@ -10414,7 +10426,7 @@
       "campaign": "smart+ power bank 3.0$ 28-10",
       "adsquad": "Saudi Arabia, All genders and All ages | 3.00 Bid",
       "reason": "[Global Accumulated Video High CPA 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $27.69 | المبيعات = 1 | CPA التراكمي = $27.69 (>= $15.00)",
-      "paused_at": "2026-10-29 01:43 GMT+3"
+      "paused_at": "2026-10-29 02:23 GMT+3"
     },
     "07d6576a-4cd9-4dea-82e7-4d93356eef55": {
       "name": "PB_v4_Winner4_mb7161f [H2]",
@@ -10631,7 +10643,7 @@
       "campaign": "smart+ power bank 3.5$ 28-10",
       "adsquad": "Saudi Arabia, All genders and All ages | 3.50 Bid",
       "reason": "[Global Accumulated Video High CPA 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $27.69 | المبيعات = 1 | CPA التراكمي = $27.69 (>= $15.00)",
-      "paused_at": "2026-10-29 01:43 GMT+3"
+      "paused_at": "2026-10-29 02:23 GMT+3"
     },
     "8f6b574d-6c1c-49f2-bb27-348333992495": {
       "name": "26-10_Fast_PB_Ad06_m826824",
@@ -10806,7 +10818,7 @@
       "campaign": "smart+ power bank 3.0$ 28-10",
       "adsquad": "Saudi Arabia, All genders and All ages | 3.00 Bid",
       "reason": "[Global Accumulated Video High CPA 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $17.17 | المبيعات = 1 | CPA التراكمي = $17.17 (>= $15.00)",
-      "paused_at": "2026-10-29 01:43 GMT+3"
+      "paused_at": "2026-10-29 02:23 GMT+3"
     },
     "18e805ab-6642-4956-9d56-3721cb2d0f4a": {
       "name": "PB_v5_Winner5_m773a09 [H2]",
@@ -11023,7 +11035,7 @@
       "campaign": "smart+ power bank 3.5$ 28-10",
       "adsquad": "Saudi Arabia, All genders and All ages | 3.50 Bid",
       "reason": "[Global Accumulated Video High CPA 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $17.17 | المبيعات = 1 | CPA التراكمي = $17.17 (>= $15.00)",
-      "paused_at": "2026-10-29 01:43 GMT+3"
+      "paused_at": "2026-10-29 02:23 GMT+3"
     },
     "4ad1b4aa-cf91-4a81-85dd-1f1463bb5a09": {
       "name": "27-10_PB_Hanan24_01_ma52a9c",
@@ -11149,7 +11161,7 @@
       "campaign": "smart+ power bank 3.0$ 28-10",
       "adsquad": "Saudi Arabia, All genders and All ages | 3.00 Bid",
       "reason": "[Global Accumulated Video Stop-Loss 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $14.58 (>= $13.00) بدون أي مبيعة في يومين",
-      "paused_at": "2026-10-29 01:43 GMT+3"
+      "paused_at": "2026-10-29 02:23 GMT+3"
     },
     "02582686-fd1a-4f61-897d-b59aa84a5dcc": {
       "name": "PB_v7_Hist64_mfae396 [H1]",
@@ -11366,7 +11378,7 @@
       "campaign": "smart+ power bank 3.5$ 28-10",
       "adsquad": "Saudi Arabia, All genders and All ages | 3.50 Bid",
       "reason": "[Global Accumulated Video Stop-Loss 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $14.58 (>= $13.00) بدون أي مبيعة في يومين",
-      "paused_at": "2026-10-29 01:43 GMT+3"
+      "paused_at": "2026-10-29 02:23 GMT+3"
     },
     "917e6bf6-a6fb-4803-823c-f33fc157742f": {
       "name": "PB_v3_Winner3_m4582d6 [H1]",
@@ -20005,17 +20017,17 @@
     "4eefa50f-9008-4aea-b159-d370150b60cf": {
       "name": "صندوق دفاتر TIME X 21-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-29 01:39 GMT+3"
+      "updated_at": "2026-10-29 02:18 GMT+3"
     },
     "a171c141-a6d5-403e-8357-5c8f6c01bce0": {
       "name": "وسادة مايباخ 21-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-29 01:39 GMT+3"
+      "updated_at": "2026-10-29 02:18 GMT+3"
     },
     "c5a7cade-6ec3-4c47-b3a2-c5f08bcf8da0": {
       "name": "وسادة مايباخ 21-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-29 01:39 GMT+3"
+      "updated_at": "2026-10-29 02:18 GMT+3"
     },
     "1879653126110545": {
       "name": "timex books 21-10",
@@ -20026,12 +20038,12 @@
     "e8f0a5e9-89c5-4c14-aabb-c9c6c657891d": {
       "name": "مسخن الرضاعات اللاسلكي 22-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-29 01:39 GMT+3"
+      "updated_at": "2026-10-29 02:18 GMT+3"
     },
     "f18a3bf4-148a-4f5e-baa1-f90335f1884c": {
       "name": "مسخن الرضاعات اللاسلكي 22-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-29 01:39 GMT+3"
+      "updated_at": "2026-10-29 02:18 GMT+3"
     },
     "1879676075637041": {
       "name": "baby bottle warmer 22-10",
@@ -20048,7 +20060,7 @@
     "29891f22-e046-4cc8-b9ee-9921d2d65f0b": {
       "name": "مسخن الرضاعات اللاسلكي 22-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-29 01:39 GMT+3"
+      "updated_at": "2026-10-29 02:18 GMT+3"
     },
     "1879653022433617": {
       "name": "maybach pillow 21-10",
@@ -20100,10 +20112,10 @@
     },
     "558c5d45-f08e-400c-a499-7668e801c347": {
       "name": "car armrest",
-      "spend_3d": 160.2,
+      "spend_3d": 160.78,
       "purchases_3d": 10,
-      "cpa_3d": 16.02,
-      "updated_at": "2026-10-29 01:43 GMT+3"
+      "cpa_3d": 16.08,
+      "updated_at": "2026-10-29 02:23 GMT+3"
     },
     "dab749f9-2dca-497b-a8c3-39f2201162a7": {
       "name": "باور بانك وينر - تارقيت كوست",
@@ -21505,8 +21517,8 @@
       "scaled_budget_today": false
     },
     "872fe556-2a4d-437b-833d-a004e4df5ceb": {
-      "date": "2026-10-28",
-      "name": "Copy - PB 3.00 TC [H1] #08",
+      "date": "2026-10-29",
+      "name": "Copy - PB 3.00 TC [H1] #11",
       "campaign": "باور بانك وينر - تارقيت كوست",
       "scaled_budget_today": false
     },
@@ -24687,6 +24699,84 @@
     "f46d35be-5ff0-4459-998d-4967304ca959": {
       "date": "2026-10-29",
       "name": "Copy - PB 3.00 TC [H2] #26",
+      "campaign": "باور بانك وينر - تارقيت كوست",
+      "scaled_budget_today": false
+    },
+    "84c5d5bf-853b-44b9-bdcc-6e6ce0237722": {
+      "date": "2026-10-29",
+      "name": "Copy - PB 3.00 TC [H2] #30",
+      "campaign": "باور بانك وينر - تارقيت كوست",
+      "scaled_budget_today": false
+    },
+    "740fc38d-01e9-4661-a61d-0f5e35c1d3e0": {
+      "date": "2026-10-29",
+      "name": "Copy - PB 2.40 Max [H2] #18",
+      "campaign": "باور بانك وينر",
+      "scaled_budget_today": false
+    },
+    "b3366ade-60cc-4080-b29b-b3d0b56dd00b": {
+      "date": "2026-10-29",
+      "name": "Copy - PB 2.40 Max [H2] #30",
+      "campaign": "باور بانك وينر",
+      "scaled_budget_today": false
+    },
+    "34aef3b3-59bc-48a5-a424-59cdc2e0f007": {
+      "date": "2026-10-29",
+      "name": "Copy - PB 3.00 TC [H2] #22",
+      "campaign": "باور بانك وينر - تارقيت كوست",
+      "scaled_budget_today": false
+    },
+    "359922cf-b5c2-4c72-a194-13f5fcbe24d8": {
+      "date": "2026-10-29",
+      "name": "Copy - PB 3.00 TC [H1] #11",
+      "campaign": "باور بانك وينر - تارقيت كوست",
+      "scaled_budget_today": false
+    },
+    "3e834a59-966b-408c-bb00-4bef2bdeccf9": {
+      "date": "2026-10-29",
+      "name": "Copy - PB 3.00 TC [H2] #20",
+      "campaign": "باور بانك وينر - تارقيت كوست",
+      "scaled_budget_today": false
+    },
+    "a99e9465-8f0a-43dd-9932-ac03ff812494": {
+      "date": "2026-10-29",
+      "name": "Copy - PB 3.00 TC [H2] #24",
+      "campaign": "باور بانك وينر - تارقيت كوست",
+      "scaled_budget_today": false
+    },
+    "aeeac9a0-c965-46da-aa32-03cb8d90442a": {
+      "date": "2026-10-29",
+      "name": "Copy - PB 3.00 TC [H2] #19",
+      "campaign": "باور بانك وينر - تارقيت كوست",
+      "scaled_budget_today": false
+    },
+    "b3494cd9-c4f8-4e50-96ed-5474ae63ff18": {
+      "date": "2026-10-29",
+      "name": "Copy - PB 3.00 TC [H2] #17",
+      "campaign": "باور بانك وينر - تارقيت كوست",
+      "scaled_budget_today": false
+    },
+    "c663f663-9afb-48fc-beab-512830632268": {
+      "date": "2026-10-29",
+      "name": "Copy - PB 3.00 TC [H2] #19",
+      "campaign": "باور بانك وينر - تارقيت كوست",
+      "scaled_budget_today": false
+    },
+    "d931ff27-3171-4576-8c42-b6600a70b8f4": {
+      "date": "2026-10-29",
+      "name": "Copy - PB 3.00 TC [H2] #22",
+      "campaign": "باور بانك وينر - تارقيت كوست",
+      "scaled_budget_today": false
+    },
+    "edb8b94f-7ffe-4980-b11a-6d25be8bbe1f": {
+      "date": "2026-10-29",
+      "name": "Copy - PB 3.00 TC [H2] #17",
+      "campaign": "باور بانك وينر - تارقيت كوست",
+      "scaled_budget_today": false
+    },
+    "ff20c885-3265-46ae-b223-cf4c023b0180": {
+      "date": "2026-10-29",
+      "name": "Copy - PB 3.00 TC [H2] #20",
       "campaign": "باور بانك وينر - تارقيت كوست",
       "scaled_budget_today": false
     }
