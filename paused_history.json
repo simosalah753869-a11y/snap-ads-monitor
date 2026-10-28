@@ -250,7 +250,7 @@
       "name": "24-10 Flow Hook Ads (الوسادة - إعلانين جديدين)",
       "campaign": "car scaling camp ",
       "reason": "[Max 30 Copy AdSquads Cap] إيقاف النسخ الزائدة لعدم تجاوز 30 أدست في الحملة",
-      "paused_at": "2026-10-29 00:01 GMT+3"
+      "paused_at": "2026-10-29 00:58 GMT+3"
     },
     "b9c44678-e3b7-47ba-9baa-78c76d11f21b": {
       "name": "Copy A - Car 1.9 Max [H1] #41",
@@ -466,7 +466,7 @@
       "name": "24-10 Flow Hook Ads (الوسادة - إعلانين جديدين)",
       "campaign": "car armrest",
       "reason": "[3-Day Audit] [AdSquad CPC > $0.28 Rule] صرفت المجموعة $6.94 (>= $1.00) وسعر النقرة CPC=$0.315 (> $0.28)",
-      "paused_at": "2026-10-29 00:07 GMT+3"
+      "paused_at": "2026-10-29 01:03 GMT+3"
     },
     "c1299bb9-b7db-4caa-a4f2-a7cd515d6459": {
       "name": "Copy B - PB 2.1 Max [H2] #03",
@@ -670,7 +670,7 @@
       "name": "24-10 Flow Hook Ads (فولتريكس - إعلانين جديدين)",
       "campaign": "باور بانك وينر",
       "reason": "[3-Day Audit] [AdSquad CPC > $0.28 Rule] صرفت المجموعة $1.27 (>= $1.00) وسعر النقرة CPC=$0.318 (> $0.28)",
-      "paused_at": "2026-10-29 00:01 GMT+3"
+      "paused_at": "2026-10-29 00:58 GMT+3"
     },
     "bd1fe8d6-ace0-46e3-b512-336b734477d4": {
       "name": "24-10 Flow Hook Ads (فولتريكس - إعلانين جديدين)",
@@ -694,7 +694,7 @@
       "name": "24-10 Flow Hook Ads (الوسادة - إعلانين جديدين)",
       "campaign": "car scaling new 2 text",
       "reason": "[3-Day Audit] [AdSquad CPC > $0.28 Rule] صرفت المجموعة $2.05 (>= $1.00) وسعر النقرة CPC=$0.410 (> $0.28)",
-      "paused_at": "2026-10-29 00:01 GMT+3"
+      "paused_at": "2026-10-29 00:58 GMT+3"
     },
     "07d023f3-6e72-4d52-ab10-bea71e4ce784": {
       "name": "Copy - Car 3.00 TC [H1] #03",
@@ -723,8 +723,8 @@
     "9b5a0b52-e6f3-4e83-86f4-ac579ff7c591": {
       "name": "Copy - PB 3.00 TC [H2] #26",
       "campaign": "باور بانك وينر - تارقيت كوست",
-      "reason": "[AdSquad CPC > $0.28 Rule] صرفت المجموعة $1.22 (>= $1.00) وسعر النقرة CPC=$0.305 (> $0.28)",
-      "paused_at": "2026-10-27 17:09 GMT+3"
+      "reason": "[2-Day Audit] [AdSquad CPC > $0.28 Rule] صرفت المجموعة $1.72 (>= $1.00) وسعر النقرة CPC=$0.287 (> $0.28)",
+      "paused_at": "2026-10-29 00:58 GMT+3"
     },
     "0d2de17d-de40-40fe-bc70-8043952c8dc8": {
       "name": "Copy - Car 3.00 TC [H1] #04",
@@ -801,8 +801,8 @@
     "172aea08-1ede-4ee5-8f41-46272f107fd0": {
       "name": "Copy - Car 2.40 Max [H2] #27",
       "campaign": "car scaling camp ",
-      "reason": "[2-Day Audit] [AdSquad CPC > $0.28 Rule] صرفت المجموعة $1.97 (>= $1.00) وسعر النقرة CPC=$0.394 (> $0.28)",
-      "paused_at": "2026-10-28 18:30 GMT+3"
+      "reason": "[2-Day Audit] [AdSquad CPC > $0.28 Rule] صرفت المجموعة $1.06 (>= $1.00) وسعر النقرة CPC=$1.060 (> $0.28)",
+      "paused_at": "2026-10-29 00:58 GMT+3"
     },
     "fb53d9a6-531f-4597-9fe5-b85f48bbb9a1": {
       "name": "Copy - Car 2.40 Max [H2] #24",
@@ -855,20 +855,20 @@
     "8030dfdb-cf67-47f1-9c3c-454c6a02ae73": {
       "name": "Copy - PB 3.00 TC [H2] #29",
       "campaign": "باور بانك وينر - تارقيت كوست",
-      "reason": "[AdSquad CPC > $0.28 Rule] صرفت المجموعة $1.31 (>= $1.00) وسعر النقرة CPC=$0.328 (> $0.28)",
-      "paused_at": "2026-10-28 07:24 GMT+3"
+      "reason": "[2-Day Audit] [AdSquad CPC > $0.28 Rule] صرفت المجموعة $1.42 (>= $1.00) وسعر النقرة CPC=$0.284 (> $0.28)",
+      "paused_at": "2026-10-29 01:03 GMT+3"
     },
     "87ce74b8-c84e-42eb-b51a-dc0013109f14": {
-      "name": "Copy - PB 3.00 TC [H2] #21",
+      "name": "Copy - PB 3.00 TC [H1] #04",
       "campaign": "باور بانك وينر - تارقيت كوست",
-      "reason": "[AdSquad CPC > $0.28 Rule] صرفت المجموعة $1.09 (>= $1.00) وسعر النقرة CPC=$0.363 (> $0.28)",
-      "paused_at": "2026-10-28 07:24 GMT+3"
+      "reason": "[2-Day Audit] [AdSquad CPC > $0.28 Rule] صرفت المجموعة $1.52 (>= $1.00) وسعر النقرة CPC=$0.304 (> $0.28)",
+      "paused_at": "2026-10-29 01:03 GMT+3"
     },
     "8a878b33-7543-4eb9-ba8b-c7cb11c58fef": {
       "name": "Copy - PB 3.00 TC [H2] #27",
       "campaign": "باور بانك وينر - تارقيت كوست",
-      "reason": "[AdSquad CPC > $0.28 Rule] صرفت المجموعة $1.17 (>= $1.00) وسعر النقرة CPC=$0.390 (> $0.28)",
-      "paused_at": "2026-10-28 08:20 GMT+3"
+      "reason": "[2-Day Audit] [AdSquad CPC > $0.28 Rule] صرفت المجموعة $1.25 (>= $1.00) وسعر النقرة CPC=$0.312 (> $0.28)",
+      "paused_at": "2026-10-29 01:03 GMT+3"
     },
     "04083cc0-2527-4d00-84cd-b572e3617706": {
       "name": "Copy - PB 3.00 TC [H1] #07",
@@ -935,6 +935,48 @@
       "campaign": "باور بانك وينر - تارقيت كوست",
       "reason": "[2-Day Audit] [AdSquad Max CPA Rule] سعر البيعة CPA = $7.32 (> $7.00) | الصرف: $7.32 | المبيعات: 1",
       "paused_at": "2026-10-29 00:07 GMT+3"
+    },
+    "60213a7d-67da-438c-8caf-7e8014f73bb8": {
+      "name": "Copy - PB 2.40 Max [H2] #30",
+      "campaign": "باور بانك وينر",
+      "reason": "[2-Day Audit] [AdSquad CPC > $0.28 Rule] صرفت المجموعة $1.02 (>= $1.00) وسعر النقرة CPC=$0.340 (> $0.28)",
+      "paused_at": "2026-10-29 00:58 GMT+3"
+    },
+    "5100fbde-5457-4e6a-ba9a-ea0725b03483": {
+      "name": "Copy - PB 3.00 TC [H2] #30",
+      "campaign": "باور بانك وينر - تارقيت كوست",
+      "reason": "[2-Day Audit] [AdSquad CPC > $0.28 Rule] صرفت المجموعة $1.34 (>= $1.00) وسعر النقرة CPC=$0.335 (> $0.28)",
+      "paused_at": "2026-10-29 00:58 GMT+3"
+    },
+    "b71ae9b0-8247-4b4a-8d4a-ebe85d688cf8": {
+      "name": "Copy - PB 3.00 TC [H2] #25",
+      "campaign": "باور بانك وينر - تارقيت كوست",
+      "reason": "[2-Day Audit] [AdSquad $4.00 Stop-Loss] صرفت المجموعة $6.03 (>= $4.00) بدون أي مبيعة (0 مبيعات)",
+      "paused_at": "2026-10-29 01:03 GMT+3"
+    },
+    "872fe556-2a4d-437b-833d-a004e4df5ceb": {
+      "name": "Copy - PB 3.00 TC [H1] #08",
+      "campaign": "باور بانك وينر - تارقيت كوست",
+      "reason": "[2-Day Audit] [AdSquad CPC > $0.28 Rule] صرفت المجموعة $2.52 (>= $1.00) وسعر النقرة CPC=$0.360 (> $0.28)",
+      "paused_at": "2026-10-29 01:03 GMT+3"
+    },
+    "e02bc327-dc26-4216-bcde-d26f090e2264": {
+      "name": "Copy - PB 3.00 TC [H1] #03",
+      "campaign": "باور بانك وينر - تارقيت كوست",
+      "reason": "[2-Day Audit] [AdSquad CPC > $0.28 Rule] صرفت المجموعة $2.55 (>= $1.00) وسعر النقرة CPC=$0.319 (> $0.28)",
+      "paused_at": "2026-10-29 01:03 GMT+3"
+    },
+    "2fe83bad-7e33-4002-a0ce-afda618f0614": {
+      "name": "Copy - PB 3.00 TC [H1] #13",
+      "campaign": "باور بانك وينر - تارقيت كوست",
+      "reason": "[2-Day Audit] [AdSquad Max CPA Rule] سعر البيعة CPA = $7.42 (> $7.00) | الصرف: $7.42 | المبيعات: 1",
+      "paused_at": "2026-10-29 01:03 GMT+3"
+    },
+    "201be18b-b811-4094-bcbd-dbc04d6763b2": {
+      "name": "Copy - PB 3.00 TC [H2] #28",
+      "campaign": "باور بانك وينر - تارقيت كوست",
+      "reason": "[2-Day Audit] [AdSquad CPC > $0.28 Rule] صرفت المجموعة $1.36 (>= $1.00) وسعر النقرة CPC=$0.680 (> $0.28)",
+      "paused_at": "2026-10-29 01:03 GMT+3"
     }
   },
   "ads": {
@@ -9392,7 +9434,7 @@
       "campaign": "car armrest",
       "adsquad": "Copy - Car 3.00 TC [H1] #07",
       "reason": "[Aggregated Video High CPA 3D - السعودية] مجموع صرف الفيديو التراكمي لـ 3 أيام = $15.70 | المبيعات = 1 | CPA التراكمي = $15.70 (>= $15.00)",
-      "paused_at": "2026-10-29 00:07 GMT+3"
+      "paused_at": "2026-10-29 01:03 GMT+3"
     },
     "6986f375-3234-47ee-995c-e23d3b7bffd7": {
       "name": "Car_v3_13_10_hanan5_m0f2f0a [H1]",
@@ -10371,8 +10413,8 @@
       "name": "PB_v4_Winner4_mb7161f [H2]",
       "campaign": "smart+ power bank 3.0$ 28-10",
       "adsquad": "Saudi Arabia, All genders and All ages | 3.00 Bid",
-      "reason": "[Global Accumulated Video High CPA 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $26.79 | المبيعات = 1 | CPA التراكمي = $26.79 (>= $15.00)",
-      "paused_at": "2026-10-29 00:07 GMT+3"
+      "reason": "[Global Accumulated Video High CPA 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $27.69 | المبيعات = 1 | CPA التراكمي = $27.69 (>= $15.00)",
+      "paused_at": "2026-10-29 01:03 GMT+3"
     },
     "07d6576a-4cd9-4dea-82e7-4d93356eef55": {
       "name": "PB_v4_Winner4_mb7161f [H2]",
@@ -10588,8 +10630,8 @@
       "name": "PB_v4_Winner4_mb7161f [H2]",
       "campaign": "smart+ power bank 3.5$ 28-10",
       "adsquad": "Saudi Arabia, All genders and All ages | 3.50 Bid",
-      "reason": "[Global Accumulated Video High CPA 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $26.79 | المبيعات = 1 | CPA التراكمي = $26.79 (>= $15.00)",
-      "paused_at": "2026-10-29 00:07 GMT+3"
+      "reason": "[Global Accumulated Video High CPA 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $27.69 | المبيعات = 1 | CPA التراكمي = $27.69 (>= $15.00)",
+      "paused_at": "2026-10-29 01:03 GMT+3"
     },
     "8f6b574d-6c1c-49f2-bb27-348333992495": {
       "name": "26-10_Fast_PB_Ad06_m826824",
@@ -10763,8 +10805,8 @@
       "name": "PB_v5_Winner5_m773a09 [H1]",
       "campaign": "smart+ power bank 3.0$ 28-10",
       "adsquad": "Saudi Arabia, All genders and All ages | 3.00 Bid",
-      "reason": "[Global Accumulated Video High CPA 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $16.77 | المبيعات = 1 | CPA التراكمي = $16.77 (>= $15.00)",
-      "paused_at": "2026-10-29 00:07 GMT+3"
+      "reason": "[Global Accumulated Video High CPA 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $17.16 | المبيعات = 1 | CPA التراكمي = $17.16 (>= $15.00)",
+      "paused_at": "2026-10-29 01:03 GMT+3"
     },
     "18e805ab-6642-4956-9d56-3721cb2d0f4a": {
       "name": "PB_v5_Winner5_m773a09 [H2]",
@@ -10980,8 +11022,8 @@
       "name": "PB_v5_Winner5_m773a09 [H1]",
       "campaign": "smart+ power bank 3.5$ 28-10",
       "adsquad": "Saudi Arabia, All genders and All ages | 3.50 Bid",
-      "reason": "[Global Accumulated Video High CPA 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $16.77 | المبيعات = 1 | CPA التراكمي = $16.77 (>= $15.00)",
-      "paused_at": "2026-10-29 00:07 GMT+3"
+      "reason": "[Global Accumulated Video High CPA 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $17.16 | المبيعات = 1 | CPA التراكمي = $17.16 (>= $15.00)",
+      "paused_at": "2026-10-29 01:03 GMT+3"
     },
     "4ad1b4aa-cf91-4a81-85dd-1f1463bb5a09": {
       "name": "27-10_PB_Hanan24_01_ma52a9c",
@@ -11101,6 +11143,230 @@
       "adsquad": "Copy - PB 3.00 TC [H1] #02",
       "reason": "[3-Day Audit] [Ad CPC Rule] صرف الفيديو $1.11 (>= $1.00) | النقرات: 1 | سعر النقرة CPC = $1.11 (> $0.28)",
       "paused_at": "2026-10-29 00:07 GMT+3"
+    },
+    "cad301b1-cf75-462d-851d-9ab35d38a61c": {
+      "name": "PB_v7_Hist64_mfae396 [H1]",
+      "campaign": "smart+ power bank 3.0$ 28-10",
+      "adsquad": "Saudi Arabia, All genders and All ages | 3.00 Bid",
+      "reason": "[Global Accumulated Video Stop-Loss 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $14.58 (>= $13.00) بدون أي مبيعة في يومين",
+      "paused_at": "2026-10-29 01:03 GMT+3"
+    },
+    "02582686-fd1a-4f61-897d-b59aa84a5dcc": {
+      "name": "PB_v7_Hist64_mfae396 [H1]",
+      "campaign": "باور بانك وينر - سمارت",
+      "adsquad": "Copy - PB 2.40 Max [H1] #10",
+      "reason": "[Global Accumulated Video Stop-Loss 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $14.58 (>= $13.00) بدون أي مبيعة في يومين",
+      "paused_at": "2026-10-29 01:03 GMT+3"
+    },
+    "141aee70-f639-4ce4-b90f-7bb92f9a4068": {
+      "name": "PB_v7_Hist64_mfae396 [H2]",
+      "campaign": "باور بانك وينر - سمارت",
+      "adsquad": "Copy - PB 2.40 Max [H2] #28",
+      "reason": "[Global Accumulated Video Stop-Loss 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $14.58 (>= $13.00) بدون أي مبيعة في يومين",
+      "paused_at": "2026-10-29 01:03 GMT+3"
+    },
+    "20f568b0-2e95-441e-a092-ca35906c0c13": {
+      "name": "PB_v7_Hist64_mfae396 [H2]",
+      "campaign": "باور بانك وينر - سمارت",
+      "adsquad": "Copy - PB 2.40 Max [H2] #18",
+      "reason": "[Global Accumulated Video Stop-Loss 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $14.58 (>= $13.00) بدون أي مبيعة في يومين",
+      "paused_at": "2026-10-29 01:03 GMT+3"
+    },
+    "27651c10-80aa-4937-b58e-d7e9b75cd6ef": {
+      "name": "PB_v7_Hist64_mfae396 [H2]",
+      "campaign": "باور بانك وينر - سمارت",
+      "adsquad": "Copy - PB 2.40 Max [H2] #19",
+      "reason": "[Global Accumulated Video Stop-Loss 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $14.58 (>= $13.00) بدون أي مبيعة في يومين",
+      "paused_at": "2026-10-29 01:03 GMT+3"
+    },
+    "3b864719-c201-4aec-9a46-b21d785da510": {
+      "name": "PB_v7_Hist64_mfae396 [H1]",
+      "campaign": "باور بانك وينر - سمارت",
+      "adsquad": "Copy - PB 2.40 Max [H1] #12",
+      "reason": "[Global Accumulated Video Stop-Loss 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $14.58 (>= $13.00) بدون أي مبيعة في يومين",
+      "paused_at": "2026-10-29 01:03 GMT+3"
+    },
+    "4265fb8d-7b62-4fd8-9f65-6e1baaa24aed": {
+      "name": "PB_v7_Hist64_mfae396 [H2]",
+      "campaign": "باور بانك وينر - سمارت",
+      "adsquad": "Copy - PB 2.40 Max [H2] #29",
+      "reason": "[Global Accumulated Video Stop-Loss 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $14.58 (>= $13.00) بدون أي مبيعة في يومين",
+      "paused_at": "2026-10-29 01:03 GMT+3"
+    },
+    "4369b824-0498-42a8-93f9-09e744a8b160": {
+      "name": "PB_v7_Hist64_mfae396 [H2]",
+      "campaign": "باور بانك وينر - سمارت",
+      "adsquad": "Copy - PB 2.40 Max [H2] #27",
+      "reason": "[Global Accumulated Video Stop-Loss 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $14.58 (>= $13.00) بدون أي مبيعة في يومين",
+      "paused_at": "2026-10-29 01:03 GMT+3"
+    },
+    "479c361a-214f-49a5-8755-d59b368e01d5": {
+      "name": "PB_v7_Hist64_mfae396 [H1]",
+      "campaign": "باور بانك وينر - سمارت",
+      "adsquad": "Copy - PB 2.40 Max [H1] #11",
+      "reason": "[Global Accumulated Video Stop-Loss 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $14.58 (>= $13.00) بدون أي مبيعة في يومين",
+      "paused_at": "2026-10-29 01:03 GMT+3"
+    },
+    "56043e2a-dc2d-488c-9921-bde187f84555": {
+      "name": "PB_v7_Hist64_mfae396 [H1]",
+      "campaign": "باور بانك وينر - سمارت",
+      "adsquad": "Copy - PB 2.40 Max [H1] #06",
+      "reason": "[Global Accumulated Video Stop-Loss 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $14.58 (>= $13.00) بدون أي مبيعة في يومين",
+      "paused_at": "2026-10-29 01:03 GMT+3"
+    },
+    "66cba83f-cab8-4072-a71b-0aab64759a48": {
+      "name": "PB_v7_Hist64_mfae396 [H1]",
+      "campaign": "باور بانك وينر - سمارت",
+      "adsquad": "Copy - PB 2.40 Max [H1] #13",
+      "reason": "[Global Accumulated Video Stop-Loss 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $14.58 (>= $13.00) بدون أي مبيعة في يومين",
+      "paused_at": "2026-10-29 01:03 GMT+3"
+    },
+    "6d00f051-1bc2-451f-abfe-604d9b612d0d": {
+      "name": "PB_v7_Hist64_mfae396 [H1]",
+      "campaign": "باور بانك وينر - سمارت",
+      "adsquad": "Copy - PB 2.40 Max [H1] #05",
+      "reason": "[Global Accumulated Video Stop-Loss 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $14.58 (>= $13.00) بدون أي مبيعة في يومين",
+      "paused_at": "2026-10-29 01:03 GMT+3"
+    },
+    "75036e11-4e36-49ee-a3d1-b5a83f269969": {
+      "name": "PB_v7_Hist64_mfae396 [H1]",
+      "campaign": "باور بانك وينر - سمارت",
+      "adsquad": "Copy - PB 2.40 Max [H1] #15",
+      "reason": "[Global Accumulated Video Stop-Loss 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $14.58 (>= $13.00) بدون أي مبيعة في يومين",
+      "paused_at": "2026-10-29 01:03 GMT+3"
+    },
+    "77902d84-c381-436d-9176-97dd64fc0350": {
+      "name": "PB_v7_Hist64_mfae396 [H2]",
+      "campaign": "باور بانك وينر - سمارت",
+      "adsquad": "Copy - PB 2.40 Max [H2] #26",
+      "reason": "[Global Accumulated Video Stop-Loss 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $14.58 (>= $13.00) بدون أي مبيعة في يومين",
+      "paused_at": "2026-10-29 01:03 GMT+3"
+    },
+    "7eede8a1-e917-4032-86c7-4c8b5aad90f5": {
+      "name": "PB_v7_Hist64_mfae396 [H2]",
+      "campaign": "باور بانك وينر - سمارت",
+      "adsquad": "Copy - PB 2.40 Max [H2] #17",
+      "reason": "[Global Accumulated Video Stop-Loss 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $14.58 (>= $13.00) بدون أي مبيعة في يومين",
+      "paused_at": "2026-10-29 01:03 GMT+3"
+    },
+    "91b7dfa8-5221-412d-97e0-5718ebd0e398": {
+      "name": "PB_v7_Hist64_mfae396 [H2]",
+      "campaign": "باور بانك وينر - سمارت",
+      "adsquad": "Copy - PB 2.40 Max [H2] #25",
+      "reason": "[Global Accumulated Video Stop-Loss 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $14.58 (>= $13.00) بدون أي مبيعة في يومين",
+      "paused_at": "2026-10-29 01:03 GMT+3"
+    },
+    "92b7abe6-858f-44fb-8c0f-2d73afb1adf6": {
+      "name": "PB_v7_Hist64_mfae396 [H2]",
+      "campaign": "باور بانك وينر - سمارت",
+      "adsquad": "Copy - PB 2.40 Max [H2] #22",
+      "reason": "[Global Accumulated Video Stop-Loss 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $14.58 (>= $13.00) بدون أي مبيعة في يومين",
+      "paused_at": "2026-10-29 01:03 GMT+3"
+    },
+    "92c4a62d-d724-49fe-ab7b-87328b8ba278": {
+      "name": "PB_v7_Hist64_mfae396 [H1]",
+      "campaign": "باور بانك وينر - سمارت",
+      "adsquad": "Copy - PB 2.40 Max [H1] #08",
+      "reason": "[Global Accumulated Video Stop-Loss 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $14.58 (>= $13.00) بدون أي مبيعة في يومين",
+      "paused_at": "2026-10-29 01:03 GMT+3"
+    },
+    "9bb2bf08-fd34-467a-b1dc-e0976d773801": {
+      "name": "PB_v7_Hist64_mfae396 [H1]",
+      "campaign": "باور بانك وينر - سمارت",
+      "adsquad": "Copy - PB 2.40 Max [H1] #14",
+      "reason": "[Global Accumulated Video Stop-Loss 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $14.58 (>= $13.00) بدون أي مبيعة في يومين",
+      "paused_at": "2026-10-29 01:03 GMT+3"
+    },
+    "a1716bbb-1247-4d41-a1d1-3a0de3a64ad9": {
+      "name": "PB_v7_Hist64_mfae396 [H1]",
+      "campaign": "باور بانك وينر - سمارت",
+      "adsquad": "Copy - PB 2.40 Max [H1] #04",
+      "reason": "[Global Accumulated Video Stop-Loss 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $14.58 (>= $13.00) بدون أي مبيعة في يومين",
+      "paused_at": "2026-10-29 01:03 GMT+3"
+    },
+    "a3b4688a-0a56-44ae-a359-93b72656ac9d": {
+      "name": "PB_v7_Hist64_mfae396 [H2]",
+      "campaign": "باور بانك وينر - سمارت",
+      "adsquad": "Copy - PB 2.40 Max [H2] #21",
+      "reason": "[Global Accumulated Video Stop-Loss 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $14.58 (>= $13.00) بدون أي مبيعة في يومين",
+      "paused_at": "2026-10-29 01:03 GMT+3"
+    },
+    "bd8f09d6-9442-42eb-a309-d90faecc3909": {
+      "name": "PB_v7_Hist64_mfae396 [H1]",
+      "campaign": "باور بانك وينر - سمارت",
+      "adsquad": "Copy - PB 2.40 Max [H1] #07",
+      "reason": "[Global Accumulated Video Stop-Loss 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $14.58 (>= $13.00) بدون أي مبيعة في يومين",
+      "paused_at": "2026-10-29 01:03 GMT+3"
+    },
+    "c3ad1d2a-444e-4adc-9f3c-c506e97f61fd": {
+      "name": "PB_v7_Hist64_mfae396 [H1]",
+      "campaign": "باور بانك وينر - سمارت",
+      "adsquad": "Copy - PB 2.40 Max [H1] #02",
+      "reason": "[Global Accumulated Video Stop-Loss 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $14.58 (>= $13.00) بدون أي مبيعة في يومين",
+      "paused_at": "2026-10-29 01:03 GMT+3"
+    },
+    "db0a315a-dbfb-4f31-80b6-22418ee0f441": {
+      "name": "PB_v7_Hist64_mfae396 [H1]",
+      "campaign": "باور بانك وينر - سمارت",
+      "adsquad": "Copy - PB 2.40 Max [H1] #09",
+      "reason": "[Global Accumulated Video Stop-Loss 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $14.58 (>= $13.00) بدون أي مبيعة في يومين",
+      "paused_at": "2026-10-29 01:03 GMT+3"
+    },
+    "dd7fec58-008d-47cd-9a24-5a05068dc945": {
+      "name": "PB_v7_Hist64_mfae396 [H2]",
+      "campaign": "باور بانك وينر - سمارت",
+      "adsquad": "Copy - PB 2.40 Max [H2] #20",
+      "reason": "[Global Accumulated Video Stop-Loss 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $14.58 (>= $13.00) بدون أي مبيعة في يومين",
+      "paused_at": "2026-10-29 01:03 GMT+3"
+    },
+    "ddaa605a-8342-4587-9f9b-9bd87ae8041f": {
+      "name": "PB_v7_Hist64_mfae396 [H2]",
+      "campaign": "باور بانك وينر - سمارت",
+      "adsquad": "Copy - PB 2.40 Max [H2] #24",
+      "reason": "[Global Accumulated Video Stop-Loss 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $14.58 (>= $13.00) بدون أي مبيعة في يومين",
+      "paused_at": "2026-10-29 01:03 GMT+3"
+    },
+    "e42ad93d-9d1c-4849-b464-1eccb57412ff": {
+      "name": "PB_v7_Hist64_mfae396 [H2]",
+      "campaign": "باور بانك وينر - سمارت",
+      "adsquad": "Copy - PB 2.40 Max [H2] #23",
+      "reason": "[Global Accumulated Video Stop-Loss 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $14.58 (>= $13.00) بدون أي مبيعة في يومين",
+      "paused_at": "2026-10-29 01:03 GMT+3"
+    },
+    "e633d143-efaa-4c6c-a5bd-a39f081fda04": {
+      "name": "PB_v7_Hist64_mfae396 [H1]",
+      "campaign": "باور بانك وينر - سمارت",
+      "adsquad": "Copy - PB 2.40 Max [H1] #01",
+      "reason": "[Global Accumulated Video Stop-Loss 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $14.58 (>= $13.00) بدون أي مبيعة في يومين",
+      "paused_at": "2026-10-29 01:03 GMT+3"
+    },
+    "e7d2ad83-7fcc-4fff-8d69-91207fc97095": {
+      "name": "PB_v7_Hist64_mfae396 [H2]",
+      "campaign": "باور بانك وينر - سمارت",
+      "adsquad": "Copy - PB 2.40 Max [H2] #30",
+      "reason": "[Global Accumulated Video Stop-Loss 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $14.58 (>= $13.00) بدون أي مبيعة في يومين",
+      "paused_at": "2026-10-29 01:03 GMT+3"
+    },
+    "f3be79e7-b750-4786-9925-667cc9ac9552": {
+      "name": "PB_v7_Hist64_mfae396 [H1]",
+      "campaign": "باور بانك وينر - سمارت",
+      "adsquad": "Copy - PB 2.40 Max [H1] #03",
+      "reason": "[Global Accumulated Video Stop-Loss 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $14.58 (>= $13.00) بدون أي مبيعة في يومين",
+      "paused_at": "2026-10-29 01:03 GMT+3"
+    },
+    "f3cf704f-c3ac-4d44-bbbd-b30d656b16d1": {
+      "name": "PB_v7_Hist64_mfae396 [H2]",
+      "campaign": "باور بانك وينر - سمارت",
+      "adsquad": "Copy - PB 2.40 Max [H2] #16",
+      "reason": "[Global Accumulated Video Stop-Loss 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $14.58 (>= $13.00) بدون أي مبيعة في يومين",
+      "paused_at": "2026-10-29 01:03 GMT+3"
+    },
+    "38944c2e-8f29-48c8-90f0-b24b873ecf14": {
+      "name": "PB_v7_Hist64_mfae396 [H1]",
+      "campaign": "smart+ power bank 3.5$ 28-10",
+      "adsquad": "Saudi Arabia, All genders and All ages | 3.50 Bid",
+      "reason": "[Global Accumulated Video Stop-Loss 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $14.58 (>= $13.00) بدون أي مبيعة في يومين",
+      "paused_at": "2026-10-29 01:03 GMT+3"
     }
   },
   "bid_bumps": {
@@ -19732,17 +19998,17 @@
     "4eefa50f-9008-4aea-b159-d370150b60cf": {
       "name": "صندوق دفاتر TIME X 21-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-29 00:01 GMT+3"
+      "updated_at": "2026-10-29 00:58 GMT+3"
     },
     "a171c141-a6d5-403e-8357-5c8f6c01bce0": {
       "name": "وسادة مايباخ 21-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-29 00:01 GMT+3"
+      "updated_at": "2026-10-29 00:58 GMT+3"
     },
     "c5a7cade-6ec3-4c47-b3a2-c5f08bcf8da0": {
       "name": "وسادة مايباخ 21-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-29 00:01 GMT+3"
+      "updated_at": "2026-10-29 00:58 GMT+3"
     },
     "1879653126110545": {
       "name": "timex books 21-10",
@@ -19753,12 +20019,12 @@
     "e8f0a5e9-89c5-4c14-aabb-c9c6c657891d": {
       "name": "مسخن الرضاعات اللاسلكي 22-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-29 00:01 GMT+3"
+      "updated_at": "2026-10-29 00:58 GMT+3"
     },
     "f18a3bf4-148a-4f5e-baa1-f90335f1884c": {
       "name": "مسخن الرضاعات اللاسلكي 22-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-29 00:01 GMT+3"
+      "updated_at": "2026-10-29 00:58 GMT+3"
     },
     "1879676075637041": {
       "name": "baby bottle warmer 22-10",
@@ -19775,7 +20041,7 @@
     "29891f22-e046-4cc8-b9ee-9921d2d65f0b": {
       "name": "مسخن الرضاعات اللاسلكي 22-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-29 00:01 GMT+3"
+      "updated_at": "2026-10-29 00:58 GMT+3"
     },
     "1879653022433617": {
       "name": "maybach pillow 21-10",
@@ -19827,10 +20093,10 @@
     },
     "558c5d45-f08e-400c-a499-7668e801c347": {
       "name": "car armrest",
-      "spend_3d": 159.68,
-      "purchases_3d": 9,
-      "cpa_3d": 17.74,
-      "updated_at": "2026-10-29 00:07 GMT+3"
+      "spend_3d": 159.76,
+      "purchases_3d": 10,
+      "cpa_3d": 15.98,
+      "updated_at": "2026-10-29 01:03 GMT+3"
     },
     "dab749f9-2dca-497b-a8c3-39f2201162a7": {
       "name": "باور بانك وينر - تارقيت كوست",
@@ -21178,7 +21444,7 @@
       "scaled_budget_today": false
     },
     "40896e9e-cf13-4c72-ba51-39830da33503": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - PB 3.00 TC [H1] #15",
       "campaign": "باور بانك وينر - تارقيت كوست",
       "scaled_budget_today": false
@@ -21214,7 +21480,7 @@
       "scaled_budget_today": false
     },
     "786b107f-5c7a-482e-b48f-afc3c2cf7a8c": {
-      "date": "2026-10-27",
+      "date": "2026-10-29",
       "name": "Copy - PB 3.00 TC [H1] #12",
       "campaign": "باور بانك وينر - تارقيت كوست",
       "scaled_budget_today": false
@@ -21268,10 +21534,10 @@
       "scaled_budget_today": false
     },
     "d34ec1cb-dcf3-4083-98c0-7df57b89f0ea": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - PB 3.00 TC [H1] #01",
       "campaign": "باور بانك وينر - تارقيت كوست",
-      "scaled_budget_today": true
+      "scaled_budget_today": false
     },
     "d3f5d069-8e6b-4df9-bbec-c94109f51b98": {
       "date": "2026-10-27",
@@ -22108,8 +22374,8 @@
       "scaled_budget_today": false
     },
     "78e975e1-98ba-4235-87ec-ce1eee5ca0a2": {
-      "date": "2026-10-27",
-      "name": "Copy - PB 3.00 TC [H2] #30",
+      "date": "2026-10-29",
+      "name": "Copy - PB 3.00 TC [H1] #10",
       "campaign": "باور بانك وينر - تارقيت كوست",
       "scaled_budget_today": false
     },
@@ -23518,7 +23784,7 @@
       "scaled_budget_today": false
     },
     "0b06ff15-9d67-488b-831a-bbfbc6665098": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - PB 3.00 TC [H2] #26",
       "campaign": "باور بانك وينر - تارقيت كوست",
       "scaled_budget_today": false
@@ -23566,7 +23832,7 @@
       "scaled_budget_today": false
     },
     "f8e4ea7a-cc79-497a-b428-8611aed39c13": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - PB 3.00 TC [H2] #30",
       "campaign": "باور بانك وينر - تارقيت كوست",
       "scaled_budget_today": false
@@ -24343,6 +24609,12 @@
       "date": "2026-10-29",
       "name": "Copy - PB 3.00 TC [H1] #01",
       "campaign": "باور بانك وينر - تارقيت كوست",
+      "scaled_budget_today": false
+    },
+    "3fa06e5b-a266-4851-b266-fb32905ae198": {
+      "date": "2026-10-29",
+      "name": "Copy - Car 3.00 TC [H1] #03",
+      "campaign": "car armrest",
       "scaled_budget_today": false
     }
   }
