@@ -250,7 +250,7 @@
       "name": "24-10 Flow Hook Ads (الوسادة - إعلانين جديدين)",
       "campaign": "car scaling camp ",
       "reason": "[Max 30 Copy AdSquads Cap] إيقاف النسخ الزائدة لعدم تجاوز 30 أدست في الحملة",
-      "paused_at": "2026-10-28 20:27 GMT+3"
+      "paused_at": "2026-10-28 21:20 GMT+3"
     },
     "b9c44678-e3b7-47ba-9baa-78c76d11f21b": {
       "name": "Copy A - Car 1.9 Max [H1] #41",
@@ -694,13 +694,13 @@
       "name": "24-10 Flow Hook Ads (الوسادة - إعلانين جديدين)",
       "campaign": "car scaling new 2 text",
       "reason": "[2-Day Audit] [AdSquad CPC > $0.28 Rule] صرفت المجموعة $1.91 (>= $1.00) وسعر النقرة CPC=$0.382 (> $0.28)",
-      "paused_at": "2026-10-28 20:27 GMT+3"
+      "paused_at": "2026-10-28 21:20 GMT+3"
     },
     "07d023f3-6e72-4d52-ab10-bea71e4ce784": {
       "name": "Copy - Car 3.00 TC [H1] #03",
       "campaign": "car armrest",
-      "reason": "[2-Day Audit] [AdSquad Max CPA Rule] سعر البيعة CPA = $8.73 (> $7.00) | الصرف: $8.73 | المبيعات: 1",
-      "paused_at": "2026-10-28 20:31 GMT+3"
+      "reason": "[2-Day Audit] [AdSquad Max CPA Rule] سعر البيعة CPA = $8.74 (> $7.00) | الصرف: $8.74 | المبيعات: 1",
+      "paused_at": "2026-10-28 21:24 GMT+3"
     },
     "543eba73-e46f-40fe-8319-5d73efc8629f": {
       "name": "Copy - Car 3.00 TC [H2] #18",
@@ -748,7 +748,7 @@
       "name": "Copy - Car 3.00 TC [H1] #07",
       "campaign": "car armrest",
       "reason": "[2-Day Audit] [AdSquad CPC > $0.28 Rule] صرفت المجموعة $4.83 (>= $1.00) وسعر النقرة CPC=$0.284 (> $0.28)",
-      "paused_at": "2026-10-28 20:31 GMT+3"
+      "paused_at": "2026-10-28 21:24 GMT+3"
     },
     "85e8cb0e-8105-49a2-8e9a-eb22d5fbef6c": {
       "name": "Copy - Car 3.00 TC [H1] #01",
@@ -825,8 +825,8 @@
     "9b2e4856-9858-4a76-8160-591b56605f3b": {
       "name": "Copy - PB 3.00 TC [H2] #18",
       "campaign": "باور بانك وينر - تارقيت كوست",
-      "reason": "[AdSquad CPC > $0.28 Rule] صرفت المجموعة $3.29 (>= $1.00) وسعر النقرة CPC=$0.299 (> $0.28)",
-      "paused_at": "2026-10-28 20:31 GMT+3"
+      "reason": "[2-Day Audit] [AdSquad Max CPA Rule] سعر البيعة CPA = $9.24 (> $7.00) | الصرف: $9.24 | المبيعات: 1",
+      "paused_at": "2026-10-28 21:24 GMT+3"
     },
     "e06c1d7a-3370-444b-824f-e44365175164": {
       "name": "Copy - PB 3.00 TC [H2] #22",
@@ -10347,8 +10347,8 @@
       "name": "PB_v4_Winner4_mb7161f [H2]",
       "campaign": "smart+ power bank 3.0$ 28-10",
       "adsquad": "Saudi Arabia, All genders and All ages | 3.00 Bid",
-      "reason": "[Global Accumulated Video High CPA 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $24.20 | المبيعات = 1 | CPA التراكمي = $24.20 (>= $15.00)",
-      "paused_at": "2026-10-28 20:31 GMT+3"
+      "reason": "[Global Accumulated Video High CPA 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $24.96 | المبيعات = 1 | CPA التراكمي = $24.96 (>= $15.00)",
+      "paused_at": "2026-10-28 21:24 GMT+3"
     },
     "07d6576a-4cd9-4dea-82e7-4d93356eef55": {
       "name": "PB_v4_Winner4_mb7161f [H2]",
@@ -10564,8 +10564,8 @@
       "name": "PB_v4_Winner4_mb7161f [H2]",
       "campaign": "smart+ power bank 3.5$ 28-10",
       "adsquad": "Saudi Arabia, All genders and All ages | 3.50 Bid",
-      "reason": "[Global Accumulated Video High CPA 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $24.20 | المبيعات = 1 | CPA التراكمي = $24.20 (>= $15.00)",
-      "paused_at": "2026-10-28 20:31 GMT+3"
+      "reason": "[Global Accumulated Video High CPA 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $24.96 | المبيعات = 1 | CPA التراكمي = $24.96 (>= $15.00)",
+      "paused_at": "2026-10-28 21:24 GMT+3"
     },
     "8f6b574d-6c1c-49f2-bb27-348333992495": {
       "name": "26-10_Fast_PB_Ad06_m826824",
@@ -10739,8 +10739,8 @@
       "name": "PB_v5_Winner5_m773a09 [H1]",
       "campaign": "smart+ power bank 3.0$ 28-10",
       "adsquad": "Saudi Arabia, All genders and All ages | 3.00 Bid",
-      "reason": "[Global Accumulated Video High CPA 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $15.00 | المبيعات = 1 | CPA التراكمي = $15.00 (>= $15.00)",
-      "paused_at": "2026-10-28 20:31 GMT+3"
+      "reason": "[Global Accumulated Video High CPA 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $16.13 | المبيعات = 1 | CPA التراكمي = $16.13 (>= $15.00)",
+      "paused_at": "2026-10-28 21:24 GMT+3"
     },
     "18e805ab-6642-4956-9d56-3721cb2d0f4a": {
       "name": "PB_v5_Winner5_m773a09 [H2]",
@@ -10956,8 +10956,8 @@
       "name": "PB_v5_Winner5_m773a09 [H1]",
       "campaign": "smart+ power bank 3.5$ 28-10",
       "adsquad": "Saudi Arabia, All genders and All ages | 3.50 Bid",
-      "reason": "[Global Accumulated Video High CPA 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $15.00 | المبيعات = 1 | CPA التراكمي = $15.00 (>= $15.00)",
-      "paused_at": "2026-10-28 20:31 GMT+3"
+      "reason": "[Global Accumulated Video High CPA 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $16.13 | المبيعات = 1 | CPA التراكمي = $16.13 (>= $15.00)",
+      "paused_at": "2026-10-28 21:24 GMT+3"
     },
     "4ad1b4aa-cf91-4a81-85dd-1f1463bb5a09": {
       "name": "27-10_PB_Hanan24_01_ma52a9c",
@@ -10986,6 +10986,13 @@
       "adsquad": "Copy - PB 3.00 TC [H1] #10",
       "reason": "[Global Accumulated Video High CPA 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $15.00 | المبيعات = 1 | CPA التراكمي = $15.00 (>= $15.00)",
       "paused_at": "2026-10-28 20:31 GMT+3"
+    },
+    "72cb83dd-f9ca-4e63-b966-a85e714d6540": {
+      "name": "Car_v8_21_10_hanan3_mfd8dd5 [H2]",
+      "campaign": "car scaling camp ",
+      "adsquad": "Copy - Car 2.40 Max [H2] #23",
+      "reason": "[3-Day Audit] [Ad CPC Rule] صرف الفيديو $1.13 (>= $1.00) | النقرات: 4 | سعر النقرة CPC = $0.282 (> $0.28)",
+      "paused_at": "2026-10-28 21:20 GMT+3"
     }
   },
   "bid_bumps": {
@@ -19617,17 +19624,17 @@
     "4eefa50f-9008-4aea-b159-d370150b60cf": {
       "name": "صندوق دفاتر TIME X 21-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-28 20:27 GMT+3"
+      "updated_at": "2026-10-28 21:20 GMT+3"
     },
     "a171c141-a6d5-403e-8357-5c8f6c01bce0": {
       "name": "وسادة مايباخ 21-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-28 20:27 GMT+3"
+      "updated_at": "2026-10-28 21:20 GMT+3"
     },
     "c5a7cade-6ec3-4c47-b3a2-c5f08bcf8da0": {
       "name": "وسادة مايباخ 21-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-28 20:27 GMT+3"
+      "updated_at": "2026-10-28 21:20 GMT+3"
     },
     "1879653126110545": {
       "name": "timex books 21-10",
@@ -19638,12 +19645,12 @@
     "e8f0a5e9-89c5-4c14-aabb-c9c6c657891d": {
       "name": "مسخن الرضاعات اللاسلكي 22-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-28 20:27 GMT+3"
+      "updated_at": "2026-10-28 21:20 GMT+3"
     },
     "f18a3bf4-148a-4f5e-baa1-f90335f1884c": {
       "name": "مسخن الرضاعات اللاسلكي 22-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-28 20:27 GMT+3"
+      "updated_at": "2026-10-28 21:20 GMT+3"
     },
     "1879676075637041": {
       "name": "baby bottle warmer 22-10",
@@ -19660,7 +19667,7 @@
     "29891f22-e046-4cc8-b9ee-9921d2d65f0b": {
       "name": "مسخن الرضاعات اللاسلكي 22-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-28 20:27 GMT+3"
+      "updated_at": "2026-10-28 21:20 GMT+3"
     },
     "1879653022433617": {
       "name": "maybach pillow 21-10",
@@ -19712,10 +19719,10 @@
     },
     "558c5d45-f08e-400c-a499-7668e801c347": {
       "name": "car armrest",
-      "spend_3d": 217.06,
+      "spend_3d": 218.32,
       "purchases_3d": 15,
-      "cpa_3d": 14.47,
-      "updated_at": "2026-10-28 20:31 GMT+3"
+      "cpa_3d": 14.55,
+      "updated_at": "2026-10-28 21:24 GMT+3"
     },
     "dab749f9-2dca-497b-a8c3-39f2201162a7": {
       "name": "باور بانك وينر - تارقيت كوست",
