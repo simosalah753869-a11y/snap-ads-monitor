@@ -250,7 +250,7 @@
       "name": "24-10 Flow Hook Ads (الوسادة - إعلانين جديدين)",
       "campaign": "car scaling camp ",
       "reason": "[Max 30 Copy AdSquads Cap] إيقاف النسخ الزائدة لعدم تجاوز 30 أدست في الحملة",
-      "paused_at": "2026-10-28 23:07 GMT+3"
+      "paused_at": "2026-10-29 00:01 GMT+3"
     },
     "b9c44678-e3b7-47ba-9baa-78c76d11f21b": {
       "name": "Copy A - Car 1.9 Max [H1] #41",
@@ -465,8 +465,8 @@
     "d5ef758a-0687-43a2-afa3-ee9f146dca47": {
       "name": "24-10 Flow Hook Ads (الوسادة - إعلانين جديدين)",
       "campaign": "car armrest",
-      "reason": "[2-Day Audit] [AdSquad CPC > $0.28 Rule] صرفت المجموعة $6.94 (>= $1.00) وسعر النقرة CPC=$0.315 (> $0.28)",
-      "paused_at": "2026-10-28 23:10 GMT+3"
+      "reason": "[3-Day Audit] [AdSquad CPC > $0.28 Rule] صرفت المجموعة $6.94 (>= $1.00) وسعر النقرة CPC=$0.315 (> $0.28)",
+      "paused_at": "2026-10-29 00:07 GMT+3"
     },
     "c1299bb9-b7db-4caa-a4f2-a7cd515d6459": {
       "name": "Copy B - PB 2.1 Max [H2] #03",
@@ -669,8 +669,8 @@
     "1745936d-6a40-48b9-a058-a44cebd39a65": {
       "name": "24-10 Flow Hook Ads (فولتريكس - إعلانين جديدين)",
       "campaign": "باور بانك وينر",
-      "reason": "[2-Day Audit] [AdSquad CPC > $0.28 Rule] صرفت المجموعة $1.27 (>= $1.00) وسعر النقرة CPC=$0.318 (> $0.28)",
-      "paused_at": "2026-10-28 23:07 GMT+3"
+      "reason": "[3-Day Audit] [AdSquad CPC > $0.28 Rule] صرفت المجموعة $1.27 (>= $1.00) وسعر النقرة CPC=$0.318 (> $0.28)",
+      "paused_at": "2026-10-29 00:01 GMT+3"
     },
     "bd1fe8d6-ace0-46e3-b512-336b734477d4": {
       "name": "24-10 Flow Hook Ads (فولتريكس - إعلانين جديدين)",
@@ -693,14 +693,14 @@
     "7a6fd67b-844f-470c-b330-c48b5317e8c2": {
       "name": "24-10 Flow Hook Ads (الوسادة - إعلانين جديدين)",
       "campaign": "car scaling new 2 text",
-      "reason": "[2-Day Audit] [AdSquad CPC > $0.28 Rule] صرفت المجموعة $2.03 (>= $1.00) وسعر النقرة CPC=$0.406 (> $0.28)",
-      "paused_at": "2026-10-28 23:07 GMT+3"
+      "reason": "[3-Day Audit] [AdSquad CPC > $0.28 Rule] صرفت المجموعة $2.05 (>= $1.00) وسعر النقرة CPC=$0.410 (> $0.28)",
+      "paused_at": "2026-10-29 00:01 GMT+3"
     },
     "07d023f3-6e72-4d52-ab10-bea71e4ce784": {
       "name": "Copy - Car 3.00 TC [H1] #03",
       "campaign": "car armrest",
-      "reason": "[2-Day Audit] [AdSquad Max CPA Rule] سعر البيعة CPA = $8.74 (> $7.00) | الصرف: $8.74 | المبيعات: 1",
-      "paused_at": "2026-10-28 23:10 GMT+3"
+      "reason": "[3-Day Audit] [AdSquad Max CPA Rule] سعر البيعة CPA = $11.56 (> $7.00) | الصرف: $11.56 | المبيعات: 1",
+      "paused_at": "2026-10-29 00:07 GMT+3"
     },
     "543eba73-e46f-40fe-8319-5d73efc8629f": {
       "name": "Copy - Car 3.00 TC [H2] #18",
@@ -929,6 +929,12 @@
       "campaign": "باور بانك وينر - تارقيت كوست",
       "reason": "[AdSquad CPC > $0.28 Rule] صرفت المجموعة $1.15 (>= $1.00) وسعر النقرة CPC=$0.287 (> $0.28)",
       "paused_at": "2026-10-28 22:25 GMT+3"
+    },
+    "d6cb553a-bf5f-471a-8d16-051b047528a6": {
+      "name": "Copy - PB 3.00 TC [H1] #10",
+      "campaign": "باور بانك وينر - تارقيت كوست",
+      "reason": "[2-Day Audit] [AdSquad Max CPA Rule] سعر البيعة CPA = $7.32 (> $7.00) | الصرف: $7.32 | المبيعات: 1",
+      "paused_at": "2026-10-29 00:07 GMT+3"
     }
   },
   "ads": {
@@ -9385,8 +9391,8 @@
       "name": "Car_v3_13_10_hanan5_m0f2f0a [H1]",
       "campaign": "car armrest",
       "adsquad": "Copy - Car 3.00 TC [H1] #07",
-      "reason": "[Aggregated Video High CPA 3D - السعودية] مجموع صرف الفيديو التراكمي لـ 3 أيام = $36.16 | المبيعات = 2 | CPA التراكمي = $18.08 (>= $15.00)",
-      "paused_at": "2026-10-27 17:14 GMT+3"
+      "reason": "[Aggregated Video High CPA 3D - السعودية] مجموع صرف الفيديو التراكمي لـ 3 أيام = $15.70 | المبيعات = 1 | CPA التراكمي = $15.70 (>= $15.00)",
+      "paused_at": "2026-10-29 00:07 GMT+3"
     },
     "6986f375-3234-47ee-995c-e23d3b7bffd7": {
       "name": "Car_v3_13_10_hanan5_m0f2f0a [H1]",
@@ -10365,8 +10371,8 @@
       "name": "PB_v4_Winner4_mb7161f [H2]",
       "campaign": "smart+ power bank 3.0$ 28-10",
       "adsquad": "Saudi Arabia, All genders and All ages | 3.00 Bid",
-      "reason": "[Global Accumulated Video High CPA 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $25.01 | المبيعات = 1 | CPA التراكمي = $25.01 (>= $15.00)",
-      "paused_at": "2026-10-28 23:10 GMT+3"
+      "reason": "[Global Accumulated Video High CPA 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $26.79 | المبيعات = 1 | CPA التراكمي = $26.79 (>= $15.00)",
+      "paused_at": "2026-10-29 00:07 GMT+3"
     },
     "07d6576a-4cd9-4dea-82e7-4d93356eef55": {
       "name": "PB_v4_Winner4_mb7161f [H2]",
@@ -10582,8 +10588,8 @@
       "name": "PB_v4_Winner4_mb7161f [H2]",
       "campaign": "smart+ power bank 3.5$ 28-10",
       "adsquad": "Saudi Arabia, All genders and All ages | 3.50 Bid",
-      "reason": "[Global Accumulated Video High CPA 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $25.01 | المبيعات = 1 | CPA التراكمي = $25.01 (>= $15.00)",
-      "paused_at": "2026-10-28 23:10 GMT+3"
+      "reason": "[Global Accumulated Video High CPA 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $26.79 | المبيعات = 1 | CPA التراكمي = $26.79 (>= $15.00)",
+      "paused_at": "2026-10-29 00:07 GMT+3"
     },
     "8f6b574d-6c1c-49f2-bb27-348333992495": {
       "name": "26-10_Fast_PB_Ad06_m826824",
@@ -10757,8 +10763,8 @@
       "name": "PB_v5_Winner5_m773a09 [H1]",
       "campaign": "smart+ power bank 3.0$ 28-10",
       "adsquad": "Saudi Arabia, All genders and All ages | 3.00 Bid",
-      "reason": "[Global Accumulated Video High CPA 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $16.15 | المبيعات = 1 | CPA التراكمي = $16.15 (>= $15.00)",
-      "paused_at": "2026-10-28 23:10 GMT+3"
+      "reason": "[Global Accumulated Video High CPA 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $16.77 | المبيعات = 1 | CPA التراكمي = $16.77 (>= $15.00)",
+      "paused_at": "2026-10-29 00:07 GMT+3"
     },
     "18e805ab-6642-4956-9d56-3721cb2d0f4a": {
       "name": "PB_v5_Winner5_m773a09 [H2]",
@@ -10974,8 +10980,8 @@
       "name": "PB_v5_Winner5_m773a09 [H1]",
       "campaign": "smart+ power bank 3.5$ 28-10",
       "adsquad": "Saudi Arabia, All genders and All ages | 3.50 Bid",
-      "reason": "[Global Accumulated Video High CPA 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $16.15 | المبيعات = 1 | CPA التراكمي = $16.15 (>= $15.00)",
-      "paused_at": "2026-10-28 23:10 GMT+3"
+      "reason": "[Global Accumulated Video High CPA 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $16.77 | المبيعات = 1 | CPA التراكمي = $16.77 (>= $15.00)",
+      "paused_at": "2026-10-29 00:07 GMT+3"
     },
     "4ad1b4aa-cf91-4a81-85dd-1f1463bb5a09": {
       "name": "27-10_PB_Hanan24_01_ma52a9c",
@@ -11067,6 +11073,34 @@
       "adsquad": "Copy - PB 3.00 TC [H1] #01",
       "reason": "[Single Video Max $7 CPA Rule] صرف الفيديو $7.31 | المبيعات: 1 | CPA = $7.31 (> $7.00)",
       "paused_at": "2026-10-28 23:10 GMT+3"
+    },
+    "4cd6d0f4-018b-4ddb-9d34-5e588a2f1a80": {
+      "name": "PB_v4_Winner4_mb7161f [H2]",
+      "campaign": "باور بانك وينر - تارقيت كوست",
+      "adsquad": "Copy - PB 3.00 TC [H2] #22",
+      "reason": "[3-Day Audit] [Single Video $4 Stop-Loss] صرف الفيديو $5.87 (>= $4.00) بدون مبيعة",
+      "paused_at": "2026-10-29 00:07 GMT+3"
+    },
+    "324c01b7-cc50-4049-9138-2b40a34e4155": {
+      "name": "PB_v10_VoltrxH7_mbf3fa9 [H2]",
+      "campaign": "باور بانك وينر - تارقيت كوست",
+      "adsquad": "Copy - PB 3.00 TC [H2] #25",
+      "reason": "[3-Day Audit] [Single Video $4 Stop-Loss] صرف الفيديو $4.8 (>= $4.00) بدون مبيعة",
+      "paused_at": "2026-10-29 00:07 GMT+3"
+    },
+    "3a9abdb5-85a0-429e-8ec0-9365e85546fd": {
+      "name": "Car_v6_21_10_hanan1_mbff898 [H1]",
+      "campaign": "car armrest",
+      "adsquad": "Copy - Car 3.00 TC [H1] #03",
+      "reason": "[3-Day Audit] [Single Video Max $7 CPA Rule] صرف الفيديو $7.01 | المبيعات: 1 | CPA = $7.01 (> $7.00)",
+      "paused_at": "2026-10-29 00:07 GMT+3"
+    },
+    "a4eb6652-22ac-4511-9b3f-fef71d0574aa": {
+      "name": "PB_v10_VoltrxH7_mbf3fa9 [H1]",
+      "campaign": "باور بانك وينر - تارقيت كوست",
+      "adsquad": "Copy - PB 3.00 TC [H1] #02",
+      "reason": "[3-Day Audit] [Ad CPC Rule] صرف الفيديو $1.11 (>= $1.00) | النقرات: 1 | سعر النقرة CPC = $1.11 (> $0.28)",
+      "paused_at": "2026-10-29 00:07 GMT+3"
     }
   },
   "bid_bumps": {
@@ -19698,17 +19732,17 @@
     "4eefa50f-9008-4aea-b159-d370150b60cf": {
       "name": "صندوق دفاتر TIME X 21-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-28 23:07 GMT+3"
+      "updated_at": "2026-10-29 00:01 GMT+3"
     },
     "a171c141-a6d5-403e-8357-5c8f6c01bce0": {
       "name": "وسادة مايباخ 21-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-28 23:07 GMT+3"
+      "updated_at": "2026-10-29 00:01 GMT+3"
     },
     "c5a7cade-6ec3-4c47-b3a2-c5f08bcf8da0": {
       "name": "وسادة مايباخ 21-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-28 23:07 GMT+3"
+      "updated_at": "2026-10-29 00:01 GMT+3"
     },
     "1879653126110545": {
       "name": "timex books 21-10",
@@ -19719,12 +19753,12 @@
     "e8f0a5e9-89c5-4c14-aabb-c9c6c657891d": {
       "name": "مسخن الرضاعات اللاسلكي 22-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-28 23:07 GMT+3"
+      "updated_at": "2026-10-29 00:01 GMT+3"
     },
     "f18a3bf4-148a-4f5e-baa1-f90335f1884c": {
       "name": "مسخن الرضاعات اللاسلكي 22-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-28 23:07 GMT+3"
+      "updated_at": "2026-10-29 00:01 GMT+3"
     },
     "1879676075637041": {
       "name": "baby bottle warmer 22-10",
@@ -19741,7 +19775,7 @@
     "29891f22-e046-4cc8-b9ee-9921d2d65f0b": {
       "name": "مسخن الرضاعات اللاسلكي 22-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-28 23:07 GMT+3"
+      "updated_at": "2026-10-29 00:01 GMT+3"
     },
     "1879653022433617": {
       "name": "maybach pillow 21-10",
@@ -19793,10 +19827,10 @@
     },
     "558c5d45-f08e-400c-a499-7668e801c347": {
       "name": "car armrest",
-      "spend_3d": 218.91,
-      "purchases_3d": 15,
-      "cpa_3d": 14.59,
-      "updated_at": "2026-10-28 23:10 GMT+3"
+      "spend_3d": 159.68,
+      "purchases_3d": 9,
+      "cpa_3d": 17.74,
+      "updated_at": "2026-10-29 00:07 GMT+3"
     },
     "dab749f9-2dca-497b-a8c3-39f2201162a7": {
       "name": "باور بانك وينر - تارقيت كوست",
@@ -20460,7 +20494,7 @@
   },
   "smart_spend_watchdog": {
     "637b4a63-185d-4b0e-b3a5-0293e1d1ee3c": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "تيست",
       "campaign": "car scaling new 2 text",
       "scaled_budget_today": false
@@ -20472,67 +20506,67 @@
       "scaled_budget_today": false
     },
     "1b9145e2-9a7b-4423-b4cb-994e8d5822c1": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - PB 2.40 Max [H1] #01",
       "campaign": "باور بانك وينر",
       "scaled_budget_today": false
     },
     "4c8709d4-03cb-4805-bd25-e03ee33052ca": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - PB 2.40 Max [H1] #02",
       "campaign": "باور بانك وينر",
       "scaled_budget_today": false
     },
     "627861d2-c8f5-40ce-a4ff-ccc687b6fc31": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - PB 2.40 Max [H1] #03",
       "campaign": "باور بانك وينر",
       "scaled_budget_today": false
     },
     "71385a3f-1ae1-4281-a071-51254475df8e": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - PB 2.40 Max [H1] #04",
       "campaign": "باور بانك وينر",
       "scaled_budget_today": false
     },
     "80667ceb-a80d-42bd-aae2-094c3cc799da": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - PB 2.40 Max [H1] #05",
       "campaign": "باور بانك وينر",
       "scaled_budget_today": false
     },
     "87020326-9953-4911-b662-9a624416f637": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - PB 2.40 Max [H1] #06",
       "campaign": "باور بانك وينر",
       "scaled_budget_today": false
     },
     "8fb71447-2ee7-457a-9b3d-d64f260f4714": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - PB 2.40 Max [H1] #07",
       "campaign": "باور بانك وينر",
       "scaled_budget_today": false
     },
     "91f13cd0-6e7f-4c2a-910e-8927e200239e": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - PB 2.40 Max [H1] #08",
       "campaign": "باور بانك وينر",
       "scaled_budget_today": false
     },
     "98754ac0-b2e1-4504-a882-2df603230dfe": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - PB 2.40 Max [H1] #09",
       "campaign": "باور بانك وينر",
       "scaled_budget_today": false
     },
     "99fa51cf-4ed9-41f7-83cf-973e1b08e8bd": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - PB 2.40 Max [H1] #10",
       "campaign": "باور بانك وينر",
       "scaled_budget_today": false
     },
     "9b40cce5-d49a-438c-b326-16a3341f5942": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - PB 2.40 Max [H1] #11",
       "campaign": "باور بانك وينر",
       "scaled_budget_today": false
@@ -20544,91 +20578,91 @@
       "scaled_budget_today": false
     },
     "af0a7d37-ef53-489e-857a-bdaa2864b88b": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - PB 2.40 Max [H1] #12",
       "campaign": "باور بانك وينر",
       "scaled_budget_today": false
     },
     "b58b554c-9e7a-43ff-ba73-26bbf7530b05": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - PB 2.40 Max [H1] #13",
       "campaign": "باور بانك وينر",
       "scaled_budget_today": false
     },
     "b809e049-7bdb-4178-890c-edf6792f475c": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - PB 2.40 Max [H1] #14",
       "campaign": "باور بانك وينر",
       "scaled_budget_today": false
     },
     "bcf0046d-8d43-44cf-95b6-0069caf48fff": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - PB 2.40 Max [H1] #15",
       "campaign": "باور بانك وينر",
       "scaled_budget_today": false
     },
     "c0bf3855-29ac-4fd7-b2ef-c42cb2ac19a2": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - PB 2.40 Max [H2] #16",
       "campaign": "باور بانك وينر",
       "scaled_budget_today": false
     },
     "c875f028-9b2a-4812-8b74-46660460f940": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - PB 2.40 Max [H2] #17",
       "campaign": "باور بانك وينر",
       "scaled_budget_today": false
     },
     "d28d9518-9766-4e60-8d8c-f32b40038619": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - PB 2.40 Max [H2] #18",
       "campaign": "باور بانك وينر",
       "scaled_budget_today": false
     },
     "d33d2510-17dc-43f1-8195-758c00b576d1": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - PB 2.40 Max [H2] #19",
       "campaign": "باور بانك وينر",
       "scaled_budget_today": false
     },
     "d57445db-d39a-4434-9841-62796f9cbd6b": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - PB 2.40 Max [H2] #20",
       "campaign": "باور بانك وينر",
       "scaled_budget_today": false
     },
     "d6c5aed1-e012-4b19-b044-5a18cab3c020": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - PB 2.40 Max [H2] #21",
       "campaign": "باور بانك وينر",
       "scaled_budget_today": false
     },
     "dd091f56-0f40-4eb3-99ff-bd23a73ac723": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - PB 2.40 Max [H2] #22",
       "campaign": "باور بانك وينر",
       "scaled_budget_today": false
     },
     "dd960a20-f3a2-4f08-adf4-426b84d243d0": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - PB 2.40 Max [H2] #23",
       "campaign": "باور بانك وينر",
       "scaled_budget_today": false
     },
     "eb126b54-12ea-4bc6-bcf9-912582f7e78e": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - PB 2.40 Max [H2] #24",
       "campaign": "باور بانك وينر",
       "scaled_budget_today": false
     },
     "ec1ef147-fb12-4981-97bf-0f69f1dd2b5f": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - PB 2.40 Max [H2] #25",
       "campaign": "باور بانك وينر",
       "scaled_budget_today": false
     },
     "0a1c33e1-f882-4881-a56c-97f8668f164d": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - PB 3.00 TC [H2] #25",
       "campaign": "باور بانك وينر - تارقيت كوست",
       "scaled_budget_today": false
@@ -20694,7 +20728,7 @@
       "scaled_budget_today": false
     },
     "a793aaa7-f9d7-4187-89da-920a96cd4e58": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - PB 3.00 TC [H2] #22",
       "campaign": "باور بانك وينر - تارقيت كوست",
       "scaled_budget_today": false
@@ -20706,7 +20740,7 @@
       "scaled_budget_today": false
     },
     "de993fb9-93f8-4901-afa1-104eccbeac23": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - PB 3.00 TC [H2] #27",
       "campaign": "باور بانك وينر - تارقيت كوست",
       "scaled_budget_today": false
@@ -20718,7 +20752,7 @@
       "scaled_budget_today": false
     },
     "8d917098-3fe5-41bc-a72d-8c8717f774c7": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - PB 2.40 Max [H2] #28",
       "campaign": "باور بانك وينر",
       "scaled_budget_today": false
@@ -20730,13 +20764,13 @@
       "scaled_budget_today": false
     },
     "e6d390b3-54a6-4078-a15b-52f782df80b0": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - PB 2.40 Max [H2] #29",
       "campaign": "باور بانك وينر",
       "scaled_budget_today": false
     },
     "eece0137-2db0-4f98-8572-ae153d1038e7": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - PB 2.40 Max [H2] #27",
       "campaign": "باور بانك وينر",
       "scaled_budget_today": false
@@ -20760,7 +20794,7 @@
       "scaled_budget_today": false
     },
     "186bf4d8-d063-4ef0-ab57-b2bbae09e63f": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - Car 2.40 Max [H1] #02",
       "campaign": "car scaling camp ",
       "scaled_budget_today": false
@@ -20778,19 +20812,19 @@
       "scaled_budget_today": false
     },
     "1f0e6ab1-377b-4c8b-bcb2-87a65f1fd991": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - Car 2.40 Max [H2] #19",
       "campaign": "car scaling camp ",
       "scaled_budget_today": false
     },
     "290ef780-4bf8-49a7-a925-f8731c72a6ae": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - Car 2.40 Max [H1] #04",
       "campaign": "car scaling camp ",
       "scaled_budget_today": false
     },
     "3111a546-ff67-4f96-88a0-8c39d9bfbb02": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - Car 2.40 Max [H2] #28",
       "campaign": "car scaling camp ",
       "scaled_budget_today": false
@@ -20808,7 +20842,7 @@
       "scaled_budget_today": false
     },
     "5cdeeb9a-963c-432d-977f-6fa7125712c6": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - Car 2.40 Max [H1] #07",
       "campaign": "car scaling camp ",
       "scaled_budget_today": false
@@ -20820,25 +20854,25 @@
       "scaled_budget_today": false
     },
     "673e3e1c-42e0-448d-bb60-da4c26c94bcf": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - Car 2.40 Max [H2] #21",
       "campaign": "car scaling camp ",
       "scaled_budget_today": false
     },
     "69e18ee8-64cc-44a7-bce1-e93dac652586": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - Car 2.40 Max [H2] #22",
       "campaign": "car scaling camp ",
       "scaled_budget_today": false
     },
     "6aab3583-bb97-463d-998f-a483579ba1ea": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - Car 2.40 Max [H1] #08",
       "campaign": "car scaling camp ",
       "scaled_budget_today": false
     },
     "6f9b62a8-482c-4cca-92ad-75aa4a93ff20": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - Car 2.40 Max [H1] #14",
       "campaign": "car scaling camp ",
       "scaled_budget_today": false
@@ -20856,7 +20890,7 @@
       "scaled_budget_today": false
     },
     "a227c1cd-dac4-4aa3-9a80-ba701c65afba": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - Car 2.40 Max [H1] #11",
       "campaign": "car scaling camp ",
       "scaled_budget_today": false
@@ -20898,7 +20932,7 @@
       "scaled_budget_today": false
     },
     "eaf6c332-389f-4c57-8008-9d9da0ae799e": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - Car 2.40 Max [H1] #13",
       "campaign": "car scaling camp ",
       "scaled_budget_today": false
@@ -21108,10 +21142,10 @@
       "scaled_budget_today": false
     },
     "0ebeecbc-e2c0-4350-8867-220e4f0995cb": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - PB 3.00 TC [H2] #16",
       "campaign": "باور بانك وينر - تارقيت كوست",
-      "scaled_budget_today": true
+      "scaled_budget_today": false
     },
     "11a73ad2-c115-4f6a-b6bc-e143262f9a5e": {
       "date": "2026-10-27",
@@ -21270,10 +21304,10 @@
       "scaled_budget_today": false
     },
     "f8d460d2-116d-4e32-8097-39a6643f2dea": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - PB 3.00 TC [H1] #14",
       "campaign": "باور بانك وينر - تارقيت كوست",
-      "scaled_budget_today": true
+      "scaled_budget_today": false
     },
     "fbc08a06-cb80-45e8-b626-f7d233da7908": {
       "date": "2026-10-26",
@@ -21282,13 +21316,13 @@
       "scaled_budget_today": false
     },
     "0c28fd16-db2d-4321-90ff-419db94c9219": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - PB 3.00 TC [H1] #10",
       "campaign": "باور بانك وينر - تارقيت كوست",
       "scaled_budget_today": false
     },
     "17032d60-dc97-46f5-a70c-aa993997b9cb": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - PB 3.00 TC [H1] #13",
       "campaign": "باور بانك وينر - تارقيت كوست",
       "scaled_budget_today": false
@@ -21300,25 +21334,25 @@
       "scaled_budget_today": false
     },
     "26b2101f-c66a-41ec-999c-5cca93d039a7": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - PB 3.00 TC [H1] #15",
       "campaign": "باور بانك وينر - تارقيت كوست",
       "scaled_budget_today": false
     },
     "4b08fbf1-daff-40f8-908f-bca25345adc6": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - PB 3.00 TC [H1] #04",
       "campaign": "باور بانك وينر - تارقيت كوست",
       "scaled_budget_today": false
     },
     "59782689-c60e-43bf-8cce-12cf8a4ce355": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - PB 3.00 TC [H1] #02",
       "campaign": "باور بانك وينر - تارقيت كوست",
       "scaled_budget_today": false
     },
     "5c53f7fc-8360-43a7-8a41-4382e6ba841d": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - PB 3.00 TC [H1] #14",
       "campaign": "باور بانك وينر - تارقيت كوست",
       "scaled_budget_today": false
@@ -21330,25 +21364,25 @@
       "scaled_budget_today": false
     },
     "91fde269-cda0-4e6d-9219-12d8e7b644ee": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - PB 3.00 TC [H1] #06",
       "campaign": "باور بانك وينر - تارقيت كوست",
       "scaled_budget_today": false
     },
     "a4c86ac1-3d8c-491e-9254-848a030f2a0f": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - PB 3.00 TC [H1] #05",
       "campaign": "باور بانك وينر - تارقيت كوست",
       "scaled_budget_today": false
     },
     "da19d31b-c7ee-44b4-b2c6-9acf84834387": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - PB 3.00 TC [H1] #09",
       "campaign": "باور بانك وينر - تارقيت كوست",
       "scaled_budget_today": false
     },
     "db48f12e-178b-47d9-8c8e-c71dee6d397c": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - PB 3.00 TC [H1] #03",
       "campaign": "باور بانك وينر - تارقيت كوست",
       "scaled_budget_today": false
@@ -21360,7 +21394,7 @@
       "scaled_budget_today": false
     },
     "e9d1b665-e381-4e88-af01-a34aeac54b16": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - PB 3.00 TC [H1] #07",
       "campaign": "باور بانك وينر - تارقيت كوست",
       "scaled_budget_today": false
@@ -21372,13 +21406,13 @@
       "scaled_budget_today": false
     },
     "6390b7a9-0bff-4026-8bb0-4ab4cc1e694f": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "test adset",
       "campaign": "باور بانك وينر",
       "scaled_budget_today": false
     },
     "59361ad5-8398-46ed-94e0-803d7e769952": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "test",
       "campaign": "باور بانك وينر",
       "scaled_budget_today": false
@@ -21396,13 +21430,13 @@
       "scaled_budget_today": false
     },
     "38e5547f-1b81-4af6-86c3-74c52216d713": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - Car 2.40 Max [H2] #26",
       "campaign": "car scaling camp ",
       "scaled_budget_today": false
     },
     "4cc43021-f676-4b98-a939-aaa836509649": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - Car 2.40 Max [H2] #23",
       "campaign": "car scaling camp ",
       "scaled_budget_today": false
@@ -21582,13 +21616,13 @@
       "scaled_budget_today": false
     },
     "4cbba560-e42c-4a6e-9d3e-2c0249cd52b6": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "test",
       "campaign": "car scaling camp ",
       "scaled_budget_today": false
     },
     "f11cf105-34f9-413a-912b-20e0037d3967": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - Car 2.40 Max [H1] #10",
       "campaign": "car scaling camp ",
       "scaled_budget_today": false
@@ -21738,7 +21772,7 @@
       "scaled_budget_today": false
     },
     "9ae6c1cd-c2fa-4c34-8ebb-1cd632c74ba9": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "test",
       "campaign": "باور بانك وينر",
       "scaled_budget_today": false
@@ -22206,7 +22240,7 @@
       "scaled_budget_today": false
     },
     "9e21c549-24cb-458d-aa5f-79313688d23b": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - Car 2.40 Max [H2] #25",
       "campaign": "car scaling camp ",
       "scaled_budget_today": false
@@ -22218,7 +22252,7 @@
       "scaled_budget_today": false
     },
     "862ea299-c226-4cb2-a856-cbda8e6130e1": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "test hooks 26-10",
       "campaign": "باور بانك وينر",
       "scaled_budget_today": false
@@ -22230,7 +22264,7 @@
       "scaled_budget_today": false
     },
     "45fd9c6e-7a59-4de8-ab71-0cf207d01938": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - Car 2.40 Max [H2] #29",
       "campaign": "car scaling camp ",
       "scaled_budget_today": false
@@ -22572,7 +22606,7 @@
       "scaled_budget_today": false
     },
     "e5e677e9-14a8-48e2-a929-39944fb2305b": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - Car 3.00 TC [H1] #09",
       "campaign": "car armrest",
       "scaled_budget_today": false
@@ -22848,8 +22882,8 @@
       "scaled_budget_today": false
     },
     "ac777b56-3354-458d-9a2c-3d44fd30532d": {
-      "date": "2026-10-27",
-      "name": "Copy - Car 3.00 TC [H1] #15",
+      "date": "2026-10-29",
+      "name": "Copy - Car 3.00 TC [H1] #07",
       "campaign": "car armrest",
       "scaled_budget_today": false
     },
@@ -22932,7 +22966,7 @@
       "scaled_budget_today": false
     },
     "477d625a-0a68-4dd4-a90b-7cc01fb931c2": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - Car 3.00 TC [H1] #13",
       "campaign": "car armrest",
       "scaled_budget_today": false
@@ -23010,7 +23044,7 @@
       "scaled_budget_today": false
     },
     "d978c17b-0677-4950-b279-5bd203b55526": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - Car 3.00 TC [H1] #10",
       "campaign": "car armrest",
       "scaled_budget_today": false
@@ -23208,7 +23242,7 @@
       "scaled_budget_today": false
     },
     "404f1266-b5dc-4e96-9b37-f057a3b500a3": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - Car 2.40 Max [H1] #09",
       "campaign": "car scaling camp ",
       "scaled_budget_today": false
@@ -23244,31 +23278,31 @@
       "scaled_budget_today": false
     },
     "6646f181-f00a-4039-b26d-350545629bf6": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - Car 2.40 Max [H2] #30",
       "campaign": "car scaling camp ",
       "scaled_budget_today": false
     },
     "67c90781-a0c2-4045-bf11-14c043362fa4": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - Car 2.40 Max [H2] #16",
       "campaign": "car scaling camp ",
       "scaled_budget_today": false
     },
     "6d1ca829-c7da-472e-b3d5-fe205edaa94a": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - Car 2.40 Max [H1] #15",
       "campaign": "car scaling camp ",
       "scaled_budget_today": false
     },
     "6fe4e64d-a0af-4f09-b3a8-f93940673a4a": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - Car 2.40 Max [H2] #18",
       "campaign": "car scaling camp ",
       "scaled_budget_today": false
     },
     "7deb949f-fc84-427c-960a-3f03c671040f": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - Car 2.40 Max [H2] #20",
       "campaign": "car scaling camp ",
       "scaled_budget_today": false
@@ -23304,13 +23338,13 @@
       "scaled_budget_today": false
     },
     "f19c695b-a962-40b6-a51e-6ba1641ac2d4": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - Car 2.40 Max [H1] #12",
       "campaign": "car scaling camp ",
       "scaled_budget_today": false
     },
     "9297ab54-790a-4843-acd5-19dddadf1d37": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "27-10 Fast Car Approved Test",
       "campaign": "car scaling new 2 text",
       "scaled_budget_today": false
@@ -23322,43 +23356,43 @@
       "scaled_budget_today": false
     },
     "573ef578-bd0f-45ed-86ce-8a5550f9c52f": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "test ola hanan pb A 27-10",
       "campaign": "باور بانك وينر",
       "scaled_budget_today": false
     },
     "82979428-b2a4-411a-a580-eb70cc958afc": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "test ola hanan pb B 27-10",
       "campaign": "باور بانك وينر",
       "scaled_budget_today": false
     },
     "ae28cd05-0ce8-4888-bd32-f33485453dbf": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "test ola hanan car 27-10",
       "campaign": "car scaling camp ",
       "scaled_budget_today": false
     },
     "bd4264c9-20ae-4eeb-8bc9-4250c6dafc64": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - PB 3.00 TC [H1] #08",
       "campaign": "باور بانك وينر - تارقيت كوست",
       "scaled_budget_today": false
     },
     "ca2909be-d71e-4e8e-bb85-fc044d2e3be8": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - PB 3.00 TC [H2] #20",
       "campaign": "باور بانك وينر - تارقيت كوست",
       "scaled_budget_today": false
     },
     "e64216cf-e18f-491f-8db9-aad3660e9584": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - PB 3.00 TC [H1] #11",
       "campaign": "باور بانك وينر - تارقيت كوست",
       "scaled_budget_today": false
     },
     "9dceb083-43a0-44c1-880d-589444d439da": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - Car 2.40 Max [H1] #06",
       "campaign": "car scaling camp ",
       "scaled_budget_today": false
@@ -23382,7 +23416,7 @@
       "scaled_budget_today": false
     },
     "e9814c7e-3bd4-41ac-9bef-fbfc98ce48c5": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - PB 3.00 TC [H2] #18",
       "campaign": "باور بانك وينر - تارقيت كوست",
       "scaled_budget_today": false
@@ -23394,13 +23428,13 @@
       "scaled_budget_today": false
     },
     "3b2701da-8feb-4085-8d57-5e3cb0ec1321": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - PB 3.00 TC [H1] #06",
       "campaign": "باور بانك وينر - تارقيت كوست",
       "scaled_budget_today": false
     },
     "7ed22abe-8153-48bb-bf2a-2753d5e804e9": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - PB 3.00 TC [H1] #05",
       "campaign": "باور بانك وينر - تارقيت كوست",
       "scaled_budget_today": false
@@ -23412,7 +23446,7 @@
       "scaled_budget_today": false
     },
     "9b2e4856-9858-4a76-8160-591b56605f3b": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - PB 3.00 TC [H2] #18",
       "campaign": "باور بانك وينر - تارقيت كوست",
       "scaled_budget_today": false
@@ -23430,7 +23464,7 @@
       "scaled_budget_today": false
     },
     "50e9699a-b306-404d-99c7-c1b44abccd7f": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - PB 3.00 TC [H1] #01",
       "campaign": "باور بانك وينر - تارقيت كوست",
       "scaled_budget_today": false
@@ -23448,19 +23482,19 @@
       "scaled_budget_today": false
     },
     "9160c562-d816-4fc6-80aa-2865e41fab2a": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - PB 3.00 TC [H2] #29",
       "campaign": "باور بانك وينر - تارقيت كوست",
       "scaled_budget_today": false
     },
     "b76d0bd3-d960-4152-b72b-42734108815b": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - PB 3.00 TC [H2] #17",
       "campaign": "باور بانك وينر - تارقيت كوست",
       "scaled_budget_today": false
     },
     "e5297a39-b452-4a81-a6a9-ba45c763f7dd": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - PB 3.00 TC [H2] #28",
       "campaign": "باور بانك وينر - تارقيت كوست",
       "scaled_budget_today": false
@@ -23538,289 +23572,289 @@
       "scaled_budget_today": false
     },
     "c1def3bf-6dbb-4683-be88-e0d276574c00": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Saudi Arabia, All genders and All ages | 3.50 Bid",
       "campaign": "smart+ power bank 3.5$ 28-10",
       "scaled_budget_today": false
     },
     "ebeff1dc-8671-4afc-bd51-2f694001eee1": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Saudi Arabia, All genders and All ages | 3.00 Bid",
       "campaign": "smart+ power bank 3.0$ 28-10",
       "scaled_budget_today": false
     },
     "abe8bb25-1c1f-492d-aa4b-15aa4ab38cbb": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - Car 2.40 Max [H2] #17",
       "campaign": "car scaling camp ",
       "scaled_budget_today": false
     },
     "2649324a-1c9f-442f-807d-991fa042820f": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Saudi Arabia, All genders and All ages | 3.00 Bid",
       "campaign": "smart+ power bank 3.0$ 28-10",
       "scaled_budget_today": false
     },
     "1f998446-7096-41cb-9cca-527e3f8c7257": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - Car 3.00 TC [H2] #23",
       "campaign": "car armrest",
       "scaled_budget_today": false
     },
     "3922610a-da6c-46c6-b393-1b7f3fde3798": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - Car 3.00 TC [H2] #28",
       "campaign": "car armrest",
       "scaled_budget_today": false
     },
     "4e1e8d0b-efa6-48e0-8721-3441a3e5389a": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - Car 3.00 TC [H2] #18",
       "campaign": "car armrest",
       "scaled_budget_today": false
     },
     "61b88c43-8ef2-41aa-91dc-3b05be5803c0": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - Car 3.00 TC [H2] #24",
       "campaign": "car armrest",
       "scaled_budget_today": false
     },
     "8aa5ce0e-9b6e-4e6b-a918-1b926161b1db": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - Car 3.00 TC [H2] #26",
       "campaign": "car armrest",
       "scaled_budget_today": false
     },
     "92ee9bd9-b10e-4fc4-a92a-048aae1a2d38": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - Car 3.00 TC [H1] #12",
       "campaign": "car armrest",
       "scaled_budget_today": false
     },
     "98beab50-7048-4303-bec1-2f72af00b17b": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - Car 3.00 TC [H2] #19",
       "campaign": "car armrest",
       "scaled_budget_today": false
     },
     "a55f9721-6020-48ec-8703-0086b338ef27": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - Car 3.00 TC [H2] #20",
       "campaign": "car armrest",
       "scaled_budget_today": false
     },
     "b2b0fe58-a455-4eaa-abd0-35204d01ad24": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - Car 3.00 TC [H1] #11",
       "campaign": "car armrest",
       "scaled_budget_today": false
     },
     "d38c5863-24db-4adb-a28f-3a4cba81fd95": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - Car 3.00 TC [H2] #16",
       "campaign": "car armrest",
       "scaled_budget_today": false
     },
     "dff7b406-366e-4cd8-bd7a-7664f12a0e77": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - Car 3.00 TC [H1] #05",
       "campaign": "car armrest",
       "scaled_budget_today": false
     },
     "f223f77a-d90d-4aa6-b6d5-4fa27badaf23": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - Car 3.00 TC [H2] #29",
       "campaign": "car armrest",
       "scaled_budget_today": false
     },
     "00a0c29f-5c5b-464d-b945-717eb85cc7af": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - PB 2.40 Max [H1] #14",
       "campaign": "باور بانك وينر - سمارت",
       "scaled_budget_today": false
     },
     "01d1ac32-0f2b-4354-8f3f-a3d50ff7a1c8": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - PB 2.40 Max [H2] #23",
       "campaign": "باور بانك وينر - سمارت",
       "scaled_budget_today": false
     },
     "02e98489-772b-4f92-a9d4-f98fd404c031": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - PB 2.40 Max [H1] #10",
       "campaign": "باور بانك وينر - سمارت",
       "scaled_budget_today": false
     },
     "085211d5-33c8-4196-9afa-331fae2aecbc": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - PB 2.40 Max [H2] #20",
       "campaign": "باور بانك وينر - سمارت",
       "scaled_budget_today": false
     },
     "1764eb9a-564b-4be0-91b6-2ac8efe811b6": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - PB 2.40 Max [H1] #05",
       "campaign": "باور بانك وينر - سمارت",
       "scaled_budget_today": false
     },
     "1a076de8-71b8-4fdd-804b-b0e3dbf5598b": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - PB 2.40 Max [H1] #11",
       "campaign": "باور بانك وينر - سمارت",
       "scaled_budget_today": false
     },
     "1e7d61f9-8836-4402-87f8-88a939677bea": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - PB 2.40 Max [H2] #18",
       "campaign": "باور بانك وينر - سمارت",
       "scaled_budget_today": false
     },
     "300b558b-25a1-4869-aa15-a431a07f199b": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - PB 2.40 Max [H2] #17",
       "campaign": "باور بانك وينر - سمارت",
       "scaled_budget_today": false
     },
     "305e7ec4-c098-453e-b813-5a6c60c86193": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - PB 2.40 Max [H2] #24",
       "campaign": "باور بانك وينر - سمارت",
       "scaled_budget_today": false
     },
     "31df4191-1188-4261-87f3-2f64e4ab4368": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - PB 2.40 Max [H1] #04",
       "campaign": "باور بانك وينر - سمارت",
       "scaled_budget_today": false
     },
     "391149b4-0140-42ed-9128-f7be0e70182d": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - PB 2.40 Max [H1] #06",
       "campaign": "باور بانك وينر - سمارت",
       "scaled_budget_today": false
     },
     "45f56112-a2a1-41bd-af0f-fc7574ad704a": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - PB 2.40 Max [H2] #25",
       "campaign": "باور بانك وينر - سمارت",
       "scaled_budget_today": false
     },
     "5bcf33ea-ecb5-458e-a5e4-22c9e9f3ae9f": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - PB 2.40 Max [H2] #19",
       "campaign": "باور بانك وينر - سمارت",
       "scaled_budget_today": false
     },
     "6a60654a-ebeb-4dd2-a5f9-13d95998582a": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - PB 2.40 Max [H2] #16",
       "campaign": "باور بانك وينر - سمارت",
       "scaled_budget_today": false
     },
     "6fc53e85-aa60-4acc-8559-d7a3c754288f": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - PB 2.40 Max [H1] #07",
       "campaign": "باور بانك وينر - سمارت",
       "scaled_budget_today": false
     },
     "86b8d181-d2c6-4caf-bbcc-004e0b43fe86": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - PB 2.40 Max [H2] #26",
       "campaign": "باور بانك وينر - سمارت",
       "scaled_budget_today": false
     },
     "92585933-886e-4281-8a69-b5a7884d0897": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - PB 2.40 Max [H1] #08",
       "campaign": "باور بانك وينر - سمارت",
       "scaled_budget_today": false
     },
     "95c4ac04-c36d-4648-8b02-85da6f5e0ad5": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - PB 2.40 Max [H2] #21",
       "campaign": "باور بانك وينر - سمارت",
       "scaled_budget_today": false
     },
     "95fe1aa1-5a27-4fe4-b25c-5d8996f4c193": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - PB 2.40 Max [H2] #27",
       "campaign": "باور بانك وينر - سمارت",
       "scaled_budget_today": false
     },
     "996abe2f-844d-4f5f-a2cd-999e6eba60da": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - PB 2.40 Max [H2] #28",
       "campaign": "باور بانك وينر - سمارت",
       "scaled_budget_today": false
     },
     "a6e98aac-8e67-4ded-9b8c-25762eb69e5a": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - PB 2.40 Max [H1] #13",
       "campaign": "باور بانك وينر - سمارت",
       "scaled_budget_today": false
     },
     "b5da24d3-7a72-47d7-ad05-7c21a412e521": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - PB 2.40 Max [H2] #29",
       "campaign": "باور بانك وينر - سمارت",
       "scaled_budget_today": false
     },
     "b9fe9e7c-c570-4f67-b5f5-77b381e3a250": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - PB 2.40 Max [H1] #02",
       "campaign": "باور بانك وينر - سمارت",
       "scaled_budget_today": false
     },
     "bc5eeaae-e1a5-4de1-9bb9-5a38a24baa43": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - PB 2.40 Max [H1] #12",
       "campaign": "باور بانك وينر - سمارت",
       "scaled_budget_today": false
     },
     "be30dc1b-ece2-45f1-80d9-a5addf0f23d4": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - PB 2.40 Max [H2] #22",
       "campaign": "باور بانك وينر - سمارت",
       "scaled_budget_today": false
     },
     "c464365a-d4a3-4906-b862-f40470a1a634": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - PB 2.40 Max [H1] #15",
       "campaign": "باور بانك وينر - سمارت",
       "scaled_budget_today": false
     },
     "c57ae3cb-4e24-4805-a96f-c9f17ffc63bf": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - PB 2.40 Max [H1] #03",
       "campaign": "باور بانك وينر - سمارت",
       "scaled_budget_today": false
     },
     "d274dcc7-eebe-4e2e-a338-80ef123b3ab3": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - PB 2.40 Max [H1] #01",
       "campaign": "باور بانك وينر - سمارت",
       "scaled_budget_today": false
     },
     "e5620c82-0e28-4e8a-b8c1-f736565f1bb1": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - PB 2.40 Max [H1] #09",
       "campaign": "باور بانك وينر - سمارت",
       "scaled_budget_today": false
     },
     "f7564326-54ed-4487-87e3-f8a5f0669110": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - PB 2.40 Max [H2] #30",
       "campaign": "باور بانك وينر - سمارت",
       "scaled_budget_today": false
     },
     "b7c28a7a-a8f3-49e0-99d7-d04aadb9945b": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Saudi Arabia, All genders and All ages | 3.50 Bid",
       "campaign": "smart+ power bank 3.5$ 28-10",
       "scaled_budget_today": false
     },
     "69a37df3-6b8f-4599-a170-2cd2ce55bf1e": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - PB 3.00 TC [H2] #21",
       "campaign": "باور بانك وينر - تارقيت كوست",
       "scaled_budget_today": false
@@ -23832,8 +23866,8 @@
       "scaled_budget_today": false
     },
     "057f2d42-492f-4f1a-ba3b-3794a6572759": {
-      "date": "2026-10-28",
-      "name": "Copy - PB 3.00 TC [H1] #14",
+      "date": "2026-10-29",
+      "name": "Copy - PB 3.00 TC [H1] #07",
       "campaign": "باور بانك وينر - تارقيت كوست",
       "scaled_budget_today": false
     },
@@ -23880,19 +23914,19 @@
       "scaled_budget_today": false
     },
     "17867932-bf6d-497f-a2a4-968013d945d1": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - Car 2.40 Max [H1] #01",
       "campaign": "car scaling camp ",
       "scaled_budget_today": false
     },
     "e84363ff-ee18-4971-944f-0313e08ca512": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - Car 2.40 Max [H2] #24",
       "campaign": "car scaling camp ",
       "scaled_budget_today": false
     },
     "84d78c84-6803-487e-8980-a27bd4c4113b": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - Car 3.00 TC [H2] #25",
       "campaign": "car armrest",
       "scaled_budget_today": false
@@ -23922,62 +23956,62 @@
       "scaled_budget_today": false
     },
     "9a57359d-fa84-4173-b6ef-9669fd132472": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - PB 3.00 TC [H2] #23",
       "campaign": "باور بانك وينر - تارقيت كوست",
       "scaled_budget_today": false
     },
     "3376d54e-9fc5-4c9f-8126-7b0deae4a0a7": {
-      "date": "2026-10-28",
-      "name": "Copy - Car 2.40 Max [H2] #19",
+      "date": "2026-10-29",
+      "name": "Copy - Car 2.40 Max [H2] #27",
       "campaign": "car scaling camp ",
       "scaled_budget_today": false
     },
     "9af73e28-d56a-4749-8284-e77efd97f036": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - Car 2.40 Max [H1] #05",
       "campaign": "car scaling camp ",
       "scaled_budget_today": false
     },
     "0b612668-7289-446c-8628-90374232cbc3": {
-      "date": "2026-10-28",
-      "name": "Copy - Car 3.00 TC [H2] #21",
+      "date": "2026-10-29",
+      "name": "Copy - Car 3.00 TC [H1] #01",
       "campaign": "car armrest",
       "scaled_budget_today": false
     },
     "270944e0-9b8b-4186-8954-4537edd12f0c": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - Car 3.00 TC [H1] #08",
       "campaign": "car armrest",
       "scaled_budget_today": false
     },
     "2887943b-c6d3-4be9-a88d-ba81eb40637f": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - Car 3.00 TC [H2] #17",
       "campaign": "car armrest",
       "scaled_budget_today": false
     },
     "2dfa63e2-6102-4902-ac40-e946127cfdb9": {
-      "date": "2026-10-28",
-      "name": "Copy - Car 3.00 TC [H2] #30",
+      "date": "2026-10-29",
+      "name": "Copy - Car 3.00 TC [H1] #02",
       "campaign": "car armrest",
       "scaled_budget_today": false
     },
     "6925db9f-0232-467a-9bdf-d6f1ba9a0e3c": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - Car 3.00 TC [H2] #22",
       "campaign": "car armrest",
       "scaled_budget_today": false
     },
     "6b751710-0ade-489c-9d76-a59464008cd6": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - Car 3.00 TC [H1] #14",
       "campaign": "car armrest",
       "scaled_budget_today": false
     },
     "707f66c5-ee83-4c02-b5b1-741a60d70104": {
-      "date": "2026-10-28",
-      "name": "Copy - Car 3.00 TC [H1] #04",
+      "date": "2026-10-29",
+      "name": "Copy - Car 3.00 TC [H2] #27",
       "campaign": "car armrest",
       "scaled_budget_today": false
     },
@@ -24018,13 +24052,13 @@
       "scaled_budget_today": false
     },
     "829b71ad-82d5-41c4-8b78-23f3e209ddf9": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - PB 2.40 Max [H2] #26",
       "campaign": "باور بانك وينر",
       "scaled_budget_today": false
     },
     "e324dda4-e023-4766-a375-dad520ba5462": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - PB 2.40 Max [H2] #30",
       "campaign": "باور بانك وينر",
       "scaled_budget_today": false
@@ -24036,20 +24070,20 @@
       "scaled_budget_today": false
     },
     "08d4d07f-c5be-46b0-9ff2-1f14d53abed7": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - PB 3.00 TC [H1] #02",
       "campaign": "باور بانك وينر - تارقيت كوست",
       "scaled_budget_today": false
     },
     "0d828156-15a3-4be6-9a2d-e47d78544bb7": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - PB 3.00 TC [H1] #03",
       "campaign": "باور بانك وينر - تارقيت كوست",
       "scaled_budget_today": false
     },
     "1aa58186-46ae-48ac-a37e-3afbd92ba043": {
-      "date": "2026-10-28",
-      "name": "Copy - PB 3.00 TC [H1] #04",
+      "date": "2026-10-29",
+      "name": "Copy - PB 3.00 TC [H2] #17",
       "campaign": "باور بانك وينر - تارقيت كوست",
       "scaled_budget_today": false
     },
@@ -24060,31 +24094,31 @@
       "scaled_budget_today": false
     },
     "22a85738-38e0-4793-a84c-9af42e1a8d25": {
-      "date": "2026-10-28",
-      "name": "Copy - PB 3.00 TC [H2] #27",
+      "date": "2026-10-29",
+      "name": "Copy - PB 3.00 TC [H2] #22",
       "campaign": "باور بانك وينر - تارقيت كوست",
       "scaled_budget_today": false
     },
     "45d540d7-30b3-47e1-a670-80c4e687f7b0": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - PB 3.00 TC [H1] #11",
       "campaign": "باور بانك وينر - تارقيت كوست",
       "scaled_budget_today": false
     },
     "47aa0900-0b04-475f-9506-016348713b6c": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - PB 3.00 TC [H1] #13",
       "campaign": "باور بانك وينر - تارقيت كوست",
       "scaled_budget_today": false
     },
     "4dc351df-9107-4df9-ac35-833bd771192d": {
-      "date": "2026-10-28",
-      "name": "Copy - PB 3.00 TC [H2] #28",
+      "date": "2026-10-29",
+      "name": "Copy - PB 3.00 TC [H2] #24",
       "campaign": "باور بانك وينر - تارقيت كوست",
       "scaled_budget_today": false
     },
     "5482cda4-6d64-4480-b6c4-a5bd8435431e": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - PB 3.00 TC [H1] #15",
       "campaign": "باور بانك وينر - تارقيت كوست",
       "scaled_budget_today": false
@@ -24096,8 +24130,8 @@
       "scaled_budget_today": false
     },
     "65ca031f-8f44-4b0b-bb59-34360e57d804": {
-      "date": "2026-10-28",
-      "name": "Copy - PB 3.00 TC [H2] #16",
+      "date": "2026-10-29",
+      "name": "Copy - PB 3.00 TC [H2] #25",
       "campaign": "باور بانك وينر - تارقيت كوست",
       "scaled_budget_today": false
     },
@@ -24156,74 +24190,158 @@
       "scaled_budget_today": false
     },
     "5f20658a-a7f0-4500-8c94-4b536b9505ee": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - PB 3.00 TC [H2] #30",
       "campaign": "باور بانك وينر - تارقيت كوست",
       "scaled_budget_today": false
     },
     "6a2e7280-bfaf-4633-b677-e382db385bfc": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - PB 3.00 TC [H2] #21",
       "campaign": "باور بانك وينر - تارقيت كوست",
       "scaled_budget_today": false
     },
     "aeefb6c9-f5f7-4a03-a7b1-603bf84393cf": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - PB 3.00 TC [H2] #29",
       "campaign": "باور بانك وينر - تارقيت كوست",
       "scaled_budget_today": false
     },
     "11846160-0f72-4c51-8532-2dad330bb64a": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - PB 3.00 TC [H2] #19",
       "campaign": "باور بانك وينر - تارقيت كوست",
       "scaled_budget_today": false
     },
     "1af1ee09-e9dd-4b60-8ec6-23395b7927d5": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - PB 3.00 TC [H2] #24",
       "campaign": "باور بانك وينر - تارقيت كوست",
       "scaled_budget_today": false
     },
     "923f2a36-eaef-4304-94a5-2c5c0ec2837a": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - PB 3.00 TC [H2] #16",
       "campaign": "باور بانك وينر - تارقيت كوست",
       "scaled_budget_today": false
     },
     "94904f00-f2ef-4fdc-930f-952336c1c34c": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - PB 3.00 TC [H2] #23",
       "campaign": "باور بانك وينر - تارقيت كوست",
       "scaled_budget_today": false
     },
     "99e2d377-27aa-46c0-8ec7-6f299f96f9a2": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - Car 2.40 Max [H1] #03",
       "campaign": "car scaling camp ",
       "scaled_budget_today": false
     },
     "1463fb94-31f8-47f6-ab46-73775e035ef5": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - PB 3.00 TC [H1] #08",
       "campaign": "باور بانك وينر - تارقيت كوست",
       "scaled_budget_today": false
     },
     "66b26180-aa9c-4ac3-a270-38223ea18024": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - PB 3.00 TC [H2] #26",
       "campaign": "باور بانك وينر - تارقيت كوست",
       "scaled_budget_today": false
     },
     "a93b9214-2ccd-4f02-be7b-5ee540a925a0": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - PB 3.00 TC [H1] #09",
       "campaign": "باور بانك وينر - تارقيت كوست",
       "scaled_budget_today": false
     },
     "f8364bbe-06be-4f8f-98ba-a444d876a3e3": {
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "name": "Copy - PB 3.00 TC [H1] #04",
+      "campaign": "باور بانك وينر - تارقيت كوست",
+      "scaled_budget_today": false
+    },
+    "02369c00-b2f4-4d63-83db-a5974bd49df8": {
+      "date": "2026-10-29",
+      "name": "Copy - PB 3.00 TC [H1] #12",
+      "campaign": "باور بانك وينر - تارقيت كوست",
+      "scaled_budget_today": false
+    },
+    "40c5e9cb-f2bd-42bf-aebb-d3c3e422ac34": {
+      "date": "2026-10-29",
+      "name": "Copy - PB 3.00 TC [H2] #26",
+      "campaign": "باور بانك وينر - تارقيت كوست",
+      "scaled_budget_today": false
+    },
+    "206aa8b9-78c6-45c0-88e6-7f3949a5c86a": {
+      "date": "2026-10-29",
+      "name": "Copy - Car 3.00 TC [H2] #30",
+      "campaign": "car armrest",
+      "scaled_budget_today": false
+    },
+    "32ad9f6f-cd2d-42a8-aaa5-1b4cf6590d95": {
+      "date": "2026-10-29",
+      "name": "Copy - Car 3.00 TC [H1] #06",
+      "campaign": "car armrest",
+      "scaled_budget_today": false
+    },
+    "a1ebcfc4-bad2-4790-9af7-4b65fc118b70": {
+      "date": "2026-10-29",
+      "name": "Copy - Car 3.00 TC [H1] #04",
+      "campaign": "car armrest",
+      "scaled_budget_today": false
+    },
+    "a5d0ca8a-3c2a-419e-a036-560aac155f39": {
+      "date": "2026-10-29",
+      "name": "Copy - Car 3.00 TC [H2] #21",
+      "campaign": "car armrest",
+      "scaled_budget_today": false
+    },
+    "d33011f6-2e9b-49cc-80d7-60466df5e53b": {
+      "date": "2026-10-29",
+      "name": "Copy - Car 3.00 TC [H1] #15",
+      "campaign": "car armrest",
+      "scaled_budget_today": false
+    },
+    "02b02e81-ca9e-4e24-bfc5-3c84afa3ad54": {
+      "date": "2026-10-29",
+      "name": "Copy - PB 3.00 TC [H2] #19",
+      "campaign": "باور بانك وينر - تارقيت كوست",
+      "scaled_budget_today": false
+    },
+    "0f598fcc-b2f0-403d-a26d-548d6322db3f": {
+      "date": "2026-10-29",
+      "name": "Copy - PB 3.00 TC [H2] #28",
+      "campaign": "باور بانك وينر - تارقيت كوست",
+      "scaled_budget_today": false
+    },
+    "0f6d6883-8a7c-4aea-b280-0daabfe8ef00": {
+      "date": "2026-10-29",
+      "name": "Copy - PB 3.00 TC [H2] #20",
+      "campaign": "باور بانك وينر - تارقيت كوست",
+      "scaled_budget_today": false
+    },
+    "52005e9b-3d33-4d08-a6e0-3409ee8115a4": {
+      "date": "2026-10-29",
+      "name": "Copy - PB 3.00 TC [H2] #27",
+      "campaign": "باور بانك وينر - تارقيت كوست",
+      "scaled_budget_today": false
+    },
+    "e1142cdb-b37b-47ef-8e3f-c923e827f145": {
+      "date": "2026-10-29",
+      "name": "Copy - PB 3.00 TC [H2] #30",
+      "campaign": "باور بانك وينر - تارقيت كوست",
+      "scaled_budget_today": false
+    },
+    "ec8d9b59-aeea-4e00-a7c0-511b23c76dde": {
+      "date": "2026-10-29",
+      "name": "Copy - PB 3.00 TC [H1] #12",
+      "campaign": "باور بانك وينر - تارقيت كوست",
+      "scaled_budget_today": false
+    },
+    "fffc1a49-7342-439f-9f59-b3fde336c3fd": {
+      "date": "2026-10-29",
+      "name": "Copy - PB 3.00 TC [H1] #01",
       "campaign": "باور بانك وينر - تارقيت كوست",
       "scaled_budget_today": false
     }
