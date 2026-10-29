@@ -975,8 +975,8 @@
     "201be18b-b811-4094-bcbd-dbc04d6763b2": {
       "name": "Copy - PB 3.00 TC [H2] #28",
       "campaign": "باور بانك وينر - تارقيت كوست",
-      "reason": "[2-Day Audit] [AdSquad CPC > $0.28 Rule] صرفت المجموعة $3.79 (>= $1.00) وسعر النقرة CPC=$0.345 (> $0.28)",
-      "paused_at": "2026-10-29 14:41 GMT+3"
+      "reason": "[2-Day Audit] [AdSquad CPC > $0.28 Rule] صرفت المجموعة $5.42 (>= $1.00) وسعر النقرة CPC=$0.285 (> $0.28)",
+      "paused_at": "2026-10-29 15:24 GMT+3"
     },
     "d27731fe-12ac-4276-bcdd-7a1e9a8ccd22": {
       "name": "Copy - PB 3.00 TC [H2] #24",
@@ -1017,8 +1017,8 @@
     "22a85738-38e0-4793-a84c-9af42e1a8d25": {
       "name": "Copy - PB 3.00 TC [H2] #22",
       "campaign": "باور بانك وينر - تارقيت كوست",
-      "reason": "[AdSquad CPC > $0.28 Rule] صرفت المجموعة $1.56 (>= $1.00) وسعر النقرة CPC=$0.312 (> $0.28)",
-      "paused_at": "2026-10-29 14:41 GMT+3"
+      "reason": "[AdSquad CPC > $0.28 Rule] صرفت المجموعة $3.53 (>= $1.00) وسعر النقرة CPC=$0.294 (> $0.28)",
+      "paused_at": "2026-10-29 15:24 GMT+3"
     },
     "69a37df3-6b8f-4599-a170-2cd2ce55bf1e": {
       "name": "Copy - PB 3.00 TC [H2] #21",
@@ -1079,6 +1079,18 @@
       "campaign": "باور بانك وينر - تارقيت كوست",
       "reason": "[AdSquad CPC > $0.28 Rule] صرفت المجموعة $1.27 (>= $1.00) وسعر النقرة CPC=$0.423 (> $0.28)",
       "paused_at": "2026-10-29 14:41 GMT+3"
+    },
+    "03be7b90-0e1d-4725-9333-c1933209e084": {
+      "name": "Copy - PB 3.00 TC [H2] #24",
+      "campaign": "باور بانك وينر - تارقيت كوست",
+      "reason": "[AdSquad CPC > $0.28 Rule] صرفت المجموعة $1.74 (>= $1.00) وسعر النقرة CPC=$0.580 (> $0.28)",
+      "paused_at": "2026-10-29 15:24 GMT+3"
+    },
+    "057f2d42-492f-4f1a-ba3b-3794a6572759": {
+      "name": "Copy - PB 3.00 TC [H1] #07",
+      "campaign": "باور بانك وينر - تارقيت كوست",
+      "reason": "[AdSquad $4.00 Stop-Loss] صرفت المجموعة $4.56 (>= $4.00) بدون أي مبيعة (0 مبيعات)",
+      "paused_at": "2026-10-29 15:24 GMT+3"
     }
   },
   "ads": {
@@ -10515,225 +10527,225 @@
       "name": "PB_v4_Winner4_mb7161f [H2]",
       "campaign": "smart+ power bank 3.0$ 28-10",
       "adsquad": "Saudi Arabia, All genders and All ages | 3.00 Bid",
-      "reason": "[Global Accumulated Video High CPA 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $30.00 | المبيعات = 1 | CPA التراكمي = $30.00 (>= $15.00)",
-      "paused_at": "2026-10-29 13:47 GMT+3"
+      "reason": "[Global Accumulated Video High CPA 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $30.02 | المبيعات = 1 | CPA التراكمي = $30.02 (>= $15.00)",
+      "paused_at": "2026-10-29 15:24 GMT+3"
     },
     "07d6576a-4cd9-4dea-82e7-4d93356eef55": {
       "name": "PB_v4_Winner4_mb7161f [H2]",
       "campaign": "باور بانك وينر - سمارت",
       "adsquad": "Copy - PB 2.40 Max [H2] #29",
-      "reason": "[Global Accumulated Video High CPA 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $23.33 | المبيعات = 1 | CPA التراكمي = $23.33 (>= $15.00)",
-      "paused_at": "2026-10-28 18:34 GMT+3"
+      "reason": "[Global Accumulated Video High CPA 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $30.02 | المبيعات = 1 | CPA التراكمي = $30.02 (>= $15.00)",
+      "paused_at": "2026-10-29 15:24 GMT+3"
     },
     "09568584-11ad-41d7-ac01-d4167fc899c3": {
       "name": "PB_v4_Winner4_mb7161f [H2]",
       "campaign": "باور بانك وينر - سمارت",
       "adsquad": "Copy - PB 2.40 Max [H2] #19",
-      "reason": "[Global Accumulated Video High CPA 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $23.33 | المبيعات = 1 | CPA التراكمي = $23.33 (>= $15.00)",
-      "paused_at": "2026-10-28 18:34 GMT+3"
+      "reason": "[Global Accumulated Video High CPA 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $30.02 | المبيعات = 1 | CPA التراكمي = $30.02 (>= $15.00)",
+      "paused_at": "2026-10-29 15:24 GMT+3"
     },
     "11047655-013f-4ae9-ac58-ddf8796e0de8": {
       "name": "PB_v4_Winner4_mb7161f [H2]",
       "campaign": "باور بانك وينر - سمارت",
       "adsquad": "Copy - PB 2.40 Max [H2] #24",
-      "reason": "[Global Accumulated Video High CPA 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $23.33 | المبيعات = 1 | CPA التراكمي = $23.33 (>= $15.00)",
-      "paused_at": "2026-10-28 18:34 GMT+3"
+      "reason": "[Global Accumulated Video High CPA 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $30.02 | المبيعات = 1 | CPA التراكمي = $30.02 (>= $15.00)",
+      "paused_at": "2026-10-29 15:24 GMT+3"
     },
     "226a4dc2-0b5c-435e-858e-e9a4bde85173": {
       "name": "PB_v4_Winner4_mb7161f [H2]",
       "campaign": "باور بانك وينر - سمارت",
       "adsquad": "Copy - PB 2.40 Max [H2] #22",
-      "reason": "[Global Accumulated Video High CPA 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $23.33 | المبيعات = 1 | CPA التراكمي = $23.33 (>= $15.00)",
-      "paused_at": "2026-10-28 18:34 GMT+3"
+      "reason": "[Global Accumulated Video High CPA 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $30.02 | المبيعات = 1 | CPA التراكمي = $30.02 (>= $15.00)",
+      "paused_at": "2026-10-29 15:24 GMT+3"
     },
     "2ebd55de-1b75-44d2-a18f-3539ddaae96e": {
       "name": "PB_v4_Winner4_mb7161f [H1]",
       "campaign": "باور بانك وينر - سمارت",
       "adsquad": "Copy - PB 2.40 Max [H1] #10",
-      "reason": "[Global Accumulated Video High CPA 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $23.33 | المبيعات = 1 | CPA التراكمي = $23.33 (>= $15.00)",
-      "paused_at": "2026-10-28 18:34 GMT+3"
+      "reason": "[Global Accumulated Video High CPA 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $30.02 | المبيعات = 1 | CPA التراكمي = $30.02 (>= $15.00)",
+      "paused_at": "2026-10-29 15:24 GMT+3"
     },
     "2edc016c-805c-46ef-96df-5c976b810b04": {
       "name": "PB_v4_Winner4_mb7161f [H1]",
       "campaign": "باور بانك وينر - سمارت",
       "adsquad": "Copy - PB 2.40 Max [H1] #12",
-      "reason": "[Global Accumulated Video High CPA 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $23.33 | المبيعات = 1 | CPA التراكمي = $23.33 (>= $15.00)",
-      "paused_at": "2026-10-28 18:34 GMT+3"
+      "reason": "[Global Accumulated Video High CPA 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $30.02 | المبيعات = 1 | CPA التراكمي = $30.02 (>= $15.00)",
+      "paused_at": "2026-10-29 15:24 GMT+3"
     },
     "396b5c3e-5c51-414d-bb0f-a248401f5ccc": {
       "name": "PB_v4_Winner4_mb7161f [H2]",
       "campaign": "باور بانك وينر - سمارت",
       "adsquad": "Copy - PB 2.40 Max [H2] #20",
-      "reason": "[Global Accumulated Video High CPA 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $23.33 | المبيعات = 1 | CPA التراكمي = $23.33 (>= $15.00)",
-      "paused_at": "2026-10-28 18:34 GMT+3"
+      "reason": "[Global Accumulated Video High CPA 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $30.02 | المبيعات = 1 | CPA التراكمي = $30.02 (>= $15.00)",
+      "paused_at": "2026-10-29 15:24 GMT+3"
     },
     "3d2ec65f-3457-4d5a-a57b-f137bc15c82d": {
       "name": "PB_v4_Winner4_mb7161f [H1]",
       "campaign": "باور بانك وينر - سمارت",
       "adsquad": "Copy - PB 2.40 Max [H1] #02",
-      "reason": "[Global Accumulated Video High CPA 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $23.33 | المبيعات = 1 | CPA التراكمي = $23.33 (>= $15.00)",
-      "paused_at": "2026-10-28 18:34 GMT+3"
+      "reason": "[Global Accumulated Video High CPA 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $30.02 | المبيعات = 1 | CPA التراكمي = $30.02 (>= $15.00)",
+      "paused_at": "2026-10-29 15:24 GMT+3"
     },
     "40dcb807-8ddb-4847-ae47-f6602a40b414": {
       "name": "PB_v4_Winner4_mb7161f [H1]",
       "campaign": "باور بانك وينر - سمارت",
       "adsquad": "Copy - PB 2.40 Max [H1] #11",
-      "reason": "[Global Accumulated Video High CPA 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $23.33 | المبيعات = 1 | CPA التراكمي = $23.33 (>= $15.00)",
-      "paused_at": "2026-10-28 18:34 GMT+3"
+      "reason": "[Global Accumulated Video High CPA 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $30.02 | المبيعات = 1 | CPA التراكمي = $30.02 (>= $15.00)",
+      "paused_at": "2026-10-29 15:24 GMT+3"
     },
     "41577b9a-b2ed-4b23-a5af-01a1a3ef6c6f": {
       "name": "PB_v4_Winner4_mb7161f [H2]",
       "campaign": "باور بانك وينر - سمارت",
       "adsquad": "Copy - PB 2.40 Max [H2] #25",
-      "reason": "[Global Accumulated Video High CPA 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $23.33 | المبيعات = 1 | CPA التراكمي = $23.33 (>= $15.00)",
-      "paused_at": "2026-10-28 18:34 GMT+3"
+      "reason": "[Global Accumulated Video High CPA 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $30.02 | المبيعات = 1 | CPA التراكمي = $30.02 (>= $15.00)",
+      "paused_at": "2026-10-29 15:24 GMT+3"
     },
     "4a6aa730-18d6-4925-8da8-b512eb3e37d3": {
       "name": "PB_v4_Winner4_mb7161f [H2]",
       "campaign": "باور بانك وينر - سمارت",
       "adsquad": "Copy - PB 2.40 Max [H2] #28",
-      "reason": "[Global Accumulated Video High CPA 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $23.33 | المبيعات = 1 | CPA التراكمي = $23.33 (>= $15.00)",
-      "paused_at": "2026-10-28 18:34 GMT+3"
+      "reason": "[Global Accumulated Video High CPA 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $30.02 | المبيعات = 1 | CPA التراكمي = $30.02 (>= $15.00)",
+      "paused_at": "2026-10-29 15:24 GMT+3"
     },
     "52b2a9ad-5cee-4c87-941d-2e2093a565a5": {
       "name": "PB_v4_Winner4_mb7161f [H1]",
       "campaign": "باور بانك وينر - سمارت",
       "adsquad": "Copy - PB 2.40 Max [H1] #13",
-      "reason": "[Global Accumulated Video High CPA 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $23.33 | المبيعات = 1 | CPA التراكمي = $23.33 (>= $15.00)",
-      "paused_at": "2026-10-28 18:34 GMT+3"
+      "reason": "[Global Accumulated Video High CPA 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $30.02 | المبيعات = 1 | CPA التراكمي = $30.02 (>= $15.00)",
+      "paused_at": "2026-10-29 15:24 GMT+3"
     },
     "560878ef-5314-49e9-854d-5e322ab353e1": {
       "name": "PB_v4_Winner4_mb7161f [H2]",
       "campaign": "باور بانك وينر - سمارت",
       "adsquad": "Copy - PB 2.40 Max [H2] #18",
-      "reason": "[Global Accumulated Video High CPA 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $23.33 | المبيعات = 1 | CPA التراكمي = $23.33 (>= $15.00)",
-      "paused_at": "2026-10-28 18:34 GMT+3"
+      "reason": "[Global Accumulated Video High CPA 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $30.02 | المبيعات = 1 | CPA التراكمي = $30.02 (>= $15.00)",
+      "paused_at": "2026-10-29 15:24 GMT+3"
     },
     "62b7e0d8-05a1-40ce-8f4f-cc90f274b7ee": {
       "name": "PB_v4_Winner4_mb7161f [H1]",
       "campaign": "باور بانك وينر - سمارت",
       "adsquad": "Copy - PB 2.40 Max [H1] #04",
-      "reason": "[Global Accumulated Video High CPA 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $23.33 | المبيعات = 1 | CPA التراكمي = $23.33 (>= $15.00)",
-      "paused_at": "2026-10-28 18:34 GMT+3"
+      "reason": "[Global Accumulated Video High CPA 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $30.02 | المبيعات = 1 | CPA التراكمي = $30.02 (>= $15.00)",
+      "paused_at": "2026-10-29 15:24 GMT+3"
     },
     "695258e2-0daf-493e-b459-b107f2793f8f": {
       "name": "PB_v4_Winner4_mb7161f [H1]",
       "campaign": "باور بانك وينر - سمارت",
       "adsquad": "Copy - PB 2.40 Max [H1] #15",
-      "reason": "[Global Accumulated Video High CPA 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $23.33 | المبيعات = 1 | CPA التراكمي = $23.33 (>= $15.00)",
-      "paused_at": "2026-10-28 18:34 GMT+3"
+      "reason": "[Global Accumulated Video High CPA 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $30.02 | المبيعات = 1 | CPA التراكمي = $30.02 (>= $15.00)",
+      "paused_at": "2026-10-29 15:24 GMT+3"
     },
     "7aeef6ee-35fe-4026-b95b-134c7b0f797c": {
       "name": "PB_v4_Winner4_mb7161f [H1]",
       "campaign": "باور بانك وينر - سمارت",
       "adsquad": "Copy - PB 2.40 Max [H1] #09",
-      "reason": "[Global Accumulated Video High CPA 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $23.33 | المبيعات = 1 | CPA التراكمي = $23.33 (>= $15.00)",
-      "paused_at": "2026-10-28 18:34 GMT+3"
+      "reason": "[Global Accumulated Video High CPA 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $30.02 | المبيعات = 1 | CPA التراكمي = $30.02 (>= $15.00)",
+      "paused_at": "2026-10-29 15:24 GMT+3"
     },
     "7f0a8d43-b059-449d-8c07-b923fda836de": {
       "name": "PB_v4_Winner4_mb7161f [H2]",
       "campaign": "باور بانك وينر - سمارت",
       "adsquad": "Copy - PB 2.40 Max [H2] #17",
-      "reason": "[Global Accumulated Video High CPA 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $23.33 | المبيعات = 1 | CPA التراكمي = $23.33 (>= $15.00)",
-      "paused_at": "2026-10-28 18:34 GMT+3"
+      "reason": "[Global Accumulated Video High CPA 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $30.02 | المبيعات = 1 | CPA التراكمي = $30.02 (>= $15.00)",
+      "paused_at": "2026-10-29 15:24 GMT+3"
     },
     "87f4ef20-4ddb-4cf2-a466-f48fced17fe5": {
       "name": "PB_v4_Winner4_mb7161f [H2]",
       "campaign": "باور بانك وينر - سمارت",
       "adsquad": "Copy - PB 2.40 Max [H2] #27",
-      "reason": "[Global Accumulated Video High CPA 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $23.33 | المبيعات = 1 | CPA التراكمي = $23.33 (>= $15.00)",
-      "paused_at": "2026-10-28 18:34 GMT+3"
+      "reason": "[Global Accumulated Video High CPA 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $30.02 | المبيعات = 1 | CPA التراكمي = $30.02 (>= $15.00)",
+      "paused_at": "2026-10-29 15:24 GMT+3"
     },
     "8b5bd82e-b486-45ae-b8e3-4115a81f2437": {
       "name": "PB_v4_Winner4_mb7161f [H1]",
       "campaign": "باور بانك وينر - سمارت",
       "adsquad": "Copy - PB 2.40 Max [H1] #03",
-      "reason": "[Global Accumulated Video High CPA 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $23.33 | المبيعات = 1 | CPA التراكمي = $23.33 (>= $15.00)",
-      "paused_at": "2026-10-28 18:34 GMT+3"
+      "reason": "[Global Accumulated Video High CPA 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $30.02 | المبيعات = 1 | CPA التراكمي = $30.02 (>= $15.00)",
+      "paused_at": "2026-10-29 15:24 GMT+3"
     },
     "8f55c4d2-b063-4d61-8fb4-b984feff1080": {
       "name": "PB_v4_Winner4_mb7161f [H2]",
       "campaign": "باور بانك وينر - سمارت",
       "adsquad": "Copy - PB 2.40 Max [H2] #16",
-      "reason": "[Global Accumulated Video High CPA 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $23.33 | المبيعات = 1 | CPA التراكمي = $23.33 (>= $15.00)",
-      "paused_at": "2026-10-28 18:34 GMT+3"
+      "reason": "[Global Accumulated Video High CPA 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $30.02 | المبيعات = 1 | CPA التراكمي = $30.02 (>= $15.00)",
+      "paused_at": "2026-10-29 15:24 GMT+3"
     },
     "a19e2f1f-f971-45a9-8af2-8ac3324e1775": {
       "name": "PB_v4_Winner4_mb7161f [H1]",
       "campaign": "باور بانك وينر - سمارت",
       "adsquad": "Copy - PB 2.40 Max [H1] #06",
-      "reason": "[Global Accumulated Video High CPA 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $23.33 | المبيعات = 1 | CPA التراكمي = $23.33 (>= $15.00)",
-      "paused_at": "2026-10-28 18:34 GMT+3"
+      "reason": "[Global Accumulated Video High CPA 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $30.02 | المبيعات = 1 | CPA التراكمي = $30.02 (>= $15.00)",
+      "paused_at": "2026-10-29 15:24 GMT+3"
     },
     "a40095a3-c154-42c1-89a4-dda184265cfd": {
       "name": "PB_v4_Winner4_mb7161f [H2]",
       "campaign": "باور بانك وينر - سمارت",
       "adsquad": "Copy - PB 2.40 Max [H2] #30",
-      "reason": "[Global Accumulated Video High CPA 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $23.33 | المبيعات = 1 | CPA التراكمي = $23.33 (>= $15.00)",
-      "paused_at": "2026-10-28 18:34 GMT+3"
+      "reason": "[Global Accumulated Video High CPA 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $30.02 | المبيعات = 1 | CPA التراكمي = $30.02 (>= $15.00)",
+      "paused_at": "2026-10-29 15:24 GMT+3"
     },
     "adbae3f0-90e3-40b9-b371-e81e040b94f3": {
       "name": "PB_v4_Winner4_mb7161f [H1]",
       "campaign": "باور بانك وينر - سمارت",
       "adsquad": "Copy - PB 2.40 Max [H1] #07",
-      "reason": "[Global Accumulated Video High CPA 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $23.33 | المبيعات = 1 | CPA التراكمي = $23.33 (>= $15.00)",
-      "paused_at": "2026-10-28 18:34 GMT+3"
+      "reason": "[Global Accumulated Video High CPA 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $30.02 | المبيعات = 1 | CPA التراكمي = $30.02 (>= $15.00)",
+      "paused_at": "2026-10-29 15:24 GMT+3"
     },
     "b90852b7-e7ca-4872-9a36-40b26b7090cf": {
       "name": "PB_v4_Winner4_mb7161f [H2]",
       "campaign": "باور بانك وينر - سمارت",
       "adsquad": "Copy - PB 2.40 Max [H2] #21",
-      "reason": "[Global Accumulated Video High CPA 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $23.33 | المبيعات = 1 | CPA التراكمي = $23.33 (>= $15.00)",
-      "paused_at": "2026-10-28 18:34 GMT+3"
+      "reason": "[Global Accumulated Video High CPA 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $30.02 | المبيعات = 1 | CPA التراكمي = $30.02 (>= $15.00)",
+      "paused_at": "2026-10-29 15:24 GMT+3"
     },
     "cc853769-07f0-48ae-b342-5f39edf03807": {
       "name": "PB_v4_Winner4_mb7161f [H2]",
       "campaign": "باور بانك وينر - سمارت",
       "adsquad": "Copy - PB 2.40 Max [H2] #23",
-      "reason": "[Global Accumulated Video High CPA 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $23.33 | المبيعات = 1 | CPA التراكمي = $23.33 (>= $15.00)",
-      "paused_at": "2026-10-28 18:34 GMT+3"
+      "reason": "[Global Accumulated Video High CPA 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $30.02 | المبيعات = 1 | CPA التراكمي = $30.02 (>= $15.00)",
+      "paused_at": "2026-10-29 15:24 GMT+3"
     },
     "d32d7993-d2e5-408b-b9f7-3e1acd3ce7e6": {
       "name": "PB_v4_Winner4_mb7161f [H1]",
       "campaign": "باور بانك وينر - سمارت",
       "adsquad": "Copy - PB 2.40 Max [H1] #14",
-      "reason": "[Global Accumulated Video High CPA 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $23.33 | المبيعات = 1 | CPA التراكمي = $23.33 (>= $15.00)",
-      "paused_at": "2026-10-28 18:34 GMT+3"
+      "reason": "[Global Accumulated Video High CPA 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $30.02 | المبيعات = 1 | CPA التراكمي = $30.02 (>= $15.00)",
+      "paused_at": "2026-10-29 15:24 GMT+3"
     },
     "d568576e-659d-4851-b3b0-a7b5513953d0": {
       "name": "PB_v4_Winner4_mb7161f [H1]",
       "campaign": "باور بانك وينر - سمارت",
       "adsquad": "Copy - PB 2.40 Max [H1] #05",
-      "reason": "[Global Accumulated Video High CPA 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $23.33 | المبيعات = 1 | CPA التراكمي = $23.33 (>= $15.00)",
-      "paused_at": "2026-10-28 18:34 GMT+3"
+      "reason": "[Global Accumulated Video High CPA 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $30.02 | المبيعات = 1 | CPA التراكمي = $30.02 (>= $15.00)",
+      "paused_at": "2026-10-29 15:24 GMT+3"
     },
     "e8c4d94b-f993-4f9a-91ab-0d44981bbfa8": {
       "name": "PB_v4_Winner4_mb7161f [H1]",
       "campaign": "باور بانك وينر - سمارت",
       "adsquad": "Copy - PB 2.40 Max [H1] #08",
-      "reason": "[Global Accumulated Video High CPA 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $23.33 | المبيعات = 1 | CPA التراكمي = $23.33 (>= $15.00)",
-      "paused_at": "2026-10-28 18:34 GMT+3"
+      "reason": "[Global Accumulated Video High CPA 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $30.02 | المبيعات = 1 | CPA التراكمي = $30.02 (>= $15.00)",
+      "paused_at": "2026-10-29 15:24 GMT+3"
     },
     "f621451d-0518-49e9-836a-b4fb53737aeb": {
       "name": "PB_v4_Winner4_mb7161f [H1]",
       "campaign": "باور بانك وينر - سمارت",
       "adsquad": "Copy - PB 2.40 Max [H1] #01",
-      "reason": "[Global Accumulated Video High CPA 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $23.33 | المبيعات = 1 | CPA التراكمي = $23.33 (>= $15.00)",
-      "paused_at": "2026-10-28 18:34 GMT+3"
+      "reason": "[Global Accumulated Video High CPA 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $30.02 | المبيعات = 1 | CPA التراكمي = $30.02 (>= $15.00)",
+      "paused_at": "2026-10-29 15:24 GMT+3"
     },
     "f990a835-6765-424b-9d4e-a13697013f00": {
       "name": "PB_v4_Winner4_mb7161f [H2]",
       "campaign": "باور بانك وينر - سمارت",
       "adsquad": "Copy - PB 2.40 Max [H2] #26",
-      "reason": "[Global Accumulated Video High CPA 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $23.33 | المبيعات = 1 | CPA التراكمي = $23.33 (>= $15.00)",
-      "paused_at": "2026-10-28 18:34 GMT+3"
+      "reason": "[Global Accumulated Video High CPA 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $30.02 | المبيعات = 1 | CPA التراكمي = $30.02 (>= $15.00)",
+      "paused_at": "2026-10-29 15:24 GMT+3"
     },
     "1d9132fd-af4f-4db8-a47c-00d32877dc65": {
       "name": "PB_v4_Winner4_mb7161f [H2]",
       "campaign": "smart+ power bank 3.5$ 28-10",
       "adsquad": "Saudi Arabia, All genders and All ages | 3.50 Bid",
-      "reason": "[Global Accumulated Video High CPA 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $30.00 | المبيعات = 1 | CPA التراكمي = $30.00 (>= $15.00)",
-      "paused_at": "2026-10-29 13:47 GMT+3"
+      "reason": "[Global Accumulated Video High CPA 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $30.02 | المبيعات = 1 | CPA التراكمي = $30.02 (>= $15.00)",
+      "paused_at": "2026-10-29 15:24 GMT+3"
     },
     "8f6b574d-6c1c-49f2-bb27-348333992495": {
       "name": "26-10_Fast_PB_Ad06_m826824",
@@ -10908,224 +10920,224 @@
       "campaign": "smart+ power bank 3.0$ 28-10",
       "adsquad": "Saudi Arabia, All genders and All ages | 3.00 Bid",
       "reason": "[Global Accumulated Video High CPA 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $20.77 | المبيعات = 1 | CPA التراكمي = $20.77 (>= $15.00)",
-      "paused_at": "2026-10-29 13:47 GMT+3"
+      "paused_at": "2026-10-29 15:24 GMT+3"
     },
     "18e805ab-6642-4956-9d56-3721cb2d0f4a": {
       "name": "PB_v5_Winner5_m773a09 [H2]",
       "campaign": "باور بانك وينر - سمارت",
       "adsquad": "Copy - PB 2.40 Max [H2] #22",
-      "reason": "[Global Accumulated Video High CPA 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $15.00 | المبيعات = 1 | CPA التراكمي = $15.00 (>= $15.00)",
-      "paused_at": "2026-10-28 19:35 GMT+3"
+      "reason": "[Global Accumulated Video High CPA 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $20.77 | المبيعات = 1 | CPA التراكمي = $20.77 (>= $15.00)",
+      "paused_at": "2026-10-29 15:24 GMT+3"
     },
     "21b00e35-d37f-478e-8b3e-9f55c022f284": {
       "name": "PB_v5_Winner5_m773a09 [H2]",
       "campaign": "باور بانك وينر - سمارت",
       "adsquad": "Copy - PB 2.40 Max [H2] #25",
-      "reason": "[Global Accumulated Video High CPA 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $15.00 | المبيعات = 1 | CPA التراكمي = $15.00 (>= $15.00)",
-      "paused_at": "2026-10-28 19:35 GMT+3"
+      "reason": "[Global Accumulated Video High CPA 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $20.77 | المبيعات = 1 | CPA التراكمي = $20.77 (>= $15.00)",
+      "paused_at": "2026-10-29 15:24 GMT+3"
     },
     "2478d4d2-9530-4355-9ce0-ea3cee57f3ae": {
       "name": "PB_v5_Winner5_m773a09 [H2]",
       "campaign": "باور بانك وينر - سمارت",
       "adsquad": "Copy - PB 2.40 Max [H2] #17",
-      "reason": "[Global Accumulated Video High CPA 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $15.00 | المبيعات = 1 | CPA التراكمي = $15.00 (>= $15.00)",
-      "paused_at": "2026-10-28 19:35 GMT+3"
+      "reason": "[Global Accumulated Video High CPA 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $20.77 | المبيعات = 1 | CPA التراكمي = $20.77 (>= $15.00)",
+      "paused_at": "2026-10-29 15:24 GMT+3"
     },
     "26334283-e008-4582-a87a-a5719b2c3023": {
       "name": "PB_v5_Winner5_m773a09 [H2]",
       "campaign": "باور بانك وينر - سمارت",
       "adsquad": "Copy - PB 2.40 Max [H2] #20",
-      "reason": "[Global Accumulated Video High CPA 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $15.00 | المبيعات = 1 | CPA التراكمي = $15.00 (>= $15.00)",
-      "paused_at": "2026-10-28 19:35 GMT+3"
+      "reason": "[Global Accumulated Video High CPA 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $20.77 | المبيعات = 1 | CPA التراكمي = $20.77 (>= $15.00)",
+      "paused_at": "2026-10-29 15:24 GMT+3"
     },
     "2ab3c31f-7c2a-477d-bdc9-d50d9a48c332": {
       "name": "PB_v5_Winner5_m773a09 [H1]",
       "campaign": "باور بانك وينر - سمارت",
       "adsquad": "Copy - PB 2.40 Max [H1] #02",
-      "reason": "[Global Accumulated Video High CPA 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $15.00 | المبيعات = 1 | CPA التراكمي = $15.00 (>= $15.00)",
-      "paused_at": "2026-10-28 19:35 GMT+3"
+      "reason": "[Global Accumulated Video High CPA 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $20.77 | المبيعات = 1 | CPA التراكمي = $20.77 (>= $15.00)",
+      "paused_at": "2026-10-29 15:24 GMT+3"
     },
     "2e349fb5-c22d-431e-ab9b-79113e71b2e5": {
       "name": "PB_v5_Winner5_m773a09 [H1]",
       "campaign": "باور بانك وينر - سمارت",
       "adsquad": "Copy - PB 2.40 Max [H1] #10",
-      "reason": "[Global Accumulated Video High CPA 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $15.00 | المبيعات = 1 | CPA التراكمي = $15.00 (>= $15.00)",
-      "paused_at": "2026-10-28 19:35 GMT+3"
+      "reason": "[Global Accumulated Video High CPA 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $20.77 | المبيعات = 1 | CPA التراكمي = $20.77 (>= $15.00)",
+      "paused_at": "2026-10-29 15:24 GMT+3"
     },
     "30a2e6b2-3663-4267-9cbe-433be2edd604": {
       "name": "PB_v5_Winner5_m773a09 [H2]",
       "campaign": "باور بانك وينر - سمارت",
       "adsquad": "Copy - PB 2.40 Max [H2] #29",
-      "reason": "[Global Accumulated Video High CPA 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $15.00 | المبيعات = 1 | CPA التراكمي = $15.00 (>= $15.00)",
-      "paused_at": "2026-10-28 19:35 GMT+3"
+      "reason": "[Global Accumulated Video High CPA 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $20.77 | المبيعات = 1 | CPA التراكمي = $20.77 (>= $15.00)",
+      "paused_at": "2026-10-29 15:24 GMT+3"
     },
     "3c946286-acea-46d3-a8db-9909f55d6f54": {
       "name": "PB_v5_Winner5_m773a09 [H1]",
       "campaign": "باور بانك وينر - سمارت",
       "adsquad": "Copy - PB 2.40 Max [H1] #09",
-      "reason": "[Global Accumulated Video High CPA 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $15.00 | المبيعات = 1 | CPA التراكمي = $15.00 (>= $15.00)",
-      "paused_at": "2026-10-28 19:35 GMT+3"
+      "reason": "[Global Accumulated Video High CPA 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $20.77 | المبيعات = 1 | CPA التراكمي = $20.77 (>= $15.00)",
+      "paused_at": "2026-10-29 15:24 GMT+3"
     },
     "3deb1aed-924f-4f0a-b2e5-1f896bd65227": {
       "name": "PB_v5_Winner5_m773a09 [H1]",
       "campaign": "باور بانك وينر - سمارت",
       "adsquad": "Copy - PB 2.40 Max [H1] #11",
-      "reason": "[Global Accumulated Video High CPA 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $15.00 | المبيعات = 1 | CPA التراكمي = $15.00 (>= $15.00)",
-      "paused_at": "2026-10-28 19:35 GMT+3"
+      "reason": "[Global Accumulated Video High CPA 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $20.77 | المبيعات = 1 | CPA التراكمي = $20.77 (>= $15.00)",
+      "paused_at": "2026-10-29 15:24 GMT+3"
     },
     "44d32f67-f7cb-491c-88e2-f5d73e6f1053": {
       "name": "PB_v5_Winner5_m773a09 [H2]",
       "campaign": "باور بانك وينر - سمارت",
       "adsquad": "Copy - PB 2.40 Max [H2] #19",
-      "reason": "[Global Accumulated Video High CPA 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $15.00 | المبيعات = 1 | CPA التراكمي = $15.00 (>= $15.00)",
-      "paused_at": "2026-10-28 19:35 GMT+3"
+      "reason": "[Global Accumulated Video High CPA 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $20.77 | المبيعات = 1 | CPA التراكمي = $20.77 (>= $15.00)",
+      "paused_at": "2026-10-29 15:24 GMT+3"
     },
     "46419162-6198-4b49-921b-96064ff91445": {
       "name": "PB_v5_Winner5_m773a09 [H1]",
       "campaign": "باور بانك وينر - سمارت",
       "adsquad": "Copy - PB 2.40 Max [H1] #15",
-      "reason": "[Global Accumulated Video High CPA 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $15.00 | المبيعات = 1 | CPA التراكمي = $15.00 (>= $15.00)",
-      "paused_at": "2026-10-28 19:35 GMT+3"
+      "reason": "[Global Accumulated Video High CPA 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $20.77 | المبيعات = 1 | CPA التراكمي = $20.77 (>= $15.00)",
+      "paused_at": "2026-10-29 15:24 GMT+3"
     },
     "7807abe5-a11b-45a9-8861-d035dd4df0c4": {
       "name": "PB_v5_Winner5_m773a09 [H2]",
       "campaign": "باور بانك وينر - سمارت",
       "adsquad": "Copy - PB 2.40 Max [H2] #30",
-      "reason": "[Global Accumulated Video High CPA 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $15.00 | المبيعات = 1 | CPA التراكمي = $15.00 (>= $15.00)",
-      "paused_at": "2026-10-28 19:35 GMT+3"
+      "reason": "[Global Accumulated Video High CPA 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $20.77 | المبيعات = 1 | CPA التراكمي = $20.77 (>= $15.00)",
+      "paused_at": "2026-10-29 15:24 GMT+3"
     },
     "7ded6603-f1bb-4891-83ff-79d1e624c347": {
       "name": "PB_v5_Winner5_m773a09 [H1]",
       "campaign": "باور بانك وينر - سمارت",
       "adsquad": "Copy - PB 2.40 Max [H1] #08",
-      "reason": "[Global Accumulated Video High CPA 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $15.00 | المبيعات = 1 | CPA التراكمي = $15.00 (>= $15.00)",
-      "paused_at": "2026-10-28 19:35 GMT+3"
+      "reason": "[Global Accumulated Video High CPA 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $20.77 | المبيعات = 1 | CPA التراكمي = $20.77 (>= $15.00)",
+      "paused_at": "2026-10-29 15:24 GMT+3"
     },
     "81808c37-a85e-4108-acc8-ead825aa2a7c": {
       "name": "PB_v5_Winner5_m773a09 [H1]",
       "campaign": "باور بانك وينر - سمارت",
       "adsquad": "Copy - PB 2.40 Max [H1] #05",
-      "reason": "[Global Accumulated Video High CPA 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $15.00 | المبيعات = 1 | CPA التراكمي = $15.00 (>= $15.00)",
-      "paused_at": "2026-10-28 19:35 GMT+3"
+      "reason": "[Global Accumulated Video High CPA 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $20.77 | المبيعات = 1 | CPA التراكمي = $20.77 (>= $15.00)",
+      "paused_at": "2026-10-29 15:24 GMT+3"
     },
     "83910755-19bb-49f5-9a71-e9c88ccaa075": {
       "name": "PB_v5_Winner5_m773a09 [H1]",
       "campaign": "باور بانك وينر - سمارت",
       "adsquad": "Copy - PB 2.40 Max [H1] #04",
-      "reason": "[Global Accumulated Video High CPA 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $15.00 | المبيعات = 1 | CPA التراكمي = $15.00 (>= $15.00)",
-      "paused_at": "2026-10-28 19:35 GMT+3"
+      "reason": "[Global Accumulated Video High CPA 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $20.77 | المبيعات = 1 | CPA التراكمي = $20.77 (>= $15.00)",
+      "paused_at": "2026-10-29 15:24 GMT+3"
     },
     "8b12e652-2f25-4ad2-bd3d-94d5d3eca876": {
       "name": "PB_v5_Winner5_m773a09 [H2]",
       "campaign": "باور بانك وينر - سمارت",
       "adsquad": "Copy - PB 2.40 Max [H2] #26",
-      "reason": "[Global Accumulated Video High CPA 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $15.00 | المبيعات = 1 | CPA التراكمي = $15.00 (>= $15.00)",
-      "paused_at": "2026-10-28 19:35 GMT+3"
+      "reason": "[Global Accumulated Video High CPA 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $20.77 | المبيعات = 1 | CPA التراكمي = $20.77 (>= $15.00)",
+      "paused_at": "2026-10-29 15:24 GMT+3"
     },
     "8c8ac690-d536-4225-a1cd-157552576dcd": {
       "name": "PB_v5_Winner5_m773a09 [H1]",
       "campaign": "باور بانك وينر - سمارت",
       "adsquad": "Copy - PB 2.40 Max [H1] #14",
-      "reason": "[Global Accumulated Video High CPA 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $15.00 | المبيعات = 1 | CPA التراكمي = $15.00 (>= $15.00)",
-      "paused_at": "2026-10-28 19:35 GMT+3"
+      "reason": "[Global Accumulated Video High CPA 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $20.77 | المبيعات = 1 | CPA التراكمي = $20.77 (>= $15.00)",
+      "paused_at": "2026-10-29 15:24 GMT+3"
     },
     "91fdf3e2-2c7b-4a0f-9b0e-013823302988": {
       "name": "PB_v5_Winner5_m773a09 [H2]",
       "campaign": "باور بانك وينر - سمارت",
       "adsquad": "Copy - PB 2.40 Max [H2] #18",
-      "reason": "[Global Accumulated Video High CPA 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $15.00 | المبيعات = 1 | CPA التراكمي = $15.00 (>= $15.00)",
-      "paused_at": "2026-10-28 19:35 GMT+3"
+      "reason": "[Global Accumulated Video High CPA 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $20.77 | المبيعات = 1 | CPA التراكمي = $20.77 (>= $15.00)",
+      "paused_at": "2026-10-29 15:24 GMT+3"
     },
     "93d2c687-dc99-4c8a-aff0-c4adacd0eca6": {
       "name": "PB_v5_Winner5_m773a09 [H1]",
       "campaign": "باور بانك وينر - سمارت",
       "adsquad": "Copy - PB 2.40 Max [H1] #13",
-      "reason": "[Global Accumulated Video High CPA 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $15.00 | المبيعات = 1 | CPA التراكمي = $15.00 (>= $15.00)",
-      "paused_at": "2026-10-28 19:35 GMT+3"
+      "reason": "[Global Accumulated Video High CPA 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $20.77 | المبيعات = 1 | CPA التراكمي = $20.77 (>= $15.00)",
+      "paused_at": "2026-10-29 15:24 GMT+3"
     },
     "988dfa54-371a-4b58-8a1b-dc87b46b1233": {
       "name": "PB_v5_Winner5_m773a09 [H1]",
       "campaign": "باور بانك وينر - سمارت",
       "adsquad": "Copy - PB 2.40 Max [H1] #01",
-      "reason": "[Global Accumulated Video High CPA 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $15.00 | المبيعات = 1 | CPA التراكمي = $15.00 (>= $15.00)",
-      "paused_at": "2026-10-28 19:35 GMT+3"
+      "reason": "[Global Accumulated Video High CPA 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $20.77 | المبيعات = 1 | CPA التراكمي = $20.77 (>= $15.00)",
+      "paused_at": "2026-10-29 15:24 GMT+3"
     },
     "a1f8d7a1-d224-4ea8-9e44-4fd76276fd0c": {
       "name": "PB_v5_Winner5_m773a09 [H2]",
       "campaign": "باور بانك وينر - سمارت",
       "adsquad": "Copy - PB 2.40 Max [H2] #21",
-      "reason": "[Global Accumulated Video High CPA 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $15.00 | المبيعات = 1 | CPA التراكمي = $15.00 (>= $15.00)",
-      "paused_at": "2026-10-28 19:35 GMT+3"
+      "reason": "[Global Accumulated Video High CPA 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $20.77 | المبيعات = 1 | CPA التراكمي = $20.77 (>= $15.00)",
+      "paused_at": "2026-10-29 15:24 GMT+3"
     },
     "a42dea4a-2487-4087-a4af-f94fb0947733": {
       "name": "PB_v5_Winner5_m773a09 [H2]",
       "campaign": "باور بانك وينر - سمارت",
       "adsquad": "Copy - PB 2.40 Max [H2] #24",
-      "reason": "[Global Accumulated Video High CPA 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $15.00 | المبيعات = 1 | CPA التراكمي = $15.00 (>= $15.00)",
-      "paused_at": "2026-10-28 19:35 GMT+3"
+      "reason": "[Global Accumulated Video High CPA 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $20.77 | المبيعات = 1 | CPA التراكمي = $20.77 (>= $15.00)",
+      "paused_at": "2026-10-29 15:24 GMT+3"
     },
     "a62ce3d2-e286-4c38-a4c2-b8d700b15a46": {
       "name": "PB_v5_Winner5_m773a09 [H2]",
       "campaign": "باور بانك وينر - سمارت",
       "adsquad": "Copy - PB 2.40 Max [H2] #16",
-      "reason": "[Global Accumulated Video High CPA 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $15.00 | المبيعات = 1 | CPA التراكمي = $15.00 (>= $15.00)",
-      "paused_at": "2026-10-28 19:35 GMT+3"
+      "reason": "[Global Accumulated Video High CPA 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $20.77 | المبيعات = 1 | CPA التراكمي = $20.77 (>= $15.00)",
+      "paused_at": "2026-10-29 15:24 GMT+3"
     },
     "a789988f-9ba4-4cdd-a534-46478e36b4e1": {
       "name": "PB_v5_Winner5_m773a09 [H2]",
       "campaign": "باور بانك وينر - سمارت",
       "adsquad": "Copy - PB 2.40 Max [H2] #28",
-      "reason": "[Global Accumulated Video High CPA 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $15.00 | المبيعات = 1 | CPA التراكمي = $15.00 (>= $15.00)",
-      "paused_at": "2026-10-28 19:35 GMT+3"
+      "reason": "[Global Accumulated Video High CPA 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $20.77 | المبيعات = 1 | CPA التراكمي = $20.77 (>= $15.00)",
+      "paused_at": "2026-10-29 15:24 GMT+3"
     },
     "bbd41e8a-f82a-4282-8f31-b534f48a4042": {
       "name": "PB_v5_Winner5_m773a09 [H1]",
       "campaign": "باور بانك وينر - سمارت",
       "adsquad": "Copy - PB 2.40 Max [H1] #03",
-      "reason": "[Global Accumulated Video High CPA 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $15.00 | المبيعات = 1 | CPA التراكمي = $15.00 (>= $15.00)",
-      "paused_at": "2026-10-28 19:35 GMT+3"
+      "reason": "[Global Accumulated Video High CPA 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $20.77 | المبيعات = 1 | CPA التراكمي = $20.77 (>= $15.00)",
+      "paused_at": "2026-10-29 15:24 GMT+3"
     },
     "c55d3ffd-7abc-45bf-aba0-a86e8afc8bfc": {
       "name": "PB_v5_Winner5_m773a09 [H2]",
       "campaign": "باور بانك وينر - سمارت",
       "adsquad": "Copy - PB 2.40 Max [H2] #27",
-      "reason": "[Global Accumulated Video High CPA 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $15.00 | المبيعات = 1 | CPA التراكمي = $15.00 (>= $15.00)",
-      "paused_at": "2026-10-28 19:35 GMT+3"
+      "reason": "[Global Accumulated Video High CPA 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $20.77 | المبيعات = 1 | CPA التراكمي = $20.77 (>= $15.00)",
+      "paused_at": "2026-10-29 15:24 GMT+3"
     },
     "d1188878-25a2-48a2-95f3-c8227d9b483a": {
       "name": "PB_v5_Winner5_m773a09 [H1]",
       "campaign": "باور بانك وينر - سمارت",
       "adsquad": "Copy - PB 2.40 Max [H1] #06",
-      "reason": "[Global Accumulated Video High CPA 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $15.00 | المبيعات = 1 | CPA التراكمي = $15.00 (>= $15.00)",
-      "paused_at": "2026-10-28 19:35 GMT+3"
+      "reason": "[Global Accumulated Video High CPA 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $20.77 | المبيعات = 1 | CPA التراكمي = $20.77 (>= $15.00)",
+      "paused_at": "2026-10-29 15:24 GMT+3"
     },
     "e2063c09-a13f-4a29-b656-d6d8ab36ded1": {
       "name": "PB_v5_Winner5_m773a09 [H1]",
       "campaign": "باور بانك وينر - سمارت",
       "adsquad": "Copy - PB 2.40 Max [H1] #12",
-      "reason": "[Global Accumulated Video High CPA 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $15.00 | المبيعات = 1 | CPA التراكمي = $15.00 (>= $15.00)",
-      "paused_at": "2026-10-28 19:35 GMT+3"
+      "reason": "[Global Accumulated Video High CPA 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $20.77 | المبيعات = 1 | CPA التراكمي = $20.77 (>= $15.00)",
+      "paused_at": "2026-10-29 15:24 GMT+3"
     },
     "e25c5710-631e-4aad-b1aa-605f787bbe1a": {
       "name": "PB_v5_Winner5_m773a09 [H2]",
       "campaign": "باور بانك وينر - سمارت",
       "adsquad": "Copy - PB 2.40 Max [H2] #23",
-      "reason": "[Global Accumulated Video High CPA 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $15.00 | المبيعات = 1 | CPA التراكمي = $15.00 (>= $15.00)",
-      "paused_at": "2026-10-28 19:35 GMT+3"
+      "reason": "[Global Accumulated Video High CPA 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $20.77 | المبيعات = 1 | CPA التراكمي = $20.77 (>= $15.00)",
+      "paused_at": "2026-10-29 15:24 GMT+3"
     },
     "f23a2dfd-5ebb-4147-a3a8-98cf8c891648": {
       "name": "PB_v5_Winner5_m773a09 [H1]",
       "campaign": "باور بانك وينر - سمارت",
       "adsquad": "Copy - PB 2.40 Max [H1] #07",
-      "reason": "[Global Accumulated Video High CPA 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $15.00 | المبيعات = 1 | CPA التراكمي = $15.00 (>= $15.00)",
-      "paused_at": "2026-10-28 19:35 GMT+3"
+      "reason": "[Global Accumulated Video High CPA 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $20.77 | المبيعات = 1 | CPA التراكمي = $20.77 (>= $15.00)",
+      "paused_at": "2026-10-29 15:24 GMT+3"
     },
     "5ac17e4a-acae-4c4a-8a52-727c1f84e232": {
       "name": "PB_v5_Winner5_m773a09 [H1]",
       "campaign": "smart+ power bank 3.5$ 28-10",
       "adsquad": "Saudi Arabia, All genders and All ages | 3.50 Bid",
       "reason": "[Global Accumulated Video High CPA 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $20.77 | المبيعات = 1 | CPA التراكمي = $20.77 (>= $15.00)",
-      "paused_at": "2026-10-29 13:47 GMT+3"
+      "paused_at": "2026-10-29 15:24 GMT+3"
     },
     "4ad1b4aa-cf91-4a81-85dd-1f1463bb5a09": {
       "name": "27-10_PB_Hanan24_01_ma52a9c",
@@ -11250,225 +11262,225 @@
       "name": "PB_v7_Hist64_mfae396 [H1]",
       "campaign": "smart+ power bank 3.0$ 28-10",
       "adsquad": "Saudi Arabia, All genders and All ages | 3.00 Bid",
-      "reason": "[Global Accumulated Video High CPA 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $16.31 | المبيعات = 1 | CPA التراكمي = $16.31 (>= $15.00)",
-      "paused_at": "2026-10-29 14:41 GMT+3"
+      "reason": "[Global Accumulated Video High CPA 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $17.88 | المبيعات = 1 | CPA التراكمي = $17.88 (>= $15.00)",
+      "paused_at": "2026-10-29 15:24 GMT+3"
     },
     "02582686-fd1a-4f61-897d-b59aa84a5dcc": {
       "name": "PB_v7_Hist64_mfae396 [H1]",
       "campaign": "باور بانك وينر - سمارت",
       "adsquad": "Copy - PB 2.40 Max [H1] #10",
-      "reason": "[Global Accumulated Video Stop-Loss 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $14.58 (>= $13.00) بدون أي مبيعة في يومين",
-      "paused_at": "2026-10-29 01:03 GMT+3"
+      "reason": "[Global Accumulated Video High CPA 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $17.88 | المبيعات = 1 | CPA التراكمي = $17.88 (>= $15.00)",
+      "paused_at": "2026-10-29 15:24 GMT+3"
     },
     "141aee70-f639-4ce4-b90f-7bb92f9a4068": {
       "name": "PB_v7_Hist64_mfae396 [H2]",
       "campaign": "باور بانك وينر - سمارت",
       "adsquad": "Copy - PB 2.40 Max [H2] #28",
-      "reason": "[Global Accumulated Video Stop-Loss 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $14.58 (>= $13.00) بدون أي مبيعة في يومين",
-      "paused_at": "2026-10-29 01:03 GMT+3"
+      "reason": "[Global Accumulated Video High CPA 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $17.88 | المبيعات = 1 | CPA التراكمي = $17.88 (>= $15.00)",
+      "paused_at": "2026-10-29 15:24 GMT+3"
     },
     "20f568b0-2e95-441e-a092-ca35906c0c13": {
       "name": "PB_v7_Hist64_mfae396 [H2]",
       "campaign": "باور بانك وينر - سمارت",
       "adsquad": "Copy - PB 2.40 Max [H2] #18",
-      "reason": "[Global Accumulated Video Stop-Loss 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $14.58 (>= $13.00) بدون أي مبيعة في يومين",
-      "paused_at": "2026-10-29 01:03 GMT+3"
+      "reason": "[Global Accumulated Video High CPA 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $17.88 | المبيعات = 1 | CPA التراكمي = $17.88 (>= $15.00)",
+      "paused_at": "2026-10-29 15:24 GMT+3"
     },
     "27651c10-80aa-4937-b58e-d7e9b75cd6ef": {
       "name": "PB_v7_Hist64_mfae396 [H2]",
       "campaign": "باور بانك وينر - سمارت",
       "adsquad": "Copy - PB 2.40 Max [H2] #19",
-      "reason": "[Global Accumulated Video Stop-Loss 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $14.58 (>= $13.00) بدون أي مبيعة في يومين",
-      "paused_at": "2026-10-29 01:03 GMT+3"
+      "reason": "[Global Accumulated Video High CPA 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $17.88 | المبيعات = 1 | CPA التراكمي = $17.88 (>= $15.00)",
+      "paused_at": "2026-10-29 15:24 GMT+3"
     },
     "3b864719-c201-4aec-9a46-b21d785da510": {
       "name": "PB_v7_Hist64_mfae396 [H1]",
       "campaign": "باور بانك وينر - سمارت",
       "adsquad": "Copy - PB 2.40 Max [H1] #12",
-      "reason": "[Global Accumulated Video Stop-Loss 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $14.58 (>= $13.00) بدون أي مبيعة في يومين",
-      "paused_at": "2026-10-29 01:03 GMT+3"
+      "reason": "[Global Accumulated Video High CPA 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $17.88 | المبيعات = 1 | CPA التراكمي = $17.88 (>= $15.00)",
+      "paused_at": "2026-10-29 15:24 GMT+3"
     },
     "4265fb8d-7b62-4fd8-9f65-6e1baaa24aed": {
       "name": "PB_v7_Hist64_mfae396 [H2]",
       "campaign": "باور بانك وينر - سمارت",
       "adsquad": "Copy - PB 2.40 Max [H2] #29",
-      "reason": "[Global Accumulated Video Stop-Loss 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $14.58 (>= $13.00) بدون أي مبيعة في يومين",
-      "paused_at": "2026-10-29 01:03 GMT+3"
+      "reason": "[Global Accumulated Video High CPA 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $17.88 | المبيعات = 1 | CPA التراكمي = $17.88 (>= $15.00)",
+      "paused_at": "2026-10-29 15:24 GMT+3"
     },
     "4369b824-0498-42a8-93f9-09e744a8b160": {
       "name": "PB_v7_Hist64_mfae396 [H2]",
       "campaign": "باور بانك وينر - سمارت",
       "adsquad": "Copy - PB 2.40 Max [H2] #27",
-      "reason": "[Global Accumulated Video Stop-Loss 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $14.58 (>= $13.00) بدون أي مبيعة في يومين",
-      "paused_at": "2026-10-29 01:03 GMT+3"
+      "reason": "[Global Accumulated Video High CPA 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $17.88 | المبيعات = 1 | CPA التراكمي = $17.88 (>= $15.00)",
+      "paused_at": "2026-10-29 15:24 GMT+3"
     },
     "479c361a-214f-49a5-8755-d59b368e01d5": {
       "name": "PB_v7_Hist64_mfae396 [H1]",
       "campaign": "باور بانك وينر - سمارت",
       "adsquad": "Copy - PB 2.40 Max [H1] #11",
-      "reason": "[Global Accumulated Video Stop-Loss 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $14.58 (>= $13.00) بدون أي مبيعة في يومين",
-      "paused_at": "2026-10-29 01:03 GMT+3"
+      "reason": "[Global Accumulated Video High CPA 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $17.88 | المبيعات = 1 | CPA التراكمي = $17.88 (>= $15.00)",
+      "paused_at": "2026-10-29 15:24 GMT+3"
     },
     "56043e2a-dc2d-488c-9921-bde187f84555": {
       "name": "PB_v7_Hist64_mfae396 [H1]",
       "campaign": "باور بانك وينر - سمارت",
       "adsquad": "Copy - PB 2.40 Max [H1] #06",
-      "reason": "[Global Accumulated Video Stop-Loss 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $14.58 (>= $13.00) بدون أي مبيعة في يومين",
-      "paused_at": "2026-10-29 01:03 GMT+3"
+      "reason": "[Global Accumulated Video High CPA 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $17.88 | المبيعات = 1 | CPA التراكمي = $17.88 (>= $15.00)",
+      "paused_at": "2026-10-29 15:24 GMT+3"
     },
     "66cba83f-cab8-4072-a71b-0aab64759a48": {
       "name": "PB_v7_Hist64_mfae396 [H1]",
       "campaign": "باور بانك وينر - سمارت",
       "adsquad": "Copy - PB 2.40 Max [H1] #13",
-      "reason": "[Global Accumulated Video Stop-Loss 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $14.58 (>= $13.00) بدون أي مبيعة في يومين",
-      "paused_at": "2026-10-29 01:03 GMT+3"
+      "reason": "[Global Accumulated Video High CPA 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $17.88 | المبيعات = 1 | CPA التراكمي = $17.88 (>= $15.00)",
+      "paused_at": "2026-10-29 15:24 GMT+3"
     },
     "6d00f051-1bc2-451f-abfe-604d9b612d0d": {
       "name": "PB_v7_Hist64_mfae396 [H1]",
       "campaign": "باور بانك وينر - سمارت",
       "adsquad": "Copy - PB 2.40 Max [H1] #05",
-      "reason": "[Global Accumulated Video Stop-Loss 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $14.58 (>= $13.00) بدون أي مبيعة في يومين",
-      "paused_at": "2026-10-29 01:03 GMT+3"
+      "reason": "[Global Accumulated Video High CPA 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $17.88 | المبيعات = 1 | CPA التراكمي = $17.88 (>= $15.00)",
+      "paused_at": "2026-10-29 15:24 GMT+3"
     },
     "75036e11-4e36-49ee-a3d1-b5a83f269969": {
       "name": "PB_v7_Hist64_mfae396 [H1]",
       "campaign": "باور بانك وينر - سمارت",
       "adsquad": "Copy - PB 2.40 Max [H1] #15",
-      "reason": "[Global Accumulated Video Stop-Loss 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $14.58 (>= $13.00) بدون أي مبيعة في يومين",
-      "paused_at": "2026-10-29 01:03 GMT+3"
+      "reason": "[Global Accumulated Video High CPA 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $17.88 | المبيعات = 1 | CPA التراكمي = $17.88 (>= $15.00)",
+      "paused_at": "2026-10-29 15:24 GMT+3"
     },
     "77902d84-c381-436d-9176-97dd64fc0350": {
       "name": "PB_v7_Hist64_mfae396 [H2]",
       "campaign": "باور بانك وينر - سمارت",
       "adsquad": "Copy - PB 2.40 Max [H2] #26",
-      "reason": "[Global Accumulated Video Stop-Loss 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $14.58 (>= $13.00) بدون أي مبيعة في يومين",
-      "paused_at": "2026-10-29 01:03 GMT+3"
+      "reason": "[Global Accumulated Video High CPA 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $17.88 | المبيعات = 1 | CPA التراكمي = $17.88 (>= $15.00)",
+      "paused_at": "2026-10-29 15:24 GMT+3"
     },
     "7eede8a1-e917-4032-86c7-4c8b5aad90f5": {
       "name": "PB_v7_Hist64_mfae396 [H2]",
       "campaign": "باور بانك وينر - سمارت",
       "adsquad": "Copy - PB 2.40 Max [H2] #17",
-      "reason": "[Global Accumulated Video Stop-Loss 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $14.58 (>= $13.00) بدون أي مبيعة في يومين",
-      "paused_at": "2026-10-29 01:03 GMT+3"
+      "reason": "[Global Accumulated Video High CPA 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $17.88 | المبيعات = 1 | CPA التراكمي = $17.88 (>= $15.00)",
+      "paused_at": "2026-10-29 15:24 GMT+3"
     },
     "91b7dfa8-5221-412d-97e0-5718ebd0e398": {
       "name": "PB_v7_Hist64_mfae396 [H2]",
       "campaign": "باور بانك وينر - سمارت",
       "adsquad": "Copy - PB 2.40 Max [H2] #25",
-      "reason": "[Global Accumulated Video Stop-Loss 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $14.58 (>= $13.00) بدون أي مبيعة في يومين",
-      "paused_at": "2026-10-29 01:03 GMT+3"
+      "reason": "[Global Accumulated Video High CPA 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $17.88 | المبيعات = 1 | CPA التراكمي = $17.88 (>= $15.00)",
+      "paused_at": "2026-10-29 15:24 GMT+3"
     },
     "92b7abe6-858f-44fb-8c0f-2d73afb1adf6": {
       "name": "PB_v7_Hist64_mfae396 [H2]",
       "campaign": "باور بانك وينر - سمارت",
       "adsquad": "Copy - PB 2.40 Max [H2] #22",
-      "reason": "[Global Accumulated Video Stop-Loss 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $14.58 (>= $13.00) بدون أي مبيعة في يومين",
-      "paused_at": "2026-10-29 01:03 GMT+3"
+      "reason": "[Global Accumulated Video High CPA 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $17.88 | المبيعات = 1 | CPA التراكمي = $17.88 (>= $15.00)",
+      "paused_at": "2026-10-29 15:24 GMT+3"
     },
     "92c4a62d-d724-49fe-ab7b-87328b8ba278": {
       "name": "PB_v7_Hist64_mfae396 [H1]",
       "campaign": "باور بانك وينر - سمارت",
       "adsquad": "Copy - PB 2.40 Max [H1] #08",
-      "reason": "[Global Accumulated Video Stop-Loss 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $14.58 (>= $13.00) بدون أي مبيعة في يومين",
-      "paused_at": "2026-10-29 01:03 GMT+3"
+      "reason": "[Global Accumulated Video High CPA 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $17.88 | المبيعات = 1 | CPA التراكمي = $17.88 (>= $15.00)",
+      "paused_at": "2026-10-29 15:24 GMT+3"
     },
     "9bb2bf08-fd34-467a-b1dc-e0976d773801": {
       "name": "PB_v7_Hist64_mfae396 [H1]",
       "campaign": "باور بانك وينر - سمارت",
       "adsquad": "Copy - PB 2.40 Max [H1] #14",
-      "reason": "[Global Accumulated Video Stop-Loss 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $14.58 (>= $13.00) بدون أي مبيعة في يومين",
-      "paused_at": "2026-10-29 01:03 GMT+3"
+      "reason": "[Global Accumulated Video High CPA 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $17.88 | المبيعات = 1 | CPA التراكمي = $17.88 (>= $15.00)",
+      "paused_at": "2026-10-29 15:24 GMT+3"
     },
     "a1716bbb-1247-4d41-a1d1-3a0de3a64ad9": {
       "name": "PB_v7_Hist64_mfae396 [H1]",
       "campaign": "باور بانك وينر - سمارت",
       "adsquad": "Copy - PB 2.40 Max [H1] #04",
-      "reason": "[Global Accumulated Video Stop-Loss 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $14.58 (>= $13.00) بدون أي مبيعة في يومين",
-      "paused_at": "2026-10-29 01:03 GMT+3"
+      "reason": "[Global Accumulated Video High CPA 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $17.88 | المبيعات = 1 | CPA التراكمي = $17.88 (>= $15.00)",
+      "paused_at": "2026-10-29 15:24 GMT+3"
     },
     "a3b4688a-0a56-44ae-a359-93b72656ac9d": {
       "name": "PB_v7_Hist64_mfae396 [H2]",
       "campaign": "باور بانك وينر - سمارت",
       "adsquad": "Copy - PB 2.40 Max [H2] #21",
-      "reason": "[Global Accumulated Video Stop-Loss 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $14.58 (>= $13.00) بدون أي مبيعة في يومين",
-      "paused_at": "2026-10-29 01:03 GMT+3"
+      "reason": "[Global Accumulated Video High CPA 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $17.88 | المبيعات = 1 | CPA التراكمي = $17.88 (>= $15.00)",
+      "paused_at": "2026-10-29 15:24 GMT+3"
     },
     "bd8f09d6-9442-42eb-a309-d90faecc3909": {
       "name": "PB_v7_Hist64_mfae396 [H1]",
       "campaign": "باور بانك وينر - سمارت",
       "adsquad": "Copy - PB 2.40 Max [H1] #07",
-      "reason": "[Global Accumulated Video Stop-Loss 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $14.58 (>= $13.00) بدون أي مبيعة في يومين",
-      "paused_at": "2026-10-29 01:03 GMT+3"
+      "reason": "[Global Accumulated Video High CPA 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $17.88 | المبيعات = 1 | CPA التراكمي = $17.88 (>= $15.00)",
+      "paused_at": "2026-10-29 15:24 GMT+3"
     },
     "c3ad1d2a-444e-4adc-9f3c-c506e97f61fd": {
       "name": "PB_v7_Hist64_mfae396 [H1]",
       "campaign": "باور بانك وينر - سمارت",
       "adsquad": "Copy - PB 2.40 Max [H1] #02",
-      "reason": "[Global Accumulated Video Stop-Loss 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $14.58 (>= $13.00) بدون أي مبيعة في يومين",
-      "paused_at": "2026-10-29 01:03 GMT+3"
+      "reason": "[Global Accumulated Video High CPA 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $17.88 | المبيعات = 1 | CPA التراكمي = $17.88 (>= $15.00)",
+      "paused_at": "2026-10-29 15:24 GMT+3"
     },
     "db0a315a-dbfb-4f31-80b6-22418ee0f441": {
       "name": "PB_v7_Hist64_mfae396 [H1]",
       "campaign": "باور بانك وينر - سمارت",
       "adsquad": "Copy - PB 2.40 Max [H1] #09",
-      "reason": "[Global Accumulated Video Stop-Loss 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $14.58 (>= $13.00) بدون أي مبيعة في يومين",
-      "paused_at": "2026-10-29 01:03 GMT+3"
+      "reason": "[Global Accumulated Video High CPA 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $17.88 | المبيعات = 1 | CPA التراكمي = $17.88 (>= $15.00)",
+      "paused_at": "2026-10-29 15:24 GMT+3"
     },
     "dd7fec58-008d-47cd-9a24-5a05068dc945": {
       "name": "PB_v7_Hist64_mfae396 [H2]",
       "campaign": "باور بانك وينر - سمارت",
       "adsquad": "Copy - PB 2.40 Max [H2] #20",
-      "reason": "[Global Accumulated Video Stop-Loss 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $14.58 (>= $13.00) بدون أي مبيعة في يومين",
-      "paused_at": "2026-10-29 01:03 GMT+3"
+      "reason": "[Global Accumulated Video High CPA 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $17.88 | المبيعات = 1 | CPA التراكمي = $17.88 (>= $15.00)",
+      "paused_at": "2026-10-29 15:24 GMT+3"
     },
     "ddaa605a-8342-4587-9f9b-9bd87ae8041f": {
       "name": "PB_v7_Hist64_mfae396 [H2]",
       "campaign": "باور بانك وينر - سمارت",
       "adsquad": "Copy - PB 2.40 Max [H2] #24",
-      "reason": "[Global Accumulated Video Stop-Loss 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $14.58 (>= $13.00) بدون أي مبيعة في يومين",
-      "paused_at": "2026-10-29 01:03 GMT+3"
+      "reason": "[Global Accumulated Video High CPA 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $17.88 | المبيعات = 1 | CPA التراكمي = $17.88 (>= $15.00)",
+      "paused_at": "2026-10-29 15:24 GMT+3"
     },
     "e42ad93d-9d1c-4849-b464-1eccb57412ff": {
       "name": "PB_v7_Hist64_mfae396 [H2]",
       "campaign": "باور بانك وينر - سمارت",
       "adsquad": "Copy - PB 2.40 Max [H2] #23",
-      "reason": "[Global Accumulated Video Stop-Loss 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $14.58 (>= $13.00) بدون أي مبيعة في يومين",
-      "paused_at": "2026-10-29 01:03 GMT+3"
+      "reason": "[Global Accumulated Video High CPA 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $17.88 | المبيعات = 1 | CPA التراكمي = $17.88 (>= $15.00)",
+      "paused_at": "2026-10-29 15:24 GMT+3"
     },
     "e633d143-efaa-4c6c-a5bd-a39f081fda04": {
       "name": "PB_v7_Hist64_mfae396 [H1]",
       "campaign": "باور بانك وينر - سمارت",
       "adsquad": "Copy - PB 2.40 Max [H1] #01",
-      "reason": "[Global Accumulated Video Stop-Loss 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $14.58 (>= $13.00) بدون أي مبيعة في يومين",
-      "paused_at": "2026-10-29 01:03 GMT+3"
+      "reason": "[Global Accumulated Video High CPA 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $17.88 | المبيعات = 1 | CPA التراكمي = $17.88 (>= $15.00)",
+      "paused_at": "2026-10-29 15:24 GMT+3"
     },
     "e7d2ad83-7fcc-4fff-8d69-91207fc97095": {
       "name": "PB_v7_Hist64_mfae396 [H2]",
       "campaign": "باور بانك وينر - سمارت",
       "adsquad": "Copy - PB 2.40 Max [H2] #30",
-      "reason": "[Global Accumulated Video Stop-Loss 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $14.58 (>= $13.00) بدون أي مبيعة في يومين",
-      "paused_at": "2026-10-29 01:03 GMT+3"
+      "reason": "[Global Accumulated Video High CPA 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $17.88 | المبيعات = 1 | CPA التراكمي = $17.88 (>= $15.00)",
+      "paused_at": "2026-10-29 15:24 GMT+3"
     },
     "f3be79e7-b750-4786-9925-667cc9ac9552": {
       "name": "PB_v7_Hist64_mfae396 [H1]",
       "campaign": "باور بانك وينر - سمارت",
       "adsquad": "Copy - PB 2.40 Max [H1] #03",
-      "reason": "[Global Accumulated Video Stop-Loss 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $14.58 (>= $13.00) بدون أي مبيعة في يومين",
-      "paused_at": "2026-10-29 01:03 GMT+3"
+      "reason": "[Global Accumulated Video High CPA 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $17.88 | المبيعات = 1 | CPA التراكمي = $17.88 (>= $15.00)",
+      "paused_at": "2026-10-29 15:24 GMT+3"
     },
     "f3cf704f-c3ac-4d44-bbbd-b30d656b16d1": {
       "name": "PB_v7_Hist64_mfae396 [H2]",
       "campaign": "باور بانك وينر - سمارت",
       "adsquad": "Copy - PB 2.40 Max [H2] #16",
-      "reason": "[Global Accumulated Video Stop-Loss 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $14.58 (>= $13.00) بدون أي مبيعة في يومين",
-      "paused_at": "2026-10-29 01:03 GMT+3"
+      "reason": "[Global Accumulated Video High CPA 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $17.88 | المبيعات = 1 | CPA التراكمي = $17.88 (>= $15.00)",
+      "paused_at": "2026-10-29 15:24 GMT+3"
     },
     "38944c2e-8f29-48c8-90f0-b24b873ecf14": {
       "name": "PB_v7_Hist64_mfae396 [H1]",
       "campaign": "smart+ power bank 3.5$ 28-10",
       "adsquad": "Saudi Arabia, All genders and All ages | 3.50 Bid",
-      "reason": "[Global Accumulated Video High CPA 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $16.31 | المبيعات = 1 | CPA التراكمي = $16.31 (>= $15.00)",
-      "paused_at": "2026-10-29 14:41 GMT+3"
+      "reason": "[Global Accumulated Video High CPA 2D] مجموع صرف الفيديو التراكمي ليومين على مستوى الحساب = $17.88 | المبيعات = 1 | CPA التراكمي = $17.88 (>= $15.00)",
+      "paused_at": "2026-10-29 15:24 GMT+3"
     },
     "917e6bf6-a6fb-4803-823c-f33fc157742f": {
       "name": "PB_v3_Winner3_m4582d6 [H1]",
@@ -12055,8 +12067,8 @@
       "name": "PB_v10_VoltrxH7_m5d3150 [H2]",
       "campaign": "smart+ power bank 3.5$ 28-10",
       "adsquad": "Saudi Arabia, All genders and All ages | 3.50 Bid",
-      "reason": "[Global Accumulated Video Stop-Loss 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $13.20 (>= $13.00) بدون أي مبيعة اليوم",
-      "paused_at": "2026-10-29 14:38 GMT+3"
+      "reason": "[Global Accumulated Video Stop-Loss 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $13.30 (>= $13.00) بدون أي مبيعة اليوم",
+      "paused_at": "2026-10-29 15:20 GMT+3"
     },
     "0391ceee-6d61-4d65-ad18-a26d1bb0998d": {
       "name": "PB_v10_VoltrxH7_m5d3150 [H1]",
@@ -12272,8 +12284,8 @@
       "name": "PB_v10_VoltrxH7_m5d3150 [H2]",
       "campaign": "smart+ power bank 3.0$ 28-10",
       "adsquad": "Saudi Arabia, All genders and All ages | 3.00 Bid",
-      "reason": "[Global Accumulated Video Stop-Loss 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $13.20 (>= $13.00) بدون أي مبيعة اليوم",
-      "paused_at": "2026-10-29 14:38 GMT+3"
+      "reason": "[Global Accumulated Video Stop-Loss 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $13.30 (>= $13.00) بدون أي مبيعة اليوم",
+      "paused_at": "2026-10-29 15:20 GMT+3"
     },
     "685aa7f1-64bf-4105-858c-9889d8d7f1bb": {
       "name": "PB_v3_Winner3_m4582d6 [H2]",
@@ -12295,6 +12307,90 @@
       "adsquad": "Copy - PB 3.00 TC [H1] #02",
       "reason": "[Ad CPC Rule] صرف الفيديو $1.52 (>= $1.00) | النقرات: 2 | سعر النقرة CPC = $0.76 (> $0.28)",
       "paused_at": "2026-10-29 14:41 GMT+3"
+    },
+    "d4bb4bb4-bf59-47ad-bf32-fefaece5cc0d": {
+      "name": "PB_v3_Winner3_m4582d6 [H2]",
+      "campaign": "باور بانك وينر - تارقيت كوست",
+      "adsquad": "Copy - PB 3.00 TC [H2] #19",
+      "reason": "[Ad CPC Rule] صرف الفيديو $1.41 (>= $1.00) | النقرات: 4 | سعر النقرة CPC = $0.352 (> $0.28)",
+      "paused_at": "2026-10-29 15:24 GMT+3"
+    },
+    "1698a6be-8a65-43d5-811c-3c67b63d2758": {
+      "name": "PB_v3_Winner3_m4582d6 [H2]",
+      "campaign": "باور بانك وينر - تارقيت كوست",
+      "adsquad": "Copy - PB 3.00 TC [H2] #17",
+      "reason": "[Ad CPC Rule] صرف الفيديو $1.83 (>= $1.00) | النقرات: 5 | سعر النقرة CPC = $0.366 (> $0.28)",
+      "paused_at": "2026-10-29 15:24 GMT+3"
+    },
+    "328c6ff5-bb5a-4b39-a1ee-c1accc2cae0a": {
+      "name": "PB_v3_Winner3_m4582d6 [H2]",
+      "campaign": "باور بانك وينر - تارقيت كوست",
+      "adsquad": "Copy - PB 3.00 TC [H2] #26",
+      "reason": "[Ad CPC Rule] صرف الفيديو $1.81 (>= $1.00) | النقرات: 6 | سعر النقرة CPC = $0.302 (> $0.28)",
+      "paused_at": "2026-10-29 15:24 GMT+3"
+    },
+    "1f5515dd-900a-42ae-afb9-c92d4a029208": {
+      "name": "PB_v7_Hist64_mfae396 [H1]",
+      "campaign": "باور بانك وينر - تارقيت كوست",
+      "adsquad": "Copy - PB 3.00 TC [H1] #02",
+      "reason": "[Aggregated Video High CPA 2D - السعودية] مجموع صرف الفيديو التراكمي ليومين = $17.65 | المبيعات = 1 | CPA التراكمي = $17.65 (>= $15.00)",
+      "paused_at": "2026-10-29 15:24 GMT+3"
+    },
+    "2700415a-7912-49da-a8e7-9bfb719c5860": {
+      "name": "PB_v7_Hist64_mfae396 [H2]",
+      "campaign": "باور بانك وينر - تارقيت كوست",
+      "adsquad": "Copy - PB 3.00 TC [H2] #29",
+      "reason": "[Aggregated Video High CPA 2D - السعودية] مجموع صرف الفيديو التراكمي ليومين = $17.65 | المبيعات = 1 | CPA التراكمي = $17.65 (>= $15.00)",
+      "paused_at": "2026-10-29 15:24 GMT+3"
+    },
+    "6ef371f4-4010-4530-abbf-2ca2606f68d0": {
+      "name": "PB_v7_Hist64_mfae396 [H2]",
+      "campaign": "باور بانك وينر - تارقيت كوست",
+      "adsquad": "Copy - PB 3.00 TC [H2] #29",
+      "reason": "[Aggregated Video High CPA 2D - السعودية] مجموع صرف الفيديو التراكمي ليومين = $17.65 | المبيعات = 1 | CPA التراكمي = $17.65 (>= $15.00)",
+      "paused_at": "2026-10-29 15:24 GMT+3"
+    },
+    "5e0dcfb9-fde4-40ed-bc2a-c9c8fb552597": {
+      "name": "PB_v7_Hist64_mfae396 [H2]",
+      "campaign": "باور بانك وينر - تارقيت كوست",
+      "adsquad": "Copy - PB 3.00 TC [H2] #27",
+      "reason": "[Aggregated Video High CPA 2D - السعودية] مجموع صرف الفيديو التراكمي ليومين = $17.65 | المبيعات = 1 | CPA التراكمي = $17.65 (>= $15.00)",
+      "paused_at": "2026-10-29 15:24 GMT+3"
+    },
+    "78899c8c-71e3-4e23-acc0-76227a648787": {
+      "name": "PB_v7_Hist64_mfae396 [H2]",
+      "campaign": "باور بانك وينر - تارقيت كوست",
+      "adsquad": "Copy - PB 3.00 TC [H2] #26",
+      "reason": "[Aggregated Video High CPA 2D - السعودية] مجموع صرف الفيديو التراكمي ليومين = $17.65 | المبيعات = 1 | CPA التراكمي = $17.65 (>= $15.00)",
+      "paused_at": "2026-10-29 15:24 GMT+3"
+    },
+    "a9e3e46b-afcb-46ff-9e03-e40dc464441d": {
+      "name": "PB_v7_Hist64_mfae396 [H2]",
+      "campaign": "باور بانك وينر - تارقيت كوست",
+      "adsquad": "Copy - PB 3.00 TC [H2] #19",
+      "reason": "[Aggregated Video High CPA 2D - السعودية] مجموع صرف الفيديو التراكمي ليومين = $17.65 | المبيعات = 1 | CPA التراكمي = $17.65 (>= $15.00)",
+      "paused_at": "2026-10-29 15:24 GMT+3"
+    },
+    "b69ac0fd-1985-48b6-8042-cfe37dab6e6e": {
+      "name": "PB_v7_Hist64_mfae396 [H1]",
+      "campaign": "باور بانك وينر - تارقيت كوست",
+      "adsquad": "Copy - PB 3.00 TC [H1] #04",
+      "reason": "[Aggregated Video High CPA 2D - السعودية] مجموع صرف الفيديو التراكمي ليومين = $17.65 | المبيعات = 1 | CPA التراكمي = $17.65 (>= $15.00)",
+      "paused_at": "2026-10-29 15:24 GMT+3"
+    },
+    "d5267401-7814-489d-9fa1-68c0d48d81ad": {
+      "name": "PB_v7_Hist64_mfae396 [H1]",
+      "campaign": "باور بانك وينر - تارقيت كوست",
+      "adsquad": "Copy - PB 3.00 TC [H1] #06",
+      "reason": "[Aggregated Video High CPA 2D - السعودية] مجموع صرف الفيديو التراكمي ليومين = $17.65 | المبيعات = 1 | CPA التراكمي = $17.65 (>= $15.00)",
+      "paused_at": "2026-10-29 15:24 GMT+3"
+    },
+    "dce15026-fd2f-4490-b82e-7391c54789aa": {
+      "name": "PB_v7_Hist64_mfae396 [H2]",
+      "campaign": "باور بانك وينر - تارقيت كوست",
+      "adsquad": "Copy - PB 3.00 TC [H2] #17",
+      "reason": "[Aggregated Video High CPA 2D - السعودية] مجموع صرف الفيديو التراكمي ليومين = $17.65 | المبيعات = 1 | CPA التراكمي = $17.65 (>= $15.00)",
+      "paused_at": "2026-10-29 15:24 GMT+3"
     }
   },
   "bid_bumps": {
@@ -14705,10 +14801,10 @@
       "video_media_id": "SA:MEDIA:5d315093-a5af-4ccb-992e-ebb1cce47cd1",
       "sample_ad_name": "PB_v10_VoltrxH7_m5d3150",
       "closed_instances": 1,
-      "total_spend": 13.82,
+      "total_spend": 13.97,
       "total_purchases": 0,
-      "reason": "[Global Accumulated Video Stop-Loss 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $13.20 (>= $13.00) بدون أي مبيعة اليوم",
-      "disabled_at": "2026-10-29 14:38 GMT+3"
+      "reason": "[Global Accumulated Video Stop-Loss 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $13.30 (>= $13.00) بدون أي مبيعة اليوم",
+      "disabled_at": "2026-10-29 15:20 GMT+3"
     },
     "8953b893-82fc-41e3-b1c0-24102bdcbb01:SA:MEDIA:5d315093-a5af-4ccb-992e-ebb1cce47cd1": {
       "campaign_id": "8953b893-82fc-41e3-b1c0-24102bdcbb01",
@@ -14727,10 +14823,10 @@
       "video_media_id": "SA:MEDIA:5d315093-a5af-4ccb-992e-ebb1cce47cd1",
       "sample_ad_name": "PB_v10_VoltrxH7_m5d3150",
       "closed_instances": 1,
-      "total_spend": 13.82,
+      "total_spend": 13.97,
       "total_purchases": 0,
-      "reason": "[Global Accumulated Video Stop-Loss 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $13.20 (>= $13.00) بدون أي مبيعة اليوم",
-      "disabled_at": "2026-10-29 14:38 GMT+3"
+      "reason": "[Global Accumulated Video Stop-Loss 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $13.30 (>= $13.00) بدون أي مبيعة اليوم",
+      "disabled_at": "2026-10-29 15:20 GMT+3"
     }
   },
   "tiktok_campaigns": {
@@ -20970,17 +21066,17 @@
     "4eefa50f-9008-4aea-b159-d370150b60cf": {
       "name": "صندوق دفاتر TIME X 21-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-29 14:38 GMT+3"
+      "updated_at": "2026-10-29 15:20 GMT+3"
     },
     "a171c141-a6d5-403e-8357-5c8f6c01bce0": {
       "name": "وسادة مايباخ 21-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-29 14:38 GMT+3"
+      "updated_at": "2026-10-29 15:20 GMT+3"
     },
     "c5a7cade-6ec3-4c47-b3a2-c5f08bcf8da0": {
       "name": "وسادة مايباخ 21-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-29 14:38 GMT+3"
+      "updated_at": "2026-10-29 15:20 GMT+3"
     },
     "1879653126110545": {
       "name": "timex books 21-10",
@@ -20991,12 +21087,12 @@
     "e8f0a5e9-89c5-4c14-aabb-c9c6c657891d": {
       "name": "مسخن الرضاعات اللاسلكي 22-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-29 14:38 GMT+3"
+      "updated_at": "2026-10-29 15:20 GMT+3"
     },
     "f18a3bf4-148a-4f5e-baa1-f90335f1884c": {
       "name": "مسخن الرضاعات اللاسلكي 22-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-29 14:38 GMT+3"
+      "updated_at": "2026-10-29 15:20 GMT+3"
     },
     "1879676075637041": {
       "name": "baby bottle warmer 22-10",
@@ -21013,7 +21109,7 @@
     "29891f22-e046-4cc8-b9ee-9921d2d65f0b": {
       "name": "مسخن الرضاعات اللاسلكي 22-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-29 14:38 GMT+3"
+      "updated_at": "2026-10-29 15:20 GMT+3"
     },
     "1879653022433617": {
       "name": "maybach pillow 21-10",
@@ -21065,10 +21161,10 @@
     },
     "558c5d45-f08e-400c-a499-7668e801c347": {
       "name": "car armrest",
-      "spend_3d": 166.19,
+      "spend_3d": 166.22,
       "purchases_3d": 11,
       "cpa_3d": 15.11,
-      "updated_at": "2026-10-29 14:41 GMT+3"
+      "updated_at": "2026-10-29 15:24 GMT+3"
     },
     "dab749f9-2dca-497b-a8c3-39f2201162a7": {
       "name": "باور بانك وينر - تارقيت كوست",
@@ -26049,6 +26145,54 @@
       "date": "2026-10-29",
       "name": "Copy - PB 3.20 Max [H1] #28",
       "campaign": "باور بانك وينر - جديد",
+      "scaled_budget_today": false
+    },
+    "0f2e3dee-2586-4478-8084-b4169c047c46": {
+      "date": "2026-10-29",
+      "name": "Copy - PB 3.00 TC [H2] #29",
+      "campaign": "باور بانك وينر - تارقيت كوست",
+      "scaled_budget_today": false
+    },
+    "1830023b-2936-49f1-97d8-51626cf3a0b4": {
+      "date": "2026-10-29",
+      "name": "Copy - PB 3.00 TC [H2] #19",
+      "campaign": "باور بانك وينر - تارقيت كوست",
+      "scaled_budget_today": false
+    },
+    "45ff7a64-e506-404f-b8b3-212e8ce020d9": {
+      "date": "2026-10-29",
+      "name": "Copy - PB 3.00 TC [H2] #27",
+      "campaign": "باور بانك وينر - تارقيت كوست",
+      "scaled_budget_today": false
+    },
+    "5d9cb053-c2b8-4d40-ae87-e24f50369f3e": {
+      "date": "2026-10-29",
+      "name": "Copy - PB 3.00 TC [H2] #26",
+      "campaign": "باور بانك وينر - تارقيت كوست",
+      "scaled_budget_today": false
+    },
+    "6b099a11-dfc0-42d6-bd26-a7df365bd021": {
+      "date": "2026-10-29",
+      "name": "Copy - PB 3.00 TC [H1] #04",
+      "campaign": "باور بانك وينر - تارقيت كوست",
+      "scaled_budget_today": false
+    },
+    "f18e40ba-aa96-44cc-b319-8c41dad2f767": {
+      "date": "2026-10-29",
+      "name": "Copy - PB 3.00 TC [H1] #02",
+      "campaign": "باور بانك وينر - تارقيت كوست",
+      "scaled_budget_today": false
+    },
+    "f29aca91-ff01-4160-a535-e38e113dc632": {
+      "date": "2026-10-29",
+      "name": "Copy - PB 3.00 TC [H2] #17",
+      "campaign": "باور بانك وينر - تارقيت كوست",
+      "scaled_budget_today": false
+    },
+    "f54ba882-7f1e-4905-b55b-25ac6f933c48": {
+      "date": "2026-10-29",
+      "name": "Copy - PB 3.00 TC [H1] #06",
+      "campaign": "باور بانك وينر - تارقيت كوست",
       "scaled_budget_today": false
     }
   }
