@@ -12585,6 +12585,34 @@
       "adsquad": "Copy - PB 3.00 TC [H1] #09",
       "reason": "[Ad CPC Rule] صرف الفيديو $1.09 (>= $1.00) | النقرات: 1 | سعر النقرة CPC = $1.09 (> $0.28)",
       "paused_at": "2026-10-29 17:53 GMT+3"
+    },
+    "27b384c2-87e9-4275-87fa-46850b5741fa": {
+      "name": "PB_v10_VoltrxH7_m5d3150 [H1]",
+      "campaign": "باور بانك وينر",
+      "adsquad": "Copy - PB 3.00 Max [H1] #04",
+      "reason": "[Aggregated Video Stop-Loss 1D - السعودية] مجموع صرف الفيديو التراكمي اليوم عبر كل الـ AdSquads = $14.09 (>= $13.00) بدون أي مبيعة اليوم",
+      "paused_at": "2026-10-29 18:48 GMT+3"
+    },
+    "9b89f7e2-9b52-43b0-a049-72d148a179b0": {
+      "name": "PB_v10_VoltrxH7_m5d3150 [H1]",
+      "campaign": "باور بانك وينر",
+      "adsquad": "Copy - PB 3.00 Max [H1] #01",
+      "reason": "[Aggregated Video Stop-Loss 1D - السعودية] مجموع صرف الفيديو التراكمي اليوم عبر كل الـ AdSquads = $14.09 (>= $13.00) بدون أي مبيعة اليوم",
+      "paused_at": "2026-10-29 18:48 GMT+3"
+    },
+    "a31cf683-5957-4a2e-b782-513b0f125ff8": {
+      "name": "PB_v10_VoltrxH7_m5d3150 [H1]",
+      "campaign": "باور بانك وينر",
+      "adsquad": "Copy - PB 3.00 Max [H1] #02",
+      "reason": "[Aggregated Video Stop-Loss 1D - السعودية] مجموع صرف الفيديو التراكمي اليوم عبر كل الـ AdSquads = $14.09 (>= $13.00) بدون أي مبيعة اليوم",
+      "paused_at": "2026-10-29 18:48 GMT+3"
+    },
+    "e341503f-8c18-438a-b955-331b77d16b62": {
+      "name": "PB_v10_VoltrxH7_m5d3150 [H1]",
+      "campaign": "باور بانك وينر",
+      "adsquad": "Copy - PB 3.00 Max [H1] #03",
+      "reason": "[Aggregated Video Stop-Loss 1D - السعودية] مجموع صرف الفيديو التراكمي اليوم عبر كل الـ AdSquads = $14.09 (>= $13.00) بدون أي مبيعة اليوم",
+      "paused_at": "2026-10-29 18:48 GMT+3"
     }
   },
   "bid_bumps": {
@@ -14983,11 +15011,11 @@
       "campaign_name": "باور بانك وينر",
       "video_media_id": "5d315093-a5af-4ccb-992e-ebb1cce47cd1",
       "sample_ad_name": "PB_v10_VoltrxH7_m5d3150",
-      "closed_instances": 20,
-      "total_spend": 14.68,
+      "closed_instances": 4,
+      "total_spend": 14.7,
       "total_purchases": 0,
-      "reason": "[Aggregated Video Stop-Loss 1D - السعودية] مجموع صرف الفيديو التراكمي اليوم عبر كل الـ AdSquads = $14.07 (>= $13.00) بدون أي مبيعة اليوم",
-      "disabled_at": "2026-10-29 16:40 GMT+3"
+      "reason": "[Aggregated Video Stop-Loss 1D - السعودية] مجموع صرف الفيديو التراكمي اليوم عبر كل الـ AdSquads = $14.09 (>= $13.00) بدون أي مبيعة اليوم",
+      "disabled_at": "2026-10-29 18:48 GMT+3"
     },
     "26ebf3cf-0fd8-4d55-b8a3-116210ca2d08:SA:MEDIA:5d315093-a5af-4ccb-992e-ebb1cce47cd1": {
       "campaign_id": "26ebf3cf-0fd8-4d55-b8a3-116210ca2d08",
@@ -21260,17 +21288,17 @@
     "4eefa50f-9008-4aea-b159-d370150b60cf": {
       "name": "صندوق دفاتر TIME X 21-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-29 17:51 GMT+3"
+      "updated_at": "2026-10-29 18:48 GMT+3"
     },
     "a171c141-a6d5-403e-8357-5c8f6c01bce0": {
       "name": "وسادة مايباخ 21-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-29 17:51 GMT+3"
+      "updated_at": "2026-10-29 18:48 GMT+3"
     },
     "c5a7cade-6ec3-4c47-b3a2-c5f08bcf8da0": {
       "name": "وسادة مايباخ 21-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-29 17:51 GMT+3"
+      "updated_at": "2026-10-29 18:48 GMT+3"
     },
     "1879653126110545": {
       "name": "timex books 21-10",
@@ -21281,12 +21309,12 @@
     "e8f0a5e9-89c5-4c14-aabb-c9c6c657891d": {
       "name": "مسخن الرضاعات اللاسلكي 22-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-29 17:51 GMT+3"
+      "updated_at": "2026-10-29 18:48 GMT+3"
     },
     "f18a3bf4-148a-4f5e-baa1-f90335f1884c": {
       "name": "مسخن الرضاعات اللاسلكي 22-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-29 17:51 GMT+3"
+      "updated_at": "2026-10-29 18:48 GMT+3"
     },
     "1879676075637041": {
       "name": "baby bottle warmer 22-10",
@@ -21303,7 +21331,7 @@
     "29891f22-e046-4cc8-b9ee-9921d2d65f0b": {
       "name": "مسخن الرضاعات اللاسلكي 22-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-29 17:51 GMT+3"
+      "updated_at": "2026-10-29 18:48 GMT+3"
     },
     "1879653022433617": {
       "name": "maybach pillow 21-10",
@@ -21358,7 +21386,7 @@
       "spend_3d": 166.22,
       "purchases_3d": 11,
       "cpa_3d": 15.11,
-      "updated_at": "2026-10-29 17:53 GMT+3"
+      "updated_at": "2026-10-29 18:49 GMT+3"
     },
     "dab749f9-2dca-497b-a8c3-39f2201162a7": {
       "name": "باور بانك وينر - تارقيت كوست",
@@ -26633,6 +26661,54 @@
       "date": "2026-10-29",
       "name": "Copy - PB 3.00 TC [H2] #26",
       "campaign": "باور بانك وينر - تارقيت كوست",
+      "scaled_budget_today": false
+    },
+    "0f70cd00-a7d6-44ca-ad04-02431f1245e2": {
+      "date": "2026-10-29",
+      "name": "Copy - PB 3.00 Max [H1] #04",
+      "campaign": "باور بانك وينر",
+      "scaled_budget_today": false
+    },
+    "49f3ea13-81ac-4ac5-9bdb-d18030235f1d": {
+      "date": "2026-10-29",
+      "name": "Copy - PB 3.00 Max [H1] #02",
+      "campaign": "باور بانك وينر",
+      "scaled_budget_today": false
+    },
+    "6e3bd1d9-30b1-493d-8045-2605f28068b9": {
+      "date": "2026-10-29",
+      "name": "Copy - PB 3.00 Max [H1] #01",
+      "campaign": "باور بانك وينر",
+      "scaled_budget_today": false
+    },
+    "fe259a8e-5583-4d32-afc7-0d6a80ad81a4": {
+      "date": "2026-10-29",
+      "name": "Copy - PB 3.00 Max [H1] #03",
+      "campaign": "باور بانك وينر",
+      "scaled_budget_today": false
+    },
+    "02f5b376-3a94-4063-bc11-18e1be3263cf": {
+      "date": "2026-10-29",
+      "name": "Copy - Car 3.00 Max [H1] #02",
+      "campaign": "car scaling camp ",
+      "scaled_budget_today": false
+    },
+    "27a49234-7c47-467f-b0aa-7e4fb1c2b797": {
+      "date": "2026-10-29",
+      "name": "Copy - Car 3.00 Max [H1] #03",
+      "campaign": "car scaling camp ",
+      "scaled_budget_today": false
+    },
+    "b895b3d4-8d65-40d5-9a60-e4cc0193ddaa": {
+      "date": "2026-10-29",
+      "name": "Copy - Car 3.00 Max [H1] #01",
+      "campaign": "car scaling camp ",
+      "scaled_budget_today": false
+    },
+    "bf9d62ae-c7e3-402d-9024-388f7c0e8727": {
+      "date": "2026-10-29",
+      "name": "Copy - Car 3.00 Max [H1] #04",
+      "campaign": "car scaling camp ",
       "scaled_budget_today": false
     }
   }
