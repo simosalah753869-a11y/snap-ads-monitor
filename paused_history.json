@@ -12590,29 +12590,29 @@
       "name": "PB_v10_VoltrxH7_m5d3150 [H1]",
       "campaign": "باور بانك وينر",
       "adsquad": "Copy - PB 3.00 Max [H1] #04",
-      "reason": "[Aggregated Video Stop-Loss 1D - السعودية] مجموع صرف الفيديو التراكمي اليوم عبر كل الـ AdSquads = $14.09 (>= $13.00) بدون أي مبيعة اليوم",
-      "paused_at": "2026-10-29 18:48 GMT+3"
+      "reason": "[Aggregated Video Stop-Loss 2D - السعودية] مجموع صرف الفيديو التراكمي ليومين عبر كل الـ AdSquads = $14.09 (>= $13.00) بدون أي مبيعة في يومين",
+      "paused_at": "2026-10-30 04:26 GMT+3"
     },
     "9b89f7e2-9b52-43b0-a049-72d148a179b0": {
       "name": "PB_v10_VoltrxH7_m5d3150 [H1]",
       "campaign": "باور بانك وينر",
       "adsquad": "Copy - PB 3.00 Max [H1] #01",
-      "reason": "[Aggregated Video Stop-Loss 1D - السعودية] مجموع صرف الفيديو التراكمي اليوم عبر كل الـ AdSquads = $14.09 (>= $13.00) بدون أي مبيعة اليوم",
-      "paused_at": "2026-10-29 18:48 GMT+3"
+      "reason": "[Aggregated Video Stop-Loss 2D - السعودية] مجموع صرف الفيديو التراكمي ليومين عبر كل الـ AdSquads = $14.09 (>= $13.00) بدون أي مبيعة في يومين",
+      "paused_at": "2026-10-30 04:26 GMT+3"
     },
     "a31cf683-5957-4a2e-b782-513b0f125ff8": {
       "name": "PB_v10_VoltrxH7_m5d3150 [H1]",
       "campaign": "باور بانك وينر",
       "adsquad": "Copy - PB 3.00 Max [H1] #02",
-      "reason": "[Aggregated Video Stop-Loss 1D - السعودية] مجموع صرف الفيديو التراكمي اليوم عبر كل الـ AdSquads = $14.09 (>= $13.00) بدون أي مبيعة اليوم",
-      "paused_at": "2026-10-29 18:48 GMT+3"
+      "reason": "[Aggregated Video Stop-Loss 2D - السعودية] مجموع صرف الفيديو التراكمي ليومين عبر كل الـ AdSquads = $14.09 (>= $13.00) بدون أي مبيعة في يومين",
+      "paused_at": "2026-10-30 04:26 GMT+3"
     },
     "e341503f-8c18-438a-b955-331b77d16b62": {
       "name": "PB_v10_VoltrxH7_m5d3150 [H1]",
       "campaign": "باور بانك وينر",
       "adsquad": "Copy - PB 3.00 Max [H1] #03",
-      "reason": "[Aggregated Video Stop-Loss 1D - السعودية] مجموع صرف الفيديو التراكمي اليوم عبر كل الـ AdSquads = $14.09 (>= $13.00) بدون أي مبيعة اليوم",
-      "paused_at": "2026-10-29 18:48 GMT+3"
+      "reason": "[Aggregated Video Stop-Loss 2D - السعودية] مجموع صرف الفيديو التراكمي ليومين عبر كل الـ AdSquads = $14.09 (>= $13.00) بدون أي مبيعة في يومين",
+      "paused_at": "2026-10-30 04:26 GMT+3"
     }
   },
   "bid_bumps": {
@@ -15020,10 +15020,10 @@
       "video_media_id": "5d315093-a5af-4ccb-992e-ebb1cce47cd1",
       "sample_ad_name": "PB_v10_VoltrxH7_m5d3150",
       "closed_instances": 4,
-      "total_spend": 14.7,
+      "total_spend": 14.42,
       "total_purchases": 0,
-      "reason": "[Aggregated Video Stop-Loss 1D - السعودية] مجموع صرف الفيديو التراكمي اليوم عبر كل الـ AdSquads = $14.09 (>= $13.00) بدون أي مبيعة اليوم",
-      "disabled_at": "2026-10-29 18:48 GMT+3"
+      "reason": "[Aggregated Video Stop-Loss 2D - السعودية] مجموع صرف الفيديو التراكمي ليومين عبر كل الـ AdSquads = $14.09 (>= $13.00) بدون أي مبيعة في يومين",
+      "disabled_at": "2026-10-30 04:26 GMT+3"
     },
     "26ebf3cf-0fd8-4d55-b8a3-116210ca2d08:SA:MEDIA:5d315093-a5af-4ccb-992e-ebb1cce47cd1": {
       "campaign_id": "26ebf3cf-0fd8-4d55-b8a3-116210ca2d08",
@@ -21296,17 +21296,17 @@
     "4eefa50f-9008-4aea-b159-d370150b60cf": {
       "name": "صندوق دفاتر TIME X 21-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-30 03:15 GMT+3"
+      "updated_at": "2026-10-30 04:26 GMT+3"
     },
     "a171c141-a6d5-403e-8357-5c8f6c01bce0": {
       "name": "وسادة مايباخ 21-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-30 03:15 GMT+3"
+      "updated_at": "2026-10-30 04:26 GMT+3"
     },
     "c5a7cade-6ec3-4c47-b3a2-c5f08bcf8da0": {
       "name": "وسادة مايباخ 21-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-30 03:15 GMT+3"
+      "updated_at": "2026-10-30 04:26 GMT+3"
     },
     "1879653126110545": {
       "name": "timex books 21-10",
@@ -21317,12 +21317,12 @@
     "e8f0a5e9-89c5-4c14-aabb-c9c6c657891d": {
       "name": "مسخن الرضاعات اللاسلكي 22-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-30 03:15 GMT+3"
+      "updated_at": "2026-10-30 04:26 GMT+3"
     },
     "f18a3bf4-148a-4f5e-baa1-f90335f1884c": {
       "name": "مسخن الرضاعات اللاسلكي 22-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-30 03:15 GMT+3"
+      "updated_at": "2026-10-30 04:26 GMT+3"
     },
     "1879676075637041": {
       "name": "baby bottle warmer 22-10",
@@ -21339,7 +21339,7 @@
     "29891f22-e046-4cc8-b9ee-9921d2d65f0b": {
       "name": "مسخن الرضاعات اللاسلكي 22-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-30 03:15 GMT+3"
+      "updated_at": "2026-10-30 04:26 GMT+3"
     },
     "1879653022433617": {
       "name": "maybach pillow 21-10",
@@ -21394,14 +21394,14 @@
       "spend_3d": 36.72,
       "purchases_3d": 3,
       "cpa_3d": 12.24,
-      "updated_at": "2026-10-30 03:17 GMT+3"
+      "updated_at": "2026-10-30 04:28 GMT+3"
     },
     "dab749f9-2dca-497b-a8c3-39f2201162a7": {
       "name": "باور بانك وينر - تارقيت كوست",
-      "spend_3d": 380.27,
+      "spend_3d": 380.8,
       "purchases_3d": 50,
-      "cpa_3d": 7.61,
-      "updated_at": "2026-10-30 03:17 GMT+3"
+      "cpa_3d": 7.62,
+      "updated_at": "2026-10-30 04:28 GMT+3"
     }
   },
   "proactive_scaled_squads": {
