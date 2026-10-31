@@ -1257,8 +1257,8 @@
     "a0aed96d-9612-4b62-8c26-98856b358d8e": {
       "name": "PB 1.40 Max [H1] #02",
       "campaign": "باور بانك وينر - 30 أدست - بيد 1.4 30-10",
-      "reason": "[2-Day Audit] [AdSquad CPC > $0.28 Rule] صرفت المجموعة $1.30 (>= $1.00) وسعر النقرة CPC=$0.325 (> $0.28)",
-      "paused_at": "2026-11-01 00:03 GMT+3"
+      "reason": "[3-Day Audit] [AdSquad CPC > $0.28 Rule] صرفت المجموعة $2.99 (>= $1.00) وسعر النقرة CPC=$0.299 (> $0.28)",
+      "paused_at": "2026-11-01 00:40 GMT+3"
     },
     "090e57bf-689d-4a7c-adc5-242e5cd221fc": {
       "name": "Car 1.40 Max [H1] #09",
@@ -1360,7 +1360,7 @@
       "name": "Car 1.40 Max [H1] #07",
       "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.4 30-10",
       "reason": "[3-Day Audit] [AdSquad CPC > $0.28 Rule] صرفت المجموعة $1.21 (>= $1.00) وسعر النقرة CPC=$0.605 (> $0.28)",
-      "paused_at": "2026-11-01 00:03 GMT+3"
+      "paused_at": "2026-11-01 00:40 GMT+3"
     },
     "c98fb5ee-0f82-4fdd-adfa-fae27e35de36": {
       "name": "Car 1.60 Max [H1] #09",
@@ -1461,8 +1461,8 @@
     "3facbfbe-f73c-47f8-92ca-68b8f91ef8df": {
       "name": "Car 1.50 Max [H1] #18",
       "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.5 30-10",
-      "reason": "[2-Day Audit] [AdSquad CPC > $0.28 Rule] صرفت المجموعة $3.33 (>= $1.00) وسعر النقرة CPC=$0.333 (> $0.28)",
-      "paused_at": "2026-11-01 00:03 GMT+3"
+      "reason": "[2-Day Audit] [AdSquad CPC > $0.28 Rule] صرفت المجموعة $3.35 (>= $1.00) وسعر النقرة CPC=$0.335 (> $0.28)",
+      "paused_at": "2026-11-01 00:40 GMT+3"
     },
     "a1e0eba2-0291-48a6-8b05-15ee88f62fb5": {
       "name": "Copy - Car 2.00 Max [H1] #26",
@@ -17135,6 +17135,13 @@
       "adsquad": "PB 1.40 Max [H1] #22",
       "reason": "[2-Day Audit] [Ad CPC Rule] صرف الفيديو $1.02 (>= $1.00) | النقرات: 2 | سعر النقرة CPC = $0.51 (> $0.28)",
       "paused_at": "2026-10-31 23:17 GMT+3"
+    },
+    "9d8e3aa7-d7ed-472c-8678-d512069b4383": {
+      "name": "Car_v2_13-10_h5_mc16269 [H1]",
+      "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.5 30-10",
+      "adsquad": "Car 1.50 Max [H1] #09",
+      "reason": "[2-Day Audit] [Ad CPC Rule] صرف الفيديو $1.39 (>= $1.00) | النقرات: 4 | سعر النقرة CPC = $0.347 (> $0.28)",
+      "paused_at": "2026-11-01 00:40 GMT+3"
     }
   },
   "bid_bumps": {
@@ -25974,17 +25981,17 @@
     "4eefa50f-9008-4aea-b159-d370150b60cf": {
       "name": "صندوق دفاتر TIME X 21-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-31 23:55 GMT+3"
+      "updated_at": "2026-11-01 00:31 GMT+3"
     },
     "a171c141-a6d5-403e-8357-5c8f6c01bce0": {
       "name": "وسادة مايباخ 21-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-31 23:55 GMT+3"
+      "updated_at": "2026-11-01 00:31 GMT+3"
     },
     "c5a7cade-6ec3-4c47-b3a2-c5f08bcf8da0": {
       "name": "وسادة مايباخ 21-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-31 23:55 GMT+3"
+      "updated_at": "2026-11-01 00:31 GMT+3"
     },
     "1879653126110545": {
       "name": "timex books 21-10",
@@ -25995,12 +26002,12 @@
     "e8f0a5e9-89c5-4c14-aabb-c9c6c657891d": {
       "name": "مسخن الرضاعات اللاسلكي 22-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-31 23:55 GMT+3"
+      "updated_at": "2026-11-01 00:31 GMT+3"
     },
     "f18a3bf4-148a-4f5e-baa1-f90335f1884c": {
       "name": "مسخن الرضاعات اللاسلكي 22-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-31 23:55 GMT+3"
+      "updated_at": "2026-11-01 00:31 GMT+3"
     },
     "1879676075637041": {
       "name": "baby bottle warmer 22-10",
@@ -26017,7 +26024,7 @@
     "29891f22-e046-4cc8-b9ee-9921d2d65f0b": {
       "name": "مسخن الرضاعات اللاسلكي 22-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-31 23:55 GMT+3"
+      "updated_at": "2026-11-01 00:31 GMT+3"
     },
     "1879653022433617": {
       "name": "maybach pillow 21-10",
@@ -26093,7 +26100,7 @@
       "spend_3d": 22.33,
       "purchases_3d": 1,
       "cpa_3d": 22.33,
-      "updated_at": "2026-11-01 00:03 GMT+3"
+      "updated_at": "2026-11-01 00:40 GMT+3"
     },
     "7bffcb77-f2ae-427e-883a-f4e5f249cae9": {
       "name": "باور بانك وينر - 30 أدست - بيد 1.5 30-10",
@@ -26107,7 +26114,7 @@
       "spend_3d": 21.85,
       "purchases_3d": 1,
       "cpa_3d": 21.85,
-      "updated_at": "2026-11-01 00:03 GMT+3"
+      "updated_at": "2026-11-01 00:40 GMT+3"
     },
     "a1121184-41a2-484d-8fa4-67011918698c": {
       "name": "وسادة السيارة وينر - 30 أدست - بيد 1.5 30-10",
@@ -26118,10 +26125,10 @@
     },
     "89aadf62-66f2-4ac8-9106-f92fd83b4277": {
       "name": "باور بانك وينر - 30 أدست - بيد 1.4 30-10",
-      "spend_3d": 112.7,
+      "spend_3d": 125.24,
       "purchases_3d": 14,
-      "cpa_3d": 8.05,
-      "updated_at": "2026-11-01 00:03 GMT+3"
+      "cpa_3d": 8.95,
+      "updated_at": "2026-11-01 00:40 GMT+3"
     },
     "7fa61e5d-dd41-4ee5-af26-e5c0f773bdef": {
       "name": "باور بانك وينر - 30 أدست - بيد 1.6 30-10",
@@ -26132,10 +26139,10 @@
     },
     "6cb7f305-66ac-4e9e-8fe0-3cfccd09e3c8": {
       "name": "وسادة السيارة وينر - 30 أدست - بيد 1.4 30-10",
-      "spend_3d": 20.21,
+      "spend_3d": 20.95,
       "purchases_3d": 2,
-      "cpa_3d": 10.11,
-      "updated_at": "2026-11-01 00:03 GMT+3"
+      "cpa_3d": 10.47,
+      "updated_at": "2026-11-01 00:40 GMT+3"
     }
   },
   "proactive_scaled_squads": {
@@ -26810,7 +26817,7 @@
       "scaled_budget_today": false
     },
     "4c8709d4-03cb-4805-bd25-e03ee33052ca": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "Copy - PB 2.40 Max [H1] #02",
       "campaign": "باور بانك وينر",
       "scaled_budget_today": false
@@ -26876,7 +26883,7 @@
       "scaled_budget_today": false
     },
     "af0a7d37-ef53-489e-857a-bdaa2864b88b": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "Copy - PB 2.40 Max [H1] #12",
       "campaign": "باور بانك وينر",
       "scaled_budget_today": false
@@ -26918,7 +26925,7 @@
       "scaled_budget_today": false
     },
     "d33d2510-17dc-43f1-8195-758c00b576d1": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "Copy - PB 2.40 Max [H2] #19",
       "campaign": "باور بانك وينر",
       "scaled_budget_today": false
@@ -31412,7 +31419,7 @@
       "scaled_budget_today": false
     },
     "49f3ea13-81ac-4ac5-9bdb-d18030235f1d": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "Copy - PB 3.00 Max [H1] #02",
       "campaign": "باور بانك وينر",
       "scaled_budget_today": false
@@ -31430,25 +31437,25 @@
       "scaled_budget_today": false
     },
     "02f5b376-3a94-4063-bc11-18e1be3263cf": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "Copy - Car 3.00 Max [H1] #02",
       "campaign": "car scaling camp ",
       "scaled_budget_today": false
     },
     "27a49234-7c47-467f-b0aa-7e4fb1c2b797": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "Copy - Car 3.00 Max [H1] #03",
       "campaign": "car scaling camp ",
       "scaled_budget_today": false
     },
     "b895b3d4-8d65-40d5-9a60-e4cc0193ddaa": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "Copy - Car 3.00 Max [H1] #01",
       "campaign": "car scaling camp ",
       "scaled_budget_today": false
     },
     "bf9d62ae-c7e3-402d-9024-388f7c0e8727": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "Copy - Car 3.00 Max [H1] #04",
       "campaign": "car scaling camp ",
       "scaled_budget_today": false
@@ -31652,10 +31659,10 @@
       "scaled_budget_today": false
     },
     "00bee959-7dfc-492e-bde4-89be4d1022fb": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "Copy - Car 1.90 Max [H1] #01",
       "campaign": "وسادة السيارة وينر 2 - 30 أدست 30-10",
-      "scaled_budget_today": true
+      "scaled_budget_today": false
     },
     "11f8fdc0-1a0e-423d-a54f-d8b672fdcab7": {
       "date": "2026-10-30",
@@ -31676,7 +31683,7 @@
       "scaled_budget_today": false
     },
     "364e1768-f1f5-4e6a-9a87-1b287f0712ec": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "Copy - Car 2.00 Max [H1] #25",
       "campaign": "وسادة السيارة وينر 2 - 30 أدست 30-10",
       "scaled_budget_today": false
@@ -31688,7 +31695,7 @@
       "scaled_budget_today": false
     },
     "3fb983f0-9735-4b8f-889c-8e6df466c883": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "Copy - Car 1.90 Max [H1] #09",
       "campaign": "وسادة السيارة وينر 2 - 30 أدست 30-10",
       "scaled_budget_today": false
@@ -31718,13 +31725,13 @@
       "scaled_budget_today": false
     },
     "641eb748-89d1-44d4-bc1e-4ae4023004bc": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "Copy - Car 1.90 Max [H1] #06",
       "campaign": "وسادة السيارة وينر 2 - 30 أدست 30-10",
       "scaled_budget_today": false
     },
     "65c33890-1aad-4d20-8555-7cd5e4656c35": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "Copy - Car 1.90 Max [H1] #13",
       "campaign": "وسادة السيارة وينر 2 - 30 أدست 30-10",
       "scaled_budget_today": false
@@ -31736,7 +31743,7 @@
       "scaled_budget_today": false
     },
     "6db67581-f79f-4644-b359-f141998fd713": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "Copy - Car 1.90 Max [H1] #02",
       "campaign": "وسادة السيارة وينر 2 - 30 أدست 30-10",
       "scaled_budget_today": false
@@ -31748,7 +31755,7 @@
       "scaled_budget_today": false
     },
     "9907f7cd-30ae-4803-8345-066427a542f3": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "Copy - Car 2.00 Max [H1] #22",
       "campaign": "وسادة السيارة وينر 2 - 30 أدست 30-10",
       "scaled_budget_today": false
@@ -31796,13 +31803,13 @@
       "scaled_budget_today": false
     },
     "f1aa1b09-2c70-4249-aafe-04391bb3aa43": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "Copy - Car 2.00 Max [H1] #29",
       "campaign": "وسادة السيارة وينر 2 - 30 أدست 30-10",
       "scaled_budget_today": false
     },
     "f23b9a57-c570-4eab-b85a-0b333bfced65": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "Copy - Car 1.90 Max [H1] #04",
       "campaign": "وسادة السيارة وينر 2 - 30 أدست 30-10",
       "scaled_budget_today": false
@@ -32210,553 +32217,553 @@
       "scaled_budget_today": false
     },
     "01da5be3-3f2f-4df6-a0b3-786cb7f5ffb7": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "PB 1.60 Max [H1] #06",
       "campaign": "باور بانك وينر - 30 أدست - بيد 1.6 30-10",
       "scaled_budget_today": false
     },
     "081b355f-62a9-452c-ba7e-05a95fc4092e": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "PB 1.60 Max [H1] #19",
       "campaign": "باور بانك وينر - 30 أدست - بيد 1.6 30-10",
       "scaled_budget_today": false
     },
     "13073f3d-e9df-4c2d-ba18-b08a02fecce8": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "PB 1.60 Max [H1] #30",
       "campaign": "باور بانك وينر - 30 أدست - بيد 1.6 30-10",
       "scaled_budget_today": false
     },
     "273d3c11-c88c-496e-a17a-014271e0e49c": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "PB 1.60 Max [H1] #12",
       "campaign": "باور بانك وينر - 30 أدست - بيد 1.6 30-10",
       "scaled_budget_today": false
     },
     "37dbcde0-3283-4c81-90c2-39c26ca38c90": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "PB 1.60 Max [H1] #29",
       "campaign": "باور بانك وينر - 30 أدست - بيد 1.6 30-10",
       "scaled_budget_today": false
     },
     "3ee8a8a8-b9c5-41c3-aa0c-69f9543581e4": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "PB 1.60 Max [H1] #08",
       "campaign": "باور بانك وينر - 30 أدست - بيد 1.6 30-10",
       "scaled_budget_today": false
     },
     "418f6e89-70b1-4ea5-8d2c-fcba6c097d71": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "PB 1.60 Max [H1] #17",
       "campaign": "باور بانك وينر - 30 أدست - بيد 1.6 30-10",
       "scaled_budget_today": false
     },
     "45b07f20-215e-493f-8252-634125cf2d33": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "PB 1.60 Max [H1] #01",
       "campaign": "باور بانك وينر - 30 أدست - بيد 1.6 30-10",
       "scaled_budget_today": false
     },
     "45f36695-083f-4d1a-a6c0-6b0489e9de0c": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "PB 1.60 Max [H1] #13",
       "campaign": "باور بانك وينر - 30 أدست - بيد 1.6 30-10",
       "scaled_budget_today": false
     },
     "52951a81-0881-4a89-b642-185b8a6e88de": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "PB 1.60 Max [H1] #24",
       "campaign": "باور بانك وينر - 30 أدست - بيد 1.6 30-10",
       "scaled_budget_today": false
     },
     "52e0ef48-5a6f-4807-a063-705474b0d579": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "PB 1.60 Max [H1] #22",
       "campaign": "باور بانك وينر - 30 أدست - بيد 1.6 30-10",
       "scaled_budget_today": false
     },
     "5a0a6654-6e24-4415-be84-94ee9906c0fd": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "PB 1.60 Max [H1] #11",
       "campaign": "باور بانك وينر - 30 أدست - بيد 1.6 30-10",
       "scaled_budget_today": false
     },
     "6a44fb26-3acc-48f9-9dc6-4fbe306b9289": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "PB 1.60 Max [H1] #07",
       "campaign": "باور بانك وينر - 30 أدست - بيد 1.6 30-10",
       "scaled_budget_today": false
     },
     "6c710c22-63a3-440f-917a-8ae10553489b": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "PB 1.60 Max [H1] #27",
       "campaign": "باور بانك وينر - 30 أدست - بيد 1.6 30-10",
       "scaled_budget_today": false
     },
     "707762b0-37ed-43aa-a014-e994727091de": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "PB 1.60 Max [H1] #02",
       "campaign": "باور بانك وينر - 30 أدست - بيد 1.6 30-10",
       "scaled_budget_today": false
     },
     "82004cb8-a92b-4c38-9bbe-33d224010bc4": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "PB 1.60 Max [H1] #26",
       "campaign": "باور بانك وينر - 30 أدست - بيد 1.6 30-10",
       "scaled_budget_today": false
     },
     "822cabbb-6399-495a-a21b-eb744eacf9c1": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "PB 1.60 Max [H1] #04",
       "campaign": "باور بانك وينر - 30 أدست - بيد 1.6 30-10",
       "scaled_budget_today": false
     },
     "879d39bf-3b06-44f5-b265-37b3d6f66c9b": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "PB 1.60 Max [H1] #21",
       "campaign": "باور بانك وينر - 30 أدست - بيد 1.6 30-10",
       "scaled_budget_today": false
     },
     "8cb4d696-0e92-4073-9a75-aec868037f29": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "PB 1.60 Max [H1] #03",
       "campaign": "باور بانك وينر - 30 أدست - بيد 1.6 30-10",
       "scaled_budget_today": false
     },
     "8dee52ac-e19f-4210-99b1-dfec85f40c14": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "PB 1.60 Max [H1] #20",
       "campaign": "باور بانك وينر - 30 أدست - بيد 1.6 30-10",
       "scaled_budget_today": false
     },
     "a69f00b5-febe-45ae-9341-b6838d5066a6": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "PB 1.60 Max [H1] #05",
       "campaign": "باور بانك وينر - 30 أدست - بيد 1.6 30-10",
       "scaled_budget_today": false
     },
     "ad03d05d-ea89-4f43-8655-31e5a3a89e74": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "PB 1.60 Max [H1] #09",
       "campaign": "باور بانك وينر - 30 أدست - بيد 1.6 30-10",
       "scaled_budget_today": false
     },
     "c7cad401-1c79-4d0b-8b2b-dc8641aaa591": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "PB 1.60 Max [H1] #10",
       "campaign": "باور بانك وينر - 30 أدست - بيد 1.6 30-10",
       "scaled_budget_today": false
     },
     "cfd697db-bc2e-4ff3-9276-7764dae68ea2": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "PB 1.60 Max [H1] #14",
       "campaign": "باور بانك وينر - 30 أدست - بيد 1.6 30-10",
       "scaled_budget_today": false
     },
     "db84f978-42e5-48df-9031-dc5ae0a6a4f9": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "PB 1.60 Max [H1] #16",
       "campaign": "باور بانك وينر - 30 أدست - بيد 1.6 30-10",
       "scaled_budget_today": false
     },
     "dd922e76-5bda-45a4-9850-a3fc21cecbd3": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "PB 1.60 Max [H1] #18",
       "campaign": "باور بانك وينر - 30 أدست - بيد 1.6 30-10",
       "scaled_budget_today": false
     },
     "f267ecd6-902e-49b0-8c17-6dcf6b47838e": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "PB 1.60 Max [H1] #28",
       "campaign": "باور بانك وينر - 30 أدست - بيد 1.6 30-10",
       "scaled_budget_today": false
     },
     "f298e32b-2d28-4c4a-aec3-3fd72345ca6e": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "PB 1.60 Max [H1] #15",
       "campaign": "باور بانك وينر - 30 أدست - بيد 1.6 30-10",
       "scaled_budget_today": false
     },
     "f9222757-d47b-4415-857a-9cbc2b5623e4": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "PB 1.60 Max [H1] #25",
       "campaign": "باور بانك وينر - 30 أدست - بيد 1.6 30-10",
       "scaled_budget_today": false
     },
     "faa86607-cf59-423c-baa4-da122129ce6d": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "PB 1.60 Max [H1] #23",
       "campaign": "باور بانك وينر - 30 أدست - بيد 1.6 30-10",
       "scaled_budget_today": false
     },
     "0f03b44c-8123-4b11-bcc5-118cd039506c": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "PB 1.40 Max [H1] #05",
       "campaign": "باور بانك وينر - 30 أدست - بيد 1.4 30-10",
       "scaled_budget_today": false
     },
     "0f82702c-572b-4e55-b27f-f64caf0f358f": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "PB 1.40 Max [H1] #11",
       "campaign": "باور بانك وينر - 30 أدست - بيد 1.4 30-10",
       "scaled_budget_today": false
     },
     "1733a623-5a99-4f22-b31a-b55dff12515e": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "PB 1.40 Max [H1] #13",
       "campaign": "باور بانك وينر - 30 أدست - بيد 1.4 30-10",
       "scaled_budget_today": false
     },
     "1a88a6e1-1140-4da6-9063-1c840af0af17": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "PB 1.40 Max [H1] #12",
       "campaign": "باور بانك وينر - 30 أدست - بيد 1.4 30-10",
       "scaled_budget_today": false
     },
     "215fd939-4665-49b1-b9f7-8c98a243204e": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "PB 1.40 Max [H1] #03",
       "campaign": "باور بانك وينر - 30 أدست - بيد 1.4 30-10",
       "scaled_budget_today": false
     },
     "2686287e-bab4-43e0-8d95-e2d659b76a7e": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "PB 1.40 Max [H1] #14",
       "campaign": "باور بانك وينر - 30 أدست - بيد 1.4 30-10",
       "scaled_budget_today": false
     },
     "2af41b54-4abb-4d77-8e62-a56753d6ca7e": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "PB 1.40 Max [H1] #25",
       "campaign": "باور بانك وينر - 30 أدست - بيد 1.4 30-10",
       "scaled_budget_today": false
     },
     "2cf94cf3-1ce7-4ddd-b08e-71cfaf676c70": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "PB 1.40 Max [H1] #30",
       "campaign": "باور بانك وينر - 30 أدست - بيد 1.4 30-10",
       "scaled_budget_today": false
     },
     "38395f39-0831-44f1-8427-b9711407ea93": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "PB 1.40 Max [H1] #15",
       "campaign": "باور بانك وينر - 30 أدست - بيد 1.4 30-10",
       "scaled_budget_today": false
     },
     "3e2adf41-6363-4436-803b-fa1d2ece7d9f": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "PB 1.40 Max [H1] #29",
       "campaign": "باور بانك وينر - 30 أدست - بيد 1.4 30-10",
       "scaled_budget_today": false
     },
     "3e335d67-e071-43c2-9928-f7f447add44e": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "PB 1.40 Max [H1] #20",
       "campaign": "باور بانك وينر - 30 أدست - بيد 1.4 30-10",
       "scaled_budget_today": false
     },
     "40ff160b-7267-4e76-b44d-74ffc8456e46": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "PB 1.40 Max [H1] #10",
       "campaign": "باور بانك وينر - 30 أدست - بيد 1.4 30-10",
       "scaled_budget_today": false
     },
     "4cfb84cc-5305-4dc2-992f-a1511ef06a4a": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "PB 1.40 Max [H1] #21",
       "campaign": "باور بانك وينر - 30 أدست - بيد 1.4 30-10",
       "scaled_budget_today": false
     },
     "5aa23e18-58c9-4061-933b-54431cb7b25e": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "PB 1.40 Max [H1] #06",
       "campaign": "باور بانك وينر - 30 أدست - بيد 1.4 30-10",
       "scaled_budget_today": false
     },
     "610ba2ec-991c-4ad5-adb9-deaa1328caef": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "PB 1.40 Max [H1] #19",
       "campaign": "باور بانك وينر - 30 أدست - بيد 1.4 30-10",
       "scaled_budget_today": false
     },
     "62a9999a-f93b-401d-81c9-a515bf7218e7": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "PB 1.40 Max [H1] #24",
       "campaign": "باور بانك وينر - 30 أدست - بيد 1.4 30-10",
       "scaled_budget_today": false
     },
     "685389ba-ae1a-443e-817d-ed04f37e764f": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "PB 1.40 Max [H1] #28",
       "campaign": "باور بانك وينر - 30 أدست - بيد 1.4 30-10",
       "scaled_budget_today": false
     },
     "7e1673c6-40be-44cd-98ec-d0bf699839a3": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "PB 1.40 Max [H1] #16",
       "campaign": "باور بانك وينر - 30 أدست - بيد 1.4 30-10",
       "scaled_budget_today": false
     },
     "91ee9dee-c689-4730-8388-509aca32ef6b": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "PB 1.40 Max [H1] #27",
       "campaign": "باور بانك وينر - 30 أدست - بيد 1.4 30-10",
       "scaled_budget_today": false
     },
     "ada6e1fc-08c6-47d4-8fe2-933e2e28cca6": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "PB 1.40 Max [H1] #09",
       "campaign": "باور بانك وينر - 30 أدست - بيد 1.4 30-10",
       "scaled_budget_today": false
     },
     "b1d6aecb-f795-4747-8382-2b77595c1740": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "PB 1.40 Max [H1] #07",
       "campaign": "باور بانك وينر - 30 أدست - بيد 1.4 30-10",
       "scaled_budget_today": false
     },
     "b973a2a2-2f4f-4679-9380-c25fb91f8dde": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "PB 1.40 Max [H1] #08",
       "campaign": "باور بانك وينر - 30 أدست - بيد 1.4 30-10",
       "scaled_budget_today": false
     },
     "baab354f-6a03-413e-9ffa-8a2fd5139299": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "PB 1.40 Max [H1] #17",
       "campaign": "باور بانك وينر - 30 أدست - بيد 1.4 30-10",
       "scaled_budget_today": false
     },
     "bdeb604a-062e-4d93-8cf3-416b92c98761": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "PB 1.40 Max [H1] #02",
       "campaign": "باور بانك وينر - 30 أدست - بيد 1.4 30-10",
       "scaled_budget_today": false
     },
     "cad3c97f-8c49-4d58-ba02-a4ac66abd2e1": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "PB 1.40 Max [H1] #04",
       "campaign": "باور بانك وينر - 30 أدست - بيد 1.4 30-10",
       "scaled_budget_today": false
     },
     "d0197ab2-1150-4862-b911-615b29a3c243": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "PB 1.40 Max [H1] #23",
       "campaign": "باور بانك وينر - 30 أدست - بيد 1.4 30-10",
       "scaled_budget_today": false
     },
     "d41c1bdd-3c3c-4b1f-892d-c062670f66e3": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "PB 1.40 Max [H1] #22",
       "campaign": "باور بانك وينر - 30 أدست - بيد 1.4 30-10",
       "scaled_budget_today": false
     },
     "d89644d7-bc0c-47ed-8381-59818a7a562f": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "PB 1.40 Max [H1] #18",
       "campaign": "باور بانك وينر - 30 أدست - بيد 1.4 30-10",
       "scaled_budget_today": false
     },
     "fbd45c64-631d-43f2-8e6d-a3f64c4dfe82": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "PB 1.40 Max [H1] #26",
       "campaign": "باور بانك وينر - 30 أدست - بيد 1.4 30-10",
       "scaled_budget_today": false
     },
     "fd3de3f6-677c-43b9-b446-24d727afefb4": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "PB 1.40 Max [H1] #01",
       "campaign": "باور بانك وينر - 30 أدست - بيد 1.4 30-10",
       "scaled_budget_today": false
     },
     "1613a689-4b50-41c8-9100-7f83f20761dd": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "Car 1.50 Max [H1] #02",
       "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.5 30-10",
       "scaled_budget_today": false
     },
     "187f58f7-d39e-46b9-a3ee-0fb83c57bf85": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "Car 1.50 Max [H1] #05",
       "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.5 30-10",
       "scaled_budget_today": false
     },
     "1ffc7e36-f1bb-4622-8527-4d89d50a32c2": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "Car 1.50 Max [H1] #13",
       "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.5 30-10",
       "scaled_budget_today": false
     },
     "289807ea-8090-4a2d-a821-f4523b53b3cd": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "Car 1.50 Max [H1] #04",
       "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.5 30-10",
       "scaled_budget_today": false
     },
     "29fe2ebf-a1a8-4de3-a594-8b17a76ffb66": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "Car 1.50 Max [H1] #20",
       "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.5 30-10",
       "scaled_budget_today": false
     },
     "39937f4a-8259-4704-84c5-7a975101305f": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "Car 1.50 Max [H1] #06",
       "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.5 30-10",
       "scaled_budget_today": false
     },
     "409acd2c-deef-40c6-9068-7b0d834b7618": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "Car 1.50 Max [H1] #10",
       "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.5 30-10",
       "scaled_budget_today": false
     },
     "5da1e402-a4be-4121-a3a9-f58769eb15ec": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "Car 1.50 Max [H1] #30",
       "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.5 30-10",
       "scaled_budget_today": false
     },
     "5e5232b3-c3b7-4320-815b-350c9e4fb28b": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "Car 1.50 Max [H1] #15",
       "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.5 30-10",
       "scaled_budget_today": false
     },
     "79c93643-9753-447e-922a-c393d0f19fd1": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "Car 1.50 Max [H1] #25",
       "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.5 30-10",
       "scaled_budget_today": false
     },
     "7d1cfc9a-a31e-4283-a170-3a7f40314401": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "Car 1.50 Max [H1] #11",
       "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.5 30-10",
       "scaled_budget_today": false
     },
     "83a2f195-a547-4759-9a20-04a6ee148e9e": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "Car 1.50 Max [H1] #18",
       "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.5 30-10",
       "scaled_budget_today": false
     },
     "90784bd3-6496-4b7f-b7a3-5a0d2cf9bfb5": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "Car 1.50 Max [H1] #21",
       "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.5 30-10",
       "scaled_budget_today": false
     },
     "94387714-029b-47c0-86e6-7e665e3c4a79": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "Car 1.50 Max [H1] #17",
       "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.5 30-10",
       "scaled_budget_today": false
     },
     "a165f8b7-e18c-47d2-910b-70ad02680871": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "Car 1.50 Max [H1] #28",
       "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.5 30-10",
       "scaled_budget_today": false
     },
     "a9706e00-8ba9-4adb-b1ea-90b2d2fe8111": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "Car 1.50 Max [H1] #14",
       "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.5 30-10",
       "scaled_budget_today": false
     },
     "ab4d0657-e7c7-4a7b-8010-b92e72af3ff5": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "Car 1.50 Max [H1] #29",
       "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.5 30-10",
       "scaled_budget_today": false
     },
     "b35296db-20a9-41c4-9a8d-c7e47edf58fe": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "Car 1.50 Max [H1] #03",
       "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.5 30-10",
       "scaled_budget_today": false
     },
     "c1f5b81f-279e-4177-82d1-4f5b015c7ced": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "Car 1.50 Max [H1] #19",
       "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.5 30-10",
       "scaled_budget_today": false
     },
     "d231fac5-b14e-4017-9985-f26c478ae4ce": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "Car 1.50 Max [H1] #01",
       "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.5 30-10",
       "scaled_budget_today": false
     },
     "d27ec607-c801-4fb3-be29-7d1957e9f67b": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "Car 1.50 Max [H1] #26",
       "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.5 30-10",
       "scaled_budget_today": false
     },
     "d3e8dbb1-021a-4d5c-82bc-1ec771dd8390": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "Car 1.50 Max [H1] #24",
       "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.5 30-10",
       "scaled_budget_today": false
     },
     "d447f9f4-14d2-41d2-97f5-e58a101f7317": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "Car 1.50 Max [H1] #07",
       "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.5 30-10",
       "scaled_budget_today": false
     },
     "d63f2b8c-4777-4315-a348-56cceebac3bc": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "Car 1.50 Max [H1] #08",
       "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.5 30-10",
       "scaled_budget_today": false
     },
     "dfd1bced-1de8-4125-9b69-9dcf3fdd9d11": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "Car 1.50 Max [H1] #16",
       "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.5 30-10",
       "scaled_budget_today": false
     },
     "e89d5d7a-1fba-4097-a235-2da635152766": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "Car 1.50 Max [H1] #23",
       "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.5 30-10",
       "scaled_budget_today": false
     },
     "e8e51615-379e-4709-ac90-730983adaffc": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "Car 1.50 Max [H1] #27",
       "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.5 30-10",
       "scaled_budget_today": false
     },
     "f052c508-77b2-46c5-81aa-4fce496aa794": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "Car 1.50 Max [H1] #22",
       "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.5 30-10",
       "scaled_budget_today": false
     },
     "f1670348-2120-42aa-97f7-474aff35871d": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "Car 1.50 Max [H1] #12",
       "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.5 30-10",
       "scaled_budget_today": false
     },
     "f3f9b9b0-9c65-400f-a9b9-037151ae82db": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "Car 1.50 Max [H1] #09",
       "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.5 30-10",
       "scaled_budget_today": false
     },
     "0073abcf-73b2-4ef6-a4d2-3288e4fd77c6": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "Car 1.60 Max [H1] #03",
       "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.6 30-10",
       "scaled_budget_today": false
     },
     "08aab757-8a40-4a37-89fa-f47a1ad2d152": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "Car 1.60 Max [H1] #21",
       "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.6 30-10",
       "scaled_budget_today": false
@@ -32774,13 +32781,13 @@
       "scaled_budget_today": false
     },
     "2d3573a8-640c-46aa-9b9f-1705dc606913": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "Car 1.60 Max [H1] #15",
       "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.6 30-10",
       "scaled_budget_today": false
     },
     "388556f0-b5c7-4021-bd6a-30304de81907": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "Car 1.60 Max [H1] #30",
       "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.6 30-10",
       "scaled_budget_today": false
@@ -32798,139 +32805,139 @@
       "scaled_budget_today": false
     },
     "53965e61-9708-4dc5-a36c-429763b74278": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "Car 1.60 Max [H1] #20",
       "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.6 30-10",
       "scaled_budget_today": false
     },
     "592212e6-6c90-47ac-81a9-35c0e5ee1bef": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "Car 1.60 Max [H1] #04",
       "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.6 30-10",
       "scaled_budget_today": false
     },
     "5aa3f6e1-b018-4224-9399-d6a56d302ac8": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "Car 1.60 Max [H1] #28",
       "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.6 30-10",
       "scaled_budget_today": false
     },
     "607e21a1-6a6a-4326-a9c8-77939ed66583": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "Car 1.60 Max [H1] #10",
       "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.6 30-10",
       "scaled_budget_today": false
     },
     "71a14e93-db54-4479-9461-951f3baedd2b": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "Car 1.60 Max [H1] #27",
       "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.6 30-10",
       "scaled_budget_today": false
     },
     "76b260b5-b1d2-4321-b347-cdda221105b7": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "Car 1.60 Max [H1] #26",
       "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.6 30-10",
       "scaled_budget_today": false
     },
     "797c2c38-b561-415c-bf83-0e6fa5cd5674": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "Car 1.60 Max [H1] #12",
       "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.6 30-10",
       "scaled_budget_today": false
     },
     "7c92a68f-e5c9-4203-a274-c0d0f4ae651f": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "Car 1.60 Max [H1] #09",
       "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.6 30-10",
       "scaled_budget_today": false
     },
     "813533da-7379-48d0-b39d-e8b91e0fd903": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "Car 1.60 Max [H1] #23",
       "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.6 30-10",
       "scaled_budget_today": false
     },
     "93e9e535-b07a-428d-be6a-5ad13fde5787": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "Car 1.60 Max [H1] #24",
       "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.6 30-10",
       "scaled_budget_today": false
     },
     "941d9747-f045-4ac5-aa84-86620c5e99be": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "Car 1.60 Max [H1] #25",
       "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.6 30-10",
       "scaled_budget_today": false
     },
     "95189418-9670-4727-b16a-e45030dc215b": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "Car 1.60 Max [H1] #29",
       "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.6 30-10",
       "scaled_budget_today": false
     },
     "9904b07d-0d16-40a2-91f0-5991be29923a": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "Car 1.60 Max [H1] #07",
       "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.6 30-10",
       "scaled_budget_today": false
     },
     "998eed44-38f5-4295-abfd-ddf77df1e322": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "Car 1.60 Max [H1] #08",
       "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.6 30-10",
       "scaled_budget_today": false
     },
     "9b846cae-4e1f-427c-8755-11aa4a58b133": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "Car 1.60 Max [H1] #01",
       "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.6 30-10",
       "scaled_budget_today": false
     },
     "a29ad73d-e9ce-4e8f-899a-28b71c2ea227": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "Car 1.60 Max [H1] #05",
       "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.6 30-10",
       "scaled_budget_today": false
     },
     "ba1f69f9-b87d-475a-becf-8fd503f0dcf9": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "Car 1.60 Max [H1] #14",
       "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.6 30-10",
       "scaled_budget_today": false
     },
     "c30292c1-9ae5-4349-82f1-96dd51f5bb01": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "Car 1.60 Max [H1] #16",
       "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.6 30-10",
       "scaled_budget_today": false
     },
     "c66c457b-08ea-4009-ae12-98c1effdfc59": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "Car 1.60 Max [H1] #18",
       "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.6 30-10",
       "scaled_budget_today": false
     },
     "cd6b6241-2e1e-4aa5-9cc5-4a80e7063553": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "Car 1.60 Max [H1] #11",
       "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.6 30-10",
       "scaled_budget_today": false
     },
     "f087fab2-27d5-488c-8ed9-c315e1e6ccd0": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "Car 1.60 Max [H1] #02",
       "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.6 30-10",
       "scaled_budget_today": false
     },
     "fb9ea6cb-6d85-4b87-9ef9-dd5cfa92949b": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "Car 1.60 Max [H1] #13",
       "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.6 30-10",
       "scaled_budget_today": false
     },
     "08a490d0-82a3-42ec-9c55-ed652ab74676": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "Car 1.40 Max [H1] #07",
       "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.4 30-10",
       "scaled_budget_today": false
@@ -32942,349 +32949,349 @@
       "scaled_budget_today": false
     },
     "0b58862b-a82f-4192-b28b-f7d661fb375a": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "Car 1.40 Max [H1] #11",
       "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.4 30-10",
       "scaled_budget_today": false
     },
     "1a6c761d-2129-43c0-9ca7-afba12302a93": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "Car 1.40 Max [H1] #10",
       "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.4 30-10",
       "scaled_budget_today": false
     },
     "24858d96-7ba9-455e-8732-ff53fb84e288": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "Car 1.40 Max [H1] #23",
       "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.4 30-10",
       "scaled_budget_today": false
     },
     "2dea192d-159d-48c7-85c4-4dcec4cf1ec6": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "Car 1.40 Max [H1] #14",
       "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.4 30-10",
       "scaled_budget_today": false
     },
     "31a2b82b-14ce-452f-87e1-5238d8f6336f": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "Car 1.40 Max [H1] #30",
       "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.4 30-10",
       "scaled_budget_today": false
     },
     "476c3f0c-d54e-435a-9398-323021141975": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "Car 1.40 Max [H1] #25",
       "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.4 30-10",
       "scaled_budget_today": false
     },
     "4d35a238-02a9-4cf1-873f-4e77877c5184": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "Car 1.40 Max [H1] #06",
       "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.4 30-10",
       "scaled_budget_today": false
     },
     "516fab99-6fea-4fd6-bf85-0ae91e2d043b": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "Car 1.40 Max [H1] #01",
       "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.4 30-10",
       "scaled_budget_today": false
     },
     "5f92240a-b9f8-477a-9ce7-fe1c36e0d2d9": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "Car 1.40 Max [H1] #18",
       "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.4 30-10",
       "scaled_budget_today": false
     },
     "618c9689-5817-47bd-9955-b854f96fe24e": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "Car 1.40 Max [H1] #08",
       "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.4 30-10",
       "scaled_budget_today": false
     },
     "63d096bc-c6e0-49ac-8274-de557d019218": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "Car 1.40 Max [H1] #04",
       "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.4 30-10",
       "scaled_budget_today": false
     },
     "6a6dd76b-4b18-4b71-8922-2925b60b8b4b": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "Car 1.40 Max [H1] #28",
       "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.4 30-10",
       "scaled_budget_today": false
     },
     "8037bcfd-8673-4edd-b343-7ec13acb362b": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "Car 1.40 Max [H1] #26",
       "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.4 30-10",
       "scaled_budget_today": false
     },
     "8371c4b9-a1c4-4090-be69-d15a2fe8a4fa": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "Car 1.40 Max [H1] #29",
       "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.4 30-10",
       "scaled_budget_today": false
     },
     "8a500729-3d0d-44a6-9f21-3770fd6dceeb": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "Car 1.40 Max [H1] #24",
       "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.4 30-10",
       "scaled_budget_today": false
     },
     "8d1d6013-a52e-4371-91fb-caedede3c5db": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "Car 1.40 Max [H1] #05",
       "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.4 30-10",
       "scaled_budget_today": false
     },
     "93e659d6-ba36-4501-91f4-e1ecca18f015": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "Car 1.40 Max [H1] #20",
       "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.4 30-10",
       "scaled_budget_today": false
     },
     "a10393ab-4f40-4beb-be73-40ec760cfc5d": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "Car 1.40 Max [H1] #12",
       "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.4 30-10",
       "scaled_budget_today": false
     },
     "a8f1e970-d40e-4afe-a005-15cbe2ebda94": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "Car 1.40 Max [H1] #16",
       "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.4 30-10",
       "scaled_budget_today": false
     },
     "b3273c51-7cb7-4ebf-9ce6-5851da708ae0": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "Car 1.40 Max [H1] #19",
       "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.4 30-10",
       "scaled_budget_today": false
     },
     "b6b3dafa-1f17-4798-84d8-d4815c275bde": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "Car 1.40 Max [H1] #22",
       "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.4 30-10",
       "scaled_budget_today": false
     },
     "b87db9d9-c992-4d6d-9d63-513b5a6026c2": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "Car 1.40 Max [H1] #17",
       "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.4 30-10",
       "scaled_budget_today": false
     },
     "c1997a3e-7ea6-47bb-926d-c4b0ccb6dfe4": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "Car 1.40 Max [H1] #02",
       "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.4 30-10",
       "scaled_budget_today": false
     },
     "d02cad50-655e-4907-a9a6-42b4f200cbf6": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "Car 1.40 Max [H1] #21",
       "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.4 30-10",
       "scaled_budget_today": false
     },
     "de97fbe4-31fe-4236-ada5-bc5cee158668": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "Car 1.40 Max [H1] #27",
       "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.4 30-10",
       "scaled_budget_today": false
     },
     "e6a943f4-48f1-4d22-a978-c3f8bafd6645": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "Car 1.40 Max [H1] #13",
       "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.4 30-10",
       "scaled_budget_today": false
     },
     "e88343e4-13ac-4ad0-9816-6a58076b65cf": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "Car 1.40 Max [H1] #03",
       "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.4 30-10",
       "scaled_budget_today": false
     },
     "f9a52dd1-9cf3-495d-9e7d-faaf435d023a": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "Car 1.40 Max [H1] #15",
       "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.4 30-10",
       "scaled_budget_today": false
     },
     "0b960449-fb00-484b-980b-d7239407e14e": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "PB 1.50 Max [H1] #18",
       "campaign": "باور بانك وينر - 30 أدست - بيد 1.5 30-10",
       "scaled_budget_today": false
     },
     "13fcb84e-8cb8-4f3f-8097-8c1d8ec3071c": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "PB 1.50 Max [H1] #05",
       "campaign": "باور بانك وينر - 30 أدست - بيد 1.5 30-10",
       "scaled_budget_today": false
     },
     "149ffaaa-ea02-4e68-856c-33298c23b01d": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "PB 1.50 Max [H1] #26",
       "campaign": "باور بانك وينر - 30 أدست - بيد 1.5 30-10",
       "scaled_budget_today": false
     },
     "1c6654a6-b771-4f0f-b433-ddad3b6f919e": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "PB 1.50 Max [H1] #23",
       "campaign": "باور بانك وينر - 30 أدست - بيد 1.5 30-10",
       "scaled_budget_today": false
     },
     "1d72ec62-1852-4833-9e2e-7418d0742dda": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "PB 1.50 Max [H1] #12",
       "campaign": "باور بانك وينر - 30 أدست - بيد 1.5 30-10",
       "scaled_budget_today": false
     },
     "200d72a5-5e57-485e-a943-13c47e66f73d": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "PB 1.50 Max [H1] #07",
       "campaign": "باور بانك وينر - 30 أدست - بيد 1.5 30-10",
       "scaled_budget_today": false
     },
     "3c129a20-51f0-443b-b1a6-d53c311e3315": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "PB 1.50 Max [H1] #24",
       "campaign": "باور بانك وينر - 30 أدست - بيد 1.5 30-10",
       "scaled_budget_today": false
     },
     "48544db2-f937-47e1-b919-5bc6c197b599": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "PB 1.50 Max [H1] #14",
       "campaign": "باور بانك وينر - 30 أدست - بيد 1.5 30-10",
       "scaled_budget_today": false
     },
     "490c3d2e-31cc-4c27-b53b-51f4ccb007c9": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "PB 1.50 Max [H1] #06",
       "campaign": "باور بانك وينر - 30 أدست - بيد 1.5 30-10",
       "scaled_budget_today": false
     },
     "55590d16-38c5-46c7-ba19-1d9bd670ecc1": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "PB 1.50 Max [H1] #11",
       "campaign": "باور بانك وينر - 30 أدست - بيد 1.5 30-10",
       "scaled_budget_today": false
     },
     "5669707a-3ab5-40c4-bb2e-6c45eddb7b21": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "PB 1.50 Max [H1] #09",
       "campaign": "باور بانك وينر - 30 أدست - بيد 1.5 30-10",
       "scaled_budget_today": false
     },
     "6b0c8382-4014-491b-9b16-ed692ab6384e": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "PB 1.50 Max [H1] #15",
       "campaign": "باور بانك وينر - 30 أدست - بيد 1.5 30-10",
       "scaled_budget_today": false
     },
     "6fd67d4a-ed1b-4311-a30c-b7618797e1ac": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "PB 1.50 Max [H1] #21",
       "campaign": "باور بانك وينر - 30 أدست - بيد 1.5 30-10",
       "scaled_budget_today": false
     },
     "72bc0bdb-da81-4629-beb0-b891c22ac3c0": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "PB 1.50 Max [H1] #13",
       "campaign": "باور بانك وينر - 30 أدست - بيد 1.5 30-10",
       "scaled_budget_today": false
     },
     "72fbf7d3-494e-4eda-b24f-910e5d897d06": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "PB 1.50 Max [H1] #19",
       "campaign": "باور بانك وينر - 30 أدست - بيد 1.5 30-10",
       "scaled_budget_today": false
     },
     "78e4726d-867d-4b82-9f7f-4565a69f2c8a": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "PB 1.50 Max [H1] #01",
       "campaign": "باور بانك وينر - 30 أدست - بيد 1.5 30-10",
       "scaled_budget_today": false
     },
     "79fe9b06-60fd-4e15-bae0-82df9a8c719b": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "PB 1.50 Max [H1] #22",
       "campaign": "باور بانك وينر - 30 أدست - بيد 1.5 30-10",
       "scaled_budget_today": false
     },
     "9312fef5-7b8f-4712-ac6e-4721e537a2ae": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "PB 1.50 Max [H1] #16",
       "campaign": "باور بانك وينر - 30 أدست - بيد 1.5 30-10",
       "scaled_budget_today": false
     },
     "acb7fb55-f52b-428a-b2c8-0e9eb859bad8": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "PB 1.50 Max [H1] #10",
       "campaign": "باور بانك وينر - 30 أدست - بيد 1.5 30-10",
       "scaled_budget_today": false
     },
     "b5e9a029-00e9-4e13-82b8-d8777cb29681": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "PB 1.50 Max [H1] #28",
       "campaign": "باور بانك وينر - 30 أدست - بيد 1.5 30-10",
       "scaled_budget_today": false
     },
     "bab503df-6209-422e-be30-5e72bff84e58": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "PB 1.50 Max [H1] #08",
       "campaign": "باور بانك وينر - 30 أدست - بيد 1.5 30-10",
       "scaled_budget_today": false
     },
     "cd705d8d-6287-477c-b53d-49381988bcb7": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "PB 1.50 Max [H1] #02",
       "campaign": "باور بانك وينر - 30 أدست - بيد 1.5 30-10",
       "scaled_budget_today": false
     },
     "d43e162e-6dee-4c95-b084-10a13a348387": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "PB 1.50 Max [H1] #03",
       "campaign": "باور بانك وينر - 30 أدست - بيد 1.5 30-10",
       "scaled_budget_today": false
     },
     "db890a36-395d-450a-9f0f-9bd2c9ffc158": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "PB 1.50 Max [H1] #25",
       "campaign": "باور بانك وينر - 30 أدست - بيد 1.5 30-10",
       "scaled_budget_today": false
     },
     "dd9267c3-e2b6-45fb-ab19-7e0d5fc73420": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "PB 1.50 Max [H1] #17",
       "campaign": "باور بانك وينر - 30 أدست - بيد 1.5 30-10",
       "scaled_budget_today": false
     },
     "e745ba62-cd69-41d9-a708-65d043e341be": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "PB 1.50 Max [H1] #20",
       "campaign": "باور بانك وينر - 30 أدست - بيد 1.5 30-10",
       "scaled_budget_today": false
     },
     "eeaa1e98-6dbd-4ae7-9d68-f15910012499": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "PB 1.50 Max [H1] #29",
       "campaign": "باور بانك وينر - 30 أدست - بيد 1.5 30-10",
       "scaled_budget_today": false
     },
     "f151eb58-d847-41e4-afa5-0ef4af166c7e": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "PB 1.50 Max [H1] #27",
       "campaign": "باور بانك وينر - 30 أدست - بيد 1.5 30-10",
       "scaled_budget_today": false
     },
     "fa0d24df-1eb4-4922-9bed-241f4ae97371": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "PB 1.50 Max [H1] #04",
       "campaign": "باور بانك وينر - 30 أدست - بيد 1.5 30-10",
       "scaled_budget_today": false
     },
     "fdd35b7d-f6c7-407d-a398-619c04825a70": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "PB 1.50 Max [H1] #30",
       "campaign": "باور بانك وينر - 30 أدست - بيد 1.5 30-10",
       "scaled_budget_today": false
@@ -34370,25 +34377,25 @@
       "scaled_budget_today": false
     },
     "bb27caf2-7dc7-4003-881f-69644288c11e": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "تيست 9 فيديوهات جديدة 30-10",
       "campaign": "باور بانك وينر",
       "scaled_budget_today": false
     },
     "12834ca1-2fa3-4e88-8364-6fd988d934f4": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "تيست 10 فيديوهات وسادة 31-10",
       "campaign": "car scaling camp ",
       "scaled_budget_today": false
     },
     "824d1137-cc23-4886-9e11-040d2749dc8e": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "تيست 10 فيديوهات وسادة 31-10",
       "campaign": "car scaling camp ",
       "scaled_budget_today": false
     },
     "9a9eeff1-c2a5-40cd-aab1-a95cccdaa0c0": {
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "name": "تيست 5 فيديوهات وسادة 31-10",
       "campaign": "car scaling camp ",
       "scaled_budget_today": false
