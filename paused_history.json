@@ -1359,8 +1359,8 @@
     "feaa6e0e-995e-4350-9e4c-41ab244e9596": {
       "name": "Car 1.40 Max [H1] #07",
       "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.4 30-10",
-      "reason": "[2-Day Audit] [AdSquad CPC > $0.28 Rule] صرفت المجموعة $1.19 (>= $1.00) وسعر النقرة CPC=$0.595 (> $0.28)",
-      "paused_at": "2026-10-31 06:48 GMT+3"
+      "reason": "[2-Day Audit] [AdSquad CPC > $0.28 Rule] صرفت المجموعة $1.18 (>= $1.00) وسعر النقرة CPC=$0.590 (> $0.28)",
+      "paused_at": "2026-10-31 07:33 GMT+3"
     },
     "c98fb5ee-0f82-4fdd-adfa-fae27e35de36": {
       "name": "Car 1.60 Max [H1] #09",
@@ -1425,8 +1425,8 @@
     "09651a16-ed4f-4a87-afa3-dda071d49041": {
       "name": "Copy - PB 1.90 Max [H1] #10",
       "campaign": "باور بانك وينر 2 - 30 أدست 30-10",
-      "reason": "[2-Day Audit] [AdSquad CPC > $0.28 Rule] صرفت المجموعة $1.22 (>= $1.00) وسعر النقرة CPC=$0.407 (> $0.28)",
-      "paused_at": "2026-10-31 06:39 GMT+3"
+      "reason": "[2-Day Audit] [AdSquad CPC > $0.28 Rule] صرفت المجموعة $1.23 (>= $1.00) وسعر النقرة CPC=$0.410 (> $0.28)",
+      "paused_at": "2026-10-31 07:24 GMT+3"
     },
     "cf14be8c-be95-45c3-b264-701f5920b7e2": {
       "name": "Car 1.50 Max [H1] #30",
@@ -1445,6 +1445,12 @@
       "campaign": "باور بانك وينر - 30 أدست - بيد 1.6 30-10",
       "reason": "[AdSquad CPC > $0.28 Rule] صرفت المجموعة $3.09 (>= $1.00) وسعر النقرة CPC=$0.281 (> $0.28)",
       "paused_at": "2026-10-31 06:48 GMT+3"
+    },
+    "0bd75df2-d240-4049-b612-ef306c9f7ccb": {
+      "name": "PB 1.60 Max [H1] #27",
+      "campaign": "باور بانك وينر - 30 أدست - بيد 1.6 30-10",
+      "reason": "[2-Day Audit] [AdSquad Max CPA Rule] سعر البيعة CPA = $7.26 (> $7.00) | الصرف: $7.26 | المبيعات: 1",
+      "paused_at": "2026-10-31 07:33 GMT+3"
     }
   },
   "ads": {
@@ -16490,6 +16496,13 @@
       "adsquad": "PB 1.60 Max [H1] #08",
       "reason": "[2-Day Audit] [Ad CPC Rule] صرف الفيديو $2.27 (>= $1.00) | النقرات: 8 | سعر النقرة CPC = $0.284 (> $0.28)",
       "paused_at": "2026-10-31 06:48 GMT+3"
+    },
+    "9d15f465-d2b7-46e3-912e-da7398edd9df": {
+      "name": "W7_2_c_m81d72e [H1]",
+      "campaign": "وسادة السيارة وينر 2 - 30 أدست 30-10",
+      "adsquad": "Copy - Car 2.00 Max [H1] #26",
+      "reason": "[Ad CPC Rule] صرف الفيديو $1.09 (>= $1.00) | النقرات: 2 | سعر النقرة CPC = $0.545 (> $0.28)",
+      "paused_at": "2026-10-31 07:24 GMT+3"
     }
   },
   "bid_bumps": {
@@ -25272,17 +25285,17 @@
     "4eefa50f-9008-4aea-b159-d370150b60cf": {
       "name": "صندوق دفاتر TIME X 21-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-31 06:39 GMT+3"
+      "updated_at": "2026-10-31 07:24 GMT+3"
     },
     "a171c141-a6d5-403e-8357-5c8f6c01bce0": {
       "name": "وسادة مايباخ 21-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-31 06:39 GMT+3"
+      "updated_at": "2026-10-31 07:24 GMT+3"
     },
     "c5a7cade-6ec3-4c47-b3a2-c5f08bcf8da0": {
       "name": "وسادة مايباخ 21-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-31 06:39 GMT+3"
+      "updated_at": "2026-10-31 07:24 GMT+3"
     },
     "1879653126110545": {
       "name": "timex books 21-10",
@@ -25293,12 +25306,12 @@
     "e8f0a5e9-89c5-4c14-aabb-c9c6c657891d": {
       "name": "مسخن الرضاعات اللاسلكي 22-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-31 06:39 GMT+3"
+      "updated_at": "2026-10-31 07:24 GMT+3"
     },
     "f18a3bf4-148a-4f5e-baa1-f90335f1884c": {
       "name": "مسخن الرضاعات اللاسلكي 22-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-31 06:39 GMT+3"
+      "updated_at": "2026-10-31 07:24 GMT+3"
     },
     "1879676075637041": {
       "name": "baby bottle warmer 22-10",
@@ -25315,7 +25328,7 @@
     "29891f22-e046-4cc8-b9ee-9921d2d65f0b": {
       "name": "مسخن الرضاعات اللاسلكي 22-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-10-31 06:39 GMT+3"
+      "updated_at": "2026-10-31 07:24 GMT+3"
     },
     "1879653022433617": {
       "name": "maybach pillow 21-10",
@@ -25374,10 +25387,10 @@
     },
     "dab749f9-2dca-497b-a8c3-39f2201162a7": {
       "name": "باور بانك وينر - تارقيت كوست",
-      "spend_3d": 211.78,
+      "spend_3d": 211.79,
       "purchases_3d": 27,
       "cpa_3d": 7.84,
-      "updated_at": "2026-10-31 06:48 GMT+3"
+      "updated_at": "2026-10-31 07:33 GMT+3"
     },
     "483f7e57-8a8e-4edb-8b74-7c67eb76419b": {
       "name": "باور بانك وينر 2 - 30 أدست 30-10",
@@ -25391,7 +25404,7 @@
       "spend_3d": 22.33,
       "purchases_3d": 1,
       "cpa_3d": 22.33,
-      "updated_at": "2026-10-31 06:48 GMT+3"
+      "updated_at": "2026-10-31 07:33 GMT+3"
     },
     "7bffcb77-f2ae-427e-883a-f4e5f249cae9": {
       "name": "باور بانك وينر - 30 أدست - بيد 1.5 30-10",
@@ -25405,7 +25418,7 @@
       "spend_3d": 21.8,
       "purchases_3d": 1,
       "cpa_3d": 21.8,
-      "updated_at": "2026-10-31 06:48 GMT+3"
+      "updated_at": "2026-10-31 07:33 GMT+3"
     },
     "a1121184-41a2-484d-8fa4-67011918698c": {
       "name": "وسادة السيارة وينر - 30 أدست - بيد 1.5 30-10",
@@ -25416,10 +25429,10 @@
     },
     "89aadf62-66f2-4ac8-9106-f92fd83b4277": {
       "name": "باور بانك وينر - 30 أدست - بيد 1.4 30-10",
-      "spend_3d": 59.78,
+      "spend_3d": 59.87,
       "purchases_3d": 8,
-      "cpa_3d": 7.47,
-      "updated_at": "2026-10-31 06:48 GMT+3"
+      "cpa_3d": 7.48,
+      "updated_at": "2026-10-31 07:33 GMT+3"
     },
     "7fa61e5d-dd41-4ee5-af26-e5c0f773bdef": {
       "name": "باور بانك وينر - 30 أدست - بيد 1.6 30-10",
@@ -25430,10 +25443,10 @@
     },
     "6cb7f305-66ac-4e9e-8fe0-3cfccd09e3c8": {
       "name": "وسادة السيارة وينر - 30 أدست - بيد 1.4 30-10",
-      "spend_3d": 10.38,
+      "spend_3d": 10.47,
       "purchases_3d": 1,
-      "cpa_3d": 10.38,
-      "updated_at": "2026-10-31 06:48 GMT+3"
+      "cpa_3d": 10.47,
+      "updated_at": "2026-10-31 07:33 GMT+3"
     }
   },
   "proactive_scaled_squads": {
