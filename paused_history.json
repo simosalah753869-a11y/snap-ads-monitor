@@ -1599,8 +1599,8 @@
     "476c3f0c-d54e-435a-9398-323021141975": {
       "name": "Car 1.40 Max [H1] #25",
       "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.4 30-10",
-      "reason": "[2-Day Audit] [AdSquad CPC > $0.28 Rule] صرفت المجموعة $3.21 (>= $1.00) وسعر النقرة CPC=$0.292 (> $0.28)",
-      "paused_at": "2026-11-01 12:23 GMT+3"
+      "reason": "[2-Day Audit] [AdSquad CPC > $0.28 Rule] صرفت المجموعة $3.27 (>= $1.00) وسعر النقرة CPC=$0.297 (> $0.28)",
+      "paused_at": "2026-11-01 13:17 GMT+3"
     },
     "49b26f13-45a3-4243-821f-bd8395381fd3": {
       "name": "PB 1.40 Max [H1] #20",
@@ -1761,8 +1761,8 @@
     "0f82702c-572b-4e55-b27f-f64caf0f358f": {
       "name": "PB 1.40 Max [H1] #11",
       "campaign": "باور بانك وينر - 30 أدست - بيد 1.4 30-10",
-      "reason": "[AdSquad CPC > $0.28 Rule] صرفت المجموعة $2.23 (>= $1.00) وسعر النقرة CPC=$0.319 (> $0.28)",
-      "paused_at": "2026-11-01 08:26 GMT+3"
+      "reason": "[AdSquad CPC > $0.28 Rule] صرفت المجموعة $2.41 (>= $1.00) وسعر النقرة CPC=$0.344 (> $0.28)",
+      "paused_at": "2026-11-01 13:17 GMT+3"
     },
     "768c336b-9129-4e68-8d8f-c87a0806aa00": {
       "name": "PB 1.50 Max [H1] #14",
@@ -1905,8 +1905,20 @@
     "4c8709d4-03cb-4805-bd25-e03ee33052ca": {
       "name": "Copy - PB 2.40 Max [H1] #02",
       "campaign": "باور بانك وينر",
-      "reason": "[AdSquad CPC > $0.28 Rule] صرفت المجموعة $1.29 (>= $1.00) وسعر النقرة CPC=$0.323 (> $0.28)",
-      "paused_at": "2026-11-01 12:23 GMT+3"
+      "reason": "[AdSquad CPC > $0.28 Rule] صرفت المجموعة $2.35 (>= $1.00) وسعر النقرة CPC=$0.336 (> $0.28)",
+      "paused_at": "2026-11-01 13:17 GMT+3"
+    },
+    "0073abcf-73b2-4ef6-a4d2-3288e4fd77c6": {
+      "name": "Car 1.60 Max [H1] #03",
+      "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.6 30-10",
+      "reason": "[3-Day Audit] [AdSquad CPC > $0.28 Rule] صرفت المجموعة $1.01 (>= $1.00) وسعر النقرة CPC=$0.337 (> $0.28)",
+      "paused_at": "2026-11-01 13:17 GMT+3"
+    },
+    "78e4726d-867d-4b82-9f7f-4565a69f2c8a": {
+      "name": "PB 1.50 Max [H1] #01",
+      "campaign": "باور بانك وينر - 30 أدست - بيد 1.5 30-10",
+      "reason": "[2-Day Audit] [AdSquad CPC > $0.28 Rule] صرفت المجموعة $1.00 (>= $1.00) وسعر النقرة CPC=$1.000 (> $0.28)",
+      "paused_at": "2026-11-01 13:17 GMT+3"
     }
   },
   "ads": {
@@ -17720,8 +17732,8 @@
       "name": "PB_v9_Hist122_mdad71b [H1]",
       "campaign": "باور بانك وينر - 30 أدست - بيد 1.6 30-10",
       "adsquad": "PB 1.60 Max [H1] #21",
-      "reason": "[Global Accumulated Video Stop-Loss 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $16.03 (>= $13.00) بدون أي مبيعة اليوم",
-      "paused_at": "2026-11-01 10:40 GMT+3"
+      "reason": "[Global Accumulated Video High CPA 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $15.03 | المبيعات = 1 | CPA التراكمي = $15.03 (>= $15.00)",
+      "paused_at": "2026-11-01 13:26 GMT+3"
     },
     "f28991d8-7de5-493f-bcd5-3406485f5948": {
       "name": "31-10_Car_New10_Ad08_m8565d6",
@@ -17785,6 +17797,601 @@
       "adsquad": "PB 1.50 Max [H1] #12",
       "reason": "[2-Day Audit] [Single Video $4 Stop-Loss] صرف الفيديو $4.83 (>= $4.00) بدون مبيعة",
       "paused_at": "2026-11-01 12:29 GMT+3"
+    },
+    "cb73de77-9e3d-4d0e-bd15-aff0950a0db3": {
+      "name": "Car_v1_15-10_4_m1efb6f [H1]",
+      "campaign": "وسادة السيارة وينر 2 - 30 أدست 30-10",
+      "adsquad": "Copy - Car 2.00 Max [H1] #29",
+      "reason": "[2-Day Audit] [Ad CPC Rule] صرف الفيديو $1.27 (>= $1.00) | النقرات: 4 | سعر النقرة CPC = $0.318 (> $0.28)",
+      "paused_at": "2026-11-01 13:17 GMT+3"
+    },
+    "53ffc689-0844-4072-bf06-4e221bc825b1": {
+      "name": "W7_2_c_m81d72e [H1]",
+      "campaign": "car scaling camp ",
+      "adsquad": "Copy - Car 3.00 Max [H1] #02",
+      "reason": "[Ad CPC Rule] صرف الفيديو $1.21 (>= $1.00) | النقرات: 4 | سعر النقرة CPC = $0.302 (> $0.28)",
+      "paused_at": "2026-11-01 13:17 GMT+3"
+    },
+    "34d7da91-7aaa-4342-a3d8-af952f75dc81": {
+      "name": "Car_v6_21_10_hanan1_mb77515 [H1]",
+      "campaign": "وسادة السيارة وينر 2 - 30 أدست 30-10",
+      "adsquad": "Copy - Car 2.00 Max [H1] #25",
+      "reason": "[Aggregated Video High CPA 1D - السعودية] مجموع صرف الفيديو التراكمي اليوم = $16.59 | المبيعات = 1 | CPA التراكمي = $16.59 (>= $15.00)",
+      "paused_at": "2026-11-01 13:17 GMT+3"
+    },
+    "03adf52f-6161-4f2d-908f-8367a676d8e7": {
+      "name": "Car_v1_15-10_4_m1efb6f [H1]",
+      "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.5 30-10",
+      "adsquad": "Car 1.50 Max [H1] #18",
+      "reason": "[Global Accumulated Video Stop-Loss 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $13.18 (>= $13.00) بدون أي مبيعة اليوم",
+      "paused_at": "2026-11-01 13:17 GMT+3"
+    },
+    "04f3620a-f235-4644-b991-0720b9358add": {
+      "name": "Car_v1_15-10_4_m1efb6f [H1]",
+      "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.5 30-10",
+      "adsquad": "Car 1.50 Max [H1] #11",
+      "reason": "[Global Accumulated Video Stop-Loss 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $13.18 (>= $13.00) بدون أي مبيعة اليوم",
+      "paused_at": "2026-11-01 13:17 GMT+3"
+    },
+    "0631f62a-cfa3-461a-8a2c-bd2e55b37930": {
+      "name": "Car_v1_15-10_4_m1efb6f [H1]",
+      "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.5 30-10",
+      "adsquad": "Car 1.50 Max [H1] #13",
+      "reason": "[Global Accumulated Video Stop-Loss 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $13.18 (>= $13.00) بدون أي مبيعة اليوم",
+      "paused_at": "2026-11-01 13:17 GMT+3"
+    },
+    "0c4d7896-7710-4da7-afc9-9edc6754be2f": {
+      "name": "Car_v1_15-10_4_m1efb6f [H1]",
+      "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.5 30-10",
+      "adsquad": "Car 1.50 Max [H1] #23",
+      "reason": "[Global Accumulated Video Stop-Loss 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $13.18 (>= $13.00) بدون أي مبيعة اليوم",
+      "paused_at": "2026-11-01 13:17 GMT+3"
+    },
+    "12f78c34-a7bd-45b6-8266-0510793d732f": {
+      "name": "Car_v1_15-10_4_m1efb6f [H1]",
+      "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.5 30-10",
+      "adsquad": "Car 1.50 Max [H1] #14",
+      "reason": "[Global Accumulated Video Stop-Loss 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $13.18 (>= $13.00) بدون أي مبيعة اليوم",
+      "paused_at": "2026-11-01 13:17 GMT+3"
+    },
+    "298472b8-bee1-4ed9-8303-f15a74ab80ff": {
+      "name": "Car_v1_15-10_4_m1efb6f [H1]",
+      "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.5 30-10",
+      "adsquad": "Car 1.50 Max [H1] #16",
+      "reason": "[Global Accumulated Video Stop-Loss 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $13.18 (>= $13.00) بدون أي مبيعة اليوم",
+      "paused_at": "2026-11-01 13:17 GMT+3"
+    },
+    "2acb1228-037e-429b-9780-9ce51d5d15cd": {
+      "name": "Car_v1_15-10_4_m1efb6f [H1]",
+      "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.5 30-10",
+      "adsquad": "Car 1.50 Max [H1] #06",
+      "reason": "[Global Accumulated Video Stop-Loss 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $13.18 (>= $13.00) بدون أي مبيعة اليوم",
+      "paused_at": "2026-11-01 13:17 GMT+3"
+    },
+    "32e6a410-46c0-4c7d-b5e8-ac3980542c21": {
+      "name": "Car_v1_15-10_4_m1efb6f [H1]",
+      "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.5 30-10",
+      "adsquad": "Car 1.50 Max [H1] #28",
+      "reason": "[Global Accumulated Video Stop-Loss 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $13.18 (>= $13.00) بدون أي مبيعة اليوم",
+      "paused_at": "2026-11-01 13:17 GMT+3"
+    },
+    "33c6b5d8-1384-459c-845d-9b273d12acea": {
+      "name": "Car_v1_15-10_4_m1efb6f [H1]",
+      "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.5 30-10",
+      "adsquad": "Car 1.50 Max [H1] #27",
+      "reason": "[Global Accumulated Video Stop-Loss 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $13.18 (>= $13.00) بدون أي مبيعة اليوم",
+      "paused_at": "2026-11-01 13:17 GMT+3"
+    },
+    "3affe833-463c-4065-a17a-967aa2e1a142": {
+      "name": "Car_v1_15-10_4_m1efb6f [H1]",
+      "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.5 30-10",
+      "adsquad": "Car 1.50 Max [H1] #20",
+      "reason": "[Global Accumulated Video Stop-Loss 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $13.18 (>= $13.00) بدون أي مبيعة اليوم",
+      "paused_at": "2026-11-01 13:17 GMT+3"
+    },
+    "4bf72f6f-de70-499c-bba0-9ab06cb31902": {
+      "name": "Car_v1_15-10_4_m1efb6f [H1]",
+      "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.5 30-10",
+      "adsquad": "Car 1.50 Max [H1] #25",
+      "reason": "[Global Accumulated Video Stop-Loss 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $13.18 (>= $13.00) بدون أي مبيعة اليوم",
+      "paused_at": "2026-11-01 13:17 GMT+3"
+    },
+    "59a8a540-f75d-44ea-8ccb-b6825978d0d8": {
+      "name": "Car_v1_15-10_4_m1efb6f [H1]",
+      "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.5 30-10",
+      "adsquad": "Car 1.50 Max [H1] #22",
+      "reason": "[Global Accumulated Video Stop-Loss 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $13.18 (>= $13.00) بدون أي مبيعة اليوم",
+      "paused_at": "2026-11-01 13:17 GMT+3"
+    },
+    "61570c7c-67af-4ecb-b41f-66f76433419d": {
+      "name": "Car_v1_15-10_4_m1efb6f [H1]",
+      "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.5 30-10",
+      "adsquad": "Car 1.50 Max [H1] #19",
+      "reason": "[Global Accumulated Video Stop-Loss 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $13.18 (>= $13.00) بدون أي مبيعة اليوم",
+      "paused_at": "2026-11-01 13:17 GMT+3"
+    },
+    "62e8484b-935f-4cd7-82e9-b268d4bf0239": {
+      "name": "Car_v1_15-10_4_m1efb6f [H1]",
+      "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.5 30-10",
+      "adsquad": "Car 1.50 Max [H1] #09",
+      "reason": "[Global Accumulated Video Stop-Loss 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $13.18 (>= $13.00) بدون أي مبيعة اليوم",
+      "paused_at": "2026-11-01 13:17 GMT+3"
+    },
+    "65b021da-5648-44c6-9e56-82c1c29387f1": {
+      "name": "Car_v1_15-10_4_m1efb6f [H1]",
+      "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.5 30-10",
+      "adsquad": "Car 1.50 Max [H1] #08",
+      "reason": "[Global Accumulated Video Stop-Loss 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $13.18 (>= $13.00) بدون أي مبيعة اليوم",
+      "paused_at": "2026-11-01 13:17 GMT+3"
+    },
+    "71bca70e-b206-42ba-9c46-8bb2649c8aae": {
+      "name": "Car_v1_15-10_4_m1efb6f [H1]",
+      "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.5 30-10",
+      "adsquad": "Car 1.50 Max [H1] #12",
+      "reason": "[Global Accumulated Video Stop-Loss 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $13.18 (>= $13.00) بدون أي مبيعة اليوم",
+      "paused_at": "2026-11-01 13:17 GMT+3"
+    },
+    "786a8e09-52cc-4057-91c0-0eb3315cdbf0": {
+      "name": "Car_v1_15-10_4_m1efb6f [H1]",
+      "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.5 30-10",
+      "adsquad": "Car 1.50 Max [H1] #30",
+      "reason": "[Global Accumulated Video Stop-Loss 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $13.18 (>= $13.00) بدون أي مبيعة اليوم",
+      "paused_at": "2026-11-01 13:17 GMT+3"
+    },
+    "7aba713b-0d04-4fcf-8abd-d73f198f8451": {
+      "name": "Car_v1_15-10_4_m1efb6f [H1]",
+      "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.5 30-10",
+      "adsquad": "Car 1.50 Max [H1] #03",
+      "reason": "[Global Accumulated Video Stop-Loss 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $13.18 (>= $13.00) بدون أي مبيعة اليوم",
+      "paused_at": "2026-11-01 13:17 GMT+3"
+    },
+    "7cbeb5c4-3ba9-4508-9a52-97c4d8798c6c": {
+      "name": "Car_v1_15-10_4_m1efb6f [H1]",
+      "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.5 30-10",
+      "adsquad": "Car 1.50 Max [H1] #01",
+      "reason": "[Global Accumulated Video Stop-Loss 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $13.18 (>= $13.00) بدون أي مبيعة اليوم",
+      "paused_at": "2026-11-01 13:17 GMT+3"
+    },
+    "89e30b5e-e37f-4460-95f5-82c1904add02": {
+      "name": "Car_v1_15-10_4_m1efb6f [H1]",
+      "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.5 30-10",
+      "adsquad": "Car 1.50 Max [H1] #02",
+      "reason": "[Global Accumulated Video Stop-Loss 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $13.18 (>= $13.00) بدون أي مبيعة اليوم",
+      "paused_at": "2026-11-01 13:17 GMT+3"
+    },
+    "8b4720f4-e88a-44d7-9313-3e419cdf3711": {
+      "name": "Car_v1_15-10_4_m1efb6f [H1]",
+      "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.5 30-10",
+      "adsquad": "Car 1.50 Max [H1] #05",
+      "reason": "[Global Accumulated Video Stop-Loss 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $13.18 (>= $13.00) بدون أي مبيعة اليوم",
+      "paused_at": "2026-11-01 13:17 GMT+3"
+    },
+    "8ff326a7-39d4-44fc-b3a6-aa3b6ee01f9c": {
+      "name": "Car_v1_15-10_4_m1efb6f [H1]",
+      "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.5 30-10",
+      "adsquad": "Car 1.50 Max [H1] #15",
+      "reason": "[Global Accumulated Video Stop-Loss 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $13.18 (>= $13.00) بدون أي مبيعة اليوم",
+      "paused_at": "2026-11-01 13:17 GMT+3"
+    },
+    "bf3683af-9ba3-4bbf-81ce-5dbd86069a66": {
+      "name": "Car_v1_15-10_4_m1efb6f [H1]",
+      "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.5 30-10",
+      "adsquad": "Car 1.50 Max [H1] #17",
+      "reason": "[Global Accumulated Video Stop-Loss 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $13.18 (>= $13.00) بدون أي مبيعة اليوم",
+      "paused_at": "2026-11-01 13:17 GMT+3"
+    },
+    "c16b6d4a-e0b6-4638-bd37-98cbeaa33de1": {
+      "name": "Car_v1_15-10_4_m1efb6f [H1]",
+      "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.5 30-10",
+      "adsquad": "Car 1.50 Max [H1] #21",
+      "reason": "[Global Accumulated Video Stop-Loss 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $13.18 (>= $13.00) بدون أي مبيعة اليوم",
+      "paused_at": "2026-11-01 13:17 GMT+3"
+    },
+    "c678cfe5-be89-4741-935f-a7a166471ea7": {
+      "name": "Car_v1_15-10_4_m1efb6f [H1]",
+      "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.5 30-10",
+      "adsquad": "Car 1.50 Max [H1] #10",
+      "reason": "[Global Accumulated Video Stop-Loss 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $13.18 (>= $13.00) بدون أي مبيعة اليوم",
+      "paused_at": "2026-11-01 13:17 GMT+3"
+    },
+    "c6b92410-d37e-4140-aea9-8f8af6e35d33": {
+      "name": "Car_v1_15-10_4_m1efb6f [H1]",
+      "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.5 30-10",
+      "adsquad": "Car 1.50 Max [H1] #26",
+      "reason": "[Global Accumulated Video Stop-Loss 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $13.18 (>= $13.00) بدون أي مبيعة اليوم",
+      "paused_at": "2026-11-01 13:17 GMT+3"
+    },
+    "cefc8e49-7003-40ba-8ab3-67a085355019": {
+      "name": "Car_v1_15-10_4_m1efb6f [H1]",
+      "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.5 30-10",
+      "adsquad": "Car 1.50 Max [H1] #04",
+      "reason": "[Global Accumulated Video Stop-Loss 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $13.18 (>= $13.00) بدون أي مبيعة اليوم",
+      "paused_at": "2026-11-01 13:17 GMT+3"
+    },
+    "edd75920-139b-4c2c-89b7-39fa09e3b222": {
+      "name": "Car_v1_15-10_4_m1efb6f [H1]",
+      "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.5 30-10",
+      "adsquad": "Car 1.50 Max [H1] #29",
+      "reason": "[Global Accumulated Video Stop-Loss 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $13.18 (>= $13.00) بدون أي مبيعة اليوم",
+      "paused_at": "2026-11-01 13:17 GMT+3"
+    },
+    "f346ddf6-a630-47cf-aec6-30b572533c7d": {
+      "name": "Car_v1_15-10_4_m1efb6f [H1]",
+      "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.5 30-10",
+      "adsquad": "Car 1.50 Max [H1] #24",
+      "reason": "[Global Accumulated Video Stop-Loss 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $13.18 (>= $13.00) بدون أي مبيعة اليوم",
+      "paused_at": "2026-11-01 13:17 GMT+3"
+    },
+    "fe9123de-46e7-4967-88fa-622fc25171fe": {
+      "name": "Car_v1_15-10_4_m1efb6f [H1]",
+      "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.5 30-10",
+      "adsquad": "Car 1.50 Max [H1] #07",
+      "reason": "[Global Accumulated Video Stop-Loss 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $13.18 (>= $13.00) بدون أي مبيعة اليوم",
+      "paused_at": "2026-11-01 13:17 GMT+3"
+    },
+    "faf48658-e166-4513-b5a0-4b54189415ff": {
+      "name": "Car_v1_15-10_4_m1efb6f [H1]",
+      "campaign": "وسادة السيارة وينر 2 - 30 أدست 30-10",
+      "adsquad": "Copy - Car 1.90 Max [H1] #04",
+      "reason": "[Global Accumulated Video Stop-Loss 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $13.18 (>= $13.00) بدون أي مبيعة اليوم",
+      "paused_at": "2026-11-01 13:17 GMT+3"
+    },
+    "0029d105-d3ad-4f81-88d9-3229ca3f3bf0": {
+      "name": "Car_v1_15-10_4_m1efb6f [H1]",
+      "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.6 30-10",
+      "adsquad": "Car 1.60 Max [H1] #23",
+      "reason": "[Global Accumulated Video Stop-Loss 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $13.18 (>= $13.00) بدون أي مبيعة اليوم",
+      "paused_at": "2026-11-01 13:17 GMT+3"
+    },
+    "099acea8-5b91-48a9-8a2a-e4b6e008fc63": {
+      "name": "Car_v1_15-10_4_m1efb6f [H1]",
+      "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.6 30-10",
+      "adsquad": "Car 1.60 Max [H1] #20",
+      "reason": "[Global Accumulated Video Stop-Loss 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $13.18 (>= $13.00) بدون أي مبيعة اليوم",
+      "paused_at": "2026-11-01 13:17 GMT+3"
+    },
+    "0d3eb0f1-73f5-4acb-b7d9-312a73bc7883": {
+      "name": "Car_v1_15-10_4_m1efb6f [H1]",
+      "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.6 30-10",
+      "adsquad": "Car 1.60 Max [H1] #24",
+      "reason": "[Global Accumulated Video Stop-Loss 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $13.18 (>= $13.00) بدون أي مبيعة اليوم",
+      "paused_at": "2026-11-01 13:17 GMT+3"
+    },
+    "0ff7a24c-b001-4eec-bac8-251fed471f62": {
+      "name": "Car_v1_15-10_4_m1efb6f [H1]",
+      "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.6 30-10",
+      "adsquad": "Car 1.60 Max [H1] #13",
+      "reason": "[Global Accumulated Video Stop-Loss 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $13.18 (>= $13.00) بدون أي مبيعة اليوم",
+      "paused_at": "2026-11-01 13:17 GMT+3"
+    },
+    "13a57b81-fe45-4b84-b748-e61a1428c052": {
+      "name": "Car_v1_15-10_4_m1efb6f [H1]",
+      "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.6 30-10",
+      "adsquad": "Car 1.60 Max [H1] #12",
+      "reason": "[Global Accumulated Video Stop-Loss 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $13.18 (>= $13.00) بدون أي مبيعة اليوم",
+      "paused_at": "2026-11-01 13:17 GMT+3"
+    },
+    "54c10300-9901-4fb0-acc6-caed3ec512e7": {
+      "name": "Car_v1_15-10_4_m1efb6f [H1]",
+      "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.6 30-10",
+      "adsquad": "Car 1.60 Max [H1] #27",
+      "reason": "[Global Accumulated Video Stop-Loss 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $13.18 (>= $13.00) بدون أي مبيعة اليوم",
+      "paused_at": "2026-11-01 13:17 GMT+3"
+    },
+    "58f0fe8c-72b5-4df9-a3b1-7ab2ab8e6c89": {
+      "name": "Car_v1_15-10_4_m1efb6f [H1]",
+      "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.6 30-10",
+      "adsquad": "Car 1.60 Max [H1] #14",
+      "reason": "[Global Accumulated Video Stop-Loss 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $13.18 (>= $13.00) بدون أي مبيعة اليوم",
+      "paused_at": "2026-11-01 13:17 GMT+3"
+    },
+    "62c5909e-eb8f-4aec-a1b3-ec7a91ab8bc9": {
+      "name": "Car_v1_15-10_4_m1efb6f [H1]",
+      "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.6 30-10",
+      "adsquad": "Car 1.60 Max [H1] #09",
+      "reason": "[Global Accumulated Video Stop-Loss 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $13.18 (>= $13.00) بدون أي مبيعة اليوم",
+      "paused_at": "2026-11-01 13:17 GMT+3"
+    },
+    "727c606d-4461-40f2-8c65-abb76b5d13c3": {
+      "name": "Car_v1_15-10_4_m1efb6f [H1]",
+      "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.6 30-10",
+      "adsquad": "Car 1.60 Max [H1] #29",
+      "reason": "[Global Accumulated Video Stop-Loss 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $13.18 (>= $13.00) بدون أي مبيعة اليوم",
+      "paused_at": "2026-11-01 13:17 GMT+3"
+    },
+    "805bcdb7-64fe-49b6-9916-8281629fc032": {
+      "name": "Car_v1_15-10_4_m1efb6f [H1]",
+      "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.6 30-10",
+      "adsquad": "Car 1.60 Max [H1] #11",
+      "reason": "[Global Accumulated Video Stop-Loss 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $13.18 (>= $13.00) بدون أي مبيعة اليوم",
+      "paused_at": "2026-11-01 13:17 GMT+3"
+    },
+    "840fdf31-e09b-48d9-89c7-e6b0db7ac35f": {
+      "name": "Car_v1_15-10_4_m1efb6f [H1]",
+      "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.6 30-10",
+      "adsquad": "Car 1.60 Max [H1] #28",
+      "reason": "[Global Accumulated Video Stop-Loss 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $13.18 (>= $13.00) بدون أي مبيعة اليوم",
+      "paused_at": "2026-11-01 13:17 GMT+3"
+    },
+    "84df59ad-8ef0-4bca-85c0-e6f4082ce34e": {
+      "name": "Car_v1_15-10_4_m1efb6f [H1]",
+      "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.6 30-10",
+      "adsquad": "Car 1.60 Max [H1] #16",
+      "reason": "[Global Accumulated Video Stop-Loss 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $13.18 (>= $13.00) بدون أي مبيعة اليوم",
+      "paused_at": "2026-11-01 13:17 GMT+3"
+    },
+    "9a8e3620-9bf7-48c4-b8e8-6343b09a4010": {
+      "name": "Car_v1_15-10_4_m1efb6f [H1]",
+      "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.6 30-10",
+      "adsquad": "Car 1.60 Max [H1] #10",
+      "reason": "[Global Accumulated Video Stop-Loss 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $13.18 (>= $13.00) بدون أي مبيعة اليوم",
+      "paused_at": "2026-11-01 13:17 GMT+3"
+    },
+    "a4df993b-a5b0-4673-ac4d-89cb8b23bdc4": {
+      "name": "Car_v1_15-10_4_m1efb6f [H1]",
+      "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.6 30-10",
+      "adsquad": "Car 1.60 Max [H1] #02",
+      "reason": "[Global Accumulated Video Stop-Loss 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $13.18 (>= $13.00) بدون أي مبيعة اليوم",
+      "paused_at": "2026-11-01 13:17 GMT+3"
+    },
+    "aa36e918-435f-4f2f-ba42-b2c175292fbe": {
+      "name": "Car_v1_15-10_4_m1efb6f [H1]",
+      "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.6 30-10",
+      "adsquad": "Car 1.60 Max [H1] #07",
+      "reason": "[Global Accumulated Video Stop-Loss 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $13.18 (>= $13.00) بدون أي مبيعة اليوم",
+      "paused_at": "2026-11-01 13:17 GMT+3"
+    },
+    "b3e97547-9d83-4418-9cc5-521826b53198": {
+      "name": "Car_v1_15-10_4_m1efb6f [H1]",
+      "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.6 30-10",
+      "adsquad": "Car 1.60 Max [H1] #05",
+      "reason": "[Global Accumulated Video Stop-Loss 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $13.18 (>= $13.00) بدون أي مبيعة اليوم",
+      "paused_at": "2026-11-01 13:17 GMT+3"
+    },
+    "c0bc84e2-9f81-4f8c-974e-4cc64a81d71e": {
+      "name": "Car_v1_15-10_4_m1efb6f [H1]",
+      "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.6 30-10",
+      "adsquad": "Car 1.60 Max [H1] #01",
+      "reason": "[Global Accumulated Video Stop-Loss 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $13.18 (>= $13.00) بدون أي مبيعة اليوم",
+      "paused_at": "2026-11-01 13:17 GMT+3"
+    },
+    "c96d90bf-bdfa-4c3f-b530-54d48410519c": {
+      "name": "Car_v1_15-10_4_m1efb6f [H1]",
+      "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.6 30-10",
+      "adsquad": "Car 1.60 Max [H1] #18",
+      "reason": "[Global Accumulated Video Stop-Loss 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $13.18 (>= $13.00) بدون أي مبيعة اليوم",
+      "paused_at": "2026-11-01 13:17 GMT+3"
+    },
+    "d39889bd-6f4a-42fd-ae86-2a8ebafe80fb": {
+      "name": "Car_v1_15-10_4_m1efb6f [H1]",
+      "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.6 30-10",
+      "adsquad": "Car 1.60 Max [H1] #15",
+      "reason": "[Global Accumulated Video Stop-Loss 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $13.18 (>= $13.00) بدون أي مبيعة اليوم",
+      "paused_at": "2026-11-01 13:17 GMT+3"
+    },
+    "d45643b4-4009-4374-af0d-9552e0cf2d86": {
+      "name": "Car_v1_15-10_4_m1efb6f [H1]",
+      "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.6 30-10",
+      "adsquad": "Car 1.60 Max [H1] #08",
+      "reason": "[Global Accumulated Video Stop-Loss 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $13.18 (>= $13.00) بدون أي مبيعة اليوم",
+      "paused_at": "2026-11-01 13:17 GMT+3"
+    },
+    "eddb110f-49f1-4fe7-9df7-6ec4994a61a4": {
+      "name": "Car_v1_15-10_4_m1efb6f [H1]",
+      "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.6 30-10",
+      "adsquad": "Car 1.60 Max [H1] #26",
+      "reason": "[Global Accumulated Video Stop-Loss 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $13.18 (>= $13.00) بدون أي مبيعة اليوم",
+      "paused_at": "2026-11-01 13:17 GMT+3"
+    },
+    "f9b7c0a8-fc5c-4437-9da9-c3cd6d0fc310": {
+      "name": "Car_v1_15-10_4_m1efb6f [H1]",
+      "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.6 30-10",
+      "adsquad": "Car 1.60 Max [H1] #21",
+      "reason": "[Global Accumulated Video Stop-Loss 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $13.18 (>= $13.00) بدون أي مبيعة اليوم",
+      "paused_at": "2026-11-01 13:17 GMT+3"
+    },
+    "fd408123-6184-4113-888e-0b35b6b82202": {
+      "name": "Car_v1_15-10_4_m1efb6f [H1]",
+      "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.6 30-10",
+      "adsquad": "Car 1.60 Max [H1] #25",
+      "reason": "[Global Accumulated Video Stop-Loss 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $13.18 (>= $13.00) بدون أي مبيعة اليوم",
+      "paused_at": "2026-11-01 13:17 GMT+3"
+    },
+    "0d88437d-13cc-4a65-bdc5-637e8c8d9782": {
+      "name": "Car_v1_15-10_4_m1efb6f [H1]",
+      "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.4 30-10",
+      "adsquad": "Car 1.40 Max [H1] #18",
+      "reason": "[Global Accumulated Video Stop-Loss 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $13.18 (>= $13.00) بدون أي مبيعة اليوم",
+      "paused_at": "2026-11-01 13:17 GMT+3"
+    },
+    "127fa934-c3f0-4fb7-9e3c-d373a8a0c246": {
+      "name": "Car_v1_15-10_4_m1efb6f [H1]",
+      "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.4 30-10",
+      "adsquad": "Car 1.40 Max [H1] #19",
+      "reason": "[Global Accumulated Video Stop-Loss 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $13.18 (>= $13.00) بدون أي مبيعة اليوم",
+      "paused_at": "2026-11-01 13:17 GMT+3"
+    },
+    "27a8f791-4a5f-4d64-bbee-287f1d9c14cc": {
+      "name": "Car_v1_15-10_4_m1efb6f [H1]",
+      "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.4 30-10",
+      "adsquad": "Car 1.40 Max [H1] #22",
+      "reason": "[Global Accumulated Video Stop-Loss 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $13.18 (>= $13.00) بدون أي مبيعة اليوم",
+      "paused_at": "2026-11-01 13:17 GMT+3"
+    },
+    "3147208d-29e6-4140-a2d1-a028a955ba14": {
+      "name": "Car_v1_15-10_4_m1efb6f [H1]",
+      "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.4 30-10",
+      "adsquad": "Car 1.40 Max [H1] #03",
+      "reason": "[Global Accumulated Video Stop-Loss 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $13.18 (>= $13.00) بدون أي مبيعة اليوم",
+      "paused_at": "2026-11-01 13:17 GMT+3"
+    },
+    "3d8bf2e0-4235-46b5-9992-67ec81fd77f1": {
+      "name": "Car_v1_15-10_4_m1efb6f [H1]",
+      "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.4 30-10",
+      "adsquad": "Car 1.40 Max [H1] #14",
+      "reason": "[Global Accumulated Video Stop-Loss 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $13.18 (>= $13.00) بدون أي مبيعة اليوم",
+      "paused_at": "2026-11-01 13:17 GMT+3"
+    },
+    "447387af-607f-4b52-8236-50d0b8a35599": {
+      "name": "Car_v1_15-10_4_m1efb6f [H1]",
+      "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.4 30-10",
+      "adsquad": "Car 1.40 Max [H1] #26",
+      "reason": "[Global Accumulated Video Stop-Loss 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $13.18 (>= $13.00) بدون أي مبيعة اليوم",
+      "paused_at": "2026-11-01 13:17 GMT+3"
+    },
+    "4db3e8e5-9763-4ff2-b447-19abc3872bc9": {
+      "name": "Car_v1_15-10_4_m1efb6f [H1]",
+      "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.4 30-10",
+      "adsquad": "Car 1.40 Max [H1] #06",
+      "reason": "[Global Accumulated Video Stop-Loss 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $13.18 (>= $13.00) بدون أي مبيعة اليوم",
+      "paused_at": "2026-11-01 13:17 GMT+3"
+    },
+    "4ea18230-0223-4757-b77d-f3c296bb624e": {
+      "name": "Car_v1_15-10_4_m1efb6f [H1]",
+      "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.4 30-10",
+      "adsquad": "Car 1.40 Max [H1] #05",
+      "reason": "[Global Accumulated Video Stop-Loss 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $13.18 (>= $13.00) بدون أي مبيعة اليوم",
+      "paused_at": "2026-11-01 13:17 GMT+3"
+    },
+    "5a25249e-ea4d-4d8d-8ad8-0a4abd75cc35": {
+      "name": "Car_v1_15-10_4_m1efb6f [H1]",
+      "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.4 30-10",
+      "adsquad": "Car 1.40 Max [H1] #29",
+      "reason": "[Global Accumulated Video Stop-Loss 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $13.18 (>= $13.00) بدون أي مبيعة اليوم",
+      "paused_at": "2026-11-01 13:17 GMT+3"
+    },
+    "5ce0d7be-b6ba-49cb-b023-09d9ddb5c625": {
+      "name": "Car_v1_15-10_4_m1efb6f [H1]",
+      "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.4 30-10",
+      "adsquad": "Car 1.40 Max [H1] #16",
+      "reason": "[Global Accumulated Video Stop-Loss 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $13.18 (>= $13.00) بدون أي مبيعة اليوم",
+      "paused_at": "2026-11-01 13:17 GMT+3"
+    },
+    "7aa21bf0-06bd-410d-a213-4d10305f2964": {
+      "name": "Car_v1_15-10_4_m1efb6f [H1]",
+      "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.4 30-10",
+      "adsquad": "Car 1.40 Max [H1] #28",
+      "reason": "[Global Accumulated Video Stop-Loss 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $13.18 (>= $13.00) بدون أي مبيعة اليوم",
+      "paused_at": "2026-11-01 13:17 GMT+3"
+    },
+    "7d60de76-b91d-440d-b142-7cadb15402fa": {
+      "name": "Car_v1_15-10_4_m1efb6f [H1]",
+      "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.4 30-10",
+      "adsquad": "Car 1.40 Max [H1] #08",
+      "reason": "[Global Accumulated Video Stop-Loss 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $13.18 (>= $13.00) بدون أي مبيعة اليوم",
+      "paused_at": "2026-11-01 13:17 GMT+3"
+    },
+    "84888af5-81c1-4d06-857c-705cfdcafb74": {
+      "name": "Car_v1_15-10_4_m1efb6f [H1]",
+      "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.4 30-10",
+      "adsquad": "Car 1.40 Max [H1] #11",
+      "reason": "[Global Accumulated Video Stop-Loss 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $13.18 (>= $13.00) بدون أي مبيعة اليوم",
+      "paused_at": "2026-11-01 13:17 GMT+3"
+    },
+    "8a9f0c36-8ba9-45ed-9fdd-cd85aaeb874a": {
+      "name": "Car_v1_15-10_4_m1efb6f [H1]",
+      "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.4 30-10",
+      "adsquad": "Car 1.40 Max [H1] #13",
+      "reason": "[Global Accumulated Video Stop-Loss 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $13.18 (>= $13.00) بدون أي مبيعة اليوم",
+      "paused_at": "2026-11-01 13:17 GMT+3"
+    },
+    "9226cd8b-7dbc-4685-945c-71a880b3218a": {
+      "name": "Car_v1_15-10_4_m1efb6f [H1]",
+      "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.4 30-10",
+      "adsquad": "Car 1.40 Max [H1] #21",
+      "reason": "[Global Accumulated Video Stop-Loss 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $13.18 (>= $13.00) بدون أي مبيعة اليوم",
+      "paused_at": "2026-11-01 13:17 GMT+3"
+    },
+    "9c5682b6-c1b1-4a97-8e43-bb6e10a954c6": {
+      "name": "Car_v1_15-10_4_m1efb6f [H1]",
+      "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.4 30-10",
+      "adsquad": "Car 1.40 Max [H1] #27",
+      "reason": "[Global Accumulated Video Stop-Loss 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $13.18 (>= $13.00) بدون أي مبيعة اليوم",
+      "paused_at": "2026-11-01 13:17 GMT+3"
+    },
+    "b1a32b22-7855-49ef-8467-6664d26f4fb5": {
+      "name": "Car_v1_15-10_4_m1efb6f [H1]",
+      "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.4 30-10",
+      "adsquad": "Car 1.40 Max [H1] #20",
+      "reason": "[Global Accumulated Video Stop-Loss 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $13.18 (>= $13.00) بدون أي مبيعة اليوم",
+      "paused_at": "2026-11-01 13:17 GMT+3"
+    },
+    "bb7f05bb-cd0b-47cb-a973-b7763809330f": {
+      "name": "Car_v1_15-10_4_m1efb6f [H1]",
+      "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.4 30-10",
+      "adsquad": "Car 1.40 Max [H1] #12",
+      "reason": "[Global Accumulated Video Stop-Loss 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $13.18 (>= $13.00) بدون أي مبيعة اليوم",
+      "paused_at": "2026-11-01 13:17 GMT+3"
+    },
+    "c3ac1983-c23a-400c-aa12-e0bdea810805": {
+      "name": "Car_v1_15-10_4_m1efb6f [H1]",
+      "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.4 30-10",
+      "adsquad": "Car 1.40 Max [H1] #01",
+      "reason": "[Global Accumulated Video Stop-Loss 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $13.18 (>= $13.00) بدون أي مبيعة اليوم",
+      "paused_at": "2026-11-01 13:17 GMT+3"
+    },
+    "cf977a9f-16ea-46c9-bc97-95c9b441b9fa": {
+      "name": "Car_v1_15-10_4_m1efb6f [H1]",
+      "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.4 30-10",
+      "adsquad": "Car 1.40 Max [H1] #15",
+      "reason": "[Global Accumulated Video Stop-Loss 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $13.18 (>= $13.00) بدون أي مبيعة اليوم",
+      "paused_at": "2026-11-01 13:17 GMT+3"
+    },
+    "d2876883-9b66-43af-bf2d-aa465e2f7509": {
+      "name": "Car_v1_15-10_4_m1efb6f [H1]",
+      "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.4 30-10",
+      "adsquad": "Car 1.40 Max [H1] #23",
+      "reason": "[Global Accumulated Video Stop-Loss 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $13.18 (>= $13.00) بدون أي مبيعة اليوم",
+      "paused_at": "2026-11-01 13:17 GMT+3"
+    },
+    "da8fe6c4-c67e-4084-a989-ad4a69ad58f1": {
+      "name": "Car_v1_15-10_4_m1efb6f [H1]",
+      "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.4 30-10",
+      "adsquad": "Car 1.40 Max [H1] #24",
+      "reason": "[Global Accumulated Video Stop-Loss 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $13.18 (>= $13.00) بدون أي مبيعة اليوم",
+      "paused_at": "2026-11-01 13:17 GMT+3"
+    },
+    "dbe7c381-f571-4844-a197-cff79fae02a9": {
+      "name": "Car_v1_15-10_4_m1efb6f [H1]",
+      "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.4 30-10",
+      "adsquad": "Car 1.40 Max [H1] #02",
+      "reason": "[Global Accumulated Video Stop-Loss 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $13.18 (>= $13.00) بدون أي مبيعة اليوم",
+      "paused_at": "2026-11-01 13:17 GMT+3"
+    },
+    "e45a6f1c-d5df-4c0e-9c87-16c9fbc271d3": {
+      "name": "Car_v1_15-10_4_m1efb6f [H1]",
+      "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.4 30-10",
+      "adsquad": "Car 1.40 Max [H1] #30",
+      "reason": "[Global Accumulated Video Stop-Loss 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $13.18 (>= $13.00) بدون أي مبيعة اليوم",
+      "paused_at": "2026-11-01 13:17 GMT+3"
+    },
+    "ed239346-3e07-4083-820c-0ea24be4e088": {
+      "name": "Car_v1_15-10_4_m1efb6f [H1]",
+      "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.4 30-10",
+      "adsquad": "Car 1.40 Max [H1] #17",
+      "reason": "[Global Accumulated Video Stop-Loss 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $13.18 (>= $13.00) بدون أي مبيعة اليوم",
+      "paused_at": "2026-11-01 13:17 GMT+3"
+    },
+    "0becd302-6aa2-4fde-b6cc-11a26db05a2f": {
+      "name": "Car_v1_15-10_4_m1efb6f [H1]",
+      "campaign": "car scaling camp ",
+      "adsquad": "Copy - Car 3.00 Max [H1] #02",
+      "reason": "[Global Accumulated Video Stop-Loss 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $13.18 (>= $13.00) بدون أي مبيعة اليوم",
+      "paused_at": "2026-11-01 13:17 GMT+3"
+    },
+    "70924395-e3a8-495f-8598-6afef81d2943": {
+      "name": "PB_v8_Hist488_m8314f6 [H1]",
+      "campaign": "باور بانك وينر 2 - 30 أدست 30-10",
+      "adsquad": "Copy - PB 2.00 Max [H1] #29",
+      "reason": "[Ad CPC Rule] صرف الفيديو $1.48 (>= $1.00) | النقرات: 4 | سعر النقرة CPC = $0.37 (> $0.28)",
+      "paused_at": "2026-11-01 13:26 GMT+3"
+    },
+    "9c4bbdba-4458-4bb1-ab63-7a62e166445c": {
+      "name": "PB_v9_Hist122_mdad71b [H1]",
+      "campaign": "باور بانك وينر - 30 أدست - بيد 1.5 30-10",
+      "adsquad": "PB 1.50 Max [H1] #15",
+      "reason": "[Global Accumulated Video High CPA 1D] مجموع صرف الفيديو التراكمي اليوم على مستوى الحساب = $15.03 | المبيعات = 1 | CPA التراكمي = $15.03 (>= $15.00)",
+      "paused_at": "2026-11-01 13:26 GMT+3"
     }
   },
   "bid_bumps": {
@@ -26624,17 +27231,17 @@
     "4eefa50f-9008-4aea-b159-d370150b60cf": {
       "name": "صندوق دفاتر TIME X 21-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-11-01 12:23 GMT+3"
+      "updated_at": "2026-11-01 13:17 GMT+3"
     },
     "a171c141-a6d5-403e-8357-5c8f6c01bce0": {
       "name": "وسادة مايباخ 21-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-11-01 12:23 GMT+3"
+      "updated_at": "2026-11-01 13:17 GMT+3"
     },
     "c5a7cade-6ec3-4c47-b3a2-c5f08bcf8da0": {
       "name": "وسادة مايباخ 21-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-11-01 12:23 GMT+3"
+      "updated_at": "2026-11-01 13:17 GMT+3"
     },
     "1879653126110545": {
       "name": "timex books 21-10",
@@ -26645,12 +27252,12 @@
     "e8f0a5e9-89c5-4c14-aabb-c9c6c657891d": {
       "name": "مسخن الرضاعات اللاسلكي 22-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-11-01 12:23 GMT+3"
+      "updated_at": "2026-11-01 13:17 GMT+3"
     },
     "f18a3bf4-148a-4f5e-baa1-f90335f1884c": {
       "name": "مسخن الرضاعات اللاسلكي 22-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-11-01 12:23 GMT+3"
+      "updated_at": "2026-11-01 13:17 GMT+3"
     },
     "1879676075637041": {
       "name": "baby bottle warmer 22-10",
@@ -26667,7 +27274,7 @@
     "29891f22-e046-4cc8-b9ee-9921d2d65f0b": {
       "name": "مسخن الرضاعات اللاسلكي 22-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-11-01 12:23 GMT+3"
+      "updated_at": "2026-11-01 13:17 GMT+3"
     },
     "1879653022433617": {
       "name": "maybach pillow 21-10",
@@ -26729,7 +27336,7 @@
       "spend_3d": 21.97,
       "purchases_3d": 2,
       "cpa_3d": 10.98,
-      "updated_at": "2026-11-01 12:29 GMT+3"
+      "updated_at": "2026-11-01 13:26 GMT+3"
     },
     "483f7e57-8a8e-4edb-8b74-7c67eb76419b": {
       "name": "باور بانك وينر 2 - 30 أدست 30-10",
@@ -26743,7 +27350,7 @@
       "spend_3d": 22.33,
       "purchases_3d": 1,
       "cpa_3d": 22.33,
-      "updated_at": "2026-11-01 12:29 GMT+3"
+      "updated_at": "2026-11-01 13:26 GMT+3"
     },
     "7bffcb77-f2ae-427e-883a-f4e5f249cae9": {
       "name": "باور بانك وينر - 30 أدست - بيد 1.5 30-10",
@@ -26757,21 +27364,21 @@
       "spend_3d": 21.85,
       "purchases_3d": 1,
       "cpa_3d": 21.85,
-      "updated_at": "2026-11-01 12:29 GMT+3"
+      "updated_at": "2026-11-01 13:26 GMT+3"
     },
     "a1121184-41a2-484d-8fa4-67011918698c": {
       "name": "وسادة السيارة وينر - 30 أدست - بيد 1.5 30-10",
-      "spend_3d": 118.49,
+      "spend_3d": 118.5,
       "purchases_3d": 14,
       "cpa_3d": 8.46,
-      "updated_at": "2026-11-01 12:29 GMT+3"
+      "updated_at": "2026-11-01 13:26 GMT+3"
     },
     "89aadf62-66f2-4ac8-9106-f92fd83b4277": {
       "name": "باور بانك وينر - 30 أدست - بيد 1.4 30-10",
-      "spend_3d": 174.11,
+      "spend_3d": 174.12,
       "purchases_3d": 18,
       "cpa_3d": 9.67,
-      "updated_at": "2026-11-01 12:29 GMT+3"
+      "updated_at": "2026-11-01 13:26 GMT+3"
     },
     "7fa61e5d-dd41-4ee5-af26-e5c0f773bdef": {
       "name": "باور بانك وينر - 30 أدست - بيد 1.6 30-10",
@@ -26782,10 +27389,10 @@
     },
     "6cb7f305-66ac-4e9e-8fe0-3cfccd09e3c8": {
       "name": "وسادة السيارة وينر - 30 أدست - بيد 1.4 30-10",
-      "spend_3d": 29.49,
+      "spend_3d": 29.62,
       "purchases_3d": 2,
-      "cpa_3d": 14.74,
-      "updated_at": "2026-11-01 12:29 GMT+3"
+      "cpa_3d": 14.81,
+      "updated_at": "2026-11-01 13:26 GMT+3"
     }
   },
   "proactive_scaled_squads": {
@@ -34543,7 +35150,7 @@
       "date": "2026-11-01",
       "name": "PB 1.60 Max [H1] #21",
       "campaign": "باور بانك وينر - 30 أدست - بيد 1.6 30-10",
-      "scaled_budget_today": false
+      "scaled_budget_today": true
     },
     "5b125927-05c1-48ee-af99-648817234ed5": {
       "date": "2026-10-31",
