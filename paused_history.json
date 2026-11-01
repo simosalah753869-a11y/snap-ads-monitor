@@ -1425,8 +1425,8 @@
     "09651a16-ed4f-4a87-afa3-dda071d49041": {
       "name": "Copy - PB 1.65 Max [H1] #10",
       "campaign": "باور بانك وينر 2 - 30 أدست 30-10",
-      "reason": "[2-Day Audit] [AdSquad CPC > $0.28 Rule] صرفت المجموعة $1.04 (>= $1.00) وسعر النقرة CPC=$0.347 (> $0.28)",
-      "paused_at": "2026-11-02 00:54 GMT+3"
+      "reason": "[2-Day Audit] [AdSquad CPC > $0.28 Rule] صرفت المجموعة $1.09 (>= $1.00) وسعر النقرة CPC=$0.363 (> $0.28)",
+      "paused_at": "2026-11-02 01:31 GMT+3"
     },
     "cf14be8c-be95-45c3-b264-701f5920b7e2": {
       "name": "Car 1.50 Max [H1] #30",
@@ -1599,8 +1599,8 @@
     "476c3f0c-d54e-435a-9398-323021141975": {
       "name": "Car 1.67 Max [H1] #25",
       "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.6 / 1.65 / 1.67 30-10",
-      "reason": "[2-Day Audit] [AdSquad CPC > $0.28 Rule] صرفت المجموعة $3.01 (>= $1.00) وسعر النقرة CPC=$0.602 (> $0.28)",
-      "paused_at": "2026-11-02 00:54 GMT+3"
+      "reason": "[2-Day Audit] [AdSquad CPC > $0.28 Rule] صرفت المجموعة $3.15 (>= $1.00) وسعر النقرة CPC=$0.525 (> $0.28)",
+      "paused_at": "2026-11-02 01:31 GMT+3"
     },
     "49b26f13-45a3-4243-821f-bd8395381fd3": {
       "name": "PB 1.40 Max [H1] #20",
@@ -1967,6 +1967,12 @@
       "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.6 / 1.65 / 1.67 30-10",
       "reason": "[2-Day Audit] [AdSquad CPC > $0.28 Rule] صرفت المجموعة $1.43 (>= $1.00) وسعر النقرة CPC=$0.286 (> $0.28)",
       "paused_at": "2026-11-02 00:14 GMT+3"
+    },
+    "8037bcfd-8673-4edd-b343-7ec13acb362b": {
+      "name": "Car 1.67 Max [H1] #26",
+      "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.6 / 1.65 / 1.67 30-10",
+      "reason": "[2-Day Audit] [AdSquad CPC > $0.28 Rule] صرفت المجموعة $1.02 (>= $1.00) وسعر النقرة CPC=$1.020 (> $0.28)",
+      "paused_at": "2026-11-02 01:31 GMT+3"
     }
   },
   "ads": {
@@ -21085,7 +21091,61 @@
     "384f0b3d-99b5-4671-b4cd-4979706c5038": "dd2597c1-0be2-48a9-b507-e17b1c46695c",
     "e6721ede-3942-4a69-8b0f-be1f21c52837": "57ce198d-5e8c-4d8a-9de4-08156f8196dc",
     "aaa428c9-1353-4177-acc2-0a590a6e3b17": "144f46e0-726b-4de1-ab23-06b381105ec5",
-    "58b61e9f-8008-4003-9fda-8a70ec2b5b5f": "f5037e54-4d84-4966-a2dc-6d3cc25642d2"
+    "58b61e9f-8008-4003-9fda-8a70ec2b5b5f": "f5037e54-4d84-4966-a2dc-6d3cc25642d2",
+    "7d3aec7a-ff9c-4cdc-87cb-d2a690e55a49": "51f7782d-78b9-40f4-97b5-804eb7abc446",
+    "1f229aee-8121-4532-a95e-a706b2a3040b": "9afe39d2-f2d3-43fb-b56a-e682be355893",
+    "de999fa4-676c-4d5d-abb3-b4a2929f9ad3": "f1b44c3d-4282-4131-a458-0fc484678b3f",
+    "9db673a7-6910-4b4e-8f89-3a28401af84d": "f22924b3-4ab5-48fb-8ab4-4d561e555168",
+    "5c94bc55-0bed-473c-bdc8-9a09954f64c1": "2f064805-f175-4546-b4dc-2e59204e6dd0",
+    "7cd8e811-9ebc-4cf2-926c-1c7717a32a1c": "848b75cb-8161-4334-95c1-e08168265397",
+    "ede7b251-0933-403d-bdcf-3e31fd76c152": "2ef781c1-ac30-4d81-a0f8-ee5d4425b934",
+    "c6d00af0-6578-4ecc-b6dc-54566621b4d3": "78d99070-e28d-408f-a979-287ff01c1573",
+    "ed6ec962-3c29-40bb-b902-16747079b83d": "1323a6e8-4b08-4ae1-8085-d1982e7d3d28",
+    "454e6d63-befc-4fb7-a239-2bfc3bee6dbe": "fed89ff6-70f9-46ec-b7f8-110b078deb3a",
+    "d86d6a5c-93bc-4c1e-bb84-2a17c5666ad4": "427b3cbe-f95f-40a5-8581-6e537f3dd525",
+    "b5805b6e-bf19-4684-9e7f-040e95d6c12a": "fa3d2035-20a0-432b-a2ee-d218eaeecb97",
+    "3e1e8fb9-23dc-4e8e-a214-19241dd97545": "a119447b-ed77-4aa2-bb3a-1543da2bbc12",
+    "71803d86-9c0f-496b-af9c-edb49359689c": "13d87390-80d7-44a9-8416-597b2594167a",
+    "f6832fe8-54ff-4489-9b2f-6d16380c0e54": "32e3577d-646b-4b6a-9533-ade1a105be80",
+    "667879e8-ce73-44c9-8ca5-389dc1532d59": "8abc5ff3-7d72-440b-b67c-c717c06bad3f",
+    "de8856c6-fe23-40bc-8b69-b5ae15e0d39a": "15cab9a8-e2d3-477d-bf37-27ab26621241",
+    "03d1100e-cf50-4671-a126-cb276e96503d": "b4b05c58-8edb-4345-8986-475791da524b",
+    "d9f125e9-6d4c-4a14-b64d-14b2706ce553": "6f79fe38-306e-4b67-9677-51e194daf706",
+    "0c301cbf-4193-45dd-8222-0f544cb56273": "f7424950-3c54-45fd-9ce3-b45b843a86a1",
+    "a90de5ef-c659-4489-b0f5-747cc5b19599": "01c83cea-6071-44ae-927a-4e234ef09fbe",
+    "0107c8bd-1002-4723-9a7c-8ed4aeae22fe": "09088ddd-926c-408a-b17f-ff5a594dc8a5",
+    "854cc311-0128-423a-9f8d-2b049885b2ff": "ddc5d9c1-58b2-4667-af2e-95626c416c2d",
+    "d3001111-84ea-4b58-909a-c90e94bc9013": "4b8f0c32-a73c-4946-bcc6-17bfc0b15cdd",
+    "45843526-d0f3-4f72-8311-27ad5930f992": "be4bb865-f072-457e-a27a-20c5c4e2ff75",
+    "0d3a2f1c-26eb-4b66-93f4-81b5499bf10c": "c5bd4660-7eb7-4f7b-a138-186ca495ae3e",
+    "3063103f-dc5d-498e-9953-04a19edd5420": "bf1f0ac5-5be3-4fcb-92ce-f83dbd32f6e9",
+    "ac54bccd-aea8-4b2e-9cad-042ad7c265f3": "37023260-580b-45f7-b745-ed3731868669",
+    "68811e3f-4551-4131-9ff9-0143013bb8ed": "0fde1401-e10c-4696-9d56-31c2637daf60",
+    "95215a83-a44e-4391-98d8-e9a7f55588a1": "40cd9dce-517c-47a9-83ce-044ba85efe09",
+    "8d04c2fc-442f-4280-a478-46e78503cd99": "93146d53-f241-42a0-b30c-a3f18f60985e",
+    "ff7c3379-b116-49ac-aa99-de22b75d9d31": "a1f0f856-7e15-4f35-8543-d75a57d0e8bb",
+    "4250f82d-c72f-4435-8295-9102fa72ba6c": "8c069110-3674-47c4-9f79-68a92c33ea65",
+    "5ec662f3-f85b-4a20-833e-91f47360c30e": "41356d35-3902-4134-a00c-fa806bca4df3",
+    "454820d1-c223-46ac-bbaf-569e58a70e9c": "280220c2-a1e1-4be9-acef-f7ea2614a9ec",
+    "53711582-bb27-4f74-a5ab-01b8c410858a": "ecfed04a-8914-4c6a-b18b-5a09146c2ede",
+    "65050d4c-240b-420a-9718-82308caaf0bc": "cbc8bdf6-7a0b-403d-8427-a65727cd1d99",
+    "92c62bfe-0a31-4ec5-a71f-1cd7fc65303b": "aeed8eb1-3480-478f-92e8-a73ebc92a434",
+    "7cff39cd-9152-4de5-b0f8-a33a818405e5": "f2717276-dd98-41bd-84b6-1f61c71f4f3d",
+    "94ecd01b-718b-4913-bc92-7a81bf29b410": "6bac2914-e77c-4750-ab39-65fd3d57932d",
+    "11eafbbf-e2ee-41f1-8312-a13e6ba9462c": "efd6608d-8ea1-4e9a-9a5e-191763cd95a3",
+    "c351deec-b229-4ec5-83e8-cbbcf5759a79": "4a261215-3ffe-4409-829f-f1663b1cd3c0",
+    "ceb76f10-8e63-4858-ad8f-a741ae04985b": "caf245d0-82e0-4be0-a9c9-6f5359618398",
+    "0a6f6202-1273-4f08-b57d-f2280b0c388f": "ec73ba54-5201-4e55-9425-215d55e35cea",
+    "8692b022-32f4-4987-b70e-ed84cd140d95": "cb152be2-9aba-47c1-ae83-9ba8c87fedba",
+    "182ab412-1d02-45e5-8acc-f29992e82579": "594ea0be-d542-4711-846e-624a023a8ced",
+    "3886de26-ca75-4302-bd31-481955e76df4": "e78339d5-f701-40b2-b985-052a1a02ad69",
+    "c81a8ed2-4115-44f2-9580-f6d24a26aa0c": "7e07b3e2-37a2-4218-854b-74d048dd859e",
+    "1bf52332-0fcf-4c92-bab0-8d4e2f6f453c": "96fa26d7-4723-4f31-9d38-f6e38dc0dd5c",
+    "3f0e59e1-fe24-4c09-ab0d-cd13f0a59737": "e3a9c1b0-21d8-4419-a914-2172f0e0a4d9",
+    "68be0d4e-90e2-4b25-835a-8e42c3f4beb1": "d5313eba-6061-4ac4-8c94-24b9df291504",
+    "e61741d9-51f8-4cad-ab6d-ef901eedebef": "6799e2a1-f6f5-4e4b-b0f6-9a2acc41b09b",
+    "153b1b28-48ee-4ce6-9596-ffb66c1e9c35": "07f63905-1814-4482-a4e1-b84592da43a0",
+    "97be27bd-3b0c-446c-bc01-98a5a41ca989": "b62a96d0-b355-4179-84a7-18d8b970eab3"
   },
   "disabled_videos": {
     "e23e7c95-3f15-4945-9844-8bd73e2d79d3:cc7aeeac-37af-4dec-980a-2b8a544e949d": {
@@ -27546,17 +27606,17 @@
     "4eefa50f-9008-4aea-b159-d370150b60cf": {
       "name": "صندوق دفاتر TIME X 21-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-11-02 00:54 GMT+3"
+      "updated_at": "2026-11-02 01:31 GMT+3"
     },
     "a171c141-a6d5-403e-8357-5c8f6c01bce0": {
       "name": "وسادة مايباخ 21-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-11-02 00:54 GMT+3"
+      "updated_at": "2026-11-02 01:31 GMT+3"
     },
     "c5a7cade-6ec3-4c47-b3a2-c5f08bcf8da0": {
       "name": "وسادة مايباخ 21-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-11-02 00:54 GMT+3"
+      "updated_at": "2026-11-02 01:31 GMT+3"
     },
     "1879653126110545": {
       "name": "timex books 21-10",
@@ -27567,12 +27627,12 @@
     "e8f0a5e9-89c5-4c14-aabb-c9c6c657891d": {
       "name": "مسخن الرضاعات اللاسلكي 22-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-11-02 00:54 GMT+3"
+      "updated_at": "2026-11-02 01:31 GMT+3"
     },
     "f18a3bf4-148a-4f5e-baa1-f90335f1884c": {
       "name": "مسخن الرضاعات اللاسلكي 22-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-11-02 00:54 GMT+3"
+      "updated_at": "2026-11-02 01:31 GMT+3"
     },
     "1879676075637041": {
       "name": "baby bottle warmer 22-10",
@@ -27589,7 +27649,7 @@
     "29891f22-e046-4cc8-b9ee-9921d2d65f0b": {
       "name": "مسخن الرضاعات اللاسلكي 22-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-11-02 00:54 GMT+3"
+      "updated_at": "2026-11-02 01:31 GMT+3"
     },
     "1879653022433617": {
       "name": "maybach pillow 21-10",
@@ -27686,14 +27746,14 @@
       "spend_3d": 101.41,
       "purchases_3d": 10,
       "cpa_3d": 10.14,
-      "updated_at": "2026-11-02 00:58 GMT+3"
+      "updated_at": "2026-11-02 01:36 GMT+3"
     },
     "89aadf62-66f2-4ac8-9106-f92fd83b4277": {
       "name": "باور بانك وينر - 30 أدست - بيد 1.4 30-10",
       "spend_3d": 115.83,
       "purchases_3d": 10,
       "cpa_3d": 11.58,
-      "updated_at": "2026-11-02 00:58 GMT+3"
+      "updated_at": "2026-11-02 01:36 GMT+3"
     },
     "7fa61e5d-dd41-4ee5-af26-e5c0f773bdef": {
       "name": "باور بانك وينر - 30 أدست - بيد 1.6 30-10",
@@ -27707,21 +27767,21 @@
       "spend_3d": 20.85,
       "purchases_3d": 2,
       "cpa_3d": 10.43,
-      "updated_at": "2026-11-02 00:58 GMT+3"
+      "updated_at": "2026-11-02 01:36 GMT+3"
     },
     "22d12681-930c-44a8-91e3-58f112789375": {
       "name": "باور بانك وينر - 10 أدست - بيد 1.7 / 1.6",
       "spend_3d": 15.51,
       "purchases_3d": 1,
       "cpa_3d": 15.51,
-      "updated_at": "2026-11-02 00:58 GMT+3"
+      "updated_at": "2026-11-02 01:36 GMT+3"
     },
     "828f2e42-96c5-4813-a780-bbc5d976075f": {
       "name": "وسادة السيارة وينر 2 - 10 أدست - بيد 1.7 / 1.6",
       "spend_3d": 24.65,
       "purchases_3d": 0,
       "cpa_3d": null,
-      "updated_at": "2026-11-02 00:58 GMT+3"
+      "updated_at": "2026-11-02 01:36 GMT+3"
     }
   },
   "proactive_scaled_squads": {
@@ -36754,6 +36814,78 @@
       "scaled_budget_today": false
     },
     "5f512009-9400-4f25-a056-a654c59f0ddc": {
+      "date": "2026-11-02",
+      "name": "منزلك وينر باور بانك دفعة 1 - 1.80 Max",
+      "campaign": "باور بانك وينر منزلك - بيد 1.8 - 02-11",
+      "scaled_budget_today": false
+    },
+    "6d7dac27-ca7b-4320-a9d9-ba11284010c2": {
+      "date": "2026-11-02",
+      "name": "منزلك وينر باور بانك دفعة 1 - 1.80 Max",
+      "campaign": "باور بانك وينر منزلك - بيد 1.8 - 02-11",
+      "scaled_budget_today": false
+    },
+    "71b688d5-8388-4376-97c6-fcc4ee313d90": {
+      "date": "2026-11-02",
+      "name": "منزلك وينر باور بانك دفعة 2 - 1.80 Max",
+      "campaign": "باور بانك وينر منزلك - بيد 1.8 - 02-11",
+      "scaled_budget_today": false
+    },
+    "a7ce73da-15e2-452c-8672-5ec456fdad99": {
+      "date": "2026-11-02",
+      "name": "منزلك وينر باور بانك دفعة 3 - 1.80 Max",
+      "campaign": "باور بانك وينر منزلك - بيد 1.8 - 02-11",
+      "scaled_budget_today": false
+    },
+    "4f5aecab-22c2-4d39-9670-15ef887e9003": {
+      "date": "2026-11-02",
+      "name": "منزلك وينر وسادة السيارة دفعة 2 - 1.80 Max",
+      "campaign": "وسادة السيارة وينر منزلك - بيد 1.8 - 02-11",
+      "scaled_budget_today": false
+    },
+    "b39ee801-4cc8-4f20-b169-15831711efc1": {
+      "date": "2026-11-02",
+      "name": "منزلك وينر وسادة السيارة دفعة 1 - 1.80 Max",
+      "campaign": "وسادة السيارة وينر منزلك - بيد 1.8 - 02-11",
+      "scaled_budget_today": false
+    },
+    "d7bd36fa-fa74-42bf-bd44-d37948d7b221": {
+      "date": "2026-11-02",
+      "name": "منزلك وينر وسادة السيارة دفعة 3 - 1.80 Max",
+      "campaign": "وسادة السيارة وينر منزلك - بيد 1.8 - 02-11",
+      "scaled_budget_today": false
+    },
+    "01cdf1ec-197b-4c88-bb02-4614045e5c2d": {
+      "date": "2026-11-02",
+      "name": "منزلك وينر وسادة السيارة دفعة 2 - 1.80 Max",
+      "campaign": "وسادة السيارة وينر منزلك - بيد 1.8 - 02-11",
+      "scaled_budget_today": false
+    },
+    "59e84ece-52a9-47c4-83c0-3d23c2e0b4d5": {
+      "date": "2026-11-02",
+      "name": "منزلك وينر وسادة السيارة دفعة 1 - 1.80 Max",
+      "campaign": "وسادة السيارة وينر منزلك - بيد 1.8 - 02-11",
+      "scaled_budget_today": false
+    },
+    "b57da95b-3642-4eb0-b2b1-f17abab30149": {
+      "date": "2026-11-02",
+      "name": "منزلك وينر وسادة السيارة دفعة 3 - 1.80 Max",
+      "campaign": "وسادة السيارة وينر منزلك - بيد 1.8 - 02-11",
+      "scaled_budget_today": false
+    },
+    "3c5bf612-16ad-4cf8-ade8-97ad8dc797a7": {
+      "date": "2026-11-02",
+      "name": "منزلك وينر باور بانك دفعة 3 - 1.80 Max",
+      "campaign": "باور بانك وينر منزلك - بيد 1.8 - 02-11",
+      "scaled_budget_today": false
+    },
+    "91d3b78c-3df0-4bb4-81e0-d93ac67f37ae": {
+      "date": "2026-11-02",
+      "name": "منزلك وينر باور بانك دفعة 2 - 1.80 Max",
+      "campaign": "باور بانك وينر منزلك - بيد 1.8 - 02-11",
+      "scaled_budget_today": false
+    },
+    "d76972cd-5018-4ca9-9f77-1f207d50c91d": {
       "date": "2026-11-02",
       "name": "منزلك وينر باور بانك دفعة 1 - 1.80 Max",
       "campaign": "باور بانك وينر منزلك - بيد 1.8 - 02-11",
