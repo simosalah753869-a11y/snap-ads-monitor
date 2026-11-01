@@ -1937,6 +1937,12 @@
       "campaign": "وسادة السيارة وينر 2 - 10 أدست - بيد 1.7 / 1.6",
       "reason": "[AdSquad CPC > $0.28 Rule] صرفت المجموعة $1.12 (>= $1.00) وسعر النقرة CPC=$0.373 (> $0.28)",
       "paused_at": "2026-11-01 20:37 GMT+3"
+    },
+    "9d93b982-9090-43e5-89cc-dda583ab76be": {
+      "name": "Copy #01 - 1.70 Max [H1]",
+      "campaign": "وسادة السيارة وينر 2 - 10 أدست - بيد 1.7 / 1.6",
+      "reason": "[AdSquad CPC > $0.28 Rule] صرفت المجموعة $1.21 (>= $1.00) وسعر النقرة CPC=$0.302 (> $0.28)",
+      "paused_at": "2026-11-01 21:11 GMT+3"
     }
   },
   "ads": {
@@ -18515,6 +18521,13 @@
       "adsquad": "Copy #09 - 1.60 Max [H1]",
       "reason": "[Ad CPC Rule] صرف الفيديو $1.12 (>= $1.00) | النقرات: 3 | سعر النقرة CPC = $0.373 (> $0.28)",
       "paused_at": "2026-11-01 20:37 GMT+3"
+    },
+    "a19bbf63-e9a1-44d0-8cf3-72d1c580c8c7": {
+      "name": "Car_v1_15-10_4_m18673f [H1]",
+      "campaign": "وسادة السيارة وينر 2 - 10 أدست - بيد 1.7 / 1.6",
+      "adsquad": "Copy #01 - 1.70 Max [H1]",
+      "reason": "[Ad CPC Rule] صرف الفيديو $1.21 (>= $1.00) | النقرات: 4 | سعر النقرة CPC = $0.302 (> $0.28)",
+      "paused_at": "2026-11-01 21:11 GMT+3"
     }
   },
   "bid_bumps": {
@@ -27389,17 +27402,17 @@
     "4eefa50f-9008-4aea-b159-d370150b60cf": {
       "name": "صندوق دفاتر TIME X 21-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-11-01 20:29 GMT+3"
+      "updated_at": "2026-11-01 21:10 GMT+3"
     },
     "a171c141-a6d5-403e-8357-5c8f6c01bce0": {
       "name": "وسادة مايباخ 21-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-11-01 20:29 GMT+3"
+      "updated_at": "2026-11-01 21:10 GMT+3"
     },
     "c5a7cade-6ec3-4c47-b3a2-c5f08bcf8da0": {
       "name": "وسادة مايباخ 21-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-11-01 20:29 GMT+3"
+      "updated_at": "2026-11-01 21:10 GMT+3"
     },
     "1879653126110545": {
       "name": "timex books 21-10",
@@ -27410,12 +27423,12 @@
     "e8f0a5e9-89c5-4c14-aabb-c9c6c657891d": {
       "name": "مسخن الرضاعات اللاسلكي 22-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-11-01 20:29 GMT+3"
+      "updated_at": "2026-11-01 21:10 GMT+3"
     },
     "f18a3bf4-148a-4f5e-baa1-f90335f1884c": {
       "name": "مسخن الرضاعات اللاسلكي 22-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-11-01 20:29 GMT+3"
+      "updated_at": "2026-11-01 21:10 GMT+3"
     },
     "1879676075637041": {
       "name": "baby bottle warmer 22-10",
@@ -27432,7 +27445,7 @@
     "29891f22-e046-4cc8-b9ee-9921d2d65f0b": {
       "name": "مسخن الرضاعات اللاسلكي 22-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-11-01 20:29 GMT+3"
+      "updated_at": "2026-11-01 21:10 GMT+3"
     },
     "1879653022433617": {
       "name": "maybach pillow 21-10",
@@ -27494,7 +27507,7 @@
       "spend_3d": 21.97,
       "purchases_3d": 2,
       "cpa_3d": 10.98,
-      "updated_at": "2026-11-01 20:37 GMT+3"
+      "updated_at": "2026-11-01 21:11 GMT+3"
     },
     "483f7e57-8a8e-4edb-8b74-7c67eb76419b": {
       "name": "باور بانك وينر 2 - 30 أدست 30-10",
@@ -27508,7 +27521,7 @@
       "spend_3d": 22.33,
       "purchases_3d": 1,
       "cpa_3d": 22.33,
-      "updated_at": "2026-11-01 20:37 GMT+3"
+      "updated_at": "2026-11-01 21:11 GMT+3"
     },
     "7bffcb77-f2ae-427e-883a-f4e5f249cae9": {
       "name": "باور بانك وينر - 30 أدست - بيد 1.5 30-10",
@@ -27522,21 +27535,21 @@
       "spend_3d": 21.85,
       "purchases_3d": 1,
       "cpa_3d": 21.85,
-      "updated_at": "2026-11-01 20:37 GMT+3"
+      "updated_at": "2026-11-01 21:11 GMT+3"
     },
     "a1121184-41a2-484d-8fa4-67011918698c": {
       "name": "وسادة السيارة وينر - 30 أدست - بيد 1.5 30-10",
       "spend_3d": 118.5,
       "purchases_3d": 14,
       "cpa_3d": 8.46,
-      "updated_at": "2026-11-01 20:37 GMT+3"
+      "updated_at": "2026-11-01 21:11 GMT+3"
     },
     "89aadf62-66f2-4ac8-9106-f92fd83b4277": {
       "name": "باور بانك وينر - 30 أدست - بيد 1.4 30-10",
       "spend_3d": 174.13,
       "purchases_3d": 18,
       "cpa_3d": 9.67,
-      "updated_at": "2026-11-01 20:37 GMT+3"
+      "updated_at": "2026-11-01 21:11 GMT+3"
     },
     "7fa61e5d-dd41-4ee5-af26-e5c0f773bdef": {
       "name": "باور بانك وينر - 30 أدست - بيد 1.6 30-10",
@@ -27550,14 +27563,21 @@
       "spend_3d": 29.62,
       "purchases_3d": 2,
       "cpa_3d": 14.81,
-      "updated_at": "2026-11-01 20:37 GMT+3"
+      "updated_at": "2026-11-01 21:11 GMT+3"
     },
     "22d12681-930c-44a8-91e3-58f112789375": {
       "name": "باور بانك وينر - 10 أدست - بيد 1.7 / 1.6",
       "spend_3d": 15.5,
       "purchases_3d": 1,
       "cpa_3d": 15.5,
-      "updated_at": "2026-11-01 20:37 GMT+3"
+      "updated_at": "2026-11-01 21:11 GMT+3"
+    },
+    "828f2e42-96c5-4813-a780-bbc5d976075f": {
+      "name": "وسادة السيارة وينر 2 - 10 أدست - بيد 1.7 / 1.6",
+      "spend_3d": 10.35,
+      "purchases_3d": 0,
+      "cpa_3d": null,
+      "updated_at": "2026-11-01 21:11 GMT+3"
     }
   },
   "proactive_scaled_squads": {
