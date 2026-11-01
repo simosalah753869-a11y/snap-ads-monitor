@@ -1383,8 +1383,8 @@
     "192d7461-7e73-4df0-9180-13337381cf1f": {
       "name": "Copy - PB 1.60 Max [H1] #30",
       "campaign": "باور بانك وينر 2 - 30 أدست 30-10",
-      "reason": "[2-Day Audit] [AdSquad Max CPA Rule] سعر البيعة CPA = $7.15 (> $7.00) | الصرف: $14.3 | المبيعات: 2",
-      "paused_at": "2026-11-01 17:00 GMT+3"
+      "reason": "[AdSquad Max CPA Rule] سعر البيعة CPA = $9.42 (> $7.00) | الصرف: $9.42 | المبيعات: 1",
+      "paused_at": "2026-11-01 22:06 GMT+3"
     },
     "d7472228-369e-458b-a13b-2756cfc1a5a6": {
       "name": "PB 1.60 Max [H1] #30",
@@ -1425,8 +1425,8 @@
     "09651a16-ed4f-4a87-afa3-dda071d49041": {
       "name": "Copy - PB 1.70 Max [H1] #10",
       "campaign": "باور بانك وينر 2 - 30 أدست 30-10",
-      "reason": "[2-Day Audit] [AdSquad CPC > $0.28 Rule] صرفت المجموعة $4.86 (>= $1.00) وسعر النقرة CPC=$0.286 (> $0.28)",
-      "paused_at": "2026-11-01 20:29 GMT+3"
+      "reason": "[2-Day Audit] [AdSquad CPC > $0.28 Rule] صرفت المجموعة $5.04 (>= $1.00) وسعر النقرة CPC=$0.296 (> $0.28)",
+      "paused_at": "2026-11-01 22:06 GMT+3"
     },
     "cf14be8c-be95-45c3-b264-701f5920b7e2": {
       "name": "Car 1.50 Max [H1] #30",
@@ -1599,8 +1599,8 @@
     "476c3f0c-d54e-435a-9398-323021141975": {
       "name": "Car 1.60 Max [H1] #25",
       "campaign": "وسادة السيارة وينر - 30 أدست - بيد 1.7 / 1.6 30-10",
-      "reason": "[AdSquad CPC > $0.28 Rule] صرفت المجموعة $1.96 (>= $1.00) وسعر النقرة CPC=$0.653 (> $0.28)",
-      "paused_at": "2026-11-01 20:29 GMT+3"
+      "reason": "[AdSquad CPC > $0.28 Rule] صرفت المجموعة $2.06 (>= $1.00) وسعر النقرة CPC=$0.687 (> $0.28)",
+      "paused_at": "2026-11-01 22:06 GMT+3"
     },
     "49b26f13-45a3-4243-821f-bd8395381fd3": {
       "name": "PB 1.40 Max [H1] #20",
@@ -1906,7 +1906,7 @@
       "name": "Copy - PB 2.40 Max [H1] #02",
       "campaign": "باور بانك وينر",
       "reason": "[AdSquad CPC > $0.28 Rule] صرفت المجموعة $3.25 (>= $1.00) وسعر النقرة CPC=$0.325 (> $0.28)",
-      "paused_at": "2026-11-01 19:55 GMT+3"
+      "paused_at": "2026-11-01 22:06 GMT+3"
     },
     "0073abcf-73b2-4ef6-a4d2-3288e4fd77c6": {
       "name": "Car 1.60 Max [H1] #03",
@@ -1943,6 +1943,12 @@
       "campaign": "وسادة السيارة وينر 2 - 10 أدست - بيد 1.7 / 1.6",
       "reason": "[AdSquad CPC > $0.28 Rule] صرفت المجموعة $1.21 (>= $1.00) وسعر النقرة CPC=$0.302 (> $0.28)",
       "paused_at": "2026-11-01 21:11 GMT+3"
+    },
+    "1664d4ca-ea72-434c-917e-125b52b88b7c": {
+      "name": "Copy #04 - 1.70 Max [H1]",
+      "campaign": "باور بانك وينر - 10 أدست - بيد 1.7 / 1.6",
+      "reason": "[AdSquad $4.00 Stop-Loss] صرفت المجموعة $5.65 (>= $4.00) بدون أي مبيعة (0 مبيعات)",
+      "paused_at": "2026-11-01 22:13 GMT+3"
     }
   },
   "ads": {
@@ -18528,6 +18534,90 @@
       "adsquad": "Copy #01 - 1.70 Max [H1]",
       "reason": "[Ad CPC Rule] صرف الفيديو $1.21 (>= $1.00) | النقرات: 4 | سعر النقرة CPC = $0.302 (> $0.28)",
       "paused_at": "2026-11-01 21:11 GMT+3"
+    },
+    "cc79f3b1-86da-431a-bfb5-ac5282a6e6ca": {
+      "name": "22-10_voltrx_hook1_desert_man_m39351c [EXP-H2]",
+      "campaign": "باور بانك وينر 2 - 30 أدست 30-10",
+      "adsquad": "Copy - PB 1.60 Max [H1] #30",
+      "reason": "[Single Video Max $7 CPA Rule] صرف الفيديو $9.25 | المبيعات: 1 | CPA = $9.25 (> $7.00)",
+      "paused_at": "2026-11-01 22:06 GMT+3"
+    },
+    "014ce53e-baa4-45a2-9eb7-b72284c331fd": {
+      "name": "PB_v1_Winner1_m207c2a [H1]",
+      "campaign": "باور بانك وينر - 10 أدست - بيد 1.6 / 1.65 / 1.67",
+      "adsquad": "Copy #02 - 1.70 Max [H1]",
+      "reason": "[Global Accumulated Video High CPA 3D] مجموع صرف الفيديو التراكمي لـ 3 أيام على مستوى الحساب = $17.00 | المبيعات = 1 | CPA التراكمي = $17.00 (>= $15.00)",
+      "paused_at": "2026-11-01 22:06 GMT+3"
+    },
+    "2235d04b-1ddf-4e16-8835-c11bcd16072f": {
+      "name": "PB_v1_Winner1_m207c2a [H1]",
+      "campaign": "باور بانك وينر - 10 أدست - بيد 1.6 / 1.65 / 1.67",
+      "adsquad": "Copy #01 - 1.70 Max [H1]",
+      "reason": "[Global Accumulated Video High CPA 3D] مجموع صرف الفيديو التراكمي لـ 3 أيام على مستوى الحساب = $17.00 | المبيعات = 1 | CPA التراكمي = $17.00 (>= $15.00)",
+      "paused_at": "2026-11-01 22:06 GMT+3"
+    },
+    "5289f19a-4f6b-443a-a1bb-dbe922757fce": {
+      "name": "PB_v1_Winner1_m207c2a [H1]",
+      "campaign": "باور بانك وينر - 10 أدست - بيد 1.6 / 1.65 / 1.67",
+      "adsquad": "Copy #03 - 1.70 Max [H1]",
+      "reason": "[Global Accumulated Video High CPA 3D] مجموع صرف الفيديو التراكمي لـ 3 أيام على مستوى الحساب = $17.00 | المبيعات = 1 | CPA التراكمي = $17.00 (>= $15.00)",
+      "paused_at": "2026-11-01 22:06 GMT+3"
+    },
+    "6e8a69da-b71b-4dda-829a-f8994d290f6c": {
+      "name": "PB_v1_Winner1_m207c2a [H1]",
+      "campaign": "باور بانك وينر - 10 أدست - بيد 1.6 / 1.65 / 1.67",
+      "adsquad": "Copy #10 - 1.60 Max [H1]",
+      "reason": "[Global Accumulated Video High CPA 3D] مجموع صرف الفيديو التراكمي لـ 3 أيام على مستوى الحساب = $17.00 | المبيعات = 1 | CPA التراكمي = $17.00 (>= $15.00)",
+      "paused_at": "2026-11-01 22:06 GMT+3"
+    },
+    "81c48ac7-2ab4-4676-9729-c4ecf40d219d": {
+      "name": "PB_v1_Winner1_m207c2a [H1]",
+      "campaign": "باور بانك وينر - 10 أدست - بيد 1.6 / 1.65 / 1.67",
+      "adsquad": "Copy #08 - 1.60 Max [H1]",
+      "reason": "[Global Accumulated Video High CPA 3D] مجموع صرف الفيديو التراكمي لـ 3 أيام على مستوى الحساب = $17.00 | المبيعات = 1 | CPA التراكمي = $17.00 (>= $15.00)",
+      "paused_at": "2026-11-01 22:06 GMT+3"
+    },
+    "899fed39-43b1-4c8a-9169-ed7ca7c15bad": {
+      "name": "PB_v1_Winner1_m207c2a [H1]",
+      "campaign": "باور بانك وينر - 10 أدست - بيد 1.6 / 1.65 / 1.67",
+      "adsquad": "Copy #07 - 1.60 Max [H1]",
+      "reason": "[Global Accumulated Video High CPA 3D] مجموع صرف الفيديو التراكمي لـ 3 أيام على مستوى الحساب = $17.00 | المبيعات = 1 | CPA التراكمي = $17.00 (>= $15.00)",
+      "paused_at": "2026-11-01 22:06 GMT+3"
+    },
+    "acf2b4e3-8a4f-44d5-b899-7b1ff4d9126d": {
+      "name": "PB_v1_Winner1_m207c2a [H1]",
+      "campaign": "باور بانك وينر - 10 أدست - بيد 1.6 / 1.65 / 1.67",
+      "adsquad": "Copy #06 - 1.60 Max [H1]",
+      "reason": "[Global Accumulated Video High CPA 3D] مجموع صرف الفيديو التراكمي لـ 3 أيام على مستوى الحساب = $17.00 | المبيعات = 1 | CPA التراكمي = $17.00 (>= $15.00)",
+      "paused_at": "2026-11-01 22:06 GMT+3"
+    },
+    "b27a9fbb-6c2d-46bb-919f-c21d66314fcc": {
+      "name": "PB_v1_Winner1_m207c2a [H1]",
+      "campaign": "باور بانك وينر - 10 أدست - بيد 1.6 / 1.65 / 1.67",
+      "adsquad": "Copy #09 - 1.60 Max [H1]",
+      "reason": "[Global Accumulated Video High CPA 3D] مجموع صرف الفيديو التراكمي لـ 3 أيام على مستوى الحساب = $17.00 | المبيعات = 1 | CPA التراكمي = $17.00 (>= $15.00)",
+      "paused_at": "2026-11-01 22:06 GMT+3"
+    },
+    "bd49b1b6-31a6-4b3c-b6e2-f09d176366c5": {
+      "name": "PB_v1_Winner1_m207c2a [H1]",
+      "campaign": "باور بانك وينر - 10 أدست - بيد 1.6 / 1.65 / 1.67",
+      "adsquad": "Copy #04 - 1.70 Max [H1]",
+      "reason": "[Global Accumulated Video High CPA 3D] مجموع صرف الفيديو التراكمي لـ 3 أيام على مستوى الحساب = $17.00 | المبيعات = 1 | CPA التراكمي = $17.00 (>= $15.00)",
+      "paused_at": "2026-11-01 22:06 GMT+3"
+    },
+    "ceedb71c-6ebc-4c2a-82d7-4ac5f2cbddbe": {
+      "name": "PB_v1_Winner1_m207c2a [H1]",
+      "campaign": "باور بانك وينر - 10 أدست - بيد 1.6 / 1.65 / 1.67",
+      "adsquad": "Copy #05 - 1.70 Max [H1]",
+      "reason": "[Global Accumulated Video High CPA 3D] مجموع صرف الفيديو التراكمي لـ 3 أيام على مستوى الحساب = $17.00 | المبيعات = 1 | CPA التراكمي = $17.00 (>= $15.00)",
+      "paused_at": "2026-11-01 22:06 GMT+3"
+    },
+    "8de0ae5f-db0d-40e7-aaf3-77242d972360": {
+      "name": "PB_v3_Winner3_m4582d6 [H1]",
+      "campaign": "باور بانك وينر - 10 أدست - بيد 1.7 / 1.6",
+      "adsquad": "Copy #04 - 1.70 Max [H1]",
+      "reason": "[Single Video $4 Stop-Loss] صرف الفيديو $5.65 (>= $4.00) بدون مبيعة",
+      "paused_at": "2026-11-01 22:13 GMT+3"
     }
   },
   "bid_bumps": {
@@ -27402,17 +27492,17 @@
     "4eefa50f-9008-4aea-b159-d370150b60cf": {
       "name": "صندوق دفاتر TIME X 21-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-11-01 21:10 GMT+3"
+      "updated_at": "2026-11-01 22:06 GMT+3"
     },
     "a171c141-a6d5-403e-8357-5c8f6c01bce0": {
       "name": "وسادة مايباخ 21-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-11-01 21:10 GMT+3"
+      "updated_at": "2026-11-01 22:06 GMT+3"
     },
     "c5a7cade-6ec3-4c47-b3a2-c5f08bcf8da0": {
       "name": "وسادة مايباخ 21-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-11-01 21:10 GMT+3"
+      "updated_at": "2026-11-01 22:06 GMT+3"
     },
     "1879653126110545": {
       "name": "timex books 21-10",
@@ -27423,12 +27513,12 @@
     "e8f0a5e9-89c5-4c14-aabb-c9c6c657891d": {
       "name": "مسخن الرضاعات اللاسلكي 22-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-11-01 21:10 GMT+3"
+      "updated_at": "2026-11-01 22:06 GMT+3"
     },
     "f18a3bf4-148a-4f5e-baa1-f90335f1884c": {
       "name": "مسخن الرضاعات اللاسلكي 22-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-11-01 21:10 GMT+3"
+      "updated_at": "2026-11-01 22:06 GMT+3"
     },
     "1879676075637041": {
       "name": "baby bottle warmer 22-10",
@@ -27445,7 +27535,7 @@
     "29891f22-e046-4cc8-b9ee-9921d2d65f0b": {
       "name": "مسخن الرضاعات اللاسلكي 22-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-11-01 21:10 GMT+3"
+      "updated_at": "2026-11-01 22:06 GMT+3"
     },
     "1879653022433617": {
       "name": "maybach pillow 21-10",
@@ -27507,7 +27597,7 @@
       "spend_3d": 21.97,
       "purchases_3d": 2,
       "cpa_3d": 10.98,
-      "updated_at": "2026-11-01 21:11 GMT+3"
+      "updated_at": "2026-11-01 22:13 GMT+3"
     },
     "483f7e57-8a8e-4edb-8b74-7c67eb76419b": {
       "name": "باور بانك وينر 2 - 30 أدست 30-10",
@@ -27521,7 +27611,7 @@
       "spend_3d": 22.33,
       "purchases_3d": 1,
       "cpa_3d": 22.33,
-      "updated_at": "2026-11-01 21:11 GMT+3"
+      "updated_at": "2026-11-01 22:13 GMT+3"
     },
     "7bffcb77-f2ae-427e-883a-f4e5f249cae9": {
       "name": "باور بانك وينر - 30 أدست - بيد 1.5 30-10",
@@ -27535,21 +27625,21 @@
       "spend_3d": 21.85,
       "purchases_3d": 1,
       "cpa_3d": 21.85,
-      "updated_at": "2026-11-01 21:11 GMT+3"
+      "updated_at": "2026-11-01 22:13 GMT+3"
     },
     "a1121184-41a2-484d-8fa4-67011918698c": {
       "name": "وسادة السيارة وينر - 30 أدست - بيد 1.5 30-10",
       "spend_3d": 118.5,
       "purchases_3d": 14,
       "cpa_3d": 8.46,
-      "updated_at": "2026-11-01 21:11 GMT+3"
+      "updated_at": "2026-11-01 22:13 GMT+3"
     },
     "89aadf62-66f2-4ac8-9106-f92fd83b4277": {
       "name": "باور بانك وينر - 30 أدست - بيد 1.4 30-10",
       "spend_3d": 174.13,
       "purchases_3d": 18,
       "cpa_3d": 9.67,
-      "updated_at": "2026-11-01 21:11 GMT+3"
+      "updated_at": "2026-11-01 22:13 GMT+3"
     },
     "7fa61e5d-dd41-4ee5-af26-e5c0f773bdef": {
       "name": "باور بانك وينر - 30 أدست - بيد 1.6 30-10",
@@ -27563,21 +27653,21 @@
       "spend_3d": 29.62,
       "purchases_3d": 2,
       "cpa_3d": 14.81,
-      "updated_at": "2026-11-01 21:11 GMT+3"
+      "updated_at": "2026-11-01 22:13 GMT+3"
     },
     "22d12681-930c-44a8-91e3-58f112789375": {
       "name": "باور بانك وينر - 10 أدست - بيد 1.7 / 1.6",
       "spend_3d": 15.5,
       "purchases_3d": 1,
       "cpa_3d": 15.5,
-      "updated_at": "2026-11-01 21:11 GMT+3"
+      "updated_at": "2026-11-01 22:13 GMT+3"
     },
     "828f2e42-96c5-4813-a780-bbc5d976075f": {
       "name": "وسادة السيارة وينر 2 - 10 أدست - بيد 1.7 / 1.6",
-      "spend_3d": 10.35,
+      "spend_3d": 22.75,
       "purchases_3d": 0,
       "cpa_3d": null,
-      "updated_at": "2026-11-01 21:11 GMT+3"
+      "updated_at": "2026-11-01 22:13 GMT+3"
     }
   },
   "proactive_scaled_squads": {
