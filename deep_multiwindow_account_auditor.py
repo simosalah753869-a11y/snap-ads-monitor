@@ -94,6 +94,12 @@ def classify_product_and_country(text_prod: str, text_country: str = "") -> tupl
     t = f"{text_prod} {text_country}".lower()
     if "باور بانك صغير للطوارئ" in t:
         p_cat = "car"
+    elif any(k in t for k in ("aroura", "arcura", "15047", "أرورا", "ارورا", "مصفف", "ستيلر", "styler")):
+        p_cat = "aroura"
+    elif any(k in t for k in ("doorbell", "10165", "جرس", "انتركم")):
+        p_cat = "doorbell"
+    elif any(k in t for k in ("22454", "window", "ممسحة الزجاج", "مكنسة الزجاج")):
+        p_cat = "winvac"
     elif any(k in t for k in ("washer", "hp909", "hp-909", "غسالة", "غساله")):
         p_cat = "washer"
     elif any(k in t for k in ("bakhoor", "bw20", "bw-20", "مبخرة", "مبخره", "بخور")):
