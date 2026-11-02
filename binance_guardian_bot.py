@@ -23,8 +23,27 @@ import urllib.parse
 import ssl
 from datetime import datetime, timezone, timedelta
 
+def is_us_regular_market_open(now_dt=None):
+    """Returns True strictly during NYSE regular trading hours (Mon-Fri 09:30-16:00 America/New_York, DST-aware)."""
+    if now_dt is None:
+        now_dt = datetime.now(timezone.utc)
+    # Pure-Python US Daylight Saving Time check (2nd Sunday in March 07:00 UTC to 1st Sunday in Nov 06:00 UTC)
+    yr = now_dt.year
+    mar1 = datetime(yr, 3, 1, tzinfo=timezone.utc)
+    mar_second_sun = 1 + ((6 - mar1.weekday()) % 7) + 7
+    dst_start = datetime(yr, 3, mar_second_sun, 7, 0, tzinfo=timezone.utc)
+    nov1 = datetime(yr, 11, 1, tzinfo=timezone.utc)
+    nov_first_sun = 1 + ((6 - nov1.weekday()) % 7)
+    dst_end = datetime(yr, 11, nov_first_sun, 6, 0, tzinfo=timezone.utc)
+    et_offset_hours = -4 if (dst_start <= now_dt < dst_end) else -5
+    et_now = now_dt + timedelta(hours=et_offset_hours)
+    if et_now.weekday() in (5, 6):
+        return False
+    mins = et_now.hour * 60 + et_now.minute
+    return (9 * 60 + 30) <= mins < (16 * 60)
+
 def calc_active_stock_hours(op_dt, now_dt):
-    """Calculates elapsed hours excluding Saturday/Sunday UTC weekend freeze when US stock markets are closed."""
+    """Calculates elapsed NYSE regular market hours (6.5h/day Mon-Fri, excluding nights & weekends)."""
     if now_dt <= op_dt:
         return 0.0
     cur = op_dt
@@ -32,7 +51,7 @@ def calc_active_stock_hours(op_dt, now_dt):
     step = timedelta(minutes=15)
     while cur < now_dt:
         nxt = min(now_dt, cur + step)
-        if cur.weekday() not in (5, 6):
+        if is_us_regular_market_open(cur):
             active_sec += (nxt - cur).total_seconds()
         cur = nxt
     return round(active_sec / 3600.0, 1)
@@ -64,43 +83,20 @@ PORTFOLIO_FILE = os.path.join(BASE_DIR, "binance_paper_portfolio.json")
 BACKTEST_REPORT_FILE = os.path.join(BASE_DIR, "quant_backtest_report.json")
 EVOLUTION_LEDGER_FILE = os.path.join(BASE_DIR, "quant_evolution_ledger.json")
 
-LONG_ELIGIBLE_PAIRS = ["BTCUSDC", "ETHUSDT", "SOLUSDT", "BNBUSDT", "XRPUSDC", "DOGEUSDT", "AVAXUSDT", "SUIUSDT", "LINKUSDT", "ADAUSDT", "PAXGUSDT", "FETUSDT", "NEARUSDT", "INJUSDT", "AAVEUSDT", "TAOUSDT"]
-SHORT_ELIGIBLE_PAIRS = ["BTCUSDC", "ETHUSDT", "SOLUSDT", "XRPUSDC", "DOGEUSDT", "AVAXUSDT", "SUIUSDT", "LINKUSDT", "ADAUSDT", "FETUSDT", "NEARUSDT", "INJUSDT", "AAVEUSDT", "TAOUSDT"]
+CORE_STUDIED_CRYPTO_LONGS = ["BTCUSDC", "ETHUSDT", "BNBUSDT", "SOLUSDT", "XRPUSDC", "DOGEUSDT", "PAXGUSDT"]
+CORE_STUDIED_CRYPTO_SHORTS = ["BTCUSDC", "ETHUSDT", "SOLUSDT", "XRPUSDC", "DOGEUSDT"]
+LONG_ELIGIBLE_PAIRS = list(CORE_STUDIED_CRYPTO_LONGS)
+SHORT_ELIGIBLE_PAIRS = list(CORE_STUDIED_CRYPTO_SHORTS)
+
+STUDIED_TECH_TICKERS = {"SPY", "QQQ", "AAPL", "MSFT", "GOOGL", "AMZN", "META", "NVDA"}
+STUDIED_MACRO_TICKERS = {"GLD", "XLE", "TLT"}
+STUDIED_STOCK_UNIVERSE = ["SPY", "QQQ", "AAPL", "MSFT", "GOOGL", "AMZN", "META", "NVDA", "GLD", "XLE", "TLT"]
 
 EXCLUDED_BASES = {"USDC", "FDUSD", "USDT", "TUSD", "USDP", "DAI", "BUSD", "EUR", "GBP", "TRY", "BRL", "AEUR", "EURI", "WBTC", "WBETH", "STETH", "USDE", "USD1"}
 
-def discover_dynamic_top_liquid_pairs(top_n=16):
-    """Scans the entire Binance Spot market (400+ pairs) and returns the top active high-liquidity movers."""
-    discovered = list(LONG_ELIGIBLE_PAIRS)
-    try:
-        tickers = http_json("https://api.binance.com/api/v3/ticker/24hr", timeout=6.0)
-        candidates = []
-        for t in tickers:
-            sym = t.get("symbol", "")
-            if not sym.endswith("USDT"):
-                continue
-            base = sym[:-4]
-            if base in EXCLUDED_BASES or base.endswith(("UP", "DOWN", "BULL", "BEAR")):
-                continue
-            qvol = float(t.get("quoteVolume", 0.0))
-            chg = abs(float(t.get("priceChangePercent", 0.0)))
-            if qvol >= 45000000.0 and (1.5 <= chg <= 18.0):
-                candidates.append((qvol * (1.0 + chg / 10.0), sym))
-        candidates.sort(reverse=True)
-        for _, sym in candidates[:top_n]:
-            if sym == "BTCUSDT":
-                sym = "BTCUSDC"
-            elif sym == "XRPUSDT":
-                sym = "XRPUSDC"
-            if sym not in discovered:
-                discovered.append(sym)
-            if sym not in LONG_ELIGIBLE_PAIRS:
-                LONG_ELIGIBLE_PAIRS.append(sym)
-            if sym != "PAXGUSDT" and sym not in SHORT_ELIGIBLE_PAIRS:
-                SHORT_ELIGIBLE_PAIRS.append(sym)
-    except Exception:
-        pass
-    return discovered
+def discover_dynamic_top_liquid_pairs(top_n=8):
+    """Returns strictly the vetted Core Liquid Crypto & Gold universe without polluting with high-whipsaw altcoins."""
+    return list(CORE_STUDIED_CRYPTO_LONGS)
 
 def http_json(url, timeout=7.0, retries=3):
     last_err = None
@@ -364,13 +360,14 @@ class VirtualPortfolioEngine:
         res = self.state.get("engine3_flash_reserve", {})
         stocks = self.state.get("engine4_us_stocks", {})
 
-        # 1. Tag all Crypto trade_history entries
-        old_c_realized = round(
-            (arb.get("funding_collected_usd", 0.0) - arb.get("entry_fees_paid_usd", 0.0))
-            + res.get("accrued_earn_usd", 0.0),
-            2
-        )
-        new_c_realized = 0.0
+        # 1. Tag all Crypto trade_history entries + Carry/Earn attribution
+        arb_net_pnl = round(arb.get("funding_collected_usd", 0.0) - arb.get("entry_fees_paid_usd", 0.0), 2)
+        res_earn_pnl = round(res.get("accrued_earn_usd", 0.0), 2)
+        arb_is_new = (arb.get("plan_tag") == "NEW_PLAN")
+        res_is_new = (res.get("plan_tag") == "NEW_PLAN")
+
+        old_sniper_realized = 0.0
+        new_sniper_realized = 0.0
         old_c_wins, old_c_losses = 0, 0
         new_c_wins, new_c_losses = 0, 0
 
@@ -391,17 +388,32 @@ class VirtualPortfolioEngine:
             if "pnl_usd" in t:
                 pnl = float(t["pnl_usd"])
                 if t["plan_tag"] == "OLD_PLAN":
-                    old_c_realized = round(old_c_realized + pnl, 2)
+                    old_sniper_realized = round(old_sniper_realized + pnl, 2)
                     if pnl >= 0:
                         old_c_wins += 1
                     else:
                         old_c_losses += 1
                 else:
-                    new_c_realized = round(new_c_realized + pnl, 2)
+                    new_sniper_realized = round(new_sniper_realized + pnl, 2)
                     if pnl >= 0:
                         new_c_wins += 1
                     else:
                         new_c_losses += 1
+
+        old_c_realized = round(
+            old_sniper_realized
+            + (0.0 if arb_is_new else arb_net_pnl)
+            + (0.0 if res_is_new else res_earn_pnl),
+            2
+        )
+        new_c_realized = round(
+            new_sniper_realized
+            + (arb_net_pnl if arb_is_new else 0.0)
+            + (res_earn_pnl if res_is_new else 0.0),
+            2
+        )
+        new_c_carry_alloc = round(float(arb.get("allocated_usd", 0.0)), 2) if arb_is_new else 0.0
+        new_c_earn_alloc = round(float(res.get("allocated_usd", 0.0)), 2) if res_is_new else 0.0
 
         # 2. Tag active Crypto Longs & Shorts
         old_c_invested, old_c_unrealized = 0.0, 0.0
@@ -483,8 +495,8 @@ class VirtualPortfolioEngine:
                 new_s_open_syms.append(sp["symbol"])
 
         # 4. Compute exact independent cash pools & equities ($1000 Crypto + $1000 Stocks = $2000 per plan)
-        old_c_free = round(max(0.0, 1000.0 + old_c_realized - old_c_invested), 2)
-        new_c_free = round(max(0.0, 1000.0 + new_c_realized - new_c_invested), 2)
+        old_c_free = round(max(0.0, 1000.0 + old_sniper_realized - old_c_invested), 2)
+        new_c_free = round(max(0.0, 1000.0 + new_sniper_realized - new_c_invested - new_c_carry_alloc - new_c_earn_alloc), 2)
         old_s_free = round(max(0.0, 1000.0 + (old_s_realized - half_treasury) - old_s_invested), 2)
         new_s_free = round(max(0.0, 1000.0 + (new_s_realized - half_treasury) - new_s_invested), 2)
 
@@ -539,10 +551,12 @@ class VirtualPortfolioEngine:
                 "win_rate_pct": round(old_tot_wins / max(1, old_tot_wins + old_tot_losses) * 100.0, 1) if (old_tot_wins + old_tot_losses) > 0 else 0.0
             },
             "NEW_PLAN": {
-                "description": "الخطة الكمية الجديدة ($2000 = $1000 كريبتو + $1000 أسهم أمريكية — شورت 1X_SHORT + مضاربة تدفق 15M + ارتداد امتصاص + أسهم ATR)",
+                "description": "الخطة الكمية المؤسسية المدروسة ($2000 = $1000 كريبتو وذهب وعائد تمويل محايد + $1000 أسهم أمريكية بنظام RSI2 إلى SMA10 وسقف ارتباط القطاعات)",
                 "initial_budget_usd": 2000.0,
                 "crypto_budget_usd": 1000.0,
                 "crypto_invested_usd": new_c_invested,
+                "crypto_carry_hedged_usd": new_c_carry_alloc,
+                "crypto_earn_reserve_usd": new_c_earn_alloc,
                 "crypto_free_cash_usd": new_c_free,
                 "crypto_realized_pnl_usd": new_c_realized,
                 "crypto_unrealized_pnl_usd": new_c_unrealized,
@@ -771,16 +785,19 @@ class VirtualPortfolioEngine:
             ret24_pct = sc.get("ret24_pct", 0.0)
             v_rat = sc.get("vol_ratio", 1.0)
 
-            # Playbook 1: MEAN_REV_DIP (Oversold dip below VWAP + uncrowded longs + 24H Excursion <= -0.60% + Green Absorption)
+            # Playbook 1: MEAN_REV_DIP (Strictly enforces validated OOS req_trend & rsi_long=20 when counter-trend)
+            rsi_long_th = float(qcfg.get("rsi_long", 20.0))
+            trend_ok_for_dip = sc.get("uptrend_ok", False) or (r_min <= rsi_long_th and r_15m <= 22.0 and btc_above_sma20)
             sc["dip_trigger"] = bool(
                 (sym in LONG_ELIGIBLE_PAIRS)
                 and btc_not_dumping
+                and trend_ok_for_dip
                 and (not sc["news_shock_blocked"])
                 and sc.get("green_absorption", False)
                 and (-6.50 <= ret24_pct <= -0.60)
                 and (vwap_dev <= 0.15)
-                and ((r_min < 32.0) or (r_15m <= 26.0 and r_min < 36.0))
-                and (ls_r < 3.00)
+                and ((r_min < 28.0) or (r_15m <= 22.0 and r_min < 32.0))
+                and (ls_r < 2.85)
             )
             # Playbook 2: MOMENTUM_BREAKOUT (Requires Macro Uptrend SMA100>=SMA200 + Price > SMA20 + strong Taker Buy Flow)
             sc["breakout_trigger"] = bool(
@@ -794,26 +811,29 @@ class VirtualPortfolioEngine:
                 and (max(t_flow, t_flow15) >= 0.54)
                 and (ls_r < 2.90)
             )
-            # Playbook 3: CROWDED_FADE_SHORT (1x Short when Retail LS Ratio >= 2.65 + Weak Taker Buy Flow + Anti-Squeeze OI Guard)
+            # Playbook 3: CROWDED_FADE_SHORT (1x Short when Retail LS Ratio >= 2.50 in Downtrend + Weak Taker Buy Flow)
             sc["short_bounce_trigger"] = bool(
                 (sym in SHORT_ELIGIBLE_PAIRS)
                 and (not sc["uptrend_ok"])
                 and (not sc.get("short_shock_blocked", False))
                 and (ret24_pct <= 3.50)
                 and (v_rat <= 4.0)
-                and (ls_r >= 2.65)
-                and (min(t_flow, t_flow15) <= 0.475)
+                and (ls_r >= 2.50)
+                and (min(t_flow, t_flow15) <= 0.485)
                 and (oi_15 <= 1.20)
             )
-            # Playbook 4: 15M_FLOW_SCALP (Fast 15m Oversold Absorption Long below VWAP / Overbought Rejection Short)
+            # Playbook 4: 15M_FLOW_SCALP (Requires Macro Uptrend OR Extreme RSI<=20 Capitulation with BTC > SMA20)
+            scalp_long_regime_ok = sc.get("uptrend_ok", False) or (r_min <= rsi_long_th and r_15m <= 20.0 and btc_above_sma20)
             sc["scalp15m_long_trigger"] = bool(
                 (sym in LONG_ELIGIBLE_PAIRS)
                 and btc_not_dumping
+                and scalp_long_regime_ok
                 and (not sc["news_shock_blocked"])
-                and (vwap_dev <= -0.10)
-                and (r_15m <= 35.0)
-                and (max(t_flow, t_flow15) >= 0.51)
-                and (ls_r < 3.10)
+                and sc.get("green_absorption", False)
+                and (vwap_dev <= -0.25)
+                and (r_15m <= 25.0)
+                and (max(t_flow, t_flow15) >= 0.52)
+                and (ls_r < 2.85)
             )
             sc["scalp15m_short_trigger"] = bool(
                 (sym in SHORT_ELIGIBLE_PAIRS)
@@ -1265,9 +1285,80 @@ class VirtualPortfolioEngine:
                 })
                 cycle_actions.append(f"OPEN_LONG_OLD_PLAN:{sym}@${p_close}")
 
-        # 3C-2. NEW_PLAN Crypto Long Entry (Quant Playbooks from its $1000 Crypto Budget)
+        # 3C-2 & 3C-3. NEW_PLAN Crypto Entries: Prioritize 1x Shorts in Downtrend & Reserve 2 Short Slots
+        sb_map = self.state.get("strategy_scoreboard", {})
+        new_short_count = len(sniper["active_short_positions"])
+        max_long_slots_new = 4 if (btc_above_sma20 and btc_sc.get("uptrend_ok", False)) else 2
+
+        # 3C-2A. NEW_PLAN Crypto 1x Short Entry FIRST (Strictly from NEW_PLAN $1000 Crypto Budget)
+        for sym in SHORT_ELIGIBLE_PAIRS:
+            if new_short_count >= 2 or (new_c_count + new_short_count) >= 4 or new_c_free < 100.0 or sniper["free_cash_usd"] < 100.0:
+                break
+            if sym in new_held_short_syms or sym in new_held_long_syms or sym in new_cooldown_syms:
+                continue
+            sc = market_scan.get(sym, {})
+            atr = sc.get("atr14", 0.0)
+            p_close = sc.get("price", 0.0)
+            short_pb = (
+                "CROWDED_FADE_SHORT" if sc.get("short_bounce_trigger")
+                else ("STAT_ARB_AND_FUNDING_SQUEEZE" if sc.get("stat_arb_short_trigger")
+                      else ("15M_FLOW_SCALP" if sc.get("scalp15m_short_trigger") else None))
+            )
+            if short_pb and atr > 0 and p_close > 0:
+                pb_w_sh = float(sb_map.get(short_pb, {}).get("weight", 1.0))
+                if pb_w_sh <= 0.0:
+                    continue
+                sl_m, tp_m = (1.6, 2.8) if short_pb == "15M_FLOW_SCALP" else (1.8, 3.2)
+                stop_pct = max(0.005, (sl_m * atr) / p_close)
+                if stop_pct <= 0.045:
+                    decs = 8 if p_close < 0.001 else (6 if p_close < 1.0 else 4)
+                    amt = round(min(new_c_free, sniper["free_cash_usd"], round(250.0 * pb_w_sh, 2), (4.50 * pb_w_sh) / stop_pct), 2)
+                    if amt >= 100.0:
+                        qty = round((amt * (1.0 - 0.0005)) / p_close, 2 if p_close < 0.001 else 6)
+                        sniper["free_cash_usd"] = round(sniper["free_cash_usd"] - amt, 2)
+                        new_c_free = round(new_c_free - amt, 2)
+                        new_short_count += 1
+                        tp_s_new = round(p_close - tp_m * atr, decs)
+                        sl_s_new = round(p_close + sl_m * atr, decs)
+                        new_spos = {
+                            "symbol": sym,
+                            "playbook": short_pb,
+                            "plan_tag": "NEW_PLAN",
+                            "direction": "1X_SHORT",
+                            "opened_at_utc": now_iso,
+                            "entry_price": p_close,
+                            "invested_usd": amt,
+                            "total_qty": qty,
+                            "tp_target_price": tp_s_new,
+                            "sl_price": sl_s_new,
+                            "breakeven_locked_price": None,
+                            "accrued_funding_usd": 0.0,
+                            "funding_settlements_credited": 0,
+                            "hours_held": 0.0,
+                            "current_price": p_close,
+                            "unrealized_pnl_usd": 0.0,
+                            "dist_to_sl_pct": round(((sl_s_new - p_close) / p_close) * 100.0, 2),
+                            "dist_to_tp_pct": round(((p_close - tp_s_new) / p_close) * 100.0, 2)
+                        }
+                        sniper["active_short_positions"].append(new_spos)
+                        new_held_short_syms.add(sym)
+                        sniper["trade_history"].append({
+                            "time_utc": now_iso,
+                            "action": f"OPEN_{short_pb}_1X_SHORT_LIVE",
+                            "playbook": short_pb,
+                            "plan_tag": "NEW_PLAN",
+                            "symbol": sym,
+                            "price": p_close,
+                            "rsi14": sc.get("rsi14"),
+                            "taker_buy_ratio": sc.get("taker_buy_ratio"),
+                            "ls_ratio": sc.get("futures_long_short_ratio"),
+                            "amount_usd": amt
+                        })
+                        cycle_actions.append(f"OPEN_SHORT_NEW_PLAN:{short_pb}:{sym}@${p_close}")
+
+        # 3C-2B. NEW_PLAN Crypto Long Entry (Capped at 2 slots in Downtrend so 2 slots remain reserved for 1x Shorts)
         for sym in LONG_ELIGIBLE_PAIRS:
-            if new_c_count >= 4 or new_c_free < 100.0 or sniper["free_cash_usd"] < 100.0:
+            if new_c_count >= max_long_slots_new or (new_c_count + new_short_count) >= 4 or new_c_free < 100.0 or sniper["free_cash_usd"] < 100.0:
                 break
             if sym in new_held_long_syms or sym in new_held_short_syms or sym in new_cooldown_syms:
                 continue
@@ -1283,19 +1374,22 @@ class VirtualPortfolioEngine:
                 pb_chosen = "MEAN_REV_DIP"
             elif sc.get("stat_arb_long_trigger"):
                 pb_chosen = "STAT_ARB_AND_FUNDING_SQUEEZE"
-                sl_m, tp_m = 1.5, 3.0
+                sl_m, tp_m = 1.6, 3.2
             elif sc.get("breakout_trigger"):
                 pb_chosen = "MOMENTUM_BREAKOUT"
-                sl_m, tp_m = 1.5, 2.8
+                sl_m, tp_m = 1.6, 3.0
             elif sc.get("scalp15m_long_trigger"):
                 pb_chosen = "15M_FLOW_SCALP"
-                sl_m, tp_m = 1.4, 2.5
+                sl_m, tp_m = float(qcfg.get("sl_atr", 1.8)), 3.2
 
             if pb_chosen:
+                pb_w_lg = float(sb_map.get(pb_chosen, {}).get("weight", 1.0))
+                if pb_w_lg <= 0.0:
+                    continue
                 stop_pct = max(0.005, (sl_m * atr) / p_close)
                 if stop_pct <= 0.045:
                     decs = 8 if p_close < 0.001 else (6 if p_close < 1.0 else 4)
-                    amt = round(min(new_c_free, sniper["free_cash_usd"], 250.0, 5.00 / stop_pct), 2)
+                    amt = round(min(new_c_free, sniper["free_cash_usd"], round(250.0 * pb_w_lg, 2), (4.50 * pb_w_lg) / stop_pct), 2)
                     if amt >= 100.0:
                         qty = round((amt * (1.0 - 0.0005)) / p_close, 2 if p_close < 0.001 else 6)
                         sniper["free_cash_usd"] = round(sniper["free_cash_usd"] - amt, 2)
@@ -1337,68 +1431,6 @@ class VirtualPortfolioEngine:
                             "amount_usd": amt
                         })
                         cycle_actions.append(f"OPEN_LONG_NEW_PLAN:{pb_chosen}:{sym}@${p_close}")
-
-        # 3C-3. NEW_PLAN Crypto 1x Short Entry (Strictly from NEW_PLAN $1000 Crypto Budget)
-        for sym in SHORT_ELIGIBLE_PAIRS:
-            if len(sniper["active_short_positions"]) >= 2 or new_c_free < 100.0 or sniper["free_cash_usd"] < 100.0:
-                break
-            if sym in new_held_short_syms or sym in new_held_long_syms or sym in new_cooldown_syms:
-                continue
-            sc = market_scan.get(sym, {})
-            atr = sc.get("atr14", 0.0)
-            p_close = sc.get("price", 0.0)
-            short_pb = (
-                "CROWDED_FADE_SHORT" if sc.get("short_bounce_trigger")
-                else ("STAT_ARB_AND_FUNDING_SQUEEZE" if sc.get("stat_arb_short_trigger")
-                      else ("15M_FLOW_SCALP" if sc.get("scalp15m_short_trigger") else None))
-            )
-            if short_pb and atr > 0 and p_close > 0:
-                sl_m, tp_m = (1.4, 2.5) if short_pb == "15M_FLOW_SCALP" else (1.6, 2.9)
-                stop_pct = max(0.005, (sl_m * atr) / p_close)
-                if stop_pct <= 0.045:
-                    decs = 8 if p_close < 0.001 else (6 if p_close < 1.0 else 4)
-                    amt = round(min(new_c_free, sniper["free_cash_usd"], 250.0, 5.00 / stop_pct), 2)
-                    if amt >= 100.0:
-                        qty = round((amt * (1.0 - 0.0005)) / p_close, 2 if p_close < 0.001 else 6)
-                        sniper["free_cash_usd"] = round(sniper["free_cash_usd"] - amt, 2)
-                        new_c_free = round(new_c_free - amt, 2)
-                        tp_s_new = round(p_close - tp_m * atr, decs)
-                        sl_s_new = round(p_close + sl_m * atr, decs)
-                        new_spos = {
-                            "symbol": sym,
-                            "playbook": short_pb,
-                            "plan_tag": "NEW_PLAN",
-                            "direction": "1X_SHORT",
-                            "opened_at_utc": now_iso,
-                            "entry_price": p_close,
-                            "invested_usd": amt,
-                            "total_qty": qty,
-                            "tp_target_price": tp_s_new,
-                            "sl_price": sl_s_new,
-                            "breakeven_locked_price": None,
-                            "accrued_funding_usd": 0.0,
-                            "funding_settlements_credited": 0,
-                            "hours_held": 0.0,
-                            "current_price": p_close,
-                            "unrealized_pnl_usd": 0.0,
-                            "dist_to_sl_pct": round(((sl_s_new - p_close) / p_close) * 100.0, 2),
-                            "dist_to_tp_pct": round(((p_close - tp_s_new) / p_close) * 100.0, 2)
-                        }
-                        sniper["active_short_positions"].append(new_spos)
-                        new_held_short_syms.add(sym)
-                        sniper["trade_history"].append({
-                            "time_utc": now_iso,
-                            "action": f"OPEN_{short_pb}_1X_SHORT_LIVE",
-                            "playbook": short_pb,
-                            "plan_tag": "NEW_PLAN",
-                            "symbol": sym,
-                            "price": p_close,
-                            "rsi14": sc.get("rsi14"),
-                            "taker_buy_ratio": sc.get("taker_buy_ratio"),
-                            "ls_ratio": sc.get("futures_long_short_ratio"),
-                            "amount_usd": amt
-                        })
-                        cycle_actions.append(f"OPEN_SHORT_NEW_PLAN:{short_pb}:{sym}@${p_close}")
 
         sniper["active_cycle"] = sniper["active_positions"][0] if sniper["active_positions"] else None
         sniper["active_short_cycle"] = sniper["active_short_positions"][0] if sniper["active_short_positions"] else None
