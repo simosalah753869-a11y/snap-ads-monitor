@@ -1,5 +1,6 @@
 from datetime import datetime, timedelta, timezone
 import json
+import os
 from pathlib import Path
 import re
 import sys
@@ -632,6 +633,7 @@ def evaluate_single_ad_rule(
     squad: dict | None = None,
     ad_name: str = "",
     media_id: str = "",
+    campaign_id: str = "",
 ) -> tuple[bool, str]:
     spend = st["spend"]
     swipes = st["swipes"]
@@ -639,7 +641,7 @@ def evaluate_single_ad_rule(
     cpa = st.get("cpa")
     cpc = st["cpc"]
     is_copy = is_scaling_winner_adsquad(adsquad_name, campaign_name)
-    is_test_non_copy = is_new_test_video(adsquad_name, ad_name, campaign_name, media_id) or is_dedicated_snap_test_campaign("", campaign_name, adsquad_name)
+    is_test_non_copy = is_new_test_video(adsquad_name, ad_name, campaign_name, media_id) or is_dedicated_snap_test_campaign(campaign_id, campaign_name, adsquad_name)
     is_cross_prod = is_cross_monitored_product_campaign(campaign_name, adsquad_name)
     is_gulf = is_gulf_034_campaign(campaign_name, adsquad_name, squad)
 
@@ -1348,8 +1350,6 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
         s_name = squad.get("name", "")
         c_id = squad.get("campaign_id", "")
         c_name = camp_names.get(c_id, "")
-        if is_dedicated_snap_test_campaign(c_id, c_name, s_name):
-            continue
         if c_id in ALLOWED_GULF_CAMPAIGN_IDS or is_gulf_034_campaign(c_name, s_name, squad):
             continue
 
@@ -1385,28 +1385,28 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
             and not (st2["purchases"] > 0 and st2["cpa"] is not None and st2["cpa"] > max_cpa_3d_ind)
         )
         should_pause, reason = (
-            evaluate_single_ad_rule(st, c_name, s_name, squad, ad_name=ad_name, media_id=ad_media_id)
+            evaluate_single_ad_rule(st, c_name, s_name, squad, ad_name=ad_name, media_id=ad_media_id, campaign_id=c_id)
             if (st["spend"] >= min_spend_chk and not is_proven_3d_winner)
             else (False, "")
         )
         if not should_pause and st2["spend"] >= min_spend_chk and not is_proven_3d_winner:
-            should_pause, reason = evaluate_single_ad_rule(st2, c_name, s_name, squad, ad_name=ad_name, media_id=ad_media_id)
+            should_pause, reason = evaluate_single_ad_rule(st2, c_name, s_name, squad, ad_name=ad_name, media_id=ad_media_id, campaign_id=c_id)
             if should_pause:
                 reason = f"[2-Day Audit] {reason}"
         if not should_pause and st3["spend"] >= min_spend_chk:
-            should_pause, reason = evaluate_single_ad_rule(st3, c_name, s_name, squad, ad_name=ad_name, media_id=ad_media_id)
+            should_pause, reason = evaluate_single_ad_rule(st3, c_name, s_name, squad, ad_name=ad_name, media_id=ad_media_id, campaign_id=c_id)
             if should_pause:
                 reason = f"[3-Day Audit] {reason}"
         if not should_pause and st4["spend"] >= min_spend_chk:
-            should_pause, reason = evaluate_single_ad_rule(st4, c_name, s_name, squad, ad_name=ad_name, media_id=ad_media_id)
+            should_pause, reason = evaluate_single_ad_rule(st4, c_name, s_name, squad, ad_name=ad_name, media_id=ad_media_id, campaign_id=c_id)
             if should_pause:
                 reason = f"[4-Day Audit] {reason}"
         if not should_pause and st5["spend"] >= min_spend_chk:
-            should_pause, reason = evaluate_single_ad_rule(st5, c_name, s_name, squad, ad_name=ad_name, media_id=ad_media_id)
+            should_pause, reason = evaluate_single_ad_rule(st5, c_name, s_name, squad, ad_name=ad_name, media_id=ad_media_id, campaign_id=c_id)
             if should_pause:
                 reason = f"[5-Day Audit] {reason}"
         if not should_pause and st7["spend"] >= min_spend_chk and not is_proven_3d_winner:
-            should_pause, reason = evaluate_single_ad_rule(st7, c_name, s_name, squad, ad_name=ad_name, media_id=ad_media_id)
+            should_pause, reason = evaluate_single_ad_rule(st7, c_name, s_name, squad, ad_name=ad_name, media_id=ad_media_id, campaign_id=c_id)
             if should_pause:
                 reason = f"[7-Day Audit] {reason}"
         if not should_pause:
