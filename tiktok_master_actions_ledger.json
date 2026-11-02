@@ -1,11 +1,6 @@
 {
   "cycles": [
     {
-      "timestamp": "2026-11-01 00:00",
-      "actions_count": 0,
-      "followups_count": 20
-    },
-    {
       "timestamp": "2026-11-01 00:26",
       "actions_count": 1,
       "followups_count": 20
@@ -359,6 +354,11 @@
       "timestamp": "2026-11-02 13:19",
       "actions_count": 5,
       "followups_count": 9
+    },
+    {
+      "timestamp": "2026-11-02 13:41",
+      "actions_count": 2,
+      "followups_count": 11
     }
   ],
   "actions": [
@@ -2065,6 +2065,34 @@
       "base_sp3": 7.0,
       "base_cv3": 2,
       "status": "OPEN"
+    },
+    {
+      "timestamp": "2026-11-02 13:41",
+      "experiment_key": "SCALE_1880695903993266_2026-11-02_CV4_B62",
+      "is_experiment": false,
+      "aadvid": "7631763556322148369",
+      "acc_name": "ROELLINGER RECYCLING",
+      "campaign_id": "1880695903993266",
+      "campaign_name": "power bank 02-11 Manzilk Winners C (5 Ads)",
+      "action_type": "رفع ميزانية الحملة الرابحة +30% ($48 -> $62)",
+      "videos": [],
+      "base_sp3": 14.28,
+      "base_cv3": 4,
+      "status": "OPEN"
+    },
+    {
+      "timestamp": "2026-11-02 13:41",
+      "experiment_key": "SCALE_1880696438045873_2026-11-02_CV7_B81",
+      "is_experiment": false,
+      "aadvid": "7631765070816509959",
+      "acc_name": "ROELLINGER RECYCLING2",
+      "campaign_id": "1880696438045873",
+      "campaign_name": "power bank 02-11 Manzilk Winners A (5 Ads)",
+      "action_type": "رفع ميزانية الحملة الرابحة +30% ($62 -> $81)",
+      "videos": [],
+      "base_sp3": 16.62,
+      "base_cv3": 7,
+      "status": "OPEN"
     }
   ],
   "failed_experiments": [
@@ -2472,23 +2500,23 @@
     },
     "2026-11-02:7631765070816509959:1880696438045873": {
       "campaign_name": "power bank 02-11 Manzilk Winners A (5 Ads)",
-      "old_budget": 31.0,
-      "new_budget": 40,
-      "cv1": 6,
-      "conv_today": 6,
-      "cpa1": 2.34,
-      "cpa_today": 2.34,
-      "scaled_at": "2026-11-02 12:39"
+      "old_budget": 62.0,
+      "new_budget": 81,
+      "cv1": 7,
+      "conv_today": 7,
+      "cpa1": 2.38,
+      "cpa_today": 2.38,
+      "scaled_at": "2026-11-02 13:41"
     },
     "7631765070816509959:1880696438045873": {
       "campaign_name": "power bank 02-11 Manzilk Winners A (5 Ads)",
-      "old_budget": 31.0,
-      "new_budget": 40,
-      "cv1": 6,
-      "conv_today": 6,
-      "cpa1": 2.34,
-      "cpa_today": 2.34,
-      "scaled_at": "2026-11-02 12:39"
+      "old_budget": 62.0,
+      "new_budget": 81,
+      "cv1": 7,
+      "conv_today": 7,
+      "cpa1": 2.38,
+      "cpa_today": 2.38,
+      "scaled_at": "2026-11-02 13:41"
     },
     "2026-11-02:7631763556322148369:1880695916990625": {
       "campaign_name": "power bank 02-11 Manzilk Winners B (5 Ads)",
@@ -2509,6 +2537,26 @@
       "cpa1": 3.5,
       "cpa_today": 3.5,
       "scaled_at": "2026-11-02 13:19"
+    },
+    "2026-11-02:7631763556322148369:1880695903993266": {
+      "campaign_name": "power bank 02-11 Manzilk Winners C (5 Ads)",
+      "old_budget": 48.0,
+      "new_budget": 62,
+      "cv1": 4,
+      "conv_today": 4,
+      "cpa1": 3.52,
+      "cpa_today": 3.52,
+      "scaled_at": "2026-11-02 13:41"
+    },
+    "7631763556322148369:1880695903993266": {
+      "campaign_name": "power bank 02-11 Manzilk Winners C (5 Ads)",
+      "old_budget": 48.0,
+      "new_budget": 62,
+      "cv1": 4,
+      "conv_today": 4,
+      "cpa1": 3.52,
+      "cpa_today": 3.52,
+      "scaled_at": "2026-11-02 13:41"
     }
   },
   "revived_campaigns": {
@@ -2826,30 +2874,30 @@
   },
   "latest_winning_structure_analysis": {
     "Website Leads [obj=8] + Auto Placement [3000,9000,1000] + 3–5 فيديوهات رابحة": {
-      "sp1": 13.17,
+      "sp1": 13.36,
       "cv1": 2,
-      "sp3": 172.01,
+      "sp3": 172.2,
       "cv3": 23,
-      "sp7": 172.01,
+      "sp7": 172.2,
       "cv7": 23,
       "decision": "✅ التركيبة رقم #1 اليوم لإنقاذ الـ CPC (< $0.22) وتوليد مبيعات فورية (SuperCombo / CPC-Rescued)"
     },
     "Website Leads [obj=8] + TikTok In-Feed Only [3000] + فيديوهات عابرة للمنصات": {
-      "sp1": 5.56,
+      "sp1": 5.83,
       "cv1": 0,
-      "sp3": 521.08,
+      "sp3": 521.35,
       "cv3": 88,
-      "sp7": 673.31,
+      "sp7": 673.61,
       "cv7": 114,
       "decision": "✅ التركيبة رقم #1 في حجم المبيعات لـ Cross-Platform Winners (مثل H7 صاحبة 43 بيعة بـ $5.25)"
     },
     "Smart+ Website Conversions + 3–4 فيديوهات رابحة معاد تدويرها (30d Batch)": {
-      "sp1": 187.62,
-      "cv1": 18,
-      "sp3": 639.56,
-      "cv3": 74,
-      "sp7": 726.46,
-      "cv7": 84,
+      "sp1": 199.26,
+      "cv1": 20,
+      "sp3": 651.87,
+      "cv3": 76,
+      "sp7": 738.03,
+      "cv7": 86,
       "decision": "✅ ناجحة عند حصر الحملة في 3–4 فيديوهات مجربة وتصفية الفيديوهات الخاسرة عند $1.00 و CPC > $0.25"
     },
     "حملات التوسيع المكررة (SCALE / Copy) أو تجميع > 6 فيديوهات خام": {
