@@ -99,8 +99,8 @@
       "bid_strategy": "TARGET_COST",
       "bid_micro": 4300000,
       "bumps_today": 0,
-      "last_spend_1d": 6.03,
-      "last_check_epoch": 1793614205
+      "last_spend_1d": 7.65,
+      "last_check_epoch": 1793616622
     },
     "335ab103-9212-4ae6-adbc-baee0e29eca2": {
       "date": "2026-11-02",
@@ -168,7 +168,7 @@
       "bid_micro": 2850000,
       "bumps_today": 0,
       "last_spend_1d": 1.14,
-      "last_check_epoch": 1793614205
+      "last_check_epoch": 1793616622
     },
     "40f592a6-e275-4f67-bce3-85e06b1b93c4": {
       "date": "2026-11-01",
