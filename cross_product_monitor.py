@@ -901,3 +901,9 @@ def run_taager_test_products_monitor(tt_session, tt_headers, history: dict, now_
 if __name__ == "__main__":
     dry = "--dry-run" in sys.argv
     run_cross_product_monitor(dry_run=dry)
+    if not dry and os.environ.get("GITHUB_ACTIONS") != "true":
+        try:
+            from github_deploy import sync_state_and_rules_to_github
+            sync_state_and_rules_to_github("cross_product_monitor")
+        except Exception as _sync_err:
+            print(f"ℹ️ ملاحظة مزامنة GitHub من cross_product_monitor: {_sync_err}")
