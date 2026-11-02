@@ -942,6 +942,8 @@ def run_google_ads_check():
                 ws = websocket.create_connection(ws_url, suppress_origin=True, timeout=15)
                 ws.send(json.dumps({"id": 1, "method": "Emulation.setFocusEmulationEnabled", "params": {"enabled": True}}))
                 ws.recv()
+                ws.send(json.dumps({"id": 1001, "method": "Emulation.setDeviceMetricsOverride", "params": {"width": 1600, "height": 4500, "deviceScaleFactor": 1, "mobile": False}}))
+                ws.recv()
                 keep_adspower_in_bg()
                 js_expr = f"""
                 (async () => {{
