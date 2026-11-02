@@ -1302,6 +1302,8 @@ def main():
         try:
             import historical_and_consultation_master_advisor
             historical_and_consultation_master_advisor.main()
+            import subprocess as _sp_exp
+            _sp_exp.run([sys.executable, '-X', 'utf8', str(Path(__file__).resolve().parent / 'proactive_domain_expert_advisor.py'), '--domain', 'snap_gads'], check=False)
         except Exception as _adv_err:
             print(f"ℹ️ ملاحظة المستشار التاريخي والتنفيذي: {_adv_err}")
 
