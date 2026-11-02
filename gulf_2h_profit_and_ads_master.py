@@ -1329,5 +1329,20 @@ def main():
             print(f"ℹ️ ملاحظة مزامنة GitHub من gulf_2h_profit_and_ads_master: {_sync_err}")
 
 
+
+    # --- Auto-run Sales Stall Detector & Immediate Recovery + Historical Master Advisor ---
+    if os.environ.get("GITHUB_ACTIONS") != "true":
+        try:
+            import sales_stall_recovery_engine
+            sales_stall_recovery_engine.run_stall_detector_and_recovery(dry_run=False)
+        except Exception as _st_err:
+            print(f"ℹ️ ملاحظة محرك استعادة المبيعات اللحظي: {_st_err}")
+        try:
+            import historical_and_consultation_master_advisor
+            historical_and_consultation_master_advisor.main()
+        except Exception as _adv_err:
+            print(f"ℹ️ ملاحظة المستشار التاريخي والتنفيذي: {_adv_err}")
+
+
 if __name__ == "__main__":
     main()
