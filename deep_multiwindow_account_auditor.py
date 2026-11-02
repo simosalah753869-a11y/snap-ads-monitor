@@ -747,6 +747,11 @@ def scrape_google_ads_table(ws) -> dict:
                         if (camp.endsWith(' settings')) camp = camp.replace(/\\s*settings$/, '').trim();
                         const ag = ((r.querySelector('[essfield="ad_group_name"], [essfield="ad_group"]') || {}).innerText || '').trim();
                         const ad = ((r.querySelector('.ad-name') || {}).innerText || '').trim();
+                        const costTxt = ((r.querySelector('[essfield="stats.cost"]') || {}).innerText || '').trim();
+                        const clicksTxt = ((r.querySelector('[essfield="stats.clicks"], [essfield="stats.interactions"]') || {}).innerText || '').trim();
+                        const imprTxt = ((r.querySelector('[essfield="stats.impressions"]') || {}).innerText || '').trim();
+                        const cpcTxt = ((r.querySelector('[essfield="stats.cost_per_click"], [essfield="stats.average_cpc"]') || {}).innerText || '').trim();
+                        const convTxt = ((r.querySelector('[essfield="stats.conversions"], [essfield="conversions"]') || {}).innerText || '').trim();
                         let txt = (r.innerText || '').replace(/\\s+/g, ' ').trim();
                         if (txt.includes('View asset details')) {
                             txt = txt.split('View asset details')[1].trim();
@@ -755,9 +760,9 @@ def scrape_google_ads_table(ws) -> dict:
                             toggle = 'Paused (Parent)';
                         }
                         if (txt.length > 5) {
-                            const isZero = /\\b0\\s+0\\s+(?:—|0\\.00%)\\s+(?:US)?\\$0\\.00/.test(txt);
+                            const isZero = (!costTxt || /(?:^|\\$)0\\.00$/.test(costTxt)) && /\\b0\\s+0\\s+(?:—|0\\.00%)\\s+(?:US)?\\$0\\.00/.test(txt);
                             if (toggle === 'Enabled' || !isZero || txt.includes('Total:')) {
-                                out.push({toggle, camp, ag, ad, text: txt.slice(0, 320)});
+                                out.push({toggle, camp, ag, ad, costTxt, clicksTxt, imprTxt, cpcTxt, convTxt, text: txt.slice(0, 320)});
                             }
                         }
                     }
@@ -819,10 +824,25 @@ def scrape_google_ads_table(ws) -> dict:
 
 def parse_google_ad_metrics(row_obj: dict) -> dict:
     """
-    Carefully parses a Google Ads /aw/ads row text:
-    Example: 'Enabled c9 car lesds 14-10 Ad group 1 Eligible Demand Gen Video Ad 238 4,009 5.94% $0.08 $19.47 0.00% 3.00 $6.49'
-    or with 0 clicks: 'Enabled pbw5 power bank WINNERS 20-10 Ad group 1 Eligible (Limited) Demand Gen Video Ad 0 118 0.00% — $1.51 0.00% 0.00 $0.00'
+    Carefully parses a Google Ads /aw/ads row using explicit [essfield] attributes first,
+    with fallback to row text regex.
     """
+    cost_txt = row_obj.get("costTxt") or ""
+    if cost_txt:
+        m_cost = re.search(r"([\d,]+\.\d{2})", cost_txt)
+        cost = float(m_cost.group(1).replace(",", "")) if m_cost else 0.0
+        clicks_txt = (row_obj.get("clicksTxt") or "").replace(",", "").strip()
+        clicks = int(clicks_txt) if clicks_txt.isdigit() else 0
+        impr_txt = (row_obj.get("imprTxt") or "").replace(",", "").strip()
+        impr = int(impr_txt) if impr_txt.isdigit() else 0
+        cpc_txt = row_obj.get("cpcTxt") or ""
+        m_cpc = re.search(r"([\d,]+\.\d{2})", cpc_txt)
+        cpc = float(m_cpc.group(1).replace(",", "")) if m_cpc else (round(cost / clicks, 2) if clicks > 0 else 0.0)
+        conv_txt = row_obj.get("convTxt") or ""
+        m_conv = re.search(r"([\d,]+(?:\.\d+)?)", conv_txt)
+        conv = float(m_conv.group(1).replace(",", "")) if m_conv else 0.0
+        return {"clicks": clicks, "impr": impr, "cpc": cpc, "spend": cost, "ui_conv": conv}
+
     txt = row_obj.get("text", "")
     after_status = re.split(r"(?:Demand Gen )?video ad|Eligible(?:\s*\([^)]+\))?|Paused|Pending|Under review|Approved|Disapproved", txt, flags=re.IGNORECASE)
     tail = after_status[-1] if len(after_status) > 1 else txt
@@ -892,13 +912,10 @@ def set_google_ad_status_carefully(ws, camp_name: str, ad_name: str, desired_sta
                         const img = stCell.querySelector('[role="img"]');
                         const cur = img ? (img.getAttribute('aria-label') || '') : '';
                         if (cur === {json.dumps(expected_label)}) return {{res: 'ALREADY_' + cur}};
-                        if ({json.dumps(desired_status)} === 'Pause' && /Campaign is paused|Ad group is paused|Campaign ended/i.test(r.innerText || '')) {{
-                            return {{res: 'ALREADY_Paused (Parent Paused)'}};
-                        }}
                         stCell.dispatchEvent(new MouseEvent('mouseenter', {{bubbles: true}}));
                         stCell.dispatchEvent(new MouseEvent('mouseover', {{bubbles: true}}));
                         r.dispatchEvent(new MouseEvent('mouseenter', {{bubbles: true}}));
-                        const btn = stCell.querySelector('.ess-edit-icon, [role="button"]');
+                        const btn = stCell.querySelector('.ess-edit-icon, [role="button"], aw-status, [role="img"]') || stCell;
                         if (btn) {{
                             const br = btn.getBoundingClientRect();
                             btn.click();
@@ -998,7 +1015,7 @@ def set_google_campaign_status_carefully(ws, camp_name: str, desired_status: str
                     stCell.dispatchEvent(new MouseEvent('mouseenter', {{bubbles: true}}));
                     stCell.dispatchEvent(new MouseEvent('mouseover', {{bubbles: true}}));
                     r.dispatchEvent(new MouseEvent('mouseenter', {{bubbles: true}}));
-                    const btn = stCell.querySelector('.ess-edit-icon, [role="button"]');
+                    const btn = stCell.querySelector('.ess-edit-icon, [role="button"], aw-status, [role="img"]') || stCell;
                     if (btn) {{
                         const br = btn.getBoundingClientRect();
                         btn.click();
