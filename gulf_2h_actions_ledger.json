@@ -3,10 +3,10 @@
     "430ea3c0-b721-402f-94b8-6c2c304ec15c": {
       "date": "2026-11-02",
       "bid_strategy": "LOWEST_COST_WITH_MAX_BID",
-      "bid_micro": 2950000,
+      "bid_micro": 2750000,
       "bumps_today": 0,
-      "last_spend_1d": 0.45,
-      "last_check_epoch": 1793570977
+      "last_spend_1d": 0.79,
+      "last_check_epoch": 1793625975
     },
     "f7665412-6c51-4031-aea9-7276b02e8dff": {
       "date": "2026-11-02",
@@ -30,8 +30,8 @@
       "bid_strategy": "LOWEST_COST_WITH_MAX_BID",
       "bid_micro": 2400000,
       "bumps_today": 0,
-      "last_spend_1d": 0.39,
-      "last_check_epoch": 1793610574
+      "last_spend_1d": 1.06,
+      "last_check_epoch": 1793625975
     },
     "93546856-95dd-4d51-9e3b-00dae0da3785": {
       "date": "2026-11-02",
@@ -99,8 +99,8 @@
       "bid_strategy": "TARGET_COST",
       "bid_micro": 4300000,
       "bumps_today": 0,
-      "last_spend_1d": 7.65,
-      "last_check_epoch": 1793616622
+      "last_spend_1d": 8.94,
+      "last_check_epoch": 1793625975
     },
     "335ab103-9212-4ae6-adbc-baee0e29eca2": {
       "date": "2026-11-02",
@@ -141,8 +141,8 @@
       "bid_strategy": "LOWEST_COST_WITH_MAX_BID",
       "bid_micro": 2400000,
       "bumps_today": 0,
-      "last_spend_1d": 0.32,
-      "last_check_epoch": 1793611787
+      "last_spend_1d": 0.99,
+      "last_check_epoch": 1793625975
     },
     "8568c2eb-a396-40f6-8f86-3ff5ed38d414": {
       "date": "2026-11-01",
@@ -168,7 +168,7 @@
       "bid_micro": 2850000,
       "bumps_today": 0,
       "last_spend_1d": 1.14,
-      "last_check_epoch": 1793624979
+      "last_check_epoch": 1793625975
     },
     "40f592a6-e275-4f67-bce3-85e06b1b93c4": {
       "date": "2026-11-01",
@@ -186,8 +186,6 @@
     "0e6e5109-d336-44f6-8ce3-601bbe2d0262": "40f592a6-e275-4f67-bce3-85e06b1b93c4"
   },
   "big_actions_log": [
-    "[2026-11-01 19:24] Re-activated Gulf Campaign باور بانك قطر 18-10 (67de1daa-7ffb-4194-9c44-00dcb7163d4d)",
-    "[2026-11-01 19:24] Re-activated Gulf Campaign powe bank oman (efccbe22-8951-49f4-b118-cd67f2cec64b)",
     "[2026-11-01 19:24] Re-activated Gulf Campaign وسادة السيارة الكويت 18-10 (3fb9b26f-7705-4286-b371-4efcd904670c)",
     "[2026-11-01 19:24] Re-activated Gulf Campaign qatar car scaling new 2 text (f7f6b623-46d5-48af-9a21-fb2584106da8)",
     "[2026-11-01 19:24] Re-activated Gulf Campaign منتج الكشاف عمان (2958697d-af14-4afc-a42a-1de78106b8a1)",
@@ -245,7 +243,9 @@
     "[2026-11-02 13:45] Paused Squad 93546856 in powe bank oman (1D: $0.23/0p CPC=0.077 | 3D: $4.06/0p | SimCap=$6.55)",
     "[2026-11-02 13:45] Paused Gulf Campaign powe bank oman (efccbe22-8951-49f4-b118-cd67f2cec64b) — All Squads Hit Stop-Loss",
     "[2026-11-01 18:53] Re-activated Gulf Campaign وسادة السيارة الكويت 18-10 (3fb9b26f-7705-4286-b371-4efcd904670c)",
-    "[2026-11-01 18:53] Re-activated Gulf Campaign qatar car scaling new 2 text (f7f6b623-46d5-48af-9a21-fb2584106da8)"
+    "[2026-11-01 18:53] Re-activated Gulf Campaign qatar car scaling new 2 text (f7f6b623-46d5-48af-9a21-fb2584106da8)",
+    "[2026-11-02 16:26] 🔄 REVIVED Profitable Gulf Winner Squad 9496d93b in وسادة السيارة الكويت 18-10 (1D: $8.94/1p CPA=$8.94 <= SimCap $11.48)",
+    "[2026-11-02 16:26] 🔄 REVIVED Profitable Gulf Winner Squad fa002a7f in Copy of kasahf smart+ qatar 3.5 (1D: $1.14/1p CPA=$1.14 <= SimCap $11.5)"
   ],
   "tiktok_gulf_scaled": {},
   "tiktok_gulf_night_halved": {},
