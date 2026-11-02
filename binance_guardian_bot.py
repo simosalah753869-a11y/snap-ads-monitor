@@ -945,6 +945,7 @@ class VirtualPortfolioEngine:
                     "time_utc": now_iso,
                     "action": act_name,
                     "playbook": pb_name,
+                    "plan_tag": cyc.get("plan_tag", "NEW_PLAN"),
                     "symbol": sym,
                     "price": cur_p,
                     "pnl_usd": pnl
@@ -960,6 +961,7 @@ class VirtualPortfolioEngine:
                     "time_utc": now_iso,
                     "action": "TRAILING_PROFIT_LOCK_LIVE",
                     "playbook": pb_name,
+                    "plan_tag": cyc.get("plan_tag", "NEW_PLAN"),
                     "symbol": sym,
                     "price": cur_p,
                     "pnl_usd": pnl
@@ -975,6 +977,7 @@ class VirtualPortfolioEngine:
                     "time_utc": now_iso,
                     "action": "QUANT_ATR_STOP_LOSS_LIVE",
                     "playbook": pb_name,
+                    "plan_tag": cyc.get("plan_tag", "NEW_PLAN"),
                     "symbol": sym,
                     "price": cur_p,
                     "pnl_usd": pnl
@@ -993,6 +996,7 @@ class VirtualPortfolioEngine:
                     "time_utc": now_iso,
                     "action": "TIME_MAX_BARS_EXIT_LIVE",
                     "playbook": pb_name,
+                    "plan_tag": cyc.get("plan_tag", "NEW_PLAN"),
                     "symbol": sym,
                     "price": cur_p,
                     "pnl_usd": pnl
@@ -1174,7 +1178,13 @@ class VirtualPortfolioEngine:
 
         sniper["active_short_positions"] = updated_shorts
 
-        # 3C. Open NEW Multi-Slot Crypto Trades Across the Competing Playbooks (with Post-Exit / Post-SL Cooldown Guard)
+        # 3C. Open NEW Multi-Slot Crypto Trades Across Strict Split Budgets ($500 OLD_PLAN vs $500 NEW_PLAN)
+        split_b = self._compute_and_sync_split_plan_budgets()
+        old_c_free = split_b["OLD_PLAN"]["crypto_free_cash_usd"]
+        new_c_free = split_b["NEW_PLAN"]["crypto_free_cash_usd"]
+        old_c_count = sum(1 for p in sniper["active_positions"] if p.get("plan_tag") == "OLD_PLAN")
+        new_c_count = sum(1 for p in sniper["active_positions"] if p.get("plan_tag") == "NEW_PLAN")
+
         held_long_syms = {p["symbol"] for p in sniper["active_positions"]}
         held_short_syms = {p["symbol"] for p in sniper["active_short_positions"]}
         cooldown_crypto_syms = set()
@@ -1191,8 +1201,59 @@ class VirtualPortfolioEngine:
                 except Exception:
                     pass
 
+        # 3C-1. OLD_PLAN Crypto Entry (Classic Conservative Spot Pullback on Core Majors from its $500 Budget)
+        for sym in ["BTCUSDC", "BNBUSDT", "ETHUSDT", "SOLUSDT", "PAXGUSDT", "AVAXUSDT"]:
+            if old_c_count >= 3 or old_c_free < 55.0 or sniper["free_cash_usd"] < 55.0:
+                break
+            if sym in held_long_syms or sym in held_short_syms or sym in cooldown_crypto_syms:
+                continue
+            sc = market_scan.get(sym, {})
+            p_close = sc.get("price", 0.0)
+            rsi_now = sc.get("rsi14", 50.0)
+            if p_close <= 0 or sc.get("news_shock_blocked"):
+                continue
+            if sym == "PAXGUSDT" and not (sc.get("uptrend_ok") and rsi_now < 36.0):
+                continue
+            if sym != "PAXGUSDT" and not (rsi_now < 33.5 and sc.get("green_absorption", False)):
+                continue
+            decs = 8 if p_close < 0.001 else (6 if p_close < 1.0 else 4)
+            amt = round(min(old_c_free, sniper["free_cash_usd"], 165.0), 2)
+            if amt >= 55.0:
+                qty = round((amt * (1.0 - 0.0005)) / p_close, 2 if p_close < 0.001 else 6)
+                sniper["free_cash_usd"] = round(sniper["free_cash_usd"] - amt, 2)
+                old_c_free = round(old_c_free - amt, 2)
+                old_c_count += 1
+                tp_pct_old = 0.0075 if sym == "PAXGUSDT" else 0.0125
+                new_pos = {
+                    "symbol": sym,
+                    "playbook": "OLD_CLASSIC_PULLBACK",
+                    "plan_tag": "OLD_PLAN",
+                    "opened_at_utc": now_iso,
+                    "tiers_filled": 1,
+                    "first_entry_price": p_close,
+                    "avg_entry_price": p_close,
+                    "invested_usd": amt,
+                    "total_qty": qty,
+                    "tp_target_price": round(p_close * (1.0 + tp_pct_old), decs),
+                    "sl_price": round(p_close * 0.955, decs)
+                }
+                sniper["active_positions"].append(new_pos)
+                held_long_syms.add(sym)
+                sniper["trade_history"].append({
+                    "time_utc": now_iso,
+                    "action": "OPEN_OLD_CLASSIC_PULLBACK_LIVE",
+                    "playbook": "OLD_CLASSIC_PULLBACK",
+                    "plan_tag": "OLD_PLAN",
+                    "symbol": sym,
+                    "price": p_close,
+                    "rsi14": rsi_now,
+                    "amount_usd": amt
+                })
+                cycle_actions.append(f"OPEN_LONG_OLD_PLAN:{sym}@${p_close}")
+
+        # 3C-2. NEW_PLAN Crypto Long Entry (Quant Playbooks from its $500 Budget)
         for sym in LONG_ELIGIBLE_PAIRS:
-            if len(sniper["active_positions"]) >= 5 or sniper["free_cash_usd"] < 60.0:
+            if new_c_count >= 3 or new_c_free < 55.0 or sniper["free_cash_usd"] < 55.0:
                 break
             if sym in held_long_syms or sym in held_short_syms or sym in cooldown_crypto_syms:
                 continue
@@ -1220,15 +1281,17 @@ class VirtualPortfolioEngine:
                 stop_pct = max(0.005, (sl_m * atr) / p_close)
                 if stop_pct <= 0.045:
                     decs = 8 if p_close < 0.001 else (6 if p_close < 1.0 else 4)
-                    amt = round(min(sniper["free_cash_usd"], 190.0, 3.40 / stop_pct), 2)
+                    amt = round(min(new_c_free, sniper["free_cash_usd"], 170.0, 3.20 / stop_pct), 2)
                     if amt >= 50.0:
                         qty = round((amt * (1.0 - 0.0005)) / p_close, 2 if p_close < 0.001 else 6)
                         sniper["free_cash_usd"] = round(sniper["free_cash_usd"] - amt, 2)
+                        new_c_free = round(new_c_free - amt, 2)
+                        new_c_count += 1
                         new_pos = {
                             "symbol": sym,
                             "playbook": pb_chosen,
+                            "plan_tag": "NEW_PLAN",
                             "opened_at_utc": now_iso,
-                            "last_replayed_15m_ms": now_ms,
                             "tiers_filled": 1,
                             "first_entry_price": p_close,
                             "avg_entry_price": p_close,
@@ -1243,6 +1306,7 @@ class VirtualPortfolioEngine:
                             "time_utc": now_iso,
                             "action": f"OPEN_{pb_chosen}_LIVE",
                             "playbook": pb_chosen,
+                            "plan_tag": "NEW_PLAN",
                             "symbol": sym,
                             "price": p_close,
                             "rsi14": sc.get("rsi14"),
@@ -1251,10 +1315,11 @@ class VirtualPortfolioEngine:
                             "ls_ratio": sc.get("futures_long_short_ratio"),
                             "amount_usd": amt
                         })
-                        cycle_actions.append(f"OPEN_LONG:{pb_chosen}:{sym}@${p_close}")
+                        cycle_actions.append(f"OPEN_LONG_NEW_PLAN:{pb_chosen}:{sym}@${p_close}")
 
+        # 3C-3. NEW_PLAN Crypto 1x Short Entry (Strictly from NEW_PLAN $500 Budget)
         for sym in SHORT_ELIGIBLE_PAIRS:
-            if len(sniper["active_short_positions"]) >= 4 or sniper["free_cash_usd"] < 60.0:
+            if len(sniper["active_short_positions"]) >= 2 or new_c_free < 55.0 or sniper["free_cash_usd"] < 55.0:
                 break
             if sym in held_short_syms or sym in held_long_syms or sym in cooldown_crypto_syms:
                 continue
@@ -1271,16 +1336,17 @@ class VirtualPortfolioEngine:
                 stop_pct = max(0.005, (sl_m * atr) / p_close)
                 if stop_pct <= 0.045:
                     decs = 8 if p_close < 0.001 else (6 if p_close < 1.0 else 4)
-                    amt = round(min(sniper["free_cash_usd"], 180.0, 3.20 / stop_pct), 2)
+                    amt = round(min(new_c_free, sniper["free_cash_usd"], 170.0, 3.00 / stop_pct), 2)
                     if amt >= 50.0:
                         qty = round((amt * (1.0 - 0.0005)) / p_close, 2 if p_close < 0.001 else 6)
                         sniper["free_cash_usd"] = round(sniper["free_cash_usd"] - amt, 2)
+                        new_c_free = round(new_c_free - amt, 2)
                         new_spos = {
                             "symbol": sym,
                             "playbook": short_pb,
+                            "plan_tag": "NEW_PLAN",
                             "direction": "1X_SHORT",
                             "opened_at_utc": now_iso,
-                            "last_replayed_15m_ms": now_ms,
                             "entry_price": p_close,
                             "invested_usd": amt,
                             "total_qty": qty,
@@ -1296,6 +1362,7 @@ class VirtualPortfolioEngine:
                             "time_utc": now_iso,
                             "action": f"OPEN_{short_pb}_1X_SHORT_LIVE",
                             "playbook": short_pb,
+                            "plan_tag": "NEW_PLAN",
                             "symbol": sym,
                             "price": p_close,
                             "rsi14": sc.get("rsi14"),
@@ -1303,7 +1370,7 @@ class VirtualPortfolioEngine:
                             "ls_ratio": sc.get("futures_long_short_ratio"),
                             "amount_usd": amt
                         })
-                        cycle_actions.append(f"OPEN_SHORT:{short_pb}:{sym}@${p_close}")
+                        cycle_actions.append(f"OPEN_SHORT_NEW_PLAN:{short_pb}:{sym}@${p_close}")
 
         sniper["active_cycle"] = sniper["active_positions"][0] if sniper["active_positions"] else None
         sniper["active_short_cycle"] = sniper["active_short_positions"][0] if sniper["active_short_positions"] else None
