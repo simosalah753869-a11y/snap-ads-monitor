@@ -1243,8 +1243,8 @@ def run_improvements_guardian(sales_3d: dict = None, sales_today: dict = None):
                         still_active.remove(s)
                         actions.append(f"سناب: تقليص التشتت فوق {max_copies} مجموعات في '{cname}' — إيقاف '{s.get('name','')}'")
 
-                # (C) أمر المستخدم الصارم للسعودية (2026-11-01): احترام قفل البيدات المعتمد وعدم لمس حملات التيست:
-                if not is_gulf and not is_dedicated_snap_test_campaign(cid, cname):
+                # (C) أمر المستخدم الصارم (2026-11-02): عدم لمس البيد نهائياً (لا يطلع ولا ينزل تلقائياً):
+                if False and not is_gulf and not is_dedicated_snap_test_campaign(cid, cname):
                     for s in still_active:
                         bid_micro_s = int(s.get("bid_micro") or 0)
                         sn_s = s.get("name", "")
