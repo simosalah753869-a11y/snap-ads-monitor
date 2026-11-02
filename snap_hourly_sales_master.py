@@ -29,11 +29,13 @@
 
 from datetime import datetime, timedelta, timezone
 import json
+import os
 from pathlib import Path
 import re
 import sys
 import time
 from snap_auth import API_BASE, api_get, load_config, refresh_access_token
+import snap_monitor as sm
 from snap_monitor import (
     ACCOUNT_TZ,
     ALLOWED_30X_CAMPAIGN_IDS,
