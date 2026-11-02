@@ -586,11 +586,8 @@ def run_hourly_master_for_account(token: str, ad_account_id: str, sheet_sales: d
             last_action_dt = parse_iso_utc(s_state.get("last_action_utc") or "") or eff_start_utc
             elapsed_since_action = (now_utc - last_action_dt).total_seconds()
 
-            # أمر المستخدم الصارم (2026-11-02): عدم لمس بيد حملات التيست (2.80)، وتطبيق البيدات المقفلة لحملات الكوبي (-0.20)
-            if not is_gulf and not is_ded_test_sq:
-                new_bid_micro = get_locked_low_bid_micro(cid, cname, sname, sid) or 1_400_000
-            else:
-                new_bid_micro = cur_bid_micro
+            # أمر المستخدم الصارم (2026-11-02): عدم لمس البيد نهائياً (لا يطلع ولا ينزل تلقائياً)
+            new_bid_micro = cur_bid_micro
 
             # -----------------------------------------------------------------
             # تدقيق العين البشرية في أدق التفاصيل داخل الأدست (Micro-Detail Human-Eye Scrutiny Inside Every Active AdSquad):
