@@ -1,0 +1,253 @@
+{
+  "squads": {
+    "430ea3c0-b721-402f-94b8-6c2c304ec15c": {
+      "date": "2026-11-02",
+      "bid_strategy": "LOWEST_COST_WITH_MAX_BID",
+      "bid_micro": 2950000,
+      "bumps_today": 0,
+      "last_spend_1d": 0.45,
+      "last_check_epoch": 1793570977
+    },
+    "f7665412-6c51-4031-aea9-7276b02e8dff": {
+      "date": "2026-11-02",
+      "bid_strategy": "TARGET_COST",
+      "bid_micro": 4400000,
+      "bumps_today": 0,
+      "last_spend_1d": 0.0,
+      "last_check_epoch": 1793570596
+    },
+    "20d43c08-ea33-4a51-bad0-d53a1fbf380c": {
+      "date": "2026-11-01",
+      "bid_strategy": "LOWEST_COST_WITH_MAX_BID",
+      "bid_micro": 3600000,
+      "last_spend_1d": 0.0,
+      "last_check_epoch": 1793532583,
+      "last_bump_epoch": 1793531265,
+      "bumps_today": 2
+    },
+    "543cc1eb-b632-4e6c-b266-fbf3d38b0ff1": {
+      "date": "2026-11-02",
+      "bid_strategy": "LOWEST_COST_WITH_MAX_BID",
+      "bid_micro": 2400000,
+      "bumps_today": 0,
+      "last_spend_1d": 0.39,
+      "last_check_epoch": 1793610574
+    },
+    "93546856-95dd-4d51-9e3b-00dae0da3785": {
+      "date": "2026-11-02",
+      "bid_strategy": "TARGET_COST",
+      "bid_micro": 4400000,
+      "bumps_today": 0,
+      "last_spend_1d": 0.03,
+      "last_check_epoch": 1793611787
+    },
+    "bcdf9d20-d634-4f99-bfb9-8de8d12b22be": {
+      "date": "2026-11-01",
+      "bid_strategy": "LOWEST_COST_WITH_MAX_BID",
+      "bid_micro": 3450000,
+      "last_spend_1d": 0.0,
+      "last_check_epoch": 1793532583,
+      "last_bump_epoch": 1793531265,
+      "bumps_today": 2
+    },
+    "07a5c6a1-e7c7-447e-a03d-feaac4ecbf4c": {
+      "date": "2026-11-01",
+      "bid_strategy": "LOWEST_COST_WITH_MAX_BID",
+      "bid_micro": 2900000,
+      "last_spend_1d": 1.12,
+      "last_check_epoch": 1793532583,
+      "last_bump_epoch": 1793531265,
+      "bumps_today": 2
+    },
+    "0ac0e6b0-f03d-4389-b91c-dc6163b39a1a": {
+      "date": "2026-11-01",
+      "bid_strategy": "LOWEST_COST_WITH_MAX_BID",
+      "bid_micro": 3200000,
+      "last_spend_1d": 2.3,
+      "last_check_epoch": 1793532583,
+      "last_bump_epoch": 1793531885,
+      "bumps_today": 2
+    },
+    "15cd39e4-aba4-4854-9962-a569475af8c7": {
+      "date": "2026-11-01",
+      "bid_strategy": "LOWEST_COST_WITH_MAX_BID",
+      "bid_micro": 3500000,
+      "last_spend_1d": 1.82,
+      "last_check_epoch": 1793532583,
+      "last_bump_epoch": 1793531265,
+      "bumps_today": 2
+    },
+    "15fc0db8-57b7-49d8-b66b-79cf0783e6ae": {
+      "date": "2026-11-02",
+      "bid_strategy": "LOWEST_COST_WITH_MAX_BID",
+      "bid_micro": 3400000,
+      "bumps_today": 0,
+      "last_spend_1d": 2.98,
+      "last_check_epoch": 1793582969
+    },
+    "83cd389d-b44e-46a3-a43a-73f5f9068691": {
+      "date": "2026-11-01",
+      "bid_strategy": "TARGET_COST",
+      "bid_micro": 4800000,
+      "last_spend_1d": 1.6,
+      "last_check_epoch": 1793532583,
+      "last_bump_epoch": 1793531885,
+      "bumps_today": 2
+    },
+    "9496d93b-c72d-46e2-b1f7-b07cb2cc2afb": {
+      "date": "2026-11-02",
+      "bid_strategy": "TARGET_COST",
+      "bid_micro": 4300000,
+      "bumps_today": 0,
+      "last_spend_1d": 4.27,
+      "last_check_epoch": 1793611787
+    },
+    "335ab103-9212-4ae6-adbc-baee0e29eca2": {
+      "date": "2026-11-02",
+      "bid_strategy": "LOWEST_COST_WITH_MAX_BID",
+      "bid_micro": 2550000,
+      "bumps_today": 0,
+      "last_spend_1d": 1.5,
+      "last_check_epoch": 1793580570
+    },
+    "402c697d-7837-49e8-b1e3-1f20e09bd40b": {
+      "date": "2026-11-01",
+      "bid_strategy": "LOWEST_COST_WITH_MAX_BID",
+      "bid_micro": 3500000,
+      "last_spend_1d": 0.77,
+      "last_check_epoch": 1793532583,
+      "last_bump_epoch": 1793531265,
+      "bumps_today": 2
+    },
+    "9e06100b-4c72-43ed-9428-b5519407876e": {
+      "date": "2026-11-01",
+      "bid_strategy": "TARGET_COST",
+      "bid_micro": 4600000,
+      "last_spend_1d": 3.24,
+      "last_check_epoch": 1793532583,
+      "last_bump_epoch": 1793528223,
+      "bumps_today": 1
+    },
+    "a2ff6521-3a1e-4240-b4fc-ca01c0e65074": {
+      "date": "2026-11-02",
+      "bid_strategy": "TARGET_COST",
+      "bid_micro": 4100000,
+      "bumps_today": 0,
+      "last_spend_1d": 0.18,
+      "last_check_epoch": 1793580570
+    },
+    "24d07c16-140c-473b-9b81-92c0cf6a4bd4": {
+      "date": "2026-11-02",
+      "bid_strategy": "LOWEST_COST_WITH_MAX_BID",
+      "bid_micro": 2400000,
+      "bumps_today": 0,
+      "last_spend_1d": 0.32,
+      "last_check_epoch": 1793611787
+    },
+    "8568c2eb-a396-40f6-8f86-3ff5ed38d414": {
+      "date": "2026-11-01",
+      "bid_strategy": "TARGET_COST",
+      "bid_micro": 4300000,
+      "last_spend_1d": 2.3,
+      "last_check_epoch": 1793529939,
+      "last_bump_epoch": 1793528223,
+      "bumps_today": 1
+    },
+    "308e222c-309e-4530-99a5-d5d61b6e815a": {
+      "date": "2026-11-01",
+      "bid_strategy": "LOWEST_COST_WITH_MAX_BID",
+      "bid_micro": 3450000,
+      "last_spend_1d": 0.0,
+      "last_check_epoch": 1793532583,
+      "last_bump_epoch": 1793531265,
+      "bumps_today": 2
+    },
+    "fa002a7f-b707-4660-b78d-cc7283d93727": {
+      "date": "2026-11-02",
+      "bid_strategy": "LOWEST_COST_WITH_MAX_BID",
+      "bid_micro": 2850000,
+      "bumps_today": 0,
+      "last_spend_1d": 0.25,
+      "last_check_epoch": 1793611787
+    },
+    "40f592a6-e275-4f67-bce3-85e06b1b93c4": {
+      "date": "2026-11-01",
+      "bid_strategy": "LOWEST_COST_WITH_MAX_BID",
+      "bid_micro": 3600000,
+      "last_spend_1d": 0.0,
+      "last_check_epoch": 1793532583,
+      "last_bump_epoch": 1793529939,
+      "bumps_today": 1
+    }
+  },
+  "cloned_squads": {
+    "67de1daa-7ffb-4194-9c44-00dcb7163d4d": "20d43c08-ea33-4a51-bad0-d53a1fbf380c",
+    "efccbe22-8951-49f4-b118-cd67f2cec64b": "bcdf9d20-d634-4f99-bfb9-8de8d12b22be",
+    "0e6e5109-d336-44f6-8ce3-601bbe2d0262": "40f592a6-e275-4f67-bce3-85e06b1b93c4"
+  },
+  "big_actions_log": [
+    "[2026-11-01 18:53] Re-activated Gulf Campaign وسادة السيارة الكويت 18-10 (3fb9b26f-7705-4286-b371-4efcd904670c)",
+    "[2026-11-01 18:53] Re-activated Gulf Campaign qatar car scaling new 2 text (f7f6b623-46d5-48af-9a21-fb2584106da8)",
+    "[2026-11-01 18:53] Re-activated Gulf Campaign منتج الكشاف عمان (2958697d-af14-4afc-a42a-1de78106b8a1)",
+    "[2026-11-01 18:53] Re-activated Gulf Campaign Copy of kasahf smart+ qatar 3.5 (0e6e5109-d336-44f6-8ce3-601bbe2d0262)",
+    "[2026-11-01 19:24] Re-activated Gulf Campaign باور بانك قطر 18-10 (67de1daa-7ffb-4194-9c44-00dcb7163d4d)",
+    "[2026-11-01 19:24] Re-activated Gulf Campaign powe bank oman (efccbe22-8951-49f4-b118-cd67f2cec64b)",
+    "[2026-11-01 19:24] Re-activated Gulf Campaign وسادة السيارة الكويت 18-10 (3fb9b26f-7705-4286-b371-4efcd904670c)",
+    "[2026-11-01 19:24] Re-activated Gulf Campaign qatar car scaling new 2 text (f7f6b623-46d5-48af-9a21-fb2584106da8)",
+    "[2026-11-01 19:24] Re-activated Gulf Campaign منتج الكشاف عمان (2958697d-af14-4afc-a42a-1de78106b8a1)",
+    "[2026-11-01 19:24] Re-activated Gulf Campaign Copy of kasahf smart+ qatar 3.5 (0e6e5109-d336-44f6-8ce3-601bbe2d0262)",
+    "[2026-11-01 20:06] Re-activated Gulf Campaign باور بانك قطر 18-10 (67de1daa-7ffb-4194-9c44-00dcb7163d4d)",
+    "[2026-11-01 20:06] Re-activated Gulf Campaign powe bank oman (efccbe22-8951-49f4-b118-cd67f2cec64b)",
+    "[2026-11-01 20:06] Re-activated Gulf Campaign وسادة السيارة الكويت 18-10 (3fb9b26f-7705-4286-b371-4efcd904670c)",
+    "[2026-11-01 20:06] Re-activated Gulf Campaign qatar car scaling new 2 text (f7f6b623-46d5-48af-9a21-fb2584106da8)",
+    "[2026-11-01 20:06] Re-activated Gulf Campaign منتج الكشاف عمان (2958697d-af14-4afc-a42a-1de78106b8a1)",
+    "[2026-11-01 20:06] Re-activated Gulf Campaign Copy of kasahf smart+ qatar 3.5 (0e6e5109-d336-44f6-8ce3-601bbe2d0262)",
+    "[2026-11-01 22:15] Re-activated Gulf Campaign وسادة السيارة الكويت 18-10 (3fb9b26f-7705-4286-b371-4efcd904670c)",
+    "[2026-11-01 22:15] Re-activated Gulf Campaign qatar car scaling new 2 text (f7f6b623-46d5-48af-9a21-fb2584106da8)",
+    "[2026-11-01 22:15] Re-activated Gulf Campaign Copy of kasahf smart+ qatar 3.5 (0e6e5109-d336-44f6-8ce3-601bbe2d0262)",
+    "[2026-11-01 23:00] Re-activated Gulf Campaign وسادة السيارة الكويت 18-10 (3fb9b26f-7705-4286-b371-4efcd904670c)",
+    "[2026-11-01 23:00] Re-activated Gulf Campaign qatar car scaling new 2 text (f7f6b623-46d5-48af-9a21-fb2584106da8)",
+    "[2026-11-01 23:00] Re-activated Gulf Campaign Copy of kasahf smart+ qatar 3.5 (0e6e5109-d336-44f6-8ce3-601bbe2d0262)",
+    "[2026-11-01 23:49] Re-activated Gulf Campaign وسادة السيارة الكويت 18-10 (3fb9b26f-7705-4286-b371-4efcd904670c)",
+    "[2026-11-01 23:49] Re-activated Gulf Campaign qatar car scaling new 2 text (f7f6b623-46d5-48af-9a21-fb2584106da8)",
+    "[2026-11-01 23:49] Re-activated Gulf Campaign Copy of kasahf smart+ qatar 3.5 (0e6e5109-d336-44f6-8ce3-601bbe2d0262)",
+    "[2026-11-02 00:31] Re-activated Gulf Campaign باور بانك قطر 18-10 (67de1daa-7ffb-4194-9c44-00dcb7163d4d)",
+    "[2026-11-02 00:31] Re-activated Gulf Campaign powe bank oman (efccbe22-8951-49f4-b118-cd67f2cec64b)",
+    "[2026-11-02 00:31] Paused Squad 9496d93b in وسادة السيارة الكويت 18-10 (1D: $0.54/0p CPC=0.108 | 3D: $20.03/2p | SimCap=$11.48)",
+    "[2026-11-02 00:31] Re-activated Gulf Campaign وسادة السيارة الكويت 18-10 (3fb9b26f-7705-4286-b371-4efcd904670c)",
+    "[2026-11-02 00:31] Re-activated Gulf Campaign qatar car scaling new 2 text (f7f6b623-46d5-48af-9a21-fb2584106da8)",
+    "[2026-11-02 00:31] Re-activated Gulf Campaign منتج الكشاف عمان (2958697d-af14-4afc-a42a-1de78106b8a1)",
+    "[2026-11-02 00:31] Re-activated Gulf Campaign Copy of kasahf smart+ qatar 3.5 (0e6e5109-d336-44f6-8ce3-601bbe2d0262)",
+    "[2026-11-02 01:03] Re-activated Gulf Campaign باور بانك قطر 18-10 (67de1daa-7ffb-4194-9c44-00dcb7163d4d)",
+    "[2026-11-02 01:03] Re-activated Gulf Campaign powe bank oman (efccbe22-8951-49f4-b118-cd67f2cec64b)",
+    "[2026-11-02 01:03] Re-activated Gulf Campaign وسادة السيارة الكويت 18-10 (3fb9b26f-7705-4286-b371-4efcd904670c)",
+    "[2026-11-02 01:03] Re-activated Gulf Campaign qatar car scaling new 2 text (f7f6b623-46d5-48af-9a21-fb2584106da8)",
+    "[2026-11-02 01:03] Re-activated Gulf Campaign منتج الكشاف عمان (2958697d-af14-4afc-a42a-1de78106b8a1)",
+    "[2026-11-02 01:03] Re-activated Gulf Campaign Copy of kasahf smart+ qatar 3.5 (0e6e5109-d336-44f6-8ce3-601bbe2d0262)",
+    "[2026-11-02 01:09] Paused Squad f7665412 in باور بانك قطر 18-10 (1D: $0.50/0p CPC=0.5 | 3D: $3.17/0p | SimCap=$11.5)",
+    "[2026-11-02 01:49] Re-activated Gulf Campaign qatar car scaling new 2 text (f7f6b623-46d5-48af-9a21-fb2584106da8)",
+    "[2026-11-02 02:29] Re-activated Gulf Campaign powe bank oman (efccbe22-8951-49f4-b118-cd67f2cec64b)",
+    "[2026-11-02 02:29] Re-activated Gulf Campaign وسادة السيارة الكويت 18-10 (3fb9b26f-7705-4286-b371-4efcd904670c)",
+    "[2026-11-02 02:29] Re-activated Gulf Campaign qatar car scaling new 2 text (f7f6b623-46d5-48af-9a21-fb2584106da8)",
+    "[2026-11-02 02:29] Re-activated Gulf Campaign منتج الكشاف عمان (2958697d-af14-4afc-a42a-1de78106b8a1)",
+    "[2026-11-02 02:29] Re-activated Gulf Campaign Copy of kasahf smart+ qatar 3.5 (0e6e5109-d336-44f6-8ce3-601bbe2d0262)",
+    "[2026-11-02 03:06] Re-activated Gulf Campaign powe bank oman (efccbe22-8951-49f4-b118-cd67f2cec64b)",
+    "[2026-11-02 03:06] Re-activated Gulf Campaign وسادة السيارة الكويت 18-10 (3fb9b26f-7705-4286-b371-4efcd904670c)",
+    "[2026-11-02 03:06] Re-activated Gulf Campaign qatar car scaling new 2 text (f7f6b623-46d5-48af-9a21-fb2584106da8)",
+    "[2026-11-02 03:06] Re-activated Gulf Campaign منتج الكشاف عمان (2958697d-af14-4afc-a42a-1de78106b8a1)",
+    "[2026-11-02 03:06] Re-activated Gulf Campaign Copy of kasahf smart+ qatar 3.5 (0e6e5109-d336-44f6-8ce3-601bbe2d0262)",
+    "[2026-11-02 03:57] Re-activated Gulf Campaign powe bank oman (efccbe22-8951-49f4-b118-cd67f2cec64b)",
+    "[2026-11-02 03:57] Re-activated Gulf Campaign وسادة السيارة الكويت 18-10 (3fb9b26f-7705-4286-b371-4efcd904670c)",
+    "[2026-11-02 03:57] Re-activated Gulf Campaign منتج الكشاف عمان (2958697d-af14-4afc-a42a-1de78106b8a1)",
+    "[2026-11-02 03:57] Re-activated Gulf Campaign Copy of kasahf smart+ qatar 3.5 (0e6e5109-d336-44f6-8ce3-601bbe2d0262)",
+    "[2026-11-02 11:50] Re-activated Gulf Campaign powe bank oman (efccbe22-8951-49f4-b118-cd67f2cec64b)",
+    "[2026-11-02 11:50] Paused Squad 15fc0db8 in وسادة السيارة الكويت 18-10 (1D: $3.38/0p CPC=0.188 | 3D: $21.21/5p | SimCap=$11.48)",
+    "[2026-11-02 11:50] Re-activated Gulf Campaign وسادة السيارة الكويت 18-10 (3fb9b26f-7705-4286-b371-4efcd904670c)",
+    "[2026-11-02 11:50] Re-activated Gulf Campaign منتج الكشاف عمان (2958697d-af14-4afc-a42a-1de78106b8a1)",
+    "[2026-11-02 11:50] Re-activated Gulf Campaign Copy of kasahf smart+ qatar 3.5 (0e6e5109-d336-44f6-8ce3-601bbe2d0262)",
+    "[2026-11-02 12:29] Paused Squad 543cc1eb in powe bank oman (1D: $0.59/0p CPC=0.028 | 3D: $2.41/0p | SimCap=$6.55)"
+  ],
+  "tiktok_gulf_scaled": {},
+  "tiktok_gulf_night_halved": {},
+  "snap_squad_bumps": {}
+}
