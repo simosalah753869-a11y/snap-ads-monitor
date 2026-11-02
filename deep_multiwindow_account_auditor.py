@@ -276,7 +276,7 @@ def audit_snapchat_multiwindow(sheet_sales: dict) -> dict:
         for c in active_camps:
             cid = c["id"]
             cname = c.get("name", "")
-            if sm.is_dedicated_snap_test_campaign(cid, cname) or (cid in getattr(sm, "ALLOWED_GULF_CAMPAIGN_IDS", set())) or sm.is_gulf_034_campaign(cname):
+            if (cid in getattr(sm, "ALLOWED_GULF_CAMPAIGN_IDS", set())) or sm.is_gulf_034_campaign(cname):
                 continue
             s1 = c_1d.get(cid, {"spend": 0.0, "purchases": 0, "cpa": None})
             s2 = c_2d.get(cid, {"spend": 0.0, "purchases": 0, "cpa": None})
@@ -387,7 +387,7 @@ def audit_snapchat_multiwindow(sheet_sales: dict) -> dict:
                 aname = a.get("name", "")
                 sq = c_squads.get(a.get("ad_squad_id", ""), {})
                 sname = sq.get("name", "")
-                if sm.is_cross_monitored_product_campaign(cname, sname) or sm.is_dedicated_snap_test_campaign(cid, cname, sname):
+                if sm.is_cross_monitored_product_campaign(cname, sname):
                     continue
                 is_gulf = (cid in getattr(sm, "ALLOWED_GULF_CAMPAIGN_IDS", set())) or sm.is_gulf_034_campaign(cname, sname, sq)
                 is_new_test_snap = (not is_gulf) and (sm.is_dedicated_snap_test_campaign(cid, cname, sname) or sm.is_non_copy_test_adsquad(sname, cname))
