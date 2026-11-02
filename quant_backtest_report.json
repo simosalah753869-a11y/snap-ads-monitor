@@ -1,5 +1,5 @@
 {
-  "updated_at_utc": "2026-11-02T18:47:06Z",
+  "updated_at_utc": "2026-11-02T21:16:23Z",
   "total_grid_tested": 789,
   "active_best_config": {
     "sl_atr": 1.8,
@@ -24,10 +24,10 @@
   },
   "live_playbook_scoreboard": {
     "MEAN_REV_DIP": {
-      "trades": 2,
+      "trades": 3,
       "wins": 0,
-      "losses": 2,
-      "net_pnl_usd": -8.78,
+      "losses": 3,
+      "net_pnl_usd": -11.23,
       "capital_weight": 0.65
     },
     "MOMENTUM_BREAKOUT": {
@@ -52,11 +52,11 @@
       "capital_weight": 0.0
     },
     "US_STOCK_PULLBACK": {
-      "trades": 0,
+      "trades": 3,
       "wins": 0,
-      "losses": 0,
-      "net_pnl_usd": 0.0,
-      "capital_weight": 1.0
+      "losses": 3,
+      "net_pnl_usd": -13.1,
+      "capital_weight": 0.65
     },
     "15M_FLOW_SCALP": {
       "trades": 1,
