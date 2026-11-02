@@ -16441,6 +16441,27 @@
       "target": "باور بانك وينر - 30 أدست - بيد 1.7 / 1.6 30-10",
       "details": "تعميم الرابح: PB_v10_VoltrxH7_mbf3fa9 [H1] (تفعيل +1 نسخة | مبيعات الحملة=1 بـ CPA=$4.55)",
       "metrics": "توجيه 100% من البدجت للفيديوهات الرابحة اليوم بدون دولار بدجت إضافي"
+    },
+    {
+      "timestamp": "2026-11-02 20:12:31",
+      "type": "PAUSE_BLEEDER_SQUADS",
+      "account": "CSP9860",
+      "campaign": "تيست - باور بانك",
+      "details": "إيقاف مجموعتي التيست A و B لصرفهما .95 و .38 بصفر مبيعات"
+    },
+    {
+      "timestamp": "2026-11-02 20:12:31",
+      "type": "PAUSE_BLEEDER_SQUADS",
+      "account": "CSP9860 4",
+      "campaign": "تيست - باور بانك & وسادة السيارة",
+      "details": "إيقاف تيست وسادة السيارة (.28 / 0 مبيعات) وتيست باور بانك A (.03 / 0) و B (.65 / 1)"
+    },
+    {
+      "timestamp": "2026-11-02 20:12:31",
+      "type": "PAUSE_BLEEDER_CAMPAIGN",
+      "account": "Google Ads 843-395-9582",
+      "campaign": "bakhoor bw20 taager 01-11",
+      "details": "إيقاف حملة البخور فوراً عبر CDP لتجاوزها سقف الصرف بدون مبيعات (.54 > .00 / 0 مبيعات)"
     }
   ],
   "latest_winning_structure_analysis": [
