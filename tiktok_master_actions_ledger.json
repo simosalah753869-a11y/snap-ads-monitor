@@ -1,11 +1,6 @@
 {
   "cycles": [
     {
-      "timestamp": "2026-11-01 03:00",
-      "actions_count": 0,
-      "followups_count": 19
-    },
-    {
       "timestamp": "2026-11-01 03:26",
       "actions_count": 0,
       "followups_count": 19
@@ -359,6 +354,11 @@
       "timestamp": "2026-11-02 16:19",
       "actions_count": 0,
       "followups_count": 15
+    },
+    {
+      "timestamp": "2026-11-02 16:42",
+      "actions_count": 1,
+      "followups_count": 14
     }
   ],
   "actions": [
@@ -2078,7 +2078,7 @@
       "videos": [],
       "base_sp3": 14.28,
       "base_cv3": 4,
-      "status": "OPEN"
+      "status": "SUCCEEDED"
     },
     {
       "timestamp": "2026-11-02 13:41",
@@ -2148,7 +2148,7 @@
       "videos": [],
       "base_sp3": 25.92,
       "base_cv3": 5,
-      "status": "OPEN"
+      "status": "SUCCEEDED"
     },
     {
       "timestamp": "2026-11-02 15:19",
@@ -2223,6 +2223,20 @@
       "campaign_name": "power bank test 02-11 B (4 Ads)",
       "action": "launch_8_pb_test_02_11",
       "details": "Launched Test Campaign | Target Cost $6.20 | Budget $50 | 4 Ads"
+    },
+    {
+      "timestamp": "2026-11-02 16:42",
+      "experiment_key": "SCALE_1880695903993266_2026-11-02_CV7_B105",
+      "is_experiment": false,
+      "aadvid": "7631763556322148369",
+      "acc_name": "ROELLINGER RECYCLING",
+      "campaign_id": "1880695903993266",
+      "campaign_name": "power bank 02-11 Manzilk Winners C (5 Ads)",
+      "action_type": "رفع ميزانية الحملة الرابحة +30% ($81 -> $105)",
+      "videos": [],
+      "base_sp3": 31.79,
+      "base_cv3": 7,
+      "status": "OPEN"
     }
   ],
   "failed_experiments": [
@@ -2670,23 +2684,23 @@
     },
     "2026-11-02:7631763556322148369:1880695903993266": {
       "campaign_name": "power bank 02-11 Manzilk Winners C (5 Ads)",
-      "old_budget": 62.0,
-      "new_budget": 81,
-      "cv1": 5,
-      "conv_today": 5,
-      "cpa1": 5.18,
-      "cpa_today": 5.18,
-      "scaled_at": "2026-11-02 15:19"
+      "old_budget": 81.0,
+      "new_budget": 105,
+      "cv1": 7,
+      "conv_today": 7,
+      "cpa1": 4.54,
+      "cpa_today": 4.54,
+      "scaled_at": "2026-11-02 16:42"
     },
     "7631763556322148369:1880695903993266": {
       "campaign_name": "power bank 02-11 Manzilk Winners C (5 Ads)",
-      "old_budget": 62.0,
-      "new_budget": 81,
-      "cv1": 5,
-      "conv_today": 5,
-      "cpa1": 5.18,
-      "cpa_today": 5.18,
-      "scaled_at": "2026-11-02 15:19"
+      "old_budget": 81.0,
+      "new_budget": 105,
+      "cv1": 7,
+      "conv_today": 7,
+      "cpa1": 4.54,
+      "cpa_today": 4.54,
+      "scaled_at": "2026-11-02 16:42"
     },
     "2026-11-02:7631765070816509959:1880585103098433": {
       "campaign_name": "power bank 31-10 30d Batch A (4 Ads 20-23)",
@@ -3024,30 +3038,30 @@
   },
   "latest_winning_structure_analysis": {
     "Website Leads [obj=8] + Auto Placement [3000,9000,1000] + 3–5 فيديوهات رابحة": {
-      "sp1": 17.1,
+      "sp1": 17.46,
       "cv1": 2,
-      "sp3": 175.94,
+      "sp3": 176.3,
       "cv3": 23,
-      "sp7": 175.95,
+      "sp7": 176.3,
       "cv7": 23,
       "decision": "✅ التركيبة رقم #1 اليوم لإنقاذ الـ CPC (< $0.22) وتوليد مبيعات فورية (SuperCombo / CPC-Rescued)"
     },
     "Website Leads [obj=8] + TikTok In-Feed Only [3000] + فيديوهات عابرة للمنصات": {
-      "sp1": 10.39,
+      "sp1": 10.41,
       "cv1": 0,
-      "sp3": 525.93,
+      "sp3": 525.95,
       "cv3": 90,
-      "sp7": 678.16,
+      "sp7": 678.18,
       "cv7": 116,
       "decision": "✅ التركيبة رقم #1 في حجم المبيعات لـ Cross-Platform Winners (مثل H7 صاحبة 43 بيعة بـ $5.25)"
     },
     "Smart+ Website Conversions + 3–4 فيديوهات رابحة معاد تدويرها (30d Batch)": {
-      "sp1": 251.88,
-      "cv1": 26,
-      "sp3": 704.21,
-      "cv3": 84,
-      "sp7": 790.83,
-      "cv7": 94,
+      "sp1": 259.53,
+      "cv1": 28,
+      "sp3": 711.86,
+      "cv3": 86,
+      "sp7": 798.28,
+      "cv7": 97,
       "decision": "✅ ناجحة عند حصر الحملة في 3–4 فيديوهات مجربة وتصفية الفيديوهات الخاسرة عند $1.00 و CPC > $0.25"
     },
     "حملات التوسيع المكررة (SCALE / Copy) أو تجميع > 6 فيديوهات خام": {
