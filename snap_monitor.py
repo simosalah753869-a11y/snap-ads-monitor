@@ -50,6 +50,11 @@ PERMANENTLY_PAUSED_CPA10_CAMPAIGN_IDS = {
     "dab749f9-2dca-497b-a8c3-39f2201162a7",  # CSP9860 4 - باور بانك وينر - تارقيت كوست (CPA > $10)
     "041280f3-1c1e-43fb-b8d4-860dd6c8957f",  # CSP9860 4 - وسادة السيارة وينر - 30 أدست - بيد 1.6 30-10 (CPA > $10)
     "f82c765e-5b7c-4787-be62-3e07b7602db8",  # CSP9860 4 - وسادة السيارة وينر 2 - 30 أدست 30-10 (CPA > $10)
+    "a9dcd138-a822-4664-bf0a-c36d02233956",  # CSP9860 - باور بانك وينر - 10 أدست (1D $11.97 / 0p >= $10)
+    "b4ec4259-1868-40f5-ba33-08a2dd0fd578",  # CSP9860 - وسادة السيارة وينر - 30 أدست (2D CPA $15.49 / 3D CPA $11.47 > $11)
+    "35ed24f7-2c74-4dea-84bd-d350c6ea7d62",  # CSP9860 4 - وسادة السيارة وينر منزلك (1D $11.35 / 0p >= $10)
+    "b454cd6e-ae09-4496-ba36-8345dd544614",  # CSP9860 4 - باور بانك وينر منزلك (1D CPA $13.69 > $11)
+    "0bacf974-1fc2-4ba4-ac20-42b974911064",  # CSP9860 4 - وسادة السيارة وينر - 10 أدست (0 active squads)
 }
 
 ALLOWED_30X_CAMPAIGN_IDS = (
@@ -58,9 +63,12 @@ ALLOWED_30X_CAMPAIGN_IDS = (
         "483f7e57-8a8e-4edb-8b74-7c67eb76419b",  # CSP9860 4 - باور بانك وينر 2 - 30 أدست 30-10
         "35597da7-a911-48f9-9567-7d81bfdebe00",  # CSP9860 - باور بانك وينر - 30 أدست - بيد 1.6 30-10
         "6e187c03-020b-439c-905e-f3d513cd80d6",  # CSP9860 - وسادة السيارة وينر - 30 أدست - بيد 1.5 30-10
-        "b4ec4259-1868-40f5-ba33-08a2dd0fd578",  # CSP9860 - وسادة السيارة وينر - 30 أدست - بيد 1.4 30-10
         "7fa61e5d-dd41-4ee5-af26-e5c0f773bdef",  # CSP9860 4 - باور بانك وينر - 30 أدست - بيد 1.6 30-10
         "7bffcb77-f2ae-427e-883a-f4e5f249cae9",  # CSP9860 4 - باور بانك وينر - 30 أدست - بيد 1.5 30-10
+        "bfe9ec1d-d6c6-416d-a3f0-46c50c2b7a76",  # CSP9860 - باور بانك وينر بديلة - ماكس بيد 1.9 - 02-11
+        "0ea95b38-9d67-4e15-973d-86adf3d4104a",  # CSP9860 - وسادة السيارة وينر بديلة - ماكس بيد 1.9 - 02-11
+        "51945aea-b2d6-4742-815c-feb85620d8ff",  # CSP9860 4 - وسادة السيارة وينر منزلك بديلة - ماكس بيد 1.9 - 02-11
+        "a4518953-cef3-4b77-9af1-20f6724623f8",  # CSP9860 4 - باور بانك وينر منزلك بديلة - ماكس بيد 1.9 - 02-11
     }
     | DEDICATED_SNAP_TEST_CAMPAIGN_IDS
     | TEN_SQUAD_CAMPAIGN_IDS
@@ -719,6 +727,7 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
             created_ts = str(c.get("created_at") or "")
             if (
                 c["id"] in user_paused_camps_set
+                or c["id"] in PERMANENTLY_PAUSED_CPA10_CAMPAIGN_IDS
                 or is_shutoff_pillow_campaign(c.get("name", ""))
                 or is_cross_monitored_product_campaign(c.get("name", ""))
                 or (
