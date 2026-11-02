@@ -645,6 +645,8 @@ def run_hourly_master_for_account(token: str, ad_account_id: str, sheet_sales: d
                 and sid in top_efficient_squad_ids
             )
 
+            custom_dt_b_micro = sm.get_custom_daytime_budget_micro(sid, today_str) if not is_late_night else None
+            eff_base_budget_micro = max(base_budget_micro, custom_dt_b_micro) if custom_dt_b_micro is not None else base_budget_micro
             if is_late_night or (not is_sq_converting and not is_sq_sheet_leader):
                 max_tier_budget_micro = base_budget_micro
             elif is_sq_sheet_leader or pu1 == 1:
@@ -654,6 +656,9 @@ def run_hourly_master_for_account(token: str, ad_account_id: str, sheet_sales: d
             else:
                 max_tier_budget_micro = 45_000_000
 
+            if custom_dt_b_micro is not None and not is_late_night:
+                max_tier_budget_micro = max(max_tier_budget_micro, custom_dt_b_micro)
+
             # إذا كانت الميزانية الحالية متضخمة فوق السقف المسموح به (أو آخر الليل حيث يرجع البدجت 20$ في كل الأدست)، تُرجع فوراً للسقف الآمن!
             # وممنوع منعاً باتاً رفع البدجت بعد الساعة 6 مساءً (is_after_6pm)
             if cur_budget_micro > max_tier_budget_micro:
@@ -661,10 +666,10 @@ def run_hourly_master_for_account(token: str, ad_account_id: str, sheet_sales: d
                 camp_normalized_budgets.append(
                     f"{sname}: ضبط البدجت ${cur_budget_micro/1e6:.1f}->${new_budget_micro/1e6:.1f} ({'قاعدة آخر الليل $20' if is_late_night else f'مبيعات اليوم={pu1}'})"
                 )
-            elif not is_after_6pm and cur_budget_micro < base_budget_micro:
-                new_budget_micro = base_budget_micro
+            elif not is_after_6pm and cur_budget_micro < eff_base_budget_micro:
+                new_budget_micro = eff_base_budget_micro
                 camp_normalized_budgets.append(
-                    f"{sname}: ضبط البدجت ${cur_budget_micro/1e6:.1f}->${new_budget_micro/1e6:.1f} (تثبيت $20)"
+                    f"{sname}: ضبط البدجت ${cur_budget_micro/1e6:.1f}->${new_budget_micro/1e6:.1f} (تثبيت ${eff_base_budget_micro/1e6:.0f})"
                 )
             else:
                 new_budget_micro = cur_budget_micro
@@ -1286,6 +1291,12 @@ def main():
         save_ledger(ledger)
     write_markdown_report(actions_taken, account_overview=account_overview, structure_rows=structure_rows)
     print(f"✅ اكتملت دورة خبير سناب شات — إجمالي الإجراءات المنفذة: {len(actions_taken)}.")
+    if not dry_run and os.environ.get("GITHUB_ACTIONS") != "true":
+        try:
+            from github_deploy import sync_state_and_rules_to_github
+            sync_state_and_rules_to_github("snap_hourly_sales_master")
+        except Exception as _sync_err:
+            print(f"ℹ️ ملاحظة مزامنة GitHub من snap_hourly_sales_master: {_sync_err}")
 
 
 if __name__ == "__main__":
