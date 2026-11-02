@@ -4587,11 +4587,5 @@
   },
   "cross_paused_campaigns": {},
   "headline_rotation_idx": {},
-  "disabled_headlines": {},
-  "user_paused_campaigns": [
-    "35ed24f7-2c74-4dea-84bd-d350c6ea7d62",
-    "a9dcd138-a822-4664-bf0a-c36d02233956",
-    "b454cd6e-ae09-4496-ba36-8345dd544614",
-    "b4ec4259-1868-40f5-ba33-08a2dd0fd578"
-  ]
+  "disabled_headlines": {}
 }
