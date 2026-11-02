@@ -1,0 +1,71 @@
+name: Quant 24/7 Live Real-Time Stream (While Laptop is Off)
+
+on:
+  schedule:
+    - cron: "*/20 * * * *"
+  workflow_dispatch:
+
+concurrency:
+  group: quant-realtime-cloud-stream
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+
+jobs:
+  quant_live_stream:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Run Continuous 2-Second Live Real-Time Stream When Laptop is Off (ZERO Past Execution)
+        continue-on-error: true
+        run: |
+          python -c "
+          import json, time, subprocess
+          from pathlib import Path
+          p = Path('binance_paper_portfolio.json')
+          laptop_alive = False
+          if p.exists():
+              try:
+                  d = json.loads(p.read_text('utf-8'))
+                  last_ms = int(d.get('last_updated_ms') or 0)
+                  if (time.time() * 1000 - last_ms) < 120000:
+                      laptop_alive = True
+              except Exception:
+                  pass
+          if laptop_alive:
+              print('Laptop 2-second live stream is active (<120s heartbeat). Running single live check.')
+              subprocess.run(['python', 'binance_guardian_bot.py'])
+          else:
+              print('Laptop is OFF — activating continuous 2-second Live Real-Time Cloud Stream!')
+              subprocess.run(['python', 'binance_guardian_bot.py', '--cloud-live-stream'])
+          "
+
+      - name: Commit Live Portfolio State to Cloud
+        continue-on-error: true
+        run: |
+          cp binance_paper_portfolio.json /tmp/binance_paper_portfolio_live.json
+          git config user.name "QuantRealtimeBot"
+          git config user.email "bot@users.noreply.github.com"
+          git fetch origin main
+          git reset --hard origin/main
+          python -c "
+          import json
+          from pathlib import Path
+          q_rem = Path('binance_paper_portfolio.json')
+          q_run = Path('/tmp/binance_paper_portfolio_live.json')
+          if q_run.exists():
+              qr = json.loads(q_rem.read_text('utf-8')) if q_rem.exists() else {}
+              qu = json.loads(q_run.read_text('utf-8'))
+              if int(qu.get('last_updated_ms') or 0) >= int(qr.get('last_updated_ms') or 0):
+                  q_rem.write_text(json.dumps(qu, ensure_ascii=False, indent=2), 'utf-8')
+          "
+          git add binance_paper_portfolio.json
+          git diff --staged --quiet || (git commit -m "Live real-time quant execution update [skip ci]" && git push origin main || true)
