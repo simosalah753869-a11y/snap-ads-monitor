@@ -552,26 +552,28 @@ class VirtualPortfolioEngine:
             ret24_pct = sc.get("ret24_pct", 0.0)
             v_rat = sc.get("vol_ratio", 1.0)
 
-            # Playbook 1: MEAN_REV_DIP (Oversold dip below VWAP + uncrowded longs + 24H Excursion <= -0.60%)
+            # Playbook 1: MEAN_REV_DIP (Oversold dip below VWAP + uncrowded longs + 24H Excursion <= -0.60% + Green Absorption)
             sc["dip_trigger"] = bool(
                 (sym in LONG_ELIGIBLE_PAIRS)
                 and btc_not_dumping
                 and (not sc["news_shock_blocked"])
-                and (ret24_pct <= -0.60)
+                and sc.get("green_absorption", False)
+                and (-6.50 <= ret24_pct <= -0.60)
                 and (vwap_dev <= 0.15)
-                and ((r_min < 35.0) or (r_15m <= 28.0 and r_min < 40.0))
-                and (ls_r < 3.10)
+                and ((r_min < 32.0) or (r_15m <= 26.0 and r_min < 36.0))
+                and (ls_r < 3.00)
             )
-            # Playbook 2: MOMENTUM_BREAKOUT (Price > SMA20 & near/above VWAP + strong Taker Buy Flow + OI not collapsing)
+            # Playbook 2: MOMENTUM_BREAKOUT (Requires Macro Uptrend SMA100>=SMA200 + Price > SMA20 + strong Taker Buy Flow)
             sc["breakout_trigger"] = bool(
                 (sym in LONG_ELIGIBLE_PAIRS)
+                and sc.get("uptrend_ok", False)
                 and btc_above_sma20
                 and (p_now > sma20_now > 0)
-                and (-0.25 <= vwap_dev <= 2.40)
-                and (oi_1h >= -1.50)
-                and (48.0 <= sc.get("rsi14", 50.0) <= 72.0)
-                and (max(t_flow, t_flow15) >= 0.50)
-                and (ls_r < 3.10)
+                and (-0.25 <= vwap_dev <= 2.20)
+                and (oi_1h >= -1.00)
+                and (52.0 <= sc.get("rsi14", 50.0) <= 70.0)
+                and (max(t_flow, t_flow15) >= 0.54)
+                and (ls_r < 2.90)
             )
             # Playbook 3: CROWDED_FADE_SHORT (1x Short when Retail LS Ratio >= 2.65 + Weak Taker Buy Flow + Anti-Squeeze OI Guard)
             sc["short_bounce_trigger"] = bool(
@@ -953,14 +955,27 @@ class VirtualPortfolioEngine:
 
         sniper["active_short_positions"] = updated_shorts
 
-        # 3C. Open NEW Multi-Slot Crypto Trades Across the 3 Competing Playbooks
+        # 3C. Open NEW Multi-Slot Crypto Trades Across the Competing Playbooks (with Post-Exit / Post-SL Cooldown Guard)
         held_long_syms = {p["symbol"] for p in sniper["active_positions"]}
         held_short_syms = {p["symbol"] for p in sniper["active_short_positions"]}
+        cooldown_crypto_syms = set()
+        now_dt_cd = datetime.now(timezone.utc)
+        for th in sniper.get("trade_history", [])[-40:]:
+            act_th = th.get("action", "")
+            if any(k in act_th for k in ("STOP", "PROFIT", "EXIT", "LOCK", "UNLOAD")):
+                try:
+                    t_dt = datetime.strptime(th["time_utc"], "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=timezone.utc)
+                    age_h = (now_dt_cd - t_dt).total_seconds() / 3600.0
+                    cd_req = 6.0 if ("STOP" in act_th or float(th.get("pnl_usd", 0.0)) < 0) else 2.0
+                    if age_h < cd_req:
+                        cooldown_crypto_syms.add(th.get("symbol"))
+                except Exception:
+                    pass
 
         for sym in LONG_ELIGIBLE_PAIRS:
             if len(sniper["active_positions"]) >= 5 or sniper["free_cash_usd"] < 60.0:
                 break
-            if sym in held_long_syms or sym in held_short_syms:
+            if sym in held_long_syms or sym in held_short_syms or sym in cooldown_crypto_syms:
                 continue
             sc = market_scan.get(sym, {})
             atr = sc.get("atr14", 0.0)
@@ -1022,7 +1037,7 @@ class VirtualPortfolioEngine:
         for sym in SHORT_ELIGIBLE_PAIRS:
             if len(sniper["active_short_positions"]) >= 4 or sniper["free_cash_usd"] < 60.0:
                 break
-            if sym in held_short_syms or sym in held_long_syms:
+            if sym in held_short_syms or sym in held_long_syms or sym in cooldown_crypto_syms:
                 continue
             sc = market_scan.get(sym, {})
             atr = sc.get("atr14", 0.0)
@@ -1279,13 +1294,26 @@ class VirtualPortfolioEngine:
 
         stocks["active_positions"] = updated_stocks
 
-        # 5B. Open NEW Multi-Slot US Stock Positions (Up to 3 Concurrent Stocks — Only When US Market Is Not in Weekend Freeze)
+        # 5B. Open NEW Multi-Slot US Stock Positions (Up to 3 Concurrent Stocks — Only When US Market Is Not in Weekend Freeze + Post-SL Cooldown)
         is_us_weekend_now = datetime.now(timezone.utc).weekday() in (5, 6)
         held_tickers = {p["symbol"] for p in stocks["active_positions"]}
+        cooldown_stock_tickers = set()
+        now_dt_scd = datetime.now(timezone.utc)
+        for sth in stocks.get("trade_history", [])[-25:]:
+            sact = sth.get("action", "")
+            if any(k in sact for k in ("STOP", "PROFIT", "EXIT", "LOCK")):
+                try:
+                    st_dt = datetime.strptime(sth["time_utc"], "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=timezone.utc)
+                    sage_h = (now_dt_scd - st_dt).total_seconds() / 3600.0
+                    scd_req = 6.0 if ("STOP" in sact or float(sth.get("pnl_usd", 0.0)) < 0) else 2.0
+                    if sage_h < scd_req:
+                        cooldown_stock_tickers.add(sth.get("symbol"))
+                except Exception:
+                    pass
         for tk in stocks["watched_tickers"]:
             if is_us_weekend_now or len(stocks["active_positions"]) >= 3 or stocks["free_cash_usd"] < 150.0:
                 break
-            if tk in held_tickers:
+            if tk in held_tickers or tk in cooldown_stock_tickers:
                 continue
             sscan = stock_scan.get(tk, {})
             atr = sscan.get("atr14", 0.0)
