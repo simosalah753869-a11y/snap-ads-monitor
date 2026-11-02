@@ -2046,7 +2046,15 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
                     f"🛑 [شرط سقف {max_copy_for_camp} أدست فقط] تم إيقاف {len(excess_to_pause)} مجموعة في حملة '{c_name}' (النشط الآن: {len(kept_copy)} <= {max_copy_for_camp})."
                 )
 
-    # 3. نظام سقف البيد الصارم ($1.80 كحد أقصى بدون أي رفع للبيد) والسكيل كل ساعة (+30% بدجت للحملة أو الأدست الرابحة):
+    # أمر المستخدم الصارم (2026-11-02):
+    # غيت هاب لا تعطيه أوامر بيد أنه يطلع وينزل، فقط يوقف الحملات والمجموعات والفيديوهات المتعدية للرقم المحدد!
+    if os.environ.get("GITHUB_ACTIONS") == "true" or os.environ.get("STOP_LOSS_PAUSE_ONLY") == "1":
+        if not dry_run:
+            save_paused_history(history)
+        print("\n🛡️ [وضع الإيقاف الحصري على GitHub Actions] تم فحص وإيقاف الحملات والمجموعات والفيديوهات المتعدية للأرقام المحددة فقط بدون أي تعديل على البيد أو البدجت.")
+        return
+
+    # 3. نظام تجميد البيد الكامل (ممنوع رفع أو إنقاص البيد تلقائياً) والسكيل كل ساعة (+30% بدجت للحملة أو الأدست الرابحة):
     now_utc = datetime.now(timezone.utc)
     today_local = datetime.now(ACCOUNT_TZ)
     today_date_str = today_local.strftime("%Y-%m-%d")
@@ -2196,25 +2204,10 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
             if start_dt_sq and now_utc < start_dt_sq:
                 continue
 
-            # أمر المستخدم الصارم (2026-11-01):
-            # - حملات سناب في السعودية مقسمة إلى مجموعة بيد $1.70 (1,700,000 micro) ومجموعة بيد $1.60 (1,600,000 micro) في كل حملة بدون أي رفع أو إنقاص.
-            # - ولا يرفع بدجت بعد الساعة 6 مساءً (18:00) أبداً!
+            # أمر المستخدم الصارم (2026-11-02): ممنوع منعاً باتاً تغيير البيد (لا يطلع ولا ينزل تلقائياً)
             is_gulf_sq = is_gulf_034_campaign(c_name, s_name, squad)
             is_ded_test = is_dedicated_snap_test_campaign(c_id, c_name, s_name)
-            if not is_gulf_sq and not is_ded_test:
-                target_bid_micro = get_locked_low_bid_micro(c_id, c_name, s_name, s_id) or 1_400_000
-                if bid_micro != target_bid_micro or squad.get("bid_strategy") != "LOWEST_COST_WITH_MAX_BID" or bool(squad.get("target_bid")):
-                    old_b_usd = round(bid_micro / 1_000_000, 2)
-                    new_b_usd = round(target_bid_micro / 1_000_000, 2)
-                    squad["bid_micro"] = target_bid_micro
-                    squad["bid_strategy"] = "LOWEST_COST_WITH_MAX_BID"
-                    squad["target_bid"] = False
-                    if not dry_run:
-                        squads_to_update_batch.append(squad)
-                    clamps_logged.append(f"'{s_name}' (${old_b_usd:.2f} -> ${new_b_usd:.2f})")
-                    bid_micro = target_bid_micro
-            else:
-                target_bid_micro = bid_micro
+            target_bid_micro = bid_micro
 
             m_sq = master_squad_state.get(s_id, {})
             b_rec = {
