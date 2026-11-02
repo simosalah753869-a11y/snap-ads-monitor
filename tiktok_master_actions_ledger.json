@@ -2238,6 +2238,66 @@
       "base_sp3": 31.79,
       "base_cv3": 7,
       "status": "OPEN"
+    },
+    {
+      "ts": 1793644197.5985258,
+      "time_ksa": "2026-11-02 21:29:57",
+      "account": "ROELLINGER RECYCLING",
+      "aadvid": "7631763556322148369",
+      "campaign_id": "1880772017515601",
+      "campaign_name": "power bank test 03-11 A (4 Ads)",
+      "action": "launch_8_pb_winners_03_11",
+      "details": "Launched Tomorrow 03-11 Test Campaign | Target Cost $6.20 | Budget $50 | 4 Ads"
+    },
+    {
+      "ts": 1793644197.5985258,
+      "time_ksa": "2026-11-02 21:29:57",
+      "account": "ROELLINGER RECYCLING",
+      "aadvid": "7631763556322148369",
+      "campaign_id": "1880772028346130",
+      "campaign_name": "power bank test 03-11 B (4 Ads)",
+      "action": "launch_8_pb_winners_03_11",
+      "details": "Launched Tomorrow 03-11 Test Campaign | Target Cost $6.20 | Budget $50 | 4 Ads"
+    },
+    {
+      "ts": 1793644197.5985258,
+      "time_ksa": "2026-11-02 21:29:57",
+      "account": "ROELLINGER RECYCLING1",
+      "aadvid": "7631765139798081554",
+      "campaign_id": "1880772129967458",
+      "campaign_name": "power bank test 03-11 A (4 Ads)",
+      "action": "launch_8_pb_winners_03_11",
+      "details": "Launched Tomorrow 03-11 Test Campaign | Target Cost $6.20 | Budget $50 | 4 Ads"
+    },
+    {
+      "ts": 1793644197.5985258,
+      "time_ksa": "2026-11-02 21:29:57",
+      "account": "ROELLINGER RECYCLING1",
+      "aadvid": "7631765139798081554",
+      "campaign_id": "1880772140766482",
+      "campaign_name": "power bank test 03-11 B (4 Ads)",
+      "action": "launch_8_pb_winners_03_11",
+      "details": "Launched Tomorrow 03-11 Test Campaign | Target Cost $6.20 | Budget $50 | 4 Ads"
+    },
+    {
+      "ts": 1793644197.5985258,
+      "time_ksa": "2026-11-02 21:29:57",
+      "account": "ROELLINGER RECYCLING2",
+      "aadvid": "7631765070816509959",
+      "campaign_id": "1880772241514562",
+      "campaign_name": "power bank test 03-11 A (4 Ads)",
+      "action": "launch_8_pb_winners_03_11",
+      "details": "Launched Tomorrow 03-11 Test Campaign | Target Cost $6.20 | Budget $50 | 4 Ads"
+    },
+    {
+      "ts": 1793644197.5985258,
+      "time_ksa": "2026-11-02 21:29:57",
+      "account": "ROELLINGER RECYCLING2",
+      "aadvid": "7631765070816509959",
+      "campaign_id": "1880772251900066",
+      "campaign_name": "power bank test 03-11 B (4 Ads)",
+      "action": "launch_8_pb_winners_03_11",
+      "details": "Launched Tomorrow 03-11 Test Campaign | Target Cost $6.20 | Budget $50 | 4 Ads"
     }
   ],
   "failed_experiments": [
