@@ -1174,7 +1174,7 @@ def run_tiktok_gulf_campaigns(sim_cpa_lookup: dict | None = None) -> list[dict]:
                 last_ts = float(last_sc.get("ts") or 0.0)
                 last_pu = int(last_sc.get("pu") or 0)
                 if (time.time() - last_ts) >= 10800 and conv_1d > last_pu:
-                    new_b = min(100.0, round(cur_budget * 1.25, 2))
+                    new_b = min(50.0, round(cur_budget * 1.25, 2))
                     if new_b > cur_budget and hasattr(tm, "update_campaign_budget") and tm.update_campaign_budget(s, th, aid, cid, new_b):
                         tt_scaled_map[cid] = {"ts": time.time(), "pu": conv_1d, "old": cur_budget, "new": new_b}
                         cur_budget = new_b
