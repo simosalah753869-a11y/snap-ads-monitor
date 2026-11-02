@@ -356,9 +356,9 @@
       "followups_count": 15
     },
     {
-      "timestamp": "2026-11-02 16:18",
-      "actions_count": 1,
-      "followups_count": 16
+      "timestamp": "2026-11-02 16:19",
+      "actions_count": 0,
+      "followups_count": 15
     }
   ],
   "actions": [
@@ -2223,20 +2223,6 @@
       "campaign_name": "power bank test 02-11 B (4 Ads)",
       "action": "launch_8_pb_test_02_11",
       "details": "Launched Test Campaign | Target Cost $6.20 | Budget $50 | 4 Ads"
-    },
-    {
-      "timestamp": "2026-11-02 16:18",
-      "experiment_key": "SCALE_1880695954907169_2026-11-02_CV6_B240",
-      "is_experiment": false,
-      "aadvid": "7631763556322148369",
-      "acc_name": "ROELLINGER RECYCLING",
-      "campaign_id": "1880695954907169",
-      "campaign_name": "car armrest 02-11 Manzilk Winners C (4 Ads)",
-      "action_type": "رفع ميزانية الحملة الرابحة +30% ($185 -> $240)",
-      "videos": [],
-      "base_sp3": 19.25,
-      "base_cv3": 6,
-      "status": "OPEN"
     }
   ],
   "failed_experiments": [
@@ -2624,23 +2610,23 @@
     },
     "2026-11-02:7631763556322148369:1880695954907169": {
       "campaign_name": "car armrest 02-11 Manzilk Winners C (4 Ads)",
-      "old_budget": 185.0,
-      "new_budget": 240,
-      "cv1": 6,
-      "conv_today": 6,
-      "cpa1": 3.21,
-      "cpa_today": 3.21,
-      "scaled_at": "2026-11-02 16:18"
+      "old_budget": 142.0,
+      "new_budget": 185,
+      "cv1": 5,
+      "conv_today": 5,
+      "cpa1": 3.2,
+      "cpa_today": 3.2,
+      "scaled_at": "2026-11-02 15:19"
     },
     "7631763556322148369:1880695954907169": {
       "campaign_name": "car armrest 02-11 Manzilk Winners C (4 Ads)",
-      "old_budget": 185.0,
-      "new_budget": 240,
-      "cv1": 6,
-      "conv_today": 6,
-      "cpa1": 3.21,
-      "cpa_today": 3.21,
-      "scaled_at": "2026-11-02 16:18"
+      "old_budget": 142.0,
+      "new_budget": 185,
+      "cv1": 5,
+      "conv_today": 5,
+      "cpa1": 3.2,
+      "cpa_today": 3.2,
+      "scaled_at": "2026-11-02 15:19"
     },
     "2026-11-02:7631765070816509959:1880696438045873": {
       "campaign_name": "power bank 02-11 Manzilk Winners A (5 Ads)",
@@ -3042,7 +3028,7 @@
       "cv1": 2,
       "sp3": 175.94,
       "cv3": 23,
-      "sp7": 175.94,
+      "sp7": 175.95,
       "cv7": 23,
       "decision": "✅ التركيبة رقم #1 اليوم لإنقاذ الـ CPC (< $0.22) وتوليد مبيعات فورية (SuperCombo / CPC-Rescued)"
     },
@@ -3060,7 +3046,7 @@
       "cv1": 26,
       "sp3": 704.21,
       "cv3": 84,
-      "sp7": 790.63,
+      "sp7": 790.83,
       "cv7": 94,
       "decision": "✅ ناجحة عند حصر الحملة في 3–4 فيديوهات مجربة وتصفية الفيديوهات الخاسرة عند $1.00 و CPC > $0.25"
     },
