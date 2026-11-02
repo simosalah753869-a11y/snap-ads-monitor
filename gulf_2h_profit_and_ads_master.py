@@ -12,6 +12,7 @@ Gulf COD Partner Fee Structure (Official User Spec 2026-10-31):
   Break_Even_CPA = D_net * (0.935 * P_USD - N * u - 2.50) - 5.99 * C - 0.50
 """
 
+import os
 import concurrent.futures
 import datetime
 import json
