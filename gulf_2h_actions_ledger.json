@@ -186,8 +186,6 @@
     "0e6e5109-d336-44f6-8ce3-601bbe2d0262": "40f592a6-e275-4f67-bce3-85e06b1b93c4"
   },
   "big_actions_log": [
-    "[2026-11-01 18:53] Re-activated Gulf Campaign منتج الكشاف عمان (2958697d-af14-4afc-a42a-1de78106b8a1)",
-    "[2026-11-01 18:53] Re-activated Gulf Campaign Copy of kasahf smart+ qatar 3.5 (0e6e5109-d336-44f6-8ce3-601bbe2d0262)",
     "[2026-11-01 19:24] Re-activated Gulf Campaign باور بانك قطر 18-10 (67de1daa-7ffb-4194-9c44-00dcb7163d4d)",
     "[2026-11-01 19:24] Re-activated Gulf Campaign powe bank oman (efccbe22-8951-49f4-b118-cd67f2cec64b)",
     "[2026-11-01 19:24] Re-activated Gulf Campaign وسادة السيارة الكويت 18-10 (3fb9b26f-7705-4286-b371-4efcd904670c)",
@@ -245,7 +243,9 @@
     "[2026-11-02 11:50] Re-activated Gulf Campaign Copy of kasahf smart+ qatar 3.5 (0e6e5109-d336-44f6-8ce3-601bbe2d0262)",
     "[2026-11-02 12:29] Paused Squad 543cc1eb in powe bank oman (1D: $0.59/0p CPC=0.028 | 3D: $2.41/0p | SimCap=$6.55)",
     "[2026-11-02 13:45] Paused Squad 93546856 in powe bank oman (1D: $0.23/0p CPC=0.077 | 3D: $4.06/0p | SimCap=$6.55)",
-    "[2026-11-02 13:45] Paused Gulf Campaign powe bank oman (efccbe22-8951-49f4-b118-cd67f2cec64b) — All Squads Hit Stop-Loss"
+    "[2026-11-02 13:45] Paused Gulf Campaign powe bank oman (efccbe22-8951-49f4-b118-cd67f2cec64b) — All Squads Hit Stop-Loss",
+    "[2026-11-01 18:53] Re-activated Gulf Campaign وسادة السيارة الكويت 18-10 (3fb9b26f-7705-4286-b371-4efcd904670c)",
+    "[2026-11-01 18:53] Re-activated Gulf Campaign qatar car scaling new 2 text (f7f6b623-46d5-48af-9a21-fb2584106da8)"
   ],
   "tiktok_gulf_scaled": {},
   "tiktok_gulf_night_halved": {},
