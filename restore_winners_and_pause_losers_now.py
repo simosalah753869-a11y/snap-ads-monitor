@@ -311,3 +311,9 @@ for item in restored_total:
 print(f"Total Losing Squads Paused: {len(paused_losing_total)}")
 for item in paused_losing_total:
     print(f"  - [{item[0]}] {item[1]} | {item[2]} ({item[3]}) -> {item[4]}")
+if os.environ.get("GITHUB_ACTIONS") != "true" and (restored_total or paused_losing_total):
+    try:
+        from github_deploy import sync_state_and_rules_to_github
+        sync_state_and_rules_to_github("restore_winners_and_pause_losers_now")
+    except Exception:
+        pass
