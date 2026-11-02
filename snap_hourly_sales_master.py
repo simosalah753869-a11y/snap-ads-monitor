@@ -348,10 +348,10 @@ def run_hourly_master_for_account(token: str, ad_account_id: str, sheet_sales: d
         camp_cpa_3d = round(camp_spend_3d / camp_purch_3d, 2) if camp_purch_3d > 0 else None
 
         # ---------------------------------------------------------------------
-        # المرحلة 1: فرملة الخسارة الصارمة على مستوى الحملة والأدست (الحملة >= $20 بدون بيع أو CPA >= $20 في 1D/2D/3D بدون أي استثناء، باستثناء حملات التيست المخصصة بأمر المستخدم)
+        # المرحلة 1: فرملة الخسارة الصارمة على مستوى الحملة والأدست (الحملة >= $10 بدون بيع أو CPA > $11.00 في 1D/2D/3D بدون أي استثناء، باستثناء حملات التيست المخصصة بأمر المستخدم)
         # ---------------------------------------------------------------------
-        no_sale_camp_cap = 8.50 if is_exp_camp else 20.00
-        max_cpa_camp_cap = 20.00
+        no_sale_camp_cap = 8.50 if is_exp_camp else 10.00
+        max_cpa_camp_cap = 11.00
         stop_loss_reason = None
         if not is_ded_test_camp:
             if camp_purch_1d == 0 and camp_spend_1d >= no_sale_camp_cap:
@@ -360,12 +360,12 @@ def run_hourly_master_for_account(token: str, ad_account_id: str, sheet_sales: d
                 stop_loss_reason = f"صرف يومين=${camp_spend_2d:.2f} >= ${no_sale_camp_cap:.2f} بـ 0 مبيعات"
             elif camp_purch_3d == 0 and camp_spend_3d >= no_sale_camp_cap:
                 stop_loss_reason = f"صرف 3 أيام=${camp_spend_3d:.2f} >= ${no_sale_camp_cap:.2f} بـ 0 مبيعات"
-            elif camp_purch_1d > 0 and camp_cpa_1d is not None and camp_cpa_1d >= max_cpa_camp_cap:
-                stop_loss_reason = f"CPA اليوم=${camp_cpa_1d:.2f} >= ${max_cpa_camp_cap:.2f} (صرف=${camp_spend_1d:.2f} / مبيعات={camp_purch_1d})"
-            elif camp_purch_2d > 0 and camp_cpa_2d is not None and camp_cpa_2d >= max_cpa_camp_cap and (camp_purch_1d == 0 or (camp_cpa_1d or 99) >= max_cpa_camp_cap):
-                stop_loss_reason = f"CPA يومين=${camp_cpa_2d:.2f} >= ${max_cpa_camp_cap:.2f} (صرف=${camp_spend_2d:.2f} / مبيعات={camp_purch_2d})"
-            elif camp_purch_3d > 0 and camp_cpa_3d is not None and camp_cpa_3d >= max_cpa_camp_cap and (camp_purch_1d == 0 or (camp_cpa_1d or 99) >= max_cpa_camp_cap):
-                stop_loss_reason = f"CPA 3 أيام=${camp_cpa_3d:.2f} >= ${max_cpa_camp_cap:.2f} (صرف=${camp_spend_3d:.2f} / مبيعات={camp_purch_3d})"
+            elif camp_purch_1d > 0 and camp_cpa_1d is not None and camp_cpa_1d > max_cpa_camp_cap:
+                stop_loss_reason = f"CPA اليوم=${camp_cpa_1d:.2f} > ${max_cpa_camp_cap:.2f} (صرف=${camp_spend_1d:.2f} / مبيعات={camp_purch_1d})"
+            elif camp_purch_2d > 0 and camp_cpa_2d is not None and camp_cpa_2d > max_cpa_camp_cap and (camp_purch_1d == 0 or (camp_cpa_1d or 99) > max_cpa_camp_cap):
+                stop_loss_reason = f"CPA يومين=${camp_cpa_2d:.2f} > ${max_cpa_camp_cap:.2f} (صرف=${camp_spend_2d:.2f} / مبيعات={camp_purch_2d})"
+            elif camp_purch_3d > 0 and camp_cpa_3d is not None and camp_cpa_3d > max_cpa_camp_cap and (camp_purch_1d == 0 or (camp_cpa_1d or 99) > max_cpa_camp_cap) and (camp_purch_2d == 0 or (camp_cpa_2d or 99) > max_cpa_camp_cap):
+                stop_loss_reason = f"CPA 3 أيام=${camp_cpa_3d:.2f} > ${max_cpa_camp_cap:.2f} (صرف=${camp_spend_3d:.2f} / مبيعات={camp_purch_3d})"
 
         if stop_loss_reason:
             if not dry_run:
@@ -578,7 +578,7 @@ def run_hourly_master_for_account(token: str, ad_account_id: str, sheet_sales: d
             cur_bid_micro = int(sq.get("bid_micro") or 0)
             cur_budget_micro = int(sq.get("daily_budget_micro") or 0)
 
-            MAX_SNAP_BID_MICRO = 3_600_000 if is_gulf else 1_600_000
+            MAX_SNAP_BID_MICRO = 3_600_000 if is_gulf else 1_900_000
             base_budget_micro = 20_000_000
 
             bumps_today = 0
