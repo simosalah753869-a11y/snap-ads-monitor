@@ -1,0 +1,45 @@
+{
+  "updated_at": "2026-11-02 12:24:49",
+  "campaigns": {
+    "8024627197:washer hp909 taager 01-11": {
+      "ocid": "8024627197",
+      "account_label": "Account 2: 744-305-2213 (802-462-7197)",
+      "campaign_name": "washer hp909 taager 01-11",
+      "product_key": "washer_hp909",
+      "has_enabled": true,
+      "sp1": 3.93,
+      "sp2": 40.42,
+      "sp3": 40.42,
+      "sp7": 40.42,
+      "ui1": 0.0,
+      "ui2": 0.0,
+      "ui3": 0.0,
+      "ui7": 0.0,
+      "sh1": 3.0,
+      "sh2": 7.0,
+      "sh3": 7.0,
+      "sh7": 7.0,
+      "eff1": 3.0,
+      "eff2": 7.0,
+      "eff3": 7.0,
+      "eff7": 7.0,
+      "updated_at": "2026-11-02T12:52:25.492651+03:00"
+    },
+    "8436939582:bakhoor bw20 taager 01-11": {
+      "account": "Google Ads (914-615-0891)",
+      "ocid": "8436939582",
+      "campaign_id": "24420202985",
+      "campaign_name": "bakhoor bw20 taager 01-11",
+      "product_key": "bakhoor_bw20",
+      "status": "ELIGIBLE",
+      "sp1": 0.0,
+      "sp2": 0.0,
+      "sp3": 0.0,
+      "sp7": 0.0,
+      "eff1": 0,
+      "eff2": 0,
+      "eff3": 0,
+      "eff7": 0
+    }
+  }
+}
