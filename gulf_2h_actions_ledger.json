@@ -1,20 +1,20 @@
 {
   "squads": {
     "430ea3c0-b721-402f-94b8-6c2c304ec15c": {
-      "date": "2026-11-02",
+      "date": "2026-11-03",
       "bid_strategy": "LOWEST_COST_WITH_MAX_BID",
       "bid_micro": 2750000,
       "bumps_today": 0,
-      "last_spend_1d": 0.79,
-      "last_check_epoch": 1793651389
+      "last_spend_1d": 0.0,
+      "last_check_epoch": 1793656311
     },
     "f7665412-6c51-4031-aea9-7276b02e8dff": {
-      "date": "2026-11-02",
+      "date": "2026-11-03",
       "bid_strategy": "TARGET_COST",
-      "bid_micro": 4400000,
+      "bid_micro": 4200000,
       "bumps_today": 0,
       "last_spend_1d": 0.0,
-      "last_check_epoch": 1793570596
+      "last_check_epoch": 1793656311
     },
     "20d43c08-ea33-4a51-bad0-d53a1fbf380c": {
       "date": "2026-11-01",
@@ -26,20 +26,20 @@
       "bumps_today": 2
     },
     "543cc1eb-b632-4e6c-b266-fbf3d38b0ff1": {
-      "date": "2026-11-02",
+      "date": "2026-11-03",
       "bid_strategy": "LOWEST_COST_WITH_MAX_BID",
       "bid_micro": 2400000,
       "bumps_today": 0,
-      "last_spend_1d": 1.06,
-      "last_check_epoch": 1793651389
+      "last_spend_1d": 0.0,
+      "last_check_epoch": 1793656311
     },
     "93546856-95dd-4d51-9e3b-00dae0da3785": {
-      "date": "2026-11-02",
+      "date": "2026-11-03",
       "bid_strategy": "TARGET_COST",
       "bid_micro": 4400000,
       "bumps_today": 0,
-      "last_spend_1d": 0.12,
-      "last_check_epoch": 1793614205
+      "last_spend_1d": 0.0,
+      "last_check_epoch": 1793656311
     },
     "bcdf9d20-d634-4f99-bfb9-8de8d12b22be": {
       "date": "2026-11-01",
@@ -78,12 +78,12 @@
       "bumps_today": 2
     },
     "15fc0db8-57b7-49d8-b66b-79cf0783e6ae": {
-      "date": "2026-11-02",
+      "date": "2026-11-03",
       "bid_strategy": "LOWEST_COST_WITH_MAX_BID",
       "bid_micro": 3400000,
       "bumps_today": 0,
-      "last_spend_1d": 2.98,
-      "last_check_epoch": 1793582969
+      "last_spend_1d": 0.0,
+      "last_check_epoch": 1793656311
     },
     "83cd389d-b44e-46a3-a43a-73f5f9068691": {
       "date": "2026-11-01",
@@ -95,20 +95,20 @@
       "bumps_today": 2
     },
     "9496d93b-c72d-46e2-b1f7-b07cb2cc2afb": {
-      "date": "2026-11-02",
+      "date": "2026-11-03",
       "bid_strategy": "TARGET_COST",
       "bid_micro": 4300000,
       "bumps_today": 0,
-      "last_spend_1d": 8.93,
-      "last_check_epoch": 1793651389
+      "last_spend_1d": 0.0,
+      "last_check_epoch": 1793656311
     },
     "335ab103-9212-4ae6-adbc-baee0e29eca2": {
-      "date": "2026-11-02",
+      "date": "2026-11-03",
       "bid_strategy": "LOWEST_COST_WITH_MAX_BID",
       "bid_micro": 2550000,
       "bumps_today": 0,
-      "last_spend_1d": 1.5,
-      "last_check_epoch": 1793580570
+      "last_spend_1d": 0.0,
+      "last_check_epoch": 1793656311
     },
     "402c697d-7837-49e8-b1e3-1f20e09bd40b": {
       "date": "2026-11-01",
@@ -129,20 +129,20 @@
       "bumps_today": 1
     },
     "a2ff6521-3a1e-4240-b4fc-ca01c0e65074": {
-      "date": "2026-11-02",
+      "date": "2026-11-03",
       "bid_strategy": "TARGET_COST",
       "bid_micro": 4100000,
       "bumps_today": 0,
-      "last_spend_1d": 0.18,
-      "last_check_epoch": 1793580570
+      "last_spend_1d": 0.0,
+      "last_check_epoch": 1793656311
     },
     "24d07c16-140c-473b-9b81-92c0cf6a4bd4": {
-      "date": "2026-11-02",
+      "date": "2026-11-03",
       "bid_strategy": "LOWEST_COST_WITH_MAX_BID",
       "bid_micro": 2400000,
       "bumps_today": 0,
-      "last_spend_1d": 0.99,
-      "last_check_epoch": 1793651389
+      "last_spend_1d": 0.0,
+      "last_check_epoch": 1793656311
     },
     "8568c2eb-a396-40f6-8f86-3ff5ed38d414": {
       "date": "2026-11-01",
@@ -163,12 +163,12 @@
       "bumps_today": 2
     },
     "fa002a7f-b707-4660-b78d-cc7283d93727": {
-      "date": "2026-11-02",
+      "date": "2026-11-03",
       "bid_strategy": "LOWEST_COST_WITH_MAX_BID",
       "bid_micro": 2850000,
       "bumps_today": 0,
-      "last_spend_1d": 3.07,
-      "last_check_epoch": 1793651389
+      "last_spend_1d": 0.01,
+      "last_check_epoch": 1793656311
     },
     "40f592a6-e275-4f67-bce3-85e06b1b93c4": {
       "date": "2026-11-01",
