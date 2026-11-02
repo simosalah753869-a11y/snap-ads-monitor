@@ -35,28 +35,31 @@ jobs:
         run: |
           python -c "import json, os; open('snap_config.json', 'w').write(json.dumps({'client_id': os.environ['SNAP_CLIENT_ID'], 'client_secret': os.environ['SNAP_CLIENT_SECRET'], 'refresh_token': os.environ['SNAP_REFRESH_TOKEN']}))"
 
-      - name: Run Snapchat Automation Rules
-        continue-on-error: true
-        run: |
-          python restore_winners_and_pause_losers_now.py
-          python snap_monitor.py
-          python restore_winners_and_pause_losers_now.py
-
-      - name: Run TikTok Smart+ Automation Rules (All 6 Accounts)
+      - name: Run Snapchat Automation Rules (Pause Violating Campaigns/AdSquads/Videos Only — ZERO Bid Changes)
         continue-on-error: true
         env:
+          STOP_LOSS_PAUSE_ONLY: "1"
+        run: |
+          python snap_monitor.py
+
+      - name: Run TikTok Smart+ Automation Rules (All 6 Accounts — Pause Violating Campaigns/Videos Only)
+        continue-on-error: true
+        env:
+          STOP_LOSS_PAUSE_ONLY: "1"
           TIKTOK_COOKIES_JSON: ${{ vars.TIKTOK_COOKIES_JSON || secrets.TIKTOK_COOKIES_JSON }}
         run: python tiktok_monitor.py
 
-      - name: Run Combined Cross-Platform Monitor (Maybach & TIME X)
+      - name: Run Combined Cross-Platform Monitor (Maybach & TIME X & Taager Tests)
         continue-on-error: true
         env:
+          STOP_LOSS_PAUSE_ONLY: "1"
           TIKTOK_COOKIES_JSON: ${{ vars.TIKTOK_COOKIES_JSON || secrets.TIKTOK_COOKIES_JSON }}
         run: python cross_product_monitor.py
 
-      - name: Run Gulf (KW / QA / OM) Simulation Profit & Ads Master
+      - name: Run Gulf (KW / QA / OM) Stop-Loss Monitor (Pause Violating Campaigns/AdSquads/Videos Only — ZERO Bid Changes)
         continue-on-error: true
         env:
+          STOP_LOSS_PAUSE_ONLY: "1"
           TIKTOK_COOKIES_JSON: ${{ vars.TIKTOK_COOKIES_JSON || secrets.TIKTOK_COOKIES_JSON }}
         run: python gulf_2h_profit_and_ads_master.py
 
