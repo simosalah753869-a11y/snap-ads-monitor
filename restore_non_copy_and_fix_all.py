@@ -45,12 +45,12 @@ def should_pause_test_video(st_ad: dict) -> tuple[bool, str]:
     sw = st_ad["swipes"]
     cpc = st_ad["cpc"]
     cpa = st_ad["cpa"]
-    if p > 0 and cpa is not None and cpa >= 6.00:
-        return True, f"CPA=${cpa:.2f} >= $6.00"
+    if p > 0 and cpa is not None and cpa >= 7.00:
+        return True, f"CPA=${cpa:.2f} >= $7.00"
     if p == 0 and sp >= 4.00:
         return True, f"Spend=${sp:.2f} >= $4.00 (0 sales)"
-    if p == 0 and sp >= 0.80 and (sw == 0 or (cpc is not None and cpc > 0.27)):
-        return True, f"Spend=${sp:.2f} >= $0.80 & CPC=${cpc} > $0.27 (swipes={sw})"
+    if p == 0 and sp >= 1.00 and (sw == 0 or (cpc is not None and cpc > 0.27)):
+        return True, f"Spend=${sp:.2f} >= $1.00 & CPC=${cpc} > $0.27 (swipes={sw})"
     return False, ""
 
 for acc_id, acc_name in ACCOUNTS:
@@ -66,11 +66,16 @@ for acc_id, acc_name in ACCOUNTS:
     for c in camps:
         cid = c["id"]
         cname = c.get("name", "")
-        if sm.is_gulf_034_campaign(cname) or cid in getattr(sm, "ALLOWED_GULF_CAMPAIGN_IDS", set()) or sm.is_dedicated_snap_test_campaign(cid, cname):
+        if sm.is_gulf_034_campaign(cname) or cid in getattr(sm, "ALLOWED_GULF_CAMPAIGN_IDS", set()):
             continue
+        is_ded_test = sm.is_dedicated_snap_test_campaign(cid, cname)
+        if is_ded_test and c.get("status") != "ACTIVE":
+            c["status"] = "ACTIVE"
+            sm.api_put(f"/adaccounts/{acc_id}/campaigns", token, {"campaigns": [c]})
+            print(f"  ♻️ [RE-ENABLED DEDICATED TEST CAMPAIGN] '{cname}' ({cid})")
         created_ts = str(c.get("created_at") or "")
         is_recent_camp = bool(created_ts and created_ts >= "2026-10-23T18:00:00")
-        if (cid not in sm.ALLOWED_30X_CAMPAIGN_IDS and not is_recent_camp) or sm.is_cross_monitored_product_campaign(cname):
+        if not is_ded_test and ((cid not in sm.ALLOWED_30X_CAMPAIGN_IDS and not is_recent_camp) or sm.is_cross_monitored_product_campaign(cname)):
             if c.get("status") == "ACTIVE":
                 c["status"] = "PAUSED"
                 sm.api_put(f"/adaccounts/{acc_id}/campaigns", token, {"campaigns": [c]})
@@ -90,15 +95,18 @@ for acc_id, acc_name in ACCOUNTS:
         for sq in squads:
             sq_id = sq["id"]
             sq_name = sq.get("name", "")
-            if sm.is_dedicated_snap_test_campaign(cid, cname, sq_name):
-                continue
+            is_ded_sq = is_ded_test or sm.is_dedicated_snap_test_campaign(cid, cname, sq_name)
+            if is_ded_sq and sq.get("status") != "ACTIVE":
+                sq["status"] = "ACTIVE"
+                sm.api_put(f"/campaigns/{cid}/adsquads", token, {"adsquads": [sq]})
+                print(f"  ♻️ [RE-ENABLED DEDICATED TEST ADSQUAD] '{sq_name}' ({sq_id}) in '{cname}'")
             st1 = sq_1d.get(sq_id, empty_st)
             st2 = sq_2d.get(sq_id, empty_st)
             st3 = sq_3d.get(sq_id, empty_st)
             st4 = sq_4d.get(sq_id, empty_st)
 
-            # 1) فحص المجموعات التي لا تحتوي على Copy (فقط إذا كانت نشطة ACTIVE حالياً — ممنوع إعادة تشغيل الموقوف)
-            if sq.get("status") == "ACTIVE" and is_non_copy_squad_to_keep_active(sq, st1, st3, cname):
+            # 1) فحص حملات التيست المخصصة والمجموعات التي لا تحتوي على Copy (فقط الفيديو يوقف فيها داخلها، ولا تتوقف الحملة أو الأدست!)
+            if sq.get("status") == "ACTIVE" and (is_ded_sq or is_non_copy_squad_to_keep_active(sq, st1, st3, cname)):
                 print(
                     f"  [NON-COPY SQUAD] '{sq_name}' ({sq_id}) in '{cname}' | status={sq.get('status')} "
                     f"| 1D: ${st1['spend']:.2f}/{st1['purchases']}p/cpc={st1['cpc']} | 3D: ${st3['spend']:.2f}/{st3['purchases']}p/cpc={st3['cpc']}"
@@ -133,8 +141,8 @@ for acc_id, acc_name in ACCOUNTS:
                         }
                         print(f"        🛑 Pausing losing video '{aname}' inside non-copy squad: {reason_ad}")
                     elif not is_bad and ad.get("status") != "ACTIVE" and (
-                        (a_st1["purchases"] >= 1 and (a_st1["cpa"] or 99) < 6.00)
-                        or (a_st3["purchases"] >= 1 and (a_st3["cpa"] or 99) < 6.00 and a_st1["spend"] < 4.00)
+                        (a_st1["purchases"] >= 1 and (a_st1["cpa"] or 99) < 7.00)
+                        or (a_st3["purchases"] >= 1 and (a_st3["cpa"] or 99) < 7.00 and a_st1["spend"] < 4.00)
                     ):
                         ad["status"] = "ACTIVE"
                         ads_to_upd.append(ad)
