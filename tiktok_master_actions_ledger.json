@@ -1,11 +1,6 @@
 {
   "cycles": [
     {
-      "timestamp": "2026-11-01 06:00",
-      "actions_count": 0,
-      "followups_count": 19
-    },
-    {
       "timestamp": "2026-11-01 07:00",
       "actions_count": 0,
       "followups_count": 19
@@ -357,6 +352,11 @@
     },
     {
       "timestamp": "2026-11-02 19:00",
+      "actions_count": 0,
+      "followups_count": 9
+    },
+    {
+      "timestamp": "2026-11-02 19:12",
       "actions_count": 0,
       "followups_count": 9
     }
@@ -2238,24 +2238,6 @@
       "base_sp3": 31.79,
       "base_cv3": 7,
       "status": "OPEN"
-    },
-    {
-      "timestamp": "2026-11-02T16:16:47.629041+00:00",
-      "type": "PAUSE_BLEEDING_CAMPAIGNS",
-      "account": "ROELLINGER RECYCLING (7631763556322148369)",
-      "campaigns_paused": [
-        {
-          "cid": "1880665507940754",
-          "name": "washer hp909 taager 01-11 B (3 Ads)",
-          "reason": "Bleeding 0 conversions, 1D Spend=.02, 3D Spend=.00"
-        },
-        {
-          "cid": "1880665777789313",
-          "name": "washer hp909 taager 01-11 A (4 Ads)",
-          "reason": "Bleeding 0 conversions, 1D Spend=.47, 3D Spend=.92"
-        }
-      ],
-      "note": "Preserved budget to protect profit. Replaced by brand-new winner batch 02-11 with ads wh4, wh5, wh7."
     }
   ],
   "failed_experiments": [
@@ -3058,29 +3040,29 @@
   },
   "latest_winning_structure_analysis": {
     "Website Leads [obj=8] + Auto Placement [3000,9000,1000] + 3–5 فيديوهات رابحة": {
-      "sp1": 21.23,
+      "sp1": 21.5,
       "cv1": 2,
-      "sp3": 180.08,
+      "sp3": 180.35,
       "cv3": 23,
-      "sp7": 180.08,
+      "sp7": 180.35,
       "cv7": 23,
       "decision": "✅ التركيبة رقم #1 اليوم لإنقاذ الـ CPC (< $0.22) وتوليد مبيعات فورية (SuperCombo / CPC-Rescued)"
     },
     "Website Leads [obj=8] + TikTok In-Feed Only [3000] + فيديوهات عابرة للمنصات": {
-      "sp1": 11.43,
+      "sp1": 11.74,
       "cv1": 0,
-      "sp3": 527.04,
+      "sp3": 527.33,
       "cv3": 90,
-      "sp7": 679.27,
+      "sp7": 679.56,
       "cv7": 116,
       "decision": "✅ التركيبة رقم #1 في حجم المبيعات لـ Cross-Platform Winners (مثل H7 صاحبة 43 بيعة بـ $5.25)"
     },
     "Smart+ Website Conversions + 3–4 فيديوهات رابحة معاد تدويرها (30d Batch)": {
-      "sp1": 294.78,
+      "sp1": 297.07,
       "cv1": 31,
-      "sp3": 747.49,
+      "sp3": 750.25,
       "cv3": 89,
-      "sp7": 833.91,
+      "sp7": 836.67,
       "cv7": 100,
       "decision": "✅ ناجحة عند حصر الحملة في 3–4 فيديوهات مجربة وتصفية الفيديوهات الخاسرة عند $1.00 و CPC > $0.25"
     },
