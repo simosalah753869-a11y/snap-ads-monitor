@@ -1496,6 +1496,7 @@ class VirtualPortfolioEngine:
                         "time_utc": now_iso,
                         "action": "STAGNATION_PROFIT_TAKE_LIVE",
                         "playbook": "US_STOCK_PULLBACK",
+                        "plan_tag": scyc.get("plan_tag", "NEW_PLAN"),
                         "symbol": tk,
                         "price": cur_sp,
                         "pnl_usd": pnl
@@ -1522,6 +1523,7 @@ class VirtualPortfolioEngine:
                     "time_utc": now_iso,
                     "action": "TAKE_PROFIT_LIVE",
                     "playbook": "US_STOCK_PULLBACK",
+                    "plan_tag": scyc.get("plan_tag", "NEW_PLAN"),
                     "symbol": tk,
                     "price": cur_sp,
                     "pnl_usd": pnl
@@ -1536,6 +1538,7 @@ class VirtualPortfolioEngine:
                     "time_utc": now_iso,
                     "action": "TRAILING_PROFIT_LOCK_LIVE",
                     "playbook": "US_STOCK_PULLBACK",
+                    "plan_tag": scyc.get("plan_tag", "NEW_PLAN"),
                     "symbol": tk,
                     "price": cur_sp,
                     "pnl_usd": pnl
@@ -1550,6 +1553,7 @@ class VirtualPortfolioEngine:
                     "time_utc": now_iso,
                     "action": "STOP_LOSS_LIVE",
                     "playbook": "US_STOCK_PULLBACK",
+                    "plan_tag": scyc.get("plan_tag", "NEW_PLAN"),
                     "symbol": tk,
                     "price": cur_sp,
                     "pnl_usd": pnl
@@ -1567,6 +1571,7 @@ class VirtualPortfolioEngine:
                     "time_utc": now_iso,
                     "action": "STOCK_TIME_MAX_BARS_EXIT_LIVE",
                     "playbook": "US_STOCK_PULLBACK",
+                    "plan_tag": scyc.get("plan_tag", "NEW_PLAN"),
                     "symbol": tk,
                     "price": cur_sp,
                     "pnl_usd": pnl
@@ -1580,7 +1585,14 @@ class VirtualPortfolioEngine:
 
         stocks["active_positions"] = updated_stocks
 
-        # 5B. Open NEW Multi-Slot US Stock Positions (Up to 3 Concurrent Stocks — Only When US Market Is Not in Weekend Freeze + Post-SL Cooldown)
+        # Re-sync isolated stock cash pools ($500 OLD_PLAN vs $500 NEW_PLAN)
+        split_budgets_st = self._compute_and_sync_split_plan_budgets()
+        old_s_free = split_budgets_st["OLD_PLAN"]["stocks_free_cash_usd"]
+        new_s_free = split_budgets_st["NEW_PLAN"]["stocks_free_cash_usd"]
+        old_s_count = sum(1 for p in stocks["active_positions"] if p.get("plan_tag") == "OLD_PLAN")
+        new_s_count = sum(1 for p in stocks["active_positions"] if p.get("plan_tag") == "NEW_PLAN")
+
+        # 5B. Open NEW Multi-Slot US Stock Positions (Isolated $500 OLD_PLAN vs $500 NEW_PLAN Budgets + Post-SL Cooldown)
         is_us_weekend_now = datetime.now(timezone.utc).weekday() in (5, 6)
         held_tickers = {p["symbol"] for p in stocks["active_positions"]}
         cooldown_stock_tickers = set()
@@ -1597,7 +1609,7 @@ class VirtualPortfolioEngine:
                 except Exception:
                     pass
         for tk in stocks["watched_tickers"]:
-            if is_us_weekend_now or len(stocks["active_positions"]) >= 3 or stocks["free_cash_usd"] < 150.0:
+            if is_us_weekend_now or len(stocks["active_positions"]) >= 4 or stocks["free_cash_usd"] < 120.0:
                 break
             if tk in held_tickers or tk in cooldown_stock_tickers:
                 continue
@@ -1605,16 +1617,34 @@ class VirtualPortfolioEngine:
             atr = sscan.get("atr14", 0.0)
             ep = sscan.get("price", 0.0)
             if sscan.get("dip_trigger") and atr > 0 and ep > 0:
-                sl_m_st = 2.2 if (qqq_uptrend and sscan.get("uptrend_ok", False)) else 1.5
-                tp_m_st = 3.5 if (qqq_uptrend and sscan.get("uptrend_ok", False)) else 2.4
+                use_new_plan_st = (new_s_free >= 120.0 and new_s_count < 2 and (qqq_uptrend or sscan.get("uptrend_ok", False)))
+                if not use_new_plan_st and (old_s_free >= 120.0 and old_s_count < 2):
+                    target_plan_st = "OLD_PLAN"
+                    pool_avail_st = min(stocks["free_cash_usd"], old_s_free)
+                    sl_m_st = 2.2
+                    tp_m_st = 3.5
+                elif new_s_free >= 120.0 and new_s_count < 2:
+                    target_plan_st = "NEW_PLAN"
+                    pool_avail_st = min(stocks["free_cash_usd"], new_s_free)
+                    sl_m_st = 2.2 if (qqq_uptrend and sscan.get("uptrend_ok", False)) else 1.5
+                    tp_m_st = 3.5 if (qqq_uptrend and sscan.get("uptrend_ok", False)) else 2.4
+                else:
+                    continue
                 stop_pct = max(0.008, (sl_m_st * atr) / ep)
-                amt = round(min(stocks["free_cash_usd"], 250.0, 2.80 / stop_pct), 2)
+                amt = round(min(pool_avail_st, 250.0, 2.80 / stop_pct), 2)
                 if amt >= 100.0:
                     qty = round(amt / ep, 5)
                     stocks["free_cash_usd"] = round(stocks["free_cash_usd"] - amt, 2)
+                    if target_plan_st == "OLD_PLAN":
+                        old_s_free = round(old_s_free - amt, 2)
+                        old_s_count += 1
+                    else:
+                        new_s_free = round(new_s_free - amt, 2)
+                        new_s_count += 1
                     new_st = {
                         "symbol": tk,
                         "playbook": "US_STOCK_PULLBACK",
+                        "plan_tag": target_plan_st,
                         "opened_at_utc": now_iso,
                         "first_entry_price": ep,
                         "avg_entry_price": ep,
@@ -1629,6 +1659,7 @@ class VirtualPortfolioEngine:
                         "time_utc": now_iso,
                         "action": "OPEN_US_STOCK_PULLBACK_LIVE",
                         "playbook": "US_STOCK_PULLBACK",
+                        "plan_tag": target_plan_st,
                         "symbol": tk,
                         "price": ep,
                         "rsi14": sscan["rsi14"],
@@ -1652,6 +1683,7 @@ class VirtualPortfolioEngine:
         self.state["last_updated_ms"] = now_ms
         self.state["latest_market_scan"] = market_scan
         self.state["strategy_scoreboard"] = self._compute_playbook_scoreboard()
+        self._compute_and_sync_split_plan_budgets()
 
         sniper_val = sniper["free_cash_usd"]
         for cyc in sniper["active_positions"]:
@@ -1755,6 +1787,7 @@ class VirtualPortfolioEngine:
                     "time_utc": now_iso,
                     "action": "TAKE_PROFIT_LIVE",
                     "playbook": pb_name,
+                    "plan_tag": cyc.get("plan_tag", "OLD_PLAN" if pb_name == "CLASSIC_PULLBACK" else "NEW_PLAN"),
                     "symbol": sym,
                     "price": cur_p,
                     "pnl_usd": pnl
@@ -1770,6 +1803,7 @@ class VirtualPortfolioEngine:
                     "time_utc": now_iso,
                     "action": "TRAILING_PROFIT_LOCK_LIVE",
                     "playbook": pb_name,
+                    "plan_tag": cyc.get("plan_tag", "OLD_PLAN" if pb_name == "CLASSIC_PULLBACK" else "NEW_PLAN"),
                     "symbol": sym,
                     "price": cur_p,
                     "pnl_usd": pnl
@@ -1785,6 +1819,7 @@ class VirtualPortfolioEngine:
                     "time_utc": now_iso,
                     "action": "QUANT_ATR_STOP_LOSS_LIVE",
                     "playbook": pb_name,
+                    "plan_tag": cyc.get("plan_tag", "OLD_PLAN" if pb_name == "CLASSIC_PULLBACK" else "NEW_PLAN"),
                     "symbol": sym,
                     "price": cur_p,
                     "pnl_usd": pnl
@@ -1840,6 +1875,7 @@ class VirtualPortfolioEngine:
                     "time_utc": now_iso,
                     "action": "SHORT_1X_TAKE_PROFIT_LIVE",
                     "playbook": pb_name,
+                    "plan_tag": "NEW_PLAN",
                     "symbol": sym,
                     "price": cur_p,
                     "pnl_usd": pnl
@@ -1856,6 +1892,7 @@ class VirtualPortfolioEngine:
                     "time_utc": now_iso,
                     "action": "SHORT_1X_TRAILING_PROFIT_LOCK_LIVE",
                     "playbook": pb_name,
+                    "plan_tag": "NEW_PLAN",
                     "symbol": sym,
                     "price": cur_p,
                     "pnl_usd": pnl
@@ -1872,6 +1909,7 @@ class VirtualPortfolioEngine:
                     "time_utc": now_iso,
                     "action": "SHORT_1X_PROTECTIVE_STOP_LIVE",
                     "playbook": pb_name,
+                    "plan_tag": "NEW_PLAN",
                     "symbol": sym,
                     "price": cur_p,
                     "pnl_usd": pnl
@@ -1908,6 +1946,7 @@ class VirtualPortfolioEngine:
         self.state["last_updated_ms"] = now_ms
         if live_actions:
             self.state["strategy_scoreboard"] = self._compute_playbook_scoreboard()
+            self._compute_and_sync_split_plan_budgets()
             self.state["last_cycle_delta"] = {
                 "timestamp_utc": now_iso,
                 "equity_before_usd": prev_equity,
