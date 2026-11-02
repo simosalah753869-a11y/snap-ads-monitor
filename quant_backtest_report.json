@@ -1,5 +1,5 @@
 {
-  "updated_at_utc": "2026-11-02T21:16:23Z",
+  "updated_at_utc": "2026-11-02T21:55:46Z",
   "total_grid_tested": 789,
   "active_best_config": {
     "sl_atr": 1.8,
@@ -59,10 +59,10 @@
       "capital_weight": 0.65
     },
     "15M_FLOW_SCALP": {
-      "trades": 1,
-      "wins": 0,
+      "trades": 5,
+      "wins": 4,
       "losses": 1,
-      "net_pnl_usd": -5.34,
+      "net_pnl_usd": -0.22,
       "capital_weight": 1.0
     }
   },
