@@ -1469,7 +1469,8 @@ class VirtualPortfolioEngine:
 
         for ticker, sscan in stock_scan.items():
             r_min = min(sscan.get("rsi14", 50.0), sscan.get("prev_rsi14", 50.0))
-            uptrend_dip = sscan.get("uptrend_ok", False) and (r_min < 35.0)
+            dip_rsi_cap = 35.0 if qqq_uptrend else 26.0
+            uptrend_dip = sscan.get("uptrend_ok", False) and (r_min < dip_rsi_cap) and sscan.get("green_reversal", False)
             extreme_washout_bounce = (r_min < 22.0) and qqq_green and (sscan.get("rsi14", 50.0) > sscan.get("prev_rsi14", 50.0))
             sscan["dip_trigger"] = bool(
                 (not sscan.get("news_shock_blocked", False))
@@ -1529,6 +1530,7 @@ class VirtualPortfolioEngine:
                         "price": cur_sp,
                         "pnl_usd": pnl
                     })
+                    cycle_actions.append(f"STOCK_STAGNATION_PROFIT_TAKE_LIVE:{tk}@${cur_sp}:${pnl:+.2f}")
                     continue
                 else:
                     tight_sl = round(cur_sp - 1.2 * atr_st, 2)
@@ -1556,6 +1558,7 @@ class VirtualPortfolioEngine:
                     "price": cur_sp,
                     "pnl_usd": pnl
                 })
+                cycle_actions.append(f"STOCK_TAKE_PROFIT_LIVE:{tk}@${cur_sp}:${pnl:+.2f}")
             elif scyc.get("breakeven_locked_price") and cur_sp <= scyc["breakeven_locked_price"]:
                 gross_val = round(scyc["total_qty"] * cur_sp, 2)
                 pnl = round(gross_val - scyc["invested_usd"], 2)
@@ -1571,6 +1574,7 @@ class VirtualPortfolioEngine:
                     "price": cur_sp,
                     "pnl_usd": pnl
                 })
+                cycle_actions.append(f"STOCK_TRAILING_LOCK_LIVE:{tk}@${cur_sp}:${pnl:+.2f}")
             elif cur_sp <= scyc["sl_price"]:
                 gross_val = round(scyc["total_qty"] * cur_sp, 2)
                 pnl = round(gross_val - scyc["invested_usd"], 2)
@@ -1586,6 +1590,7 @@ class VirtualPortfolioEngine:
                     "price": cur_sp,
                     "pnl_usd": pnl
                 })
+                cycle_actions.append(f"STOCK_STOP_LOSS_LIVE:{tk}@${cur_sp}:${pnl:+.2f}")
             elif (not is_us_weekend) and active_mkt_h >= 96.0:
                 gross_val = round(scyc["total_qty"] * cur_sp, 2)
                 pnl = round(gross_val - scyc["invested_usd"], 2)
@@ -1604,6 +1609,7 @@ class VirtualPortfolioEngine:
                     "price": cur_sp,
                     "pnl_usd": pnl
                 })
+                cycle_actions.append(f"STOCK_TIME_MAX_BARS_EXIT_LIVE:{tk}@${cur_sp}:${pnl:+.2f}")
             else:
                 scyc["current_price"] = cur_sp
                 scyc["unrealized_pnl_usd"] = round(scyc["total_qty"] * cur_sp - scyc["invested_usd"], 2)
@@ -1694,10 +1700,12 @@ class VirtualPortfolioEngine:
                         "uptrend_ok": sscan.get("uptrend_ok"),
                         "amount_usd": amt
                     })
+                    cycle_actions.append(f"OPEN_OLD_US_STOCK_LIVE:{tk}@${ep}:${amt}")
 
         # 5B-2. NEW_PLAN US Stock Entry (Regime-Filtered Quant ATR Swing from its $1000 Stock Budget)
+        pb_w_st = float(self.state.get("strategy_scoreboard", {}).get("US_STOCK_PULLBACK", {}).get("weight", 1.0))
         for tk in stocks["watched_tickers"]:
-            if is_us_weekend_now or new_s_count >= 3 or new_s_free < 150.0 or stocks["free_cash_usd"] < 150.0:
+            if is_us_weekend_now or new_s_count >= 3 or new_s_free < 150.0 or stocks["free_cash_usd"] < 150.0 or pb_w_st <= 0.0:
                 break
             if tk in new_held_tickers or tk in new_cooldown_tickers:
                 continue
@@ -1709,7 +1717,8 @@ class VirtualPortfolioEngine:
                 sl_m_st = 2.2 if (qqq_uptrend and sscan.get("uptrend_ok", False)) else 1.5
                 tp_m_st = 3.5 if (qqq_uptrend and sscan.get("uptrend_ok", False)) else 2.4
                 stop_pct = max(0.008, (sl_m_st * atr) / ep)
-                amt = round(min(pool_avail_st, 330.0, 5.50 / stop_pct), 2)
+                max_risk_st = 5.50 * pb_w_st
+                amt = round(min(pool_avail_st, round(330.0 * pb_w_st, 2), max_risk_st / stop_pct), 2)
                 if amt >= 150.0:
                     qty = round(amt / ep, 5)
                     stocks["free_cash_usd"] = round(stocks["free_cash_usd"] - amt, 2)
@@ -1748,6 +1757,7 @@ class VirtualPortfolioEngine:
                         "uptrend_ok": sscan.get("uptrend_ok"),
                         "amount_usd": amt
                     })
+                    cycle_actions.append(f"OPEN_NEW_US_STOCK_LIVE:{tk}@${ep}:${amt}")
 
         stocks["active_cycle"] = stocks["active_positions"][0] if stocks["active_positions"] else None
 
