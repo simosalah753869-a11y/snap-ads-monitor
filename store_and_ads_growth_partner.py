@@ -507,3 +507,9 @@ def run_growth_partner():
 
 if __name__ == "__main__":
     run_growth_partner()
+    if os.environ.get("GITHUB_ACTIONS") != "true":
+        try:
+            from github_deploy import sync_state_and_rules_to_github
+            sync_state_and_rules_to_github("store_and_ads_growth_partner")
+        except Exception:
+            pass
