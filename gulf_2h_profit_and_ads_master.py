@@ -950,15 +950,15 @@ def run_snap_gulf_campaigns(sim_cpa_lookup: dict | None = None) -> list[dict]:
                     else:
                         s_obj["status"] = "PAUSED"
                         sq_mut = True
-                if not is_stop_loss_only_snap and int(s_obj.get("daily_budget_micro") or 0) > 0 and int(s_obj.get("daily_budget_micro") or 0) != 20_000_000:
+                if not is_stop_loss_only_snap and s_obj.get("status") == "ACTIVE" and int(s_obj.get("daily_budget_micro") or 0) > 0 and int(s_obj.get("daily_budget_micro") or 0) != 20_000_000:
                     s_obj["daily_budget_micro"] = 20_000_000
                     sq_mut = True
                 if sq_mut and s_obj not in to_update:
                     to_update.append(s_obj)
 
         if to_update:
-            for i in range(0, len(to_update), 15):
-                sm.api_put(f"/campaigns/{cid}/adsquads", tok, {"adsquads": to_update[i : i + 15]})
+            for sq_item in to_update:
+                sm.api_put(f"/campaigns/{cid}/adsquads", tok, {"adsquads": [sq_item]})
 
         # If all squads inside the campaign were paused, pause the campaign too (NEVER auto-re-activate a paused campaign)
         still_active_sq = [s for s in sq_map.values() if s.get("status") == "ACTIVE"]
