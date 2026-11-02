@@ -472,10 +472,7 @@ def run_hourly_master_for_account(token: str, ad_account_id: str, sheet_sales: d
             is_gulf = is_gulf_034_campaign(cname, sname, sq)
             is_exp_sq = is_exp_camp or "[exp-snap]" in sn_l
             is_ded_test_sq = is_ded_test_camp or is_dedicated_snap_test_campaign(cid, cname, sname)
-            if is_ded_test_sq:
-                # أمر المستخدم الصارم (2026-11-01): في سناب الحملات اللي فيهم تيست لا تقربهم نهائياً!
-                continue
-            is_non_copy_sq = is_non_copy_test_adsquad(sname, cname)
+            is_non_copy_sq = (not is_gulf) and (is_ded_test_sq or is_non_copy_test_adsquad(sname, cname))
 
             no_sale_sq_cap = 3.50 if is_exp_sq else (10.00 if is_gulf else 4.00)
             max_cpa_sq_cap = 7.00 if is_exp_sq else (12.00 if is_gulf else 7.00)
@@ -525,7 +522,9 @@ def run_hourly_master_for_account(token: str, ad_account_id: str, sheet_sales: d
                         }
                         surviving_nc -= 1
                         camp_pruned_ads += 1
-                # في حملات 'تيست' المخصصة لا يطفي البوت الأدست أبداً حتى لو تم إيقاف الفيديوهات بداخلها
+                if is_ded_test_sq:
+                    # في حملات 'تيست' المخصصة: لا نوقف الأدست ولا الحملة أبداً ولا نغير البيد/البدجت
+                    continue
                 pause_sq_reason = (
                     ""
                     if is_ded_test_sq
