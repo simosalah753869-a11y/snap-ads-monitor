@@ -1489,7 +1489,8 @@ def main():
     if not acquire_single_instance_lock():
         return
     try:
-        log_msg("🚀 انطلاق دورة المراقبة الذاتية والأكشن الفوري الشاملة (كل ساعتين: سناب شات + تيك توك + جوجل أدز)")
+        log_msg("🚀 انطلاق دورة المراقبة الذاتية والأكشن الفوري الشاملة (كل ساعتين: سناب شات + تيك توك + جوجل أدز + حارس التداول الكمي)")
+        run_step("حارس التشغيل التلقائي لبوت التداول الكمي (5m Quant Daemon Auto-Start)", "ensure_quant_daemon_running.py")
         sync_latest_memory_files()
         run_step("مراقب ومحسن سناب شات", "snap_monitor.py", ["--skip-topup"])
         run_step("خبير مبيعات وصرف وتجارب سناب شات المستقل كل ساعة (سكيل +30% + تحريك الصرف المتجمد + حماية رأس المال)", "snap_hourly_sales_master.py")
