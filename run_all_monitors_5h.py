@@ -798,10 +798,33 @@ def run_proactive_sales_scaling(sales_3d: dict, sales_today: dict):
                                         other_tt_auto_scaled = True
                     except Exception:
                         pass
-                    if allow_budget_bid_increase and eff_cpa_3d <= 7.50 and cid not in no_dup_tt and is_tt_budget_winner and t_key not in tt_scaled and not other_tt_auto_scaled:
+                    # أمر المستخدم الصارم (2026-11-02): سقف البدجت في تيك توك $50.00 (تنزيل أي حملة فوق $50 إلى $50 ومنع الرفع فوق $50)
+                    cur_budget_chk = float(r.get("budget") or gf(r, "budget") or 50.0)
+                    if cur_budget_chk > 50.01:
+                        try:
+                            h_b_c = dict(headers)
+                            h_b_c["Referer"] = f"https://ads.tiktok.com/i18n/manage/campaign?aadvid={aadvid}"
+                            det_c = session.get(
+                                f"https://ads.tiktok.com/api/v3/i18n/perf/campaign/detail/?aadvid={aadvid}&campaign_id={cid}",
+                                headers=h_b_c,
+                                timeout=15,
+                            ).json().get("data") or {}
+                            if det_c and float(det_c.get("budget") or 0) > 50.01:
+                                up_c = {**det_c, "campaign_id": str(cid), "campaign_name": det_c.get("name") or cname, "budget": 50.0}
+                                rb_c = session.post(
+                                    f"https://ads.tiktok.com/api/v3/i18n/perf/campaign/update/?aadvid={aadvid}",
+                                    headers=h_b_c,
+                                    json=up_c,
+                                    timeout=20,
+                                )
+                                if rb_c.text.strip() and rb_c.json().get("code") == 0:
+                                    log_msg(f"🛡️ [تثبيت سقف تيك توك $50] تخفيض ميزانية '{cname}' ({acc_name}) من ${float(det_c.get('budget')):.0f} إلى $50.00")
+                        except Exception:
+                            pass
+                    if False and allow_budget_bid_increase and eff_cpa_3d <= 7.50 and cid not in no_dup_tt and is_tt_budget_winner and t_key not in tt_scaled and not other_tt_auto_scaled:
                         cur_budget = float(r.get("budget") or gf(r, "budget") or 50.0)
-                        if 20.0 <= cur_budget < 200.0:
-                            new_budget = min(220, int(round(cur_budget * 1.20)))
+                        if 20.0 <= cur_budget < 50.0:
+                            new_budget = min(50, int(round(cur_budget * 1.20)))
                             try:
                                 h_b = dict(headers)
                                 h_b["Referer"] = f"https://ads.tiktok.com/i18n/manage/campaign?aadvid={aadvid}"
@@ -1275,20 +1298,10 @@ def run_improvements_guardian(sales_3d: dict = None, sales_today: dict = None):
                             continue
                         st_s_g = st1.get(s["id"], empty)
                         has_sales_or_scaled = (st_s_g.get("purchases", 0) >= 1) or (f"SQ:{s['id']}" in scaled_map_g)
-                        if is_late_night_g:
-                            if abs(bud - 20.0) > 0.01:
-                                s["daily_budget_micro"] = 20_000_000
-                                put_squad(s)
-                                actions.append(f"سناب: إرجاع بدجت آخر الليل لـ '{s.get('name','')}' إلى $20/يوم (كانت ${bud:.0f})")
-                        else:
-                            if bud > 20.01 and not has_sales_or_scaled:
-                                s["daily_budget_micro"] = 20_000_000
-                                put_squad(s)
-                                actions.append(f"سناب: تثبيت ميزانية '{s.get('name','')}' على $20/يوم فقط (كانت ${bud:.0f})")
-                            elif bud < 19.99 and is_before_6pm_g and camp.get("pacing_level") != "CAMPAIGN":
-                                s["daily_budget_micro"] = 20_000_000
-                                put_squad(s)
-                                actions.append(f"سناب: ضبط ميزانية '{s.get('name','')}' إلى البدجت الأساسي $20/يوم (كانت ${bud:.0f})")
+                        if abs(bud - 20.0) > 0.01 and camp.get("pacing_level") != "CAMPAIGN":
+                            s["daily_budget_micro"] = 20_000_000
+                            put_squad(s)
+                            actions.append(f"سناب: تثبيت ميزانية '{s.get('name','')}' على $20/يوم (كانت ${bud:.0f})")
 
                 # (E) تشخيصات تحتاج قرار المستخدم
                 if c_sp1 >= 25 and c_pu1 == 0:
