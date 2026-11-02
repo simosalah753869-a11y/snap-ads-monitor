@@ -838,10 +838,13 @@ def run_snap_gulf_campaigns(sim_cpa_lookup: dict | None = None) -> list[dict]:
 
             is_stop_loss_only = (os.environ.get("GITHUB_ACTIONS") == "true" or os.environ.get("STOP_LOSS_PAUSE_ONLY") == "1")
             cur_daily_micro = int(s_obj.get("daily_budget_micro") or s_cfg["daily_micro"])
+            custom_dt_b_micro = sm.get_custom_daytime_budget_micro(sid, today_str) if not (riyadh_hour >= 22 or riyadh_hour < 6) else None
             if is_stop_loss_only:
                 target_daily_micro = cur_daily_micro
             elif riyadh_hour >= 22 or riyadh_hour < 6:
                 target_daily_micro = s_cfg["daily_micro"]
+            elif custom_dt_b_micro is not None:
+                target_daily_micro = max(cur_daily_micro, custom_dt_b_micro) if riyadh_hour < 18 else min(cur_daily_micro, custom_dt_b_micro)
             elif is_daytime and s1_pu >= 1 and (s1_cpa or 99) <= sim_max_cpa * 0.70:
                 target_daily_micro = 30_000_000
             else:
@@ -908,14 +911,37 @@ def run_snap_gulf_campaigns(sim_cpa_lookup: dict | None = None) -> list[dict]:
                     f"✅ {s_cfg['exp_tag']} @ ${target_bid_micro/1e6:.2f} {strat_lbl}{bump_lbl} ({len(act_ads)} ads active, {pruned_ad_cnt} pruned | 1D: ${s1_sp:.2f}/{s1_pu}p | SimCap=${sim_max_cpa})"
                 )
 
-        # Pause any extra squads not in allowed_sq_ids (100% Bid Freeze)
-        is_night_snap = (riyadh_hour >= 22 or riyadh_hour < 6) and not (os.environ.get("GITHUB_ACTIONS") == "true" or os.environ.get("STOP_LOSS_PAUSE_ONLY") == "1")
+        # Evaluate or pause any extra squads not in allowed_sq_ids (100% Bid Freeze)
+        is_stop_loss_only_snap = (os.environ.get("GITHUB_ACTIONS") == "true" or os.environ.get("STOP_LOSS_PAUSE_ONLY") == "1")
+        is_night_snap = (riyadh_hour >= 22 or riyadh_hour < 6) and not is_stop_loss_only_snap
         for s_id, s_obj in sq_map.items():
             if s_id not in allowed_sq_ids:
                 sq_mut = False
                 if s_obj.get("status") == "ACTIVE":
-                    s_obj["status"] = "PAUSED"
-                    sq_mut = True
+                    if is_stop_loss_only_snap:
+                        st1_ex = sq_1d.get(s_id, {"spend": 0.0, "purchases": 0, "cpa": None, "swipes": 0, "cpc": 0.0})
+                        st3_ex = sq_3d.get(s_id, {"spend": 0.0, "purchases": 0, "cpa": None, "swipes": 0, "cpc": 0.0})
+                        ex_sp1 = float(st1_ex.get("spend", 0.0))
+                        ex_pu1 = int(st1_ex.get("purchases", 0))
+                        ex_sw1 = int(st1_ex.get("swipes", 0))
+                        ex_cpc1 = (ex_sp1 / ex_sw1) if ex_sw1 > 0 else None
+                        ex_sp3 = float(st3_ex.get("spend", 0.0))
+                        ex_pu3 = int(st3_ex.get("purchases", 0))
+                        ex_no_sale_stop = round(min(3.50, sim_max_cpa * 0.45), 2)
+                        ex_bled = (
+                            (ex_pu1 == 0 and ex_sp1 >= 0.80 and (ex_sw1 == 0 or (ex_cpc1 is not None and ex_cpc1 > max_cpc)))
+                            or (ex_pu1 == 0 and ex_sp1 >= ex_no_sale_stop)
+                            or (ex_pu1 > 0 and (ex_sp1 / ex_pu1) > sim_max_cpa)
+                            or (ex_sp1 >= 0.35 and ex_pu1 == 0 and ex_pu3 == 0 and ex_sp3 >= ex_no_sale_stop)
+                            or (ex_sp1 >= 0.35 and ex_pu1 == 0 and ex_pu3 > 0 and (ex_sp3 / ex_pu3) > sim_max_cpa)
+                            or (preemptive_68_prune and ex_pu1 == 0 and ex_sp1 >= 0.60)
+                        )
+                        if ex_bled:
+                            s_obj["status"] = "PAUSED"
+                            sq_mut = True
+                    else:
+                        s_obj["status"] = "PAUSED"
+                        sq_mut = True
                 if is_night_snap and int(s_obj.get("daily_budget_micro") or 0) > 0 and int(s_obj.get("daily_budget_micro") or 0) != 20_000_000:
                     s_obj["daily_budget_micro"] = 20_000_000
                     sq_mut = True
@@ -1263,6 +1289,12 @@ def main():
 
     REPORT_MD.write_text("\n".join(md_lines) + "\n", encoding="utf-8")
     print(f"Saved report to {REPORT_MD}")
+    if os.environ.get("GITHUB_ACTIONS") != "true":
+        try:
+            from github_deploy import sync_state_and_rules_to_github
+            sync_state_and_rules_to_github("gulf_2h_profit_and_ads_master")
+        except Exception as _sync_err:
+            print(f"ℹ️ ملاحظة مزامنة GitHub من gulf_2h_profit_and_ads_master: {_sync_err}")
 
 
 if __name__ == "__main__":
