@@ -60,6 +60,10 @@ def _doh_getaddrinfo(host, port, family=0, type=0, proto=0, flags=0):
 socket.getaddrinfo = _doh_getaddrinfo
 
 CONFIG_FILE = Path(__file__).parent / "snap_config.json"
+DARALRIMAL_CONFIG_FILE = Path(__file__).parent / "snap_config_daralrimal.json"
+DARALRIMAL_AD_ACCOUNT_ID = "c6447397-25a3-418a-8529-422581e1bbe0"
+DARALRIMAL_ORG_ID = "ba7867b0-bd79-4026-bf90-13ab06361520"
+DARALRIMAL_PIXEL_ID = "17658288-4114-4eb3-afc9-62da64437fee"
 REDIRECT_URI = "https://example.com/callback"
 AUTH_URL = "https://accounts.snapchat.com/login/oauth2/authorize"
 TOKEN_URL = "https://accounts.snapchat.com/login/oauth2/access_token"
@@ -74,6 +78,68 @@ def load_config():
 
 def save_config(cfg):
     CONFIG_FILE.write_text(json.dumps(cfg, indent=2, ensure_ascii=False), encoding="utf-8")
+
+
+def load_daralrimal_config():
+    if DARALRIMAL_CONFIG_FILE.exists():
+        return json.loads(DARALRIMAL_CONFIG_FILE.read_text(encoding="utf-8-sig"))
+    main_cfg = load_config()
+    dar = main_cfg.get("daralrimal_account", {})
+    if dar.get("refresh_token"):
+        return {
+            "client_id": main_cfg.get("client_id"),
+            "client_secret": main_cfg.get("client_secret"),
+            "refresh_token": dar.get("refresh_token"),
+            "access_token": dar.get("access_token", ""),
+        }
+    return {}
+
+
+def refresh_daralrimal_token() -> str:
+    import time, requests
+    dcfg = load_daralrimal_config()
+    if not dcfg.get("refresh_token"):
+        raise RuntimeError("No Daralrimal refresh_token configured")
+    payload = {
+        "client_id": dcfg["client_id"],
+        "client_secret": dcfg["client_secret"],
+        "refresh_token": dcfg["refresh_token"],
+        "grant_type": "refresh_token",
+    }
+    tokens = None
+    for attempt in range(4):
+        try:
+            r = requests.post(TOKEN_URL, data=payload, timeout=25)
+            if r.status_code == 200:
+                tokens = r.json()
+                break
+        except Exception:
+            if attempt == 3 and dcfg.get("access_token"):
+                return dcfg["access_token"]
+            time.sleep(1.5 * (attempt + 1))
+    if not tokens:
+        if dcfg.get("access_token"):
+            return dcfg["access_token"]
+        raise RuntimeError("Failed to refresh Daralrimal Snapchat token")
+    dcfg["access_token"] = tokens["access_token"]
+    if "refresh_token" in tokens:
+        dcfg["refresh_token"] = tokens["refresh_token"]
+    DARALRIMAL_CONFIG_FILE.write_text(json.dumps(dcfg, indent=2, ensure_ascii=False), encoding="utf-8")
+    try:
+        main_cfg = load_config()
+        if "daralrimal_account" in main_cfg:
+            main_cfg["daralrimal_account"]["access_token"] = dcfg["access_token"]
+            main_cfg["daralrimal_account"]["refresh_token"] = dcfg["refresh_token"]
+            save_config(main_cfg)
+    except Exception:
+        pass
+    return dcfg["access_token"]
+
+
+def get_token_for_account(account_id: str) -> str:
+    if account_id == DARALRIMAL_AD_ACCOUNT_ID:
+        return refresh_daralrimal_token()
+    return refresh_access_token(load_config())
 
 
 def exchange_code_for_token(client_id: str, client_secret: str, code: str) -> dict:
@@ -138,11 +204,18 @@ def api_get(endpoint: str, token: str) -> dict:
     import time
     url = f"{API_BASE}{endpoint}" if endpoint.startswith("/") else endpoint
     sess = _get_snap_session()
+    use_token = token
     for attempt in range(3):
         try:
-            r = sess.get(url, headers={"Authorization": f"Bearer {token}"}, timeout=35)
+            r = sess.get(url, headers={"Authorization": f"Bearer {use_token}"}, timeout=35)
             if r.status_code == 200:
                 return r.json()
+            if r.status_code in (401, 403) and (DARALRIMAL_AD_ACCOUNT_ID in url or DARALRIMAL_ORG_ID in url):
+                try:
+                    use_token = refresh_daralrimal_token()
+                    continue
+                except Exception:
+                    pass
             if r.status_code == 429:
                 time.sleep(2.0 * (attempt + 1))
                 continue
