@@ -891,6 +891,7 @@ class VirtualPortfolioEngine:
                     "price": cur_p,
                     "pnl_usd": pnl
                 })
+                cycle_actions.append(f"SHORT_1X_TAKE_PROFIT_LIVE:{sym}@${cur_p}:${pnl:+.2f}")
             elif scyc.get("breakeven_locked_price") and cur_p >= scyc["breakeven_locked_price"]:
                 pnl_pct = ((entry_p - cur_p) / entry_p) - 0.001
                 pnl = round(scyc["invested_usd"] * pnl_pct, 2)
@@ -906,6 +907,7 @@ class VirtualPortfolioEngine:
                     "price": cur_p,
                     "pnl_usd": pnl
                 })
+                cycle_actions.append(f"SHORT_1X_TRAILING_PROFIT_LOCK_LIVE:{sym}@${cur_p}:${pnl:+.2f}")
             elif cur_p >= sl_price:
                 pnl_pct = ((entry_p - cur_p) / entry_p) - 0.001
                 pnl = round(scyc["invested_usd"] * pnl_pct, 2)
@@ -921,6 +923,7 @@ class VirtualPortfolioEngine:
                     "price": cur_p,
                     "pnl_usd": pnl
                 })
+                cycle_actions.append(f"SHORT_1X_PROTECTIVE_STOP_LIVE:{sym}@${cur_p}:${pnl:+.2f}")
             elif held_h >= float(qcfg.get("max_bars", 96)):
                 pnl_pct = ((entry_p - cur_p) / entry_p) - 0.001
                 pnl = round(scyc["invested_usd"] * pnl_pct, 2)
@@ -940,6 +943,7 @@ class VirtualPortfolioEngine:
                     "price": cur_p,
                     "pnl_usd": pnl
                 })
+                cycle_actions.append(f"SHORT_1X_TIME_MAX_BARS_EXIT_LIVE:{sym}@${cur_p}:${pnl:+.2f}")
             else:
                 scyc["current_price"] = cur_p
                 scyc["unrealized_pnl_usd"] = round(scyc["invested_usd"] * ((entry_p - cur_p) / entry_p), 2)
@@ -1365,7 +1369,256 @@ class VirtualPortfolioEngine:
         self._save()
         return self.state
 
+    def live_realtime_tick(self):
+        """
+        Ultra-Fast Live Real-Time Order-Book Tick (runs every 2 seconds):
+        Fetches live Bid/Ask prices for all Binance pairs in a single ~100ms HTTP request
+        and executes Take-Profit, Stop-Loss, and Trailing Profit Locks INSTANTANEOUSLY
+        at the live real-time price (cur_p) at the exact current second (now_iso).
+        ZERO past-candle or retroactive execution.
+        """
+        now_ms = int(time.time() * 1000)
+        now_iso = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+        sniper = self.state.get("engine2_spot_sniper", {})
+        arb = self.state.get("engine1_arbitrage", {})
+        res = self.state.get("engine3_flash_reserve", {})
+        market_scan = self.state.get("latest_market_scan", {})
+        qcfg = load_validated_quant_config()
+        prev_equity = self.state.get("current_total_equity_usd", 1000.0)
+        prev_realized = sniper.get("realized_pnl_usd", 0.0)
+        live_actions = []
+
+        try:
+            book_list = http_json("https://api.binance.com/api/v3/ticker/bookTicker", timeout=3.5, retries=2)
+            live_prices = {}
+            for item in book_list:
+                s = item.get("symbol")
+                if not s:
+                    continue
+                bid_p = float(item.get("bidPrice") or 0.0)
+                ask_p = float(item.get("askPrice") or 0.0)
+                if bid_p > 0 and ask_p > 0:
+                    live_prices[s] = {"bid": bid_p, "ask": ask_p, "mid": (bid_p + ask_p) / 2.0}
+        except Exception:
+            return {"actions_executed": [], "status": "ticker_timeout"}
+
+        updated_longs = []
+        for cyc in sniper.get("active_positions", []):
+            sym = cyc["symbol"]
+            lp = live_prices.get(sym)
+            if not lp:
+                updated_longs.append(cyc)
+                continue
+            cur_p = lp["bid"]  # Exact live executable bid price for selling a Long position right now
+            sc_sym = market_scan.get(sym, {})
+            atr_now = sc_sym.get("atr14", 0.0)
+            decs = 8 if cyc["avg_entry_price"] < 0.001 else (6 if cyc["avg_entry_price"] < 1.0 else 4)
+            tp_price = cyc.get("tp_target_price", round(cyc["avg_entry_price"] * 1.0125, decs))
+            sl_price = cyc.get("sl_price", round(cyc["avg_entry_price"] * 0.965, decs))
+            pb_name = cyc.get("playbook", "MEAN_REV_DIP")
+
+            if atr_now > 0 and cur_p >= cyc["avg_entry_price"] + 1.0 * atr_now:
+                t_flow_now = sc_sym.get("taker_buy_ratio", 0.5)
+                if cur_p >= cyc["avg_entry_price"] + 2.0 * atr_now:
+                    lock_mult = 1.35 if (cur_p >= cyc["avg_entry_price"] + 2.2 * atr_now and t_flow_now < 0.48) else 0.90
+                elif cur_p >= cyc["avg_entry_price"] + 1.8 * atr_now and t_flow_now <= float(qcfg.get("flow_rev_th", 0.38)):
+                    lock_mult = float(qcfg.get("flow_rev_lock_atr", 1.0))
+                elif cur_p >= cyc["avg_entry_price"] + 1.4 * atr_now:
+                    lock_mult = 0.65
+                else:
+                    lock_mult = 0.25
+                new_lock = round(cyc["avg_entry_price"] + lock_mult * atr_now, decs)
+                cyc["breakeven_locked_price"] = max(cyc.get("breakeven_locked_price") or 0.0, new_lock)
+
+            if cur_p >= tp_price:
+                gross_val = round(cyc["total_qty"] * cur_p * (1.0 - 0.0005), 2)
+                pnl = round(gross_val - cyc["invested_usd"], 2)
+                sniper["free_cash_usd"] = round(sniper["free_cash_usd"] + gross_val, 2)
+                sniper["realized_pnl_usd"] = round(sniper["realized_pnl_usd"] + pnl, 2)
+                sniper["cycles_won"] = sniper.get("cycles_won", 0) + (1 if pnl >= 0 else 0)
+                sniper["cycles_stopped"] = sniper.get("cycles_stopped", 0) + (0 if pnl >= 0 else 1)
+                sniper["trade_history"].append({
+                    "time_utc": now_iso,
+                    "action": "TAKE_PROFIT_LIVE",
+                    "playbook": pb_name,
+                    "symbol": sym,
+                    "price": cur_p,
+                    "pnl_usd": pnl
+                })
+                live_actions.append(f"TAKE_PROFIT_LIVE:{sym}@${cur_p}:${pnl:+.2f}")
+            elif cyc.get("breakeven_locked_price") and cur_p <= cyc["breakeven_locked_price"]:
+                gross_val = round(cyc["total_qty"] * cur_p * (1.0 - 0.0005), 2)
+                pnl = round(gross_val - cyc["invested_usd"], 2)
+                sniper["free_cash_usd"] = round(sniper["free_cash_usd"] + gross_val, 2)
+                sniper["realized_pnl_usd"] = round(sniper["realized_pnl_usd"] + pnl, 2)
+                sniper["cycles_won"] = sniper.get("cycles_won", 0) + 1
+                sniper["trade_history"].append({
+                    "time_utc": now_iso,
+                    "action": "TRAILING_PROFIT_LOCK_LIVE",
+                    "playbook": pb_name,
+                    "symbol": sym,
+                    "price": cur_p,
+                    "pnl_usd": pnl
+                })
+                live_actions.append(f"TRAILING_PROFIT_LOCK_LIVE:{sym}@${cur_p}:${pnl:+.2f}")
+            elif cur_p <= sl_price:
+                gross_val = round(cyc["total_qty"] * cur_p * (1.0 - 0.0005), 2)
+                pnl = round(gross_val - cyc["invested_usd"], 2)
+                sniper["free_cash_usd"] = round(sniper["free_cash_usd"] + gross_val, 2)
+                sniper["realized_pnl_usd"] = round(sniper["realized_pnl_usd"] + pnl, 2)
+                sniper["cycles_stopped"] = sniper.get("cycles_stopped", 0) + 1
+                sniper["trade_history"].append({
+                    "time_utc": now_iso,
+                    "action": "QUANT_ATR_STOP_LOSS_LIVE",
+                    "playbook": pb_name,
+                    "symbol": sym,
+                    "price": cur_p,
+                    "pnl_usd": pnl
+                })
+                live_actions.append(f"QUANT_ATR_STOP_LOSS_LIVE:{sym}@${cur_p}:${pnl:+.2f}")
+            else:
+                cyc["current_price"] = cur_p
+                cyc["unrealized_pnl_usd"] = round(cyc["total_qty"] * cur_p - cyc["invested_usd"], 2)
+                cyc["dist_to_sl_pct"] = round(((cur_p - sl_price) / cur_p) * 100.0, 2) if cur_p > 0 else 0.0
+                cyc["dist_to_tp_pct"] = round(((tp_price - cur_p) / cur_p) * 100.0, 2) if cur_p > 0 else 0.0
+                updated_longs.append(cyc)
+
+        sniper["active_positions"] = updated_longs
+
+        updated_shorts = []
+        for scyc in sniper.get("active_short_positions", []):
+            sym = scyc["symbol"]
+            lp = live_prices.get(sym)
+            if not lp:
+                updated_shorts.append(scyc)
+                continue
+            cur_p = lp["ask"]  # Exact live executable ask price for covering a Short position right now
+            sc_sym = market_scan.get(sym, {})
+            atr_now = sc_sym.get("atr14", 0.0)
+            entry_p = scyc["entry_price"]
+            decs = 8 if entry_p < 0.001 else (6 if entry_p < 1.0 else 4)
+            tp_price = scyc["tp_target_price"]
+            sl_price = scyc["sl_price"]
+            pb_name = scyc.get("playbook", "CROWDED_FADE_SHORT")
+
+            if atr_now > 0 and cur_p <= entry_p - 1.0 * atr_now:
+                t_flow_now = sc_sym.get("taker_buy_ratio", 0.5)
+                if cur_p <= entry_p - 2.0 * atr_now:
+                    lock_mult = 1.35 if (cur_p <= entry_p - 2.2 * atr_now and t_flow_now > 0.52) else 0.90
+                elif cur_p <= entry_p - 1.8 * atr_now and t_flow_now >= (1.0 - float(qcfg.get("flow_rev_th", 0.38))):
+                    lock_mult = float(qcfg.get("flow_rev_lock_atr", 1.0))
+                elif cur_p <= entry_p - 1.4 * atr_now:
+                    lock_mult = 0.65
+                else:
+                    lock_mult = 0.25
+                new_lock = round(entry_p - lock_mult * atr_now, decs)
+                if scyc.get("breakeven_locked_price") is None or new_lock < scyc["breakeven_locked_price"]:
+                    scyc["breakeven_locked_price"] = new_lock
+
+            if cur_p <= tp_price:
+                pnl_pct = ((entry_p - cur_p) / entry_p) - 0.001
+                pnl = round(scyc["invested_usd"] * pnl_pct, 2)
+                sniper["free_cash_usd"] = round(sniper["free_cash_usd"] + scyc["invested_usd"] + pnl, 2)
+                sniper["realized_pnl_usd"] = round(sniper["realized_pnl_usd"] + pnl, 2)
+                sniper["cycles_won"] = sniper.get("cycles_won", 0) + 1
+                sniper["short_cycles_won"] = sniper.get("short_cycles_won", 0) + 1
+                sniper["trade_history"].append({
+                    "time_utc": now_iso,
+                    "action": "SHORT_1X_TAKE_PROFIT_LIVE",
+                    "playbook": pb_name,
+                    "symbol": sym,
+                    "price": cur_p,
+                    "pnl_usd": pnl
+                })
+                live_actions.append(f"SHORT_1X_TAKE_PROFIT_LIVE:{sym}@${cur_p}:${pnl:+.2f}")
+            elif scyc.get("breakeven_locked_price") and cur_p >= scyc["breakeven_locked_price"]:
+                pnl_pct = ((entry_p - cur_p) / entry_p) - 0.001
+                pnl = round(scyc["invested_usd"] * pnl_pct, 2)
+                sniper["free_cash_usd"] = round(sniper["free_cash_usd"] + scyc["invested_usd"] + pnl, 2)
+                sniper["realized_pnl_usd"] = round(sniper["realized_pnl_usd"] + pnl, 2)
+                sniper["cycles_won"] = sniper.get("cycles_won", 0) + 1
+                sniper["short_cycles_won"] = sniper.get("short_cycles_won", 0) + 1
+                sniper["trade_history"].append({
+                    "time_utc": now_iso,
+                    "action": "SHORT_1X_TRAILING_PROFIT_LOCK_LIVE",
+                    "playbook": pb_name,
+                    "symbol": sym,
+                    "price": cur_p,
+                    "pnl_usd": pnl
+                })
+                live_actions.append(f"SHORT_1X_TRAILING_PROFIT_LOCK_LIVE:{sym}@${cur_p}:${pnl:+.2f}")
+            elif cur_p >= sl_price:
+                pnl_pct = ((entry_p - cur_p) / entry_p) - 0.001
+                pnl = round(scyc["invested_usd"] * pnl_pct, 2)
+                sniper["free_cash_usd"] = round(sniper["free_cash_usd"] + scyc["invested_usd"] + pnl, 2)
+                sniper["realized_pnl_usd"] = round(sniper["realized_pnl_usd"] + pnl, 2)
+                sniper["cycles_stopped"] = sniper.get("cycles_stopped", 0) + 1
+                sniper["short_cycles_stopped"] = sniper.get("short_cycles_stopped", 0) + 1
+                sniper["trade_history"].append({
+                    "time_utc": now_iso,
+                    "action": "SHORT_1X_PROTECTIVE_STOP_LIVE",
+                    "playbook": pb_name,
+                    "symbol": sym,
+                    "price": cur_p,
+                    "pnl_usd": pnl
+                })
+                live_actions.append(f"SHORT_1X_PROTECTIVE_STOP_LIVE:{sym}@${cur_p}:${pnl:+.2f}")
+            else:
+                scyc["current_price"] = cur_p
+                scyc["unrealized_pnl_usd"] = round(scyc["invested_usd"] * ((entry_p - cur_p) / entry_p), 2)
+                scyc["dist_to_sl_pct"] = round(((sl_price - cur_p) / cur_p) * 100.0, 2) if cur_p > 0 else 0.0
+                scyc["dist_to_tp_pct"] = round(((cur_p - tp_price) / cur_p) * 100.0, 2) if cur_p > 0 else 0.0
+                updated_shorts.append(scyc)
+
+        sniper["active_short_positions"] = updated_shorts
+        sniper["active_cycle"] = sniper["active_positions"][0] if sniper["active_positions"] else None
+        sniper["active_short_cycle"] = sniper["active_short_positions"][0] if sniper["active_short_positions"] else None
+
+        sniper_val = sniper.get("free_cash_usd", 0.0)
+        for cyc in sniper["active_positions"]:
+            sniper_val += round(cyc["total_qty"] * cyc.get("current_price", cyc["avg_entry_price"]), 2)
+        for scyc in sniper["active_short_positions"]:
+            cur_p = scyc.get("current_price", scyc["entry_price"])
+            unrealized_short_pnl = scyc["invested_usd"] * ((scyc["entry_price"] - cur_p) / scyc["entry_price"])
+            sniper_val += round(scyc["invested_usd"] + unrealized_short_pnl, 2)
+
+        total_equity = round(
+            arb.get("allocated_usd", 0.0) - arb.get("entry_fees_paid_usd", 0.0) + arb.get("funding_collected_usd", 0.0)
+            + sniper_val
+            + res.get("allocated_usd", 0.0) + res.get("accrued_earn_usd", 0.0),
+            2
+        )
+        self.state["current_total_equity_usd"] = total_equity
+        self.state["net_pnl_usd"] = round(total_equity - self.initial_capital, 2)
+        self.state["last_updated_utc"] = now_iso
+        self.state["last_updated_ms"] = now_ms
+        if live_actions:
+            self.state["strategy_scoreboard"] = self._compute_playbook_scoreboard()
+            self.state["last_cycle_delta"] = {
+                "timestamp_utc": now_iso,
+                "equity_before_usd": prev_equity,
+                "equity_after_usd": total_equity,
+                "realized_pnl_before_usd": round(prev_realized, 2),
+                "realized_pnl_after_usd": round(sniper["realized_pnl_usd"], 2),
+                "actions_executed": live_actions
+            }
+            self._save()
+        return {"actions_executed": live_actions, "equity_usd": total_equity, "timestamp_utc": now_iso}
+
 if __name__ == "__main__":
     engine = VirtualPortfolioEngine(initial_capital=1000.0)
-    report = engine.update_and_replay_offline()
-    print(json.dumps(report, indent=2))
+    if "--cloud-live-stream" in sys.argv:
+        # Continuous 2-second Live Real-Time Stream on GitHub Actions Cloud while Laptop is OFF
+        t_start = time.time()
+        max_sec = 1080  # 18 minutes continuous live stream per 20-minute cron window
+        report = engine.update_and_replay_offline()
+        while (time.time() - t_start) < max_sec:
+            time.sleep(2.0)
+            tick_res = engine.live_realtime_tick()
+            if int(time.time() - t_start) % 30 < 2:
+                report = engine.update_and_replay_offline()
+        engine._save()
+        print(json.dumps({"mode": "cloud_live_stream_completed", "equity_usd": engine.state.get("current_total_equity_usd")}, indent=2))
+    else:
+        report = engine.update_and_replay_offline()
+        print(json.dumps(report, indent=2))
