@@ -105,15 +105,15 @@ def is_gulf_campaign(camp_name: str, ad_name: str = "") -> bool:
 def get_gulf_tiktok_sim_limits(camp_name: str, ad_name: str = "") -> tuple[float, float, float]:
     """يرجع (sim_max_cpa, camp_no_sale_stop, video_no_sale_stop) لكل دولة ومنتج خليجي حسب محاكاة شريك الدفع عند الاستلام."""
     combined = f"{camp_name or ''} {ad_name or ''}".lower()
-    is_om = any(k in combined for k in ("oman", "عمان"))
+    is_om = any(k in combined for k in ("oman", "عمان", "عُمان"))
     is_kw = any(k in combined for k in ("kuwait", "kuwiat", "kwt", "كويت", "الكويت"))
     is_qa = any(k in combined for k in ("qatar", "qat", "قطر"))
-    is_flash = any(k in combined for k in ("kashaf", "كشاف", "flash", "led"))
+    is_flash = any(k in combined for k in ("kashaf", "kasahf", "كشاف", "flash", "led"))
     is_cushion = any(k in combined for k in ("car", "armrest", "cushion", "pillow", "وساد", "تكاي"))
     if is_om:
         if is_flash:
             return (6.69, 6.69, 2.80)
-        return (7.87, 7.87, 3.00)
+        return (7.87, 7.87, 2.75)
     if is_kw:
         return (11.48, 11.48, 3.20)
     if is_qa:
@@ -121,6 +121,14 @@ def get_gulf_tiktok_sim_limits(camp_name: str, ad_name: str = "") -> tuple[float
             return (10.00, 10.00, 3.20)
         return (11.50, 11.50, 3.50)
     return (10.00, 8.50, 3.20)
+
+
+def get_gulf_tiktok_max_cpc(camp_name: str, ad_name: str = "") -> float:
+    """يرجع السقف الأقصى لسعر النقرة بدون مبيعة في الخليج ($0.25 لعُمان، و$0.26 للكويت وقطر)."""
+    combined = f"{camp_name or ''} {ad_name or ''}".lower()
+    if any(k in combined for k in ("oman", "عمان", "عُمان")):
+        return 0.25
+    return 0.26
 
 
 ORIGIN_MATERIAL_TYPES = [
@@ -657,12 +665,15 @@ def evaluate_video_rules(
     is_new_test=False,
     gulf_no_sale_limit=None,
     gulf_cpa_limit=None,
+    gulf_max_cpc=None,
 ):
     reasons = []
+    if is_gulf:
+        is_new_test = False
     no_sale_limit = 4.00 if is_new_test else ((gulf_no_sale_limit or GULF_MAX_NO_SALE_SPEND) if is_gulf else MAX_NO_SALE_SPEND)
     cpa_limit = 8.00 if is_new_test else ((gulf_cpa_limit or GULF_MAX_VIDEO_CPA) if is_gulf else MAX_VIDEO_CPA)
     min_cpc_spend = MIN_SPEND_FOR_CPC  # $1.00 unified across all TikTok videos
-    max_cpc_lim = MAX_CPC              # $0.25 for 0-sale videos
+    max_cpc_lim = (gulf_max_cpc or MAX_CPC) if is_gulf else MAX_CPC
     max_cpc_with_sales_lim = MAX_CPC_WITH_SALES  # $0.35 max CPC cap even when video has sales
     region_tag = "[New Test Video] " if is_new_test else ("[Gulf] " if is_gulf else "")
 
@@ -743,9 +754,9 @@ def evaluate_video_rules(
     elif spend_7d > no_sale_limit and conv_7d == 0:
         reasons.append(f"{region_tag}7-Day Accumulated Spend ${spend_7d:.2f} > ${no_sale_limit:.2f} with 0 sales")
 
-    # Rule 2: Video CPA > $7.00 (Saudi) or > $12.00 (Gulf)
-    # Protect proven multi-sale winners (conv_1d >= 3 or conv_3d >= 3 with 3D CPA <= $9.99) up to $9.99 CPA
-    is_multi_sale_winner = (conv_1d >= 3 and (spend_1d / conv_1d) <= 9.99) or (conv_3d >= 3 and (spend_3d / conv_3d) <= 9.99)
+    # Rule 2: Video CPA > $7.00 (Saudi) or > Gulf Sim CPA (Kuwait/Qatar/Oman)
+    # Protect proven multi-sale winners (conv_1d >= 3 or conv_3d >= 3 with 3D CPA <= $9.99) up to $9.99 CPA (Saudi only)
+    is_multi_sale_winner = (not is_gulf) and ((conv_1d >= 3 and (spend_1d / conv_1d) <= 9.99) or (conv_3d >= 3 and (spend_3d / conv_3d) <= 9.99))
     eff_cpa_lim = max(cpa_limit, 9.99) if is_multi_sale_winner else cpa_limit
     if conv_1d > 0 and (spend_1d / conv_1d) > eff_cpa_lim:
         reasons.append(f"{region_tag}Today Video CPA ${(spend_1d / conv_1d):.2f} > ${eff_cpa_lim:.2f} (Spend=${spend_1d:.2f}, Sales={conv_1d})")
@@ -988,9 +999,6 @@ def main():
                     total_campaigns_paused += 1
                     print(f"    🛑 [PERMANENT SHUTOFF PILLOW/NEW PRODUCT] '{camp_name}' ({camp_id}) -> Paused permanently per user command")
                 continue
-            if is_gulf_campaign(camp_name):
-                # حملات الخليج (الكويت، قطر، عمان) مفصولة 100% وتدار حصرياً عبر gulf_2h_profit_and_ads_master.py
-                continue
 
             # Strict Target Cost (Cost Cap) enforcement: NEVER allow Maximum Delivery / Maximum Bid without Target CPA
             camp_active_adsets = [a for a in active_ads if str(a.get("campaign_id") or "") == camp_id]
@@ -1090,16 +1098,18 @@ def main():
                 strict_camp_cpa_lim = 20.00
 
             # Early Campaign CPC Cut: only trigger at campaign level once spend >= $3.00 (so 3-5 video Smart+ campaigns allow per-video >= $1.00 & CPC > $0.25 pruning first)
+            allow_multi_camp_chk = (not camp_is_gulf) or (c_spend_1d >= 0.25)
+            gulf_3d_zero_stop = min(20.00, round(strict_no_sale_lim * 1.85, 2)) if c_spend_1d < 0.25 else strict_no_sale_lim
             if not taager_prod_key and c_spend_1d >= 3.00 and c_conv_1d == 0 and (c_cpc_1d > 0.35 or c_clicks_1d == 0):
                 camp_pause_reasons.append(f"Campaign Early CPC Cut: Today Spend ${c_spend_1d:.2f} >= $3.00 with CPC ${c_cpc_1d:.2f} > $0.35 (Clicks={c_clicks_1d}) and 0 sales")
             if (c_spend_1d > 25.00 if taager_prod_key else c_spend_1d >= strict_no_sale_lim) and c_conv_1d == 0:
-                camp_pause_reasons.append(f"{'[Taager Test >$25 Rule] ' if taager_prod_key else ('[New Product $7 Rule] ' if new_prod_key else ('[EXP-LEADS Micro Stop-Loss] ' if is_exp_leads else ''))}Today Spend ${c_spend_1d:.2f} {'>' if taager_prod_key else '>='} ${strict_no_sale_lim:.2f} with 0 sales")
-            elif (c_spend_2d > 25.00 if taager_prod_key else c_spend_2d >= strict_no_sale_lim) and c_conv_2d == 0:
-                camp_pause_reasons.append(f"{'[Taager Test >$25 Rule] ' if taager_prod_key else ('[New Product $7 Rule] ' if new_prod_key else ('[EXP-LEADS Micro Stop-Loss] ' if is_exp_leads else ''))}2-Day Spend ${c_spend_2d:.2f} {'>' if taager_prod_key else '>='} ${strict_no_sale_lim:.2f} with 0 sales")
-            elif (c_spend_3d > 25.00 if taager_prod_key else c_spend_3d >= strict_no_sale_lim) and c_conv_3d == 0:
-                camp_pause_reasons.append(f"{'[Taager Test >$25 Rule] ' if taager_prod_key else ('[New Product $7 Rule] ' if new_prod_key else ('[EXP-LEADS Micro Stop-Loss] ' if is_exp_leads else ''))}3-Day Spend ${c_spend_3d:.2f} {'>' if taager_prod_key else '>='} ${strict_no_sale_lim:.2f} with 0 sales")
-            elif (c_spend_7d > 25.00 if taager_prod_key else c_spend_7d >= strict_no_sale_lim) and c_conv_7d == 0:
-                camp_pause_reasons.append(f"{'[Taager Test >$25 Rule] ' if taager_prod_key else ('[New Product $7 Rule] ' if new_prod_key else ('[EXP-LEADS Micro Stop-Loss] ' if is_exp_leads else ''))}7-Day Spend ${c_spend_7d:.2f} {'>' if taager_prod_key else '>='} ${strict_no_sale_lim:.2f} with 0 sales")
+                camp_pause_reasons.append(f"{'[Taager Test >$25 Rule] ' if taager_prod_key else ('[Gulf Sim Stop-Loss] ' if camp_is_gulf else ('[New Product $7 Rule] ' if new_prod_key else ('[EXP-LEADS Micro Stop-Loss] ' if is_exp_leads else '')))}Today Spend ${c_spend_1d:.2f} {'>' if taager_prod_key else '>='} ${strict_no_sale_lim:.2f} with 0 sales")
+            elif allow_multi_camp_chk and (c_spend_2d > 25.00 if taager_prod_key else c_spend_2d >= strict_no_sale_lim) and c_conv_2d == 0:
+                camp_pause_reasons.append(f"{'[Taager Test >$25 Rule] ' if taager_prod_key else ('[Gulf Sim Stop-Loss] ' if camp_is_gulf else ('[New Product $7 Rule] ' if new_prod_key else ('[EXP-LEADS Micro Stop-Loss] ' if is_exp_leads else '')))}2-Day Spend ${c_spend_2d:.2f} {'>' if taager_prod_key else '>='} ${strict_no_sale_lim:.2f} with 0 sales")
+            elif (c_spend_3d > 25.00 if taager_prod_key else c_spend_3d >= (gulf_3d_zero_stop if camp_is_gulf else strict_no_sale_lim)) and c_conv_3d == 0:
+                camp_pause_reasons.append(f"{'[Taager Test >$25 Rule] ' if taager_prod_key else ('[Gulf Sim Stop-Loss] ' if camp_is_gulf else ('[New Product $7 Rule] ' if new_prod_key else ('[EXP-LEADS Micro Stop-Loss] ' if is_exp_leads else '')))}3-Day Spend ${c_spend_3d:.2f} {'>' if taager_prod_key else '>='} ${(gulf_3d_zero_stop if camp_is_gulf else strict_no_sale_lim):.2f} with 0 sales")
+            elif allow_multi_camp_chk and (c_spend_7d > 25.00 if taager_prod_key else c_spend_7d >= strict_no_sale_lim) and c_conv_7d == 0:
+                camp_pause_reasons.append(f"{'[Taager Test >$25 Rule] ' if taager_prod_key else ('[Gulf Sim Stop-Loss] ' if camp_is_gulf else ('[New Product $7 Rule] ' if new_prod_key else ('[EXP-LEADS Micro Stop-Loss] ' if is_exp_leads else '')))}7-Day Spend ${c_spend_7d:.2f} {'>' if taager_prod_key else '>='} ${strict_no_sale_lim:.2f} with 0 sales")
             elif np_agg and np_agg["spend_1d"] >= 7.00 and np_agg["conv_1d"] == 0:
                 camp_pause_reasons.append(f"[New Product '{new_prod_key}' Combined $7 Rule] Combined Today Spend ${np_agg['spend_1d']:.2f} >= $7.00 with 0 sales")
             elif np_agg and np_agg["spend_2d"] >= 7.00 and np_agg["conv_2d"] == 0:
@@ -1108,14 +1118,14 @@ def main():
                 camp_pause_reasons.append(f"[New Product '{new_prod_key}' Combined $7 Rule] Combined 3D Spend ${np_agg['spend_3d']:.2f} >= $7.00 with 0 sales")
             elif np_agg and np_agg["spend_7d"] >= 7.00 and np_agg["conv_7d"] == 0:
                 camp_pause_reasons.append(f"[New Product '{new_prod_key}' Combined $7 Rule] Combined 7D Spend ${np_agg['spend_7d']:.2f} >= $7.00 with 0 sales")
-            elif c_conv_1d > 0 and c_cpa_1d is not None and c_cpa_1d >= strict_camp_cpa_lim:
-                camp_pause_reasons.append(f"Today CPA ${c_cpa_1d:.2f} >= ${strict_camp_cpa_lim:.2f} (Spend=${c_spend_1d:.2f}, Sales={c_conv_1d})")
-            elif c_conv_2d > 0 and c_cpa_2d is not None and c_cpa_2d >= strict_camp_cpa_lim and (c_conv_1d == 0 or (c_cpa_1d or 99) >= strict_camp_cpa_lim):
-                camp_pause_reasons.append(f"2-Day CPA ${c_cpa_2d:.2f} >= ${strict_camp_cpa_lim:.2f} (Spend=${c_spend_2d:.2f}, Sales={c_conv_2d})")
-            elif c_conv_3d > 0 and c_cpa_3d is not None and c_cpa_3d >= strict_camp_cpa_lim and (c_conv_1d == 0 or (c_cpa_1d or 99) >= strict_camp_cpa_lim):
-                camp_pause_reasons.append(f"3-Day CPA ${c_cpa_3d:.2f} >= ${strict_camp_cpa_lim:.2f} (Spend=${c_spend_3d:.2f}, Sales={c_conv_3d})")
-            elif c_conv_7d > 0 and c_cpa_7d is not None and c_cpa_7d >= strict_camp_cpa_lim and (c_conv_1d == 0 or (c_cpa_1d or 99) >= strict_camp_cpa_lim):
-                camp_pause_reasons.append(f"7-Day CPA ${c_cpa_7d:.2f} >= ${strict_camp_cpa_lim:.2f} (Spend=${c_spend_7d:.2f}, Sales={c_conv_7d})")
+            elif c_conv_1d > 0 and c_cpa_1d is not None and (c_cpa_1d > strict_camp_cpa_lim if camp_is_gulf else c_cpa_1d >= strict_camp_cpa_lim):
+                camp_pause_reasons.append(f"Today CPA ${c_cpa_1d:.2f} {'>' if camp_is_gulf else '>='} ${strict_camp_cpa_lim:.2f} (Spend=${c_spend_1d:.2f}, Sales={c_conv_1d})")
+            elif allow_multi_camp_chk and c_conv_2d > 0 and c_cpa_2d is not None and (c_cpa_2d > strict_camp_cpa_lim if camp_is_gulf else c_cpa_2d >= strict_camp_cpa_lim) and (c_conv_1d == 0 or (c_cpa_1d or 99) > strict_camp_cpa_lim):
+                camp_pause_reasons.append(f"2-Day CPA ${c_cpa_2d:.2f} {'>' if camp_is_gulf else '>='} ${strict_camp_cpa_lim:.2f} (Spend=${c_spend_2d:.2f}, Sales={c_conv_2d})")
+            elif allow_multi_camp_chk and c_conv_3d > 0 and c_cpa_3d is not None and (c_cpa_3d > strict_camp_cpa_lim if camp_is_gulf else c_cpa_3d >= strict_camp_cpa_lim) and (c_conv_1d == 0 or (c_cpa_1d or 99) > strict_camp_cpa_lim):
+                camp_pause_reasons.append(f"3-Day CPA ${c_cpa_3d:.2f} {'>' if camp_is_gulf else '>='} ${strict_camp_cpa_lim:.2f} (Spend=${c_spend_3d:.2f}, Sales={c_conv_3d})")
+            elif allow_multi_camp_chk and c_conv_7d > 0 and c_cpa_7d is not None and (c_cpa_7d > strict_camp_cpa_lim if camp_is_gulf else c_cpa_7d >= strict_camp_cpa_lim) and (c_conv_1d == 0 or (c_cpa_1d or 99) > strict_camp_cpa_lim):
+                camp_pause_reasons.append(f"7-Day CPA ${c_cpa_7d:.2f} {'>' if camp_is_gulf else '>='} ${strict_camp_cpa_lim:.2f} (Spend=${c_spend_7d:.2f}, Sales={c_conv_7d})")
 
             if camp_pause_reasons and not is_cross_monitored_product_campaign(camp_name):
                 c_reason_str = " | ".join(camp_pause_reasons)
@@ -1263,6 +1273,7 @@ def main():
                 pass
             if (
                 not (os.environ.get("GITHUB_ACTIONS") == "true" or os.environ.get("STOP_LOSS_PAUSE_ONLY") == "1")
+                and not camp_is_gulf
                 and is_before_6pm_sa
                 and c_conv_1d >= 2
                 and c_cpa_1d is not None
@@ -1503,7 +1514,8 @@ def main():
 
             v_is_gulf = is_gulf_campaign(ad_camp_map.get(cid, ""), ad_name_map.get(cid, ""))
             v_gulf_cpa, _, v_gulf_no_sale = get_gulf_tiktok_sim_limits(ad_camp_map.get(cid, ""), ad_name_map.get(cid, "")) if v_is_gulf else (GULF_MAX_VIDEO_CPA, GULF_MAX_NO_SALE_SPEND, GULF_MAX_NO_SALE_SPEND)
-            v_is_new_test = is_new_test_video_tt(ad_camp_map.get(cid, ""), m3.get("main_entity_name") or "")
+            v_gulf_max_cpc = get_gulf_tiktok_max_cpc(ad_camp_map.get(cid, ""), ad_name_map.get(cid, "")) if v_is_gulf else None
+            v_is_new_test = (not v_is_gulf) and is_new_test_video_tt(ad_camp_map.get(cid, ""), m3.get("main_entity_name") or "")
             v_no_sale_lim = 4.00 if v_is_new_test else (v_gulf_no_sale if v_is_gulf else MAX_NO_SALE_SPEND)
             v_cpa_lim = 5.99 if v_is_new_test else (v_gulf_cpa if v_is_gulf else MAX_VIDEO_CPA)
 
@@ -1557,6 +1569,7 @@ def main():
                 is_new_test=v_is_new_test,
                 gulf_no_sale_limit=v_gulf_no_sale,
                 gulf_cpa_limit=v_gulf_cpa,
+                gulf_max_cpc=v_gulf_max_cpc,
             )
             v_cpa_lim = 5.99 if v_is_new_test else (v_gulf_cpa if v_is_gulf else MAX_VIDEO_CPA)
             v_has_profitable_sales = (
@@ -1867,6 +1880,12 @@ def main():
         f"Smart+ videos paused: {total_paused} (Global Dup Video kills: {total_dup_videos_paused}) | "
         f"Auto-Revived (delayed sales): {total_revived}"
     )
+    if os.environ.get("GITHUB_ACTIONS") != "true":
+        try:
+            from github_deploy import sync_state_and_rules_to_github
+            sync_state_and_rules_to_github("tiktok_monitor")
+        except Exception as _sync_err:
+            print(f"ℹ️ ملاحظة مزامنة GitHub من tiktok_monitor: {_sync_err}")
 
 
 if __name__ == "__main__":
