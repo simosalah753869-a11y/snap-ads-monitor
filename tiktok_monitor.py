@@ -1875,6 +1875,11 @@ def main():
             }
 
     save_history(history)
+    try:
+        from tiktok_spammer_audience_manager import enforce_spammer_audience_exclusion
+        enforce_spammer_audience_exclusion(session, headers, force_all=False)
+    except Exception as _spam_err:
+        print(f"ℹ️ ملاحظة استبعاد جمهور السبامرز في tiktok_monitor: {_spam_err}")
     print(
         f"\nDone! Total TikTok Campaigns paused: {total_campaigns_paused} | "
         f"Smart+ videos paused: {total_paused} (Global Dup Video kills: {total_dup_videos_paused}) | "
