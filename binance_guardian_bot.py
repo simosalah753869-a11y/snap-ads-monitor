@@ -449,9 +449,9 @@ class VirtualPortfolioEngine:
         earn_inc = earn_base * (res["flexible_earn_apr_pct"] / 100.0) * (elapsed_hours / (365.0 * 24.0))
         res["accrued_earn_usd"] = round(res["accrued_earn_usd"] + earn_inc, 5)
 
-        # 3. Live Crypto & Gold klines fetch (v10 Demon Mode: 5m OCO Replay + OI Delta + 24h VWAP + 4 Playbooks)
+        # 3. Live Crypto & Gold Real-Time Engine (v11 Live Real-Time Instant Execution — ZERO Past-Candle Replay)
         sniper = self.state["engine2_spot_sniper"]
-        sniper["quant_engine_version"] = "v10_demon_5m_oco_oi_vwap_oos1280"
+        sniper["quant_engine_version"] = "v11_live_realtime_instant_execution_oos1280"
         sniper["active_quant_config"] = qcfg
 
         market_scan = self.state.get("latest_market_scan", {})
@@ -637,7 +637,7 @@ class VirtualPortfolioEngine:
             if sniper.get("active_short_cycle"):
                 sniper["active_short_positions"].append(sniper["active_short_cycle"])
 
-        # 3A. Evaluate Open Crypto Longs via Chronological 15m OCO Candle Replay + 48h Stagnation Escape
+        # 3A. Evaluate Open Crypto Longs Strictly on LIVE Real-Time Price (ZERO Past-Candle Replay) + 48h Stagnation Escape
         updated_longs = []
         for cyc in sniper["active_positions"]:
             sym = cyc["symbol"]
@@ -656,57 +656,11 @@ class VirtualPortfolioEngine:
             opened_str = cyc.get("opened_at_utc", now_iso)
             try:
                 op_dt = datetime.strptime(opened_str, "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=timezone.utc)
-                op_ms = int(op_dt.timestamp() * 1000)
                 held_h = (datetime.now(timezone.utc) - op_dt).total_seconds() / 3600.0
             except Exception:
-                op_ms = last_ms
                 held_h = 0.0
             cyc["hours_held"] = round(held_h, 1)
-
-            # Chronological 5m OCO Replay since position opened (or last_replayed_15m_ms)
-            replay_start_ms = cyc.get("last_replayed_15m_ms", op_ms + 300000)
-            oco_hit_action = None
-            oco_fill_price = None
-            oco_fill_iso = now_iso
-            try:
-                kl_5m = http_json(f"https://api.binance.com/api/v3/klines?symbol={sym}&interval=5m&startTime={replay_start_ms}&limit=300", timeout=5.0)
-                for k_bar in kl_5m:
-                    b_ts = int(k_bar[0])
-                    b_h, b_l = float(k_bar[2]), float(k_bar[3])
-                    b_iso = datetime.fromtimestamp(b_ts / 1000.0, timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
-                    if b_h >= tp_price and b_l > sl_price:
-                        oco_hit_action = "TAKE_PROFIT_5M_OCO_FILL"
-                        oco_fill_price = tp_price
-                        oco_fill_iso = b_iso
-                        break
-                    elif b_l <= sl_price and b_h < tp_price:
-                        oco_hit_action = "QUANT_ATR_STOP_LOSS_5M_OCO_FILL"
-                        oco_fill_price = sl_price
-                        oco_fill_iso = b_iso
-                        break
-                cyc["last_replayed_15m_ms"] = now_ms
-            except Exception:
-                pass
-
-            if oco_hit_action and oco_fill_price is not None:
-                gross_val = round(cyc["total_qty"] * oco_fill_price * (1.0 - 0.0005), 2)
-                pnl = round(gross_val - cyc["invested_usd"], 2)
-                sniper["free_cash_usd"] = round(sniper["free_cash_usd"] + gross_val, 2)
-                sniper["realized_pnl_usd"] = round(sniper["realized_pnl_usd"] + pnl, 2)
-                if pnl >= 0:
-                    sniper["cycles_won"] += 1
-                else:
-                    sniper["cycles_stopped"] += 1
-                sniper["trade_history"].append({
-                    "time_utc": oco_fill_iso,
-                    "action": oco_hit_action,
-                    "playbook": pb_name,
-                    "symbol": sym,
-                    "price": oco_fill_price,
-                    "pnl_usd": pnl
-                })
-                cycle_actions.append(f"{oco_hit_action}:{sym}:${pnl:+.2f}")
-                continue
+            cyc.pop("last_replayed_15m_ms", None)
 
             # 48-Hour Stagnation Guardian + Counter-Trend Overbought Exhaustion Protection
             if held_h >= 48.0:
@@ -774,6 +728,7 @@ class VirtualPortfolioEngine:
                     "price": cur_p,
                     "pnl_usd": pnl
                 })
+                cycle_actions.append(f"{act_name}:{sym}@${cur_p}:${pnl:+.2f}")
             elif cyc.get("breakeven_locked_price") and cur_p <= cyc["breakeven_locked_price"]:
                 gross_val = round(cyc["total_qty"] * cur_p * (1.0 - 0.0005), 2)
                 pnl = round(gross_val - cyc["invested_usd"], 2)
@@ -788,6 +743,7 @@ class VirtualPortfolioEngine:
                     "price": cur_p,
                     "pnl_usd": pnl
                 })
+                cycle_actions.append(f"TRAILING_PROFIT_LOCK_LIVE:{sym}@${cur_p}:${pnl:+.2f}")
             elif cur_p <= sl_price:
                 gross_val = round(cyc["total_qty"] * cur_p * (1.0 - 0.0005), 2)
                 pnl = round(gross_val - cyc["invested_usd"], 2)
@@ -802,6 +758,7 @@ class VirtualPortfolioEngine:
                     "price": cur_p,
                     "pnl_usd": pnl
                 })
+                cycle_actions.append(f"QUANT_ATR_STOP_LOSS_LIVE:{sym}@${cur_p}:${pnl:+.2f}")
             elif held_h >= float(qcfg.get("max_bars", 96)):
                 gross_val = round(cyc["total_qty"] * cur_p * (1.0 - 0.0005), 2)
                 pnl = round(gross_val - cyc["invested_usd"], 2)
@@ -819,6 +776,7 @@ class VirtualPortfolioEngine:
                     "price": cur_p,
                     "pnl_usd": pnl
                 })
+                cycle_actions.append(f"TIME_MAX_BARS_EXIT_LIVE:{sym}@${cur_p}:${pnl:+.2f}")
             else:
                 cyc["current_price"] = cur_p
                 cyc["unrealized_pnl_usd"] = round(cyc["total_qty"] * cur_p - cyc["invested_usd"], 2)
@@ -869,53 +827,8 @@ class VirtualPortfolioEngine:
                 sniper["free_cash_usd"] = round(sniper["free_cash_usd"] + funding_credit, 4)
                 sniper["realized_pnl_usd"] = round(sniper["realized_pnl_usd"] + funding_credit, 4)
 
-            # Chronological 5m OCO Replay for 1x Short Positions (Checks if Limit TP was hit cleanly without SL breach)
-            replay_start_ms = scyc.get("last_replayed_15m_ms", op_ms + 300000)
-            short_oco_action = None
-            short_oco_price = None
-            short_oco_iso = now_iso
-            try:
-                kl_5m = http_json(f"https://api.binance.com/api/v3/klines?symbol={sym}&interval=5m&startTime={replay_start_ms}&limit=300", timeout=5.0)
-                max_h_all = max((float(kb[2]) for kb in kl_5m), default=cur_p)
-                for k_bar in kl_5m:
-                    b_ts = int(k_bar[0])
-                    b_h, b_l = float(k_bar[2]), float(k_bar[3])
-                    b_iso = datetime.fromtimestamp(b_ts / 1000.0, timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
-                    if b_l <= tp_price and max_h_all < sl_price:
-                        short_oco_action = "SHORT_1X_TAKE_PROFIT_5M_OCO_FILL"
-                        short_oco_price = tp_price
-                        short_oco_iso = b_iso
-                        break
-                    elif "last_replayed_15m_ms" in scyc and b_h >= sl_price and b_l > tp_price:
-                        short_oco_action = "SHORT_1X_PROTECTIVE_STOP_5M_OCO_FILL"
-                        short_oco_price = sl_price
-                        short_oco_iso = b_iso
-                        break
-                scyc["last_replayed_15m_ms"] = now_ms
-            except Exception:
-                pass
-
-            if short_oco_action and short_oco_price is not None:
-                pnl_pct = ((entry_p - short_oco_price) / entry_p) - 0.001
-                pnl = round(scyc["invested_usd"] * pnl_pct, 2)
-                sniper["free_cash_usd"] = round(sniper["free_cash_usd"] + scyc["invested_usd"] + pnl, 2)
-                sniper["realized_pnl_usd"] = round(sniper["realized_pnl_usd"] + pnl, 2)
-                if pnl >= 0:
-                    sniper["cycles_won"] += 1
-                    sniper["short_cycles_won"] = sniper.get("short_cycles_won", 0) + 1
-                else:
-                    sniper["cycles_stopped"] += 1
-                    sniper["short_cycles_stopped"] = sniper.get("short_cycles_stopped", 0) + 1
-                sniper["trade_history"].append({
-                    "time_utc": short_oco_iso,
-                    "action": short_oco_action,
-                    "playbook": pb_name,
-                    "symbol": sym,
-                    "price": short_oco_price,
-                    "pnl_usd": pnl
-                })
-                cycle_actions.append(f"{short_oco_action}:{sym}:${pnl:+.2f}")
-                continue
+            # Strictly LIVE Real-Time Execution for 1x Short Positions (ZERO Past-Candle Replay)
+            scyc.pop("last_replayed_15m_ms", None)
 
             # Negative Funding Squeeze Guard: if 8h funding <= -0.03%, tighten short SL
             if fr_8h <= -0.03 and atr_now > 0:
