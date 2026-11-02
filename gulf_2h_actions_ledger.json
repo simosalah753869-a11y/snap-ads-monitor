@@ -38,8 +38,8 @@
       "bid_strategy": "TARGET_COST",
       "bid_micro": 4400000,
       "bumps_today": 0,
-      "last_spend_1d": 0.03,
-      "last_check_epoch": 1793611787
+      "last_spend_1d": 0.12,
+      "last_check_epoch": 1793614078
     },
     "bcdf9d20-d634-4f99-bfb9-8de8d12b22be": {
       "date": "2026-11-01",
@@ -99,8 +99,8 @@
       "bid_strategy": "TARGET_COST",
       "bid_micro": 4300000,
       "bumps_today": 0,
-      "last_spend_1d": 4.27,
-      "last_check_epoch": 1793611787
+      "last_spend_1d": 6.03,
+      "last_check_epoch": 1793614078
     },
     "335ab103-9212-4ae6-adbc-baee0e29eca2": {
       "date": "2026-11-02",
@@ -167,8 +167,8 @@
       "bid_strategy": "LOWEST_COST_WITH_MAX_BID",
       "bid_micro": 2850000,
       "bumps_today": 0,
-      "last_spend_1d": 0.25,
-      "last_check_epoch": 1793611787
+      "last_spend_1d": 1.14,
+      "last_check_epoch": 1793614078
     },
     "40f592a6-e275-4f67-bce3-85e06b1b93c4": {
       "date": "2026-11-01",
