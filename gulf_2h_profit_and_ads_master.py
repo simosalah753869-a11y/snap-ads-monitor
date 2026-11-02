@@ -1098,6 +1098,21 @@ def run_tiktok_gulf_campaigns(sim_cpa_lookup: dict | None = None) -> list[dict]:
         )
         # Pre-emptive Simulation Protection @ 68% of allowed Simulation ceiling when campaign has >=1 sale
         preemptive_68_prune = (conv_1d >= 1) and (spend_1d >= 0.68 * (conv_1d * sim_max_cpa))
+        is_stop_loss_only_tt = (os.environ.get("GITHUB_ACTIONS") == "true" or os.environ.get("STOP_LOSS_PAUSE_ONLY") == "1")
+        budget_note = ""
+        revived_tt_camp = False
+        if (
+            not is_stop_loss_only_tt
+            and opt_status != "0"
+            and not (bled_1d or bled_3d)
+            and conv_1d >= 1
+            and (spend_1d / conv_1d) <= sim_max_cpa
+            and (conv_3d == 0 or (spend_3d / conv_3d) <= sim_max_cpa)
+        ):
+            tm.pause_campaign(s, th, aid, cid, operation="enable")
+            opt_status = "0"
+            revived_tt_camp = True
+            budget_note = " | 🔄 Revived Under SimCap"
 
         # Micro-Video Pruning inside each Gulf TikTok Smart+ campaign (via fetch_expanded_materials -> 5 individual videos)
         camp_ads = [a for a in acc_ads_1d.get(aid, []) if str(a.get("campaign_id") or (a.get("row_data") or {}).get("campaign_id")) == cid]
@@ -1136,30 +1151,23 @@ def run_tiktok_gulf_campaigns(sim_cpa_lookup: dict | None = None) -> list[dict]:
                     or (preemptive_68_prune and a_cv1 == 0 and a_sp1 >= 0.60)
                 )
                 if bad_tt_vid:
-                    if aco_opt == "0" and prim_st not in ("disable", "delete"):
+                    if aco_opt == "0" and (prim_st not in ("disable", "delete") or revived_tt_camp):
                         tm.pause_smart_plus_video(s, th, aid, ad_id, mrd3, operation="disable")
                         pruned_tt_ads += 1
                 else:
-                    if aco_opt == "0" and prim_st not in ("disable", "delete"):
+                    if aco_opt == "0" and (prim_st not in ("disable", "delete") or revived_tt_camp):
                         active_tt_ads += 1
 
         all_ads_pruned = len(creative_ids) > 0 and active_tt_ads == 0
-        budget_note = ""
-        is_stop_loss_only_tt = (os.environ.get("GITHUB_ACTIONS") == "true" or os.environ.get("STOP_LOSS_PAUSE_ONLY") == "1")
 
         if bled_1d or bled_3d or all_ads_pruned:
             if opt_status == "0":
                 tm.pause_campaign(s, th, aid, cid, operation="disable")
             reason_tag = "All 5 Ads Hit Stop-Loss" if all_ads_pruned and not (bled_1d or bled_3d) else f"Simulation Stop-Loss <= ${sim_max_cpa}"
             status_lbl = f"🚨 PAUSED ({reason_tag}: 1D ${spend_1d:.2f}/{conv_1d}p | 3D ${spend_3d:.2f}/{conv_3d}p)"
-        elif opt_status != "0" and not (
-            not is_stop_loss_only_tt and conv_1d >= 1 and (spend_1d / conv_1d) <= sim_max_cpa and (conv_3d == 0 or (spend_3d / conv_3d) <= sim_max_cpa)
-        ):
+        elif opt_status != "0":
             status_lbl = f"⏸️ PAUSED (1D: ${spend_1d:.2f}/{conv_1d}p | 3D: ${spend_3d:.2f}/{conv_3d}p)"
         else:
-            if opt_status != "0" and not is_stop_loss_only_tt:
-                tm.pause_campaign(s, th, aid, cid, operation="enable")
-                budget_note = " | 🔄 Revived Under SimCap"
             # Daytime profitable scaling ( strictly before 18:00 KSA — disabled when STOP_LOSS_PAUSE_ONLY / GitHub Actions )
             if not is_stop_loss_only_tt and allow_budget_scale and conv_1d >= 1 and (spend_1d / conv_1d) <= (sim_max_cpa * 0.80) and spend_1d >= (cur_budget * 0.45):
                 last_sc = tt_scaled_map.get(cid, {})
