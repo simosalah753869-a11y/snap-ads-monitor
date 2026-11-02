@@ -9,6 +9,15 @@ from pathlib import Path
 
 _orig_getaddrinfo = socket.getaddrinfo
 _dns_cache = {}
+_STATIC_DNS_FALLBACK = {
+    "adsapi.snapchat.com": "34.110.187.193",
+    "accounts.snapchat.com": "34.149.46.130",
+    "ads.tiktok.com": "2.19.51.52",
+    "business-api.tiktok.com": "2.19.51.52",
+    "docs.google.com": "142.251.27.100",
+    "api.github.com": "140.82.121.5",
+    "github.com": "140.82.121.4",
+}
 def _doh_getaddrinfo(host, port, family=0, type=0, proto=0, flags=0):
     if host in _dns_cache:
         try:
@@ -24,30 +33,29 @@ def _doh_getaddrinfo(host, port, family=0, type=0, proto=0, flags=0):
             return res
     except Exception:
         pass
-    try:
-        return _orig_getaddrinfo(host, port, family, type, proto, flags)
-    except Exception:
-        if host not in _dns_cache:
-            for doh_url in (
-                f"https://8.8.8.8/resolve?name={host}&type=A",
-                f"https://1.1.1.1/dns-query?name={host}&type=A",
-            ):
-                try:
-                    req = urllib.request.Request(
-                        doh_url,
-                        headers={"accept": "application/dns-json"},
-                    )
-                    with urllib.request.urlopen(req, timeout=3) as resp:
-                        r = json.loads(resp.read().decode("utf-8"))
-                    ips = [a["data"] for a in r.get("Answer", []) if a.get("type") == 1]
-                    if ips:
-                        _dns_cache[host] = ips[0]
-                        break
-                except Exception:
-                    pass
-        if host in _dns_cache:
-            return _orig_getaddrinfo(_dns_cache[host], port, socket.AF_INET, type, proto, flags)
-        raise
+    if host not in _dns_cache:
+        for doh_url in (
+            f"https://1.1.1.1/dns-query?name={host}&type=A",
+            f"https://8.8.8.8/resolve?name={host}&type=A",
+        ):
+            try:
+                req = urllib.request.Request(
+                    doh_url,
+                    headers={"accept": "application/dns-json"},
+                )
+                with urllib.request.urlopen(req, timeout=2.5) as resp:
+                    r = json.loads(resp.read().decode("utf-8"))
+                ips = [a["data"] for a in r.get("Answer", []) if a.get("type") == 1]
+                if ips:
+                    _dns_cache[host] = ips[0]
+                    break
+            except Exception:
+                pass
+    if host not in _dns_cache and host in _STATIC_DNS_FALLBACK:
+        _dns_cache[host] = _STATIC_DNS_FALLBACK[host]
+    if host in _dns_cache:
+        return _orig_getaddrinfo(_dns_cache[host], port, socket.AF_INET, type, proto, flags)
+    return _orig_getaddrinfo(host, port, family, type, proto, flags)
 
 socket.getaddrinfo = _doh_getaddrinfo
 
@@ -130,15 +138,18 @@ def api_get(endpoint: str, token: str) -> dict:
     import time
     url = f"{API_BASE}{endpoint}" if endpoint.startswith("/") else endpoint
     sess = _get_snap_session()
-    for attempt in range(2):
+    for attempt in range(3):
         try:
-            r = sess.get(url, headers={"Authorization": f"Bearer {token}"}, timeout=20)
+            r = sess.get(url, headers={"Authorization": f"Bearer {token}"}, timeout=35)
             if r.status_code == 200:
                 return r.json()
+            if r.status_code == 429:
+                time.sleep(2.0 * (attempt + 1))
+                continue
         except Exception:
-            if attempt == 1:
+            if attempt == 2:
                 raise
-            time.sleep(1.0)
+            time.sleep(1.5 * (attempt + 1))
     return {}
 
 
