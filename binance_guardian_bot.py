@@ -1231,6 +1231,8 @@ class VirtualPortfolioEngine:
                 old_c_free = round(old_c_free - amt, 2)
                 old_c_count += 1
                 tp_pct_old = 0.0075 if sym == "PAXGUSDT" else 0.0125
+                tp_p_old = round(p_close * (1.0 + tp_pct_old), decs)
+                sl_p_old = round(p_close * 0.955, decs)
                 new_pos = {
                     "symbol": sym,
                     "playbook": "OLD_CLASSIC_PULLBACK",
@@ -1241,8 +1243,13 @@ class VirtualPortfolioEngine:
                     "avg_entry_price": p_close,
                     "invested_usd": amt,
                     "total_qty": qty,
-                    "tp_target_price": round(p_close * (1.0 + tp_pct_old), decs),
-                    "sl_price": round(p_close * 0.955, decs)
+                    "tp_target_price": tp_p_old,
+                    "sl_price": sl_p_old,
+                    "hours_held": 0.0,
+                    "current_price": p_close,
+                    "unrealized_pnl_usd": round(qty * p_close - amt, 2),
+                    "dist_to_sl_pct": round(((p_close - sl_p_old) / p_close) * 100.0, 2),
+                    "dist_to_tp_pct": round(((tp_p_old - p_close) / p_close) * 100.0, 2)
                 }
                 sniper["active_positions"].append(new_pos)
                 old_held_syms.add(sym)
@@ -1294,6 +1301,8 @@ class VirtualPortfolioEngine:
                         sniper["free_cash_usd"] = round(sniper["free_cash_usd"] - amt, 2)
                         new_c_free = round(new_c_free - amt, 2)
                         new_c_count += 1
+                        tp_p_new = round(p_close + tp_m * atr, decs)
+                        sl_p_new = round(p_close - sl_m * atr, decs)
                         new_pos = {
                             "symbol": sym,
                             "playbook": pb_chosen,
@@ -1304,8 +1313,13 @@ class VirtualPortfolioEngine:
                             "avg_entry_price": p_close,
                             "invested_usd": amt,
                             "total_qty": qty,
-                            "tp_target_price": round(p_close + tp_m * atr, decs),
-                            "sl_price": round(p_close - sl_m * atr, decs)
+                            "tp_target_price": tp_p_new,
+                            "sl_price": sl_p_new,
+                            "hours_held": 0.0,
+                            "current_price": p_close,
+                            "unrealized_pnl_usd": round(qty * p_close - amt, 2),
+                            "dist_to_sl_pct": round(((p_close - sl_p_new) / p_close) * 100.0, 2),
+                            "dist_to_tp_pct": round(((tp_p_new - p_close) / p_close) * 100.0, 2)
                         }
                         sniper["active_positions"].append(new_pos)
                         new_held_long_syms.add(sym)
@@ -1348,6 +1362,8 @@ class VirtualPortfolioEngine:
                         qty = round((amt * (1.0 - 0.0005)) / p_close, 2 if p_close < 0.001 else 6)
                         sniper["free_cash_usd"] = round(sniper["free_cash_usd"] - amt, 2)
                         new_c_free = round(new_c_free - amt, 2)
+                        tp_s_new = round(p_close - tp_m * atr, decs)
+                        sl_s_new = round(p_close + sl_m * atr, decs)
                         new_spos = {
                             "symbol": sym,
                             "playbook": short_pb,
@@ -1357,11 +1373,16 @@ class VirtualPortfolioEngine:
                             "entry_price": p_close,
                             "invested_usd": amt,
                             "total_qty": qty,
-                            "tp_target_price": round(p_close - tp_m * atr, decs),
-                            "sl_price": round(p_close + sl_m * atr, decs),
+                            "tp_target_price": tp_s_new,
+                            "sl_price": sl_s_new,
                             "breakeven_locked_price": None,
                             "accrued_funding_usd": 0.0,
-                            "funding_settlements_credited": 0
+                            "funding_settlements_credited": 0,
+                            "hours_held": 0.0,
+                            "current_price": p_close,
+                            "unrealized_pnl_usd": 0.0,
+                            "dist_to_sl_pct": round(((sl_s_new - p_close) / p_close) * 100.0, 2),
+                            "dist_to_tp_pct": round(((p_close - tp_s_new) / p_close) * 100.0, 2)
                         }
                         sniper["active_short_positions"].append(new_spos)
                         new_held_short_syms.add(sym)
@@ -1640,6 +1661,8 @@ class VirtualPortfolioEngine:
                     stocks["free_cash_usd"] = round(stocks["free_cash_usd"] - amt, 2)
                     old_s_free = round(old_s_free - amt, 2)
                     old_s_count += 1
+                    tp_st_old = round(ep + 3.5 * atr, 2)
+                    sl_st_old = round(ep - 2.2 * atr, 2)
                     new_st = {
                         "symbol": tk,
                         "playbook": "US_STOCK_PULLBACK",
@@ -1649,8 +1672,14 @@ class VirtualPortfolioEngine:
                         "avg_entry_price": ep,
                         "invested_usd": amt,
                         "total_qty": qty,
-                        "tp_target_price": round(ep + 3.5 * atr, 2),
-                        "sl_price": round(ep - 2.2 * atr, 2)
+                        "tp_target_price": tp_st_old,
+                        "sl_price": sl_st_old,
+                        "hours_held": 0.0,
+                        "active_market_hours_held": 0.0,
+                        "current_price": ep,
+                        "unrealized_pnl_usd": 0.0,
+                        "dist_to_sl_pct": round(((ep - sl_st_old) / ep) * 100.0, 2),
+                        "dist_to_tp_pct": round(((tp_st_old - ep) / ep) * 100.0, 2)
                     }
                     stocks["active_positions"].append(new_st)
                     old_held_tickers.add(tk)
@@ -1686,6 +1715,8 @@ class VirtualPortfolioEngine:
                     stocks["free_cash_usd"] = round(stocks["free_cash_usd"] - amt, 2)
                     new_s_free = round(new_s_free - amt, 2)
                     new_s_count += 1
+                    tp_st_new = round(ep + tp_m_st * atr, 2)
+                    sl_st_new = round(ep - sl_m_st * atr, 2)
                     new_st = {
                         "symbol": tk,
                         "playbook": "US_STOCK_PULLBACK",
@@ -1695,8 +1726,14 @@ class VirtualPortfolioEngine:
                         "avg_entry_price": ep,
                         "invested_usd": amt,
                         "total_qty": qty,
-                        "tp_target_price": round(ep + tp_m_st * atr, 2),
-                        "sl_price": round(ep - sl_m_st * atr, 2)
+                        "tp_target_price": tp_st_new,
+                        "sl_price": sl_st_new,
+                        "hours_held": 0.0,
+                        "active_market_hours_held": 0.0,
+                        "current_price": ep,
+                        "unrealized_pnl_usd": 0.0,
+                        "dist_to_sl_pct": round(((ep - sl_st_new) / ep) * 100.0, 2),
+                        "dist_to_tp_pct": round(((tp_st_new - ep) / ep) * 100.0, 2)
                     }
                     stocks["active_positions"].append(new_st)
                     new_held_tickers.add(tk)
