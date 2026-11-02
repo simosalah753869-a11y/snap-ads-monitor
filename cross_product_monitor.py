@@ -848,8 +848,13 @@ def run_taager_test_products_monitor(tt_session, tt_headers, history: dict, now_
         comb_sp_7d = round(b["tt_sp_7d"] + b["gads_sp_7d"], 2)
         comb_cv_7d = round(b["tt_cv_7d"] + b["gads_cv_7d"], 2)
 
-        tot_spend = max(comb_sp_7d, comb_sp_3d, comb_sp_1d)
-        tot_sales = max(comb_cv_7d, comb_cv_3d, comb_cv_1d)
+        if p_key == "washer_hp909":
+            # Washer HP-909 launched Today (1D Only evaluation per user directive)
+            tot_spend = comb_sp_1d
+            tot_sales = comb_cv_1d
+        else:
+            tot_spend = max(comb_sp_7d, comb_sp_3d, comb_sp_1d)
+            tot_sales = max(comb_cv_7d, comb_cv_3d, comb_cv_1d)
         tot_cpa = round(tot_spend / tot_sales, 2) if tot_sales > 0 else None
         cpa_1d = round(comb_sp_1d / comb_cv_1d, 2) if comb_cv_1d > 0 else None
 
