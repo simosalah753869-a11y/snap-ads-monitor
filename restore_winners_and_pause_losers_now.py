@@ -114,21 +114,25 @@ for acc_id, acc_name in ACCOUNTS:
     for c in camps:
         cid = c["id"]
         cname = c.get("name", "")
-        # ممنوع منعاً باتاً إعادة تشغيل أي حملة مطفأة PAUSED نهائياً
+        is_ded_test_camp = sm.is_dedicated_snap_test_campaign(cid, cname)
+        if is_ded_test_camp and c.get("status") != "ACTIVE":
+            c["status"] = "ACTIVE"
+            sm.api_put(f"/adaccounts/{acc_id}/campaigns", token, {"campaigns": [c]})
+            print(f"  ♻️ [RE-ENABLED DEDICATED TEST CAMPAIGN] '{cname}' ({cid})")
+        # ممنوع منعاً باتاً إعادة تشغيل أي حملة مطفأة PAUSED نهائياً (ما عدا حملات التيست التي لا توقف أبداً)
         if c.get("status") != "ACTIVE":
             continue
         if sm.is_gulf_034_campaign(cname) or cid in getattr(sm, "ALLOWED_GULF_CAMPAIGN_IDS", set()):
             continue
         created_ts = str(c.get("created_at") or "")
         is_recent_camp = bool(created_ts and created_ts >= "2026-10-23T18:00:00")
-        if (cid not in sm.ALLOWED_30X_CAMPAIGN_IDS and not is_recent_camp) or sm.is_cross_monitored_product_campaign(cname) or cid == "66f9bf48-6e76-4601-911f-a4d9c9a71810":
+        if not is_ded_test_camp and ((cid not in sm.ALLOWED_30X_CAMPAIGN_IDS and not is_recent_camp) or sm.is_cross_monitored_product_campaign(cname) or cid == "66f9bf48-6e76-4601-911f-a4d9c9a71810"):
             c["status"] = "PAUSED"
             sm.api_put(f"/adaccounts/{acc_id}/campaigns", token, {"campaigns": [c]})
             print(f"  🛑 [PAUSED NON-ALLOWED CAMPAIGN] '{cname}' ({cid})")
             continue
 
         scfg = SCALING_CAMPAIGNS.get(cid)
-        is_ded_test_camp = sm.is_dedicated_snap_test_campaign(cid, cname)
         squads = sm.api_get_paginated(f"/campaigns/{cid}/adsquads?limit=1000", token, "adsquads", "adsquad", max_pages=4)
         act_sq_ids = [s_x["id"] for s_x in squads if s_x and s_x.get("status") == "ACTIVE"]
 
@@ -197,7 +201,10 @@ for acc_id, acc_name in ACCOUNTS:
             st7 = stats_7d.get(sq_id, empty_st)
 
             if sq.get("status") == "PAUSED":
-                if is_ded_test_camp:
+                if is_ded_test_camp or sm.is_dedicated_snap_test_campaign(cid, cname, sq_name):
+                    sq["status"] = "ACTIVE"
+                    to_update_squads.append(sq)
+                    print(f"  ♻️ [RE-ENABLED DEDICATED TEST ADSQUAD] {sq_name} ({sq_id}) in '{cname}'")
                     continue
                 # في حملات الـ 30 أدست والـ 10 أدست الموازية النشطة: إعادة تفعيل أي أدست رابحة (CPA < $7.00 في 1D أو 3D وصرف اليوم < $4.00) أُطفئت بالخطأ
                 max_cap_for_restore = 10 if cid in getattr(sm, "TEN_SQUAD_CAMPAIGN_IDS", set()) else (4 if cid in sm.FOUR_SQUAD_CAMPAIGN_IDS else 30)
