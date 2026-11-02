@@ -37,7 +37,10 @@ jobs:
 
       - name: Run Snapchat Automation Rules
         continue-on-error: true
-        run: python snap_monitor.py
+        run: |
+          python restore_winners_and_pause_losers_now.py
+          python snap_monitor.py
+          python restore_winners_and_pause_losers_now.py
 
       - name: Run TikTok Smart+ Automation Rules (All 6 Accounts)
         continue-on-error: true
@@ -50,6 +53,12 @@ jobs:
         env:
           TIKTOK_COOKIES_JSON: ${{ vars.TIKTOK_COOKIES_JSON || secrets.TIKTOK_COOKIES_JSON }}
         run: python cross_product_monitor.py
+
+      - name: Run Gulf (KW / QA / OM) Simulation Profit & Ads Master
+        continue-on-error: true
+        env:
+          TIKTOK_COOKIES_JSON: ${{ vars.TIKTOK_COOKIES_JSON || secrets.TIKTOK_COOKIES_JSON }}
+        run: python gulf_2h_profit_and_ads_master.py
 
       - name: Save paused_history.json (لتذكر ما تم إيقافه وعدم إيقاف ما تعيد تشغيله)
         continue-on-error: true
