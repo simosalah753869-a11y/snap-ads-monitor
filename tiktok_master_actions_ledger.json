@@ -1,11 +1,6 @@
 {
   "cycles": [
     {
-      "timestamp": "2026-11-01 12:00",
-      "actions_count": 3,
-      "followups_count": 21
-    },
-    {
       "timestamp": "2026-11-01 12:26",
       "actions_count": 0,
       "followups_count": 16
@@ -358,6 +353,11 @@
     {
       "timestamp": "2026-11-02 22:00",
       "actions_count": 0,
+      "followups_count": 9
+    },
+    {
+      "timestamp": "2026-11-02 23:00",
+      "actions_count": 4,
       "followups_count": 9
     }
   ],
@@ -3114,30 +3114,30 @@
   },
   "latest_winning_structure_analysis": {
     "Website Leads [obj=8] + Auto Placement [3000,9000,1000] + 3–5 فيديوهات رابحة": {
-      "sp1": 25.45,
+      "sp1": 27.2,
       "cv1": 2,
-      "sp3": 184.32,
+      "sp3": 186.07,
       "cv3": 23,
-      "sp7": 184.32,
+      "sp7": 186.07,
       "cv7": 23,
       "decision": "✅ التركيبة رقم #1 اليوم لإنقاذ الـ CPC (< $0.22) وتوليد مبيعات فورية (SuperCombo / CPC-Rescued)"
     },
     "Website Leads [obj=8] + TikTok In-Feed Only [3000] + فيديوهات عابرة للمنصات": {
-      "sp1": 19.1,
+      "sp1": 22.28,
       "cv1": 0,
-      "sp3": 534.65,
+      "sp3": 538.0,
       "cv3": 90,
-      "sp7": 686.88,
+      "sp7": 690.23,
       "cv7": 116,
       "decision": "✅ التركيبة رقم #1 في حجم المبيعات لـ Cross-Platform Winners (مثل H7 صاحبة 43 بيعة بـ $5.25)"
     },
     "Smart+ Website Conversions + 3–4 فيديوهات رابحة معاد تدويرها (30d Batch)": {
-      "sp1": 382.58,
-      "cv1": 31,
-      "sp3": 835.71,
-      "cv3": 89,
-      "sp7": 922.13,
-      "cv7": 100,
+      "sp1": 406.68,
+      "cv1": 36,
+      "sp3": 859.51,
+      "cv3": 94,
+      "sp7": 945.93,
+      "cv7": 105,
       "decision": "✅ ناجحة عند حصر الحملة في 3–4 فيديوهات مجربة وتصفية الفيديوهات الخاسرة عند $1.00 و CPC > $0.25"
     },
     "حملات التوسيع المكررة (SCALE / Copy) أو تجميع > 6 فيديوهات خام": {
