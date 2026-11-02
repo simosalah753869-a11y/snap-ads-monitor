@@ -1,11 +1,6 @@
 {
   "cycles": [
     {
-      "timestamp": "2026-11-01 04:00",
-      "actions_count": 0,
-      "followups_count": 19
-    },
-    {
       "timestamp": "2026-11-01 04:26",
       "actions_count": 0,
       "followups_count": 19
@@ -358,6 +353,11 @@
     {
       "timestamp": "2026-11-02 17:09",
       "actions_count": 1,
+      "followups_count": 12
+    },
+    {
+      "timestamp": "2026-11-02 18:00",
+      "actions_count": 0,
       "followups_count": 12
     }
   ],
@@ -2064,7 +2064,7 @@
       "videos": [],
       "base_sp3": 7.0,
       "base_cv3": 2,
-      "status": "OPEN"
+      "status": "SUCCEEDED"
     },
     {
       "timestamp": "2026-11-02 13:41",
@@ -2162,7 +2162,7 @@
       "videos": [],
       "base_sp3": 16.21,
       "base_cv3": 5,
-      "status": "OPEN"
+      "status": "SUCCEEDED"
     },
     {
       "ts": 1793623620.7467532,
@@ -3038,30 +3038,30 @@
   },
   "latest_winning_structure_analysis": {
     "Website Leads [obj=8] + Auto Placement [3000,9000,1000] + 3–5 فيديوهات رابحة": {
-      "sp1": 18.46,
+      "sp1": 20.0,
       "cv1": 2,
-      "sp3": 177.3,
+      "sp3": 178.84,
       "cv3": 23,
-      "sp7": 177.3,
+      "sp7": 178.84,
       "cv7": 23,
       "decision": "✅ التركيبة رقم #1 اليوم لإنقاذ الـ CPC (< $0.22) وتوليد مبيعات فورية (SuperCombo / CPC-Rescued)"
     },
     "Website Leads [obj=8] + TikTok In-Feed Only [3000] + فيديوهات عابرة للمنصات": {
-      "sp1": 10.42,
+      "sp1": 10.43,
       "cv1": 0,
-      "sp3": 525.96,
+      "sp3": 525.97,
       "cv3": 90,
-      "sp7": 678.19,
+      "sp7": 678.2,
       "cv7": 116,
       "decision": "✅ التركيبة رقم #1 في حجم المبيعات لـ Cross-Platform Winners (مثل H7 صاحبة 43 بيعة بـ $5.25)"
     },
     "Smart+ Website Conversions + 3–4 فيديوهات رابحة معاد تدويرها (30d Batch)": {
-      "sp1": 266.46,
-      "cv1": 29,
-      "sp3": 718.91,
-      "cv3": 87,
-      "sp7": 805.33,
-      "cv7": 98,
+      "sp1": 277.99,
+      "cv1": 31,
+      "sp3": 730.32,
+      "cv3": 89,
+      "sp7": 816.74,
+      "cv7": 100,
       "decision": "✅ ناجحة عند حصر الحملة في 3–4 فيديوهات مجربة وتصفية الفيديوهات الخاسرة عند $1.00 و CPC > $0.25"
     },
     "حملات التوسيع المكررة (SCALE / Copy) أو تجميع > 6 فيديوهات خام": {
