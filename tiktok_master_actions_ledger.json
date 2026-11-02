@@ -1,11 +1,6 @@
 {
   "cycles": [
     {
-      "timestamp": "2026-11-01 13:00",
-      "actions_count": 3,
-      "followups_count": 15
-    },
-    {
       "timestamp": "2026-11-01 13:27",
       "actions_count": 3,
       "followups_count": 13
@@ -358,6 +353,11 @@
     {
       "timestamp": "2026-11-03 00:00",
       "actions_count": 0,
+      "followups_count": 9
+    },
+    {
+      "timestamp": "2026-11-03 01:00",
+      "actions_count": 2,
       "followups_count": 9
     }
   ],
@@ -834,7 +834,8 @@
       ],
       "base_sp3": 0.0,
       "base_cv3": 0,
-      "status": "OPEN"
+      "status": "FAILED_AND_CUT",
+      "closed_at": "2026-11-03T01:00:01.937390+03:00"
     },
     {
       "timestamp": "2026-10-31 05:15",
@@ -880,7 +881,8 @@
       "videos": [],
       "base_sp3": 12.03,
       "base_cv3": 4,
-      "status": "OPEN"
+      "status": "FAILED_AND_CUT",
+      "closed_at": "2026-11-03T01:00:01.937390+03:00"
     },
     {
       "timestamp": "2026-10-31 10:03",
@@ -1019,7 +1021,8 @@
       "videos": [],
       "base_sp3": 0.6,
       "base_cv3": 1,
-      "status": "OPEN"
+      "status": "FAILED_AND_CUT",
+      "closed_at": "2026-11-03T01:00:01.937390+03:00"
     },
     {
       "timestamp": "2026-10-31 13:23",
@@ -2298,6 +2301,46 @@
       "campaign_name": "power bank test 03-11 B (4 Ads)",
       "action": "launch_8_pb_winners_03_11",
       "details": "Launched Tomorrow 03-11 Test Campaign | Target Cost $6.20 | Budget $50 | 4 Ads"
+    },
+    {
+      "timestamp": "2026-11-03 01:00",
+      "experiment_key": "DYN_8369_PB_LEADS_AUTO_03-11_d_14_d_25_d_27",
+      "is_experiment": true,
+      "aadvid": "7631763556322148369",
+      "acc_name": "ROELLINGER RECYCLING",
+      "campaign_id": "1880786441130209",
+      "campaign_name": "[EXP-LEADS] power bank 5 CPC-Rescued Leads AutoPlacement 03-11",
+      "action_type": "إنقاذ تلقائي للفيديوهات البيّاعة الموقوفة بسبب الـ CPC > $0.35 عبر Website Leads + Auto Placement (5 فيديوهات)",
+      "videos": [
+        "26-10_Voltrx_Seedance_Ad_14.mp4",
+        "31-10_PB_30d_Recycled_Ad_25.mp4",
+        "31-10_PB_30d_Recycled_Ad_27.mp4",
+        "30-10_PB_FlowHook_Ad_03.mp4",
+        "30-10_PB_FlowHook_Ad_04.mp4"
+      ],
+      "base_sp3": 0.0,
+      "base_cv3": 0,
+      "status": "OPEN"
+    },
+    {
+      "timestamp": "2026-11-03 01:00",
+      "experiment_key": "DYN_8369_PB_CONV_AUTO_03-11_d_14_d_25_d_27",
+      "is_experiment": true,
+      "aadvid": "7631763556322148369",
+      "acc_name": "ROELLINGER RECYCLING",
+      "campaign_id": "1880786469021073",
+      "campaign_name": "[EXP-LEADS] power bank 5 CPC-Rescued Conv AutoPlacement 03-11",
+      "action_type": "إنقاذ تلقائي للفيديوهات البيّاعة الموقوفة بسبب الـ CPC > $0.35 عبر Website Conversions + Auto Placement (5 فيديوهات)",
+      "videos": [
+        "26-10_Voltrx_Seedance_Ad_14.mp4",
+        "31-10_PB_30d_Recycled_Ad_25.mp4",
+        "31-10_PB_30d_Recycled_Ad_27.mp4",
+        "30-10_PB_FlowHook_Ad_03.mp4",
+        "30-10_PB_FlowHook_Ad_04.mp4"
+      ],
+      "base_sp3": 0.0,
+      "base_cv3": 0,
+      "status": "OPEN"
     }
   ],
   "failed_experiments": [
@@ -2345,7 +2388,10 @@
     "SCALE_1880427722388082_2026-10-30_CV4",
     "SCALE_1880427764550018_2026-10-30_CV2",
     "REVIVE_1880515052502194_2026-11-02",
-    "SCALE_1880696438045873_2026-11-02_CV7_B81"
+    "SCALE_1880696438045873_2026-11-02_CV7_B81",
+    "CROSS_PLATFORM_CAR_4_NEW_ROEL2",
+    "SCALE_1880515052502194_2026-10-31_CV4",
+    "SCALE_1880515858857985_2026-10-31_CV1"
   ],
   "scaled_campaigns": {
     "2026-10-30:7631763556322148369:1880427722388082": {
@@ -3148,39 +3194,39 @@
   },
   "latest_winning_structure_analysis": {
     "Website Leads [obj=8] + Auto Placement [3000,9000,1000] + 3–5 فيديوهات رابحة": {
-      "sp1": 29.78,
-      "cv1": 2,
-      "sp3": 188.59,
-      "cv3": 23,
-      "sp7": 188.63,
+      "sp1": 0.0,
+      "cv1": 0,
+      "sp3": 135.43,
+      "cv3": 14,
+      "sp7": 174.25,
       "cv7": 23,
       "decision": "✅ التركيبة رقم #1 اليوم لإنقاذ الـ CPC (< $0.22) وتوليد مبيعات فورية (SuperCombo / CPC-Rescued)"
     },
     "Website Leads [obj=8] + TikTok In-Feed Only [3000] + فيديوهات عابرة للمنصات": {
-      "sp1": 24.58,
+      "sp1": 0.0,
       "cv1": 0,
-      "sp3": 540.12,
-      "cv3": 90,
-      "sp7": 692.36,
-      "cv7": 116,
+      "sp3": 227.62,
+      "cv3": 44,
+      "sp7": 417.02,
+      "cv7": 76,
       "decision": "✅ التركيبة رقم #1 في حجم المبيعات لـ Cross-Platform Winners (مثل H7 صاحبة 43 بيعة بـ $5.25)"
     },
     "Smart+ Website Conversions + 3–4 فيديوهات رابحة معاد تدويرها (30d Batch)": {
-      "sp1": 424.07,
-      "cv1": 38,
-      "sp3": 876.4,
-      "cv3": 96,
-      "sp7": 963.07,
-      "cv7": 107,
+      "sp1": 0.0,
+      "cv1": 0,
+      "sp3": 695.2,
+      "cv3": 74,
+      "sp7": 766.1,
+      "cv7": 91,
       "decision": "✅ ناجحة عند حصر الحملة في 3–4 فيديوهات مجربة وتصفية الفيديوهات الخاسرة عند $1.00 و CPC > $0.25"
     },
     "حملات التوسيع المكررة (SCALE / Copy) أو تجميع > 6 فيديوهات خام": {
       "sp1": 0.0,
       "cv1": 0,
-      "sp3": 11.08,
-      "cv3": 2,
-      "sp7": 11.08,
-      "cv7": 2,
+      "sp3": 0.0,
+      "cv3": 0,
+      "sp7": 0.0,
+      "cv7": 0,
       "decision": "🚫 سبب الفترات الخاسرة (يرفع CPC فوق $0.35 ويسحب المزاد من الحملة الأم — ممنوع نهائياً)"
     }
   }
