@@ -356,8 +356,8 @@
       "followups_count": 9
     },
     {
-      "timestamp": "2026-11-03 02:00",
-      "actions_count": 1,
+      "timestamp": "2026-11-03 02:02",
+      "actions_count": 0,
       "followups_count": 7
     }
   ],
@@ -2321,26 +2321,6 @@
       "base_sp3": 0.0,
       "base_cv3": 0,
       "status": "OPEN"
-    },
-    {
-      "timestamp": "2026-11-03 02:00",
-      "experiment_key": "DYN_9959_PB_LEADS_AUTO_03-11_d_02_d_05_fast",
-      "is_experiment": true,
-      "aadvid": "7631765070816509959",
-      "acc_name": "ROELLINGER RECYCLING2",
-      "campaign_id": "1880789654325314",
-      "campaign_name": "[EXP-LEADS] power bank 5 CPC-Rescued Leads AutoPlacement 03-11",
-      "action_type": "إنقاذ تلقائي للفيديوهات البيّاعة الموقوفة بسبب الـ CPC > $0.35 عبر Website Leads + Auto Placement (5 فيديوهات)",
-      "videos": [
-        "26-10_Voltrx_Full_Hook_Ad_01_v3fast.mp4",
-        "31-10_PB_Recycled_Ad_02.mp4",
-        "31-10_PB_Recycled_Ad_05.mp4",
-        "30-10_PB_New5_Ad_02.mp4",
-        "02-11_MZ_pbmz_03_95s.mp4"
-      ],
-      "base_sp3": 0.0,
-      "base_cv3": 0,
-      "status": "OPEN"
     }
   ],
   "failed_experiments": [
@@ -3162,7 +3142,7 @@
     "Website Leads [obj=8] + Auto Placement [3000,9000,1000] + 3–5 فيديوهات رابحة": {
       "sp1": 0.0,
       "cv1": 0,
-      "sp3": 136.17,
+      "sp3": 136.18,
       "cv3": 14,
       "sp7": 175.0,
       "cv7": 23,
@@ -3178,11 +3158,11 @@
       "decision": "✅ التركيبة رقم #1 في حجم المبيعات لـ Cross-Platform Winners (مثل H7 صاحبة 43 بيعة بـ $5.25)"
     },
     "Smart+ Website Conversions + 3–4 فيديوهات رابحة معاد تدويرها (30d Batch)": {
-      "sp1": 0.0,
+      "sp1": 0.67,
       "cv1": 0,
-      "sp3": 698.53,
+      "sp3": 699.3,
       "cv3": 74,
-      "sp7": 769.43,
+      "sp7": 769.57,
       "cv7": 91,
       "decision": "✅ ناجحة عند حصر الحملة في 3–4 فيديوهات مجربة وتصفية الفيديوهات الخاسرة عند $1.00 و CPC > $0.25"
     },
