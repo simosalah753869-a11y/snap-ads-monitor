@@ -969,8 +969,26 @@ def set_google_ad_status_carefully(ws, camp_name: str, ad_name: str, desired_sta
                     time.sleep(0.75)
                     minfo = eval_js(ws, js_menu) or {}
                 if minfo.get("found"):
-                    cdp_click(ws, minfo["x"], minfo["y"])
-                    time.sleep(1.5)
+                    time.sleep(1.2)
+                    cur_after = eval_js(
+                        ws,
+                        f"""(() => {{
+                            const rows = Array.from(document.querySelectorAll('.particle-table-row, ess-table-row'));
+                            for (const r of rows) {{
+                                const c = ((r.querySelector('[essfield="campaign_name"]') || {{}}).innerText || '').trim();
+                                const ag = ((r.querySelector('[essfield="ad_group_name"], [essfield="ad_group"]') || {{}}).innerText || '').trim();
+                                const n = ((r.querySelector('.ad-name') || {{}}).innerText || '').trim();
+                                if (c === {json.dumps(camp_name)} && n === {json.dumps(ad_name)} && (!{json.dumps(ag_name or "")} || ag === {json.dumps(ag_name or "")})) {{
+                                    const img = r.querySelector('[essfield="status"] [role="img"]');
+                                    return img ? (img.getAttribute('aria-label') || '') : '';
+                                }}
+                            }}
+                            return '';
+                        }})()""",
+                    ) or ""
+                    if cur_after != expected_label and minfo.get("x") and minfo.get("y"):
+                        cdp_click(ws, minfo["x"], minfo["y"])
+                        time.sleep(1.2)
                     keep_adspower_offscreen(port)
                     return f"{desired_status.upper()}_SUCCESS (was {info.get('cur')})"
                 return "MENU_NOT_FOUND"
@@ -1063,8 +1081,25 @@ def set_google_campaign_status_carefully(ws, camp_name: str, desired_status: str
                 time.sleep(0.55)
                 minfo = eval_js(ws, js_menu) or {}
             if minfo.get("found"):
-                cdp_click(ws, minfo["x"], minfo["y"])
-                time.sleep(1.5)
+                time.sleep(1.2)
+                cur_after_c = eval_js(
+                    ws,
+                    f"""(() => {{
+                        const rows = Array.from(document.querySelectorAll('.particle-table-row, ess-table-row, [role="row"]'));
+                        for (const r of rows) {{
+                            const cnEl = r.querySelector('[essfield="campaign_name"] a, [essfield="campaign_name"], [essfield="name"] a, [essfield="name"]');
+                            let c = (cnEl ? cnEl.innerText : '').trim().split('\\n')[0].replace(/\\s*settings$/, '').trim();
+                            if (c === {json.dumps(camp_name)}) {{
+                                const img = r.querySelector('[essfield="status"] [role="img"]');
+                                return img ? (img.getAttribute('aria-label') || '') : '';
+                            }}
+                        }}
+                        return '';
+                    }})()""",
+                ) or ""
+                if cur_after_c != expected_label and minfo.get("x") and minfo.get("y"):
+                    cdp_click(ws, minfo["x"], minfo["y"])
+                    time.sleep(1.2)
                 keep_adspower_offscreen(port)
                 return f"{desired_status.upper()}_SUCCESS (was {info.get('cur')})"
             return "MENU_NOT_FOUND"
