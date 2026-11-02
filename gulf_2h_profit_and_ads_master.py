@@ -685,22 +685,28 @@ def run_snap_gulf_campaigns(sim_cpa_lookup: dict | None = None) -> list[dict]:
         run_list = [dict(x) for x in item["squads_to_run"]]
         allowed_sq_ids = {s_cfg["id"] for s_cfg in run_list}
 
-        # Check if allowed converting squads inside this campaign are strongly profitable (combined CPA <= 75% of SimCap)
+        # Check if allowed converting squads inside this campaign are profitable within Simulation Cap
         conv_allowed_sp = 0.0
         conv_allowed_pu = 0
         for s_cfg in run_list:
             st_s = st_sq_1d.get(s_cfg["id"], empty_st)
-            if int(st_s.get("purchases", 0)) >= 1 and (st_s.get("cpa") or 999) <= sim_max_cpa * 0.80:
+            st_s3 = st_sq_3d.get(s_cfg["id"], empty_st)
+            s_pu1 = int(st_s.get("purchases", 0))
+            s_cpa1 = st_s.get("cpa")
+            s_pu3 = int(st_s3.get("purchases", 0))
+            s_cpa3 = st_s3.get("cpa")
+            if s_pu1 >= 1 and (s_cpa1 or 999) <= sim_max_cpa and (s_pu3 == 0 or (s_cpa3 or 999) <= sim_max_cpa):
                 conv_allowed_sp += float(st_s.get("spend", 0.0))
-                conv_allowed_pu += int(st_s.get("purchases", 0))
+                conv_allowed_pu += s_pu1
         has_profitable_winner_squads = (
             conv_allowed_pu >= 1
-            and (conv_allowed_sp / conv_allowed_pu) <= sim_max_cpa * 0.75
-            and (c1_cpa or 999) <= sim_max_cpa * 1.22  # Still strictly below 1-unit Break-Even ($14.00 < $14.19 in KW)
+            and (conv_allowed_sp / conv_allowed_pu) <= sim_max_cpa
+            and (c1_cpa or 999) <= sim_max_cpa * 1.20  # Strictly below 1-unit Break-Even ($13.71 in KW) when sibling squad paused
+            and (c3_pu == 0 or (c3_cpa or 999) <= sim_max_cpa)
         )
 
         # 1) STRICT CAMPAIGN-LEVEL SIMULATION STOP-LOSS GATE (1D & 3D):
-        # If Campaign total spend or CPA exceeds the Simulation Safe CPA (and no isolated super-profitable winner squad within BE headroom), PAUSE Campaign!
+        # If Campaign total spend or CPA exceeds the Simulation Safe CPA (and no isolated profitable winner squad within BE headroom), PAUSE Campaign!
         c3_zero_stop = min(20.00, round(sim_max_cpa * 1.85, 2)) if c1_sp < 0.25 else min(20.00, round(sim_max_cpa + max(2.50, sq_no_sale_stop), 2))
         camp_bled_1d = (c1_pu == 0 and c1_sp >= sim_max_cpa) or (
             c1_pu > 0 and c1_cpa is not None and c1_cpa > sim_max_cpa and not has_profitable_winner_squads
@@ -738,15 +744,14 @@ def run_snap_gulf_campaigns(sim_cpa_lookup: dict | None = None) -> list[dict]:
             continue
 
         # Pre-Emptive Campaign Simulation Protection:
-        # If Campaign total spend is already >= 68% of allowed Simulation Budget ((max(1, c1_pu) * sim_max_cpa)),
+        # If Campaign 1D total spend is already >= 68% of allowed Simulation Budget ((max(1, c1_pu) * sim_max_cpa)),
         # isolate ONLY the converting squad (or single lowest-spend squad) and pause all zero-sale spending squads immediately!
         sim_total_budget_1d = max(1, c1_pu) * sim_max_cpa
-        near_sim_ceiling = (c1_sp >= 0.68 * sim_total_budget_1d) or (
-            c1_pu == 0 and c3_pu == 0 and c3_sp >= 0.68 * sim_max_cpa
-        )
+        near_sim_ceiling = c1_sp >= 0.68 * sim_total_budget_1d
 
         to_update = []
         active_tags = []
+        is_stop_loss_only_snap = (os.environ.get("GITHUB_ACTIONS") == "true" or os.environ.get("STOP_LOSS_PAUSE_ONLY") == "1")
 
         idx = 0
         while idx < len(run_list):
@@ -804,21 +809,20 @@ def run_snap_gulf_campaigns(sim_cpa_lookup: dict | None = None) -> list[dict]:
                     actions_log.append(
                         f"[{today_str} {riyadh_now.strftime('%H:%M')}] Paused Squad {sid[:8]} in {item['campaign_name']} (1D: ${s1_sp:.2f}/{s1_pu}p CPC={s1_cpc} | 3D: ${s3_sp:.2f}/{s3_pu}p | SimCap=${sim_max_cpa})"
                     )
-                stop_reason_str = (
-                    f"High CPC ${s1_cpc or s3_cpc:.2f} > ${sq_max_cpc}"
-                    if (high_cpc_1d or high_cpc_3d)
-                    else (
-                        f"Pre-Emptive Sim Protection (Camp ${c1_sp:.2f}/${sim_total_budget_1d:.2f})"
-                        if preemptive_zero_sale_cut
-                        else f"Stop-Loss <= ${eff_sq_no_sale_stop}"
-                    )
-                )
+                if high_cpc_1d or high_cpc_3d:
+                    stop_reason_str = f"High CPC ${(s1_cpc or s3_cpc or 0.0):.2f} > ${sq_max_cpc}"
+                elif preemptive_zero_sale_cut:
+                    stop_reason_str = f"Pre-Emptive Sim Protection (Camp ${c1_sp:.2f}/${sim_total_budget_1d:.2f})"
+                elif bled_3d and not bled_1d:
+                    stop_reason_str = f"3D Stop-Loss <= ${s3_zero_stop}"
+                else:
+                    stop_reason_str = f"Stop-Loss <= ${eff_sq_no_sale_stop}"
                 active_tags.append(
                     f"🚨 PAUSED ({stop_reason_str}: 1D ${s1_sp:.2f}/{s1_pu}p | 3D ${s3_sp:.2f}/{s3_pu}p)"
                 )
                 continue
 
-            # أمر المستخدم الصارم (2026-11-02): تجميد كامل للبيد (لا يطلع ولا ينزل تلقائياً) وإيقاف المتجاوزين فقط بدون إعادة تشغيل الموقوف!
+            # أمر المستخدم الصارم (2026-11-02): تجميد كامل للبيد (لا يطلع ولا ينزل تلقائياً) وتوحيد البدجت $20.00!
             target_strategy = s_obj.get("bid_strategy") or s_cfg["bid_strategy"]
             target_bid_micro = int(s_obj.get("bid_micro") or s_cfg["bid_micro"])
             bumps_today = 0
@@ -832,31 +836,37 @@ def run_snap_gulf_campaigns(sim_cpa_lookup: dict | None = None) -> list[dict]:
                 "last_check_epoch": now_epoch,
             }
 
+            # Delayed-Attribution Revival for Planned Profitable Winner Squads (1D Purchases >= 1 & CPA <= SimCap)
+            revived_winner = False
+            if (
+                not is_stop_loss_only_snap
+                and s_obj.get("status") != "ACTIVE"
+                and s1_pu >= 1
+                and (s1_cpa or 999) <= sim_max_cpa
+                and (s3_pu == 0 or (s3_cpa or 999) <= sim_max_cpa)
+            ):
+                s_obj["status"] = "ACTIVE"
+                revived_winner = True
+                if c_obj.get("status") != "ACTIVE":
+                    c_obj["status"] = "ACTIVE"
+                    sm.api_put(f"/adaccounts/{acc_id}/campaigns", tok, {"campaigns": [c_obj]})
+                actions_log.append(
+                    f"[{today_str} {riyadh_now.strftime('%H:%M')}] 🔄 REVIVED Profitable Gulf Winner Squad {sid[:8]} in {item['campaign_name']} (1D: ${s1_sp:.2f}/{s1_pu}p CPA=${s1_cpa} <= SimCap ${sim_max_cpa})"
+                )
+
             if s_obj.get("status") != "ACTIVE":
                 active_tags.append(f"⏸️ PAUSED ({s_cfg['exp_tag']} | 1D: ${s1_sp:.2f}/{s1_pu}p)")
                 continue
 
-            is_stop_loss_only = (os.environ.get("GITHUB_ACTIONS") == "true" or os.environ.get("STOP_LOSS_PAUSE_ONLY") == "1")
+            # 2026-11-02 Mandatory Rule 44: Unified $20.00 daily budget across all Snapchat AdSquads
             cur_daily_micro = int(s_obj.get("daily_budget_micro") or s_cfg["daily_micro"])
-            custom_dt_b_micro = sm.get_custom_daytime_budget_micro(sid, today_str) if not (riyadh_hour >= 22 or riyadh_hour < 6) else None
-            if is_stop_loss_only:
-                target_daily_micro = cur_daily_micro
-            elif riyadh_hour >= 22 or riyadh_hour < 6:
-                target_daily_micro = s_cfg["daily_micro"]
-            elif custom_dt_b_micro is not None:
-                target_daily_micro = max(cur_daily_micro, custom_dt_b_micro) if riyadh_hour < 18 else min(cur_daily_micro, custom_dt_b_micro)
-            elif is_daytime and s1_pu >= 1 and (s1_cpa or 99) <= sim_max_cpa * 0.70:
-                target_daily_micro = 30_000_000
-            else:
-                target_daily_micro = min(cur_daily_micro, 30_000_000) if s1_pu >= 1 else s_cfg["daily_micro"]
-                if riyadh_hour >= 18 and target_daily_micro > cur_daily_micro:
-                    target_daily_micro = cur_daily_micro
+            target_daily_micro = cur_daily_micro if is_stop_loss_only_snap else 20_000_000
 
-            changed = False
-            if not is_stop_loss_only and int(s_obj.get("daily_budget_micro") or 0) != target_daily_micro:
+            changed = revived_winner
+            if not is_stop_loss_only_snap and int(s_obj.get("daily_budget_micro") or 0) != target_daily_micro:
                 s_obj["daily_budget_micro"] = target_daily_micro
                 changed = True
-            if changed:
+            if changed and s_obj not in to_update:
                 to_update.append(s_obj)
 
             # تدقيق العين البشرية على مستوى كل إعلان داخل الأدست الخليجية (Micro-Ad Level Pruning in 1D & 3D):
@@ -911,16 +921,14 @@ def run_snap_gulf_campaigns(sim_cpa_lookup: dict | None = None) -> list[dict]:
                     f"✅ {s_cfg['exp_tag']} @ ${target_bid_micro/1e6:.2f} {strat_lbl}{bump_lbl} ({len(act_ads)} ads active, {pruned_ad_cnt} pruned | 1D: ${s1_sp:.2f}/{s1_pu}p | SimCap=${sim_max_cpa})"
                 )
 
-        # Evaluate or pause any extra squads not in allowed_sq_ids (100% Bid Freeze)
-        is_stop_loss_only_snap = (os.environ.get("GITHUB_ACTIONS") == "true" or os.environ.get("STOP_LOSS_PAUSE_ONLY") == "1")
-        is_night_snap = (riyadh_hour >= 22 or riyadh_hour < 6) and not is_stop_loss_only_snap
+        # Evaluate or pause any extra squads not in allowed_sq_ids (100% Bid Freeze + $20 Budget Rule)
         for s_id, s_obj in sq_map.items():
             if s_id not in allowed_sq_ids:
                 sq_mut = False
                 if s_obj.get("status") == "ACTIVE":
                     if is_stop_loss_only_snap:
-                        st1_ex = sq_1d.get(s_id, {"spend": 0.0, "purchases": 0, "cpa": None, "swipes": 0, "cpc": 0.0})
-                        st3_ex = sq_3d.get(s_id, {"spend": 0.0, "purchases": 0, "cpa": None, "swipes": 0, "cpc": 0.0})
+                        st1_ex = st_sq_1d.get(s_id, {"spend": 0.0, "purchases": 0, "cpa": None, "swipes": 0, "cpc": 0.0})
+                        st3_ex = st_sq_3d.get(s_id, {"spend": 0.0, "purchases": 0, "cpa": None, "swipes": 0, "cpc": 0.0})
                         ex_sp1 = float(st1_ex.get("spend", 0.0))
                         ex_pu1 = int(st1_ex.get("purchases", 0))
                         ex_sw1 = int(st1_ex.get("swipes", 0))
@@ -929,12 +937,12 @@ def run_snap_gulf_campaigns(sim_cpa_lookup: dict | None = None) -> list[dict]:
                         ex_pu3 = int(st3_ex.get("purchases", 0))
                         ex_no_sale_stop = round(min(3.50, sim_max_cpa * 0.45), 2)
                         ex_bled = (
-                            (ex_pu1 == 0 and ex_sp1 >= 0.80 and (ex_sw1 == 0 or (ex_cpc1 is not None and ex_cpc1 > max_cpc)))
+                            (ex_pu1 == 0 and ex_sp1 >= 0.80 and (ex_sw1 == 0 or (ex_cpc1 is not None and ex_cpc1 > sq_max_cpc)))
                             or (ex_pu1 == 0 and ex_sp1 >= ex_no_sale_stop)
                             or (ex_pu1 > 0 and (ex_sp1 / ex_pu1) > sim_max_cpa)
                             or (ex_sp1 >= 0.35 and ex_pu1 == 0 and ex_pu3 == 0 and ex_sp3 >= ex_no_sale_stop)
                             or (ex_sp1 >= 0.35 and ex_pu1 == 0 and ex_pu3 > 0 and (ex_sp3 / ex_pu3) > sim_max_cpa)
-                            or (preemptive_68_prune and ex_pu1 == 0 and ex_sp1 >= 0.60)
+                            or (near_sim_ceiling and ex_pu1 == 0 and ex_sp1 >= 0.60)
                         )
                         if ex_bled:
                             s_obj["status"] = "PAUSED"
@@ -942,7 +950,7 @@ def run_snap_gulf_campaigns(sim_cpa_lookup: dict | None = None) -> list[dict]:
                     else:
                         s_obj["status"] = "PAUSED"
                         sq_mut = True
-                if is_night_snap and int(s_obj.get("daily_budget_micro") or 0) > 0 and int(s_obj.get("daily_budget_micro") or 0) != 20_000_000:
+                if not is_stop_loss_only_snap and int(s_obj.get("daily_budget_micro") or 0) > 0 and int(s_obj.get("daily_budget_micro") or 0) != 20_000_000:
                     s_obj["daily_budget_micro"] = 20_000_000
                     sq_mut = True
                 if sq_mut and s_obj not in to_update:
