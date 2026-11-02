@@ -221,3 +221,9 @@ for acc_id, acc_name in ACCOUNTS:
                             print(f"    ↳ Re-enabled {len(ads_to_en)} allowed ads inside Copy squad '{sq_name}'")
 
 sm.save_paused_history(history)
+if os.environ.get("GITHUB_ACTIONS") != "true":
+    try:
+        from github_deploy import sync_state_and_rules_to_github
+        sync_state_and_rules_to_github("restore_non_copy_and_fix_all")
+    except Exception:
+        pass
