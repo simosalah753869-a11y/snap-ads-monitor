@@ -134,8 +134,8 @@ for acc_id, acc_name in ACCOUNTS:
 
         has_15_violation = False
         c_1d_healthy = False
-        no_sale_camp_limit = 20.00
-        max_cpa_camp_limit = 20.00
+        no_sale_camp_limit = 10.00
+        max_cpa_camp_limit = 11.00
         for sq_map_w, camp_map_w, sh_key_w in (
             (stats_1d, c_st_1d, "1d"),
             (stats_2d, c_st_2d, "2d"),
@@ -156,11 +156,11 @@ for acc_id, acc_name in ACCOUNTS:
             pu_sh = sh_map_w.get(cid.lower(), 0)
             pu_c = max(pu_sq_act, pu_camp, pu_sh)
             cpa_c = round(sp_c / pu_c, 2) if pu_c > 0 else None
-            if sh_key_w == "1d" and pu_c > 0 and cpa_c is not None and cpa_c < max_cpa_camp_limit:
+            if sh_key_w in ("1d", "2d", "3d") and pu_c > 0 and cpa_c is not None and cpa_c <= max_cpa_camp_limit:
                 c_1d_healthy = True
             if sh_key_w != "1d" and c_1d_healthy:
                 continue
-            if (pu_c > 0 and cpa_c is not None and cpa_c >= max_cpa_camp_limit) or (pu_c == 0 and sp_c >= no_sale_camp_limit):
+            if (pu_c > 0 and cpa_c is not None and cpa_c > max_cpa_camp_limit) or (pu_c == 0 and sp_c >= no_sale_camp_limit):
                 has_15_violation = True
                 break
 
