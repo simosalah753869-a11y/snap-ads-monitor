@@ -1,0 +1,2761 @@
+{
+  "cycles": [
+    {
+      "timestamp": "2026-10-31 22:48",
+      "actions_count": 0,
+      "followups_count": 20
+    },
+    {
+      "timestamp": "2026-10-31 23:00",
+      "actions_count": 0,
+      "followups_count": 20
+    },
+    {
+      "timestamp": "2026-11-01 00:00",
+      "actions_count": 0,
+      "followups_count": 20
+    },
+    {
+      "timestamp": "2026-11-01 00:26",
+      "actions_count": 1,
+      "followups_count": 20
+    },
+    {
+      "timestamp": "2026-11-01 00:53",
+      "actions_count": 0,
+      "followups_count": 20
+    },
+    {
+      "timestamp": "2026-11-01 01:00",
+      "actions_count": 0,
+      "followups_count": 20
+    },
+    {
+      "timestamp": "2026-11-01 01:26",
+      "actions_count": 0,
+      "followups_count": 19
+    },
+    {
+      "timestamp": "2026-11-01 01:50",
+      "actions_count": 0,
+      "followups_count": 19
+    },
+    {
+      "timestamp": "2026-11-01 02:00",
+      "actions_count": 0,
+      "followups_count": 19
+    },
+    {
+      "timestamp": "2026-11-01 02:26",
+      "actions_count": 0,
+      "followups_count": 19
+    },
+    {
+      "timestamp": "2026-11-01 02:47",
+      "actions_count": 0,
+      "followups_count": 19
+    },
+    {
+      "timestamp": "2026-11-01 03:00",
+      "actions_count": 0,
+      "followups_count": 19
+    },
+    {
+      "timestamp": "2026-11-01 03:26",
+      "actions_count": 0,
+      "followups_count": 19
+    },
+    {
+      "timestamp": "2026-11-01 03:44",
+      "actions_count": 0,
+      "followups_count": 19
+    },
+    {
+      "timestamp": "2026-11-01 04:00",
+      "actions_count": 0,
+      "followups_count": 19
+    },
+    {
+      "timestamp": "2026-11-01 04:26",
+      "actions_count": 0,
+      "followups_count": 19
+    },
+    {
+      "timestamp": "2026-11-01 04:44",
+      "actions_count": 0,
+      "followups_count": 19
+    },
+    {
+      "timestamp": "2026-11-01 05:00",
+      "actions_count": 0,
+      "followups_count": 19
+    },
+    {
+      "timestamp": "2026-11-01 06:00",
+      "actions_count": 0,
+      "followups_count": 19
+    },
+    {
+      "timestamp": "2026-11-01 07:00",
+      "actions_count": 0,
+      "followups_count": 19
+    },
+    {
+      "timestamp": "2026-11-01 08:00",
+      "actions_count": 0,
+      "followups_count": 19
+    },
+    {
+      "timestamp": "2026-11-01 09:00",
+      "actions_count": 0,
+      "followups_count": 19
+    },
+    {
+      "timestamp": "2026-11-01 10:00",
+      "actions_count": 0,
+      "followups_count": 19
+    },
+    {
+      "timestamp": "2026-11-01 11:00",
+      "actions_count": 0,
+      "followups_count": 19
+    },
+    {
+      "timestamp": "2026-11-01 12:00",
+      "actions_count": 3,
+      "followups_count": 21
+    },
+    {
+      "timestamp": "2026-11-01 12:26",
+      "actions_count": 0,
+      "followups_count": 16
+    },
+    {
+      "timestamp": "2026-11-01 12:44",
+      "actions_count": 3,
+      "followups_count": 14
+    },
+    {
+      "timestamp": "2026-11-01 13:00",
+      "actions_count": 3,
+      "followups_count": 15
+    },
+    {
+      "timestamp": "2026-11-01 13:27",
+      "actions_count": 3,
+      "followups_count": 13
+    },
+    {
+      "timestamp": "2026-11-01 13:48",
+      "actions_count": 1,
+      "followups_count": 12
+    },
+    {
+      "timestamp": "2026-11-01 13:53",
+      "actions_count": 0,
+      "followups_count": 11
+    },
+    {
+      "timestamp": "2026-11-01 14:00",
+      "actions_count": 0,
+      "followups_count": 11
+    },
+    {
+      "timestamp": "2026-11-01 14:13",
+      "actions_count": 2,
+      "followups_count": 11
+    },
+    {
+      "timestamp": "2026-11-01 14:41",
+      "actions_count": 3,
+      "followups_count": 11
+    },
+    {
+      "timestamp": "2026-11-01 15:00",
+      "actions_count": 2,
+      "followups_count": 11
+    },
+    {
+      "timestamp": "2026-11-01 15:03",
+      "actions_count": 0,
+      "followups_count": 11
+    },
+    {
+      "timestamp": "2026-11-01 15:21",
+      "actions_count": 3,
+      "followups_count": 12
+    },
+    {
+      "timestamp": "2026-11-01 16:00",
+      "actions_count": 1,
+      "followups_count": 12
+    },
+    {
+      "timestamp": "2026-11-01 16:03",
+      "actions_count": 0,
+      "followups_count": 10
+    },
+    {
+      "timestamp": "2026-11-01 16:18",
+      "actions_count": 2,
+      "followups_count": 11
+    },
+    {
+      "timestamp": "2026-11-01 16:50",
+      "actions_count": 2,
+      "followups_count": 9
+    },
+    {
+      "timestamp": "2026-11-01 17:00",
+      "actions_count": 0,
+      "followups_count": 9
+    },
+    {
+      "timestamp": "2026-11-01 17:03",
+      "actions_count": 1,
+      "followups_count": 9
+    },
+    {
+      "timestamp": "2026-11-01 17:23",
+      "actions_count": 0,
+      "followups_count": 9
+    },
+    {
+      "timestamp": "2026-11-01 18:02",
+      "actions_count": 0,
+      "followups_count": 9
+    },
+    {
+      "timestamp": "2026-11-01 18:00",
+      "actions_count": 1,
+      "followups_count": 9
+    },
+    {
+      "timestamp": "2026-11-01 19:06",
+      "actions_count": 1,
+      "followups_count": 9
+    },
+    {
+      "timestamp": "2026-11-01 19:00",
+      "actions_count": 0,
+      "followups_count": 9
+    },
+    {
+      "timestamp": "2026-11-01 20:00",
+      "actions_count": 0,
+      "followups_count": 9
+    },
+    {
+      "timestamp": "2026-11-01 20:07",
+      "actions_count": 1,
+      "followups_count": 9
+    },
+    {
+      "timestamp": "2026-11-01 22:18",
+      "actions_count": 0,
+      "followups_count": 9
+    },
+    {
+      "timestamp": "2026-11-01 22:21",
+      "actions_count": 0,
+      "followups_count": 9
+    },
+    {
+      "timestamp": "2026-11-01 22:37",
+      "actions_count": 0,
+      "followups_count": 9
+    },
+    {
+      "timestamp": "2026-11-01 23:00",
+      "actions_count": 0,
+      "followups_count": 9
+    },
+    {
+      "timestamp": "2026-11-01 23:07",
+      "actions_count": 0,
+      "followups_count": 9
+    },
+    {
+      "timestamp": "2026-11-01 23:29",
+      "actions_count": 2,
+      "followups_count": 9
+    },
+    {
+      "timestamp": "2026-11-02 00:00",
+      "actions_count": 0,
+      "followups_count": 9
+    },
+    {
+      "timestamp": "2026-11-02 00:20",
+      "actions_count": 2,
+      "followups_count": 9
+    },
+    {
+      "timestamp": "2026-11-02 00:41",
+      "actions_count": 0,
+      "followups_count": 9
+    },
+    {
+      "timestamp": "2026-11-02 01:00",
+      "actions_count": 0,
+      "followups_count": 9
+    },
+    {
+      "timestamp": "2026-11-02 01:08",
+      "actions_count": 0,
+      "followups_count": 6
+    },
+    {
+      "timestamp": "2026-11-02 01:19",
+      "actions_count": 6,
+      "followups_count": 6
+    },
+    {
+      "timestamp": "2026-11-02 01:39",
+      "actions_count": 0,
+      "followups_count": 6
+    },
+    {
+      "timestamp": "2026-11-02 02:00",
+      "actions_count": 0,
+      "followups_count": 6
+    },
+    {
+      "timestamp": "2026-11-02 02:19",
+      "actions_count": 0,
+      "followups_count": 6
+    },
+    {
+      "timestamp": "2026-11-02 02:38",
+      "actions_count": 0,
+      "followups_count": 6
+    },
+    {
+      "timestamp": "2026-11-02 03:00",
+      "actions_count": 0,
+      "followups_count": 6
+    },
+    {
+      "timestamp": "2026-11-02 03:18",
+      "actions_count": 0,
+      "followups_count": 6
+    },
+    {
+      "timestamp": "2026-11-02 03:34",
+      "actions_count": 0,
+      "followups_count": 6
+    },
+    {
+      "timestamp": "2026-11-02 04:00",
+      "actions_count": 0,
+      "followups_count": 6
+    },
+    {
+      "timestamp": "2026-11-02 12:19",
+      "actions_count": 2,
+      "followups_count": 7
+    },
+    {
+      "timestamp": "2026-11-02 12:39",
+      "actions_count": 4,
+      "followups_count": 9
+    }
+  ],
+  "actions": [
+    {
+      "timestamp": "2026-10-29 18:16",
+      "experiment_key": "ROEL0_LEADS_5_ELITE_WINNERS_V1",
+      "is_experiment": true,
+      "aadvid": "7631763556322148369",
+      "acc_name": "ROELLINGER RECYCLING",
+      "campaign_id": "1880398259054930",
+      "campaign_name": "[EXP-LEADS] power bank 5 Elite Winners Leads 29-10",
+      "action_type": "تجربة حملة Leads على 5 فيديوهات رابحة مثبتة (Target Cost $6.20)",
+      "videos": [
+        "27-10_PB_Ola22_02.mp4",
+        "23-10_voltrx_ym49_s12.mp4",
+        "23-10_voltrx_ad_10.mp4",
+        "24-10_HD720p_flow_pb_ad4.mp4",
+        "26-10_Fast_Voltrx_Approved_Ad_03.mp4"
+      ],
+      "base_sp3": 0.0,
+      "base_cv3": 0,
+      "status": "FAILED_AND_CUT",
+      "closed_at": "2026-11-02T01:00:01.272159+03:00"
+    },
+    {
+      "timestamp": "2026-10-29 18:28",
+      "experiment_key": "ROEL2_LEADS_4_PROVEN_WINNERS_V1",
+      "is_experiment": true,
+      "aadvid": "7631765070816509959",
+      "acc_name": "ROELLINGER RECYCLING2",
+      "campaign_id": "1880398967289953",
+      "campaign_name": "[EXP-LEADS] power bank 5 Proven Winners Leads 29-10",
+      "action_type": "تجربة حملة Leads على الفيديوهات الرابحة المثبتة (Target Cost $6.20)",
+      "videos": [
+        "26-10_Voltrx_Full_Hook_Ad_01_v3fast.mp4",
+        "ola_pb_17_10_6_1-10_2.mp4",
+        "ola_pb_17_10_10_30-9_1.mp4",
+        "26-10_Voltrx_Full_Hook_Ad_02_v3fast.mp4",
+        "26-10_Voltrx_Full_Hook_Ad_03_v3fast.mp4"
+      ],
+      "base_sp3": 0.0,
+      "base_cv3": 0,
+      "status": "FAILED_AND_CUT",
+      "closed_at": "2026-10-30T13:31:23.675893+03:00"
+    },
+    {
+      "timestamp": "2026-10-30 13:53",
+      "experiment_key": "REVIVE_1880297411745937_2026-10-30",
+      "is_experiment": false,
+      "aadvid": "7631763556322148369",
+      "acc_name": "ROELLINGER RECYCLING",
+      "campaign_id": "1880297411745937",
+      "campaign_name": "power bank 28-10 Fresh Clean (4 Ads)",
+      "action_type": "إعادة تفعيل حملة فائزة (9 مبيعات @ $6.94) وحصر الميزانية في الفيديوهات الرابحة",
+      "videos": [
+        "26-10_Voltrx_Seedance_Ad_14.mp4 (3D: 5 sales @ $3.42)"
+      ],
+      "base_sp3": 62.43,
+      "base_cv3": 9,
+      "status": "SUCCEEDED"
+    },
+    {
+      "timestamp": "2026-10-30 13:53",
+      "experiment_key": "REVIVE_1880201842305441_2026-10-30",
+      "is_experiment": false,
+      "aadvid": "7631763556322148369",
+      "acc_name": "ROELLINGER RECYCLING",
+      "campaign_id": "1880201842305441",
+      "campaign_name": "power bank 27-10 Ola Hanan 2 (5 Ads 06-10)",
+      "action_type": "إعادة تفعيل حملة فائزة (4 مبيعات @ $4.75) وحصر الميزانية في الفيديوهات الرابحة",
+      "videos": [
+        "27-10_PB_Ola22_02.mp4 (3D: 4 sales @ $2.85)"
+      ],
+      "base_sp3": 19.0,
+      "base_cv3": 4,
+      "status": "FAILED_AND_CUT",
+      "closed_at": "2026-10-30T22:07:14.536956+03:00"
+    },
+    {
+      "timestamp": "2026-10-30 13:53",
+      "experiment_key": "SCALE_1880427722388082_2026-10-30_CV4",
+      "is_experiment": false,
+      "aadvid": "7631763556322148369",
+      "acc_name": "ROELLINGER RECYCLING",
+      "campaign_id": "1880427722388082",
+      "campaign_name": "power bank 30-10 Flow Hooks (4 Ads)",
+      "action_type": "رفع ميزانية الحملة الرابحة +30% ($101 -> $131)",
+      "videos": [],
+      "base_sp3": 19.06,
+      "base_cv3": 4,
+      "status": "FAILED_AND_CUT",
+      "closed_at": "2026-11-02T01:00:01.272159+03:00"
+    },
+    {
+      "timestamp": "2026-10-30 13:53",
+      "experiment_key": "REVIVE_1880299140950417_2026-10-30",
+      "is_experiment": false,
+      "aadvid": "7631765070816509959",
+      "acc_name": "ROELLINGER RECYCLING2",
+      "campaign_id": "1880299140950417",
+      "campaign_name": "power bank 28-10 Rescue Clean (3 Ads)",
+      "action_type": "إعادة تفعيل حملة فائزة (27 مبيعات @ $6.96) وحصر الميزانية في الفيديوهات الرابحة",
+      "videos": [
+        "26-10_Voltrx_Full_Hook_Ad_01_v3fast.mp4 (3D: 27 sales @ $6.86)"
+      ],
+      "base_sp3": 187.95,
+      "base_cv3": 27,
+      "status": "SUCCEEDED"
+    },
+    {
+      "timestamp": "2026-10-30 13:53",
+      "experiment_key": "SCALE_1880427764550018_2026-10-30_CV2",
+      "is_experiment": false,
+      "aadvid": "7631765070816509959",
+      "acc_name": "ROELLINGER RECYCLING2",
+      "campaign_id": "1880427764550018",
+      "campaign_name": "power bank 30-10 Flow Hooks (4 Ads)",
+      "action_type": "رفع ميزانية الحملة الرابحة +30% ($78 -> $101)",
+      "videos": [],
+      "base_sp3": 5.89,
+      "base_cv3": 2,
+      "status": "FAILED_AND_CUT",
+      "closed_at": "2026-11-02T01:00:01.272159+03:00"
+    },
+    {
+      "timestamp": "2026-10-30 13:53",
+      "experiment_key": "ROEL1_LEADS_FEED_5_PB_WINNERS_V1",
+      "is_experiment": true,
+      "aadvid": "7631765139798081554",
+      "acc_name": "ROELLINGER RECYCLING1",
+      "campaign_id": "1880472084782146",
+      "campaign_name": "[EXP-LEADS] power bank 5 Proven Winners Feed Leads 30-10",
+      "action_type": "طريقة البيع (1): هدف Website Leads + عزل موضع TikTok In-Feed Only [3000] لـ 5 فيديوهات باور بانك رابحة (Target Cost $6.40)",
+      "videos": [
+        "23-10_voltrx_ym49_s06.mp4",
+        "23-10_voltrx_ym49_s07.mp4",
+        "1yr_pb_tt_باور بانك(3)_103s.mp4",
+        "30-10_PB_FlowHook_Ad_03.mp4",
+        "30-10_PB_FlowHook_Ad_04.mp4"
+      ],
+      "base_sp3": 0.0,
+      "base_cv3": 0,
+      "status": "FAILED_AND_CUT",
+      "closed_at": "2026-10-31T20:37:15.408452+03:00"
+    },
+    {
+      "timestamp": "2026-10-30 13:53",
+      "experiment_key": "ROEL2_LEADS_FEED_SUPER_PB_FLOW_V2",
+      "is_experiment": true,
+      "aadvid": "7631765070816509959",
+      "acc_name": "ROELLINGER RECYCLING2",
+      "campaign_id": "1880472096597409",
+      "campaign_name": "[EXP-LEADS] power bank Super Winners Feed Leads 30-10",
+      "action_type": "طريقة البيع (2): دمج الفيديو الأسطوري (27 بيعة) مع فيديوهات Flow Hooks الفائزة اليوم في حملة Website Leads + TikTok Feed Only [3000] (Target Cost $6.40)",
+      "videos": [
+        "26-10_Voltrx_Full_Hook_Ad_01_v3fast.mp4",
+        "30-10_PB_FlowHook_Ad_02.mp4",
+        "30-10_PB_FlowHook_Ad_03.mp4",
+        "30-10_PB_FlowHook_Ad_04.mp4"
+      ],
+      "base_sp3": 0.0,
+      "base_cv3": 0,
+      "status": "SUCCEEDED"
+    },
+    {
+      "timestamp": "2026-10-30 14:01",
+      "experiment_key": "ROEL0_LEADS_FEED_CAR_ARMREST_ELITE_V1",
+      "is_experiment": true,
+      "aadvid": "7631763556322148369",
+      "acc_name": "ROELLINGER RECYCLING",
+      "campaign_id": "1880472559482321",
+      "campaign_name": "[EXP-LEADS] car armrest 5 Elite Winners Feed Leads 30-10",
+      "action_type": "طريقة البيع (3): تفعيل مبيعات وسادة السيارة عبر حملة Website Leads + TikTok Feed Only [3000] لأقوى 5 فيديوهات رابحة تاريخياً (34 بيعة سابقة)",
+      "videos": [
+        "21-10_hanan_20-10_1.mp4",
+        "21-10_hanan_20-10_5.mp4",
+        "15-10_video_4.mp4",
+        "20-10_car_hook_ad_2_final_v3.mp4",
+        "22-10_flow_hook3_shop.mp4"
+      ],
+      "base_sp3": 0.0,
+      "base_cv3": 0,
+      "status": "SUCCEEDED"
+    },
+    {
+      "timestamp": "2026-10-30 14:01",
+      "experiment_key": "ROEL2_LEADS_FEED_CAR_ARMREST_OLA_HANAN_V1",
+      "is_experiment": true,
+      "aadvid": "7631765070816509959",
+      "acc_name": "ROELLINGER RECYCLING2",
+      "campaign_id": "1880472569834850",
+      "campaign_name": "[EXP-LEADS] car armrest 4 Ola Hanan Winners Leads 30-10",
+      "action_type": "طريقة البيع (4): حملة Website Leads + TikTok Feed Only [3000] لأقوى 4 فيديوهات وسادة سيارة في الحساب الثالث (30 بيعة محققة)",
+      "videos": [
+        "16-10_hanan_4.mp4",
+        "16-10_ola_1.mp4",
+        "16-10_ola_2.mp4",
+        "16-10_ola_3.mp4"
+      ],
+      "base_sp3": 0.0,
+      "base_cv3": 0,
+      "status": "FAILED_AND_CUT",
+      "closed_at": "2026-10-31T00:54:23.017185+03:00"
+    },
+    {
+      "timestamp": "2026-10-30 22:07",
+      "experiment_key": "SCALE_1880472559482321_2026-10-30_CV6",
+      "is_experiment": true,
+      "aadvid": "7631763556322148369",
+      "acc_name": "ROELLINGER RECYCLING",
+      "campaign_id": "1880472559482321",
+      "campaign_name": "[EXP-LEADS] car armrest 5 Elite Winners Feed Leads 30-10",
+      "action_type": "رفع ميزانية الحملة الرابحة +30% ($84 -> $109)",
+      "videos": [],
+      "base_sp3": 20.63,
+      "base_cv3": 6,
+      "status": "SUCCEEDED"
+    },
+    {
+      "timestamp": "2026-10-30 22:07",
+      "experiment_key": "SCALE_1880472096597409_2026-10-30_CV1",
+      "is_experiment": true,
+      "aadvid": "7631765070816509959",
+      "acc_name": "ROELLINGER RECYCLING2",
+      "campaign_id": "1880472096597409",
+      "campaign_name": "[EXP-LEADS] power bank Super Winners Feed Leads 30-10",
+      "action_type": "رفع ميزانية الحملة الرابحة +30% ($55 -> $72)",
+      "videos": [],
+      "base_sp3": 4.55,
+      "base_cv3": 1,
+      "status": "FAILED_AND_CUT",
+      "closed_at": "2026-10-31T06:43:15.786443+03:00"
+    },
+    {
+      "timestamp": "2026-10-30 22:20",
+      "experiment_key": "LAUNCH_31_10_PB_RECYCLED_5_ADS_ROEL0",
+      "is_experiment": false,
+      "aadvid": "7631763556322148369",
+      "acc_name": "ROELLINGER RECYCLING",
+      "campaign_id": "1880503839078161",
+      "campaign_name": "power bank 31-10 Recycled 5 Ads (5 Ads)",
+      "action_type": "إطلاق وجدولة دفعة الـ 5 فيديوهات الجديدة المعاد تدويرها بدون هدية (Smart+ Conversions + TikTok Feed Only [3000] + Target Cost .50)",
+      "videos": [
+        "31-10_PB_Recycled_Ad_01.mp4",
+        "31-10_PB_Recycled_Ad_02.mp4",
+        "31-10_PB_Recycled_Ad_03.mp4",
+        "31-10_PB_Recycled_Ad_04.mp4",
+        "31-10_PB_Recycled_Ad_05.mp4"
+      ],
+      "base_sp3": 0.0,
+      "base_cv3": 0,
+      "status": "FAILED_AND_CUT",
+      "closed_at": "2026-10-31T17:34:07.553805+03:00"
+    },
+    {
+      "timestamp": "2026-10-30 22:20",
+      "experiment_key": "LAUNCH_31_10_PB_RECYCLED_5_ADS_ROEL1",
+      "is_experiment": false,
+      "aadvid": "7631765139798081554",
+      "acc_name": "ROELLINGER RECYCLING1",
+      "campaign_id": "1880504073780274",
+      "campaign_name": "power bank 31-10 Recycled 5 Ads (5 Ads)",
+      "action_type": "إطلاق وجدولة دفعة الـ 5 فيديوهات الجديدة المعاد تدويرها بدون هدية (Smart+ Conversions + TikTok Feed Only [3000] + Target Cost .50)",
+      "videos": [
+        "31-10_PB_Recycled_Ad_01.mp4",
+        "31-10_PB_Recycled_Ad_02.mp4",
+        "31-10_PB_Recycled_Ad_03.mp4",
+        "31-10_PB_Recycled_Ad_04.mp4",
+        "31-10_PB_Recycled_Ad_05.mp4"
+      ],
+      "base_sp3": 0.0,
+      "base_cv3": 0,
+      "status": "FAILED_AND_CUT",
+      "closed_at": "2026-10-31T20:00:01.986893+03:00"
+    },
+    {
+      "timestamp": "2026-10-30 22:20",
+      "experiment_key": "LAUNCH_31_10_PB_RECYCLED_5_ADS_ROEL2",
+      "is_experiment": false,
+      "aadvid": "7631765070816509959",
+      "acc_name": "ROELLINGER RECYCLING2",
+      "campaign_id": "1880504351454593",
+      "campaign_name": "power bank 31-10 Recycled 5 Ads (5 Ads)",
+      "action_type": "إطلاق وجدولة دفعة الـ 5 فيديوهات الجديدة المعاد تدويرها بدون هدية (Smart+ Conversions + TikTok Feed Only [3000] + Target Cost .50)",
+      "videos": [
+        "31-10_PB_Recycled_Ad_01.mp4",
+        "31-10_PB_Recycled_Ad_02.mp4",
+        "31-10_PB_Recycled_Ad_03.mp4",
+        "31-10_PB_Recycled_Ad_04.mp4",
+        "31-10_PB_Recycled_Ad_05.mp4"
+      ],
+      "base_sp3": 0.0,
+      "base_cv3": 0,
+      "status": "SUCCEEDED"
+    },
+    {
+      "timestamp": "2026-10-30 23:18",
+      "experiment_key": "ROEL1_LEADS_FEED_CAR_WINNERS_V1",
+      "is_experiment": true,
+      "aadvid": "7631765139798081554",
+      "acc_name": "ROELLINGER RECYCLING1",
+      "campaign_id": "1880507797819410",
+      "campaign_name": "[EXP-LEADS] car armrest 5 Proven Winners Feed Leads 30-10",
+      "action_type": "طريقة البيع (3): استنساخ الخلطة الرابحة (Website Leads + TikTok In-Feed Only [3000] + Target Cost $6.30) لـ 5 فيديوهات رابحة لوسادة السيارة في الحساب الثاني",
+      "videos": [
+        "27-10_Fast_Car_Armrest_Approved_Ad_06.mp4",
+        "27-10_Fast_Car_Armrest_Approved_Ad_09.mp4",
+        "21-10_hanan_20-10_1.mp4",
+        "22-10_flow_hook5_travel.mp4",
+        "27-10_Fast_Car_Armrest_Approved_Ad_04.mp4"
+      ],
+      "base_sp3": 0.0,
+      "base_cv3": 0,
+      "status": "FAILED_AND_CUT",
+      "closed_at": "2026-10-31T06:53:00.933434+03:00"
+    },
+    {
+      "timestamp": "2026-10-31 01:29",
+      "experiment_key": "ROEL0_LEADS_FEED_5_PB_SUPER_WINNERS_V1",
+      "is_experiment": true,
+      "aadvid": "7631763556322148369",
+      "acc_name": "ROELLINGER RECYCLING",
+      "campaign_id": "1880515837544801",
+      "campaign_name": "[EXP-LEADS] power bank 5 Super Winners Feed Leads 31-10",
+      "action_type": "طريقة البيع (4 - تعلم ذاتي): نقل أقوى 5 فيديوهات باور بانك بيّاعة (9 مبيعات بـ $4.30 و4 مبيعات بـ $2.85) من مزاد Conversions المرتفع النقرة إلى مزاد Website Leads + TikTok In-Feed Only [3000] منخفض النقرة (Target Cost $6.30)",
+      "videos": [
+        "26-10_Voltrx_Seedance_Ad_14.mp4",
+        "26-10_Voltrx_Seedance_Ad_10.mp4",
+        "30-10_PB_FlowHook_Ad_03.mp4",
+        "27-10_PB_Ola22_02.mp4",
+        "23-10_voltrx_ym49_s12.mp4"
+      ],
+      "base_sp3": 0.0,
+      "base_cv3": 0,
+      "status": "FAILED_AND_CUT",
+      "closed_at": "2026-10-31T12:52:50.576657+03:00"
+    },
+    {
+      "timestamp": "2026-10-31 01:29",
+      "experiment_key": "ROEL2_LEADS_FEED_CAR_WINNERS_V1",
+      "is_experiment": true,
+      "aadvid": "7631765070816509959",
+      "acc_name": "ROELLINGER RECYCLING2",
+      "campaign_id": "1880515858857985",
+      "campaign_name": "[EXP-LEADS] car armrest 5 Elite Winners Feed Leads 31-10",
+      "action_type": "طريقة البيع (5 - تعميم عبر الحسابات): تعميم خلطة وسادة السيارة الفائزة (19 بيعة بـ $5.80 عبر Website Leads + TikTok In-Feed Only [3000]) في الحساب الثالث لـ 5 فيديوهات رابحة (Target Cost $6.30)",
+      "videos": [
+        "21-10_hanan_20-10_1.mp4",
+        "21-10_hanan_20-10_3.mp4",
+        "22-10_flow_hook5_travel.mp4",
+        "27-10_Fast_Car_Armrest_Approved_Ad_06.mp4",
+        "27-10_Fast_Car_Armrest_Approved_Ad_04.mp4"
+      ],
+      "base_sp3": 0.0,
+      "base_cv3": 0,
+      "status": "SUCCEEDED"
+    },
+    {
+      "timestamp": "2026-10-31 01:29",
+      "experiment_key": "CROSS_PLATFORM_PB_H7_5_HOOKS_ROEL0",
+      "is_experiment": true,
+      "aadvid": "7631763556322148369",
+      "acc_name": "ROELLINGER RECYCLING",
+      "campaign_id": "1880515996111937",
+      "campaign_name": "[EXP-LEADS] power bank 5 H7 CrossPlatform 31-10",
+      "action_type": "نقل عبر المنصات (Cross-Platform): رفع وتشغيل الـ 5 نسخ بدون هدية للفيديو الأسطوري PB_v10_VoltrxH7 (28 بيعة بـ $5.81 في سناب و10 طلبات في جوجل أدز والغائب عن تيك توك) بخلطة Website Leads + TikTok In-Feed Only [3000] (Target Cost $6.40)",
+      "videos": [
+        "31-10_PB_H7_SnapGads_Winner_01.mp4",
+        "31-10_PB_H7_SnapGads_Winner_02.mp4",
+        "31-10_PB_H7_SnapGads_Winner_03.mp4",
+        "31-10_PB_H7_SnapGads_Winner_04.mp4",
+        "31-10_PB_H7_SnapGads_Winner_05.mp4"
+      ],
+      "base_sp3": 0.0,
+      "base_cv3": 0,
+      "status": "SUCCEEDED"
+    },
+    {
+      "timestamp": "2026-10-31 01:29",
+      "experiment_key": "CROSS_PLATFORM_PB_H7_5_HOOKS_ROEL1",
+      "is_experiment": true,
+      "aadvid": "7631765139798081554",
+      "acc_name": "ROELLINGER RECYCLING1",
+      "campaign_id": "1880516124519569",
+      "campaign_name": "[EXP-LEADS] power bank 5 H7 CrossPlatform 31-10",
+      "action_type": "نقل عبر المنصات (Cross-Platform): رفع وتشغيل الـ 5 نسخ بدون هدية للفيديو الأسطوري PB_v10_VoltrxH7 (28 بيعة بـ $5.81 في سناب و10 طلبات في جوجل أدز والغائب عن تيك توك) بخلطة Website Leads + TikTok In-Feed Only [3000] (Target Cost $6.40)",
+      "videos": [
+        "31-10_PB_H7_SnapGads_Winner_01.mp4",
+        "31-10_PB_H7_SnapGads_Winner_02.mp4",
+        "31-10_PB_H7_SnapGads_Winner_03.mp4",
+        "31-10_PB_H7_SnapGads_Winner_04.mp4",
+        "31-10_PB_H7_SnapGads_Winner_05.mp4"
+      ],
+      "base_sp3": 0.0,
+      "base_cv3": 0,
+      "status": "FAILED_AND_CUT",
+      "closed_at": "2026-10-31T20:37:15.408452+03:00"
+    },
+    {
+      "timestamp": "2026-10-31 01:29",
+      "experiment_key": "CROSS_PLATFORM_PB_H7_5_HOOKS_ROEL2",
+      "is_experiment": true,
+      "aadvid": "7631765070816509959",
+      "acc_name": "ROELLINGER RECYCLING2",
+      "campaign_id": "1880516338274689",
+      "campaign_name": "[EXP-LEADS] power bank 5 H7 CrossPlatform 31-10",
+      "action_type": "نقل عبر المنصات (Cross-Platform): رفع وتشغيل الـ 5 نسخ بدون هدية للفيديو الأسطوري PB_v10_VoltrxH7 (28 بيعة بـ $5.81 في سناب و10 طلبات في جوجل أدز والغائب عن تيك توك) بخلطة Website Leads + TikTok In-Feed Only [3000] (Target Cost $6.40)",
+      "videos": [
+        "31-10_PB_H7_SnapGads_Winner_01.mp4",
+        "31-10_PB_H7_SnapGads_Winner_02.mp4",
+        "31-10_PB_H7_SnapGads_Winner_03.mp4",
+        "31-10_PB_H7_SnapGads_Winner_04.mp4",
+        "31-10_PB_H7_SnapGads_Winner_05.mp4"
+      ],
+      "base_sp3": 0.0,
+      "base_cv3": 0,
+      "status": "SUCCEEDED"
+    },
+    {
+      "timestamp": "2026-10-31 01:29",
+      "experiment_key": "CROSS_PLATFORM_CAR_4_NEW_ROEL0",
+      "is_experiment": true,
+      "aadvid": "7631763556322148369",
+      "acc_name": "ROELLINGER RECYCLING",
+      "campaign_id": "1880516414054130",
+      "campaign_name": "[EXP-LEADS] car armrest 4 CrossPlatform 31-10",
+      "action_type": "نقل عبر المنصات (Cross-Platform): رفع وتشغيل الـ 4 فيديوهات الجديدة لوسادة السيارة (المطلقة في سناب وجوجل أدز فقط والغائبة عن تيك توك) بخلطة Website Leads + TikTok In-Feed Only [3000] (Target Cost $6.30)",
+      "videos": [
+        "31-10_Car_SnapGads_New_01.mp4",
+        "31-10_Car_SnapGads_New_02.mp4",
+        "31-10_Car_SnapGads_New_03.mp4",
+        "31-10_Car_SnapGads_New_04.mp4"
+      ],
+      "base_sp3": 0.0,
+      "base_cv3": 0,
+      "status": "FAILED_AND_CUT",
+      "closed_at": "2026-10-31T14:34:48.425285+03:00"
+    },
+    {
+      "timestamp": "2026-10-31 01:29",
+      "experiment_key": "CROSS_PLATFORM_CAR_4_NEW_ROEL1",
+      "is_experiment": true,
+      "aadvid": "7631765139798081554",
+      "acc_name": "ROELLINGER RECYCLING1",
+      "campaign_id": "1880516491792705",
+      "campaign_name": "[EXP-LEADS] car armrest 4 CrossPlatform 31-10",
+      "action_type": "نقل عبر المنصات (Cross-Platform): رفع وتشغيل الـ 4 فيديوهات الجديدة لوسادة السيارة (المطلقة في سناب وجوجل أدز فقط والغائبة عن تيك توك) بخلطة Website Leads + TikTok In-Feed Only [3000] (Target Cost $6.30)",
+      "videos": [
+        "31-10_Car_SnapGads_New_01.mp4",
+        "31-10_Car_SnapGads_New_02.mp4",
+        "31-10_Car_SnapGads_New_03.mp4",
+        "31-10_Car_SnapGads_New_04.mp4"
+      ],
+      "base_sp3": 0.0,
+      "base_cv3": 0,
+      "status": "FAILED_AND_CUT",
+      "closed_at": "2026-10-31T20:37:15.408452+03:00"
+    },
+    {
+      "timestamp": "2026-10-31 01:29",
+      "experiment_key": "CROSS_PLATFORM_CAR_4_NEW_ROEL2",
+      "is_experiment": true,
+      "aadvid": "7631765070816509959",
+      "acc_name": "ROELLINGER RECYCLING2",
+      "campaign_id": "1880516660641873",
+      "campaign_name": "[EXP-LEADS] car armrest 4 CrossPlatform 31-10",
+      "action_type": "نقل عبر المنصات (Cross-Platform): رفع وتشغيل الـ 4 فيديوهات الجديدة لوسادة السيارة (المطلقة في سناب وجوجل أدز فقط والغائبة عن تيك توك) بخلطة Website Leads + TikTok In-Feed Only [3000] (Target Cost $6.30)",
+      "videos": [
+        "31-10_Car_SnapGads_New_01.mp4",
+        "31-10_Car_SnapGads_New_02.mp4",
+        "31-10_Car_SnapGads_New_03.mp4",
+        "31-10_Car_SnapGads_New_04.mp4"
+      ],
+      "base_sp3": 0.0,
+      "base_cv3": 0,
+      "status": "OPEN"
+    },
+    {
+      "timestamp": "2026-10-31 05:15",
+      "experiment_key": "ROEL0_LEADS_FEED_CAR_ELITE_WINNERS_31_10",
+      "is_experiment": true,
+      "aadvid": "7631763556322148369",
+      "acc_name": "ROELLINGER RECYCLING",
+      "campaign_id": "1880529780578834",
+      "campaign_name": "[EXP-LEADS] car armrest 5 Elite Winners Feed Leads 31-10",
+      "action_type": "طريقة البيع (6): إعادة إطلاق خلطة وسادة السيارة الأسطورية (26 بيعة بـ .12) لمزاد 31-10 (Target Cost .20)",
+      "videos": [
+        "21-10_hanan_20-10_1.mp4",
+        "20-10_car_hook_ad_2_final_v3.mp4",
+        "22-10_flow_hook3_shop.mp4"
+      ],
+      "base_sp3": 0.0,
+      "base_cv3": 0,
+      "status": "SUCCEEDED"
+    },
+    {
+      "timestamp": "2026-10-31 07:53",
+      "experiment_key": "SCALE_1880515996111937_2026-10-31_CV1",
+      "is_experiment": true,
+      "aadvid": "7631763556322148369",
+      "acc_name": "ROELLINGER RECYCLING",
+      "campaign_id": "1880515996111937",
+      "campaign_name": "[EXP-LEADS] power bank 5 H7 CrossPlatform 31-10",
+      "action_type": "رفع ميزانية الحملة الرابحة +30% ($50 -> $65)",
+      "videos": [],
+      "base_sp3": 0.44,
+      "base_cv3": 1,
+      "status": "SUCCEEDED"
+    },
+    {
+      "timestamp": "2026-10-31 09:52",
+      "experiment_key": "SCALE_1880515052502194_2026-10-31_CV4",
+      "is_experiment": false,
+      "aadvid": "7631763556322148369",
+      "acc_name": "ROELLINGER RECYCLING",
+      "campaign_id": "1880515052502194",
+      "campaign_name": "power bank 30-10 New9 Batch B (4 Ads)",
+      "action_type": "رفع ميزانية الحملة الرابحة +30% ($170 -> $221)",
+      "videos": [],
+      "base_sp3": 12.03,
+      "base_cv3": 4,
+      "status": "OPEN"
+    },
+    {
+      "timestamp": "2026-10-31 10:03",
+      "experiment_key": "LAUNCH_31_10_CAR10_5HOOKS_8369",
+      "is_experiment": true,
+      "aadvid": "7631763556322148369",
+      "acc_name": "ROELLINGER RECYCLING",
+      "campaign_id": "1880547950942417",
+      "campaign_name": "[EXP-LEADS] car armrest 31-10 5Hooks Batch A (5 Ads)",
+      "action_type": "إطلاق دفعة فيديوهات وسادة السيارة الجديدة 31-10 (Website Leads + TikTok In-Feed Only [3000] + Target Cost $6.30)",
+      "videos": [
+        "31-10_Car10_HookAd_01.mp4",
+        "31-10_Car10_HookAd_02.mp4",
+        "31-10_Car10_HookAd_03.mp4",
+        "31-10_Car10_HookAd_04.mp4",
+        "31-10_Car10_HookAd_05.mp4"
+      ],
+      "base_sp3": 0.0,
+      "base_cv3": 0,
+      "status": "FAILED_AND_CUT",
+      "closed_at": "2026-10-31T16:33:47.722879+03:00"
+    },
+    {
+      "timestamp": "2026-10-31 10:03",
+      "experiment_key": "LAUNCH_31_10_CAR10_5MONTAGE_8369",
+      "is_experiment": true,
+      "aadvid": "7631763556322148369",
+      "acc_name": "ROELLINGER RECYCLING",
+      "campaign_id": "1880548051667745",
+      "campaign_name": "[EXP-LEADS] car armrest 31-10 5Montage Batch B (5 Ads)",
+      "action_type": "إطلاق دفعة فيديوهات وسادة السيارة الجديدة 31-10 (Website Leads + TikTok In-Feed Only [3000] + Target Cost $6.30)",
+      "videos": [
+        "31-10_Car10_MontageAd_06.mp4",
+        "31-10_Car10_MontageAd_07.mp4",
+        "31-10_Car10_MontageAd_08.mp4",
+        "31-10_Car10_MontageAd_09.mp4",
+        "31-10_Car10_MontageAd_10.mp4"
+      ],
+      "base_sp3": 0.0,
+      "base_cv3": 0,
+      "status": "FAILED_AND_CUT",
+      "closed_at": "2026-10-31T20:37:15.408452+03:00"
+    },
+    {
+      "timestamp": "2026-10-31 10:03",
+      "experiment_key": "LAUNCH_31_10_CAR10_5HOOKS_1554",
+      "is_experiment": true,
+      "aadvid": "7631765139798081554",
+      "acc_name": "ROELLINGER RECYCLING1",
+      "campaign_id": "1880548157225138",
+      "campaign_name": "[EXP-LEADS] car armrest 31-10 5Hooks Batch A (5 Ads)",
+      "action_type": "إطلاق دفعة فيديوهات وسادة السيارة الجديدة 31-10 (Website Leads + TikTok In-Feed Only [3000] + Target Cost $6.30)",
+      "videos": [
+        "31-10_Car10_HookAd_01.mp4",
+        "31-10_Car10_HookAd_02.mp4",
+        "31-10_Car10_HookAd_03.mp4",
+        "31-10_Car10_HookAd_04.mp4",
+        "31-10_Car10_HookAd_05.mp4"
+      ],
+      "base_sp3": 0.0,
+      "base_cv3": 0,
+      "status": "FAILED_AND_CUT",
+      "closed_at": "2026-10-31T20:37:15.408452+03:00"
+    },
+    {
+      "timestamp": "2026-10-31 10:03",
+      "experiment_key": "LAUNCH_31_10_CAR10_5MONTAGE_1554",
+      "is_experiment": true,
+      "aadvid": "7631765139798081554",
+      "acc_name": "ROELLINGER RECYCLING1",
+      "campaign_id": "1880548266105170",
+      "campaign_name": "[EXP-LEADS] car armrest 31-10 5Montage Batch B (5 Ads)",
+      "action_type": "إطلاق دفعة فيديوهات وسادة السيارة الجديدة 31-10 (Website Leads + TikTok In-Feed Only [3000] + Target Cost $6.30)",
+      "videos": [
+        "31-10_Car10_MontageAd_06.mp4",
+        "31-10_Car10_MontageAd_07.mp4",
+        "31-10_Car10_MontageAd_08.mp4",
+        "31-10_Car10_MontageAd_09.mp4",
+        "31-10_Car10_MontageAd_10.mp4"
+      ],
+      "base_sp3": 0.0,
+      "base_cv3": 0,
+      "status": "FAILED_AND_CUT",
+      "closed_at": "2026-10-31T20:37:15.408452+03:00"
+    },
+    {
+      "timestamp": "2026-10-31 10:03",
+      "experiment_key": "LAUNCH_31_10_CAR10_5HOOKS_9959",
+      "is_experiment": true,
+      "aadvid": "7631765070816509959",
+      "acc_name": "ROELLINGER RECYCLING2",
+      "campaign_id": "1880548353584850",
+      "campaign_name": "[EXP-LEADS] car armrest 31-10 5Hooks Batch A (5 Ads)",
+      "action_type": "إطلاق دفعة فيديوهات وسادة السيارة الجديدة 31-10 (Website Leads + TikTok In-Feed Only [3000] + Target Cost $6.30)",
+      "videos": [
+        "31-10_Car10_HookAd_01.mp4",
+        "31-10_Car10_HookAd_02.mp4",
+        "31-10_Car10_HookAd_03.mp4",
+        "31-10_Car10_HookAd_04.mp4",
+        "31-10_Car10_HookAd_05.mp4"
+      ],
+      "base_sp3": 0.0,
+      "base_cv3": 0,
+      "status": "FAILED_AND_CUT",
+      "closed_at": "2026-10-31T20:37:15.408452+03:00"
+    },
+    {
+      "timestamp": "2026-10-31 10:03",
+      "experiment_key": "LAUNCH_31_10_CAR10_5MONTAGE_9959",
+      "is_experiment": true,
+      "aadvid": "7631765070816509959",
+      "acc_name": "ROELLINGER RECYCLING2",
+      "campaign_id": "1880548419670242",
+      "campaign_name": "[EXP-LEADS] car armrest 31-10 5Montage Batch B (5 Ads)",
+      "action_type": "إطلاق دفعة فيديوهات وسادة السيارة الجديدة 31-10 (Website Leads + TikTok In-Feed Only [3000] + Target Cost $6.30)",
+      "videos": [
+        "31-10_Car10_MontageAd_06.mp4",
+        "31-10_Car10_MontageAd_07.mp4",
+        "31-10_Car10_MontageAd_08.mp4",
+        "31-10_Car10_MontageAd_09.mp4",
+        "31-10_Car10_MontageAd_10.mp4"
+      ],
+      "base_sp3": 0.0,
+      "base_cv3": 0,
+      "status": "SUCCEEDED"
+    },
+    {
+      "timestamp": "2026-10-31 10:44",
+      "experiment_key": "SCALE_1880515858857985_2026-10-31_CV1",
+      "is_experiment": true,
+      "aadvid": "7631765070816509959",
+      "acc_name": "ROELLINGER RECYCLING2",
+      "campaign_id": "1880515858857985",
+      "campaign_name": "[EXP-LEADS] car armrest 5 Elite Winners Feed Leads 31-10",
+      "action_type": "رفع ميزانية الحملة الرابحة +30% ($50 -> $65)",
+      "videos": [],
+      "base_sp3": 0.6,
+      "base_cv3": 1,
+      "status": "OPEN"
+    },
+    {
+      "timestamp": "2026-10-31 13:23",
+      "experiment_key": "ROEL0_CAR_LEADS_AUTO_PLACEMENT_31-10",
+      "is_experiment": true,
+      "aadvid": "7631763556322148369",
+      "acc_name": "ROELLINGER RECYCLING",
+      "campaign_id": "1880560472292578",
+      "campaign_name": "[EXP-LEADS] car armrest 4 Winners Leads AutoPlacement 31-10",
+      "action_type": "الطريقة (A1): حملة Website Leads + Auto Placement (جميع المواضع التلقائية لخفض CPM وCPC تحت $0.25) للفيديوهات الـ 4 البيّاعة في لقطة الشاشة (22-10_flow_hook3_shop بـ $1.76 CPA و 21-10_hanan_20-10_1 بـ $2.81 CPA)",
+      "videos": [
+        "21-10_hanan_20-10_1.mp4",
+        "21-10_hanan_20-10_5.mp4",
+        "20-10_car_hook_ad_2_final_v3.mp4",
+        "22-10_flow_hook3_shop.mp4"
+      ],
+      "base_sp3": 0.0,
+      "base_cv3": 0,
+      "status": "FAILED_AND_CUT",
+      "closed_at": "2026-10-31T20:37:15.408452+03:00"
+    },
+    {
+      "timestamp": "2026-10-31 13:23",
+      "experiment_key": "ROEL0_CAR_CONV_AUTO_PLACEMENT_31-10",
+      "is_experiment": true,
+      "aadvid": "7631763556322148369",
+      "acc_name": "ROELLINGER RECYCLING",
+      "campaign_id": "1880560481802721",
+      "campaign_name": "[EXP-LEADS] car armrest 4 Winners Conv AutoPlacement 31-10",
+      "action_type": "الطريقة (A2): حملة Website Conversions + Auto Placement (المواضع التلقائية لخفض CPC) لنفس الفيديوهات الـ 4 البيّاعة في لقطة الشاشة (Target Cost $6.20)",
+      "videos": [
+        "21-10_hanan_20-10_1.mp4",
+        "21-10_hanan_20-10_5.mp4",
+        "20-10_car_hook_ad_2_final_v3.mp4",
+        "22-10_flow_hook3_shop.mp4"
+      ],
+      "base_sp3": 0.0,
+      "base_cv3": 0,
+      "status": "SUCCEEDED"
+    },
+    {
+      "timestamp": "2026-10-31 13:23",
+      "experiment_key": "ROEL0_PB_LEADS_AUTO_PLACEMENT_31-10",
+      "is_experiment": true,
+      "aadvid": "7631763556322148369",
+      "acc_name": "ROELLINGER RECYCLING",
+      "campaign_id": "1880560500682833",
+      "campaign_name": "[EXP-LEADS] power bank 5 CPC-Winners Leads AutoPlacement 31-10",
+      "action_type": "الطريقة (B1): حملة Website Leads + Auto Placement لإنقاذ أقوى 5 فيديوهات باور بانك بيّاعة في الحساب الأول توقفت بسبب CPC > $0.35 (10 مبيعات + 4 مبيعات + 3 مبيعات)",
+      "videos": [
+        "26-10_Voltrx_Seedance_Ad_14.mp4",
+        "27-10_PB_Ola22_02.mp4",
+        "30-10_PB_FlowHook_Ad_03.mp4",
+        "26-10_Fast_Voltrx_Approved_Ad_03.mp4",
+        "27-10_PB_Hanan24_01.mp4"
+      ],
+      "base_sp3": 0.0,
+      "base_cv3": 0,
+      "status": "FAILED_AND_CUT",
+      "closed_at": "2026-10-31T20:37:15.408452+03:00"
+    },
+    {
+      "timestamp": "2026-10-31 13:23",
+      "experiment_key": "ROEL0_PB_CONV_AUTO_PLACEMENT_31-10",
+      "is_experiment": true,
+      "aadvid": "7631763556322148369",
+      "acc_name": "ROELLINGER RECYCLING",
+      "campaign_id": "1880560511099954",
+      "campaign_name": "[EXP-LEADS] power bank 5 CPC-Winners Conv AutoPlacement 31-10",
+      "action_type": "الطريقة (B2): حملة Website Conversions + Auto Placement لإنقاذ نفس الـ 5 فيديوهات باور بانك البيّاعة التي توقفت بسبب CPC > $0.35 (Target Cost $6.30)",
+      "videos": [
+        "27-10_PB_Ola22_02.mp4",
+        "26-10_Voltrx_Seedance_Ad_14.mp4",
+        "30-10_PB_FlowHook_Ad_03.mp4",
+        "26-10_Fast_Voltrx_Approved_Ad_03.mp4",
+        "27-10_PB_Hanan24_01.mp4"
+      ],
+      "base_sp3": 0.0,
+      "base_cv3": 0,
+      "status": "FAILED_AND_CUT",
+      "closed_at": "2026-10-31T20:37:15.408452+03:00"
+    },
+    {
+      "timestamp": "2026-10-31 13:23",
+      "experiment_key": "ROEL2_PB_LEADS_AUTO_PLACEMENT_31-10",
+      "is_experiment": true,
+      "aadvid": "7631765070816509959",
+      "acc_name": "ROELLINGER RECYCLING2",
+      "campaign_id": "1880560534897794",
+      "campaign_name": "[EXP-LEADS] power bank 4 CPC-Winners Leads AutoPlacement 31-10",
+      "action_type": "الطريقة (C1): حملة Website Leads + Auto Placement لإنقاذ الفيديو الأسطوري (32 بيعة) و3 فيديوهات بيّاعة توقفت بسبب CPC > $0.35 في الحساب الثالث",
+      "videos": [
+        "26-10_Voltrx_Full_Hook_Ad_01_v3fast.mp4",
+        "30-10_PB_FlowHook_Ad_04.mp4",
+        "30-10_PB_FlowHook_Ad_02.mp4",
+        "30-10_PB_New5_Ad_03.mp4"
+      ],
+      "base_sp3": 0.0,
+      "base_cv3": 0,
+      "status": "FAILED_AND_CUT",
+      "closed_at": "2026-10-31T20:37:15.408452+03:00"
+    },
+    {
+      "timestamp": "2026-10-31 13:23",
+      "experiment_key": "ROEL2_CAR_LEADS_AUTO_PLACEMENT_31-10",
+      "is_experiment": true,
+      "aadvid": "7631765070816509959",
+      "acc_name": "ROELLINGER RECYCLING2",
+      "campaign_id": "1880560550497489",
+      "campaign_name": "[EXP-LEADS] car armrest 4 Winners Leads AutoPlacement 31-10",
+      "action_type": "الطريقة (C2): حملة Website Leads + Auto Placement لـ 4 فيديوهات وسادة سيارة بيّاعة في الحساب الثالث لخفض الـ CPC تحت $0.25",
+      "videos": [
+        "21-10_hanan_20-10_1.mp4",
+        "22-10_flow_hook5_travel.mp4",
+        "31-10_Car_SnapGads_New_02.mp4",
+        "31-10_Car_Recycled_Ad_03.mp4"
+      ],
+      "base_sp3": 0.0,
+      "base_cv3": 0,
+      "status": "SUCCEEDED"
+    },
+    {
+      "timestamp": "2026-10-31 13:23",
+      "experiment_key": "ROEL1_PB_LEADS_AUTO_PLACEMENT_31-10",
+      "is_experiment": true,
+      "aadvid": "7631765139798081554",
+      "acc_name": "ROELLINGER RECYCLING1",
+      "campaign_id": "1880560564432290",
+      "campaign_name": "[EXP-LEADS] power bank 5 Winners Leads AutoPlacement 31-10",
+      "action_type": "الطريقة (D1): حملة Website Leads + Auto Placement لـ 5 فيديوهات باور بانك رابحة في الحساب الثاني لخفض الـ CPC وتحفيز الصرف",
+      "videos": [
+        "23-10_voltrx_ym49_s06.mp4",
+        "23-10_voltrx_ym49_s07.mp4",
+        "1yr_pb_tt_باور بانك(3)_103s.mp4",
+        "30-10_PB_FlowHook_Ad_03.mp4",
+        "30-10_PB_FlowHook_Ad_04.mp4"
+      ],
+      "base_sp3": 0.0,
+      "base_cv3": 0,
+      "status": "FAILED_AND_CUT",
+      "closed_at": "2026-10-31T20:37:15.408452+03:00"
+    },
+    {
+      "timestamp": "2026-10-31 13:23",
+      "experiment_key": "ROEL1_CAR_LEADS_AUTO_PLACEMENT_31-10",
+      "is_experiment": true,
+      "aadvid": "7631765139798081554",
+      "acc_name": "ROELLINGER RECYCLING1",
+      "campaign_id": "1880560578046401",
+      "campaign_name": "[EXP-LEADS] car armrest 5 Winners Leads AutoPlacement 31-10",
+      "action_type": "الطريقة (D2): حملة Website Leads + Auto Placement لـ 5 فيديوهات وسادة سيارة رابحة في الحساب الثاني لخفض الـ CPC وتحفيز المبيعات",
+      "videos": [
+        "27-10_Fast_Car_Armrest_Approved_Ad_06.mp4",
+        "27-10_Fast_Car_Armrest_Approved_Ad_09.mp4",
+        "21-10_hanan_20-10_1.mp4",
+        "22-10_flow_hook5_travel.mp4",
+        "27-10_Fast_Car_Armrest_Approved_Ad_04.mp4"
+      ],
+      "base_sp3": 0.0,
+      "base_cv3": 0,
+      "status": "FAILED_AND_CUT",
+      "closed_at": "2026-10-31T20:37:15.408452+03:00"
+    },
+    {
+      "timestamp": "2026-10-31 13:44",
+      "experiment_key": "SCALE_1880516338274689_2026-10-31_CV9",
+      "is_experiment": true,
+      "aadvid": "7631765070816509959",
+      "acc_name": "ROELLINGER RECYCLING2",
+      "campaign_id": "1880516338274689",
+      "campaign_name": "[EXP-LEADS] power bank 5 H7 CrossPlatform 31-10",
+      "action_type": "رفع ميزانية الحملة الرابحة +30% ($84 -> $109)",
+      "videos": [],
+      "base_sp3": 36.37,
+      "base_cv3": 9,
+      "status": "SUCCEEDED"
+    },
+    {
+      "timestamp": "2026-10-31 13:44",
+      "experiment_key": "SCALE_1880515858857985_2026-10-31_CV2",
+      "is_experiment": true,
+      "aadvid": "7631765070816509959",
+      "acc_name": "ROELLINGER RECYCLING2",
+      "campaign_id": "1880515858857985",
+      "campaign_name": "[EXP-LEADS] car armrest 5 Elite Winners Feed Leads 31-10",
+      "action_type": "رفع ميزانية الحملة الرابحة +30% ($84 -> $109)",
+      "videos": [],
+      "base_sp3": 8.08,
+      "base_cv3": 2,
+      "status": "FAILED_AND_CUT",
+      "closed_at": "2026-10-31T20:37:15.408452+03:00"
+    },
+    {
+      "timestamp": "2026-10-31 13:44",
+      "experiment_key": "SCALE_1880548063042625_2026-10-31_CV2",
+      "is_experiment": false,
+      "aadvid": "7631765070816509959",
+      "acc_name": "ROELLINGER RECYCLING2",
+      "campaign_id": "1880548063042625",
+      "campaign_name": "car armrest 31-10 Recycled 5 Ads (5 Ads)",
+      "action_type": "رفع ميزانية الحملة الرابحة +30% ($131 -> $170)",
+      "videos": [],
+      "base_sp3": 6.8,
+      "base_cv3": 2,
+      "status": "FAILED_AND_CUT",
+      "closed_at": "2026-10-31T20:37:15.408452+03:00"
+    },
+    {
+      "timestamp": "2026-10-31 13:44",
+      "experiment_key": "DYN_8369_PB_LEADS_AUTO_31-10",
+      "is_experiment": true,
+      "aadvid": "7631763556322148369",
+      "acc_name": "ROELLINGER RECYCLING",
+      "campaign_id": "1880562310414658",
+      "campaign_name": "[EXP-LEADS] power bank 5 CPC-Rescued Leads AutoPlacement 31-10",
+      "action_type": "إنقاذ تلقائي للفيديوهات البيّاعة الموقوفة بسبب الـ CPC عبر Website Leads + Auto Placement (5 فيديوهات)",
+      "videos": [
+        "26-10_Voltrx_Seedance_Ad_14.mp4",
+        "27-10_PB_Ola22_02.mp4",
+        "30-10_PB_FlowHook_Ad_03.mp4",
+        "26-10_Fast_Voltrx_Approved_Ad_03.mp4",
+        "27-10_PB_Hanan24_01.mp4"
+      ],
+      "base_sp3": 0.0,
+      "base_cv3": 0,
+      "status": "FAILED_AND_CUT",
+      "closed_at": "2026-10-31T20:37:15.408452+03:00"
+    },
+    {
+      "timestamp": "2026-10-31 13:44",
+      "experiment_key": "DYN_8369_PB_CONV_AUTO_31-10",
+      "is_experiment": true,
+      "aadvid": "7631763556322148369",
+      "acc_name": "ROELLINGER RECYCLING",
+      "campaign_id": "1880562326619665",
+      "campaign_name": "[EXP-LEADS] power bank 5 CPC-Rescued Conv AutoPlacement 31-10",
+      "action_type": "إنقاذ تلقائي للفيديوهات البيّاعة الموقوفة بسبب الـ CPC عبر Website Conversions + Auto Placement (5 فيديوهات)",
+      "videos": [
+        "27-10_PB_Ola22_02.mp4",
+        "26-10_Voltrx_Seedance_Ad_14.mp4",
+        "30-10_PB_FlowHook_Ad_03.mp4",
+        "26-10_Fast_Voltrx_Approved_Ad_03.mp4",
+        "27-10_PB_Hanan24_01.mp4"
+      ],
+      "base_sp3": 0.0,
+      "base_cv3": 0,
+      "status": "FAILED_AND_CUT",
+      "closed_at": "2026-10-31T20:37:15.408452+03:00"
+    },
+    {
+      "timestamp": "2026-10-31 13:44",
+      "experiment_key": "DYN_9959_PB_LEADS_AUTO_31-10",
+      "is_experiment": true,
+      "aadvid": "7631765070816509959",
+      "acc_name": "ROELLINGER RECYCLING2",
+      "campaign_id": "1880562341992913",
+      "campaign_name": "[EXP-LEADS] power bank 4 CPC-Rescued Leads AutoPlacement 31-10",
+      "action_type": "إنقاذ تلقائي للفيديوهات البيّاعة الموقوفة بسبب الـ CPC عبر Website Leads + Auto Placement (4 فيديوهات)",
+      "videos": [
+        "26-10_Voltrx_Full_Hook_Ad_01_v3fast.mp4",
+        "30-10_PB_FlowHook_Ad_04.mp4",
+        "30-10_PB_FlowHook_Ad_02.mp4",
+        "30-10_PB_New5_Ad_03.mp4"
+      ],
+      "base_sp3": 0.0,
+      "base_cv3": 0,
+      "status": "FAILED_AND_CUT",
+      "closed_at": "2026-10-31T19:34:26.268799+03:00"
+    },
+    {
+      "timestamp": "2026-10-31 13:44",
+      "experiment_key": "DYN_9959_PB_CONV_AUTO_31-10",
+      "is_experiment": true,
+      "aadvid": "7631765070816509959",
+      "acc_name": "ROELLINGER RECYCLING2",
+      "campaign_id": "1880562357852242",
+      "campaign_name": "[EXP-LEADS] power bank 4 CPC-Rescued Conv AutoPlacement 31-10",
+      "action_type": "إنقاذ تلقائي للفيديوهات البيّاعة الموقوفة بسبب الـ CPC عبر Website Conversions + Auto Placement (4 فيديوهات)",
+      "videos": [
+        "26-10_Voltrx_Full_Hook_Ad_01_v3fast.mp4",
+        "30-10_PB_FlowHook_Ad_04.mp4",
+        "30-10_PB_FlowHook_Ad_02.mp4",
+        "30-10_PB_New5_Ad_03.mp4"
+      ],
+      "base_sp3": 0.0,
+      "base_cv3": 0,
+      "status": "FAILED_AND_CUT",
+      "closed_at": "2026-10-31T19:00:01.982290+03:00"
+    },
+    {
+      "timestamp": "2026-10-31 13:53",
+      "experiment_key": "SCALE_1880529780578834_2026-10-31_CV1",
+      "is_experiment": true,
+      "aadvid": "7631763556322148369",
+      "acc_name": "ROELLINGER RECYCLING",
+      "campaign_id": "1880529780578834",
+      "campaign_name": "[EXP-LEADS] car armrest 5 Elite Winners Feed Leads 31-10",
+      "action_type": "رفع ميزانية الحملة الرابحة +30% ($60 -> $78)",
+      "videos": [],
+      "base_sp3": 1.85,
+      "base_cv3": 1,
+      "status": "SUCCEEDED"
+    },
+    {
+      "timestamp": "2026-10-31 14:53",
+      "experiment_key": "SCALE_1880515996111937_2026-10-31_CV2",
+      "is_experiment": true,
+      "aadvid": "7631763556322148369",
+      "acc_name": "ROELLINGER RECYCLING",
+      "campaign_id": "1880515996111937",
+      "campaign_name": "[EXP-LEADS] power bank 5 H7 CrossPlatform 31-10",
+      "action_type": "رفع ميزانية الحملة الرابحة +30% ($142 -> $150)",
+      "videos": [],
+      "base_sp3": 9.78,
+      "base_cv3": 2,
+      "status": "SUCCEEDED"
+    },
+    {
+      "timestamp": "2026-10-31 14:53",
+      "experiment_key": "DYN_8369_CAR_LEADS_AUTO_31-10",
+      "is_experiment": true,
+      "aadvid": "7631763556322148369",
+      "acc_name": "ROELLINGER RECYCLING",
+      "campaign_id": "1880566761309746",
+      "campaign_name": "[EXP-LEADS] car armrest 3 CPC-Rescued Leads AutoPlacement 31-10",
+      "action_type": "إنقاذ تلقائي للفيديوهات البيّاعة الموقوفة بسبب الـ CPC عبر Website Leads + Auto Placement (3 فيديوهات)",
+      "videos": [
+        "21-10_hanan_20-10_1.mp4",
+        "15-10_video_4.mp4",
+        "22-10_flow_hook3_shop.mp4"
+      ],
+      "base_sp3": 0.0,
+      "base_cv3": 0,
+      "status": "SUCCEEDED"
+    },
+    {
+      "timestamp": "2026-10-31 14:53",
+      "experiment_key": "DYN_8369_CAR_CONV_AUTO_31-10",
+      "is_experiment": true,
+      "aadvid": "7631763556322148369",
+      "acc_name": "ROELLINGER RECYCLING",
+      "campaign_id": "1880566772381730",
+      "campaign_name": "[EXP-LEADS] car armrest 3 CPC-Rescued Conv AutoPlacement 31-10",
+      "action_type": "إنقاذ تلقائي للفيديوهات البيّاعة الموقوفة بسبب الـ CPC عبر Website Conversions + Auto Placement (3 فيديوهات)",
+      "videos": [
+        "21-10_hanan_20-10_1.mp4",
+        "15-10_video_4.mp4",
+        "22-10_flow_hook3_shop.mp4"
+      ],
+      "base_sp3": 0.0,
+      "base_cv3": 0,
+      "status": "FAILED_AND_CUT",
+      "closed_at": "2026-10-31T20:37:15.408452+03:00"
+    },
+    {
+      "timestamp": "2026-10-31 16:51",
+      "experiment_key": "SCALE_1880516338274689_2026-10-31_CV13",
+      "is_experiment": true,
+      "aadvid": "7631765070816509959",
+      "acc_name": "ROELLINGER RECYCLING2",
+      "campaign_id": "1880516338274689",
+      "campaign_name": "[EXP-LEADS] power bank 5 H7 CrossPlatform 31-10",
+      "action_type": "رفع ميزانية الحملة الرابحة +30% ($109 -> $142)",
+      "videos": [],
+      "base_sp3": 72.23,
+      "base_cv3": 13,
+      "status": "SUCCEEDED"
+    },
+    {
+      "timestamp": "2026-10-31 19:00",
+      "experiment_key": "SCALE_1880468185645138_2026-10-31_CV1",
+      "is_experiment": false,
+      "aadvid": "7631765070816509959",
+      "acc_name": "ROELLINGER RECYCLING2",
+      "campaign_id": "1880468185645138",
+      "campaign_name": "power bank 30-10 New 5 Ads (5 Ads)",
+      "action_type": "رفع ميزانية الحملة الرابحة +30% ($101 -> $131)",
+      "videos": [],
+      "base_sp3": 9.93,
+      "base_cv3": 2,
+      "status": "FAILED_AND_CUT",
+      "closed_at": "2026-10-31T20:00:01.986893+03:00"
+    },
+    {
+      "timestamp": "2026-10-31 19:34",
+      "experiment_key": "SCALE_1880566761309746_2026-10-31_CV1",
+      "is_experiment": true,
+      "aadvid": "7631763556322148369",
+      "acc_name": "ROELLINGER RECYCLING",
+      "campaign_id": "1880566761309746",
+      "campaign_name": "[EXP-LEADS] car armrest 3 CPC-Rescued Leads AutoPlacement 31-10",
+      "action_type": "رفع ميزانية الحملة الرابحة +30% ($55 -> $72)",
+      "videos": [],
+      "base_sp3": 2.83,
+      "base_cv3": 1,
+      "status": "SUCCEEDED"
+    },
+    {
+      "timestamp": "2026-10-31 19:34",
+      "experiment_key": "SCALE_1880560481802721_2026-10-31_CV1",
+      "is_experiment": true,
+      "aadvid": "7631763556322148369",
+      "acc_name": "ROELLINGER RECYCLING",
+      "campaign_id": "1880560481802721",
+      "campaign_name": "[EXP-LEADS] car armrest 4 Winners Conv AutoPlacement 31-10",
+      "action_type": "رفع ميزانية الحملة الرابحة +30% ($60 -> $78)",
+      "videos": [],
+      "base_sp3": 1.32,
+      "base_cv3": 1,
+      "status": "SUCCEEDED"
+    },
+    {
+      "timestamp": "2026-10-31 20:00",
+      "experiment_key": "SCALE_1880516338274689_2026-10-31_CV16",
+      "is_experiment": true,
+      "aadvid": "7631765070816509959",
+      "acc_name": "ROELLINGER RECYCLING2",
+      "campaign_id": "1880516338274689",
+      "campaign_name": "[EXP-LEADS] power bank 5 H7 CrossPlatform 31-10",
+      "action_type": "رفع ميزانية الحملة الرابحة +30% ($142 -> $150)",
+      "videos": [],
+      "base_sp3": 81.07,
+      "base_cv3": 16,
+      "status": "SUCCEEDED"
+    },
+    {
+      "timestamp": "2026-10-31 20:00",
+      "experiment_key": "SCALE_1880560550497489_2026-10-31_CV1",
+      "is_experiment": true,
+      "aadvid": "7631765070816509959",
+      "acc_name": "ROELLINGER RECYCLING2",
+      "campaign_id": "1880560550497489",
+      "campaign_name": "[EXP-LEADS] car armrest 4 Winners Leads AutoPlacement 31-10",
+      "action_type": "رفع ميزانية الحملة الرابحة +30% ($55 -> $72)",
+      "videos": [],
+      "base_sp3": 2.29,
+      "base_cv3": 1,
+      "status": "SUCCEEDED"
+    },
+    {
+      "timestamp": "2026-10-31 20:21",
+      "experiment_key": "TOMORROW_01_11_PB_5_SUPERCOMBO_AUTOPLC_RR0",
+      "is_experiment": true,
+      "aadvid": "7631763556322148369",
+      "acc_name": "ROELLINGER RECYCLING",
+      "campaign_id": "1880586777007553",
+      "campaign_name": "[EXP-LEADS] power bank 5 SuperCombo AutoPlc 01-11",
+      "action_type": "خطة الغد (01-11 06:00 ص): تجميع أقوى 5 فيديوهات باور بانك بيّاعة اليوم (Winner_04 بـ 16 بيعة + New9_Ad_09 بـ 5 مبيعات + Winner_02 بـ 3 مبيعات + Winner_01 بـ بيعتين + Winner_03) في حملة Website Leads + Auto Placement (Target Cost $6.30)",
+      "videos": [
+        "31-10_PB_H7_SnapGads_Winner_01.mp4",
+        "31-10_PB_H7_SnapGads_Winner_02.mp4",
+        "31-10_PB_H7_SnapGads_Winner_03.mp4",
+        "31-10_PB_H7_SnapGads_Winner_04.mp4",
+        "30-10_PB_New9_Ad_09.mp4"
+      ],
+      "base_sp3": 0.0,
+      "base_cv3": 0,
+      "status": "FAILED_AND_CUT",
+      "closed_at": "2026-11-01T14:41:11.603880+03:00"
+    },
+    {
+      "timestamp": "2026-10-31 20:23",
+      "experiment_key": "TOMORROW_01_11_PB_5_SUPERCOMBO_AUTOPLC_RR1",
+      "is_experiment": true,
+      "aadvid": "7631765139798081554",
+      "acc_name": "ROELLINGER RECYCLING1",
+      "campaign_id": "1880586905055810",
+      "campaign_name": "[EXP-LEADS] power bank 5 SuperCombo AutoPlc 01-11",
+      "action_type": "خطة الغد (01-11 06:00 ص): تجميع أقوى 5 فيديوهات باور بانك بيّاعة اليوم (Winner_04 + New9_Ad_09 + Winner_02 + Winner_01 + Winner_03) في حملة Website Leads + Auto Placement (Target Cost $6.30)",
+      "videos": [
+        "31-10_PB_H7_SnapGads_Winner_04.mp4",
+        "30-10_PB_New9_Ad_09.mp4",
+        "31-10_PB_H7_SnapGads_Winner_02.mp4",
+        "31-10_PB_H7_SnapGads_Winner_01.mp4",
+        "31-10_PB_H7_SnapGads_Winner_03.mp4"
+      ],
+      "base_sp3": 0.0,
+      "base_cv3": 0,
+      "status": "FAILED_AND_CUT",
+      "closed_at": "2026-11-01T12:44:07.026451+03:00"
+    },
+    {
+      "timestamp": "2026-10-31 20:23",
+      "experiment_key": "TOMORROW_01_11_PB_5_SUPERCOMBO_AUTOPLC_RR2",
+      "is_experiment": true,
+      "aadvid": "7631765070816509959",
+      "acc_name": "ROELLINGER RECYCLING2",
+      "campaign_id": "1880586920686625",
+      "campaign_name": "[EXP-LEADS] power bank 5 SuperCombo AutoPlc 01-11",
+      "action_type": "خطة الغد (01-11 06:00 ص): تجميع أقوى 5 فيديوهات باور بانك بيّاعة اليوم (Winner_04 + New9_Ad_09 + Winner_02 + Winner_01 + Winner_03) في حملة Website Leads + Auto Placement (Target Cost $6.30)",
+      "videos": [
+        "31-10_PB_H7_SnapGads_Winner_04.mp4",
+        "30-10_PB_New9_Ad_09.mp4",
+        "31-10_PB_H7_SnapGads_Winner_02.mp4",
+        "31-10_PB_H7_SnapGads_Winner_01.mp4",
+        "31-10_PB_H7_SnapGads_Winner_03.mp4"
+      ],
+      "base_sp3": 0.0,
+      "base_cv3": 0,
+      "status": "SUCCEEDED"
+    },
+    {
+      "timestamp": "2026-10-31 20:23",
+      "experiment_key": "TOMORROW_01_11_CAR_4_TOPCONVERTERS_AUTOPLC_RR0",
+      "is_experiment": true,
+      "aadvid": "7631763556322148369",
+      "acc_name": "ROELLINGER RECYCLING",
+      "campaign_id": "1880586934304882",
+      "campaign_name": "[EXP-LEADS] car armrest 4 TopConverters AutoPlc 01-11",
+      "action_type": "خطة الغد (01-11 06:00 ص): تجميع أقوى 4 فيديوهات وسادة سيارة محققة للمبيعات اليوم (hanan_20-10_1 + Car_Recycled_Ad_03 + flow_hook5_travel + flow_hook3_shop) في حملة Website Leads + Auto Placement (Target Cost $6.20)",
+      "videos": [
+        "21-10_hanan_20-10_1.mp4",
+        "31-10_Car_Recycled_Ad_03.mp4",
+        "22-10_flow_hook5_travel.mp4",
+        "22-10_flow_hook3_shop.mp4"
+      ],
+      "base_sp3": 0.0,
+      "base_cv3": 0,
+      "status": "FAILED_AND_CUT",
+      "closed_at": "2026-11-01T12:26:55.690996+03:00"
+    },
+    {
+      "timestamp": "2026-10-31 20:23",
+      "experiment_key": "TOMORROW_01_11_CAR_4_TOPCONVERTERS_AUTOPLC_RR1",
+      "is_experiment": true,
+      "aadvid": "7631765139798081554",
+      "acc_name": "ROELLINGER RECYCLING1",
+      "campaign_id": "1880586949231762",
+      "campaign_name": "[EXP-LEADS] car armrest 4 TopConverters AutoPlc 01-11",
+      "action_type": "خطة الغد (01-11 06:00 ص): تجميع أقوى 4 فيديوهات وسادة سيارة محققة للمبيعات اليوم (hanan_20-10_1 + Car_Recycled_Ad_03 + flow_hook5_travel + flow_hook3_shop) في حملة Website Leads + Auto Placement (Target Cost $6.20)",
+      "videos": [
+        "21-10_hanan_20-10_1.mp4",
+        "31-10_Car_Recycled_Ad_03.mp4",
+        "22-10_flow_hook5_travel.mp4"
+      ],
+      "base_sp3": 0.0,
+      "base_cv3": 0,
+      "status": "FAILED_AND_CUT",
+      "closed_at": "2026-11-01T12:44:07.026451+03:00"
+    },
+    {
+      "timestamp": "2026-10-31 20:23",
+      "experiment_key": "TOMORROW_01_11_CAR_4_TOPCONVERTERS_AUTOPLC_RR2",
+      "is_experiment": true,
+      "aadvid": "7631765070816509959",
+      "acc_name": "ROELLINGER RECYCLING2",
+      "campaign_id": "1880586963672545",
+      "campaign_name": "[EXP-LEADS] car armrest 4 TopConverters AutoPlc 01-11",
+      "action_type": "خطة الغد (01-11 06:00 ص): تجميع أقوى 4 فيديوهات وسادة سيارة محققة للمبيعات اليوم (hanan_20-10_1 + Car_Recycled_Ad_03 + flow_hook5_travel + flow_hook3_shop) في حملة Website Leads + Auto Placement (Target Cost $6.20)",
+      "videos": [
+        "21-10_hanan_20-10_1.mp4",
+        "31-10_Car_Recycled_Ad_03.mp4",
+        "22-10_flow_hook5_travel.mp4"
+      ],
+      "base_sp3": 0.0,
+      "base_cv3": 0,
+      "status": "OPEN"
+    },
+    {
+      "timestamp": "2026-10-31 20:23",
+      "experiment_key": "TOMORROW_01_11_PB_4_CLEANRESCUE_RR0",
+      "is_experiment": true,
+      "aadvid": "7631763556322148369",
+      "acc_name": "ROELLINGER RECYCLING",
+      "campaign_id": "1880586981917825",
+      "campaign_name": "[EXP-LEADS] power bank 4 CleanRescue 01-11",
+      "action_type": "خطة الغد (01-11 06:00 ص): إنقاذ وإعادة اختبار 4 فيديوهات باور بانك نظيفة لم تأخذ حقها في الصرف اليوم (< $1.00) في حملة Website Leads + TikTok In-Feed Only (Target Cost $6.20)",
+      "videos": [
+        "31-10_PB_H7_SnapGads_Winner_05.mp4",
+        "27-10_PB_Ola22_05.mp4",
+        "30-10_PB_New9_Ad_06.mp4",
+        "26-10_Fast_Voltrx_Approved_Ad_03.mp4"
+      ],
+      "base_sp3": 0.0,
+      "base_cv3": 0,
+      "status": "FAILED_AND_CUT",
+      "closed_at": "2026-11-01T13:00:02.159776+03:00"
+    },
+    {
+      "timestamp": "2026-10-31 20:37",
+      "experiment_key": "SCALE_1880529780578834_2026-10-31_CV3",
+      "is_experiment": true,
+      "aadvid": "7631763556322148369",
+      "acc_name": "ROELLINGER RECYCLING",
+      "campaign_id": "1880529780578834",
+      "campaign_name": "[EXP-LEADS] car armrest 5 Elite Winners Feed Leads 31-10",
+      "action_type": "رفع ميزانية الحملة الرابحة +30% ($131 -> $150)",
+      "videos": [],
+      "base_sp3": 13.9,
+      "base_cv3": 3,
+      "status": "FAILED_AND_CUT",
+      "closed_at": "2026-10-31T22:01:12.504229+03:00"
+    },
+    {
+      "timestamp": "2026-11-01T03:25:59.082942+00:00",
+      "account_id": "7631765070816509959",
+      "account_name": "ROELLINGER RECYCLING2",
+      "campaign_id": "1880585120897858",
+      "campaign_name": "power bank 31-10 30d Batch C (3 Ads 28-30)",
+      "ad_id": "1880585120897874",
+      "material_name": "31-10_PB_30d_Recycled_Ad_29.mp4",
+      "action_type": "prune_losing_sibling_video",
+      "spend_at_action": 2.6,
+      "sales_at_action": 0,
+      "clicks_at_action": 13,
+      "cpc_at_action": 0.2,
+      "reason": "إيقاف الفيديو المستأثر بالميزانية Ad_29 بعد صرفه .60 بصفر مبيعات لتركيز الميزانية في الفيديو الرابح Ad_28 والفيديو البديل Ad_30"
+    },
+    {
+      "timestamp": "2026-11-01 12:00",
+      "experiment_key": "SCALE_1880584564639777_2026-11-01_CV1",
+      "is_experiment": false,
+      "aadvid": "7631763556322148369",
+      "acc_name": "ROELLINGER RECYCLING",
+      "campaign_id": "1880584564639777",
+      "campaign_name": "power bank 31-10 30d Batch B (4 Ads 24-27)",
+      "action_type": "رفع ميزانية الحملة الرابحة +30% ($20 -> $26)",
+      "videos": [],
+      "base_sp3": 0.57,
+      "base_cv3": 1,
+      "status": "SUCCEEDED"
+    },
+    {
+      "timestamp": "2026-11-01 12:00",
+      "experiment_key": "SCALE_1880584783914801_2026-11-01_CV1",
+      "is_experiment": false,
+      "aadvid": "7631765139798081554",
+      "acc_name": "ROELLINGER RECYCLING1",
+      "campaign_id": "1880584783914801",
+      "campaign_name": "power bank 31-10 30d Batch C (3 Ads 28-30)",
+      "action_type": "رفع ميزانية الحملة الرابحة +30% ($20 -> $26)",
+      "videos": [],
+      "base_sp3": 3.74,
+      "base_cv3": 1,
+      "status": "FAILED_AND_CUT",
+      "closed_at": "2026-11-01T13:48:08.431535+03:00"
+    },
+    {
+      "timestamp": "2026-11-01 13:00",
+      "experiment_key": "SCALE_1880584572912706_2026-11-01_CV6_B52",
+      "is_experiment": false,
+      "aadvid": "7631763556322148369",
+      "acc_name": "ROELLINGER RECYCLING",
+      "campaign_id": "1880584572912706",
+      "campaign_name": "power bank 31-10 30d Batch C (3 Ads 28-30)",
+      "action_type": "رفع ميزانية الحملة الرابحة +30% ($40 -> $52)",
+      "videos": [],
+      "base_sp3": 14.12,
+      "base_cv3": 6,
+      "status": "SUCCEEDED"
+    },
+    {
+      "timestamp": "2026-11-01 13:00",
+      "experiment_key": "SCALE_1880584564639777_2026-11-01_CV2_B34",
+      "is_experiment": false,
+      "aadvid": "7631763556322148369",
+      "acc_name": "ROELLINGER RECYCLING",
+      "campaign_id": "1880584564639777",
+      "campaign_name": "power bank 31-10 30d Batch B (4 Ads 24-27)",
+      "action_type": "رفع ميزانية الحملة الرابحة +30% ($26 -> $34)",
+      "videos": [],
+      "base_sp3": 2.06,
+      "base_cv3": 2,
+      "status": "SUCCEEDED"
+    },
+    {
+      "timestamp": "2026-11-01 13:00",
+      "experiment_key": "SCALE_1880586963672545_2026-11-01_CV1_B34",
+      "is_experiment": true,
+      "aadvid": "7631765070816509959",
+      "acc_name": "ROELLINGER RECYCLING2",
+      "campaign_id": "1880586963672545",
+      "campaign_name": "[EXP-LEADS] car armrest 4 TopConverters AutoPlc 01-11",
+      "action_type": "رفع ميزانية الحملة الرابحة +30% ($26 -> $34)",
+      "videos": [],
+      "base_sp3": 5.77,
+      "base_cv3": 1,
+      "status": "FAILED_AND_CUT",
+      "closed_at": "2026-11-01T16:00:02.236390+03:00"
+    },
+    {
+      "timestamp": "2026-11-01 13:48",
+      "experiment_key": "SCALE_1880584564639777_2026-11-01_CV4_B57",
+      "is_experiment": false,
+      "aadvid": "7631763556322148369",
+      "acc_name": "ROELLINGER RECYCLING",
+      "campaign_id": "1880584564639777",
+      "campaign_name": "power bank 31-10 30d Batch B (4 Ads 24-27)",
+      "action_type": "رفع ميزانية الحملة الرابحة +30% ($44 -> $57)",
+      "videos": [],
+      "base_sp3": 4.44,
+      "base_cv3": 4,
+      "status": "OPEN"
+    },
+    {
+      "timestamp": "2026-11-01 15:00",
+      "experiment_key": "SCALE_1880584564639777_2026-11-01_CV5_B74",
+      "is_experiment": false,
+      "aadvid": "7631763556322148369",
+      "acc_name": "ROELLINGER RECYCLING",
+      "campaign_id": "1880584564639777",
+      "campaign_name": "power bank 31-10 30d Batch B (4 Ads 24-27)",
+      "action_type": "رفع ميزانية الحملة الرابحة +30% ($57 -> $74)",
+      "videos": [],
+      "base_sp3": 10.67,
+      "base_cv3": 5,
+      "status": "FAILED_AND_CUT",
+      "closed_at": "2026-11-01T16:18:27.742753+03:00"
+    },
+    {
+      "timestamp": "2026-11-01 15:21",
+      "experiment_key": "SCALE_1880584572912706_2026-11-01_CV7_B88",
+      "is_experiment": false,
+      "aadvid": "7631763556322148369",
+      "acc_name": "ROELLINGER RECYCLING",
+      "campaign_id": "1880584572912706",
+      "campaign_name": "power bank 31-10 30d Batch C (3 Ads 28-30)",
+      "action_type": "رفع ميزانية الحملة الرابحة +30% ($68 -> $88)",
+      "videos": [],
+      "base_sp3": 16.85,
+      "base_cv3": 7,
+      "status": "SUCCEEDED"
+    },
+    {
+      "timestamp": "2026-11-01 16:18",
+      "experiment_key": "SCALE_1880584572912706_2026-11-01_CV9_B114",
+      "is_experiment": false,
+      "aadvid": "7631763556322148369",
+      "acc_name": "ROELLINGER RECYCLING",
+      "campaign_id": "1880584572912706",
+      "campaign_name": "power bank 31-10 30d Batch C (3 Ads 28-30)",
+      "action_type": "رفع ميزانية الحملة الرابحة +30% ($88 -> $114)",
+      "videos": [],
+      "base_sp3": 20.39,
+      "base_cv3": 9,
+      "status": "OPEN"
+    },
+    {
+      "ts": 1793571949.008011,
+      "time_ksa": "2026-11-02 01:25:49",
+      "account": "ROELLINGER RECYCLING",
+      "aadvid": "7631763556322148369",
+      "campaign_id": "1880695907818610",
+      "campaign_name": "power bank 02-11 Manzilk Winners A (5 Ads)",
+      "action": "launch_manzilk_winners_02_11",
+      "details": "Scheduled tomorrow 06:00 AM KSA (2026-11-02 05:00:00) | Target Cost $6.20 | Budget $50 | 5 Manzilk Winners"
+    },
+    {
+      "ts": 1793571949.008011,
+      "time_ksa": "2026-11-02 01:25:49",
+      "account": "ROELLINGER RECYCLING",
+      "aadvid": "7631763556322148369",
+      "campaign_id": "1880695916990625",
+      "campaign_name": "power bank 02-11 Manzilk Winners B (5 Ads)",
+      "action": "launch_manzilk_winners_02_11",
+      "details": "Scheduled tomorrow 06:00 AM KSA (2026-11-02 05:00:00) | Target Cost $6.20 | Budget $50 | 5 Manzilk Winners"
+    },
+    {
+      "ts": 1793571949.008011,
+      "time_ksa": "2026-11-02 01:25:49",
+      "account": "ROELLINGER RECYCLING",
+      "aadvid": "7631763556322148369",
+      "campaign_id": "1880695903993266",
+      "campaign_name": "power bank 02-11 Manzilk Winners C (5 Ads)",
+      "action": "launch_manzilk_winners_02_11",
+      "details": "Scheduled tomorrow 06:00 AM KSA (2026-11-02 05:00:00) | Target Cost $6.20 | Budget $50 | 5 Manzilk Winners"
+    },
+    {
+      "ts": 1793571949.008011,
+      "time_ksa": "2026-11-02 01:25:49",
+      "account": "ROELLINGER RECYCLING",
+      "aadvid": "7631763556322148369",
+      "campaign_id": "1880695923847233",
+      "campaign_name": "car armrest 02-11 Manzilk Winners A (4 Ads)",
+      "action": "launch_manzilk_winners_02_11",
+      "details": "Scheduled tomorrow 06:00 AM KSA (2026-11-02 05:00:00) | Target Cost $6.20 | Budget $50 | 4 Manzilk Winners"
+    },
+    {
+      "ts": 1793571949.008011,
+      "time_ksa": "2026-11-02 01:25:49",
+      "account": "ROELLINGER RECYCLING",
+      "aadvid": "7631763556322148369",
+      "campaign_id": "1880695940480305",
+      "campaign_name": "car armrest 02-11 Manzilk Winners B (4 Ads)",
+      "action": "launch_manzilk_winners_02_11",
+      "details": "Scheduled tomorrow 06:00 AM KSA (2026-11-02 05:00:00) | Target Cost $6.20 | Budget $50 | 4 Manzilk Winners"
+    },
+    {
+      "ts": 1793571949.008011,
+      "time_ksa": "2026-11-02 01:25:49",
+      "account": "ROELLINGER RECYCLING",
+      "aadvid": "7631763556322148369",
+      "campaign_id": "1880695954907169",
+      "campaign_name": "car armrest 02-11 Manzilk Winners C (4 Ads)",
+      "action": "launch_manzilk_winners_02_11",
+      "details": "Scheduled tomorrow 06:00 AM KSA (2026-11-02 05:00:00) | Target Cost $6.20 | Budget $50 | 4 Manzilk Winners"
+    },
+    {
+      "ts": 1793571949.008011,
+      "time_ksa": "2026-11-02 01:25:49",
+      "account": "ROELLINGER RECYCLING1",
+      "aadvid": "7631765139798081554",
+      "campaign_id": "1880696205462610",
+      "campaign_name": "power bank 02-11 Manzilk Winners A (5 Ads)",
+      "action": "launch_manzilk_winners_02_11",
+      "details": "Scheduled tomorrow 06:00 AM KSA (2026-11-02 05:00:00) | Target Cost $6.20 | Budget $50 | 5 Manzilk Winners"
+    },
+    {
+      "ts": 1793571949.008011,
+      "time_ksa": "2026-11-02 01:25:49",
+      "account": "ROELLINGER RECYCLING1",
+      "aadvid": "7631765139798081554",
+      "campaign_id": "1880696213815394",
+      "campaign_name": "power bank 02-11 Manzilk Winners B (5 Ads)",
+      "action": "launch_manzilk_winners_02_11",
+      "details": "Scheduled tomorrow 06:00 AM KSA (2026-11-02 05:00:00) | Target Cost $6.20 | Budget $50 | 5 Manzilk Winners"
+    },
+    {
+      "ts": 1793571949.008011,
+      "time_ksa": "2026-11-02 01:25:49",
+      "account": "ROELLINGER RECYCLING1",
+      "aadvid": "7631765139798081554",
+      "campaign_id": "1880696226591121",
+      "campaign_name": "power bank 02-11 Manzilk Winners C (5 Ads)",
+      "action": "launch_manzilk_winners_02_11",
+      "details": "Scheduled tomorrow 06:00 AM KSA (2026-11-02 05:00:00) | Target Cost $6.20 | Budget $50 | 5 Manzilk Winners"
+    },
+    {
+      "ts": 1793571949.008011,
+      "time_ksa": "2026-11-02 01:25:49",
+      "account": "ROELLINGER RECYCLING1",
+      "aadvid": "7631765139798081554",
+      "campaign_id": "1880696230002850",
+      "campaign_name": "car armrest 02-11 Manzilk Winners A (4 Ads)",
+      "action": "launch_manzilk_winners_02_11",
+      "details": "Scheduled tomorrow 06:00 AM KSA (2026-11-02 05:00:00) | Target Cost $6.20 | Budget $50 | 4 Manzilk Winners"
+    },
+    {
+      "ts": 1793571949.008011,
+      "time_ksa": "2026-11-02 01:25:49",
+      "account": "ROELLINGER RECYCLING1",
+      "aadvid": "7631765139798081554",
+      "campaign_id": "1880696239876273",
+      "campaign_name": "car armrest 02-11 Manzilk Winners B (4 Ads)",
+      "action": "launch_manzilk_winners_02_11",
+      "details": "Scheduled tomorrow 06:00 AM KSA (2026-11-02 05:00:00) | Target Cost $6.20 | Budget $50 | 4 Manzilk Winners"
+    },
+    {
+      "ts": 1793571949.008011,
+      "time_ksa": "2026-11-02 01:25:49",
+      "account": "ROELLINGER RECYCLING1",
+      "aadvid": "7631765139798081554",
+      "campaign_id": "1880696252007105",
+      "campaign_name": "car armrest 02-11 Manzilk Winners C (4 Ads)",
+      "action": "launch_manzilk_winners_02_11",
+      "details": "Scheduled tomorrow 06:00 AM KSA (2026-11-02 05:00:00) | Target Cost $6.20 | Budget $50 | 4 Manzilk Winners"
+    },
+    {
+      "ts": 1793571949.008011,
+      "time_ksa": "2026-11-02 01:25:49",
+      "account": "ROELLINGER RECYCLING2",
+      "aadvid": "7631765070816509959",
+      "campaign_id": "1880696438045873",
+      "campaign_name": "power bank 02-11 Manzilk Winners A (5 Ads)",
+      "action": "launch_manzilk_winners_02_11",
+      "details": "Scheduled tomorrow 06:00 AM KSA (2026-11-02 05:00:00) | Target Cost $6.20 | Budget $50 | 5 Manzilk Winners"
+    },
+    {
+      "ts": 1793571949.008011,
+      "time_ksa": "2026-11-02 01:25:49",
+      "account": "ROELLINGER RECYCLING2",
+      "aadvid": "7631765070816509959",
+      "campaign_id": "1880696447667425",
+      "campaign_name": "power bank 02-11 Manzilk Winners B (5 Ads)",
+      "action": "launch_manzilk_winners_02_11",
+      "details": "Scheduled tomorrow 06:00 AM KSA (2026-11-02 05:00:00) | Target Cost $6.20 | Budget $50 | 5 Manzilk Winners"
+    },
+    {
+      "ts": 1793571949.008011,
+      "time_ksa": "2026-11-02 01:25:49",
+      "account": "ROELLINGER RECYCLING2",
+      "aadvid": "7631765070816509959",
+      "campaign_id": "1880696462169250",
+      "campaign_name": "power bank 02-11 Manzilk Winners C (5 Ads)",
+      "action": "launch_manzilk_winners_02_11",
+      "details": "Scheduled tomorrow 06:00 AM KSA (2026-11-02 05:00:00) | Target Cost $6.20 | Budget $50 | 5 Manzilk Winners"
+    },
+    {
+      "ts": 1793571949.008011,
+      "time_ksa": "2026-11-02 01:25:49",
+      "account": "ROELLINGER RECYCLING2",
+      "aadvid": "7631765070816509959",
+      "campaign_id": "1880696472538162",
+      "campaign_name": "car armrest 02-11 Manzilk Winners A (4 Ads)",
+      "action": "launch_manzilk_winners_02_11",
+      "details": "Scheduled tomorrow 06:00 AM KSA (2026-11-02 05:00:00) | Target Cost $6.20 | Budget $50 | 4 Manzilk Winners"
+    },
+    {
+      "ts": 1793571949.008011,
+      "time_ksa": "2026-11-02 01:25:49",
+      "account": "ROELLINGER RECYCLING2",
+      "aadvid": "7631765070816509959",
+      "campaign_id": "1880696483418754",
+      "campaign_name": "car armrest 02-11 Manzilk Winners B (4 Ads)",
+      "action": "launch_manzilk_winners_02_11",
+      "details": "Scheduled tomorrow 06:00 AM KSA (2026-11-02 05:00:00) | Target Cost $6.20 | Budget $50 | 4 Manzilk Winners"
+    },
+    {
+      "ts": 1793571949.008011,
+      "time_ksa": "2026-11-02 01:25:49",
+      "account": "ROELLINGER RECYCLING2",
+      "aadvid": "7631765070816509959",
+      "campaign_id": "1880696490200418",
+      "campaign_name": "car armrest 02-11 Manzilk Winners C (4 Ads)",
+      "action": "launch_manzilk_winners_02_11",
+      "details": "Scheduled tomorrow 06:00 AM KSA (2026-11-02 05:00:00) | Target Cost $6.20 | Budget $50 | 4 Manzilk Winners"
+    },
+    {
+      "timestamp": "2026-11-02 12:19",
+      "experiment_key": "REVIVE_1880515052502194_2026-11-02",
+      "is_experiment": false,
+      "aadvid": "7631763556322148369",
+      "acc_name": "ROELLINGER RECYCLING",
+      "campaign_id": "1880515052502194",
+      "campaign_name": "power bank 30-10 New9 Batch B (4 Ads)",
+      "action_type": "إعادة تفعيل حملة فائزة (5 مبيعات @ $6.78) وحصر الميزانية في الفيديوهات الرابحة",
+      "videos": [
+        "30-10_PB_New9_Ad_09.mp4 (3D: 5 sales @ $4.24, CPC <= $0.35)"
+      ],
+      "base_sp3": 33.89,
+      "base_cv3": 5,
+      "status": "FAILED_AND_CUT",
+      "closed_at": "2026-11-02T12:39:38.114415+03:00"
+    },
+    {
+      "timestamp": "2026-11-02 12:39",
+      "experiment_key": "SCALE_1880695954907169_2026-11-02_CV3_B84",
+      "is_experiment": false,
+      "aadvid": "7631763556322148369",
+      "acc_name": "ROELLINGER RECYCLING",
+      "campaign_id": "1880695954907169",
+      "campaign_name": "car armrest 02-11 Manzilk Winners C (4 Ads)",
+      "action_type": "رفع ميزانية الحملة الرابحة +30% ($65 -> $84)",
+      "videos": [],
+      "base_sp3": 6.03,
+      "base_cv3": 3,
+      "status": "OPEN"
+    },
+    {
+      "timestamp": "2026-11-02 12:39",
+      "experiment_key": "SCALE_1880696438045873_2026-11-02_CV6_B40",
+      "is_experiment": false,
+      "aadvid": "7631765070816509959",
+      "acc_name": "ROELLINGER RECYCLING2",
+      "campaign_id": "1880696438045873",
+      "campaign_name": "power bank 02-11 Manzilk Winners A (5 Ads)",
+      "action_type": "رفع ميزانية الحملة الرابحة +30% ($31 -> $40)",
+      "videos": [],
+      "base_sp3": 14.09,
+      "base_cv3": 6,
+      "status": "OPEN"
+    }
+  ],
+  "failed_experiments": [
+    "ROEL2_LEADS_4_PROVEN_WINNERS_V1",
+    "REVIVE_1880201842305441_2026-10-30",
+    "ROEL2_LEADS_FEED_CAR_ARMREST_OLA_HANAN_V1",
+    "SCALE_1880472096597409_2026-10-30_CV1",
+    "ROEL1_LEADS_FEED_CAR_WINNERS_V1",
+    "ROEL0_LEADS_FEED_5_PB_SUPER_WINNERS_V1",
+    "CROSS_PLATFORM_CAR_4_NEW_ROEL0",
+    "LAUNCH_31_10_CAR10_5HOOKS_8369",
+    "LAUNCH_31_10_PB_RECYCLED_5_ADS_ROEL0",
+    "DYN_9959_PB_CONV_AUTO_31-10",
+    "DYN_9959_PB_LEADS_AUTO_31-10",
+    "LAUNCH_31_10_PB_RECYCLED_5_ADS_ROEL1",
+    "SCALE_1880468185645138_2026-10-31_CV1",
+    "ROEL1_LEADS_FEED_5_PB_WINNERS_V1",
+    "CROSS_PLATFORM_PB_H7_5_HOOKS_ROEL1",
+    "CROSS_PLATFORM_CAR_4_NEW_ROEL1",
+    "LAUNCH_31_10_CAR10_5MONTAGE_8369",
+    "LAUNCH_31_10_CAR10_5HOOKS_1554",
+    "LAUNCH_31_10_CAR10_5MONTAGE_1554",
+    "LAUNCH_31_10_CAR10_5HOOKS_9959",
+    "ROEL0_CAR_LEADS_AUTO_PLACEMENT_31-10",
+    "ROEL0_PB_LEADS_AUTO_PLACEMENT_31-10",
+    "ROEL0_PB_CONV_AUTO_PLACEMENT_31-10",
+    "ROEL2_PB_LEADS_AUTO_PLACEMENT_31-10",
+    "ROEL1_PB_LEADS_AUTO_PLACEMENT_31-10",
+    "ROEL1_CAR_LEADS_AUTO_PLACEMENT_31-10",
+    "SCALE_1880515858857985_2026-10-31_CV2",
+    "SCALE_1880548063042625_2026-10-31_CV2",
+    "DYN_8369_PB_LEADS_AUTO_31-10",
+    "DYN_8369_PB_CONV_AUTO_31-10",
+    "DYN_8369_CAR_CONV_AUTO_31-10",
+    "SCALE_1880529780578834_2026-10-31_CV3",
+    "TOMORROW_01_11_CAR_4_TOPCONVERTERS_AUTOPLC_RR0",
+    "TOMORROW_01_11_PB_5_SUPERCOMBO_AUTOPLC_RR1",
+    "TOMORROW_01_11_CAR_4_TOPCONVERTERS_AUTOPLC_RR1",
+    "TOMORROW_01_11_PB_4_CLEANRESCUE_RR0",
+    "SCALE_1880584783914801_2026-11-01_CV1",
+    "TOMORROW_01_11_PB_5_SUPERCOMBO_AUTOPLC_RR0",
+    "SCALE_1880586963672545_2026-11-01_CV1_B34",
+    "SCALE_1880584564639777_2026-11-01_CV5_B74",
+    "ROEL0_LEADS_5_ELITE_WINNERS_V1",
+    "SCALE_1880427722388082_2026-10-30_CV4",
+    "SCALE_1880427764550018_2026-10-30_CV2",
+    "REVIVE_1880515052502194_2026-11-02"
+  ],
+  "scaled_campaigns": {
+    "2026-10-30:7631763556322148369:1880427722388082": {
+      "campaign_name": "power bank 30-10 Flow Hooks (4 Ads)",
+      "old_budget": 101.0,
+      "new_budget": 131,
+      "cv1": 4,
+      "cpa1": 4.74,
+      "scaled_at": "2026-10-30 13:53"
+    },
+    "2026-10-30:7631765070816509959:1880427764550018": {
+      "campaign_name": "power bank 30-10 Flow Hooks (4 Ads)",
+      "old_budget": 78.0,
+      "new_budget": 101,
+      "cv1": 2,
+      "cpa1": 2.94,
+      "scaled_at": "2026-10-30 13:53"
+    },
+    "2026-10-30:7631763556322148369:1880472559482321": {
+      "campaign_name": "[EXP-LEADS] car armrest 5 Elite Winners Feed Leads 30-10",
+      "old_budget": 84.0,
+      "new_budget": 109,
+      "cv1": 6,
+      "conv_today": 6,
+      "cpa1": 3.44,
+      "cpa_today": 3.44,
+      "scaled_at": "2026-10-30 22:07"
+    },
+    "7631763556322148369:1880472559482321": {
+      "campaign_name": "[EXP-LEADS] car armrest 5 Elite Winners Feed Leads 30-10",
+      "old_budget": 84.0,
+      "new_budget": 109,
+      "cv1": 6,
+      "conv_today": 6,
+      "cpa1": 3.44,
+      "cpa_today": 3.44,
+      "scaled_at": "2026-10-30 22:07"
+    },
+    "2026-10-30:7631765070816509959:1880472096597409": {
+      "campaign_name": "[EXP-LEADS] power bank Super Winners Feed Leads 30-10",
+      "old_budget": 55.0,
+      "new_budget": 72,
+      "cv1": 1,
+      "conv_today": 1,
+      "cpa1": 4.55,
+      "cpa_today": 4.55,
+      "scaled_at": "2026-10-30 22:07"
+    },
+    "7631765070816509959:1880472096597409": {
+      "campaign_name": "[EXP-LEADS] power bank Super Winners Feed Leads 30-10",
+      "old_budget": 55.0,
+      "new_budget": 72,
+      "cv1": 1,
+      "conv_today": 1,
+      "cpa1": 4.55,
+      "cpa_today": 4.55,
+      "scaled_at": "2026-10-30 22:07"
+    },
+    "2026-10-31:7631763556322148369:1880515996111937": {
+      "campaign_name": "[EXP-LEADS] power bank 5 H7 CrossPlatform 31-10",
+      "old_budget": 142.0,
+      "new_budget": 150,
+      "cv1": 2,
+      "conv_today": 2,
+      "cpa1": 4.81,
+      "cpa_today": 4.81,
+      "scaled_at": "2026-10-31 14:53"
+    },
+    "7631763556322148369:1880515996111937": {
+      "campaign_name": "[EXP-LEADS] power bank 5 H7 CrossPlatform 31-10",
+      "old_budget": 142.0,
+      "new_budget": 150,
+      "cv1": 2,
+      "conv_today": 2,
+      "cpa1": 4.81,
+      "cpa_today": 4.81,
+      "scaled_at": "2026-10-31 14:53"
+    },
+    "2026-10-31:7631763556322148369:1880515052502194": {
+      "campaign_name": "power bank 30-10 New9 Batch B (4 Ads)",
+      "old_budget": 170.0,
+      "new_budget": 221,
+      "cv1": 4,
+      "conv_today": 4,
+      "cpa1": 3.01,
+      "cpa_today": 3.01,
+      "scaled_at": "2026-10-31 09:52"
+    },
+    "7631763556322148369:1880515052502194": {
+      "campaign_name": "power bank 30-10 New9 Batch B (4 Ads)",
+      "old_budget": 170.0,
+      "new_budget": 221.0,
+      "cv1": 4,
+      "conv_today": 4,
+      "cpa1": 3.01,
+      "cpa_today": 3.01,
+      "scaled_at": "2026-10-31 09:52"
+    },
+    "2026-10-31:7631765070816509959:1880515858857985": {
+      "campaign_name": "[EXP-LEADS] car armrest 5 Elite Winners Feed Leads 31-10",
+      "old_budget": 84.0,
+      "new_budget": 109,
+      "cv1": 2,
+      "conv_today": 2,
+      "cpa1": 4.04,
+      "cpa_today": 4.04,
+      "scaled_at": "2026-10-31 13:44"
+    },
+    "7631765070816509959:1880515858857985": {
+      "campaign_name": "[EXP-LEADS] car armrest 5 Elite Winners Feed Leads 31-10",
+      "old_budget": 84.0,
+      "new_budget": 109,
+      "cv1": 2,
+      "conv_today": 2,
+      "cpa1": 4.04,
+      "cpa_today": 4.04,
+      "scaled_at": "2026-10-31 13:44"
+    },
+    "2026-10-31:7631765070816509959:1880516338274689": {
+      "campaign_name": "[EXP-LEADS] power bank 5 H7 CrossPlatform 31-10",
+      "old_budget": 142.0,
+      "new_budget": 150,
+      "cv1": 16,
+      "conv_today": 16,
+      "cpa1": 5.06,
+      "cpa_today": 5.06,
+      "scaled_at": "2026-10-31 20:00"
+    },
+    "7631765070816509959:1880516338274689": {
+      "campaign_name": "[EXP-LEADS] power bank 5 H7 CrossPlatform 31-10",
+      "old_budget": 142.0,
+      "new_budget": 200.0,
+      "cv1": 16,
+      "conv_today": 16,
+      "cpa1": 5.06,
+      "cpa_today": 5.06,
+      "scaled_at": "2026-10-31 20:00"
+    },
+    "2026-10-31:7631765070816509959:1880548063042625": {
+      "campaign_name": "car armrest 31-10 Recycled 5 Ads (5 Ads)",
+      "old_budget": 131.0,
+      "new_budget": 170,
+      "cv1": 2,
+      "conv_today": 2,
+      "cpa1": 3.4,
+      "cpa_today": 3.4,
+      "scaled_at": "2026-10-31 13:44"
+    },
+    "7631765070816509959:1880548063042625": {
+      "campaign_name": "car armrest 31-10 Recycled 5 Ads (5 Ads)",
+      "old_budget": 131.0,
+      "new_budget": 170,
+      "cv1": 2,
+      "conv_today": 2,
+      "cpa1": 3.4,
+      "cpa_today": 3.4,
+      "scaled_at": "2026-10-31 13:44"
+    },
+    "2026-10-31:7631763556322148369:1880529780578834": {
+      "campaign_name": "[EXP-LEADS] car armrest 5 Elite Winners Feed Leads 31-10",
+      "old_budget": 131.0,
+      "new_budget": 150,
+      "cv1": 3,
+      "conv_today": 3,
+      "cpa1": 4.63,
+      "cpa_today": 4.63,
+      "scaled_at": "2026-10-31 20:37"
+    },
+    "7631763556322148369:1880529780578834": {
+      "campaign_name": "[EXP-LEADS] car armrest 5 Elite Winners Feed Leads 31-10",
+      "old_budget": 131.0,
+      "new_budget": 150,
+      "cv1": 3,
+      "conv_today": 3,
+      "cpa1": 4.63,
+      "cpa_today": 4.63,
+      "scaled_at": "2026-10-31 20:37"
+    },
+    "2026-10-31:7631765070816509959:1880468185645138": {
+      "campaign_name": "power bank 30-10 New 5 Ads (5 Ads)",
+      "old_budget": 101.0,
+      "new_budget": 131,
+      "cv1": 1,
+      "conv_today": 1,
+      "cpa1": 2.19,
+      "cpa_today": 2.19,
+      "scaled_at": "2026-10-31 19:00"
+    },
+    "7631765070816509959:1880468185645138": {
+      "campaign_name": "power bank 30-10 New 5 Ads (5 Ads)",
+      "old_budget": 101.0,
+      "new_budget": 131,
+      "cv1": 1,
+      "conv_today": 1,
+      "cpa1": 2.19,
+      "cpa_today": 2.19,
+      "scaled_at": "2026-10-31 19:00"
+    },
+    "2026-10-31:7631763556322148369:1880566761309746": {
+      "campaign_name": "[EXP-LEADS] car armrest 3 CPC-Rescued Leads AutoPlacement 31-10",
+      "old_budget": 55.0,
+      "new_budget": 72,
+      "cv1": 1,
+      "conv_today": 1,
+      "cpa1": 2.84,
+      "cpa_today": 2.84,
+      "scaled_at": "2026-10-31 19:34"
+    },
+    "7631763556322148369:1880566761309746": {
+      "campaign_name": "[EXP-LEADS] car armrest 3 CPC-Rescued Leads AutoPlacement 31-10",
+      "old_budget": 55.0,
+      "new_budget": 72.0,
+      "cv1": 1,
+      "conv_today": 1,
+      "cpa1": 2.84,
+      "cpa_today": 2.84,
+      "scaled_at": "2026-10-31 19:34"
+    },
+    "2026-10-31:7631763556322148369:1880560481802721": {
+      "campaign_name": "[EXP-LEADS] car armrest 4 Winners Conv AutoPlacement 31-10",
+      "old_budget": 60.0,
+      "new_budget": 78,
+      "cv1": 1,
+      "conv_today": 1,
+      "cpa1": 1.32,
+      "cpa_today": 1.32,
+      "scaled_at": "2026-10-31 19:34"
+    },
+    "7631763556322148369:1880560481802721": {
+      "campaign_name": "[EXP-LEADS] car armrest 4 Winners Conv AutoPlacement 31-10",
+      "old_budget": 60.0,
+      "new_budget": 78.0,
+      "cv1": 1,
+      "conv_today": 1,
+      "cpa1": 1.32,
+      "cpa_today": 1.32,
+      "scaled_at": "2026-10-31 19:34"
+    },
+    "2026-10-31:7631765070816509959:1880560550497489": {
+      "campaign_name": "[EXP-LEADS] car armrest 4 Winners Leads AutoPlacement 31-10",
+      "old_budget": 55.0,
+      "new_budget": 72,
+      "cv1": 1,
+      "conv_today": 1,
+      "cpa1": 2.28,
+      "cpa_today": 2.28,
+      "scaled_at": "2026-10-31 20:00"
+    },
+    "7631765070816509959:1880560550497489": {
+      "campaign_name": "[EXP-LEADS] car armrest 4 Winners Leads AutoPlacement 31-10",
+      "old_budget": 55.0,
+      "new_budget": 72.0,
+      "cv1": 1,
+      "conv_today": 1,
+      "cpa1": 2.28,
+      "cpa_today": 2.28,
+      "scaled_at": "2026-10-31 20:00"
+    },
+    "2026-11-01:7631763556322148369:1880584564639777": {
+      "campaign_name": "power bank 31-10 30d Batch B (4 Ads 24-27)",
+      "old_budget": 57.0,
+      "new_budget": 74,
+      "cv1": 5,
+      "conv_today": 5,
+      "cpa1": 2.13,
+      "cpa_today": 2.13,
+      "scaled_at": "2026-11-01 15:00"
+    },
+    "7631763556322148369:1880584564639777": {
+      "campaign_name": "power bank 31-10 30d Batch B (4 Ads 24-27)",
+      "old_budget": 57.0,
+      "new_budget": 74,
+      "cv1": 5,
+      "conv_today": 5,
+      "cpa1": 2.13,
+      "cpa_today": 2.13,
+      "scaled_at": "2026-11-01 15:00"
+    },
+    "2026-11-01:7631765139798081554:1880584783914801": {
+      "campaign_name": "power bank 31-10 30d Batch C (3 Ads 28-30)",
+      "old_budget": 20.0,
+      "new_budget": 26,
+      "cv1": 1,
+      "conv_today": 1,
+      "cpa1": 1.65,
+      "cpa_today": 1.65,
+      "scaled_at": "2026-11-01 12:00"
+    },
+    "7631765139798081554:1880584783914801": {
+      "campaign_name": "power bank 31-10 30d Batch C (3 Ads 28-30)",
+      "old_budget": 20.0,
+      "new_budget": 60.0,
+      "cv1": 1,
+      "conv_today": 1,
+      "cpa1": 1.65,
+      "cpa_today": 1.65,
+      "scaled_at": "2026-11-01 12:00"
+    },
+    "2026-11-01:7631763556322148369:1880584572912706": {
+      "campaign_name": "power bank 31-10 30d Batch C (3 Ads 28-30)",
+      "old_budget": 88.0,
+      "new_budget": 114,
+      "cv1": 9,
+      "conv_today": 9,
+      "cpa1": 2.31,
+      "cpa_today": 2.31,
+      "scaled_at": "2026-11-01 16:18"
+    },
+    "7631763556322148369:1880584572912706": {
+      "campaign_name": "power bank 31-10 30d Batch C (3 Ads 28-30)",
+      "old_budget": 88.0,
+      "new_budget": 114.0,
+      "cv1": 9,
+      "conv_today": 9,
+      "cpa1": 2.31,
+      "cpa_today": 2.31,
+      "scaled_at": "2026-11-01 16:18"
+    },
+    "2026-11-01:7631765070816509959:1880586963672545": {
+      "campaign_name": "[EXP-LEADS] car armrest 4 TopConverters AutoPlc 01-11",
+      "old_budget": 26.0,
+      "new_budget": 34,
+      "cv1": 1,
+      "conv_today": 1,
+      "cpa1": 5.77,
+      "cpa_today": 5.77,
+      "scaled_at": "2026-11-01 13:00"
+    },
+    "7631765070816509959:1880586963672545": {
+      "campaign_name": "[EXP-LEADS] car armrest 4 TopConverters AutoPlc 01-11",
+      "old_budget": 26.0,
+      "new_budget": 34,
+      "cv1": 1,
+      "conv_today": 1,
+      "cpa1": 5.77,
+      "cpa_today": 5.77,
+      "scaled_at": "2026-11-01 13:00"
+    },
+    "2026-11-02:7631763556322148369:1880695954907169": {
+      "campaign_name": "car armrest 02-11 Manzilk Winners C (4 Ads)",
+      "old_budget": 65.0,
+      "new_budget": 84,
+      "cv1": 3,
+      "conv_today": 3,
+      "cpa1": 2.02,
+      "cpa_today": 2.02,
+      "scaled_at": "2026-11-02 12:39"
+    },
+    "7631763556322148369:1880695954907169": {
+      "campaign_name": "car armrest 02-11 Manzilk Winners C (4 Ads)",
+      "old_budget": 65.0,
+      "new_budget": 84,
+      "cv1": 3,
+      "conv_today": 3,
+      "cpa1": 2.02,
+      "cpa_today": 2.02,
+      "scaled_at": "2026-11-02 12:39"
+    },
+    "2026-11-02:7631765070816509959:1880696438045873": {
+      "campaign_name": "power bank 02-11 Manzilk Winners A (5 Ads)",
+      "old_budget": 31.0,
+      "new_budget": 40,
+      "cv1": 6,
+      "conv_today": 6,
+      "cpa1": 2.34,
+      "cpa_today": 2.34,
+      "scaled_at": "2026-11-02 12:39"
+    },
+    "7631765070816509959:1880696438045873": {
+      "campaign_name": "power bank 02-11 Manzilk Winners A (5 Ads)",
+      "old_budget": 31.0,
+      "new_budget": 40,
+      "cv1": 6,
+      "conv_today": 6,
+      "cpa1": 2.34,
+      "cpa_today": 2.34,
+      "scaled_at": "2026-11-02 12:39"
+    }
+  },
+  "revived_campaigns": {
+    "2026-10-30:7631763556322148369:1880297411745937": {
+      "campaign_name": "power bank 28-10 Fresh Clean (4 Ads)",
+      "revived_at": "2026-10-30 13:53",
+      "videos": [
+        "26-10_Voltrx_Seedance_Ad_14.mp4 (3D: 5 sales @ $3.42)"
+      ],
+      "sp3": 62.43,
+      "cv3": 9
+    },
+    "2026-10-30:7631763556322148369:1880201842305441": {
+      "campaign_name": "power bank 27-10 Ola Hanan 2 (5 Ads 06-10)",
+      "revived_at": "2026-10-30 13:53",
+      "videos": [
+        "27-10_PB_Ola22_02.mp4 (3D: 4 sales @ $2.85)"
+      ],
+      "sp3": 19.0,
+      "cv3": 4
+    },
+    "2026-10-30:7631765070816509959:1880299140950417": {
+      "campaign_name": "power bank 28-10 Rescue Clean (3 Ads)",
+      "revived_at": "2026-10-30 13:53",
+      "videos": [
+        "26-10_Voltrx_Full_Hook_Ad_01_v3fast.mp4 (3D: 27 sales @ $6.86)"
+      ],
+      "sp3": 187.95,
+      "cv3": 27
+    },
+    "2026-11-02:7631763556322148369:1880515052502194": {
+      "campaign_name": "power bank 30-10 New9 Batch B (4 Ads)",
+      "revived_at": "2026-11-02 12:19",
+      "videos": [
+        "30-10_PB_New9_Ad_09.mp4 (3D: 5 sales @ $4.24, CPC <= $0.35)"
+      ],
+      "sp3": 33.89,
+      "cv3": 5
+    }
+  },
+  "launched_batch_campaigns": {
+    "1880548397621825": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "campaign_name": "car armrest 31-10 FlowHooks 30d (5 Ads)",
+      "product_type": "car",
+      "budget": "60",
+      "bid": "6.50",
+      "videos": [
+        "31-10_Car_30d_FlowHook_Ad_01.mp4",
+        "31-10_Car_30d_FlowHook_Ad_02.mp4",
+        "31-10_Car_30d_FlowHook_Ad_03.mp4",
+        "31-10_Car_30d_FlowHook_Ad_04.mp4",
+        "31-10_Car_30d_FlowHook_Ad_05.mp4"
+      ],
+      "created_at": "2026-10-31 10:16:26"
+    },
+    "1880548406320162": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "campaign_name": "car armrest 31-10 NoFlow 30d (5 Ads)",
+      "product_type": "car",
+      "budget": "60",
+      "bid": "6.50",
+      "videos": [
+        "31-10_Car_30d_NoFlow_Ad_01.mp4",
+        "31-10_Car_30d_NoFlow_Ad_02.mp4",
+        "31-10_Car_30d_NoFlow_Ad_03.mp4",
+        "31-10_Car_30d_NoFlow_Ad_04.mp4",
+        "31-10_Car_30d_NoFlow_Ad_05.mp4"
+      ],
+      "created_at": "2026-10-31 10:16:26"
+    },
+    "1880548550034658": {
+      "aadvid": "7631765139798081554",
+      "account_name": "ROELLINGER RECYCLING1",
+      "campaign_name": "car armrest 31-10 FlowHooks 30d (5 Ads)",
+      "product_type": "car",
+      "budget": "60",
+      "bid": "6.50",
+      "videos": [
+        "31-10_Car_30d_FlowHook_Ad_01.mp4",
+        "31-10_Car_30d_FlowHook_Ad_02.mp4",
+        "31-10_Car_30d_FlowHook_Ad_03.mp4",
+        "31-10_Car_30d_FlowHook_Ad_04.mp4",
+        "31-10_Car_30d_FlowHook_Ad_05.mp4"
+      ],
+      "created_at": "2026-10-31 10:16:26"
+    },
+    "1880548557943042": {
+      "aadvid": "7631765139798081554",
+      "account_name": "ROELLINGER RECYCLING1",
+      "campaign_name": "car armrest 31-10 NoFlow 30d (5 Ads)",
+      "product_type": "car",
+      "budget": "60",
+      "bid": "6.50",
+      "videos": [
+        "31-10_Car_30d_NoFlow_Ad_01.mp4",
+        "31-10_Car_30d_NoFlow_Ad_02.mp4",
+        "31-10_Car_30d_NoFlow_Ad_03.mp4",
+        "31-10_Car_30d_NoFlow_Ad_04.mp4",
+        "31-10_Car_30d_NoFlow_Ad_05.mp4"
+      ],
+      "created_at": "2026-10-31 10:16:26"
+    },
+    "1880548676761698": {
+      "aadvid": "7631765070816509959",
+      "account_name": "ROELLINGER RECYCLING2",
+      "campaign_name": "car armrest 31-10 FlowHooks 30d (5 Ads)",
+      "product_type": "car",
+      "budget": "60",
+      "bid": "6.50",
+      "videos": [
+        "31-10_Car_30d_FlowHook_Ad_01.mp4",
+        "31-10_Car_30d_FlowHook_Ad_02.mp4",
+        "31-10_Car_30d_FlowHook_Ad_03.mp4",
+        "31-10_Car_30d_FlowHook_Ad_04.mp4",
+        "31-10_Car_30d_FlowHook_Ad_05.mp4"
+      ],
+      "created_at": "2026-10-31 10:16:26"
+    },
+    "1880548677088514": {
+      "aadvid": "7631765070816509959",
+      "account_name": "ROELLINGER RECYCLING2",
+      "campaign_name": "car armrest 31-10 NoFlow 30d (5 Ads)",
+      "product_type": "car",
+      "budget": "60",
+      "bid": "6.50",
+      "videos": [
+        "31-10_Car_30d_NoFlow_Ad_01.mp4",
+        "31-10_Car_30d_NoFlow_Ad_02.mp4",
+        "31-10_Car_30d_NoFlow_Ad_03.mp4",
+        "31-10_Car_30d_NoFlow_Ad_04.mp4",
+        "31-10_Car_30d_NoFlow_Ad_05.mp4"
+      ],
+      "created_at": "2026-10-31 10:16:26"
+    },
+    "1880584557008978": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "campaign_name": "power bank 31-10 30d Batch A (4 Ads 20-23)",
+      "product_type": "pb",
+      "budget": "60",
+      "bid": "6.50",
+      "videos": [
+        "31-10_PB_30d_Recycled_Ad_20.mp4",
+        "31-10_PB_30d_Recycled_Ad_21.mp4",
+        "31-10_PB_30d_Recycled_Ad_22.mp4",
+        "31-10_PB_30d_Recycled_Ad_23.mp4"
+      ],
+      "created_at": "2026-10-31 19:55:35"
+    },
+    "1880584564639777": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "campaign_name": "power bank 31-10 30d Batch B (4 Ads 24-27)",
+      "product_type": "pb",
+      "budget": "60",
+      "bid": "6.50",
+      "videos": [
+        "31-10_PB_30d_Recycled_Ad_24.mp4",
+        "31-10_PB_30d_Recycled_Ad_25.mp4",
+        "31-10_PB_30d_Recycled_Ad_26.mp4",
+        "31-10_PB_30d_Recycled_Ad_27.mp4"
+      ],
+      "created_at": "2026-10-31 19:55:35"
+    },
+    "1880584572912706": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "campaign_name": "power bank 31-10 30d Batch C (3 Ads 28-30)",
+      "product_type": "pb",
+      "budget": "60",
+      "bid": "6.50",
+      "videos": [
+        "31-10_PB_30d_Recycled_Ad_28.mp4",
+        "31-10_PB_30d_Recycled_Ad_29.mp4",
+        "31-10_PB_30d_Recycled_Ad_30.mp4"
+      ],
+      "created_at": "2026-10-31 19:55:35"
+    },
+    "1880584766610434": {
+      "aadvid": "7631765139798081554",
+      "account_name": "ROELLINGER RECYCLING1",
+      "campaign_name": "power bank 31-10 30d Batch A (4 Ads 20-23)",
+      "product_type": "pb",
+      "budget": "60",
+      "bid": "6.50",
+      "videos": [
+        "31-10_PB_30d_Recycled_Ad_20.mp4",
+        "31-10_PB_30d_Recycled_Ad_21.mp4",
+        "31-10_PB_30d_Recycled_Ad_22.mp4",
+        "31-10_PB_30d_Recycled_Ad_23.mp4"
+      ],
+      "created_at": "2026-10-31 19:55:35"
+    },
+    "1880584775111314": {
+      "aadvid": "7631765139798081554",
+      "account_name": "ROELLINGER RECYCLING1",
+      "campaign_name": "power bank 31-10 30d Batch B (4 Ads 24-27)",
+      "product_type": "pb",
+      "budget": "60",
+      "bid": "6.50",
+      "videos": [
+        "31-10_PB_30d_Recycled_Ad_24.mp4",
+        "31-10_PB_30d_Recycled_Ad_25.mp4",
+        "31-10_PB_30d_Recycled_Ad_26.mp4",
+        "31-10_PB_30d_Recycled_Ad_27.mp4"
+      ],
+      "created_at": "2026-10-31 19:55:35"
+    },
+    "1880584783914801": {
+      "aadvid": "7631765139798081554",
+      "account_name": "ROELLINGER RECYCLING1",
+      "campaign_name": "power bank 31-10 30d Batch C (3 Ads 28-30)",
+      "product_type": "pb",
+      "budget": "60",
+      "bid": "6.50",
+      "videos": [
+        "31-10_PB_30d_Recycled_Ad_28.mp4",
+        "31-10_PB_30d_Recycled_Ad_29.mp4",
+        "31-10_PB_30d_Recycled_Ad_30.mp4"
+      ],
+      "created_at": "2026-10-31 19:55:35"
+    },
+    "1880585103098433": {
+      "aadvid": "7631765070816509959",
+      "account_name": "ROELLINGER RECYCLING2",
+      "campaign_name": "power bank 31-10 30d Batch A (4 Ads 20-23)",
+      "product_type": "pb",
+      "budget": "60",
+      "bid": "6.50",
+      "videos": [
+        "31-10_PB_30d_Recycled_Ad_20.mp4",
+        "31-10_PB_30d_Recycled_Ad_21.mp4",
+        "31-10_PB_30d_Recycled_Ad_22.mp4",
+        "31-10_PB_30d_Recycled_Ad_23.mp4"
+      ],
+      "created_at": "2026-10-31 19:55:35"
+    },
+    "1880585110872705": {
+      "aadvid": "7631765070816509959",
+      "account_name": "ROELLINGER RECYCLING2",
+      "campaign_name": "power bank 31-10 30d Batch B (4 Ads 24-27)",
+      "product_type": "pb",
+      "budget": "60",
+      "bid": "6.50",
+      "videos": [
+        "31-10_PB_30d_Recycled_Ad_24.mp4",
+        "31-10_PB_30d_Recycled_Ad_25.mp4",
+        "31-10_PB_30d_Recycled_Ad_26.mp4",
+        "31-10_PB_30d_Recycled_Ad_27.mp4"
+      ],
+      "created_at": "2026-10-31 19:55:35"
+    },
+    "1880585120897858": {
+      "aadvid": "7631765070816509959",
+      "account_name": "ROELLINGER RECYCLING2",
+      "campaign_name": "power bank 31-10 30d Batch C (3 Ads 28-30)",
+      "product_type": "pb",
+      "budget": "60",
+      "bid": "6.50",
+      "videos": [
+        "31-10_PB_30d_Recycled_Ad_28.mp4",
+        "31-10_PB_30d_Recycled_Ad_29.mp4",
+        "31-10_PB_30d_Recycled_Ad_30.mp4"
+      ],
+      "created_at": "2026-10-31 19:55:35"
+    },
+    "1880665507940754": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "campaign_name": "washer hp909 taager 01-11 B (3 Ads)",
+      "product_type": "washer_hp909",
+      "budget": "50",
+      "bid": "6.50",
+      "videos": [
+        "01-11_Taager_HP909_Washer_Ad_05.mp4",
+        "01-11_Taager_HP909_Washer_Ad_06.mp4",
+        "01-11_Taager_HP909_Washer_Ad_07.mp4"
+      ],
+      "created_at": "2026-11-01 17:17:39"
+    },
+    "1880665520082481": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "campaign_name": "bakhoor bw20 taager 01-11 (5 Ads)",
+      "product_type": "bakhoor_bw20",
+      "budget": "50",
+      "bid": "6.50",
+      "videos": [
+        "01-11_Taager_BW20_Bakhoor_Ad_01.mp4",
+        "01-11_Taager_BW20_Bakhoor_Ad_02.mp4",
+        "01-11_Taager_BW20_Bakhoor_Ad_03.mp4",
+        "01-11_Taager_BW20_Bakhoor_Ad_04.mp4",
+        "01-11_Taager_BW20_Bakhoor_Ad_05.mp4"
+      ],
+      "created_at": "2026-11-01 17:17:39"
+    },
+    "1880665777789313": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "campaign_name": "washer hp909 taager 01-11 A (4 Ads)",
+      "product_type": "washer_hp909",
+      "budget": "50",
+      "bid": "6.50",
+      "videos": [
+        "01-11_Taager_HP909_Washer_Ad_01.mp4",
+        "01-11_Taager_HP909_Washer_Ad_02.mp4",
+        "01-11_Taager_HP909_Washer_Ad_03.mp4",
+        "01-11_Taager_HP909_Washer_Ad_04.mp4"
+      ],
+      "created_at": "2026-11-01 17:17:39"
+    }
+  },
+  "latest_winning_structure_analysis": {
+    "Website Leads [obj=8] + Auto Placement [3000,9000,1000] + 3–5 فيديوهات رابحة": {
+      "sp1": 12.97,
+      "cv1": 2,
+      "sp3": 171.8,
+      "cv3": 23,
+      "sp7": 171.8,
+      "cv7": 23,
+      "decision": "✅ التركيبة رقم #1 اليوم لإنقاذ الـ CPC (< $0.22) وتوليد مبيعات فورية (SuperCombo / CPC-Rescued)"
+    },
+    "Website Leads [obj=8] + TikTok In-Feed Only [3000] + فيديوهات عابرة للمنصات": {
+      "sp1": 5.19,
+      "cv1": 0,
+      "sp3": 520.74,
+      "cv3": 87,
+      "sp7": 672.96,
+      "cv7": 113,
+      "decision": "✅ التركيبة رقم #1 في حجم المبيعات لـ Cross-Platform Winners (مثل H7 صاحبة 43 بيعة بـ $5.25)"
+    },
+    "Smart+ Website Conversions + 3–4 فيديوهات رابحة معاد تدويرها (30d Batch)": {
+      "sp1": 171.6,
+      "cv1": 15,
+      "sp3": 623.59,
+      "cv3": 71,
+      "sp7": 709.92,
+      "cv7": 81,
+      "decision": "✅ ناجحة عند حصر الحملة في 3–4 فيديوهات مجربة وتصفية الفيديوهات الخاسرة عند $1.00 و CPC > $0.25"
+    },
+    "حملات التوسيع المكررة (SCALE / Copy) أو تجميع > 6 فيديوهات خام": {
+      "sp1": 0.0,
+      "cv1": 0,
+      "sp3": 11.08,
+      "cv3": 2,
+      "sp7": 11.08,
+      "cv7": 2,
+      "decision": "🚫 سبب الفترات الخاسرة (يرفع CPC فوق $0.35 ويسحب المزاد من الحملة الأم — ممنوع نهائياً)"
+    }
+  }
+}
