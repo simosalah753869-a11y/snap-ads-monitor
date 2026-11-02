@@ -369,7 +369,7 @@ def run_growth_partner():
                 cpa3_tt = (sp3 / cv3) if (cv3 > 0 and sp3 >= 0.50) else 999.0
                 scale_key_tt = f"tt_scale:{today_d}:{cid_str}"
                 already_scaled_tt = any(a.get("scale_key") == scale_key_tt for a in ledger.get("actions", []))
-                if cv1 >= 2 and cpa1_tt <= 6.80 and cpa3_tt <= 7.50 and not already_scaled_tt:
+                if False and cv1 >= 2 and cpa1_tt <= 6.80 and cpa3_tt <= 7.50 and not already_scaled_tt:  # Disabled per $50 TikTok budget cap (2026-11-02)
                     try:
                         h_b = dict(headers)
                         h_b["Referer"] = f"https://ads.tiktok.com/i18n/manage/campaign?aadvid={aadvid}"
