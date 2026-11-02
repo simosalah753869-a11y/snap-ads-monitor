@@ -647,19 +647,9 @@ def run_hourly_master_for_account(token: str, ad_account_id: str, sheet_sales: d
                 and sid in top_efficient_squad_ids
             )
 
-            custom_dt_b_micro = sm.get_custom_daytime_budget_micro(sid, today_str) if not is_late_night else None
-            eff_base_budget_micro = max(base_budget_micro, custom_dt_b_micro) if custom_dt_b_micro is not None else base_budget_micro
-            if is_late_night or (not is_sq_converting and not is_sq_sheet_leader):
-                max_tier_budget_micro = base_budget_micro
-            elif is_sq_sheet_leader or pu1 == 1:
-                max_tier_budget_micro = 26_000_000
-            elif pu1 == 2:
-                max_tier_budget_micro = 34_000_000
-            else:
-                max_tier_budget_micro = 45_000_000
-
-            if custom_dt_b_micro is not None and not is_late_night:
-                max_tier_budget_micro = max(max_tier_budget_micro, custom_dt_b_micro)
+            # أمر المستخدم الصارم (2026-11-02): تثبيت البدجت في سناب على $20.00 (20,000,000 micro) 24/7 بدون رفع
+            eff_base_budget_micro = 20_000_000
+            max_tier_budget_micro = 20_000_000
 
             # إذا كانت الميزانية الحالية متضخمة فوق السقف المسموح به (أو آخر الليل حيث يرجع البدجت 20$ في كل الأدست)، تُرجع فوراً للسقف الآمن!
             # وممنوع منعاً باتاً رفع البدجت بعد الساعة 6 مساءً (is_after_6pm)
