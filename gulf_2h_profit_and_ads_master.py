@@ -1152,9 +1152,14 @@ def run_tiktok_gulf_campaigns(sim_cpa_lookup: dict | None = None) -> list[dict]:
                 tm.pause_campaign(s, th, aid, cid, operation="disable")
             reason_tag = "All 5 Ads Hit Stop-Loss" if all_ads_pruned and not (bled_1d or bled_3d) else f"Simulation Stop-Loss <= ${sim_max_cpa}"
             status_lbl = f"🚨 PAUSED ({reason_tag}: 1D ${spend_1d:.2f}/{conv_1d}p | 3D ${spend_3d:.2f}/{conv_3d}p)"
-        elif opt_status != "0":
+        elif opt_status != "0" and not (
+            not is_stop_loss_only_tt and conv_1d >= 1 and (spend_1d / conv_1d) <= sim_max_cpa and (conv_3d == 0 or (spend_3d / conv_3d) <= sim_max_cpa)
+        ):
             status_lbl = f"⏸️ PAUSED (1D: ${spend_1d:.2f}/{conv_1d}p | 3D: ${spend_3d:.2f}/{conv_3d}p)"
         else:
+            if opt_status != "0" and not is_stop_loss_only_tt:
+                tm.pause_campaign(s, th, aid, cid, operation="enable")
+                budget_note = " | 🔄 Revived Under SimCap"
             # Daytime profitable scaling ( strictly before 18:00 KSA — disabled when STOP_LOSS_PAUSE_ONLY / GitHub Actions )
             if not is_stop_loss_only_tt and allow_budget_scale and conv_1d >= 1 and (spend_1d / conv_1d) <= (sim_max_cpa * 0.80) and spend_1d >= (cur_budget * 0.45):
                 last_sc = tt_scaled_map.get(cid, {})
@@ -1165,7 +1170,7 @@ def run_tiktok_gulf_campaigns(sim_cpa_lookup: dict | None = None) -> list[dict]:
                     if new_b > cur_budget and hasattr(tm, "update_campaign_budget") and tm.update_campaign_budget(s, th, aid, cid, new_b):
                         tt_scaled_map[cid] = {"ts": time.time(), "pu": conv_1d, "old": cur_budget, "new": new_b}
                         cur_budget = new_b
-                        budget_note = f" | 🚀 Scaled->${new_b:.0f}"
+                        budget_note += f" | 🚀 Scaled->${new_b:.0f}"
 
             status_lbl = (
                 f"✅ ACTIVE (1D: ${spend_1d:.2f}/{conv_1d}p | 3D: ${spend_3d:.2f}/{conv_3d}p | "
@@ -1182,6 +1187,16 @@ def run_tiktok_gulf_campaigns(sim_cpa_lookup: dict | None = None) -> list[dict]:
         })
     _save_gulf_ledger(ledger)
     return results
+
+
+APPROVED_SIM_SAFE_CPA = {
+    ("OM", "flashlight"): 6.69,
+    ("OM", "powerbank"): 7.87,
+    ("QA", "cushion"): 10.00,
+    ("KW", "cushion"): 11.48,
+    ("QA", "powerbank"): 11.50,
+    ("QA", "flashlight"): 11.50,
+}
 
 
 def main():
@@ -1212,7 +1227,8 @@ def main():
             + 0.05 * be3["break_even_cpa_usd"],
             2,
         )
-        safe_cpa = round(max(3.50, blended_be * 0.75), 2)
+        approved_cap = APPROVED_SIM_SAFE_CPA.get((cc, f["product_type"]), 11.50)
+        safe_cpa = round(min(approved_cap, max(3.50, blended_be - 0.20)), 2)
         item_res = {
             "country": cc,
             "product_type": f["product_type"],
