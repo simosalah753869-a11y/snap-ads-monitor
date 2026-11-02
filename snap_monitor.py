@@ -2205,9 +2205,18 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
         camp_today_cpa = round(camp_today_spend / camp_today_purch, 2) if camp_today_purch > 0 else None
         is_zero_spend_campaign = (camp_today_spend < 0.25)
 
-        # (أ) زيادة ميزانية الحملة (إذا كانت الحملة بميزانية على مستوى الحملة CBO / daily_budget_micro) بنسبة +30% إذا جابت مبيعات (مع منع أي زيادة بعد الساعة 6 مساءً):
+        # (أ) تثبيت ميزانية الحملة على سقف $20.00 (أمر المستخدم الصارم: تنزيل وتثبيت البدجت في سناب على $20.00 ومنع التضخم التلقائي):
         camp_budget_micro = int(c.get("daily_budget_micro") or 0)
-        if not is_after_6pm and not is_night_window and camp_budget_micro > 0 and camp_today_purch >= 1 and (camp_today_cpa or 0) < 12.00:
+        if camp_budget_micro > 20_000_000 and not dry_run:
+            try:
+                c_upd_cap = dict(c)
+                c_upd_cap["daily_budget_micro"] = 20_000_000
+                api_put(f"/adaccounts/{ad_account_id}/campaigns", token, {"campaigns": [c_upd_cap]})
+                c["daily_budget_micro"] = 20_000_000
+                camp_budget_micro = 20_000_000
+            except Exception:
+                pass
+        if False and not is_after_6pm and not is_night_window and camp_budget_micro > 0 and camp_today_purch >= 1 and (camp_today_cpa or 0) < 12.00:
             c_scale_key = f"CAMP:{c_id}"
             c_scale_rec = history["snap_3h_budget_scale"].get(c_scale_key)
             m_camp_rec = master_camp_state.get(c_id) if isinstance(master_camp_state.get(c_id), dict) else {}
@@ -2333,21 +2342,8 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
             max_win_cpa_sq = 12.0 if is_gulf_034_campaign(c_name, s_name, squad) else 7.00
             is_sq_winning_today = (sq_pu_today >= 1 and (sq_cpa_today is None or sq_cpa_today < max_win_cpa_sq))
 
-            custom_dt_b_micro = get_custom_daytime_budget_micro(s_id, today_date_str) if not is_night_window else None
-            if is_night_window or not is_sq_winning_today:
-                max_allowed_budget_micro = base_floor_micro
-                if not is_night_window and isinstance(m_sq, dict) and int(m_sq.get("target_budget_micro") or 0) == 26_000_000:
-                    max_allowed_budget_micro = 26_000_000
-            elif sq_pu_today == 1:
-                max_allowed_budget_micro = 26_000_000
-            elif sq_pu_today == 2:
-                max_allowed_budget_micro = 34_000_000
-            else:
-                max_allowed_budget_micro = 45_000_000
-
-            if custom_dt_b_micro is not None and not is_night_window:
-                max_allowed_budget_micro = max(max_allowed_budget_micro, custom_dt_b_micro)
-                base_floor_micro = max(base_floor_micro, custom_dt_b_micro)
+            # أمر المستخدم الصارم (2026-11-03): تثبيت البدجت في سناب شات على $20.00 (20_000_000 micro) 24/7 ومنع التضخم فوق $20:
+            max_allowed_budget_micro = base_floor_micro
 
             if not is_cbo_campaign:
                 if (not is_after_6pm and budget_micro < base_floor_micro) or budget_micro > max_allowed_budget_micro:
