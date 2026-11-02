@@ -1141,8 +1141,8 @@ def main():
                         "paused_at": datetime.now(timezone.utc).isoformat(),
                     }
                     print(f"    🛑 [PAUSED CAMPAIGN] '{camp_name}' ({camp_id}) -> {c_reason_str}")
-                    # Rescue underserved clean videos (< $1.00 spend, CPC <= $0.25) for core products (Power Bank & Car Cushion)
-                    if not new_prod_key:
+                    # Disabled auto-rescue campaign creation: stop-loss pause only
+                    if False and not new_prod_key:
                         try:
                             c_ads_for_rescue = [str(a.get("creative_id")) for a in ads_7d if str(a.get("campaign_id")) == camp_id and a.get("creative_id")]
                             v_rescue_7d = fetch_expanded_materials(session, headers, aadvid, c_ads_for_rescue, six_days_ago_str, today_str) if c_ads_for_rescue else []
@@ -1262,7 +1262,8 @@ def main():
             except Exception:
                 pass
             if (
-                is_before_6pm_sa
+                not (os.environ.get("GITHUB_ACTIONS") == "true" or os.environ.get("STOP_LOSS_PAUSE_ONLY") == "1")
+                and is_before_6pm_sa
                 and c_conv_1d >= 2
                 and c_cpa_1d is not None
                 and c_cpa_1d <= scale_cpa_1d_max
@@ -1509,7 +1510,8 @@ def main():
             # Delayed-Attribution Winner Revival INSIDE ALREADY-ACTIVE Campaigns ONLY:
             # Prevents starving a profitable active campaign to '0 active videos remaining' ONLY when delayed conversions arrive TODAY (conv_1d >= 1).
             # Never revive a video with 0 sales Today just because it had 3D sales!
-            if opt_status != "0" and cid in active_cid_set and not extract_new_product_key_tt(ad_camp_map.get(cid, "")):
+            # Stop-Loss Pause Only: Do not auto-re-enable paused videos
+            if False and opt_status != "0" and cid in active_cid_set and not extract_new_product_key_tt(ad_camp_map.get(cid, "")):
                 v_now_profitable = (conv_1d >= 1 and (spend_1d / conv_1d) <= v_cpa_lim)
                 if v_now_profitable and not evaluate_video_rules(
                     spend_1d, conv_1d, cpc_1d, clicks_1d,
@@ -1614,7 +1616,7 @@ def main():
                         camp_id_empty = str(m3.get("campaign_id") or "")
                         camp_name_empty = ad_camp_map.get(cid, "Campaign")
                         saved_by_winner = False
-                        if not extract_new_product_key_tt(camp_name_empty):
+                        if False and not extract_new_product_key_tt(camp_name_empty):
                             for m_chk in active_mats_3d:
                                 if str(m_chk.get("ad_id") or "") != ad_id:
                                     continue
