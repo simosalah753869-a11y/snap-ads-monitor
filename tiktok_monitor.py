@@ -11,41 +11,41 @@ import requests
 from requests.adapters import HTTPAdapter
 from urllib3.util.retry import Retry
 
-sys.stdout.reconfigure(encoding="utf-8")
+if sys.stdout is not None:
+    sys.stdout.reconfigure(encoding="utf-8")
 
 _orig_getaddrinfo = socket.getaddrinfo
 _dns_cache = {}
+_STATIC_DNS_FALLBACK = {
+    "adsapi.snapchat.com": "34.110.187.193",
+    "accounts.snapchat.com": "34.149.46.130",
+    "ads.tiktok.com": "2.21.69.200",
+    "docs.google.com": "142.251.27.100",
+    "api.github.com": "140.82.121.5",
+    "github.com": "140.82.121.4",
+}
 def _doh_getaddrinfo(host, port, family=0, type=0, proto=0, flags=0):
+    if not host or str(host).replace(".", "").isdigit() or ":" in str(host):
+        return _orig_getaddrinfo(host, port, family, type, proto, flags)
     if host in _dns_cache:
         return _orig_getaddrinfo(_dns_cache[host], port, socket.AF_INET, type, proto, flags)
     try:
-        res = _orig_getaddrinfo(host, port, socket.AF_INET, type, proto, flags)
-        if res:
-            ip = res[0][4][0]
-            if ip and not str(host).replace(".", "").isdigit():
-                _dns_cache[host] = ip
-            return res
+        req = urllib.request.Request(
+            f"https://1.1.1.1/dns-query?name={host}&type=A",
+            headers={"accept": "application/dns-json"},
+        )
+        with urllib.request.urlopen(req, timeout=2.5) as resp:
+            r = json.loads(resp.read().decode("utf-8"))
+        ips = [a["data"] for a in r.get("Answer", []) if a.get("type") == 1]
+        if ips:
+            _dns_cache[host] = ips[0]
+            return _orig_getaddrinfo(ips[0], port, socket.AF_INET, type, proto, flags)
     except Exception:
         pass
-    try:
-        return _orig_getaddrinfo(host, port, family, type, proto, flags)
-    except Exception:
-        if host not in _dns_cache:
-            try:
-                req = urllib.request.Request(
-                    f"https://1.1.1.1/dns-query?name={host}&type=A",
-                    headers={"accept": "application/dns-json"},
-                )
-                with urllib.request.urlopen(req, timeout=5) as resp:
-                    r = json.loads(resp.read().decode("utf-8"))
-                ips = [a["data"] for a in r.get("Answer", []) if a.get("type") == 1]
-                if ips:
-                    _dns_cache[host] = ips[0]
-            except Exception:
-                pass
-        if host in _dns_cache:
-            return _orig_getaddrinfo(_dns_cache[host], port, socket.AF_INET, type, proto, flags)
-        raise
+    if host in _STATIC_DNS_FALLBACK:
+        _dns_cache[host] = _STATIC_DNS_FALLBACK[host]
+        return _orig_getaddrinfo(_dns_cache[host], port, socket.AF_INET, type, proto, flags)
+    return _orig_getaddrinfo(host, port, family, type, proto, flags)
 
 socket.getaddrinfo = _doh_getaddrinfo
 
@@ -69,9 +69,9 @@ ACCOUNTS = [
 # Video Level (Single AdSet / Smart+):
 # 1. Video spend > $6.00 in 1 day (Today) with 0 conversions -> Pause Video
 # 2. Video spend > $6.00 in 2 days (Yesterday + Today) with 0 conversions -> Pause Video
-# 3. Video spend >= $1.00 and CPC > $0.35 (or 0 clicks) -> Pause Video
-#    * EXCEPTION: If the video itself has conversions at a low CPA (< $10.00), do NOT pause it for CPC;
-#      keep it running until its CPA reaches >= $10.00 (MAX_VIDEO_CPA), then pause it.
+# 3. Video spend >= $1.00 and CPC > $0.25 (or 0 clicks) with 0 sales -> Pause Video
+#    * EXCEPTION: If the video itself has conversions at a profitable CPA, do NOT pause it for CPC;
+#      keep it running until its CPA exceeds MAX_VIDEO_CPA, then pause it.
 # Aggregated Duplicated Video Level (Across ALL Campaigns & ALL Accounts):
 # 1. Duplicated video total spend >= $10.00 (1D/2D/3D/7D) with 0 sales -> Pause video across ALL campaigns & accounts
 # 2. Duplicated video total CPA >= $12.00 (1D/2D/3D/7D, with >= 1 sale) -> Pause video across ALL campaigns & accounts
@@ -81,12 +81,13 @@ MAX_REGULAR_CAMPAIGN_NO_SALE_1D = 7.00
 MAX_REGULAR_CAMPAIGN_NO_SALE_3D = 12.00
 MAX_REGULAR_CAMPAIGN_CPA_3D = 7.00
 MAX_NO_SALE_SPEND = 4.50
-MAX_VIDEO_CPA = 7.00
+MAX_VIDEO_CPA = 8.00
 GULF_MAX_NO_SALE_SPEND = 8.50
 GULF_MAX_VIDEO_CPA = 12.00
 MIN_SPEND_FOR_CPC = 1.00
-MAX_CPC = 0.32
-MAX_CAMPAIGN_CPC = 0.35
+MAX_CPC = 0.25
+MAX_CPC_WITH_SALES = 0.35
+MAX_CAMPAIGN_CPC = 0.36
 MAX_DUP_VIDEO_NO_SALE_SPEND = 7.00
 MAX_DUP_VIDEO_CPA = 7.00
 
@@ -99,6 +100,27 @@ GULF_KEYWORDS = (
 def is_gulf_campaign(camp_name: str, ad_name: str = "") -> bool:
     combined = f"{camp_name or ''} {ad_name or ''}".lower()
     return any(k in combined for k in GULF_KEYWORDS)
+
+
+def get_gulf_tiktok_sim_limits(camp_name: str, ad_name: str = "") -> tuple[float, float, float]:
+    """يرجع (sim_max_cpa, camp_no_sale_stop, video_no_sale_stop) لكل دولة ومنتج خليجي حسب محاكاة شريك الدفع عند الاستلام."""
+    combined = f"{camp_name or ''} {ad_name or ''}".lower()
+    is_om = any(k in combined for k in ("oman", "عمان"))
+    is_kw = any(k in combined for k in ("kuwait", "kuwiat", "kwt", "كويت", "الكويت"))
+    is_qa = any(k in combined for k in ("qatar", "qat", "قطر"))
+    is_flash = any(k in combined for k in ("kashaf", "كشاف", "flash", "led"))
+    is_cushion = any(k in combined for k in ("car", "armrest", "cushion", "pillow", "وساد", "تكاي"))
+    if is_om:
+        if is_flash:
+            return (6.69, 6.69, 2.80)
+        return (7.87, 7.87, 3.00)
+    if is_kw:
+        return (11.48, 11.48, 3.20)
+    if is_qa:
+        if is_cushion:
+            return (10.00, 10.00, 3.20)
+        return (11.50, 11.50, 3.50)
+    return (10.00, 8.50, 3.20)
 
 
 ORIGIN_MATERIAL_TYPES = [
@@ -118,6 +140,65 @@ def load_cookies():
     env_cookies = os.environ.get("TIKTOK_COOKIES_JSON", "").strip()
     if env_cookies:
         return json.loads(env_cookies)
+    if COOKIES_FILE.exists():
+        try:
+            cached = json.loads(COOKIES_FILE.read_text(encoding="utf-8-sig"))
+            if len(cached) >= 20:
+                s_chk, h_chk = build_session(cached)
+                today_d = datetime.now().strftime("%Y-%m-%d")
+                if fetch_campaigns(s_chk, h_chk, "7631763556322148369", today_d, today_d):
+                    return cached
+        except Exception:
+            pass
+    try:
+        import glob
+        import websocket
+        candidate_ports = [9224, 9222, 9223]
+        all_port_files = sorted(
+            set(
+                glob.glob(r"C:\.ADSPOWER_GLOBAL\cache\*\DevToolsActivePort")
+                + glob.glob(r"E:\.ADSPOWER_GLOBAL\cache\*\DevToolsActivePort")
+            ),
+            key=os.path.getmtime,
+            reverse=True,
+        )
+        for d in all_port_files[:6]:
+            try:
+                lines = Path(d).read_text(encoding="utf-8", errors="ignore").splitlines()
+                if lines:
+                    candidate_ports.append(int(lines[0].strip()))
+            except Exception:
+                pass
+        for port in candidate_ports:
+            try:
+                tabs = json.loads(urllib.request.urlopen(f"http://127.0.0.1:{port}/json/list", timeout=1.5).read().decode("utf-8"))
+                ws_urls = [t.get("webSocketDebuggerUrl", "").replace("ws://localhost:", "ws://127.0.0.1:") for t in tabs if t.get("webSocketDebuggerUrl")]
+                if not ws_urls:
+                    ver = json.loads(urllib.request.urlopen(f"http://127.0.0.1:{port}/json/version", timeout=1.5).read().decode("utf-8"))
+                    if ver.get("webSocketDebuggerUrl"):
+                        ws_urls = [ver["webSocketDebuggerUrl"].replace("ws://localhost:", "ws://127.0.0.1:")]
+                if not ws_urls:
+                    continue
+                ws = websocket.create_connection(ws_urls[0], suppress_origin=True, timeout=3.0)
+                ws.send(json.dumps({"id": 1, "method": "Network.getAllCookies"}))
+                res_msg = json.loads(ws.recv())
+                cs = res_msg.get("result", {}).get("cookies", [])
+                if not cs:
+                    ws.send(json.dumps({"id": 2, "method": "Storage.getCookies"}))
+                    cs = json.loads(ws.recv()).get("result", {}).get("cookies", [])
+                ws.close()
+                tt = [c for c in cs if "tiktok" in c.get("domain", "")]
+                has_ads_sess = any(c.get("name") in ("sessionid_ss_ads", "sid_tt_ads", "sessionid_ads") and c.get("value") for c in tt)
+                if len(tt) >= 20 and has_ads_sess:
+                    s_test, h_test = build_session(tt)
+                    today_d = datetime.now().strftime("%Y-%m-%d")
+                    if fetch_campaigns(s_test, h_test, "7631763556322148369", today_d, today_d):
+                        COOKIES_FILE.write_text(json.dumps(tt, ensure_ascii=False, indent=2), encoding="utf-8")
+                        return tt
+            except Exception:
+                pass
+    except Exception:
+        pass
     if COOKIES_FILE.exists():
         return json.loads(COOKIES_FILE.read_text(encoding="utf-8-sig"))
     raise RuntimeError("No TikTok cookies found in TIKTOK_COOKIES_JSON or tiktok_cookies.json")
@@ -196,6 +277,82 @@ def parse_draft_ids(raw_val):
 def is_cross_monitored_product_campaign(campaign_name: str, video_name: str = "") -> bool:
     combined = f"{campaign_name} {video_name}".lower()
     return any(k in combined for k in ("مايباخ", "maybach", "time x", "timex", "تايم إكس", "دفاتر", "مسخن الرضاعات", "مسخن رضاعات", "warmer", "bottle warmer"))
+
+
+def is_shutoff_pillow_campaign_tt(campaign_name: str, video_name: str = "") -> bool:
+    """جميع حملات الوسادة القديمة مطفأة نهائياً في تيك توك باستثناء حملات الخليج المعتمدة (الكويت وقطر) وحملات التجارب المصغرة [EXP-LEADS] أو AutoPlacement أو النقل CrossPlatform المعتمدة بقاعدة 50 أو دفعات الوسادة الجديدة (Recycled 31-10 / 01-11)."""
+    combined = f"{campaign_name or ''} {video_name or ''}".lower()
+    if is_gulf_campaign(campaign_name, video_name):
+        # سلطنة عُمان لا يوجد فيها وسادة سيارة نهائياً (باور بانك + كشاف فقط)
+        if any(k in combined for k in ("oman", "عمان")) and any(k in combined for k in ("car armrest", "car cushion", "وسادة", "تكاية")):
+            return True
+        return False
+    if any(k in combined for k in ("[exp-leads]", "[exp-", "autoplacement", "auto placement", "crossplatform", "recycled", "31-10", "01-11", "02-11", "manzilk", "منزلك", "6 winners")):
+        return False
+    return any(k in combined for k in ("car armrest", "car cushion", "وسادة", "تكاية", "maybach"))
+
+
+# توافق كامل مع run_all_monitors_5h و tiktok_2h_sales_master
+is_banned_pillow_tiktok = is_shutoff_pillow_campaign_tt
+
+
+CORE_PRODUCT_KEYWORDS_TT = (
+    "car", "armrest", "cushion", "pillow", "console", "وساد", "تكاي", "مسند", "سيار",
+    "power", "pb", "voltrx", "voltrix", "bank", "باور", "فولتريكس", "شاحن",
+    "watch", "suis", "ساع",
+)
+
+
+def is_taager_test_campaign_tt(campaign_name: str, video_name: str = "") -> bool:
+    """يرجع True لأي حملة تابعة لمنتجات تاجر قيد الاختبار (غسالة HP-909، مبخرة BW-20، موقد راف R.8019، أو أي حملة تحمل وسم taager/تاجر)."""
+    combined = f"{campaign_name or ''} {video_name or ''}".lower()
+    return any(
+        k in combined
+        for k in (
+            "taager", "تاجر",
+            "washer", "hp909", "hp-909", "غسالة", "غساله",
+            "bakhoor", "bw20", "bw-20", "مبخرة", "مبخره",
+            "r8019", "r.8019", "8019", "raf ", "cooker", "موقد", "سيراميك",
+        )
+    )
+
+
+def extract_taager_product_key_tt(campaign_name: str, video_name: str = "") -> str | None:
+    """يرجع مفتاح منتج تاجر المستقل ('washer_hp909' أو 'bakhoor_bw20' أو 'cooker_raf8019' أو مفتاح مخصص) ليتم تقييم كل منتج تاجر على حدة بقاعدة 25$ بدون مبيعة / 27$ CPA المشتركة بين غوغل وتيك توك."""
+    combined = f"{campaign_name or ''} {video_name or ''}".lower()
+    if any(k in combined for k in ("washer", "hp909", "hp-909", "غسالة", "غساله")):
+        return "washer_hp909"
+    if any(k in combined for k in ("bakhoor", "bw20", "bw-20", "مبخرة", "مبخره")):
+        return "bakhoor_bw20"
+    if any(k in combined for k in ("r8019", "r.8019", "8019", "raf ", "cooker", "موقد", "سيراميك")):
+        return "cooker_raf8019"
+    if "taager" in combined or "تاجر" in combined:
+        cleaned = re.sub(r"\([^)]*\)", " ", combined)
+        cleaned = re.sub(r"\b\d{1,2}[-_/]\d{1,2}(?:[-_/]\d{2,4})?\b", " ", cleaned)
+        cleaned = re.sub(r"\b(taager|تاجر|test|testing|copy|scale|ads|ad|camp|campaign|ksa|sa|a|b|c|d|v\d+|\d+)\b", " ", cleaned)
+        cleaned = re.sub(r"[-_/#|+]+", " ", cleaned)
+        cleaned = re.sub(r"\s+", " ", cleaned).strip()
+        return f"taager_{cleaned}" if cleaned else "taager_product"
+    return None
+
+
+def extract_new_product_key_tt(campaign_name: str) -> str | None:
+    """يرجع مفتاحاً موحداً لأي منتج جديد غير المنتجات الثلاثة الأساسية (الوسادة، الباور بانك، الساعة) وحملات الخليج المعتمدة ومنتجات تاجر (لأن منتجات تاجر تخضع لقاعدتها المستقلة 25$ بدون بيع / 27$ CPA المشتركة بين غوغل وتيك توك لكل منتج على حدة)."""
+    raw = (campaign_name or "").strip().lower()
+    if not raw or is_cross_monitored_product_campaign(raw) or is_gulf_campaign(raw) or is_taager_test_campaign_tt(raw):
+        return None
+    if any(k in raw for k in CORE_PRODUCT_KEYWORDS_TT):
+        return None
+    cleaned = re.sub(r"\([^)]*\)", " ", raw)
+    cleaned = re.sub(r"\b\d{1,2}[-_/]\d{1,2}(?:[-_/]\d{2,4})?\b", " ", cleaned)
+    cleaned = re.sub(
+        r"\b(test|testing|copy|scale|boost|turbo|elite|rescue|clean|ads|ad|camp|campaign|ksa|sa|gulf|gcc|a|b|c|d|v\d+|\d+)\b",
+        " ",
+        cleaned,
+    )
+    cleaned = re.sub(r"[-_/#|+]+", " ", cleaned)
+    cleaned = re.sub(r"\s+", " ", cleaned).strip()
+    return cleaned if cleaned else "new_product"
 
 
 def fetch_campaigns(session, headers, aadvid, st_date, et_date):
@@ -423,15 +580,20 @@ def fetch_expanded_materials(session, headers, aadvid, creative_ids, st_date, et
             },
             "report_id": "mix_material",
         }
-        r = session.post(
-            f"https://ads.tiktok.com/api/v4/i18n/statistics/op/expand/material/list/?aadvid={aadvid}&req_src=bidding",
-            headers=h,
-            json=body,
-            timeout=20,
-        ).json()
-        table = r.get("data", {}).get("table", []) or []
+        try:
+            r = session.post(
+                f"https://ads.tiktok.com/api/v4/i18n/statistics/op/expand/material/list/?aadvid={aadvid}&req_src=bidding",
+                headers=h,
+                json=body,
+                timeout=15,
+            ).json()
+            table = (r.get("data", {}) if isinstance(r, dict) else {}).get("table", []) or []
+        except Exception as e:
+            print(f"    [WARN] fetch_expanded_materials page {page} error: {e}")
+            break
         all_rows.extend(table)
-        if len(table) < 100 or page >= 25:
+        last_spend = float((table[-1].get("stat_cost") if table else 0) or 0)
+        if len(table) < 100 or page >= 5 or (page >= 2 and last_spend <= 0.0):
             break
         page += 1
     return all_rows
@@ -475,27 +637,100 @@ def pause_smart_plus_video(session, headers, aadvid, ad_id, row, operation="disa
     return ok, json.dumps(r, ensure_ascii=False)
 
 
+def is_new_test_video_tt(camp_name: str, video_name: str = "") -> bool:
+    """يرجع True لأي فيديو جديد نختبره في تيك توك (حملات الاختبار أو الدفعات الجديدة غير المصنفة كـ Elite/Winners/Rescue/Fresh Clean/Flow Hooks)."""
+    cn_l = (camp_name or "").strip().lower()
+    vn_l = (video_name or "").strip().lower()
+    combined = f"{cn_l} {vn_l}"
+    if any(k in combined for k in ("test", "تيست", "تست", "batch", "seedance", "hooks", "new", "جديد", "25-10", "26-10", "27-10", "28-10", "29-10", "30-10", "31-10")):
+        if not any(w in cn_l for w in ("winners", "elite", "rescue", "fresh clean", "scale", "flow hooks", "flow hook", "recycled")):
+            return True
+    return False
+
+
 def evaluate_video_rules(
     spend_1d, conv_1d, cpc_1d, clicks_1d,
     spend_2d, conv_2d, cpc_2d, clicks_2d,
     spend_3d=0.0, conv_3d=0, cpc_3d=0.0, clicks_3d=0,
     spend_7d=0.0, conv_7d=0, cpc_7d=0.0, clicks_7d=0,
     is_gulf=False,
+    is_new_test=False,
+    gulf_no_sale_limit=None,
+    gulf_cpa_limit=None,
 ):
     reasons = []
-    no_sale_limit = GULF_MAX_NO_SALE_SPEND if is_gulf else MAX_NO_SALE_SPEND
-    cpa_limit = GULF_MAX_VIDEO_CPA if is_gulf else MAX_VIDEO_CPA
-    region_tag = "[Gulf] " if is_gulf else ""
+    no_sale_limit = 4.00 if is_new_test else ((gulf_no_sale_limit or GULF_MAX_NO_SALE_SPEND) if is_gulf else MAX_NO_SALE_SPEND)
+    cpa_limit = 8.00 if is_new_test else ((gulf_cpa_limit or GULF_MAX_VIDEO_CPA) if is_gulf else MAX_VIDEO_CPA)
+    min_cpc_spend = MIN_SPEND_FOR_CPC  # $1.00 unified across all TikTok videos
+    max_cpc_lim = MAX_CPC              # $0.25 for 0-sale videos
+    max_cpc_with_sales_lim = MAX_CPC_WITH_SALES  # $0.35 max CPC cap even when video has sales
+    region_tag = "[New Test Video] " if is_new_test else ("[Gulf] " if is_gulf else "")
 
-    eff_cpc_1d = max(cpc_1d, (spend_1d / clicks_1d) if clicks_1d > 0 else 0.0)
-    eff_cpc_2d = max(cpc_2d, (spend_2d / clicks_2d) if clicks_2d > 0 else 0.0)
-    eff_cpc_3d = max(cpc_3d, (spend_3d / clicks_3d) if clicks_3d > 0 else 0.0)
-    eff_cpc_7d = max(cpc_7d, (spend_7d / clicks_7d) if clicks_7d > 0 else 0.0)
+    eff_cpc_1d = max(round(cpc_1d, 2), round(spend_1d / clicks_1d, 2)) if clicks_1d > 0 else 0.0
+    eff_cpc_2d = max(round(cpc_2d, 2), round(spend_2d / clicks_2d, 2)) if clicks_2d > 0 else 0.0
+    eff_cpc_3d = max(round(cpc_3d, 2), round(spend_3d / clicks_3d, 2)) if clicks_3d > 0 else 0.0
+    eff_cpc_7d = max(round(cpc_7d, 2), round(spend_7d / clicks_7d, 2)) if clicks_7d > 0 else 0.0
 
     has_profitable_3d = conv_3d > 0 and (spend_3d / conv_3d) <= cpa_limit
     has_profitable_2d = conv_2d > 0 and (spend_2d / conv_2d) <= cpa_limit
     has_profitable_1d = conv_1d > 0 and (spend_1d / conv_1d) <= cpa_limit
     has_profitable_sales = has_profitable_3d or has_profitable_2d or has_profitable_1d
+    good_cpc_today_35 = spend_1d >= min_cpc_spend and clicks_1d > 0 and eff_cpc_1d <= max_cpc_with_sales_lim
+
+    if is_new_test:
+        # القاعدة الصارمة للفيديوهات الجديدة قيد الاختبار بأمر المستخدم:
+        # 1) لو ما جاب ولا بيعة بعد $4.00 يطفيه (>= $4.00 بدون مبيعة)
+        if spend_1d >= 4.00 and conv_1d == 0:
+            reasons.append(f"{region_tag}Today Spend ${spend_1d:.2f} >= $4.00 with 0 sales")
+        elif spend_2d >= 4.00 and conv_2d == 0:
+            reasons.append(f"{region_tag}2-Day Spend ${spend_2d:.2f} >= $4.00 with 0 sales")
+        elif spend_3d >= 4.00 and conv_3d == 0:
+            reasons.append(f"{region_tag}3-Day Spend ${spend_3d:.2f} >= $4.00 with 0 sales")
+        elif spend_7d >= 4.00 and conv_7d == 0:
+            reasons.append(f"{region_tag}7-Day Spend ${spend_7d:.2f} >= $4.00 with 0 sales")
+
+        # 2) لو عنده مبيعات و CPC <= $0.35 يبقى شغالاً طالما CPA <= $8.00 (أو $9.99 لـ >= 3 مبيعات)
+        test_cpa_cap = 9.99 if (conv_1d >= 3 or conv_3d >= 3) else 8.00
+        if conv_1d > 0 and (spend_1d / conv_1d) > test_cpa_cap:
+            reasons.append(f"{region_tag}Today Video CPA ${(spend_1d / conv_1d):.2f} > ${test_cpa_cap:.2f} (Spend=${spend_1d:.2f}, Sales={conv_1d})")
+        elif conv_2d > 0 and (spend_2d / conv_2d) > test_cpa_cap and not has_profitable_1d:
+            reasons.append(f"{region_tag}2-Day Video CPA ${(spend_2d / conv_2d):.2f} > ${test_cpa_cap:.2f} (Spend=${spend_2d:.2f}, Sales={conv_2d})")
+        elif conv_3d > 0 and (spend_3d / conv_3d) > test_cpa_cap and not has_profitable_1d:
+            reasons.append(f"{region_tag}3-Day Video CPA ${(spend_3d / conv_3d):.2f} > ${test_cpa_cap:.2f} (Spend=${spend_3d:.2f}, Sales={conv_3d})")
+        elif conv_7d > 0 and (spend_7d / conv_7d) > test_cpa_cap and not has_profitable_3d and not has_profitable_1d:
+            reasons.append(f"{region_tag}7-Day Video CPA ${(spend_7d / conv_7d):.2f} > ${test_cpa_cap:.2f} (Spend=${spend_7d:.2f}, Sales={conv_7d})")
+
+        # 3) قاعدة CPC تيك توك (محدثة 2026-10-30):
+        #    - بدون مبيعات: أي فيديو يصرف >= $1.00 و CPC > $0.25 (أو 0 نقرات) يطفيه فوراً
+        #    - مع وجود مبيعات: يبقى شغالاً بشرط ألا يتجاوز سعر النقرة $0.35 (إذا فات $0.35 يطفيه فوراً حتى لو عنده مبيعات)
+        if spend_1d >= min_cpc_spend and (clicks_1d == 0 or eff_cpc_1d > max_cpc_with_sales_lim):
+            reasons.append(f"{region_tag}Today Spend ${spend_1d:.2f} >= ${min_cpc_spend:.2f} & CPC ${eff_cpc_1d:.2f} > ${max_cpc_with_sales_lim:.2f} (Exceeds $0.35 Max CPC Cap even with sales)")
+        elif not good_cpc_today_35 and spend_2d >= min_cpc_spend and (clicks_2d == 0 or eff_cpc_2d > max_cpc_with_sales_lim):
+            reasons.append(f"{region_tag}2-Day Spend ${spend_2d:.2f} >= ${min_cpc_spend:.2f} & CPC ${eff_cpc_2d:.2f} > ${max_cpc_with_sales_lim:.2f} (Exceeds $0.35 Max CPC Cap even with sales)")
+        elif not good_cpc_today_35 and spend_3d >= min_cpc_spend and (clicks_3d == 0 or eff_cpc_3d > max_cpc_with_sales_lim):
+            reasons.append(f"{region_tag}3-Day Spend ${spend_3d:.2f} >= ${min_cpc_spend:.2f} & CPC ${eff_cpc_3d:.2f} > ${max_cpc_with_sales_lim:.2f} (Exceeds $0.35 Max CPC Cap even with sales)")
+
+        if not has_profitable_1d and not reasons and conv_1d == 0 and spend_1d >= min_cpc_spend:
+            if clicks_1d == 0:
+                reasons.append(f"{region_tag}Today Spend ${spend_1d:.2f} >= ${min_cpc_spend:.2f} with 0 clicks (0 sales)")
+            elif eff_cpc_1d > max_cpc_lim:
+                reasons.append(f"{region_tag}Today Spend ${spend_1d:.2f} >= ${min_cpc_spend:.2f} & CPC ${eff_cpc_1d:.2f} > ${max_cpc_lim:.2f} (Clicks={clicks_1d}, 0 sales)")
+        if not reasons and not has_profitable_sales and conv_2d == 0 and spend_2d >= min_cpc_spend:
+            if clicks_2d == 0:
+                reasons.append(f"{region_tag}2-Day Spend ${spend_2d:.2f} >= ${min_cpc_spend:.2f} with 0 clicks (0 sales)")
+            elif eff_cpc_2d > max_cpc_lim:
+                reasons.append(f"{region_tag}2-Day Spend ${spend_2d:.2f} >= ${min_cpc_spend:.2f} & CPC ${eff_cpc_2d:.2f} > ${max_cpc_lim:.2f} (Clicks={clicks_2d}, 0 sales)")
+        if not reasons and not has_profitable_sales and conv_3d == 0 and spend_3d >= min_cpc_spend:
+            if clicks_3d == 0:
+                reasons.append(f"{region_tag}3-Day Spend ${spend_3d:.2f} >= ${min_cpc_spend:.2f} with 0 clicks (0 sales)")
+            elif eff_cpc_3d > max_cpc_lim:
+                reasons.append(f"{region_tag}3-Day Spend ${spend_3d:.2f} >= ${min_cpc_spend:.2f} & CPC ${eff_cpc_3d:.2f} > ${max_cpc_lim:.2f} (Clicks={clicks_3d}, 0 sales)")
+        if not reasons and not has_profitable_sales and conv_7d == 0 and spend_7d >= min_cpc_spend:
+            if clicks_7d == 0:
+                reasons.append(f"{region_tag}7-Day Spend ${spend_7d:.2f} >= ${min_cpc_spend:.2f} with 0 clicks (0 sales)")
+            elif eff_cpc_7d > max_cpc_lim:
+                reasons.append(f"{region_tag}7-Day Spend ${spend_7d:.2f} >= ${min_cpc_spend:.2f} & CPC ${eff_cpc_7d:.2f} > ${max_cpc_lim:.2f} (Clicks={clicks_7d}, 0 sales)")
+        return reasons
 
     # Rule 1: Spend > $4.50 (Saudi) or > $8.50 (Gulf) with 0 conversions
     # CRITICAL: Today or 2-Day 0-sale spend > limit ALWAYS pauses immediately even if previous days had sales!
@@ -509,34 +744,49 @@ def evaluate_video_rules(
         reasons.append(f"{region_tag}7-Day Accumulated Spend ${spend_7d:.2f} > ${no_sale_limit:.2f} with 0 sales")
 
     # Rule 2: Video CPA > $7.00 (Saudi) or > $12.00 (Gulf)
-    if conv_1d > 0 and (spend_1d / conv_1d) > cpa_limit:
-        reasons.append(f"{region_tag}Today Video CPA ${(spend_1d / conv_1d):.2f} > ${cpa_limit:.2f} (Spend=${spend_1d:.2f}, Sales={conv_1d})")
-    elif conv_2d > 0 and (spend_2d / conv_2d) > cpa_limit and not has_profitable_1d:
-        reasons.append(f"{region_tag}2-Day Video CPA ${(spend_2d / conv_2d):.2f} > ${cpa_limit:.2f} (Spend=${spend_2d:.2f}, Sales={conv_2d})")
-    elif conv_3d > 0 and (spend_3d / conv_3d) > cpa_limit and not has_profitable_1d:
-        reasons.append(f"{region_tag}3-Day Video CPA ${(spend_3d / conv_3d):.2f} > ${cpa_limit:.2f} (Spend=${spend_3d:.2f}, Sales={conv_3d})")
-    elif conv_7d > 0 and (spend_7d / conv_7d) > cpa_limit and not has_profitable_3d and not has_profitable_1d:
-        reasons.append(f"{region_tag}7-Day Video CPA ${(spend_7d / conv_7d):.2f} > ${cpa_limit:.2f} (Spend=${spend_7d:.2f}, Sales={conv_7d})")
+    # Protect proven multi-sale winners (conv_1d >= 3 or conv_3d >= 3 with 3D CPA <= $9.99) up to $9.99 CPA
+    is_multi_sale_winner = (conv_1d >= 3 and (spend_1d / conv_1d) <= 9.99) or (conv_3d >= 3 and (spend_3d / conv_3d) <= 9.99)
+    eff_cpa_lim = max(cpa_limit, 9.99) if is_multi_sale_winner else cpa_limit
+    if conv_1d > 0 and (spend_1d / conv_1d) > eff_cpa_lim:
+        reasons.append(f"{region_tag}Today Video CPA ${(spend_1d / conv_1d):.2f} > ${eff_cpa_lim:.2f} (Spend=${spend_1d:.2f}, Sales={conv_1d})")
+    elif conv_2d > 0 and (spend_2d / conv_2d) > eff_cpa_lim and not has_profitable_1d and not has_profitable_3d:
+        reasons.append(f"{region_tag}2-Day Video CPA ${(spend_2d / conv_2d):.2f} > ${eff_cpa_lim:.2f} (Spend=${spend_2d:.2f}, Sales={conv_2d})")
+    elif conv_3d > 0 and (spend_3d / conv_3d) > eff_cpa_lim and not has_profitable_1d:
+        reasons.append(f"{region_tag}3-Day Video CPA ${(spend_3d / conv_3d):.2f} > ${eff_cpa_lim:.2f} (Spend=${spend_3d:.2f}, Sales={conv_3d})")
+    elif conv_7d > 0 and (spend_7d / conv_7d) > eff_cpa_lim and not has_profitable_3d and not has_profitable_1d:
+        reasons.append(f"{region_tag}7-Day Video CPA ${(spend_7d / conv_7d):.2f} > ${eff_cpa_lim:.2f} (Spend=${spend_7d:.2f}, Sales={conv_7d})")
 
-    # Rule 3: CPC Cut (>= $0.32 after $1.00 spend, or 1-click >= $0.34 with 0 sales)
-    # CRITICAL: Today / 2D high CPC with 0 sales is NEVER excused by old sales!
-    if not has_profitable_1d:
-        if spend_1d >= MIN_SPEND_FOR_CPC and (eff_cpc_1d >= MAX_CPC or clicks_1d == 0):
-            reasons.append(f"{region_tag}Today Spend ${spend_1d:.2f} >= ${MIN_SPEND_FOR_CPC:.2f} & CPC ${eff_cpc_1d:.2f} >= ${MAX_CPC:.2f} (0 sales Today)")
-        elif spend_1d >= 0.34 and conv_1d == 0 and (eff_cpc_1d >= 0.34 or (clicks_1d == 0 and spend_1d >= 0.50)):
-            reasons.append(f"{region_tag}Today Early High CPC ${eff_cpc_1d:.2f} (Spend=${spend_1d:.2f}, Clicks={clicks_1d}, 0 sales)")
-    if not has_profitable_2d and not has_profitable_1d and not reasons:
-        if spend_2d >= MIN_SPEND_FOR_CPC and conv_2d == 0 and (eff_cpc_2d >= MAX_CPC or clicks_2d == 0):
-            reasons.append(f"{region_tag}2-Day Spend ${spend_2d:.2f} >= ${MIN_SPEND_FOR_CPC:.2f} & CPC ${eff_cpc_2d:.2f} >= ${MAX_CPC:.2f} (0 sales)")
-        elif spend_2d >= 0.34 and conv_2d == 0 and not has_profitable_3d and (eff_cpc_2d >= 0.34 or (clicks_2d == 0 and spend_2d >= 0.50)):
-            reasons.append(f"{region_tag}2-Day High CPC ${eff_cpc_2d:.2f} (Spend=${spend_2d:.2f}, Clicks={clicks_2d}, 0 sales)")
+    # Rule 3: Two-Tier TikTok Video CPC Cut (Updated 2026-10-30 per user instruction):
+    # - Tier A (With Sales: has_profitable_sales): Keep video ONLY if CPC <= $0.35; if Spend >= $1.00 & CPC > $0.35 (or 0 clicks), pause immediately!
+    # - Tier B (0 Sales: not has_profitable_sales): If Spend >= $1.00 & CPC > $0.25 (or 0 clicks), pause immediately!
+    if spend_1d >= min_cpc_spend and (clicks_1d == 0 or eff_cpc_1d > max_cpc_with_sales_lim):
+        reasons.append(f"{region_tag}Today Spend ${spend_1d:.2f} >= ${min_cpc_spend:.2f} & CPC ${eff_cpc_1d:.2f} > ${max_cpc_with_sales_lim:.2f} (Exceeds $0.35 Max CPC Cap even with sales)")
+    elif not good_cpc_today_35 and spend_2d >= min_cpc_spend and (clicks_2d == 0 or eff_cpc_2d > max_cpc_with_sales_lim):
+        reasons.append(f"{region_tag}2-Day Spend ${spend_2d:.2f} >= ${min_cpc_spend:.2f} & CPC ${eff_cpc_2d:.2f} > ${max_cpc_with_sales_lim:.2f} (Exceeds $0.35 Max CPC Cap even with sales)")
+    elif not good_cpc_today_35 and spend_3d >= min_cpc_spend and (clicks_3d == 0 or eff_cpc_3d > max_cpc_with_sales_lim):
+        reasons.append(f"{region_tag}3-Day Spend ${spend_3d:.2f} >= ${min_cpc_spend:.2f} & CPC ${eff_cpc_3d:.2f} > ${max_cpc_with_sales_lim:.2f} (Exceeds $0.35 Max CPC Cap even with sales)")
+
+    if not has_profitable_1d and not reasons and conv_1d == 0 and spend_1d >= min_cpc_spend:
+        if clicks_1d == 0:
+            reasons.append(f"{region_tag}Today Spend ${spend_1d:.2f} >= ${min_cpc_spend:.2f} with 0 clicks (0 sales Today)")
+        elif eff_cpc_1d > max_cpc_lim:
+            reasons.append(f"{region_tag}Today Spend ${spend_1d:.2f} >= ${min_cpc_spend:.2f} & CPC ${eff_cpc_1d:.2f} > ${max_cpc_lim:.2f} (Clicks={clicks_1d}, 0 sales Today)")
+    if not has_profitable_sales and not reasons and conv_2d == 0 and spend_2d >= min_cpc_spend:
+        if clicks_2d == 0:
+            reasons.append(f"{region_tag}2-Day Spend ${spend_2d:.2f} >= ${min_cpc_spend:.2f} with 0 clicks (0 sales)")
+        elif eff_cpc_2d > max_cpc_lim:
+            reasons.append(f"{region_tag}2-Day Spend ${spend_2d:.2f} >= ${min_cpc_spend:.2f} & CPC ${eff_cpc_2d:.2f} > ${max_cpc_lim:.2f} (Clicks={clicks_2d}, 0 sales)")
     if not has_profitable_sales and not reasons:
-        if spend_3d >= MIN_SPEND_FOR_CPC and (eff_cpc_3d >= MAX_CPC or clicks_3d == 0):
-            reasons.append(f"{region_tag}3-Day Spend ${spend_3d:.2f} >= ${MIN_SPEND_FOR_CPC:.2f} & CPC ${eff_cpc_3d:.2f} >= ${MAX_CPC:.2f}")
-        elif spend_7d >= MIN_SPEND_FOR_CPC and conv_7d == 0 and (eff_cpc_7d >= MAX_CPC or clicks_7d == 0):
-            reasons.append(f"{region_tag}7-Day Spend ${spend_7d:.2f} >= ${MIN_SPEND_FOR_CPC:.2f} & CPC ${eff_cpc_7d:.2f} >= ${MAX_CPC:.2f} (0 sales)")
-        elif spend_3d >= 0.34 and conv_3d == 0 and (eff_cpc_3d >= 0.34 or (clicks_3d == 0 and spend_3d >= 0.50)):
-            reasons.append(f"{region_tag}3-Day High CPC ${eff_cpc_3d:.2f} (Spend=${spend_3d:.2f}, Clicks={clicks_3d}, 0 sales)")
+        if conv_3d == 0 and spend_3d >= min_cpc_spend:
+            if clicks_3d == 0:
+                reasons.append(f"{region_tag}3-Day Spend ${spend_3d:.2f} >= ${min_cpc_spend:.2f} with 0 clicks (0 sales)")
+            elif eff_cpc_3d > max_cpc_lim:
+                reasons.append(f"{region_tag}3-Day Spend ${spend_3d:.2f} >= ${min_cpc_spend:.2f} & CPC ${eff_cpc_3d:.2f} > ${max_cpc_lim:.2f} (Clicks={clicks_3d}, 0 sales)")
+        elif conv_7d == 0 and spend_7d >= min_cpc_spend:
+            if clicks_7d == 0:
+                reasons.append(f"{region_tag}7-Day Spend ${spend_7d:.2f} >= ${min_cpc_spend:.2f} with 0 clicks (0 sales)")
+            elif eff_cpc_7d > max_cpc_lim:
+                reasons.append(f"{region_tag}7-Day Spend ${spend_7d:.2f} >= ${min_cpc_spend:.2f} & CPC ${eff_cpc_7d:.2f} > ${max_cpc_lim:.2f} (Clicks={clicks_7d}, 0 sales)")
     return reasons
 
 
@@ -619,6 +869,8 @@ def main():
 
     # Global tracker for duplicated videos across ALL campaigns & ALL 6 accounts
     global_dup_videos = {}
+    # Global tracker for NEW products across ALL campaigns & ALL 6 accounts ($7.00 0-sale stop-loss rule)
+    global_new_products = {}
 
     for acc_name, aadvid, utc_offset in ACCOUNTS:
         now_tz = datetime.now(timezone(timedelta(hours=utc_offset)))
@@ -638,6 +890,58 @@ def main():
         camp_2d_map = {str(c.get("campaign_id")): c for c in camps_2d if c.get("campaign_id")}
         camp_3d_map = {str(c.get("campaign_id")): c for c in camps_3d if c.get("campaign_id")}
         camp_7d_map = {str(c.get("campaign_id")): c for c in camps_7d if c.get("campaign_id")}
+
+        # Aggregate all campaigns (active + paused) per new product key across accounts
+        all_known_cids_acc = set(camp_7d_map.keys()) | set(camp_3d_map.keys()) | set(camp_1d_map.keys())
+        for cid_np in all_known_cids_acc:
+            c_ref = camp_3d_map.get(cid_np) or camp_7d_map.get(cid_np) or camp_1d_map.get(cid_np) or {}
+            cname_np = c_ref.get("campaign_name") or ""
+            np_key = extract_new_product_key_tt(cname_np)
+            if not np_key:
+                continue
+            rd1_np = (camp_1d_map.get(cid_np) or {}).get("row_data") or {}
+            rd2_np = (camp_2d_map.get(cid_np) or {}).get("row_data") or {}
+            rd3_np = (camp_3d_map.get(cid_np) or {}).get("row_data") or {}
+            rd7_np = (camp_7d_map.get(cid_np) or {}).get("row_data") or {}
+            sp1_np = float(rd1_np.get("stat_cost") or 0.0)
+            cv1_np = int(float(rd1_np.get("time_attr_convert_cnt") or 0))
+            sp2_np = float(rd2_np.get("stat_cost") or 0.0)
+            cv2_np = int(float(rd2_np.get("time_attr_convert_cnt") or 0))
+            sp3_np = float(rd3_np.get("stat_cost") or 0.0)
+            cv3_np = int(float(rd3_np.get("time_attr_convert_cnt") or 0))
+            sp7_np = float(rd7_np.get("stat_cost") or sp3_np)
+            cv7_np = int(float(rd7_np.get("time_attr_convert_cnt") or cv3_np))
+            is_act_np = (
+                c_ref.get("primary_status") not in ("disable", "delete")
+                and str(c_ref.get("opt_status")) == "0"
+            )
+            np_bucket = global_new_products.setdefault(np_key, {
+                "product_key": np_key,
+                "spend_1d": 0.0, "conv_1d": 0,
+                "spend_2d": 0.0, "conv_2d": 0,
+                "spend_3d": 0.0, "conv_3d": 0,
+                "spend_7d": 0.0, "conv_7d": 0,
+                "active_campaigns": [],
+            })
+            np_bucket["spend_1d"] = round(np_bucket["spend_1d"] + sp1_np, 2)
+            np_bucket["conv_1d"] += cv1_np
+            np_bucket["spend_2d"] = round(np_bucket["spend_2d"] + sp2_np, 2)
+            np_bucket["conv_2d"] += cv2_np
+            np_bucket["spend_3d"] = round(np_bucket["spend_3d"] + sp3_np, 2)
+            np_bucket["conv_3d"] += cv3_np
+            np_bucket["spend_7d"] = round(np_bucket["spend_7d"] + sp7_np, 2)
+            np_bucket["conv_7d"] += cv7_np
+            if is_act_np:
+                np_bucket["active_campaigns"].append({
+                    "acc_name": acc_name,
+                    "aadvid": aadvid,
+                    "campaign_id": cid_np,
+                    "campaign_name": cname_np,
+                    "spend_1d": sp1_np,
+                    "conv_1d": cv1_np,
+                    "spend_3d": sp3_np,
+                    "conv_3d": cv3_np,
+                })
 
         active_camps = [
             c for c in camps_3d
@@ -672,17 +976,20 @@ def main():
         )
 
         now_sa = datetime.now(timezone(timedelta(hours=3)))
-        is_before_6pm_sa = (6 <= now_sa.hour < 23)
+        is_before_6pm_sa = (6 <= now_sa.hour < 18)  # أمر المستخدم الصارم: لا يرفع بدجت بعد الساعة 6 مساءً أبداً!
         tt_scaled_today = history.setdefault("proactive_scaled_tiktok", {})
 
         for c3 in active_camps:
             camp_id = str(c3.get("campaign_id") or "")
             camp_name = c3.get("campaign_name") or "Campaign"
-            if is_cross_monitored_product_campaign(camp_name):
+            if is_shutoff_pillow_campaign_tt(camp_name) or is_cross_monitored_product_campaign(camp_name):
                 ok_new_p, _ = pause_campaign(session, headers, aadvid, camp_id, operation="disable")
                 if ok_new_p:
                     total_campaigns_paused += 1
-                    print(f"    🛑 [PERMANENT SHUTOFF NEW PRODUCT] '{camp_name}' ({camp_id}) -> Paused permanently per user command")
+                    print(f"    🛑 [PERMANENT SHUTOFF PILLOW/NEW PRODUCT] '{camp_name}' ({camp_id}) -> Paused permanently per user command")
+                continue
+            if is_gulf_campaign(camp_name):
+                # حملات الخليج (الكويت، قطر، عمان) مفصولة 100% وتدار حصرياً عبر gulf_2h_profit_and_ads_master.py
                 continue
 
             # Strict Target Cost (Cost Cap) enforcement: NEVER allow Maximum Delivery / Maximum Bid without Target CPA
@@ -742,81 +1049,85 @@ def main():
                 )
 
             camp_is_gulf = is_gulf_campaign(camp_name)
-            camp_no_sale_lim = GULF_MAX_NO_SALE_SPEND if camp_is_gulf else MAX_CAMPAIGN_NO_SALE_SPEND
-            camp_cpa_lim = GULF_MAX_VIDEO_CPA if camp_is_gulf else MAX_CAMPAIGN_CPA
-            good_cpa_lim = GULF_MAX_VIDEO_CPA if camp_is_gulf else 7.00
-            reg_no_sale_1d = GULF_MAX_NO_SALE_SPEND if camp_is_gulf else 5.00
-            reg_no_sale_3d = (GULF_MAX_NO_SALE_SPEND + 2.50) if camp_is_gulf else MAX_REGULAR_CAMPAIGN_NO_SALE_3D
-            reg_cpa_3d_lim = GULF_MAX_VIDEO_CPA if camp_is_gulf else MAX_REGULAR_CAMPAIGN_CPA_3D
+            gulf_sim_cpa, gulf_camp_no_sale, _ = get_gulf_tiktok_sim_limits(camp_name) if camp_is_gulf else (GULF_MAX_VIDEO_CPA, GULF_MAX_NO_SALE_SPEND, 3.20)
+            camp_no_sale_lim = gulf_camp_no_sale if camp_is_gulf else MAX_CAMPAIGN_NO_SALE_SPEND
+            camp_cpa_lim = gulf_sim_cpa if camp_is_gulf else MAX_CAMPAIGN_CPA
+            good_cpa_lim = gulf_sim_cpa if camp_is_gulf else 7.00
+            reg_no_sale_1d = gulf_camp_no_sale if camp_is_gulf else 5.00
+            reg_no_sale_3d = (gulf_camp_no_sale + 2.50) if camp_is_gulf else MAX_REGULAR_CAMPAIGN_NO_SALE_3D
+            reg_cpa_3d_lim = gulf_sim_cpa if camp_is_gulf else MAX_REGULAR_CAMPAIGN_CPA_3D
 
             is_cloned_camp = any(k in camp_name.lower() for k in ("copy", "scale", "boost", "turbo", "elite", "accel"))
+            new_prod_key = extract_new_product_key_tt(camp_name)
+            taager_prod_key = extract_taager_product_key_tt(camp_name)
+            np_agg = global_new_products.get(new_prod_key) if new_prod_key else None
             camp_pause_reasons = []
-            has_good_today = c_conv_1d > 0 and c_cpa_1d is not None and c_cpa_1d <= good_cpa_lim
-            has_good_2d = c_conv_2d > 0 and c_cpa_2d is not None and c_cpa_2d <= good_cpa_lim
-            has_good_3d = c_conv_3d > 0 and c_cpa_3d is not None and c_cpa_3d <= good_cpa_lim
+            # STRICT USER RULES (2026-11-01):
+            # 0) Taager Product Test Rule ("لو مجموع صرف منتجات تاجر في الحسابات مجموعة لكل منتج تعدى 25$ بدون ولا بيعة يعني المنتج فاشل ويطفي كل الحملات سواء غوغل او تيكتوك ولو وصل سعر البيعة فيهم 27$ يطفيه كل منتج على حدة"):
+            #    Taager test campaigns are governed at the product level across Google Ads + TikTok combined ($25.00 0-sale stop / $27.00 CPA stop per product).
+            # 1) New Product Rule: Any non-Taager new product spending >= $7.00 (single campaign OR combined across campaigns) with 0 sales -> Pause immediately!
+            # 2) TikTok Campaign Stop-Loss Rule ("اهم شي حملة في تيكتوك صرفت 20$ بدون بيع يطفي او سعر البيعة 20$ بطفي"):
+            #    Any regular TikTok campaign spending >= $20.00 with 0 sales OR reaching CPA >= $20.00 -> Pause immediately!
+            #    For experimental [EXP-LEADS] campaigns, enforce a tighter micro-stop-loss ($8.50 with 0 sales) so experiments never waste the full $20.00.
+            # 3) Rescue underserved clean videos (< $1.00 spend, CPC <= $0.25) ONLY for core products when count >= 3 (3 to 5 videos per campaign).
+            is_exp_leads = "[exp-leads]" in camp_name.lower() or "exp leads" in camp_name.lower()
+            if taager_prod_key:
+                strict_no_sale_lim = 25.00
+                strict_camp_cpa_lim = 27.00
+                if taager_prod_key in (history.get("taager_failed_products") or {}):
+                    camp_pause_reasons.append(f"[Taager Failed Product Lock '{taager_prod_key}'] المنتج فاشل وتجاوز سقف الاختبار ($25 بدون بيع أو $27 CPA) وتم إيقاف جميع حملاته")
+            elif new_prod_key:
+                strict_no_sale_lim = 7.00
+                strict_camp_cpa_lim = 20.00
+            elif camp_is_gulf:
+                strict_no_sale_lim = gulf_camp_no_sale
+                strict_camp_cpa_lim = gulf_sim_cpa
+            elif is_exp_leads:
+                strict_no_sale_lim = 8.50
+                strict_camp_cpa_lim = 9.50
+            else:
+                strict_no_sale_lim = 20.00
+                strict_camp_cpa_lim = 20.00
 
-            # Campaign Early CPC Cut across Today, Yesterday (if 0 sales Today), 2D, and 3D:
-            if not has_good_today and c_spend_1d >= MIN_SPEND_FOR_CPC and c_conv_1d == 0:
-                if c_cpc_1d > MAX_CAMPAIGN_CPC or (c_clicks_1d == 0 and c_spend_1d >= 1.00):
-                    camp_pause_reasons.append(
-                        f"Campaign Today Spend ${c_spend_1d:.2f} >= ${MIN_SPEND_FOR_CPC:.2f} & CPC ${c_cpc_1d:.2f} > ${MAX_CAMPAIGN_CPC:.2f} (0 sales Today)"
-                    )
-            if not has_good_today and not has_good_2d and c_spend_2d >= MIN_SPEND_FOR_CPC and c_conv_2d == 0:
-                if c_cpc_2d > MAX_CAMPAIGN_CPC or (c_clicks_2d == 0 and c_spend_2d >= 1.00):
-                    camp_pause_reasons.append(
-                        f"Campaign 2-Day Spend ${c_spend_2d:.2f} >= ${MIN_SPEND_FOR_CPC:.2f} & CPC ${c_cpc_2d:.2f} > ${MAX_CAMPAIGN_CPC:.2f} (0 sales)"
-                    )
-            if not has_good_today and not has_good_3d and c_spend_3d >= MIN_SPEND_FOR_CPC and c_conv_3d == 0:
-                if c_cpc_3d > MAX_CAMPAIGN_CPC or (c_clicks_3d == 0 and c_spend_3d >= 1.00):
-                    camp_pause_reasons.append(
-                        f"Campaign 3-Day Spend ${c_spend_3d:.2f} >= ${MIN_SPEND_FOR_CPC:.2f} & CPC ${c_cpc_3d:.2f} > ${MAX_CAMPAIGN_CPC:.2f} (0 sales)"
-                    )
-
-            if is_cloned_camp and not has_good_today:
-                if c_spend_1d >= camp_no_sale_lim and c_conv_1d == 0:
-                    camp_pause_reasons.append(f"Cloned/Scale Campaign Today Spend ${c_spend_1d:.2f} >= ${camp_no_sale_lim:.2f} with 0 sales Today")
-                elif c_spend_2d >= camp_no_sale_lim and c_conv_2d == 0:
-                    camp_pause_reasons.append(f"Cloned/Scale Campaign 2-Day Spend ${c_spend_2d:.2f} >= ${camp_no_sale_lim:.2f} with 0 sales")
-                elif c_spend_3d >= camp_no_sale_lim and c_conv_3d == 0:
-                    camp_pause_reasons.append(f"Cloned/Scale Campaign 3-Day Spend ${c_spend_3d:.2f} >= ${camp_no_sale_lim:.2f} with 0 sales")
-                elif c_spend_7d >= camp_no_sale_lim and c_conv_7d == 0:
-                    camp_pause_reasons.append(f"Cloned/Scale Campaign 7-Day Spend ${c_spend_7d:.2f} >= ${camp_no_sale_lim:.2f} with 0 sales")
-                if c_conv_1d > 0 and c_spend_1d >= camp_no_sale_lim and c_cpa_1d is not None and c_cpa_1d > camp_cpa_lim:
-                    camp_pause_reasons.append(f"Cloned/Scale Campaign Today CPA ${c_cpa_1d:.2f} > ${camp_cpa_lim:.2f} (Spend=${c_spend_1d:.2f}, Sales={c_conv_1d})")
-                elif c_conv_2d > 0 and c_spend_2d >= camp_no_sale_lim and c_cpa_2d is not None and c_cpa_2d > camp_cpa_lim:
-                    camp_pause_reasons.append(f"Cloned/Scale Campaign 2-Day CPA ${c_cpa_2d:.2f} > ${camp_cpa_lim:.2f} (Spend=${c_spend_2d:.2f}, Sales={c_conv_2d})")
-                elif c_conv_3d > 0 and c_spend_3d >= camp_no_sale_lim and c_cpa_3d is not None and c_cpa_3d > camp_cpa_lim:
-                    camp_pause_reasons.append(f"Cloned/Scale Campaign 3-Day CPA ${c_cpa_3d:.2f} > ${camp_cpa_lim:.2f} (Spend=${c_spend_3d:.2f}, Sales={c_conv_3d})")
-                elif c_conv_7d > 0 and c_spend_7d >= camp_no_sale_lim and c_cpa_7d is not None and c_cpa_7d > camp_cpa_lim and not has_good_3d:
-                    camp_pause_reasons.append(f"Cloned/Scale Campaign 7-Day CPA ${c_cpa_7d:.2f} > ${camp_cpa_lim:.2f} (Spend=${c_spend_7d:.2f}, Sales={c_conv_7d})")
-                elif camp_name.lower().startswith("copy ") and c_spend_7d == 0:
-                    camp_pause_reasons.append("Old Inactive Cloned Copy Campaign ($0.00 spend in 7D)")
-            elif not is_cloned_camp and not has_good_today:
-                if c_spend_1d >= reg_no_sale_1d and c_conv_1d == 0:
-                    camp_pause_reasons.append(f"Campaign Today Spend ${c_spend_1d:.2f} >= ${reg_no_sale_1d:.2f} with 0 sales Today")
-                elif c_spend_2d >= reg_no_sale_1d and c_conv_2d == 0:
-                    camp_pause_reasons.append(f"Campaign 2-Day Spend ${c_spend_2d:.2f} >= ${reg_no_sale_1d:.2f} with 0 sales")
-                elif c_spend_3d >= reg_no_sale_1d and c_conv_3d == 0:
-                    camp_pause_reasons.append(f"Campaign 3-Day Spend ${c_spend_3d:.2f} >= ${reg_no_sale_1d:.2f} with 0 sales")
-                elif c_spend_7d >= reg_no_sale_1d and c_conv_7d == 0:
-                    camp_pause_reasons.append(f"Campaign 7-Day Spend ${c_spend_7d:.2f} >= ${reg_no_sale_1d:.2f} with 0 sales")
-                elif c_spend_3d == 0 and c_conv_7d > 0 and c_cpa_7d is not None and c_cpa_7d > reg_cpa_3d_lim:
-                    camp_pause_reasons.append(f"Campaign 7-Day CPA ${c_cpa_7d:.2f} > ${reg_cpa_3d_lim:.2f} (Spend=${c_spend_7d:.2f}, Sales={c_conv_7d}, 3D=0)")
-                elif (
-                    c_conv_2d > 0 and c_cpa_2d is not None and c_cpa_2d > reg_cpa_3d_lim
-                    and c_conv_3d > 0 and c_cpa_3d is not None and c_cpa_3d > reg_cpa_3d_lim
-                    and c_conv_7d > 0 and c_cpa_7d is not None and c_cpa_7d > reg_cpa_3d_lim
-                    and "23-10" not in camp_name and "24-10" not in camp_name
-                ):
-                    camp_pause_reasons.append(
-                        f"Campaign Multi-Window High CPA (2D=${c_cpa_2d:.2f}, 3D=${c_cpa_3d:.2f}, 7D=${c_cpa_7d:.2f} > ${reg_cpa_3d_lim:.2f})"
-                    )
+            # Early Campaign CPC Cut: only trigger at campaign level once spend >= $3.00 (so 3-5 video Smart+ campaigns allow per-video >= $1.00 & CPC > $0.25 pruning first)
+            if not taager_prod_key and c_spend_1d >= 3.00 and c_conv_1d == 0 and (c_cpc_1d > 0.35 or c_clicks_1d == 0):
+                camp_pause_reasons.append(f"Campaign Early CPC Cut: Today Spend ${c_spend_1d:.2f} >= $3.00 with CPC ${c_cpc_1d:.2f} > $0.35 (Clicks={c_clicks_1d}) and 0 sales")
+            if (c_spend_1d > 25.00 if taager_prod_key else c_spend_1d >= strict_no_sale_lim) and c_conv_1d == 0:
+                camp_pause_reasons.append(f"{'[Taager Test >$25 Rule] ' if taager_prod_key else ('[New Product $7 Rule] ' if new_prod_key else ('[EXP-LEADS Micro Stop-Loss] ' if is_exp_leads else ''))}Today Spend ${c_spend_1d:.2f} {'>' if taager_prod_key else '>='} ${strict_no_sale_lim:.2f} with 0 sales")
+            elif (c_spend_2d > 25.00 if taager_prod_key else c_spend_2d >= strict_no_sale_lim) and c_conv_2d == 0:
+                camp_pause_reasons.append(f"{'[Taager Test >$25 Rule] ' if taager_prod_key else ('[New Product $7 Rule] ' if new_prod_key else ('[EXP-LEADS Micro Stop-Loss] ' if is_exp_leads else ''))}2-Day Spend ${c_spend_2d:.2f} {'>' if taager_prod_key else '>='} ${strict_no_sale_lim:.2f} with 0 sales")
+            elif (c_spend_3d > 25.00 if taager_prod_key else c_spend_3d >= strict_no_sale_lim) and c_conv_3d == 0:
+                camp_pause_reasons.append(f"{'[Taager Test >$25 Rule] ' if taager_prod_key else ('[New Product $7 Rule] ' if new_prod_key else ('[EXP-LEADS Micro Stop-Loss] ' if is_exp_leads else ''))}3-Day Spend ${c_spend_3d:.2f} {'>' if taager_prod_key else '>='} ${strict_no_sale_lim:.2f} with 0 sales")
+            elif (c_spend_7d > 25.00 if taager_prod_key else c_spend_7d >= strict_no_sale_lim) and c_conv_7d == 0:
+                camp_pause_reasons.append(f"{'[Taager Test >$25 Rule] ' if taager_prod_key else ('[New Product $7 Rule] ' if new_prod_key else ('[EXP-LEADS Micro Stop-Loss] ' if is_exp_leads else ''))}7-Day Spend ${c_spend_7d:.2f} {'>' if taager_prod_key else '>='} ${strict_no_sale_lim:.2f} with 0 sales")
+            elif np_agg and np_agg["spend_1d"] >= 7.00 and np_agg["conv_1d"] == 0:
+                camp_pause_reasons.append(f"[New Product '{new_prod_key}' Combined $7 Rule] Combined Today Spend ${np_agg['spend_1d']:.2f} >= $7.00 with 0 sales")
+            elif np_agg and np_agg["spend_2d"] >= 7.00 and np_agg["conv_2d"] == 0:
+                camp_pause_reasons.append(f"[New Product '{new_prod_key}' Combined $7 Rule] Combined 2D Spend ${np_agg['spend_2d']:.2f} >= $7.00 with 0 sales")
+            elif np_agg and np_agg["spend_3d"] >= 7.00 and np_agg["conv_3d"] == 0:
+                camp_pause_reasons.append(f"[New Product '{new_prod_key}' Combined $7 Rule] Combined 3D Spend ${np_agg['spend_3d']:.2f} >= $7.00 with 0 sales")
+            elif np_agg and np_agg["spend_7d"] >= 7.00 and np_agg["conv_7d"] == 0:
+                camp_pause_reasons.append(f"[New Product '{new_prod_key}' Combined $7 Rule] Combined 7D Spend ${np_agg['spend_7d']:.2f} >= $7.00 with 0 sales")
+            elif c_conv_1d > 0 and c_cpa_1d is not None and c_cpa_1d >= strict_camp_cpa_lim:
+                camp_pause_reasons.append(f"Today CPA ${c_cpa_1d:.2f} >= ${strict_camp_cpa_lim:.2f} (Spend=${c_spend_1d:.2f}, Sales={c_conv_1d})")
+            elif c_conv_2d > 0 and c_cpa_2d is not None and c_cpa_2d >= strict_camp_cpa_lim and (c_conv_1d == 0 or (c_cpa_1d or 99) >= strict_camp_cpa_lim):
+                camp_pause_reasons.append(f"2-Day CPA ${c_cpa_2d:.2f} >= ${strict_camp_cpa_lim:.2f} (Spend=${c_spend_2d:.2f}, Sales={c_conv_2d})")
+            elif c_conv_3d > 0 and c_cpa_3d is not None and c_cpa_3d >= strict_camp_cpa_lim and (c_conv_1d == 0 or (c_cpa_1d or 99) >= strict_camp_cpa_lim):
+                camp_pause_reasons.append(f"3-Day CPA ${c_cpa_3d:.2f} >= ${strict_camp_cpa_lim:.2f} (Spend=${c_spend_3d:.2f}, Sales={c_conv_3d})")
+            elif c_conv_7d > 0 and c_cpa_7d is not None and c_cpa_7d >= strict_camp_cpa_lim and (c_conv_1d == 0 or (c_cpa_1d or 99) >= strict_camp_cpa_lim):
+                camp_pause_reasons.append(f"7-Day CPA ${c_cpa_7d:.2f} >= ${strict_camp_cpa_lim:.2f} (Spend=${c_spend_7d:.2f}, Sales={c_conv_7d})")
 
             if camp_pause_reasons and not is_cross_monitored_product_campaign(camp_name):
                 c_reason_str = " | ".join(camp_pause_reasons)
                 ok_cp, _ = pause_campaign(session, headers, aadvid, camp_id, operation="disable")
                 if ok_cp:
                     total_campaigns_paused += 1
+                    active_cid_set -= {str(a.get("creative_id")) for a in active_ads if str(a.get("campaign_id")) == camp_id}
+                    if np_agg:
+                        np_agg["active_campaigns"] = [
+                            ac_item for ac_item in np_agg["active_campaigns"]
+                            if not (ac_item["aadvid"] == aadvid and ac_item["campaign_id"] == camp_id)
+                        ]
                     history["tiktok_campaigns"][f"{aadvid}:{camp_id}"] = {
                         "account_name": acc_name,
                         "aadvid": aadvid,
@@ -830,6 +1141,88 @@ def main():
                         "paused_at": datetime.now(timezone.utc).isoformat(),
                     }
                     print(f"    🛑 [PAUSED CAMPAIGN] '{camp_name}' ({camp_id}) -> {c_reason_str}")
+                    # Rescue underserved clean videos (< $1.00 spend, CPC <= $0.25) for core products (Power Bank & Car Cushion)
+                    if not new_prod_key:
+                        try:
+                            c_ads_for_rescue = [str(a.get("creative_id")) for a in ads_7d if str(a.get("campaign_id")) == camp_id and a.get("creative_id")]
+                            v_rescue_7d = fetch_expanded_materials(session, headers, aadvid, c_ads_for_rescue, six_days_ago_str, today_str) if c_ads_for_rescue else []
+                            clean_vnames = set()
+                            for vr in v_rescue_7d:
+                                vrd = vr.get("row_data") or vr
+                                v_sp = float(vrd.get("stat_cost") or 0.0)
+                                v_cv = int(float(vrd.get("time_attr_convert_cnt") or 0))
+                                v_clk = int(float(vrd.get("click_cnt") or 0))
+                                v_cpc = float(vrd.get("cpc") or 0.0)
+                                v_nm = (vr.get("main_entity_name") or vrd.get("main_entity_name") or "").strip()
+                                if v_nm and v_sp < 1.00 and v_cv == 0 and (v_sp < 0.30 or (v_clk > 0 and v_cpc <= 0.25)):
+                                    clean_vnames.add(v_nm)
+                            if clean_vnames:
+                                prod_key = "power_bank" if ("power" in camp_name.lower() or "pb" in camp_name.lower() or "voltrx" in camp_name.lower()) else "car_armrest"
+                                rescue_bucket = history.setdefault("tiktok_pending_rescue_videos", {}).setdefault(f"{aadvid}:{prod_key}", {"template_cid": camp_id, "items": {}})
+                                rescue_bucket["template_cid"] = camp_id
+                                h_cp = dict(headers)
+                                h_cp["Referer"] = f"https://ads.tiktok.com/i18n/creation/1nn/create/campaign?aadvid={aadvid}"
+                                rc_snap = session.post(
+                                    f"https://ads.tiktok.com/api/v4/i18n/creation/campaign_snap/copy/?aadvid={aadvid}",
+                                    headers=h_cp,
+                                    json={"campaign_id": str(camp_id), "name": "_tmp_rescue", "with_sketch": False, "with_ad": True, "with_creative": True, "risk_info": {}},
+                                    timeout=15,
+                                ).json().get("data") or {}
+                                c_s = (rc_snap.get("new_campaign_snap_info_item") or {}).get("campaign_snap_id")
+                                a_s_list = rc_snap.get("new_ad_snap_info_item_list") or []
+                                a_s = a_s_list[0].get("ad_snap_id") if a_s_list else None
+                                cr_map_vals = list((rc_snap.get("new_ad_and_creative_snap_info_item_map") or {}).values())
+                                cr_s = (cr_map_vals[0][0].get("creative_snap_id") if isinstance(cr_map_vals[0][0], dict) else str(cr_map_vals[0][0])) if cr_map_vals and cr_map_vals[0] else None
+                                if c_s and a_s and cr_s:
+                                    rd_s = session.post(
+                                        f"https://ads.tiktok.com/api/v4/i18n/creation/snap/detail/?aadvid={aadvid}",
+                                        headers=h_cp,
+                                        json={"campaign_snap_ids": [c_s], "ad_snap_ids": [a_s], "creative_snap_ids": [cr_s]},
+                                        timeout=15,
+                                    ).json().get("data") or {}
+                                    cr_f = (rd_s.get("asset_group_creative_snap_map") or {}).get(cr_s) or {}
+                                    for im_it in cr_f.get("image_list") or []:
+                                        mn = (im_it.get("material_name") or (im_it.get("video_info") or {}).get("file_name") or "").strip()
+                                        if mn in clean_vnames:
+                                            rescue_bucket["items"][mn] = im_it
+                                    pending_items = list(rescue_bucket["items"].values())
+                                    if len(pending_items) >= 3:
+                                        import uuid as _uuid
+                                        batch_imgs = pending_items[:5]
+                                        batch_names = list(rescue_bucket["items"].keys())[:5]
+                                        c_f = (rd_s.get("campaign_snap_map") or {}).get(c_s) or {}
+                                        a_f = (rd_s.get("ad_snap_map") or {}).get(a_s) or {}
+                                        p_lbl = "power bank" if prod_key == "power_bank" else "car armrest"
+                                        new_cname = f"{p_lbl} {today_str[8:10]}-{today_str[5:7]} Rescue Clean ({len(batch_imgs)} Ads)"
+                                        c_f["campaign_name"] = new_cname
+                                        c_f["budget"] = "60"
+                                        c_f["cpa_bid"] = "6.5"
+                                        c_f["campaign_bid_strategy_selection"] = 0
+                                        session.post(f"https://ads.tiktok.com/api/v4/i18n/creation/campaign_snap/save/?aadvid={aadvid}", headers=h_cp, json={"campaign_sketch_form_data": c_f, "clear_lower_level_sketches": False, "with_sketch": False, "is_skip_check_fields": True, "risk_info": {}}, timeout=15)
+                                        a_f["ad_name"] = f"{new_cname} - AdGroup"
+                                        a_f["inventory_flow_type"] = 1
+                                        a_f["inventory_flow"] = [3000]
+                                        a_f["is_comment_public_disable"] = 1
+                                        a_f["smart_bid_type"] = 0
+                                        a_f["cpa_bid"] = "6.5"
+                                        session.post(f"https://ads.tiktok.com/api/v4/i18n/creation/ad_snap/save/?aadvid={aadvid}", headers=h_cp, json={"ad_sketch_form_data": a_f, "campaign_id": "", "campaign_sketch_id": "", "campaign_snap_id": c_s, "clear_lower_level_sketches": False, "is_skip_check_fields": True, "spc_upgrade_mode": 1, "with_sketch": False, "risk_info": {}}, timeout=15)
+                                        cr_f["creative_name"] = f"{new_cname} - Creative"
+                                        cr_f["image_list"] = batch_imgs
+                                        cr_f["auto_pull_by_destination_toggle"] = 0
+                                        cr_f["auto_pull_by_aigc_toggle"] = 0
+                                        cr_f["aigc_approval_auto_pull_toggle"] = 0
+                                        cr_f["carousel_automation_toggle"] = 0
+                                        session.post(f"https://ads.tiktok.com/api/v4/i18n/creation/creative_snap/save/?aadvid={aadvid}", headers=h_cp, json={"asset_group_sketch_form_data_list": [cr_f], "ad_id": "", "ad_sketch_id": "", "ad_snap_id": a_s, "campaign_id": "", "campaign_sketch_id": "", "campaign_snap_id": c_s, "with_sketch": False, "risk_info": {}}, timeout=15)
+                                        pub_h = dict(h_cp)
+                                        pub_h["x-ttam-deduptoken"] = str(_uuid.uuid4())
+                                        session.post(f"https://ads.tiktok.com/api/v4/i18n/creation/async_creation/create_by_snap/?aadvid={aadvid}", headers=pub_h, json={"campaign_id": "", "campaign_snap_id": c_s, "ad_and_creative_snap_info_list": [{"ad_id": "", "ad_snap_id": a_s, "ad_sketch_id": "", "creative_snap_info_list": [{"creative_id": "", "creative_snap_id": cr_s, "creative_sketch_id": "", "need_publish": True}], "need_publish": True}], "coming_source_type": 0, "sketch_publish_source": 0, "campaign_sketch_id": "", "is_partial_publish": False, "create_cta_id": True, "risk_info": {}}, timeout=15)
+                                        for bn in batch_names:
+                                            rescue_bucket["items"].pop(bn, None)
+                                        print(f"    ♻️ [AUTO-RESCUED {len(batch_imgs)} CLEAN VIDEOS] Launched '{new_cname}' with {batch_names}")
+                                    else:
+                                        print(f"    ⏳ [QUEUED {len(pending_items)}/3 CLEAN VIDEOS] Waiting for >=3 videos before creating rescue campaign: {list(rescue_bucket['items'].keys())}")
+                        except Exception as _re_exc:
+                            print(f"    [WARN] Rescue underserved videos check error: {_re_exc}")
                     continue
 
             nodup_spend_lim = GULF_MAX_NO_SALE_SPEND if camp_is_gulf else 7.0
@@ -846,11 +1239,28 @@ def main():
             elif camp_id in no_dup_camps and c_conv_3d > 0 and c_cpa_3d is not None and c_cpa_3d <= nodup_cpa_lim:
                 del no_dup_camps[camp_id]
 
-            # Controlled Auto-Scale (+30% budget from 06:00 to 23:00 SA time)
+            # Controlled Auto-Scale (+30% budget from 06:00 to 23:00 SA time, with strict cross-automation check & 3h cooldown)
             scale_cpa_1d_max = 10.50 if camp_is_gulf else 6.80
             scale_cpa_3d_max = 12.50 if camp_is_gulf else 8.00
-            scale_bdg_cap = 80 if camp_is_gulf else 220
+            scale_bdg_cap = 80 if camp_is_gulf else 400
             scale_key = f"{now_sa.strftime('%Y-%m-%d')}:{aadvid}:{camp_id}"
+            tt_master_ledger_path = BASE_DIR / "tiktok_master_actions_ledger.json"
+            other_auto_recently_scaled = False
+            try:
+                if tt_master_ledger_path.exists():
+                    tt_ml = json.loads(tt_master_ledger_path.read_text(encoding="utf-8"))
+                    ml_sc = (tt_ml.get("scaled_campaigns") or {}).get(f"{aadvid}:{camp_id}") or {}
+                    if ml_sc:
+                        ml_cv = int(ml_sc.get("conv_today", 0))
+                        ml_dt_str = str(ml_sc.get("scaled_at") or "")
+                        if ml_cv >= c_conv_1d:
+                            other_auto_recently_scaled = True
+                        elif ml_dt_str:
+                            ml_dt = datetime.strptime(ml_dt_str[:16], "%Y-%m-%d %H:%M").replace(tzinfo=timezone(timedelta(hours=3)))
+                            if (now_sa - ml_dt).total_seconds() < 10800:
+                                other_auto_recently_scaled = True
+            except Exception:
+                pass
             if (
                 is_before_6pm_sa
                 and c_conv_1d >= 2
@@ -858,6 +1268,7 @@ def main():
                 and c_cpa_1d <= scale_cpa_1d_max
                 and (c_cpa_3d is None or c_cpa_3d <= scale_cpa_3d_max)
                 and scale_key not in tt_scaled_today
+                and not other_auto_recently_scaled
             ):
                 try:
                     h_b = dict(headers)
@@ -949,6 +1360,9 @@ def main():
             opt_v = str(base_m.get("mix_material_aco_opt_status") or "0")
             prim_v = str(base_m.get("material_primary_status") or "")
             cid_v = str(base_m.get("creative_id") or "")
+            if is_gulf_campaign(ad_camp_map.get(cid_v, ""), ad_name_map.get(cid_v, "")):
+                # عزل فيديوهات الخليج 100% عن تجميع الفيديوهات المكررة للسعودية (يديرها gulf_2h_profit_and_ads_master.py)
+                continue
             aid_v = str(base_m.get("ad_id") or "")
             camp_id_v = str(base_m.get("campaign_id") or "")
             draft_ids_v = parse_draft_ids(base_m.get("ad_material_draft_id"))
@@ -1087,31 +1501,37 @@ def main():
             hist_key = f"{aadvid}:{ad_id}:{draft_str}"
 
             v_is_gulf = is_gulf_campaign(ad_camp_map.get(cid, ""), ad_name_map.get(cid, ""))
-            v_no_sale_lim = GULF_MAX_NO_SALE_SPEND if v_is_gulf else MAX_NO_SALE_SPEND
+            v_gulf_cpa, _, v_gulf_no_sale = get_gulf_tiktok_sim_limits(ad_camp_map.get(cid, ""), ad_name_map.get(cid, "")) if v_is_gulf else (GULF_MAX_VIDEO_CPA, GULF_MAX_NO_SALE_SPEND, GULF_MAX_NO_SALE_SPEND)
+            v_is_new_test = is_new_test_video_tt(ad_camp_map.get(cid, ""), m3.get("main_entity_name") or "")
+            v_no_sale_lim = 4.00 if v_is_new_test else (v_gulf_no_sale if v_is_gulf else MAX_NO_SALE_SPEND)
+            v_cpa_lim = 5.99 if v_is_new_test else (v_gulf_cpa if v_is_gulf else MAX_VIDEO_CPA)
 
-            # Delayed-Attribution Auto-Revival for Paused Smart+ Videos:
-            # ONLY revive if NEW conversions arrived AFTER the video was paused!
-            if hist_key in history["tiktok_videos"] and opt_status != "0":
-                if v_key_cur in history.get("tiktok_disabled_dup_videos", {}):
-                    continue
-                prev_rec = history["tiktok_videos"].get(hist_key) or {}
-                prev_c1 = int(prev_rec.get("conv_1d") or 0)
-                prev_c3 = int(prev_rec.get("conv_3d") or 0)
-                has_new_delayed_sale = (conv_1d > prev_c1) or (conv_3d > prev_c3)
-                if has_new_delayed_sale and not evaluate_video_rules(
+            # Delayed-Attribution Winner Revival INSIDE ALREADY-ACTIVE Campaigns ONLY:
+            # Prevents starving a profitable active campaign to '0 active videos remaining' ONLY when delayed conversions arrive TODAY (conv_1d >= 1).
+            # Never revive a video with 0 sales Today just because it had 3D sales!
+            if opt_status != "0" and cid in active_cid_set and not extract_new_product_key_tt(ad_camp_map.get(cid, "")):
+                v_now_profitable = (conv_1d >= 1 and (spend_1d / conv_1d) <= v_cpa_lim)
+                if v_now_profitable and not evaluate_video_rules(
                     spend_1d, conv_1d, cpc_1d, clicks_1d,
                     spend_2d, conv_2d, cpc_2d, clicks_2d,
                     spend_3d, conv_3d, cpc_3d, clicks_3d,
                     spend_7d, conv_7d, cpc_7d, clicks_7d,
                     is_gulf=v_is_gulf,
+                    is_new_test=v_is_new_test,
+                    gulf_no_sale_limit=v_gulf_no_sale,
+                    gulf_cpa_limit=v_gulf_cpa,
                 ):
                     ok_rev, _ = pause_smart_plus_video(session, headers, aadvid, ad_id, m3, operation="enable")
                     if ok_rev:
+                        active_videos_per_ad[ad_id] = active_videos_per_ad.get(ad_id, 0) + 1
                         print(
-                            f"    ♻️🔥 [REVIVED VIDEO - DELAYED SALE] Video '{vid_name}' (draft={draft_str}) "
-                            f"| 3-Day Spend=${spend_3d:.2f}, Sales={conv_3d} — re-enabled automatically!"
+                            f"    ♻️🔥 [REVIVED DELAYED-SALE WINNER IN ACTIVE CAMPAIGN] Video '{vid_name}' (draft={draft_str}) "
+                            f"| Today=${spend_1d:.2f}/{conv_1d}cv, 3D=${spend_3d:.2f}/{conv_3d}cv — re-enabled so profitable campaign keeps its winning video!"
                         )
-                        del history["tiktok_videos"][hist_key]
+                        history["tiktok_videos"].pop(hist_key, None)
+                        dup_blk = history.get("tiktok_disabled_dup_videos", {}).get(v_key_cur)
+                        if dup_blk and int(dup_blk.get("conv_3d") or 0) == 0:
+                            history["tiktok_disabled_dup_videos"].pop(v_key_cur, None)
                         total_revived += 1
                 continue
 
@@ -1132,8 +1552,11 @@ def main():
                 spend_3d, conv_3d, cpc_3d, clicks_3d,
                 spend_7d, conv_7d, cpc_7d, clicks_7d,
                 is_gulf=v_is_gulf,
+                is_new_test=v_is_new_test,
+                gulf_no_sale_limit=v_gulf_no_sale,
+                gulf_cpa_limit=v_gulf_cpa,
             )
-            v_cpa_lim = GULF_MAX_VIDEO_CPA if v_is_gulf else MAX_VIDEO_CPA
+            v_cpa_lim = 5.99 if v_is_new_test else (v_gulf_cpa if v_is_gulf else MAX_VIDEO_CPA)
             v_has_profitable_sales = (
                 (conv_3d > 0 and (spend_3d / conv_3d) <= v_cpa_lim)
                 or (conv_1d > 0 and (spend_1d / conv_1d) <= v_cpa_lim)
@@ -1141,47 +1564,6 @@ def main():
             )
             if v_key_cur in history.get("tiktok_disabled_dup_videos", {}) and not v_has_profitable_sales:
                 reasons.append(f"Blacklisted Multi-Day Non-Converting Video ('{v_key_cur}')")
-
-            # Sibling Zero-Sale Video Pruning Inside Converting Campaigns:
-            # If another video in the same Smart+ AdGroup already converted, prune any 0-sale sibling that is bleeding
-            camp_id_for_vid = str(m3.get("campaign_id") or "")
-            c2_for_vid = (camp_2d_map.get(camp_id_for_vid) or {}).get("row_data") or {}
-            c3_for_vid = (camp_3d_map.get(camp_id_for_vid) or {}).get("row_data") or {}
-            c2_sp_v = float(c2_for_vid.get("stat_cost") or 0.0)
-            c2_cv_v = int(float(c2_for_vid.get("time_attr_convert_cnt") or 0))
-            c3_sp_v = float(c3_for_vid.get("stat_cost") or 0.0)
-            c3_cv_v = int(float(c3_for_vid.get("time_attr_convert_cnt") or 0))
-            camp_cpa_elevated = (
-                (c2_cv_v > 0 and (c2_sp_v / c2_cv_v) > v_cpa_lim)
-                or (c3_cv_v > 0 and (c3_sp_v / c3_cv_v) > v_cpa_lim)
-            )
-            if (
-                not reasons
-                and conv_1d == 0
-                and conv_3d == 0
-                and conv_7d == 0
-                and converting_videos_per_ad.get(ad_id, 0) >= 1
-                and active_videos_per_ad.get(ad_id, 0) > 1
-            ):
-                if spend_1d >= 2.00:
-                    reasons.append(f"Sibling 0-Sale Video Pruned Inside Converting Campaign (Today Spend=${spend_1d:.2f} >= $2.00, 0 sales)")
-                elif spend_2d >= 2.00:
-                    reasons.append(f"Sibling 0-Sale Video Pruned Inside Converting Campaign (2D Spend=${spend_2d:.2f} >= $2.00, 0 sales)")
-                elif spend_3d >= 2.00:
-                    reasons.append(f"Sibling 0-Sale Video Pruned Inside Converting Campaign (3D Spend=${spend_3d:.2f} >= $2.00, 0 sales)")
-                elif spend_7d >= 1.00:
-                    reasons.append(f"Sibling 0-Sale Video Pruned Inside Converting Campaign (7D Spend=${spend_7d:.2f} >= $1.00, 0 sales)")
-                elif spend_1d >= 0.34 and cpc_1d >= 0.30:
-                    reasons.append(f"Sibling High-CPC Video Pruned Inside Converting Campaign (Today Spend=${spend_1d:.2f}, CPC=${cpc_1d:.2f}, 0 sales)")
-                elif spend_2d >= 0.34 and cpc_2d >= 0.30:
-                    reasons.append(f"Sibling High-CPC Video Pruned Inside Converting Campaign (2D Spend=${spend_2d:.2f}, CPC=${cpc_2d:.2f}, 0 sales)")
-                elif spend_3d >= 0.34 and cpc_3d >= 0.30:
-                    reasons.append(f"Sibling High-CPC Video Pruned Inside Converting Campaign (3D Spend=${spend_3d:.2f}, CPC=${cpc_3d:.2f}, 0 sales)")
-                elif camp_cpa_elevated and max(spend_3d, spend_7d) >= 0.01:
-                    reasons.append(
-                        f"Sibling 0-Sale Video Pruned to Protect Winning Video in Elevated-CPA Campaign "
-                        f"(3D=${spend_3d:.2f}, 7D=${spend_7d:.2f}, 0 sales)"
-                    )
 
             if reasons:
                 reason_str = " | ".join(reasons)
@@ -1226,8 +1608,105 @@ def main():
                             "disabled_at": datetime.now(timezone.utc).isoformat(),
                         }
                     total_paused += 1
+                    # Only pause the campaign if ALL of its videos have now been paused (0 active videos left)
+                    # SAFETY GUARD: Before pausing an entire campaign as empty, verify no paused video inside this ad_id actually has profitable delayed conversions!
+                    if active_videos_per_ad.get(ad_id, 0) == 0:
+                        camp_id_empty = str(m3.get("campaign_id") or "")
+                        camp_name_empty = ad_camp_map.get(cid, "Campaign")
+                        saved_by_winner = False
+                        if not extract_new_product_key_tt(camp_name_empty):
+                            for m_chk in active_mats_3d:
+                                if str(m_chk.get("ad_id") or "") != ad_id:
+                                    continue
+                                k_chk = f"{m_chk.get('ad_id')}:{m_chk.get('ad_material_draft_id')}:{m_chk.get('main_entity_id')}"
+                                m1_chk = map_1d.get(k_chk, {})
+                                m2_chk = map_2d.get(k_chk, m_chk)
+                                m7_chk = map_7d.get(k_chk, m_chk)
+                                sp1_c = float(m1_chk.get("stat_cost") or 0.0)
+                                cv1_c = int(float(m1_chk.get("time_attr_convert_cnt") or 0))
+                                clk1_c = int(float(m1_chk.get("click_cnt") or 0))
+                                cpc1_c = float(m1_chk.get("cpc") or 0.0)
+                                sp2_c = float(m2_chk.get("stat_cost") or 0.0)
+                                cv2_c = int(float(m2_chk.get("time_attr_convert_cnt") or 0))
+                                clk2_c = int(float(m2_chk.get("click_cnt") or 0))
+                                cpc2_c = float(m2_chk.get("cpc") or 0.0)
+                                sp3_c = float(m_chk.get("stat_cost") or 0.0)
+                                cv3_c = int(float(m_chk.get("time_attr_convert_cnt") or 0))
+                                clk3_c = int(float(m_chk.get("click_cnt") or 0))
+                                cpc3_c = float(m_chk.get("cpc") or 0.0)
+                                sp7_c = float(m7_chk.get("stat_cost") or sp3_c)
+                                cv7_c = int(float(m7_chk.get("time_attr_convert_cnt") or cv3_c))
+                                clk7_c = int(float(m7_chk.get("click_cnt") or clk3_c))
+                                cpc7_c = float(m7_chk.get("cpc") or cpc3_c)
+                                chk_new_t = is_new_test_video_tt(camp_name_empty, m_chk.get("main_entity_name") or "")
+                                chk_cpa_lim = 5.99 if chk_new_t else (GULF_MAX_VIDEO_CPA if v_is_gulf else MAX_VIDEO_CPA)
+                                chk_prof = (cv1_c >= 1 and (sp1_c / cv1_c) <= chk_cpa_lim)
+                                if chk_prof and not evaluate_video_rules(
+                                    sp1_c, cv1_c, cpc1_c, clk1_c,
+                                    sp2_c, cv2_c, cpc2_c, clk2_c,
+                                    sp3_c, cv3_c, cpc3_c, clk3_c,
+                                    sp7_c, cv7_c, cpc7_c, clk7_c,
+                                    is_gulf=v_is_gulf,
+                                    is_new_test=chk_new_t,
+                                ):
+                                    ok_sv, _ = pause_smart_plus_video(session, headers, aadvid, ad_id, m_chk, operation="enable")
+                                    if ok_sv:
+                                        active_videos_per_ad[ad_id] = active_videos_per_ad.get(ad_id, 0) + 1
+                                        saved_by_winner = True
+                                        print(f"    🛡️🔥 [PROTECTED PROFITABLE CAMPAIGN] Re-enabled delayed-sale winner '{m_chk.get('main_entity_name')}' instead of pausing '{camp_name_empty}'!")
+                        if not saved_by_winner and camp_id_empty and not is_cross_monitored_product_campaign(camp_name_empty):
+                            ok_ce, _ = pause_campaign(session, headers, aadvid, camp_id_empty, operation="disable")
+                            if ok_ce:
+                                total_campaigns_paused += 1
+                                history["tiktok_campaigns"][f"{aadvid}:{camp_id_empty}"] = {
+                                    "account_name": acc_name,
+                                    "aadvid": aadvid,
+                                    "campaign_id": camp_id_empty,
+                                    "campaign_name": camp_name_empty,
+                                    "reason": "All videos in Smart+ AdSet were paused individually (0 active videos remaining)",
+                                    "spend_1d": spend_1d,
+                                    "conv_1d": conv_1d,
+                                    "spend_3d": spend_3d,
+                                    "conv_3d": conv_3d,
+                                    "paused_at": datetime.now(timezone.utc).isoformat(),
+                                }
+                                print(f"    🛑 [PAUSED EMPTY CAMPAIGN] '{camp_name_empty}' ({camp_id_empty}) -> 0 active videos remaining")
                 else:
                     print(f"    [ERROR] Failed to pause video {draft_str}: {resp_txt}")
+
+    # =========================================================================
+    # PHASE 1.5: Cross-Campaign & Cross-Account NEW PRODUCT $7.00 Stop-Loss Rule
+    # =========================================================================
+    for np_key_g, np_grp in global_new_products.items():
+        if not np_grp["active_campaigns"]:
+            continue
+        np_reason = None
+        if np_grp["spend_1d"] >= 7.00 and np_grp["conv_1d"] == 0:
+            np_reason = f"[New Product '{np_key_g}' Combined $7 Rule] Total Today Spend ${np_grp['spend_1d']:.2f} >= $7.00 with 0 sales"
+        elif np_grp["spend_2d"] >= 7.00 and np_grp["conv_2d"] == 0:
+            np_reason = f"[New Product '{np_key_g}' Combined $7 Rule] Total 2D Spend ${np_grp['spend_2d']:.2f} >= $7.00 with 0 sales"
+        elif np_grp["spend_3d"] >= 7.00 and np_grp["conv_3d"] == 0:
+            np_reason = f"[New Product '{np_key_g}' Combined $7 Rule] Total 3D Spend ${np_grp['spend_3d']:.2f} >= $7.00 with 0 sales"
+        elif np_grp["spend_7d"] >= 7.00 and np_grp["conv_7d"] == 0:
+            np_reason = f"[New Product '{np_key_g}' Combined $7 Rule] Total 7D Spend ${np_grp['spend_7d']:.2f} >= $7.00 with 0 sales"
+        if np_reason:
+            for ac_np in list(np_grp["active_campaigns"]):
+                ok_np_g, _ = pause_campaign(session, headers, ac_np["aadvid"], ac_np["campaign_id"], operation="disable")
+                if ok_np_g:
+                    total_campaigns_paused += 1
+                    history["tiktok_campaigns"][f"{ac_np['aadvid']}:{ac_np['campaign_id']}"] = {
+                        "account_name": ac_np["acc_name"],
+                        "aadvid": ac_np["aadvid"],
+                        "campaign_id": ac_np["campaign_id"],
+                        "campaign_name": ac_np["campaign_name"],
+                        "reason": np_reason,
+                        "spend_1d": ac_np["spend_1d"],
+                        "conv_1d": ac_np["conv_1d"],
+                        "spend_3d": ac_np["spend_3d"],
+                        "conv_3d": ac_np["conv_3d"],
+                        "paused_at": datetime.now(timezone.utc).isoformat(),
+                    }
+                    print(f"  🛑 [NEW PRODUCT $7 STOP-LOSS] [{ac_np['acc_name']}] '{ac_np['campaign_name']}' ({ac_np['campaign_id']}) -> {np_reason}")
 
     # =========================================================================
     # PHASE 2: Cross-Campaign & Cross-Account Duplicated Video Aggregation Rule
@@ -1271,16 +1750,22 @@ def main():
             inst for inst in grp["instances"]
             if inst["is_active"]
             and not (
+                (tot_cv3 > 0 or tot_cv7 > 0)
+                and inst["spend_7d"] < 1.00
+                and inst["spend_3d"] < 1.00
+                and inst["spend_1d"] < 1.00
+            )
+            and not (
                 inst["conv_3d"] > 0
-                and (inst["spend_3d"] / inst["conv_3d"]) <= (GULF_MAX_VIDEO_CPA if is_gulf_campaign(inst["campaign_name"]) else MAX_VIDEO_CPA)
+                and (inst["spend_3d"] / inst["conv_3d"]) <= (GULF_MAX_VIDEO_CPA if is_gulf_campaign(inst["campaign_name"]) else (9.99 if inst["conv_3d"] >= 3 else MAX_VIDEO_CPA))
             )
             and not (
                 inst["conv_1d"] > 0
-                and (inst["spend_1d"] / inst["conv_1d"]) <= (GULF_MAX_VIDEO_CPA if is_gulf_campaign(inst["campaign_name"]) else MAX_VIDEO_CPA)
+                and (inst["spend_1d"] / inst["conv_1d"]) <= (GULF_MAX_VIDEO_CPA if is_gulf_campaign(inst["campaign_name"]) else (9.99 if inst["conv_1d"] >= 3 else MAX_VIDEO_CPA))
             )
             and not (
                 inst["conv_7d"] >= 3
-                and (inst["spend_7d"] / inst["conv_7d"]) <= (GULF_MAX_VIDEO_CPA if is_gulf_campaign(inst["campaign_name"]) else MAX_VIDEO_CPA)
+                and (inst["spend_7d"] / inst["conv_7d"]) <= (GULF_MAX_VIDEO_CPA if is_gulf_campaign(inst["campaign_name"]) else 9.99)
             )
         ]
         if not active_insts:
