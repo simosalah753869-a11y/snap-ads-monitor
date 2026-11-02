@@ -140,6 +140,20 @@ def _get_custom_squad_bid_locks() -> dict:
     return _custom_locks_cache.get("data") or {}
 
 
+def get_custom_daytime_budget_micro(squad_id: str, today_date_str: str = "") -> int | None:
+    if not squad_id:
+        return None
+    locks = _get_custom_squad_bid_locks()
+    lock_date = locks.get("custom_daytime_budgets_date")
+    if today_date_str and lock_date and lock_date != today_date_str:
+        return None
+    by_sq = locks.get("custom_daytime_budgets_micro") or {}
+    val = by_sq.get(squad_id)
+    if val is not None:
+        return int(val)
+    return None
+
+
 def is_dedicated_snap_test_campaign(campaign_id: str = "", campaign_name: str = "", squad_name: str = "") -> bool:
     """أمر المستخدم الصارم (2026-11-01):
     حملات 'تيست' المخصصة للوسادة والباور بانك في الحسابين (تيست - وسادة السيارة / تيست - باور بانك):
@@ -387,6 +401,23 @@ def get_gulf_simulation_limits(
     return (10.00, 3.50, 10.00)
 
 
+def get_gulf_max_cpc(
+    campaign_name: str = "",
+    adsquad_name: str = "",
+    squad: dict | None = None,
+    campaign_id: str = "",
+) -> float:
+    """يرجع السقف الأقصى لسعر النقرة بدون مبيعة في الخليج ($0.25 لعُمان، و$0.26 للكويت وقطر) بعد صرف $0.80."""
+    cid = (campaign_id or (squad or {}).get("campaign_id") or "").strip().lower()
+    if cid in ("2958697d-af14-4afc-a42a-1de78106b8a1", "efccbe22-8951-49f4-b118-cd67f2cec64b"):
+        return 0.25
+    countries = get_squad_countries(squad)
+    combined = f"{campaign_name} {adsquad_name}".lower()
+    if ("om" in countries) or any(k in combined for k in ("oman", "عمان", "عُمان")):
+        return 0.25
+    return 0.26
+
+
 def load_paused_history() -> dict:
     if HISTORY_FILE.exists():
         try:
@@ -599,16 +630,37 @@ def evaluate_adsquad_rule(adsquad_name: str, st: dict, campaign_name: str = "", 
     # بأمر المستخدم (2026-10-30 & 2026-11-01):
     # - حملات 'تيست' المخصصة ومجموعات التيست بدون كوبي لا يُطفأ فيها الأدست أبداً (يُطفأ الفيديو الفردي فقط).
     # - في الأدست الكوبي، أي أدست تصرف $4.00 فأكثر بدون بيعة تُطفأ فوراً، ولو كان سعر البيعة فيها $7.00 فأكثر (CPA >= $7.00) تُطفأ فوراً!
+    # - في حملات الخليج (الكويت وقطر وعُمان): تطبق حدود المحاكاة المالية لكل دولة ومنتج بدقة 100%.
     sn_l = (adsquad_name or "").strip().lower()
-    if sn_l.startswith("base -") or is_dedicated_snap_test_campaign("", campaign_name, adsquad_name) or is_non_copy_test_adsquad(adsquad_name, campaign_name):
+    c_id_sq = (squad or {}).get("campaign_id", "") if isinstance(squad, dict) else ""
+    is_gulf = (c_id_sq in ALLOWED_GULF_CAMPAIGN_IDS) or is_gulf_034_campaign(campaign_name, adsquad_name, squad)
+    if not is_gulf and (sn_l.startswith("base -") or is_dedicated_snap_test_campaign("", campaign_name, adsquad_name) or is_non_copy_test_adsquad(adsquad_name, campaign_name)):
         return False, ""
 
     spend = st.get("spend", 0.0)
     purchases = st.get("purchases", 0)
     cpa = st.get("cpa")
-    is_gulf = is_gulf_034_campaign(campaign_name, adsquad_name, squad)
+    swipes = st.get("swipes", 0)
+    cpc = st.get("cpc", 0.0)
     if is_gulf:
-        max_cpa_limit, no_sale_limit, _ = get_gulf_simulation_limits(campaign_name, adsquad_name, squad)
+        max_cpa_limit, no_sale_limit, _ = get_gulf_simulation_limits(campaign_name, adsquad_name, squad, c_id_sq)
+        g_max_cpc = get_gulf_max_cpc(campaign_name, adsquad_name, squad, c_id_sq)
+        if purchases == 0 and spend >= 0.80 and (swipes == 0 or cpc > g_max_cpc):
+            return (
+                True,
+                f"[Gulf AdSquad CPC > ${g_max_cpc:.2f} after $0.80] صرفت المجموعة ${spend:.2f} بدون مبيعات | النقرات: {swipes} | CPC = ${cpc:.3f} (> ${g_max_cpc:.2f})",
+            )
+        if purchases == 0 and spend >= no_sale_limit:
+            return (
+                True,
+                f"[Gulf AdSquad >= ${no_sale_limit:.2f} No-Sale Stop] صرفت المجموعة ${spend:.2f} (>= ${no_sale_limit:.2f}) بدون أي مبيعة (0 مبيعات)",
+            )
+        if purchases > 0 and cpa is not None and cpa > max_cpa_limit:
+            return (
+                True,
+                f"[Gulf AdSquad CPA > ${max_cpa_limit:.2f} Sim Rule] صرفت المجموعة ${spend:.2f} | المبيعات: {purchases} | سعر البيعة CPA = ${cpa:.2f} (> ${max_cpa_limit:.2f})",
+            )
+        return False, ""
     else:
         no_sale_limit = 4.00
         max_cpa_limit = 7.00
@@ -643,7 +695,7 @@ def evaluate_single_ad_rule(
     is_copy = is_scaling_winner_adsquad(adsquad_name, campaign_name)
     is_test_non_copy = is_new_test_video(adsquad_name, ad_name, campaign_name, media_id) or is_dedicated_snap_test_campaign(campaign_id, campaign_name, adsquad_name)
     is_cross_prod = is_cross_monitored_product_campaign(campaign_name, adsquad_name)
-    is_gulf = is_gulf_034_campaign(campaign_name, adsquad_name, squad)
+    is_gulf = (campaign_id in ALLOWED_GULF_CAMPAIGN_IDS) or is_gulf_034_campaign(campaign_name, adsquad_name, squad)
 
     # 1) فحص الفيديوهات الفردية داخل حملات ومجموعات 'تيست' السعودية (أمر المستخدم 2026-11-01):
     # - فقط الفيديوهات التي تصرف $4.00 بدون بيعة تُطفأ
@@ -661,11 +713,17 @@ def evaluate_single_ad_rule(
                 return True, f"[Test Video Rule: CPC > $0.27 after $1.00] صرف الفيديو ${spend:.2f} (>= $1.00) | النقرات: {swipes} | سعر النقرة CPC = ${cpc:.3f} (> $0.27)"
         return False, ""
 
-    # 2) المجموعات المعتمدة التي تحتوي على Copy (بداخلها الفيديوهات الرابحة فقط):
-    # بأمر المستخدم (2026-10-30): تُقيّم الأدست نفسها عند صرف >= $4.00 بدون مبيعة أو CPA >= $7.00،
-    # ولا يُطفأ فيديو فردي بداخلها إلا إذا تجاوز الفيديو نفسه >= $4.00 بدون بيعة أو CPA >= $7.00
+    # 2) حملات ومجموعات الخليج (الكويت وقطر وعُمان) أو مجموعات Copy السعودية:
     if is_gulf:
-        max_cpa, no_sale_stop, _ = get_gulf_simulation_limits(campaign_name, adsquad_name, squad)
+        max_cpa, no_sale_stop, _ = get_gulf_simulation_limits(campaign_name, adsquad_name, squad, campaign_id)
+        g_max_cpc = get_gulf_max_cpc(campaign_name, adsquad_name, squad, campaign_id)
+        if purchases == 0 and spend >= 0.80 and (swipes == 0 or cpc > g_max_cpc):
+            return True, f"[Gulf Video CPC > ${g_max_cpc:.2f} after $0.80] صرف الفيديو ${spend:.2f} بدون مبيعات | النقرات: {swipes} | CPC = ${cpc:.3f} (> ${g_max_cpc:.2f})"
+        if purchases == 0 and spend >= no_sale_stop:
+            return True, f"[Gulf Video >= ${no_sale_stop:.2f} No-Sale Stop] صرف الفيديو ${spend:.2f} (>= ${no_sale_stop:.2f}) بدون مبيعة"
+        if purchases > 0 and cpa is not None and cpa > max_cpa:
+            return True, f"[Gulf Video CPA > ${max_cpa:.2f} Sim Rule] صرف الفيديو ${spend:.2f} | المبيعات: {purchases} | CPA = ${cpa:.2f} (> ${max_cpa:.2f})"
+        return False, ""
     else:
         max_cpa = 6.99
         no_sale_stop = 4.00
@@ -796,32 +854,36 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
         if is_dedicated_snap_test_campaign(cid_chk, cname_chk):
             kept_active_campaigns.append(c)
             continue
-        if cid_chk in ALLOWED_GULF_CAMPAIGN_IDS or is_gulf_034_campaign(cname_chk):
-            kept_active_campaigns.append(c)
-            continue
         act_sq_ids_c = [sq["id"] for sq in camp_squads_cache.get(cid_chk, []) if sq and sq.get("status") == "ACTIVE"]
-        if cid_chk in ALLOWED_GULF_CAMPAIGN_IDS or is_gulf_034_campaign(cname_chk):
+        is_gulf_camp_chk = (cid_chk in ALLOWED_GULF_CAMPAIGN_IDS) or is_gulf_034_campaign(cname_chk)
+        if is_gulf_camp_chk:
             g_sim_cpa, _, g_camp_stop = get_gulf_simulation_limits(cname_chk, campaign_id=cid_chk)
             no_sale_camp_limit = g_camp_stop
-            max_cpa_camp_limit = g_sim_cpa + 0.01
+            max_cpa_camp_limit = g_sim_cpa
         else:
             # أمر المستخدم الصارم (2026-11-02): أي حملة في سناب صرفت $10.00 بدون بيعة أو سعر البيعة فيها أكثر من $11.00 (CPA > $11.00) يطفئها البوت فوراً!
             no_sale_camp_limit = 10.00
             max_cpa_camp_limit = 11.00
         c_kill_reasons = []
         c_1d_healthy = False
+        sp1_camp_check = round(max(
+            sum(squad_stats_map.get(sid_x, {}).get("spend", 0.0) for sid_x in act_sq_ids_c),
+            camp_stats_1d.get(cid_chk, {}).get("spend", 0.0),
+        ), 2)
         for w_lbl_c, sq_map_w, camp_map_w, sh_key_w in (
             ("1D (اليوم)", squad_stats_map, camp_stats_1d, "1d"),
             ("2D (يومين)", squad_stats_2d_map, camp_stats_2d, "2d"),
             ("3D (آخر 3 أيام)", squad_stats_3d_map, camp_stats_3d_map, "3d"),
             ("7D (آخر 7 أيام)", squad_stats_7d_map, camp_stats_7d, "7d"),
         ):
+            if is_gulf_camp_chk and sh_key_w != "1d" and sp1_camp_check < 0.25:
+                continue
             sp_sq_act = round(sum(sq_map_w.get(sid_x, {}).get("spend", 0.0) for sid_x in act_sq_ids_c), 2)
             sp_camp = round(camp_map_w.get(cid_chk, {}).get("spend", 0.0), 2)
-            if sh_key_w == "1d" or cid_chk not in FOUR_SQUAD_CAMPAIGN_IDS:
+            if sh_key_w == "1d" or (cid_chk not in FOUR_SQUAD_CAMPAIGN_IDS and not is_gulf_camp_chk):
                 sp_c = max(sp_sq_act, sp_camp)
             else:
-                sp_c = min(sp_sq_act, sp_camp) if sp_camp > 0 else sp_sq_act
+                sp_c = min(sp_sq_act, sp_camp) if (sp_camp > 0 and sp_sq_act > 0) else sp_sq_act
             pu_sq_act = sum(sq_map_w.get(sid_x, {}).get("purchases", 0) for sid_x in act_sq_ids_c)
             pu_camp = camp_map_w.get(cid_chk, {}).get("purchases", 0)
             sh_map_w = sheet_sales_multi.get(sh_key_w, {}) or {}
@@ -1068,11 +1130,8 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
         if is_dedicated_snap_test_campaign(c_id, c_name, s_name):
             # أمر المستخدم الصارم (2026-11-01): حملة 'تيست' البوت لا يطفي فيها الحملة ولا الأدست أبداً (يُطفأ الفيديو الفردي فقط في الخطوة 2)
             continue
-        if c_id in ALLOWED_GULF_CAMPAIGN_IDS or is_gulf_034_campaign(c_name, s_name, squad):
-            # تُدار حملات ومجموعات الخليج (KW/QA/OM) حصرياً عبر gulf_2h_profit_and_ads_master.py بسقف المحاكاة المالي الدقيق لكل دولة
-            continue
 
-        is_gulf_sq = is_gulf_034_campaign(c_name, s_name, squad)
+        is_gulf_sq = (c_id in ALLOWED_GULF_CAMPAIGN_IDS) or is_gulf_034_campaign(c_name, s_name, squad)
         is_copy_sq = is_scaling_winner_adsquad(s_name, c_name)
         if is_gulf_sq:
             win_cpa_cap, no_sale_cap_sq, _ = get_gulf_simulation_limits(c_name, s_name, squad, c_id)
@@ -1084,6 +1143,8 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
         copy_high_cpa_reason = ""
         if (is_copy_sq or is_gulf_sq) and not is_non_copy_test_adsquad(s_name, c_name):
             for w_lbl, w_st in (("1D", st_1d), ("2D", st_2d), ("3D", st_3d)):
+                if is_gulf_sq and w_lbl != "1D" and st_1d["spend"] < 0.35:
+                    continue
                 if w_st["purchases"] > 0 and w_st["cpa"] is not None and w_st["cpa"] > win_cpa_cap:
                     if w_lbl != "1D" and st_1d["purchases"] >= 1 and st_1d["cpa"] is not None and st_1d["cpa"] <= win_cpa_cap:
                         continue
@@ -1125,15 +1186,16 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
             reason = ""
         else:
             should_pause_1d, reason_1d = evaluate_adsquad_rule(s_name, st_1d, c_name, squad) if st_1d["spend"] >= 0.70 else (False, "")
-            should_pause_2d, reason_2d = evaluate_adsquad_rule(s_name, st_2d, c_name, squad) if st_2d["spend"] >= 0.70 else (False, "")
-            should_pause_3d, reason_3d = evaluate_adsquad_rule(s_name, st_3d, c_name, squad) if st_3d["spend"] >= 0.70 else (False, "")
+            allow_multi_sq = (not is_gulf_sq) or (st_1d["spend"] >= 0.35)
+            should_pause_2d, reason_2d = evaluate_adsquad_rule(s_name, st_2d, c_name, squad) if (allow_multi_sq and st_2d["spend"] >= 0.70) else (False, "")
+            should_pause_3d, reason_3d = evaluate_adsquad_rule(s_name, st_3d, c_name, squad) if (allow_multi_sq and st_3d["spend"] >= 0.70) else (False, "")
             if is_winner_3d and not should_pause_1d:
                 should_pause = False
                 reason = ""
             else:
-                should_pause_4d, reason_4d = evaluate_adsquad_rule(s_name, st_4d, c_name, squad) if st_4d["spend"] >= 0.70 else (False, "")
-                should_pause_5d, reason_5d = evaluate_adsquad_rule(s_name, st_5d, c_name, squad) if st_5d["spend"] >= 0.70 else (False, "")
-                should_pause_7d, reason_7d = evaluate_adsquad_rule(s_name, st_7d, c_name, squad) if st_7d["spend"] >= 4.00 else (False, "")
+                should_pause_4d, reason_4d = evaluate_adsquad_rule(s_name, st_4d, c_name, squad) if (allow_multi_sq and st_4d["spend"] >= 0.70) else (False, "")
+                should_pause_5d, reason_5d = evaluate_adsquad_rule(s_name, st_5d, c_name, squad) if (allow_multi_sq and st_5d["spend"] >= 0.70) else (False, "")
+                should_pause_7d, reason_7d = evaluate_adsquad_rule(s_name, st_7d, c_name, squad) if (allow_multi_sq and st_7d["spend"] >= 4.00) else (False, "")
                 should_pause = should_pause_1d or should_pause_2d or should_pause_3d or should_pause_4d or should_pause_5d or should_pause_7d
                 if should_pause_1d:
                     reason = reason_1d
@@ -1350,25 +1412,23 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
         s_name = squad.get("name", "")
         c_id = squad.get("campaign_id", "")
         c_name = camp_names.get(c_id, "")
-        if c_id in ALLOWED_GULF_CAMPAIGN_IDS or is_gulf_034_campaign(c_name, s_name, squad):
-            continue
 
         cr_id_ad = ad.get("creative_id", "")
         ad_media_id = history.get("creative_media_map", {}).get(cr_id_ad) or (
             resolve_video_media_id(cr_id_ad, token, history) if cr_id_ad else ""
         )
         is_test_sq = is_new_test_video(s_name, ad_name, c_name, ad_media_id) or is_dedicated_snap_test_campaign(c_id, c_name, s_name)
-        is_gulf_sq = is_gulf_034_campaign(c_name, s_name, squad)
+        is_gulf_sq = (c_id in ALLOWED_GULF_CAMPAIGN_IDS) or is_gulf_034_campaign(c_name, s_name, squad)
         min_spend_chk = 1.00 if is_test_sq else (0.80 if (is_cross_monitored_product_campaign(c_name, s_name) or is_gulf_sq) else 7.0)
         if is_gulf_sq:
             max_cpa_3d_ind, no_sale_1d_ind, _ = get_gulf_simulation_limits(c_name, s_name, squad, c_id)
-            max_cpc_1d_ind = 0.26
+            max_cpc_1d_ind = get_gulf_max_cpc(c_name, s_name, squad, c_id)
         else:
             max_cpa_3d_ind = 6.99 if is_test_sq else 7.99
             no_sale_1d_ind = 4.0 if is_test_sq else 7.01
             max_cpc_1d_ind = 0.27 if is_test_sq else 0.28
         has_today_high_cpc_bleed = (
-            is_test_sq
+            (is_test_sq or is_gulf_sq)
             and st["spend"] >= min_spend_chk
             and st["purchases"] == 0
             and (st["swipes"] == 0 or st["cpc"] > max_cpc_1d_ind)
@@ -1384,28 +1444,29 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
             and not (st["purchases"] > 0 and st["cpa"] is not None and st["cpa"] > max_cpa_3d_ind)
             and not (st2["purchases"] > 0 and st2["cpa"] is not None and st2["cpa"] > max_cpa_3d_ind)
         )
+        allow_multi_ad = (not is_gulf_sq) or (st["spend"] >= 0.25)
         should_pause, reason = (
             evaluate_single_ad_rule(st, c_name, s_name, squad, ad_name=ad_name, media_id=ad_media_id, campaign_id=c_id)
             if (st["spend"] >= min_spend_chk and not is_proven_3d_winner)
             else (False, "")
         )
-        if not should_pause and st2["spend"] >= min_spend_chk and not is_proven_3d_winner:
+        if not should_pause and allow_multi_ad and st2["spend"] >= min_spend_chk and not is_proven_3d_winner:
             should_pause, reason = evaluate_single_ad_rule(st2, c_name, s_name, squad, ad_name=ad_name, media_id=ad_media_id, campaign_id=c_id)
             if should_pause:
                 reason = f"[2-Day Audit] {reason}"
-        if not should_pause and st3["spend"] >= min_spend_chk:
+        if not should_pause and allow_multi_ad and st3["spend"] >= min_spend_chk:
             should_pause, reason = evaluate_single_ad_rule(st3, c_name, s_name, squad, ad_name=ad_name, media_id=ad_media_id, campaign_id=c_id)
             if should_pause:
                 reason = f"[3-Day Audit] {reason}"
-        if not should_pause and st4["spend"] >= min_spend_chk:
+        if not should_pause and allow_multi_ad and st4["spend"] >= min_spend_chk:
             should_pause, reason = evaluate_single_ad_rule(st4, c_name, s_name, squad, ad_name=ad_name, media_id=ad_media_id, campaign_id=c_id)
             if should_pause:
                 reason = f"[4-Day Audit] {reason}"
-        if not should_pause and st5["spend"] >= min_spend_chk:
+        if not should_pause and allow_multi_ad and st5["spend"] >= min_spend_chk:
             should_pause, reason = evaluate_single_ad_rule(st5, c_name, s_name, squad, ad_name=ad_name, media_id=ad_media_id, campaign_id=c_id)
             if should_pause:
                 reason = f"[5-Day Audit] {reason}"
-        if not should_pause and st7["spend"] >= min_spend_chk and not is_proven_3d_winner:
+        if not should_pause and allow_multi_ad and st7["spend"] >= min_spend_chk and not is_proven_3d_winner:
             should_pause, reason = evaluate_single_ad_rule(st7, c_name, s_name, squad, ad_name=ad_name, media_id=ad_media_id, campaign_id=c_id)
             if should_pause:
                 reason = f"[7-Day Audit] {reason}"
@@ -1439,15 +1500,20 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
             not c_squads
             or is_cross_monitored_product_campaign(c_name)
             or is_dedicated_snap_test_campaign(c_id, c_name)
-            or c_id in ALLOWED_GULF_CAMPAIGN_IDS
-            or is_gulf_034_campaign(c_name)
         ):
             continue
 
-        camp_is_saudi = is_saudi_squad(c_squads[0], c_name, c_squads[0].get("name", ""))
-        no_sale_limit = 7.01 if camp_is_saudi else 10.00
-        max_cpa_limit = 7.99 if camp_is_saudi else 12.00
-        region_label = "السعودية" if camp_is_saudi else "الخليج"
+        camp_is_gulf = (c_id in ALLOWED_GULF_CAMPAIGN_IDS) or is_gulf_034_campaign(c_name, c_squads[0].get("name", ""), c_squads[0])
+        if camp_is_gulf:
+            g_sim_cpa, _, g_camp_stop = get_gulf_simulation_limits(c_name, c_squads[0].get("name", ""), c_squads[0], c_id)
+            no_sale_limit = g_camp_stop
+            max_cpa_limit = g_sim_cpa
+            region_label = "الخليج (KW/QA/OM)"
+        else:
+            camp_is_saudi = is_saudi_squad(c_squads[0], c_name, c_squads[0].get("name", ""))
+            no_sale_limit = 7.01 if camp_is_saudi else 10.00
+            max_cpa_limit = 7.99 if camp_is_saudi else 12.00
+            region_label = "السعودية" if camp_is_saudi else "الخليج"
 
         c_ads = camp_ads_cache.get(c_id, [])
         if not c_ads:
@@ -1598,6 +1664,8 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
                 ("5D (5 أيام)", sp5, pu5, cpa5),
                 ("7D (7 أيام)", sp7, pu7, cpa7),
             ):
+                if camp_is_gulf and w_lbl != "1D (اليوم)" and tot_spend < 0.25:
+                    continue
                 if w_lbl not in ("1D (اليوم)",) and is_1d_win_v:
                     continue
                 if w_lbl in ("4D (4 أيام)", "5D (5 أيام)", "7D (7 أيام)") and (is_3d_win_v or is_7d_win_v):
@@ -2250,6 +2318,7 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
             max_win_cpa_sq = 12.0 if is_gulf_034_campaign(c_name, s_name, squad) else 7.00
             is_sq_winning_today = (sq_pu_today >= 1 and (sq_cpa_today is None or sq_cpa_today < max_win_cpa_sq))
 
+            custom_dt_b_micro = get_custom_daytime_budget_micro(s_id, today_date_str) if not is_night_window else None
             if is_night_window or not is_sq_winning_today:
                 max_allowed_budget_micro = base_floor_micro
                 if not is_night_window and isinstance(m_sq, dict) and int(m_sq.get("target_budget_micro") or 0) == 26_000_000:
@@ -2260,6 +2329,10 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
                 max_allowed_budget_micro = 34_000_000
             else:
                 max_allowed_budget_micro = 45_000_000
+
+            if custom_dt_b_micro is not None and not is_night_window:
+                max_allowed_budget_micro = max(max_allowed_budget_micro, custom_dt_b_micro)
+                base_floor_micro = max(base_floor_micro, custom_dt_b_micro)
 
             if not is_cbo_campaign:
                 if (not is_after_6pm and budget_micro < base_floor_micro) or budget_micro > max_allowed_budget_micro:
@@ -2377,3 +2450,9 @@ if __name__ == "__main__":
             print(f"==================================================================")
             run_automation(token, acc_id, dry_run=dry)
         print("🛡️ [أمر المستخدم 2026-10-30] إيقاف أي أدست تصرف >= $4.00 بدون بيعة أو CPA >= $7.00 | إيقاف أي حملة تصرف >= $20.00 بدون بيعة أو CPA >= $21.00 | زيادة البدجت +30% كل ساعة للحملة أو الأدست الرابحة.")
+        if not dry and os.environ.get("GITHUB_ACTIONS") != "true":
+            try:
+                from github_deploy import sync_state_and_rules_to_github
+                sync_state_and_rules_to_github("snap_monitor")
+            except Exception as _sync_err:
+                print(f"ℹ️ ملاحظة مزامنة GitHub من snap_monitor: {_sync_err}")
