@@ -1197,8 +1197,8 @@ def run_improvements_guardian(sales_3d: dict = None, sales_today: dict = None):
             for camp in camps:
                 if camp.get("status") != "ACTIVE":
                     continue
-                if camp["id"] in ALLOWED_GULF_CAMPAIGN_IDS or is_cross_monitored_product_campaign(camp.get("name", "")) or is_gulf_034_campaign(camp.get("name", "")):
-                    continue  # مايباخ/تايم إكس وحملات الخليج لها مراقب مستقل (gulf_2h_profit_and_ads_master.py) وبيدات خاصة
+                if is_dedicated_snap_test_campaign(camp["id"], camp.get("name", "")) or camp["id"] in ALLOWED_GULF_CAMPAIGN_IDS or is_cross_monitored_product_campaign(camp.get("name", "")) or is_gulf_034_campaign(camp.get("name", "")):
+                    continue  # حملات التيست المخصصة ومايباخ/تايم إكس وحملات الخليج لا تُمس في حارس التحسينات
                 if is_banned_kashaf(camp.get("name", "")):
                     continue
                 cid, cname = camp["id"], camp.get("name", "")
