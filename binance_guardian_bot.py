@@ -234,7 +234,7 @@ def fetch_futures_intelligence(watched_pairs=None):
     return info
 
 class VirtualPortfolioEngine:
-    def __init__(self, initial_capital=1000.0):
+    def __init__(self, initial_capital=2000.0):
         self.initial_capital = float(initial_capital)
         self.state = self._load_or_init()
 
@@ -255,8 +255,8 @@ class VirtualPortfolioEngine:
             self.state["engine4_us_stocks"] = {
                 "started_at_utc": now_iso,
                 "last_updated_ms": now_ms,
-                "initial_capital_usd": 1000.0,
-                "free_cash_usd": 1000.0,
+                "initial_capital_usd": 2000.0,
+                "free_cash_usd": 2000.0,
                 "treasury_yield_apr_pct": 4.5,
                 "accrued_treasury_yield_usd": 0.0,
                 "realized_pnl_usd": 0.0,
@@ -269,7 +269,7 @@ class VirtualPortfolioEngine:
                 "active_positions": [],
                 "trade_history": [],
                 "latest_stock_scan": {},
-                "current_stock_equity_usd": 1000.0,
+                "current_stock_equity_usd": 2000.0,
                 "net_stock_pnl_usd": 0.0
             }
         stocks = self.state["engine4_us_stocks"]
@@ -482,16 +482,16 @@ class VirtualPortfolioEngine:
                 new_s_unrealized = round(new_s_unrealized + unr, 2)
                 new_s_open_syms.append(sp["symbol"])
 
-        # 4. Compute exact independent cash pools & equities ($500 Crypto + $500 Stocks per plan)
-        old_c_free = round(max(0.0, 500.0 + old_c_realized - old_c_invested), 2)
-        new_c_free = round(max(0.0, 500.0 + new_c_realized - new_c_invested), 2)
-        old_s_free = round(max(0.0, 500.0 + (old_s_realized - half_treasury) - old_s_invested), 2)
-        new_s_free = round(max(0.0, 500.0 + (new_s_realized - half_treasury) - new_s_invested), 2)
+        # 4. Compute exact independent cash pools & equities ($1000 Crypto + $1000 Stocks = $2000 per plan)
+        old_c_free = round(max(0.0, 1000.0 + old_c_realized - old_c_invested), 2)
+        new_c_free = round(max(0.0, 1000.0 + new_c_realized - new_c_invested), 2)
+        old_s_free = round(max(0.0, 1000.0 + (old_s_realized - half_treasury) - old_s_invested), 2)
+        new_s_free = round(max(0.0, 1000.0 + (new_s_realized - half_treasury) - new_s_invested), 2)
 
-        old_c_eq = round(500.0 + old_c_realized + old_c_unrealized, 2)
-        new_c_eq = round(500.0 + new_c_realized + new_c_unrealized, 2)
-        old_s_eq = round(500.0 + old_s_realized + old_s_unrealized, 2)
-        new_s_eq = round(500.0 + new_s_realized + new_s_unrealized, 2)
+        old_c_eq = round(1000.0 + old_c_realized + old_c_unrealized, 2)
+        new_c_eq = round(1000.0 + new_c_realized + new_c_unrealized, 2)
+        old_s_eq = round(1000.0 + old_s_realized + old_s_unrealized, 2)
+        new_s_eq = round(1000.0 + new_s_realized + new_s_unrealized, 2)
 
         old_tot_realized = round(old_c_realized + old_s_realized, 2)
         old_tot_unrealized = round(old_c_unrealized + old_s_unrealized, 2)
@@ -505,24 +505,24 @@ class VirtualPortfolioEngine:
         new_tot_wins = new_c_wins + new_s_wins
         new_tot_losses = new_c_losses + new_s_losses
 
-        leader = "OLD_PLAN" if old_tot_eq >= new_tot_eq else "NEW_PLAN"
+        leader = "TIE" if abs(old_tot_eq - new_tot_eq) < 0.01 else ("OLD_PLAN" if old_tot_eq > new_tot_eq else "NEW_PLAN")
         lead_diff = round(abs(old_tot_eq - new_tot_eq), 2)
 
         split_summary = {
-            "allocated_mode": "STRICT_50_50_ISOLATED_BUDGETS ($1000 OLD_PLAN vs $1000 NEW_PLAN)",
+            "allocated_mode": "STRICT_ISOLATED_BUDGETS ($2000 OLD_PLAN vs $2000 NEW_PLAN = $4000 TOTAL)",
             "leading_plan": leader,
             "lead_margin_usd": lead_diff,
             "OLD_PLAN": {
-                "description": "الخطة القديمة الكلاسيكية (شراء التراجعات في العملات الكبرى + الأسهم القيادية AMZN/NVDA مع تعديل هدف 48 ساعة)",
-                "initial_budget_usd": 1000.0,
-                "crypto_budget_usd": 500.0,
+                "description": "الخطة القديمة الكلاسيكية ($2000 = $1000 كريبتو + $1000 أسهم أمريكية — شراء التراجعات الكلاسيكية مع تعديل هدف 48 ساعة)",
+                "initial_budget_usd": 2000.0,
+                "crypto_budget_usd": 1000.0,
                 "crypto_invested_usd": old_c_invested,
                 "crypto_free_cash_usd": old_c_free,
                 "crypto_realized_pnl_usd": old_c_realized,
                 "crypto_unrealized_pnl_usd": old_c_unrealized,
                 "crypto_equity_usd": old_c_eq,
                 "crypto_open_positions": old_c_open_syms,
-                "stocks_budget_usd": 500.0,
+                "stocks_budget_usd": 1000.0,
                 "stocks_invested_usd": old_s_invested,
                 "stocks_free_cash_usd": old_s_free,
                 "stocks_realized_pnl_usd": old_s_realized,
@@ -532,23 +532,23 @@ class VirtualPortfolioEngine:
                 "total_realized_pnl_usd": old_tot_realized,
                 "total_unrealized_pnl_usd": old_tot_unrealized,
                 "current_total_equity_usd": old_tot_eq,
-                "net_return_usd": round(old_tot_eq - 1000.0, 2),
-                "net_return_pct": round((old_tot_eq - 1000.0) / 10.0, 2),
+                "net_return_usd": round(old_tot_eq - 2000.0, 2),
+                "net_return_pct": round((old_tot_eq - 2000.0) / 20.0, 2),
                 "wins": old_tot_wins,
                 "losses": old_tot_losses,
-                "win_rate_pct": round(old_tot_wins / max(1, old_tot_wins + old_tot_losses) * 100.0, 1)
+                "win_rate_pct": round(old_tot_wins / max(1, old_tot_wins + old_tot_losses) * 100.0, 1) if (old_tot_wins + old_tot_losses) > 0 else 0.0
             },
             "NEW_PLAN": {
-                "description": "الخطة الكمية الجديدة (بيع الشورت 1X_SHORT + مضاربة التدفق 15M_FLOW_SCALP + ارتداد القيعان بفلتر الامتصاص + أسهم ATR)",
-                "initial_budget_usd": 1000.0,
-                "crypto_budget_usd": 500.0,
+                "description": "الخطة الكمية الجديدة ($2000 = $1000 كريبتو + $1000 أسهم أمريكية — شورت 1X_SHORT + مضاربة تدفق 15M + ارتداد امتصاص + أسهم ATR)",
+                "initial_budget_usd": 2000.0,
+                "crypto_budget_usd": 1000.0,
                 "crypto_invested_usd": new_c_invested,
                 "crypto_free_cash_usd": new_c_free,
                 "crypto_realized_pnl_usd": new_c_realized,
                 "crypto_unrealized_pnl_usd": new_c_unrealized,
                 "crypto_equity_usd": new_c_eq,
                 "crypto_open_positions": new_c_open_syms,
-                "stocks_budget_usd": 500.0,
+                "stocks_budget_usd": 1000.0,
                 "stocks_invested_usd": new_s_invested,
                 "stocks_free_cash_usd": new_s_free,
                 "stocks_realized_pnl_usd": new_s_realized,
@@ -558,11 +558,11 @@ class VirtualPortfolioEngine:
                 "total_realized_pnl_usd": new_tot_realized,
                 "total_unrealized_pnl_usd": new_tot_unrealized,
                 "current_total_equity_usd": new_tot_eq,
-                "net_return_usd": round(new_tot_eq - 1000.0, 2),
-                "net_return_pct": round((new_tot_eq - 1000.0) / 10.0, 2),
+                "net_return_usd": round(new_tot_eq - 2000.0, 2),
+                "net_return_pct": round((new_tot_eq - 2000.0) / 20.0, 2),
                 "wins": new_tot_wins,
                 "losses": new_tot_losses,
-                "win_rate_pct": round(new_tot_wins / max(1, new_tot_wins + new_tot_losses) * 100.0, 1)
+                "win_rate_pct": round(new_tot_wins / max(1, new_tot_wins + new_tot_losses) * 100.0, 1) if (new_tot_wins + new_tot_losses) > 0 else 0.0
             }
         }
         self.state["plan_ab_split_budgets"] = split_summary
@@ -1178,34 +1178,41 @@ class VirtualPortfolioEngine:
 
         sniper["active_short_positions"] = updated_shorts
 
-        # 3C. Open NEW Multi-Slot Crypto Trades Across Strict Split Budgets ($500 OLD_PLAN vs $500 NEW_PLAN)
+        # 3C. Open NEW Multi-Slot Crypto Trades Across Strict Split Budgets ($1000 OLD_PLAN vs $1000 NEW_PLAN)
         split_b = self._compute_and_sync_split_plan_budgets()
         old_c_free = split_b["OLD_PLAN"]["crypto_free_cash_usd"]
         new_c_free = split_b["NEW_PLAN"]["crypto_free_cash_usd"]
         old_c_count = sum(1 for p in sniper["active_positions"] if p.get("plan_tag") == "OLD_PLAN")
         new_c_count = sum(1 for p in sniper["active_positions"] if p.get("plan_tag") == "NEW_PLAN")
 
-        held_long_syms = {p["symbol"] for p in sniper["active_positions"]}
-        held_short_syms = {p["symbol"] for p in sniper["active_short_positions"]}
-        cooldown_crypto_syms = set()
+        old_held_syms = {p["symbol"] for p in sniper["active_positions"] if p.get("plan_tag") == "OLD_PLAN"}
+        new_held_long_syms = {p["symbol"] for p in sniper["active_positions"] if p.get("plan_tag") == "NEW_PLAN"}
+        new_held_short_syms = {p["symbol"] for p in sniper["active_short_positions"]}
+
+        old_cooldown_syms = set()
+        new_cooldown_syms = set()
         now_dt_cd = datetime.now(timezone.utc)
         for th in sniper.get("trade_history", [])[-40:]:
             act_th = th.get("action", "")
+            ptag = th.get("plan_tag", "NEW_PLAN")
             if any(k in act_th for k in ("STOP", "PROFIT", "EXIT", "LOCK", "UNLOAD")):
                 try:
                     t_dt = datetime.strptime(th["time_utc"], "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=timezone.utc)
                     age_h = (now_dt_cd - t_dt).total_seconds() / 3600.0
                     cd_req = 6.0 if ("STOP" in act_th or float(th.get("pnl_usd", 0.0)) < 0) else 2.0
                     if age_h < cd_req:
-                        cooldown_crypto_syms.add(th.get("symbol"))
+                        if ptag == "OLD_PLAN":
+                            old_cooldown_syms.add(th.get("symbol"))
+                        else:
+                            new_cooldown_syms.add(th.get("symbol"))
                 except Exception:
                     pass
 
-        # 3C-1. OLD_PLAN Crypto Entry (Classic Conservative Spot Pullback on Core Majors from its $500 Budget)
-        for sym in ["BTCUSDC", "BNBUSDT", "ETHUSDT", "SOLUSDT", "PAXGUSDT", "AVAXUSDT"]:
-            if old_c_count >= 3 or old_c_free < 55.0 or sniper["free_cash_usd"] < 55.0:
+        # 3C-1. OLD_PLAN Crypto Entry (Classic Spot Pullback on Core Majors from its $1000 Crypto Budget)
+        for sym in ["BTCUSDC", "BNBUSDT", "ETHUSDT", "SOLUSDT", "XRPUSDC", "AVAXUSDT", "DOGEUSDT", "ADAUSDT", "SUIUSDT", "LINKUSDT", "PAXGUSDT"]:
+            if old_c_count >= 4 or old_c_free < 100.0 or sniper["free_cash_usd"] < 100.0:
                 break
-            if sym in held_long_syms or sym in held_short_syms or sym in cooldown_crypto_syms:
+            if sym in old_held_syms or sym in old_cooldown_syms:
                 continue
             sc = market_scan.get(sym, {})
             p_close = sc.get("price", 0.0)
@@ -1214,11 +1221,11 @@ class VirtualPortfolioEngine:
                 continue
             if sym == "PAXGUSDT" and not (sc.get("uptrend_ok") and rsi_now < 36.0):
                 continue
-            if sym != "PAXGUSDT" and not (rsi_now < 33.5 and sc.get("green_absorption", False)):
+            if sym != "PAXGUSDT" and not (rsi_now <= 34.5):
                 continue
             decs = 8 if p_close < 0.001 else (6 if p_close < 1.0 else 4)
-            amt = round(min(old_c_free, sniper["free_cash_usd"], 165.0), 2)
-            if amt >= 55.0:
+            amt = round(min(old_c_free, sniper["free_cash_usd"], 250.0), 2)
+            if amt >= 100.0:
                 qty = round((amt * (1.0 - 0.0005)) / p_close, 2 if p_close < 0.001 else 6)
                 sniper["free_cash_usd"] = round(sniper["free_cash_usd"] - amt, 2)
                 old_c_free = round(old_c_free - amt, 2)
@@ -1238,7 +1245,7 @@ class VirtualPortfolioEngine:
                     "sl_price": round(p_close * 0.955, decs)
                 }
                 sniper["active_positions"].append(new_pos)
-                held_long_syms.add(sym)
+                old_held_syms.add(sym)
                 sniper["trade_history"].append({
                     "time_utc": now_iso,
                     "action": "OPEN_OLD_CLASSIC_PULLBACK_LIVE",
@@ -1251,11 +1258,11 @@ class VirtualPortfolioEngine:
                 })
                 cycle_actions.append(f"OPEN_LONG_OLD_PLAN:{sym}@${p_close}")
 
-        # 3C-2. NEW_PLAN Crypto Long Entry (Quant Playbooks from its $500 Budget)
+        # 3C-2. NEW_PLAN Crypto Long Entry (Quant Playbooks from its $1000 Crypto Budget)
         for sym in LONG_ELIGIBLE_PAIRS:
-            if new_c_count >= 3 or new_c_free < 55.0 or sniper["free_cash_usd"] < 55.0:
+            if new_c_count >= 4 or new_c_free < 100.0 or sniper["free_cash_usd"] < 100.0:
                 break
-            if sym in held_long_syms or sym in held_short_syms or sym in cooldown_crypto_syms:
+            if sym in new_held_long_syms or sym in new_held_short_syms or sym in new_cooldown_syms:
                 continue
             sc = market_scan.get(sym, {})
             atr = sc.get("atr14", 0.0)
@@ -1281,8 +1288,8 @@ class VirtualPortfolioEngine:
                 stop_pct = max(0.005, (sl_m * atr) / p_close)
                 if stop_pct <= 0.045:
                     decs = 8 if p_close < 0.001 else (6 if p_close < 1.0 else 4)
-                    amt = round(min(new_c_free, sniper["free_cash_usd"], 170.0, 3.20 / stop_pct), 2)
-                    if amt >= 50.0:
+                    amt = round(min(new_c_free, sniper["free_cash_usd"], 250.0, 5.00 / stop_pct), 2)
+                    if amt >= 100.0:
                         qty = round((amt * (1.0 - 0.0005)) / p_close, 2 if p_close < 0.001 else 6)
                         sniper["free_cash_usd"] = round(sniper["free_cash_usd"] - amt, 2)
                         new_c_free = round(new_c_free - amt, 2)
@@ -1301,7 +1308,7 @@ class VirtualPortfolioEngine:
                             "sl_price": round(p_close - sl_m * atr, decs)
                         }
                         sniper["active_positions"].append(new_pos)
-                        held_long_syms.add(sym)
+                        new_held_long_syms.add(sym)
                         sniper["trade_history"].append({
                             "time_utc": now_iso,
                             "action": f"OPEN_{pb_chosen}_LIVE",
@@ -1317,11 +1324,11 @@ class VirtualPortfolioEngine:
                         })
                         cycle_actions.append(f"OPEN_LONG_NEW_PLAN:{pb_chosen}:{sym}@${p_close}")
 
-        # 3C-3. NEW_PLAN Crypto 1x Short Entry (Strictly from NEW_PLAN $500 Budget)
+        # 3C-3. NEW_PLAN Crypto 1x Short Entry (Strictly from NEW_PLAN $1000 Crypto Budget)
         for sym in SHORT_ELIGIBLE_PAIRS:
-            if len(sniper["active_short_positions"]) >= 2 or new_c_free < 55.0 or sniper["free_cash_usd"] < 55.0:
+            if len(sniper["active_short_positions"]) >= 2 or new_c_free < 100.0 or sniper["free_cash_usd"] < 100.0:
                 break
-            if sym in held_short_syms or sym in held_long_syms or sym in cooldown_crypto_syms:
+            if sym in new_held_short_syms or sym in new_held_long_syms or sym in new_cooldown_syms:
                 continue
             sc = market_scan.get(sym, {})
             atr = sc.get("atr14", 0.0)
@@ -1336,8 +1343,8 @@ class VirtualPortfolioEngine:
                 stop_pct = max(0.005, (sl_m * atr) / p_close)
                 if stop_pct <= 0.045:
                     decs = 8 if p_close < 0.001 else (6 if p_close < 1.0 else 4)
-                    amt = round(min(new_c_free, sniper["free_cash_usd"], 170.0, 3.00 / stop_pct), 2)
-                    if amt >= 50.0:
+                    amt = round(min(new_c_free, sniper["free_cash_usd"], 250.0, 5.00 / stop_pct), 2)
+                    if amt >= 100.0:
                         qty = round((amt * (1.0 - 0.0005)) / p_close, 2 if p_close < 0.001 else 6)
                         sniper["free_cash_usd"] = round(sniper["free_cash_usd"] - amt, 2)
                         new_c_free = round(new_c_free - amt, 2)
@@ -1357,7 +1364,7 @@ class VirtualPortfolioEngine:
                             "funding_settlements_credited": 0
                         }
                         sniper["active_short_positions"].append(new_spos)
-                        held_short_syms.add(sym)
+                        new_held_short_syms.add(sym)
                         sniper["trade_history"].append({
                             "time_utc": now_iso,
                             "action": f"OPEN_{short_pb}_1X_SHORT_LIVE",
@@ -1585,66 +1592,104 @@ class VirtualPortfolioEngine:
 
         stocks["active_positions"] = updated_stocks
 
-        # Re-sync isolated stock cash pools ($500 OLD_PLAN vs $500 NEW_PLAN)
+        # Re-sync isolated stock cash pools ($1000 OLD_PLAN vs $1000 NEW_PLAN)
         split_budgets_st = self._compute_and_sync_split_plan_budgets()
         old_s_free = split_budgets_st["OLD_PLAN"]["stocks_free_cash_usd"]
         new_s_free = split_budgets_st["NEW_PLAN"]["stocks_free_cash_usd"]
         old_s_count = sum(1 for p in stocks["active_positions"] if p.get("plan_tag") == "OLD_PLAN")
         new_s_count = sum(1 for p in stocks["active_positions"] if p.get("plan_tag") == "NEW_PLAN")
 
-        # 5B. Open NEW Multi-Slot US Stock Positions (Isolated $500 OLD_PLAN vs $500 NEW_PLAN Budgets + Post-SL Cooldown)
+        # 5B. Open NEW Multi-Slot US Stock Positions (Isolated $1000 OLD_PLAN vs $1000 NEW_PLAN Budgets + Post-SL Cooldown)
         is_us_weekend_now = datetime.now(timezone.utc).weekday() in (5, 6)
-        held_tickers = {p["symbol"] for p in stocks["active_positions"]}
-        cooldown_stock_tickers = set()
+        old_held_tickers = {p["symbol"] for p in stocks["active_positions"] if p.get("plan_tag") == "OLD_PLAN"}
+        new_held_tickers = {p["symbol"] for p in stocks["active_positions"] if p.get("plan_tag") == "NEW_PLAN"}
+        old_cooldown_tickers = set()
+        new_cooldown_tickers = set()
         now_dt_scd = datetime.now(timezone.utc)
         for sth in stocks.get("trade_history", [])[-25:]:
             sact = sth.get("action", "")
+            sptag = sth.get("plan_tag", "NEW_PLAN")
             if any(k in sact for k in ("STOP", "PROFIT", "EXIT", "LOCK")):
                 try:
                     st_dt = datetime.strptime(sth["time_utc"], "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=timezone.utc)
                     sage_h = (now_dt_scd - st_dt).total_seconds() / 3600.0
                     scd_req = 6.0 if ("STOP" in sact or float(sth.get("pnl_usd", 0.0)) < 0) else 2.0
                     if sage_h < scd_req:
-                        cooldown_stock_tickers.add(sth.get("symbol"))
+                        if sptag == "OLD_PLAN":
+                            old_cooldown_tickers.add(sth.get("symbol"))
+                        else:
+                            new_cooldown_tickers.add(sth.get("symbol"))
                 except Exception:
                     pass
+
+        # 5B-1. OLD_PLAN US Stock Entry (Classic RSI Pullback from its $1000 Stock Budget)
         for tk in stocks["watched_tickers"]:
-            if is_us_weekend_now or len(stocks["active_positions"]) >= 4 or stocks["free_cash_usd"] < 120.0:
+            if is_us_weekend_now or old_s_count >= 3 or old_s_free < 150.0 or stocks["free_cash_usd"] < 150.0:
                 break
-            if tk in held_tickers or tk in cooldown_stock_tickers:
+            if tk in old_held_tickers or tk in old_cooldown_tickers:
+                continue
+            sscan = stock_scan.get(tk, {})
+            atr = sscan.get("atr14", 0.0)
+            ep = sscan.get("price", 0.0)
+            rsi_st = sscan.get("rsi14", 50.0)
+            if atr > 0 and ep > 0 and (not sscan.get("news_shock_blocked", False)) and (not index_freefall) and rsi_st <= 35.0:
+                pool_avail_st = min(stocks["free_cash_usd"], old_s_free)
+                amt = round(min(pool_avail_st, 330.0), 2)
+                if amt >= 150.0:
+                    qty = round(amt / ep, 5)
+                    stocks["free_cash_usd"] = round(stocks["free_cash_usd"] - amt, 2)
+                    old_s_free = round(old_s_free - amt, 2)
+                    old_s_count += 1
+                    new_st = {
+                        "symbol": tk,
+                        "playbook": "US_STOCK_PULLBACK",
+                        "plan_tag": "OLD_PLAN",
+                        "opened_at_utc": now_iso,
+                        "first_entry_price": ep,
+                        "avg_entry_price": ep,
+                        "invested_usd": amt,
+                        "total_qty": qty,
+                        "tp_target_price": round(ep + 3.5 * atr, 2),
+                        "sl_price": round(ep - 2.2 * atr, 2)
+                    }
+                    stocks["active_positions"].append(new_st)
+                    old_held_tickers.add(tk)
+                    stocks["trade_history"].append({
+                        "time_utc": now_iso,
+                        "action": "OPEN_US_STOCK_PULLBACK_LIVE",
+                        "playbook": "US_STOCK_PULLBACK",
+                        "plan_tag": "OLD_PLAN",
+                        "symbol": tk,
+                        "price": ep,
+                        "rsi14": rsi_st,
+                        "uptrend_ok": sscan.get("uptrend_ok"),
+                        "amount_usd": amt
+                    })
+
+        # 5B-2. NEW_PLAN US Stock Entry (Regime-Filtered Quant ATR Swing from its $1000 Stock Budget)
+        for tk in stocks["watched_tickers"]:
+            if is_us_weekend_now or new_s_count >= 3 or new_s_free < 150.0 or stocks["free_cash_usd"] < 150.0:
+                break
+            if tk in new_held_tickers or tk in new_cooldown_tickers:
                 continue
             sscan = stock_scan.get(tk, {})
             atr = sscan.get("atr14", 0.0)
             ep = sscan.get("price", 0.0)
             if sscan.get("dip_trigger") and atr > 0 and ep > 0:
-                use_new_plan_st = (new_s_free >= 120.0 and new_s_count < 2 and (qqq_uptrend or sscan.get("uptrend_ok", False)))
-                if not use_new_plan_st and (old_s_free >= 120.0 and old_s_count < 2):
-                    target_plan_st = "OLD_PLAN"
-                    pool_avail_st = min(stocks["free_cash_usd"], old_s_free)
-                    sl_m_st = 2.2
-                    tp_m_st = 3.5
-                elif new_s_free >= 120.0 and new_s_count < 2:
-                    target_plan_st = "NEW_PLAN"
-                    pool_avail_st = min(stocks["free_cash_usd"], new_s_free)
-                    sl_m_st = 2.2 if (qqq_uptrend and sscan.get("uptrend_ok", False)) else 1.5
-                    tp_m_st = 3.5 if (qqq_uptrend and sscan.get("uptrend_ok", False)) else 2.4
-                else:
-                    continue
+                pool_avail_st = min(stocks["free_cash_usd"], new_s_free)
+                sl_m_st = 2.2 if (qqq_uptrend and sscan.get("uptrend_ok", False)) else 1.5
+                tp_m_st = 3.5 if (qqq_uptrend and sscan.get("uptrend_ok", False)) else 2.4
                 stop_pct = max(0.008, (sl_m_st * atr) / ep)
-                amt = round(min(pool_avail_st, 250.0, 2.80 / stop_pct), 2)
-                if amt >= 100.0:
+                amt = round(min(pool_avail_st, 330.0, 5.50 / stop_pct), 2)
+                if amt >= 150.0:
                     qty = round(amt / ep, 5)
                     stocks["free_cash_usd"] = round(stocks["free_cash_usd"] - amt, 2)
-                    if target_plan_st == "OLD_PLAN":
-                        old_s_free = round(old_s_free - amt, 2)
-                        old_s_count += 1
-                    else:
-                        new_s_free = round(new_s_free - amt, 2)
-                        new_s_count += 1
+                    new_s_free = round(new_s_free - amt, 2)
+                    new_s_count += 1
                     new_st = {
                         "symbol": tk,
                         "playbook": "US_STOCK_PULLBACK",
-                        "plan_tag": target_plan_st,
+                        "plan_tag": "NEW_PLAN",
                         "opened_at_utc": now_iso,
                         "first_entry_price": ep,
                         "avg_entry_price": ep,
@@ -1654,12 +1699,12 @@ class VirtualPortfolioEngine:
                         "sl_price": round(ep - sl_m_st * atr, 2)
                     }
                     stocks["active_positions"].append(new_st)
-                    held_tickers.add(tk)
+                    new_held_tickers.add(tk)
                     stocks["trade_history"].append({
                         "time_utc": now_iso,
                         "action": "OPEN_US_STOCK_PULLBACK_LIVE",
                         "playbook": "US_STOCK_PULLBACK",
-                        "plan_tag": target_plan_st,
+                        "plan_tag": "NEW_PLAN",
                         "symbol": tk,
                         "price": ep,
                         "rsi14": sscan["rsi14"],
@@ -1959,7 +2004,7 @@ class VirtualPortfolioEngine:
         return {"actions_executed": live_actions, "equity_usd": total_equity, "timestamp_utc": now_iso}
 
 if __name__ == "__main__":
-    engine = VirtualPortfolioEngine(initial_capital=1000.0)
+    engine = VirtualPortfolioEngine(initial_capital=2000.0)
     if "--cloud-live-stream" in sys.argv:
         # Continuous 2-second Live Real-Time Stream on GitHub Actions Cloud while Laptop is OFF
         t_start = time.time()
