@@ -60,6 +60,18 @@ def classify_active_product(text: str) -> str:
         return "وسادة مسند السيارة"
     if any(k in t for k in ("power", "باور", "pb", "voltrx", "شاحن")):
         return "باور بانك 4 في 1"
+    if any(k in t for k in ("aroura", "arcura", "15047", "أرورا", "ارورا", "مصفف", "ستيلر", "styler")):
+        return "مجموعة أرورا 5 في 1 لتصفيف الشعر"
+    if any(k in t for k in ("doorbell", "10165", "جرس", "انتركم")):
+        return "الجرس الذكي اللاسلكي بالكاميرا"
+    if any(k in t for k in ("r8019", "r.8019", "8019", "raf", "cooker", "موقد", "طباخ")):
+        return "موقد الطبخ الكهربائي RAF 8019"
+    if any(k in t for k in ("washer", "hp909", "hp-909", "19399", "غسالة", "غساله")):
+        return "غسالة الملابس المحمولة HP-909"
+    if any(k in t for k in ("bakhoor", "bw20", "bw-20", "21938", "مبخرة", "مبخره", "بخور")):
+        return "مبخرة الملابس المرنة BW-20"
+    if any(k in t for k in ("22454", "window", "ممسحة الزجاج", "مكنسة الزجاج")):
+        return "ممسحة ومكنسة الزجاج اللاسلكية"
     if any(k in t for k in ("watch", "ساعة", "ساعات", "سويسرية", "poedagar")):
         return "ساعة سويسرية فاخرة"
     if any(k in t for k in ("time x", "timex", "دفاتر", "كتب")):
