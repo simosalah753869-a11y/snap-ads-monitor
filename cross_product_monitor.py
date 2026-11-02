@@ -18,7 +18,9 @@ from snap_monitor import (
     save_paused_history,
 )
 from tiktok_monitor import (
+    ACCOUNTS as TT_ACCOUNTS,
     build_session,
+    extract_taager_product_key_tt,
     fetch_ads,
     fetch_campaigns,
     fetch_expanded_materials,
@@ -368,15 +370,18 @@ def run_cross_product_monitor(dry_run: bool = False):
                 continue
 
             cpc_reason = None
+            tt_cpc_min_spend = 1.00
+            tt_max_cpc = 0.25
             for window_lbl, sp_w, clk_w, cpc_w in (
                 ("Today", sp1, clk1, cpc1),
                 ("3-Day", sp3, clk3, cpc3),
                 ("7-Day", sp7, clk7, cpc7),
             ):
-                if sp_w >= VIDEO_CPC_MIN_SPEND and (clk_w == 0 or cpc_w > VIDEO_MAX_CPC):
+                eff_cpc_w = max(round(cpc_w, 2), round(sp_w / clk_w, 2)) if clk_w > 0 else sp_w
+                if sp_w >= tt_cpc_min_spend and (clk_w == 0 or eff_cpc_w > tt_max_cpc):
                     cpc_reason = (
-                        f"[{pkey} Early CPC Rule - {window_lbl}] Spend ${sp_w:.2f} (>= ${VIDEO_CPC_MIN_SPEND:.2f}) "
-                        f"| Clicks={clk_w} | CPC=${cpc_w:.2f} (> ${VIDEO_MAX_CPC:.2f}) with 0 sales"
+                        f"[{pkey} Early CPC Rule - {window_lbl}] Spend ${sp_w:.2f} (>= ${tt_cpc_min_spend:.2f}) "
+                        f"| Clicks={clk_w} | CPC=${eff_cpc_w:.2f} (> ${tt_max_cpc:.2f}) with 0 sales"
                     )
                     break
 
@@ -546,7 +551,7 @@ def run_cross_product_monitor(dry_run: bool = False):
                             print(f"      🛑 [Snap Prune 0-Sale Video] تم إيقاف فيديو سناب '{ad_name}' (الصرف: ${ad_spend:.2f}، المبيعات: 0)")
                             time.sleep(0.2)
                     else:
-                        if ad.get("status") != "ACTIVE" and "[H" not in ad_name and not dry_run:
+                        if False and ad.get("status") != "ACTIVE" and "[H" not in ad_name and not dry_run:
                             ad["status"] = "ACTIVE"
                             api_put(f"/adsquads/{sq_id}/ads", snap_token, {"ads": [ad]})
                             history.get("ads", {}).pop(ad_id, None)
@@ -608,6 +613,289 @@ def run_cross_product_monitor(dry_run: bool = False):
                             print(f"      ⚠️ تعذر إيقاف فيديو تيك توك '{vname}': {resp_p}")
                 else:
                     print(f"      🏆 [TikTok Survivor Video Kept] الإبقاء على الفيديو الفائز '{vname}' (المبيعات: {mat_sales}، الصرف: ${mat_spend:.2f})")
+
+    # =========================================================================
+    # SECTION B: TAAGER TEST PRODUCTS MONITOR (Per-Product Across Google Ads + TikTok)
+    # "اريد امر لمراقب حملات تاجر في الاوتوميشن التي عملناها سابقاً ان يعرف هاذا مجرد تيست للمنتجات
+    #  يعني لو مجموع صرف منتجات تاجر في الحسابات مجموعة لكل منتج تعدى 25$ بدون ولا بيعة يعني المنتج فاشل
+    #  ويطفي كل الحملات سواء غوغل او تيكتوك ولو وصل سعر البيعة فيهم 27$ يطفيه انا اتكلم كل منتج على حدة"
+    # =========================================================================
+    run_taager_test_products_monitor(tt_session, tt_headers, history, now_str, dry_run=dry_run)
+
+
+TAAGER_PRODUCT_DEFS = {
+    "washer_hp909": {
+        "key": "washer_hp909",
+        "label": "غسالة الملابس المحمولة 3 في 1 HP-909 (تاجر)",
+        "keywords": ("washer", "hp909", "hp-909", "غسالة", "غساله"),
+        "sheet_cat": "washer",
+    },
+    "bakhoor_bw20": {
+        "key": "bakhoor_bw20",
+        "label": "مبخرة الملابس المرنة 360° BW-20 (تاجر)",
+        "keywords": ("bakhoor", "bw20", "bw-20", "مبخرة", "مبخره"),
+        "sheet_cat": "bakhoor",
+    },
+    "cooker_raf8019": {
+        "key": "cooker_raf8019",
+        "label": "موقد السيراميك الكهربائي راف 3500W R.8019 (تاجر)",
+        "keywords": ("r8019", "r.8019", "8019", "raf ", "cooker", "موقد", "سيراميك"),
+        "sheet_cat": "cooker",
+    },
+}
+
+TAAGER_ZERO_SALE_SPEND_LIMIT = 25.00
+TAAGER_MAX_CPA_LIMIT = 27.00
+
+
+def _pause_gads_campaigns_for_taager_product(prod_key: str, prod_keywords: tuple, gads_camp_names: list[str], reason: str, dry_run: bool = False) -> list[str]:
+    """Opens AdsPower CDP connection if available and pauses all Google Ads campaigns matching this Taager product."""
+    paused_results = []
+    if dry_run:
+        for cn in gads_camp_names:
+            paused_results.append(f"[DRY-RUN GAds Pause] '{cn}'")
+        return paused_results
+    try:
+        from gads_hourly_tcpa_bumper import ACCOUNTS_META, find_open_adspower_ports, keep_offscreen
+        from deep_multiwindow_account_auditor import select_date_preset, set_google_campaign_status_carefully
+        import urllib.request
+        import websocket
+
+        ports = find_open_adspower_ports()
+        for prof_id, meta in ACCOUNTS_META.items():
+            port = ports.get(prof_id)
+            if not port:
+                continue
+            ocid = meta["ocid"]
+            euid = meta["euid"]
+            u_param = meta["u"]
+            c_param = meta["c"]
+            acc_label = meta["name"]
+            try:
+                keep_offscreen(port)
+                tabs = json.loads(urllib.request.urlopen(f"http://127.0.0.1:{port}/json/list", timeout=4).read().decode("utf-8"))
+                page_tabs = [t for t in tabs if t.get("type") == "page" and "ads.google.com" in (t.get("url") or "") and "/campaigns/new" not in (t.get("url") or "")]
+                if not page_tabs:
+                    continue
+                ws = websocket.create_connection(
+                    page_tabs[0]["webSocketDebuggerUrl"].replace("ws://localhost:", "ws://127.0.0.1:"),
+                    suppress_origin=True,
+                    timeout=30,
+                )
+                camps_url = f"https://ads.google.com/aw/campaigns?ocid={ocid}&euid={euid}&__u={u_param}&uscid={ocid}&__c={c_param}&authuser=0"
+                ws.send(json.dumps({"id": 1, "method": "Runtime.evaluate", "params": {"expression": f"window.location.href = {json.dumps(camps_url)}; true;", "returnByValue": True}}))
+                ws.recv()
+                time.sleep(4.5)
+                select_date_preset(ws, "Today", port=port)
+                time.sleep(1.0)
+                targets_to_pause = set(gads_camp_names)
+                for cn_target in targets_to_pause:
+                    res_p = set_google_campaign_status_carefully(ws, cn_target, "Pause", port=port)
+                    if "SUCCESS" in str(res_p) or "ALREADY_" in str(res_p):
+                        paused_results.append(f"{acc_label}: '{cn_target}' -> {res_p}")
+                        print(f"   🛑 [Google Ads Taager Campaign Paused] [{acc_label}] '{cn_target}' -> {res_p} | {reason}")
+                ws.close()
+                keep_offscreen(port)
+            except Exception as e_g:
+                print(f"   ⚠️ تعذر إيقاف حملة Google Ads في {acc_label}: {e_g}")
+    except Exception as e_outer:
+        print(f"   ⚠️ تعذر الاتصال بـ Google Ads لإيقاف حملات تاجر: {e_outer}")
+    return paused_results
+
+
+def run_taager_test_products_monitor(tt_session, tt_headers, history: dict, now_str: str, dry_run: bool = False):
+    print("\n========================================================================")
+    print("🧪 [Taager Products Test Monitor] فحص منتجات تاجر قيد الاختبار (كل منتج على حدة عبر تيك توك + غوغل أدز)")
+    print("   * القاعدة 1: مجموع صرف المنتج في الحسابات (غوغل + تيك توك) > $25.00 بدون ولا بيعة => المنتج فاشل وإيقاف كل حملاته في غوغل وتيك توك فوراً")
+    print("   * القاعدة 2: سعر البيعة المشترك للمنتج (CPA) >= $27.00 => إيقاف كل حملات المنتج في غوغل وتيك توك فوراً")
+    print("========================================================================")
+
+    # 1. Load cached Google Ads stats for Taager campaigns (updated by deep_multiwindow_account_auditor.py)
+    gads_cache_path = BASE_DIR / "taager_gads_latest_stats.json"
+    gads_cached_camps = {}
+    if gads_cache_path.exists():
+        try:
+            gads_cached_camps = (json.loads(gads_cache_path.read_text(encoding="utf-8")) or {}).get("campaigns") or {}
+        except Exception:
+            gads_cached_camps = {}
+
+    # 2. Load Sheet multiwindow sales to catch any real orders on Lightfunnels for each Taager product
+    sheet_data = {}
+    try:
+        from deep_multiwindow_account_auditor import fetch_sheet_multiwindow_sales
+        sheet_data = fetch_sheet_multiwindow_sales() or {}
+    except Exception:
+        sheet_data = {}
+
+    # 3. Scan all 6 TikTok accounts for any Taager product campaigns
+    buckets = {}
+    for p_key, p_def in TAAGER_PRODUCT_DEFS.items():
+        buckets[p_key] = {
+            "key": p_key,
+            "label": p_def["label"],
+            "keywords": p_def["keywords"],
+            "tt_sp_1d": 0.0, "tt_cv_1d": 0,
+            "tt_sp_3d": 0.0, "tt_cv_3d": 0,
+            "tt_sp_7d": 0.0, "tt_cv_7d": 0,
+            "gads_sp_1d": 0.0, "gads_cv_1d": 0.0,
+            "gads_sp_3d": 0.0, "gads_cv_3d": 0.0,
+            "gads_sp_7d": 0.0, "gads_cv_7d": 0.0,
+            "tt_campaigns": [],
+            "gads_campaigns": [],
+        }
+
+    for acc_name, aadvid, utc_offset in TT_ACCOUNTS:
+        now_tz = datetime.now(timezone(timedelta(hours=utc_offset)))
+        t_str = now_tz.strftime("%Y-%m-%d")
+        two_str = (now_tz - timedelta(days=2)).strftime("%Y-%m-%d")
+        six_str = (now_tz - timedelta(days=6)).strftime("%Y-%m-%d")
+        try:
+            c1_map = {str(c.get("campaign_id")): c for c in fetch_campaigns(tt_session, tt_headers, aadvid, t_str, t_str) if c.get("campaign_id")}
+            c3_map = {str(c.get("campaign_id")): c for c in fetch_campaigns(tt_session, tt_headers, aadvid, two_str, t_str) if c.get("campaign_id")}
+            c7_map = {str(c.get("campaign_id")): c for c in fetch_campaigns(tt_session, tt_headers, aadvid, six_str, t_str) if c.get("campaign_id")}
+        except Exception as e_tt:
+            print(f"   ⚠️ تعذر جلب حملات تيك توك من {acc_name}: {e_tt}")
+            continue
+
+        all_cids = set(c7_map.keys()) | set(c3_map.keys()) | set(c1_map.keys())
+        for cid in all_cids:
+            c_ref = c3_map.get(cid) or c7_map.get(cid) or c1_map.get(cid) or {}
+            cname = (c_ref.get("campaign_name") or "").strip()
+            t_key = extract_taager_product_key_tt(cname)
+            if not t_key:
+                continue
+            if t_key not in buckets:
+                buckets[t_key] = {
+                    "key": t_key,
+                    "label": f"منتج تاجر ({t_key})",
+                    "keywords": (t_key.replace("taager_", ""),),
+                    "tt_sp_1d": 0.0, "tt_cv_1d": 0,
+                    "tt_sp_3d": 0.0, "tt_cv_3d": 0,
+                    "tt_sp_7d": 0.0, "tt_cv_7d": 0,
+                    "gads_sp_1d": 0.0, "gads_cv_1d": 0.0,
+                    "gads_sp_3d": 0.0, "gads_cv_3d": 0.0,
+                    "gads_sp_7d": 0.0, "gads_cv_7d": 0.0,
+                    "tt_campaigns": [],
+                    "gads_campaigns": [],
+                }
+            rd1 = (c1_map.get(cid) or {}).get("row_data") or {}
+            rd3 = (c3_map.get(cid) or {}).get("row_data") or {}
+            rd7 = (c7_map.get(cid) or {}).get("row_data") or {}
+            sp1 = float(rd1.get("stat_cost") or 0.0)
+            cv1 = int(float(rd1.get("time_attr_convert_cnt") or 0))
+            sp3 = float(rd3.get("stat_cost") or 0.0)
+            cv3 = int(float(rd3.get("time_attr_convert_cnt") or 0))
+            sp7 = float(rd7.get("stat_cost") or sp3)
+            cv7 = int(float(rd7.get("time_attr_convert_cnt") or cv3))
+
+            b = buckets[t_key]
+            b["tt_sp_1d"] = round(b["tt_sp_1d"] + sp1, 2)
+            b["tt_cv_1d"] += cv1
+            b["tt_sp_3d"] = round(b["tt_sp_3d"] + sp3, 2)
+            b["tt_cv_3d"] += cv3
+            b["tt_sp_7d"] = round(b["tt_sp_7d"] + sp7, 2)
+            b["tt_cv_7d"] += cv7
+            b["tt_campaigns"].append({
+                "acc_name": acc_name,
+                "aadvid": aadvid,
+                "campaign_id": cid,
+                "campaign_name": cname,
+                "row": c_ref,
+                "sp1": sp1, "cv1": cv1,
+                "sp3": sp3, "cv3": cv3,
+                "sp7": sp7, "cv7": cv7,
+                "is_active": c_ref.get("primary_status") not in ("disable", "delete") and str(c_ref.get("opt_status")) == "0",
+            })
+
+    # 4. Add Google Ads spend & conversions per Taager product
+    for g_key, g_info in gads_cached_camps.items():
+        cname_g = (g_info.get("campaign_name") or "").strip()
+        p_key_g = g_info.get("product_key") or extract_taager_product_key_tt(cname_g)
+        if not p_key_g:
+            continue
+        if p_key_g not in buckets:
+            buckets[p_key_g] = {
+                "key": p_key_g,
+                "label": f"منتج تاجر ({p_key_g})",
+                "keywords": (p_key_g,),
+                "tt_sp_1d": 0.0, "tt_cv_1d": 0,
+                "tt_sp_3d": 0.0, "tt_cv_3d": 0,
+                "tt_sp_7d": 0.0, "tt_cv_7d": 0,
+                "gads_sp_1d": 0.0, "gads_cv_1d": 0.0,
+                "gads_sp_3d": 0.0, "gads_cv_3d": 0.0,
+                "gads_sp_7d": 0.0, "gads_cv_7d": 0.0,
+                "tt_campaigns": [],
+                "gads_campaigns": [],
+            }
+        b = buckets[p_key_g]
+        b["gads_sp_1d"] = round(b["gads_sp_1d"] + float(g_info.get("sp1") or 0.0), 2)
+        b["gads_cv_1d"] = round(b["gads_cv_1d"] + float(g_info.get("eff1") or 0.0), 2)
+        b["gads_sp_3d"] = round(b["gads_sp_3d"] + float(g_info.get("sp3") or 0.0), 2)
+        b["gads_cv_3d"] = round(b["gads_cv_3d"] + float(g_info.get("eff3") or 0.0), 2)
+        b["gads_sp_7d"] = round(b["gads_sp_7d"] + float(g_info.get("sp7") or 0.0), 2)
+        b["gads_cv_7d"] = round(b["gads_cv_7d"] + float(g_info.get("eff7") or 0.0), 2)
+        b["gads_campaigns"].append(g_info)
+
+    # 5. Evaluate each Taager product separately (كل منتج على حدة)
+    for p_key, b in buckets.items():
+        if not b["tt_campaigns"] and not b["gads_campaigns"]:
+            continue
+        comb_sp_1d = round(b["tt_sp_1d"] + b["gads_sp_1d"], 2)
+        comb_cv_1d = round(b["tt_cv_1d"] + b["gads_cv_1d"], 2)
+        comb_sp_3d = round(b["tt_sp_3d"] + b["gads_sp_3d"], 2)
+        comb_cv_3d = round(b["tt_cv_3d"] + b["gads_cv_3d"], 2)
+        comb_sp_7d = round(b["tt_sp_7d"] + b["gads_sp_7d"], 2)
+        comb_cv_7d = round(b["tt_cv_7d"] + b["gads_cv_7d"], 2)
+
+        tot_spend = max(comb_sp_7d, comb_sp_3d, comb_sp_1d)
+        tot_sales = max(comb_cv_7d, comb_cv_3d, comb_cv_1d)
+        tot_cpa = round(tot_spend / tot_sales, 2) if tot_sales > 0 else None
+        cpa_1d = round(comb_sp_1d / comb_cv_1d, 2) if comb_cv_1d > 0 else None
+
+        print(
+            f"\n📦 [تيست منتج تاجر: {b['label']}] ({p_key})\n"
+            f"   - تيك توك (TikTok): اليوم=${b['tt_sp_1d']:.2f} ({b['tt_cv_1d']} مبيعة) | التراكمي 7D=${b['tt_sp_7d']:.2f} ({b['tt_cv_7d']} مبيعة) | الحملات={len(b['tt_campaigns'])}\n"
+            f"   - غوغل أدز (Google Ads): اليوم=${b['gads_sp_1d']:.2f} ({b['gads_cv_1d']:g} مبيعة) | التراكمي 7D=${b['gads_sp_7d']:.2f} ({b['gads_cv_7d']:g} مبيعة) | الحملات={len(b['gads_campaigns'])}\n"
+            f"   - الإجمالي المشترك للمنتج (TikTok + Google Ads): الصرف=${tot_spend:.2f} | المبيعات={tot_sales:g} | CPA={('$'+f'{tot_cpa:.2f}') if tot_cpa is not None else '—'} "
+            f"(سقف التيست: > ${TAAGER_ZERO_SALE_SPEND_LIMIT:.2f} بدون بيعة أو CPA >= ${TAAGER_MAX_CPA_LIMIT:.2f})"
+        )
+
+        fail_reason = None
+        if tot_spend > TAAGER_ZERO_SALE_SPEND_LIMIT and tot_sales == 0:
+            fail_reason = (
+                f"[Taager Product Test Failed: > $25 Zero-Sale Stop] مجموع صرف المنتج '{b['label']}' في الحسابات (غوغل + تيك توك) = "
+                f"${tot_spend:.2f} (> ${TAAGER_ZERO_SALE_SPEND_LIMIT:.2f}) بدون ولا بيعة (0 مبيعات) -> المنتج فاشل"
+            )
+        elif (tot_sales >= 1 and tot_cpa is not None and tot_cpa >= TAAGER_MAX_CPA_LIMIT) or (comb_cv_1d >= 1 and cpa_1d is not None and cpa_1d >= TAAGER_MAX_CPA_LIMIT):
+            bad_cpa = tot_cpa if (tot_cpa is not None and tot_cpa >= TAAGER_MAX_CPA_LIMIT) else cpa_1d
+            fail_reason = (
+                f"[Taager Product Test Failed: Combined CPA >= $27 Stop] سعر البيعة المشترك للمنتج '{b['label']}' في الحسابات (غوغل + تيك توك) وصل إلى "
+                f"CPA = ${bad_cpa:.2f} (>= ${TAAGER_MAX_CPA_LIMIT:.2f} | الصرف المشترك=${tot_spend:.2f} | المبيعات={tot_sales:g})"
+            )
+
+        if fail_reason:
+            print(f"   🚨 {fail_reason} -> إيقاف جميع حملات المنتج في غوغل أدز وتيك توك فوراً!")
+            history.setdefault("taager_failed_products", {})[p_key] = {
+                "product_key": p_key,
+                "label": b["label"],
+                "combined_spend": tot_spend,
+                "combined_sales": tot_sales,
+                "combined_cpa": tot_cpa,
+                "reason": fail_reason,
+                "failed_at": now_str,
+            }
+            save_paused_history(history)
+            for tc in b["tt_campaigns"]:
+                pause_tt_campaign_wrapper(tt_session, tt_headers, tc["aadvid"], tc["row"], fail_reason, history, now_str, dry_run=dry_run)
+            gads_names = [g.get("campaign_name") for g in b["gads_campaigns"] if g.get("campaign_name")]
+            if p_key == "washer_hp909" and "washer hp909 taager 01-11" not in gads_names:
+                gads_names.append("washer hp909 taager 01-11")
+            elif p_key == "bakhoor_bw20" and "bakhoor bw20 taager 01-11" not in gads_names:
+                gads_names.append("bakhoor bw20 taager 01-11")
+            _pause_gads_campaigns_for_taager_product(p_key, b["keywords"], gads_names, fail_reason, dry_run=dry_run)
+        else:
+            rem_zero_sale = max(0.0, round(TAAGER_ZERO_SALE_SPEND_LIMIT - tot_spend, 2))
+            print(f"   ✅ المنتج ضمن حدود التيست المسموحة (متبقي ${rem_zero_sale:.2f} قبل سقف الـ $25.00 بدون مبيعة).")
 
 
 if __name__ == "__main__":
