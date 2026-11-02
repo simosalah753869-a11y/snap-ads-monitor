@@ -1515,6 +1515,11 @@ def main():
         scroll_rep = BASE_DIR / "lf_scroll_inspector_latest_report.md"
         if (not scroll_rep.exists()) or ((time.time() - scroll_rep.stat().st_mtime) > 10800):
             run_step("فاحص ومصلح ريسبونسيف صفحات الهبوط والباقات والعروض كل 3 ساعات (Mobile 393x852 & Laptop 1440x900)", "lf_active_pages_scroll_inspector.py")
+        try:
+            from github_deploy import sync_state_and_rules_to_github
+            sync_state_and_rules_to_github("run_all_monitors_5h")
+        except Exception as _sync_err:
+            log_msg(f"ℹ️ ملاحظة مزامنة GitHub في نهاية الدورة: {_sync_err}")
         log_msg("🏁 اكتملت دورة المراقبة الذاتية والأكشن الفوري بنجاح.\n")
     finally:
         release_single_instance_lock()
