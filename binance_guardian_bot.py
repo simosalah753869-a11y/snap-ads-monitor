@@ -349,6 +349,225 @@ class VirtualPortfolioEngine:
                     st["weight"] = 0.65
         return board
 
+    def _compute_and_sync_split_plan_budgets(self):
+        """
+        Enforces and tracks a strict 50/50 Split-Budget A/B Live Comparison ($1,000 Old Plan vs $1,000 New Plan):
+        - OLD_PLAN ($1,000.00 = $500.00 Crypto/Gold + $500.00 US Stocks):
+          * Classic conservative Spot Pullback & DCA on major coins (BTCUSDC, BNBUSDT, ETHUSDT, SOLUSDT, PAXGUSDT, AVAXUSDT)
+            and classic US Blue-Chip Pullback (AMZN, NVDA, MSFT, SPY) with 48h target re-anchoring.
+        - NEW_PLAN ($1,000.00 = $500.00 Crypto + $500.00 US Stocks):
+          * Multi-playbook Quant Engine (15M_FLOW_SCALP, CROWDED_FADE_SHORT 1x Short, STAT_ARB, MEAN_REV_DIP with Green Absorption,
+            MOMENTUM_BREAKOUT with Macro Trend filter, and Dynamic ATR US Stock Swing).
+        """
+        sniper = self.state.get("engine2_spot_sniper", {})
+        arb = self.state.get("engine1_arbitrage", {})
+        res = self.state.get("engine3_flash_reserve", {})
+        stocks = self.state.get("engine4_us_stocks", {})
+
+        # 1. Tag all Crypto trade_history entries
+        old_c_realized = round(
+            (arb.get("funding_collected_usd", 0.0) - arb.get("entry_fees_paid_usd", 0.0))
+            + res.get("accrued_earn_usd", 0.0),
+            2
+        )
+        new_c_realized = 0.0
+        old_c_wins, old_c_losses = 0, 0
+        new_c_wins, new_c_losses = 0, 0
+
+        for t in sniper.get("trade_history", []):
+            if "plan_tag" not in t:
+                act = t.get("action", "")
+                ts = t.get("time_utc", "")
+                pb = t.get("playbook", "")
+                if (
+                    ts < "2026-10-31T11:47:00Z"
+                    or "TIER" in act
+                    or "LEGACY" in act
+                    or pb in ("LEGACY_4TIER_DCA", "OLD_CLASSIC_PULLBACK")
+                ):
+                    t["plan_tag"] = "OLD_PLAN"
+                else:
+                    t["plan_tag"] = "NEW_PLAN"
+            if "pnl_usd" in t:
+                pnl = float(t["pnl_usd"])
+                if t["plan_tag"] == "OLD_PLAN":
+                    old_c_realized = round(old_c_realized + pnl, 2)
+                    if pnl >= 0:
+                        old_c_wins += 1
+                    else:
+                        old_c_losses += 1
+                else:
+                    new_c_realized = round(new_c_realized + pnl, 2)
+                    if pnl >= 0:
+                        new_c_wins += 1
+                    else:
+                        new_c_losses += 1
+
+        # 2. Tag active Crypto Longs & Shorts
+        old_c_invested, old_c_unrealized = 0.0, 0.0
+        new_c_invested, new_c_unrealized = 0.0, 0.0
+        old_c_open_syms, new_c_open_syms = [], []
+
+        for p in sniper.get("active_positions", []):
+            if "plan_tag" not in p:
+                if p.get("symbol") in ("BTCUSDC", "BNBUSDT", "AVAXUSDT", "PAXGUSDT") and p.get("playbook") != "MOMENTUM_BREAKOUT":
+                    p["plan_tag"] = "OLD_PLAN"
+                else:
+                    p["plan_tag"] = "NEW_PLAN"
+            inv = float(p.get("invested_usd", 0.0))
+            unr = float(p.get("unrealized_pnl_usd", 0.0))
+            if p["plan_tag"] == "OLD_PLAN":
+                old_c_invested = round(old_c_invested + inv, 2)
+                old_c_unrealized = round(old_c_unrealized + unr, 2)
+                old_c_open_syms.append(p["symbol"])
+            else:
+                new_c_invested = round(new_c_invested + inv, 2)
+                new_c_unrealized = round(new_c_unrealized + unr, 2)
+                new_c_open_syms.append(p["symbol"])
+
+        for sp in sniper.get("active_short_positions", []):
+            sp["plan_tag"] = "NEW_PLAN"
+            inv = float(sp.get("invested_usd", 0.0))
+            unr = float(sp.get("unrealized_pnl_usd", 0.0))
+            new_c_invested = round(new_c_invested + inv, 2)
+            new_c_unrealized = round(new_c_unrealized + unr, 2)
+            new_c_open_syms.append(f"{sp['symbol']}(1X_SHORT)")
+
+        # 3. Tag US Stocks trade_history & active_positions
+        half_treasury = round(float(stocks.get("accrued_treasury_yield_usd", 0.0)) / 2.0, 2)
+        old_s_realized = half_treasury
+        new_s_realized = half_treasury
+        old_s_wins, old_s_losses = 0, 0
+        new_s_wins, new_s_losses = 0, 0
+
+        for st in stocks.get("trade_history", []):
+            if "plan_tag" not in st:
+                if st.get("symbol") in ("AMZN", "NVDA") or st.get("time_utc", "") < "2026-11-02T00:00:00Z":
+                    st["plan_tag"] = "OLD_PLAN"
+                else:
+                    st["plan_tag"] = "NEW_PLAN"
+            if "pnl_usd" in st:
+                pnl = float(st["pnl_usd"])
+                if st["plan_tag"] == "OLD_PLAN":
+                    old_s_realized = round(old_s_realized + pnl, 2)
+                    if pnl >= 0:
+                        old_s_wins += 1
+                    else:
+                        old_s_losses += 1
+                else:
+                    new_s_realized = round(new_s_realized + pnl, 2)
+                    if pnl >= 0:
+                        new_s_wins += 1
+                    else:
+                        new_s_losses += 1
+
+        old_s_invested, old_s_unrealized = 0.0, 0.0
+        new_s_invested, new_s_unrealized = 0.0, 0.0
+        old_s_open_syms, new_s_open_syms = [], []
+
+        for sp in stocks.get("active_positions", []):
+            if "plan_tag" not in sp:
+                if sp.get("symbol") in ("NVDA", "AMZN") or sp.get("opened_at_utc", "") < "2026-11-02T00:00:00Z":
+                    sp["plan_tag"] = "OLD_PLAN"
+                else:
+                    sp["plan_tag"] = "NEW_PLAN"
+            inv = float(sp.get("invested_usd", 0.0))
+            unr = float(sp.get("unrealized_pnl_usd", 0.0))
+            if sp["plan_tag"] == "OLD_PLAN":
+                old_s_invested = round(old_s_invested + inv, 2)
+                old_s_unrealized = round(old_s_unrealized + unr, 2)
+                old_s_open_syms.append(sp["symbol"])
+            else:
+                new_s_invested = round(new_s_invested + inv, 2)
+                new_s_unrealized = round(new_s_unrealized + unr, 2)
+                new_s_open_syms.append(sp["symbol"])
+
+        # 4. Compute exact independent cash pools & equities ($500 Crypto + $500 Stocks per plan)
+        old_c_free = round(max(0.0, 500.0 + old_c_realized - old_c_invested), 2)
+        new_c_free = round(max(0.0, 500.0 + new_c_realized - new_c_invested), 2)
+        old_s_free = round(max(0.0, 500.0 + (old_s_realized - half_treasury) - old_s_invested), 2)
+        new_s_free = round(max(0.0, 500.0 + (new_s_realized - half_treasury) - new_s_invested), 2)
+
+        old_c_eq = round(500.0 + old_c_realized + old_c_unrealized, 2)
+        new_c_eq = round(500.0 + new_c_realized + new_c_unrealized, 2)
+        old_s_eq = round(500.0 + old_s_realized + old_s_unrealized, 2)
+        new_s_eq = round(500.0 + new_s_realized + new_s_unrealized, 2)
+
+        old_tot_realized = round(old_c_realized + old_s_realized, 2)
+        old_tot_unrealized = round(old_c_unrealized + old_s_unrealized, 2)
+        old_tot_eq = round(old_c_eq + old_s_eq, 2)
+        old_tot_wins = old_c_wins + old_s_wins
+        old_tot_losses = old_c_losses + old_s_losses
+
+        new_tot_realized = round(new_c_realized + new_s_realized, 2)
+        new_tot_unrealized = round(new_c_unrealized + new_s_unrealized, 2)
+        new_tot_eq = round(new_c_eq + new_s_eq, 2)
+        new_tot_wins = new_c_wins + new_s_wins
+        new_tot_losses = new_c_losses + new_s_losses
+
+        leader = "OLD_PLAN" if old_tot_eq >= new_tot_eq else "NEW_PLAN"
+        lead_diff = round(abs(old_tot_eq - new_tot_eq), 2)
+
+        split_summary = {
+            "allocated_mode": "STRICT_50_50_ISOLATED_BUDGETS ($1000 OLD_PLAN vs $1000 NEW_PLAN)",
+            "leading_plan": leader,
+            "lead_margin_usd": lead_diff,
+            "OLD_PLAN": {
+                "description": "الخطة القديمة الكلاسيكية (شراء التراجعات في العملات الكبرى + الأسهم القيادية AMZN/NVDA مع تعديل هدف 48 ساعة)",
+                "initial_budget_usd": 1000.0,
+                "crypto_budget_usd": 500.0,
+                "crypto_invested_usd": old_c_invested,
+                "crypto_free_cash_usd": old_c_free,
+                "crypto_realized_pnl_usd": old_c_realized,
+                "crypto_unrealized_pnl_usd": old_c_unrealized,
+                "crypto_equity_usd": old_c_eq,
+                "crypto_open_positions": old_c_open_syms,
+                "stocks_budget_usd": 500.0,
+                "stocks_invested_usd": old_s_invested,
+                "stocks_free_cash_usd": old_s_free,
+                "stocks_realized_pnl_usd": old_s_realized,
+                "stocks_unrealized_pnl_usd": old_s_unrealized,
+                "stocks_equity_usd": old_s_eq,
+                "stocks_open_positions": old_s_open_syms,
+                "total_realized_pnl_usd": old_tot_realized,
+                "total_unrealized_pnl_usd": old_tot_unrealized,
+                "current_total_equity_usd": old_tot_eq,
+                "net_return_usd": round(old_tot_eq - 1000.0, 2),
+                "net_return_pct": round((old_tot_eq - 1000.0) / 10.0, 2),
+                "wins": old_tot_wins,
+                "losses": old_tot_losses,
+                "win_rate_pct": round(old_tot_wins / max(1, old_tot_wins + old_tot_losses) * 100.0, 1)
+            },
+            "NEW_PLAN": {
+                "description": "الخطة الكمية الجديدة (بيع الشورت 1X_SHORT + مضاربة التدفق 15M_FLOW_SCALP + ارتداد القيعان بفلتر الامتصاص + أسهم ATR)",
+                "initial_budget_usd": 1000.0,
+                "crypto_budget_usd": 500.0,
+                "crypto_invested_usd": new_c_invested,
+                "crypto_free_cash_usd": new_c_free,
+                "crypto_realized_pnl_usd": new_c_realized,
+                "crypto_unrealized_pnl_usd": new_c_unrealized,
+                "crypto_equity_usd": new_c_eq,
+                "crypto_open_positions": new_c_open_syms,
+                "stocks_budget_usd": 500.0,
+                "stocks_invested_usd": new_s_invested,
+                "stocks_free_cash_usd": new_s_free,
+                "stocks_realized_pnl_usd": new_s_realized,
+                "stocks_unrealized_pnl_usd": new_s_unrealized,
+                "stocks_equity_usd": new_s_eq,
+                "stocks_open_positions": new_s_open_syms,
+                "total_realized_pnl_usd": new_tot_realized,
+                "total_unrealized_pnl_usd": new_tot_unrealized,
+                "current_total_equity_usd": new_tot_eq,
+                "net_return_usd": round(new_tot_eq - 1000.0, 2),
+                "net_return_pct": round((new_tot_eq - 1000.0) / 10.0, 2),
+                "wins": new_tot_wins,
+                "losses": new_tot_losses,
+                "win_rate_pct": round(new_tot_wins / max(1, new_tot_wins + new_tot_losses) * 100.0, 1)
+            }
+        }
+        self.state["plan_ab_split_budgets"] = split_summary
+        return split_summary
+
     def update_and_replay_offline(self):
         now_ms = int(time.time() * 1000)
         now_iso = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
