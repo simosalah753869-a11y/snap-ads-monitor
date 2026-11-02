@@ -1,11 +1,6 @@
 {
   "cycles": [
     {
-      "timestamp": "2026-11-01 04:26",
-      "actions_count": 0,
-      "followups_count": 19
-    },
-    {
       "timestamp": "2026-11-01 04:44",
       "actions_count": 0,
       "followups_count": 19
@@ -359,6 +354,11 @@
       "timestamp": "2026-11-02 18:00",
       "actions_count": 0,
       "followups_count": 12
+    },
+    {
+      "timestamp": "2026-11-02 18:13",
+      "actions_count": 0,
+      "followups_count": 10
     }
   ],
   "actions": [
@@ -2092,7 +2092,8 @@
       "videos": [],
       "base_sp3": 16.62,
       "base_cv3": 7,
-      "status": "OPEN"
+      "status": "FAILED_AND_CUT",
+      "closed_at": "2026-11-02T18:13:42.709605+03:00"
     },
     {
       "timestamp": "2026-11-02 14:00",
@@ -2283,7 +2284,8 @@
     "ROEL0_LEADS_5_ELITE_WINNERS_V1",
     "SCALE_1880427722388082_2026-10-30_CV4",
     "SCALE_1880427764550018_2026-10-30_CV2",
-    "REVIVE_1880515052502194_2026-11-02"
+    "REVIVE_1880515052502194_2026-11-02",
+    "SCALE_1880696438045873_2026-11-02_CV7_B81"
   ],
   "scaled_campaigns": {
     "2026-10-30:7631763556322148369:1880427722388082": {
@@ -3038,11 +3040,11 @@
   },
   "latest_winning_structure_analysis": {
     "Website Leads [obj=8] + Auto Placement [3000,9000,1000] + 3–5 فيديوهات رابحة": {
-      "sp1": 20.0,
+      "sp1": 20.25,
       "cv1": 2,
-      "sp3": 178.84,
+      "sp3": 179.1,
       "cv3": 23,
-      "sp7": 178.84,
+      "sp7": 179.23,
       "cv7": 23,
       "decision": "✅ التركيبة رقم #1 اليوم لإنقاذ الـ CPC (< $0.22) وتوليد مبيعات فورية (SuperCombo / CPC-Rescued)"
     },
@@ -3056,11 +3058,11 @@
       "decision": "✅ التركيبة رقم #1 في حجم المبيعات لـ Cross-Platform Winners (مثل H7 صاحبة 43 بيعة بـ $5.25)"
     },
     "Smart+ Website Conversions + 3–4 فيديوهات رابحة معاد تدويرها (30d Batch)": {
-      "sp1": 277.99,
+      "sp1": 281.54,
       "cv1": 31,
-      "sp3": 730.32,
+      "sp3": 734.31,
       "cv3": 89,
-      "sp7": 816.74,
+      "sp7": 821.6,
       "cv7": 100,
       "decision": "✅ ناجحة عند حصر الحملة في 3–4 فيديوهات مجربة وتصفية الفيديوهات الخاسرة عند $1.00 و CPC > $0.25"
     },
