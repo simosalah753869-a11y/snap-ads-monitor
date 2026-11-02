@@ -817,7 +817,7 @@ def run_snap_gulf_campaigns(sim_cpa_lookup: dict | None = None) -> list[dict]:
                 )
                 continue
 
-            # أمر المستخدم الصارم (2026-11-01): تجميد كامل للبيد (لا يطلع ولا ينزل تلقائياً) ومنع رفع البدجت بعد الساعة 6 مساءً!
+            # أمر المستخدم الصارم (2026-11-02): تجميد كامل للبيد (لا يطلع ولا ينزل تلقائياً) وإيقاف المتجاوزين فقط بدون إعادة تشغيل الموقوف!
             target_strategy = s_obj.get("bid_strategy") or s_cfg["bid_strategy"]
             target_bid_micro = int(s_obj.get("bid_micro") or s_cfg["bid_micro"])
             bumps_today = 0
@@ -831,9 +831,15 @@ def run_snap_gulf_campaigns(sim_cpa_lookup: dict | None = None) -> list[dict]:
                 "last_check_epoch": now_epoch,
             }
 
-            # Scale budget to $30/day before 6 PM only if squad has profitable sales today (CPA <= 70% of Sim)
+            if s_obj.get("status") != "ACTIVE":
+                active_tags.append(f"⏸️ PAUSED ({s_cfg['exp_tag']} | 1D: ${s1_sp:.2f}/{s1_pu}p)")
+                continue
+
+            is_stop_loss_only = (os.environ.get("GITHUB_ACTIONS") == "true" or os.environ.get("STOP_LOSS_PAUSE_ONLY") == "1")
             cur_daily_micro = int(s_obj.get("daily_budget_micro") or s_cfg["daily_micro"])
-            if riyadh_hour >= 22 or riyadh_hour < 6:
+            if is_stop_loss_only:
+                target_daily_micro = cur_daily_micro
+            elif riyadh_hour >= 22 or riyadh_hour < 6:
                 target_daily_micro = s_cfg["daily_micro"]
             elif is_daytime and s1_pu >= 1 and (s1_cpa or 99) <= sim_max_cpa * 0.70:
                 target_daily_micro = 30_000_000
@@ -843,23 +849,7 @@ def run_snap_gulf_campaigns(sim_cpa_lookup: dict | None = None) -> list[dict]:
                     target_daily_micro = cur_daily_micro
 
             changed = False
-            if s_cfg.get("rename_to") and s_obj.get("name") != s_cfg["rename_to"]:
-                s_obj["name"] = s_cfg["rename_to"]
-                changed = True
-            if s_obj.get("status") != "ACTIVE":
-                s_obj["status"] = "ACTIVE"
-                changed = True
-            if s_obj.get("bid_strategy") != target_strategy:
-                s_obj["bid_strategy"] = target_strategy
-                s_obj["target_bid"] = target_strategy == "TARGET_COST"
-                changed = True
-            elif bool(s_obj.get("target_bid")) != (target_strategy == "TARGET_COST"):
-                s_obj["target_bid"] = target_strategy == "TARGET_COST"
-                changed = True
-            if int(s_obj.get("bid_micro") or 0) != target_bid_micro:
-                s_obj["bid_micro"] = target_bid_micro
-                changed = True
-            if int(s_obj.get("daily_budget_micro") or 0) != target_daily_micro:
+            if not is_stop_loss_only and int(s_obj.get("daily_budget_micro") or 0) != target_daily_micro:
                 s_obj["daily_budget_micro"] = target_daily_micro
                 changed = True
             if changed:
@@ -901,12 +891,6 @@ def run_snap_gulf_campaigns(sim_cpa_lookup: dict | None = None) -> list[dict]:
                     healthy_candidates.append(a)
 
             act_ads = [a for a in healthy_candidates if a.get("status") == "ACTIVE"]
-            if len(act_ads) < min(8, len(healthy_candidates)) and healthy_candidates:
-                for a in healthy_candidates[:8]:
-                    if a.get("status") != "ACTIVE":
-                        a["status"] = "ACTIVE"
-                        ads_mutations.append(a)
-                act_ads = [a for a in healthy_candidates[:8] if a.get("status") == "ACTIVE"]
 
             if ads_mutations:
                 sm.api_put(f"/adsquads/{sid}/ads", tok, {"ads": ads_mutations})
@@ -923,8 +907,8 @@ def run_snap_gulf_campaigns(sim_cpa_lookup: dict | None = None) -> list[dict]:
                     f"✅ {s_cfg['exp_tag']} @ ${target_bid_micro/1e6:.2f} {strat_lbl}{bump_lbl} ({len(act_ads)} ads active, {pruned_ad_cnt} pruned | 1D: ${s1_sp:.2f}/{s1_pu}p | SimCap=${sim_max_cpa})"
                 )
 
-        # Pause any extra squads not in allowed_sq_ids (and normalize night budget to $20.00 with 100% Bid Freeze)
-        is_night_snap = riyadh_hour >= 22 or riyadh_hour < 6
+        # Pause any extra squads not in allowed_sq_ids (100% Bid Freeze)
+        is_night_snap = (riyadh_hour >= 22 or riyadh_hour < 6) and not (os.environ.get("GITHUB_ACTIONS") == "true" or os.environ.get("STOP_LOSS_PAUSE_ONLY") == "1")
         for s_id, s_obj in sq_map.items():
             if s_id not in allowed_sq_ids:
                 sq_mut = False
@@ -941,19 +925,15 @@ def run_snap_gulf_campaigns(sim_cpa_lookup: dict | None = None) -> list[dict]:
             for i in range(0, len(to_update), 15):
                 sm.api_put(f"/campaigns/{cid}/adsquads", tok, {"adsquads": to_update[i : i + 15]})
 
-        # If all squads inside the campaign were paused and 0 sales, pause the campaign too; otherwise ensure campaign is ACTIVE
+        # If all squads inside the campaign were paused, pause the campaign too (NEVER auto-re-activate a paused campaign)
         still_active_sq = [s for s in sq_map.values() if s.get("status") == "ACTIVE"]
-        camp_final_status = f"ACTIVE (1D: ${c1_sp:.2f}/{c1_pu}p | SimCap=${sim_max_cpa})"
+        camp_final_status = f"{c_obj.get('status', 'ACTIVE')} (1D: ${c1_sp:.2f}/{c1_pu}p | SimCap=${sim_max_cpa})"
         if not still_active_sq:
             if c_obj.get("status") == "ACTIVE":
                 c_obj["status"] = "PAUSED"
                 sm.api_put(f"/adaccounts/{acc_id}/campaigns", tok, {"campaigns": [c_obj]})
                 actions_log.append(f"[{today_str} {riyadh_now.strftime('%H:%M')}] Paused Gulf Campaign {item['campaign_name']} ({cid}) — All Squads Hit Stop-Loss")
             camp_final_status = f"🚨 PAUSED (All Squads Hit Stop-Loss <= ${sim_max_cpa} | 1D: ${c1_sp:.2f}/{c1_pu}p)"
-        elif c_obj.get("status") != "ACTIVE":
-            c_obj["status"] = "ACTIVE"
-            sm.api_put(f"/adaccounts/{acc_id}/campaigns", tok, {"campaigns": [c_obj]})
-            actions_log.append(f"[{today_str} {riyadh_now.strftime('%H:%M')}] Re-activated Gulf Campaign {item['campaign_name']} ({cid})")
 
         results.append({
             "platform": "Snapchat (CSP9860)",
@@ -1125,33 +1105,23 @@ def run_tiktok_gulf_campaigns(sim_cpa_lookup: dict | None = None) -> list[dict]:
                         tm.pause_smart_plus_video(s, th, aid, ad_id, mrd3, operation="disable")
                         pruned_tt_ads += 1
                 else:
-                    # ممنوع إعادة تشغيل فيديو موقوف إلا إذا سجل مبيعة متأخرة رابحة اليوم فقط
-                    if aco_opt != "0" and a_cv1 >= 1 and (a_sp1 / a_cv1) <= sim_max_cpa and not (bled_1d or bled_3d):
-                        tm.pause_smart_plus_video(s, th, aid, ad_id, mrd3, operation="enable")
+                    if aco_opt == "0" and prim_st not in ("disable", "delete"):
                         active_tt_ads += 1
-                    elif aco_opt == "0" and prim_st not in ("disable", "delete"):
-                        active_tt_ads += 1
-            # Ensure parent Smart+ container ad_id stays enabled while active_tt_ads > 0
-            if active_tt_ads > 0 and not (bled_1d or bled_3d):
-                for a_row in camp_ads:
-                    if str(a_row.get("opt_status", "0")) != "0":
-                        tm.pause_ad(s, th, aid, str(a_row.get("ad_id")), operation="enable")
 
         all_ads_pruned = len(creative_ids) > 0 and active_tt_ads == 0
         budget_note = ""
+        is_stop_loss_only_tt = (os.environ.get("GITHUB_ACTIONS") == "true" or os.environ.get("STOP_LOSS_PAUSE_ONLY") == "1")
 
         if bled_1d or bled_3d or all_ads_pruned:
             if opt_status == "0":
                 tm.pause_campaign(s, th, aid, cid, operation="disable")
             reason_tag = "All 5 Ads Hit Stop-Loss" if all_ads_pruned and not (bled_1d or bled_3d) else f"Simulation Stop-Loss <= ${sim_max_cpa}"
             status_lbl = f"🚨 PAUSED ({reason_tag}: 1D ${spend_1d:.2f}/{conv_1d}p | 3D ${spend_3d:.2f}/{conv_3d}p)"
+        elif opt_status != "0":
+            status_lbl = f"⏸️ PAUSED (1D: ${spend_1d:.2f}/{conv_1d}p | 3D: ${spend_3d:.2f}/{conv_3d}p)"
         else:
-            if opt_status != "0":
-                tm.pause_campaign(s, th, aid, cid, operation="enable")
-                opt_status = "0"
-
-            # Daytime profitable scaling ( strictly before 18:00 KSA — ZERO late-night budget reduction on TikTok )
-            if allow_budget_scale and conv_1d >= 1 and (spend_1d / conv_1d) <= (sim_max_cpa * 0.80) and spend_1d >= (cur_budget * 0.45):
+            # Daytime profitable scaling ( strictly before 18:00 KSA — disabled when STOP_LOSS_PAUSE_ONLY / GitHub Actions )
+            if not is_stop_loss_only_tt and allow_budget_scale and conv_1d >= 1 and (spend_1d / conv_1d) <= (sim_max_cpa * 0.80) and spend_1d >= (cur_budget * 0.45):
                 last_sc = tt_scaled_map.get(cid, {})
                 last_ts = float(last_sc.get("ts") or 0.0)
                 last_pu = int(last_sc.get("pu") or 0)
