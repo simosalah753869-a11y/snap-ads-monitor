@@ -63,10 +63,11 @@ jobs:
           TIKTOK_COOKIES_JSON: ${{ vars.TIKTOK_COOKIES_JSON || secrets.TIKTOK_COOKIES_JSON }}
         run: python gulf_2h_profit_and_ads_master.py
 
-      - name: Save paused_history.json (لتذكر ما تم إيقافه وعدم إيقاف ما تعيد تشغيله)
+      - name: Save paused_history.json & Gulf ledger (لتذكر ما تم إيقافه ومزامنة حالة الخليج والسعودية بدون تعارض)
         continue-on-error: true
         run: |
           cp paused_history.json /tmp/paused_history_run.json
+          if [ -f gulf_2h_actions_ledger.json ]; then cp gulf_2h_actions_ledger.json /tmp/gulf_2h_actions_ledger_run.json; fi
           git config user.name "SnapTikTokAdsBot"
           git config user.email "bot@users.noreply.github.com"
           git fetch origin main
@@ -86,6 +87,19 @@ jobs:
               else:
                   rem[k] = v
           p_rem.write_text(json.dumps(rem, ensure_ascii=False, indent=2), 'utf-8')
+          g_rem = Path('gulf_2h_actions_ledger.json')
+          g_run = Path('/tmp/gulf_2h_actions_ledger_run.json')
+          if g_run.exists():
+              gr = json.loads(g_rem.read_text('utf-8')) if g_rem.exists() else {}
+              gu = json.loads(g_run.read_text('utf-8'))
+              for dk in ('snap_squad_bumps', 'tiktok_gulf_scaled'):
+                  m_d = dict(gr.get(dk) or {})
+                  m_d.update(gu.get(dk) or {})
+                  gr[dk] = m_d
+              logs = list(gr.get('big_actions_log') or []) + [x for x in (gu.get('big_actions_log') or []) if x not in (gr.get('big_actions_log') or [])]
+              gr['big_actions_log'] = logs[-60:]
+              g_rem.write_text(json.dumps(gr, ensure_ascii=False, indent=2), 'utf-8')
           "
           git add paused_history.json
-          git diff --staged --quiet || (git commit -m "Update paused_history.json [skip ci]" && git push origin main || true)
+          if [ -f gulf_2h_actions_ledger.json ]; then git add gulf_2h_actions_ledger.json; fi
+          git diff --staged --quiet || (git commit -m "Update paused_history.json & gulf_2h_actions_ledger.json [skip ci]" && git push origin main || true)
