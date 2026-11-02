@@ -1510,6 +1510,7 @@ def main():
         except Exception as e:
             log_msg(f"⚠️ حارس التحسينات: {e}")
         run_step("شريك النجاح وفاحص المتجر والحملات للمنتجات النشطة", "store_and_ads_growth_partner.py")
+        run_step("كاشف فترات توقف البيع المفاجئ والأكشن الفوري لاستعادة سرعة المبيعات", "sales_stall_recovery_engine.py")
         run_step("المستشار التاريخي الشامل ومحلل فترات الذروة وخطة مضاعفة المبيعات والأرباح", "historical_and_consultation_master_advisor.py")
         run_step("أوتوميشن مبيعات وتسعير وإعلانات الخليج كل ساعة (قطر وعمان والكويت)", "gulf_2h_profit_and_ads_master.py")
         run_step("مُدخل الطلبات المتروكة التلقائي إلى COD Partner كل ساعتين", "auto_recover_abandoned_orders.py")
