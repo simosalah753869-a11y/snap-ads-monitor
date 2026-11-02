@@ -1148,3 +1148,9 @@ def enforce_exact_15_per_cohort(target_start_iso: str = "2026-10-24T03:00:00.000
 if __name__ == "__main__":
     dry = "--dry-run" in sys.argv
     main(dry_run=dry)
+    if not dry and os.environ.get("GITHUB_ACTIONS") != "true":
+        try:
+            from github_deploy import sync_state_and_rules_to_github
+            sync_state_and_rules_to_github("topup_car_campaigns")
+        except Exception:
+            pass
