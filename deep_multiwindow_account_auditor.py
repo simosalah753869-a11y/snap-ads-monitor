@@ -1715,6 +1715,12 @@ def main():
         print(f"\n✅ اكتمل الفحص الشامل وحُفظ التقرير في: {REPORT_FILE}", flush=True)
     else:
         print(f"\nℹ️ تم الاحتفاظ بآخر تقرير Google Ads كامل في: {REPORT_FILE} (أثناء تفعيل قفل المتصفح المؤقت).", flush=True)
+    if combined_actions and os.environ.get("GITHUB_ACTIONS") != "true":
+        try:
+            from github_deploy import sync_state_and_rules_to_github
+            sync_state_and_rules_to_github("deep_multiwindow_account_auditor")
+        except Exception as _sync_err:
+            print(f"ℹ️ ملاحظة مزامنة GitHub من deep_multiwindow_account_auditor: {_sync_err}", flush=True)
 
 
 if __name__ == "__main__":
