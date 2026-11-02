@@ -3804,7 +3804,7 @@
       "total_spend": 17.28,
       "total_purchases": 2,
       "reason": "[Aggregated Video High CPA 2D (يومين) - السعودية] مجموع صرف الفيديو التراكمي = $16.49 | المبيعات = 2 | CPA التراكمي = $8.24 (> $7.99)",
-      "disabled_at": "2026-11-02 17:24 GMT+3"
+      "disabled_at": "2026-11-02 17:31 GMT+3"
     },
     "b4ec4259-1868-40f5-ba33-08a2dd0fd578:MEDIA:b7751519-8006-478c-81ec-4223d51be3de": {
       "campaign_id": "b4ec4259-1868-40f5-ba33-08a2dd0fd578",
@@ -4052,81 +4052,113 @@
     "29891f22-e046-4cc8-b9ee-9921d2d65f0b": {
       "name": "مسخن الرضاعات اللاسلكي 22-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-11-02 17:24 GMT+3"
+      "updated_at": "2026-11-02 17:31 GMT+3"
     },
     "4eefa50f-9008-4aea-b159-d370150b60cf": {
       "name": "صندوق دفاتر TIME X 21-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-11-02 17:24 GMT+3"
+      "updated_at": "2026-11-02 17:31 GMT+3"
     },
     "a171c141-a6d5-403e-8357-5c8f6c01bce0": {
       "name": "وسادة مايباخ 21-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-11-02 17:24 GMT+3"
+      "updated_at": "2026-11-02 17:31 GMT+3"
     },
     "c5a7cade-6ec3-4c47-b3a2-c5f08bcf8da0": {
       "name": "وسادة مايباخ 21-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-11-02 17:24 GMT+3"
+      "updated_at": "2026-11-02 17:31 GMT+3"
     },
     "e8f0a5e9-89c5-4c14-aabb-c9c6c657891d": {
       "name": "مسخن الرضاعات اللاسلكي 22-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-11-02 17:24 GMT+3"
+      "updated_at": "2026-11-02 17:31 GMT+3"
     },
     "f18a3bf4-148a-4f5e-baa1-f90335f1884c": {
       "name": "مسخن الرضاعات اللاسلكي 22-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-11-02 17:24 GMT+3"
+      "updated_at": "2026-11-02 17:31 GMT+3"
     },
     "828f2e42-96c5-4813-a780-bbc5d976075f": {
       "name": "وسادة السيارة وينر 2 - 10 أدست - بيد 1.7 / 1.6",
       "spend_3d": 24.66,
       "purchases_3d": 0,
       "cpa_3d": null,
-      "updated_at": "2026-11-02 17:29 GMT+3"
+      "updated_at": "2026-11-02 17:33 GMT+3"
     },
     "22d12681-930c-44a8-91e3-58f112789375": {
       "name": "باور بانك وينر - 10 أدست - بيد 1.7 / 1.6",
       "spend_3d": 15.51,
       "purchases_3d": 1,
       "cpa_3d": 15.51,
-      "updated_at": "2026-11-02 17:29 GMT+3"
+      "updated_at": "2026-11-02 17:33 GMT+3"
     },
     "35ed24f7-2c74-4dea-84bd-d350c6ea7d62": {
       "name": "وسادة السيارة وينر منزلك - بيد 1.8 - 02-11",
       "spend_3d": 11.56,
       "purchases_3d": 0,
       "cpa_3d": null,
-      "updated_at": "2026-11-02 17:29 GMT+3"
+      "updated_at": "2026-11-02 17:33 GMT+3"
     },
     "89aadf62-66f2-4ac8-9106-f92fd83b4277": {
       "name": "باور بانك وينر - 30 أدست - بيد 1.4 30-10",
       "spend_3d": 115.83,
       "purchases_3d": 10,
       "cpa_3d": 11.58,
-      "updated_at": "2026-11-02 17:29 GMT+3"
+      "updated_at": "2026-11-02 17:33 GMT+3"
     },
     "6cb7f305-66ac-4e9e-8fe0-3cfccd09e3c8": {
       "name": "وسادة السيارة وينر - 30 أدست - بيد 1.4 30-10",
       "spend_3d": 20.85,
       "purchases_3d": 2,
       "cpa_3d": 10.43,
-      "updated_at": "2026-11-02 17:29 GMT+3"
+      "updated_at": "2026-11-02 17:33 GMT+3"
     },
     "a1121184-41a2-484d-8fa4-67011918698c": {
       "name": "وسادة السيارة وينر - 30 أدست - بيد 1.5 30-10",
       "spend_3d": 101.41,
       "purchases_3d": 10,
       "cpa_3d": 10.14,
-      "updated_at": "2026-11-02 17:29 GMT+3"
+      "updated_at": "2026-11-02 17:33 GMT+3"
     },
     "b454cd6e-ae09-4496-ba36-8345dd544614": {
       "name": "باور بانك وينر منزلك - بيد 1.8 - 02-11",
       "spend_3d": 14.39,
       "purchases_3d": 1,
       "cpa_3d": 14.39,
-      "updated_at": "2026-11-02 17:29 GMT+3"
+      "updated_at": "2026-11-02 17:33 GMT+3"
+    },
+    "1880665507940754": {
+      "name": "washer hp909 taager 01-11 B (3 Ads)",
+      "aadvid": "7631763556322148369",
+      "spend_3d": 10.62,
+      "purchases_3d": 0,
+      "cpa_3d": null,
+      "reason": "3-Day CPA > $7.00 — Duplication Blocked"
+    },
+    "1880666373691857": {
+      "name": "[EXP-LEADS] power bank 5 CPC-Rescued Conv AutoPlacement 01-11",
+      "aadvid": "7631763556322148369",
+      "spend_3d": 9.01,
+      "purchases_3d": 1,
+      "cpa_3d": 9.01,
+      "reason": "3-Day CPA > $7.00 — Duplication Blocked"
+    },
+    "1880665777789313": {
+      "name": "washer hp909 taager 01-11 A (4 Ads)",
+      "aadvid": "7631763556322148369",
+      "spend_3d": 8.72,
+      "purchases_3d": 0,
+      "cpa_3d": null,
+      "reason": "3-Day CPA > $7.00 — Duplication Blocked"
+    },
+    "1880666354081858": {
+      "name": "[EXP-LEADS] power bank 5 CPC-Rescued Leads AutoPlacement 01-11",
+      "aadvid": "7631763556322148369",
+      "spend_3d": 7.06,
+      "purchases_3d": 1,
+      "cpa_3d": 7.06,
+      "reason": "3-Day CPA > $7.00 — Duplication Blocked"
     }
   },
   "user_reactivated_ads": {},
@@ -4214,6 +4246,18 @@
       "campaign_name": "washer hp909 taager 01-11 A (4 Ads)",
       "reason": "صرفت .54 اليوم و.00 في 3 أيام بصفر مبيعات (CPC مرتفع .31-.32)",
       "paused_at": "2026-11-02 14:19 GMT+3"
+    },
+    "7631765070816509959:1880585103098433": {
+      "account_name": "ROELLINGER RECYCLING2",
+      "aadvid": "7631765070816509959",
+      "campaign_id": "1880585103098433",
+      "campaign_name": "power bank 31-10 30d Batch A (4 Ads 20-23)",
+      "reason": "All videos in Smart+ AdSet were paused individually (0 active videos remaining)",
+      "spend_1d": 1.08,
+      "conv_1d": 1,
+      "spend_3d": 5.38,
+      "conv_3d": 5,
+      "paused_at": "2026-11-02T14:36:24.754886+00:00"
     }
   },
   "tiktok_videos": {
@@ -4926,6 +4970,114 @@
       "spend_7d": 16.55,
       "conv_7d": 2,
       "paused_at": "2026-11-02T14:14:20.179444+00:00"
+    },
+    "7631765070816509959:1880585103098449:1880585105878209": {
+      "aadvid": "7631765070816509959",
+      "account_name": "ROELLINGER RECYCLING2",
+      "ad_id": "1880585103098449",
+      "creative_id": "1880585104335474",
+      "campaign_ad_name": "power bank 31-10 30d Batch A (4 Ads 20-23) / power bank 31-10 30d Batch A (4 Ads 20-23) - Creative",
+      "video_name": "31-10_PB_30d_Recycled_Ad_20.mp4",
+      "draft_ids": [
+        "1880585105878209"
+      ],
+      "reason": "[New Test Video] Today Spend $1.08 >= $1.00 & CPC $0.36 > $0.35 (Exceeds $0.35 Max CPC Cap even with sales)",
+      "spend_1d": 1.08,
+      "conv_1d": 1,
+      "spend_2d": 1.1,
+      "conv_2d": 1,
+      "spend_3d": 5.38,
+      "conv_3d": 5,
+      "spend_7d": 5.38,
+      "conv_7d": 5,
+      "paused_at": "2026-11-02T14:36:23.958442+00:00"
+    },
+    "7631763556322148369:1880756528000322:1880756532567346": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "ad_id": "1880756528000322",
+      "creative_id": "1880756531122530",
+      "campaign_ad_name": "[EXP-LEADS] power bank 5 H7 Winners 02-11 / [EXP-LEADS] power bank 5 H7 Winners 02-11 - Creative",
+      "video_name": "31-10_PB_H7_SnapGads_Winner_05.mp4",
+      "draft_ids": [
+        "1880756532567346"
+      ],
+      "reason": "[Global Dup Video Stop-Loss 3D] Total 3-Day Spend $7.84 >= $7.00 with 0 sales",
+      "spend_1d": 0.0,
+      "conv_1d": 0,
+      "spend_2d": 0.0,
+      "conv_2d": 0,
+      "spend_3d": 0.0,
+      "conv_3d": 0,
+      "spend_7d": 0.0,
+      "conv_7d": 0,
+      "global_spend_1d": 0.0,
+      "global_conv_1d": 0,
+      "global_spend_2d": 0.0,
+      "global_conv_2d": 0,
+      "global_spend_3d": 7.84,
+      "global_conv_3d": 0,
+      "global_spend_7d": 7.84,
+      "global_conv_7d": 0,
+      "paused_at": "2026-11-02T14:36:25.492814+00:00"
+    },
+    "7631765070816509959:1880756548302914:1880756552267217": {
+      "aadvid": "7631765070816509959",
+      "account_name": "ROELLINGER RECYCLING2",
+      "ad_id": "1880756548302914",
+      "creative_id": "1880756550169426",
+      "campaign_ad_name": "[EXP-LEADS] power bank 5 H7 Winners 02-11 / [EXP-LEADS] power bank 5 H7 Winners 02-11 - Creative",
+      "video_name": "31-10_PB_H7_SnapGads_Winner_05.mp4",
+      "draft_ids": [
+        "1880756552267217"
+      ],
+      "reason": "[Global Dup Video Stop-Loss 3D] Total 3-Day Spend $7.84 >= $7.00 with 0 sales",
+      "spend_1d": 0.0,
+      "conv_1d": 0,
+      "spend_2d": 0.0,
+      "conv_2d": 0,
+      "spend_3d": 0.0,
+      "conv_3d": 0,
+      "spend_7d": 0.0,
+      "conv_7d": 0,
+      "global_spend_1d": 0.0,
+      "global_conv_1d": 0,
+      "global_spend_2d": 0.0,
+      "global_conv_2d": 0,
+      "global_spend_3d": 7.84,
+      "global_conv_3d": 0,
+      "global_spend_7d": 7.84,
+      "global_conv_7d": 0,
+      "paused_at": "2026-11-02T14:36:26.213999+00:00"
+    },
+    "7631763556322148369:1880756567954818:1880756573192353": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "ad_id": "1880756567954818",
+      "creative_id": "1880756570924418",
+      "campaign_ad_name": "washer hp909 taager Winners 02-11 (3 Ads wh4-wh5-wh7) / washer hp909 taager Winners 02-11 (3 Ads wh4-wh5-wh7) - Creative",
+      "video_name": "01-11_Taager_HP909_Washer_Ad_05.mp4",
+      "draft_ids": [
+        "1880756573192353"
+      ],
+      "reason": "[Global Dup Video Stop-Loss 2D] Total 2-Day Spend $7.04 >= $7.00 with 0 sales",
+      "spend_1d": 0.0,
+      "conv_1d": 0,
+      "spend_2d": 0.0,
+      "conv_2d": 0,
+      "spend_3d": 0.0,
+      "conv_3d": 0,
+      "spend_7d": 0.0,
+      "conv_7d": 0,
+      "global_spend_1d": 4.92,
+      "global_conv_1d": 0,
+      "global_spend_2d": 7.04,
+      "global_conv_2d": 0,
+      "global_spend_3d": 7.04,
+      "global_conv_3d": 0,
+      "global_spend_7d": 7.04,
+      "global_conv_7d": 0,
+      "paused_at": "2026-11-02T14:36:26.982887+00:00"
     }
   },
   "tiktok_ads": {},
@@ -5063,18 +5215,18 @@
         "ROELLINGER RECYCLING1",
         "ROELLINGER RECYCLING2"
       ],
-      "total_copies": 3,
-      "closed_copies": 0,
+      "total_copies": 7,
+      "closed_copies": 2,
       "spend_1d": 0.0,
       "conv_1d": 0,
-      "spend_2d": 7.84,
+      "spend_2d": 0.0,
       "conv_2d": 0,
       "spend_3d": 7.84,
       "conv_3d": 0,
       "spend_7d": 7.84,
       "conv_7d": 0,
-      "reason": "[Global Dup Video Stop-Loss 2D] Total 2-Day Spend $7.84 >= $7.00 with 0 sales",
-      "disabled_at": "2026-11-01T16:45:37.631657+00:00"
+      "reason": "[Global Dup Video Stop-Loss 3D] Total 3-Day Spend $7.84 >= $7.00 with 0 sales",
+      "disabled_at": "2026-11-02T14:36:26.214031+00:00"
     },
     "31-10_car_snapgads_new_01": {
       "v_key": "31-10_car_snapgads_new_01",
@@ -5185,12 +5337,18 @@
       "accounts": [
         "ROELLINGER RECYCLING"
       ],
-      "spend_3d": 6.87,
+      "total_copies": 2,
+      "closed_copies": 1,
+      "spend_1d": 4.92,
+      "conv_1d": 0,
+      "spend_2d": 7.04,
+      "conv_2d": 0,
+      "spend_3d": 7.04,
       "conv_3d": 0,
-      "spend_7d": 6.87,
+      "spend_7d": 7.04,
       "conv_7d": 0,
-      "reason": "Today Spend $4.75 > $4.50 with 0 sales Today",
-      "disabled_at": "2026-11-02T08:49:52.058245+00:00"
+      "reason": "[Global Dup Video Stop-Loss 2D] Total 2-Day Spend $7.04 >= $7.00 with 0 sales",
+      "disabled_at": "2026-11-02T14:36:26.982917+00:00"
     },
     "21-10_hanan_20-10_1": {
       "v_key": "21-10_hanan_20-10_1",
