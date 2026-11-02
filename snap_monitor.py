@@ -161,6 +161,10 @@ def get_locked_low_bid_micro(campaign_id: str = "", campaign_name: str = "", squ
         b_cn = (locks.get("by_camp_and_name") or {}).get(key_cn)
         if b_cn and 1_000_000 <= int(b_cn) <= 4_500_000:
             return int(b_cn)
+    if campaign_id:
+        b_fc = (locks.get("fixed_campaign_bids") or {}).get(campaign_id)
+        if b_fc and 1_000_000 <= int(b_fc) <= 4_500_000:
+            return int(b_fc)
     if is_dedicated_snap_test_campaign(campaign_id, campaign_name, squad_name):
         return 2_800_000
     if campaign_id and campaign_id in ALLOWED_GULF_CAMPAIGN_IDS:
@@ -169,8 +173,10 @@ def get_locked_low_bid_micro(campaign_id: str = "", campaign_name: str = "", squ
         return None
     sn_l = (squad_name or "").strip().lower()
     cn_l = (campaign_name or "").strip().lower()
+    if any(k in sn_l or k in cn_l for k in ("1.90 max", "1.9 max", "بيد 1.9", "ماكس بيد 1.9", "bid 1.9", " 1.90 ")):
+        return 1_900_000
     if any(k in sn_l or k in cn_l for k in ("1.80 max", "1.8 max", "بيد 1.8", "ماكس بيد 1.8", "bid 1.8", " 1.80 ")):
-        return 1_600_000
+        return 1_800_000
     if any(k in sn_l for k in ("1.67 max", "بيد 1.67", "ماكس بيد 1.67", "bid 1.67", " 1.67 ", "1.47 max", "بيد 1.47", " 1.47 ")):
         return 1_470_000
     if any(k in sn_l for k in ("1.65 max", "بيد 1.65", "ماكس بيد 1.65", "bid 1.65", " 1.65 ", "1.45 max", "بيد 1.45", " 1.45 ")):
@@ -788,9 +794,9 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
             no_sale_camp_limit = g_camp_stop
             max_cpa_camp_limit = g_sim_cpa + 0.01
         else:
-            # أمر المستخدم الصارم (2026-11-01): أي حملة إعلانية ماشية في طريق غلط وصرفت $20.00 بدون مبيعة (أو CPA >= $20.00) يقتلها البوت فوراً بدون تساهل إطلاقاً!
-            no_sale_camp_limit = 20.00
-            max_cpa_camp_limit = 20.00
+            # أمر المستخدم الصارم (2026-11-02): أي حملة في سناب صرفت $10.00 بدون بيعة أو سعر البيعة فيها أكثر من $11.00 (CPA > $11.00) يطفئها البوت فوراً!
+            no_sale_camp_limit = 10.00
+            max_cpa_camp_limit = 11.00
         c_kill_reasons = []
         c_1d_healthy = False
         for w_lbl_c, sq_map_w, camp_map_w, sh_key_w in (
@@ -811,12 +817,12 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
             pu_sh = sh_map_w.get(cid_chk.lower(), 0)
             pu_c = max(pu_sq_act, pu_camp, pu_sh)
             cpa_c = round(sp_c / pu_c, 2) if pu_c > 0 else None
-            if sh_key_w == "1d" and pu_c > 0 and cpa_c is not None and cpa_c < max_cpa_camp_limit:
+            if sh_key_w in ("1d", "2d", "3d") and pu_c > 0 and cpa_c is not None and cpa_c <= max_cpa_camp_limit:
                 c_1d_healthy = True
             if sh_key_w != "1d" and c_1d_healthy:
                 continue
-            if pu_c > 0 and cpa_c is not None and cpa_c >= max_cpa_camp_limit:
-                c_kill_reasons.append(f"{w_lbl_c}: CPA=${cpa_c:.2f} (${sp_c:.2f}/{pu_c} مبيعات >= ${max_cpa_camp_limit:.2f})")
+            if pu_c > 0 and cpa_c is not None and cpa_c > max_cpa_camp_limit:
+                c_kill_reasons.append(f"{w_lbl_c}: CPA=${cpa_c:.2f} (${sp_c:.2f}/{pu_c} مبيعات > ${max_cpa_camp_limit:.2f})")
             elif pu_c == 0 and sp_c >= no_sale_camp_limit:
                 c_kill_reasons.append(f"{w_lbl_c}: صرف ${sp_c:.2f} بدون مبيعات (>= ${no_sale_camp_limit:.2f})")
         if c_kill_reasons:
