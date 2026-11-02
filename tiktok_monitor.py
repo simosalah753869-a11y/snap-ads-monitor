@@ -1205,7 +1205,7 @@ def main():
                                         p_lbl = "power bank" if prod_key == "power_bank" else "car armrest"
                                         new_cname = f"{p_lbl} {today_str[8:10]}-{today_str[5:7]} Rescue Clean ({len(batch_imgs)} Ads)"
                                         c_f["campaign_name"] = new_cname
-                                        c_f["budget"] = "60"
+                                        c_f["budget"] = "50"
                                         c_f["cpa_bid"] = "6.5"
                                         c_f["campaign_bid_strategy_selection"] = 0
                                         session.post(f"https://ads.tiktok.com/api/v4/i18n/creation/campaign_snap/save/?aadvid={aadvid}", headers=h_cp, json={"campaign_sketch_form_data": c_f, "clear_lower_level_sketches": False, "with_sketch": False, "is_skip_check_fields": True, "risk_info": {}}, timeout=15)
@@ -1271,8 +1271,34 @@ def main():
                                 other_auto_recently_scaled = True
             except Exception:
                 pass
+            # أمر المستخدم الصارم (2026-11-03): تثبيت وتنزيل البدجت في تيك توك إلى $50.00 كحد أقصى ومنع التضخم التلقائي فوق $50:
+            if not (os.environ.get("GITHUB_ACTIONS") == "true" or os.environ.get("STOP_LOSS_PAUSE_ONLY") == "1"):
+                try:
+                    cur_bdg_chk = float(c1.get("budget") or c3.get("budget") or 0.0)
+                    if cur_bdg_chk > 50.01:
+                        h_b = dict(headers)
+                        h_b["Referer"] = f"https://ads.tiktok.com/i18n/manage/campaign?aadvid={aadvid}"
+                        det_r = session.get(
+                            f"https://ads.tiktok.com/api/v3/i18n/perf/campaign/detail/?aadvid={aadvid}&campaign_id={camp_id}",
+                            headers=h_b,
+                            timeout=15,
+                        ).json().get("data") or {}
+                        real_bdg = float(det_r.get("budget") or cur_bdg_chk)
+                        if det_r and real_bdg > 50.01:
+                            up_payload = {**det_r, "campaign_id": str(camp_id), "campaign_name": det_r.get("name") or camp_name, "budget": 50.0}
+                            rb_resp = session.post(
+                                f"https://ads.tiktok.com/api/v3/i18n/perf/campaign/update/?aadvid={aadvid}",
+                                headers=h_b,
+                                json=up_payload,
+                                timeout=15,
+                            )
+                            if rb_resp.text.strip() and rb_resp.json().get("code") == 0:
+                                print(f"    🔧 [BUDGET CAP $50] Campaign '{camp_name}' lowered: ${real_bdg:.0f} -> $50")
+                except Exception:
+                    pass
             if (
-                not (os.environ.get("GITHUB_ACTIONS") == "true" or os.environ.get("STOP_LOSS_PAUSE_ONLY") == "1")
+                False
+                and not (os.environ.get("GITHUB_ACTIONS") == "true" or os.environ.get("STOP_LOSS_PAUSE_ONLY") == "1")
                 and not camp_is_gulf
                 and is_before_6pm_sa
                 and c_conv_1d >= 2
