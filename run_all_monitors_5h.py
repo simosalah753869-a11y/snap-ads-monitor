@@ -1516,6 +1516,7 @@ def main():
         run_step("مراقب منتجات تاجر قيد الاختبار (25$ بدون بيع / 27$ CPA لكل منتج على حدة عبر غوغل وتيك توك) والمنتجات المشتركة", "cross_product_monitor.py")
         sales_3d, sales_today = run_google_ads_check()
         run_step("مراقب Google Ads الدوري لرفع Target CPA (+$0.20 بعد كل 3 ساعات حتى 3 مرات لأي حملة لا تصرف $2.00 في 3 ساعات، ومنع Maximum Bid)", "gads_hourly_tcpa_bumper.py")
+        run_step("محرك الضبط التدريجي للبيد (Sweet-Spot Tuner) للحملات الرابحة المتوقفة في تيك توك وغوغل أدز", "adaptive_bid_sweetspot_tuner.py")
         run_proactive_sales_scaling(sales_3d, sales_today)
         run_autonomous_anomaly_doctor(sales_3d, sales_today)
         try:
