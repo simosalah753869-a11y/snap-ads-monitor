@@ -1981,6 +1981,76 @@
       "base_sp3": 14.09,
       "base_cv3": 6,
       "status": "OPEN"
+    },
+    {
+      "account": "ROELLINGER RECYCLING",
+      "target": "kuwait car armrest 01-11 (5 Winners CC 8.5) (1880685110891601)",
+      "action": "PAUSE_CAMPAIGN",
+      "reason": "Spend .53 exceeded 68% (.80) of Simulation Safe CPA .48 with 0 conversions",
+      "time": "2026-11-02 13:13:00 KSA"
+    },
+    {
+      "account": "ROELLINGER RECYCLING",
+      "target": "qatar car armrest 01-11 (5 Winners CC 7.8) (1880685124565442)",
+      "action": "PAUSE_CAMPAIGN",
+      "reason": "Spend .66 exceeded 68% (.80) of Simulation Safe CPA .00 with 0 conversions",
+      "time": "2026-11-02 13:13:00 KSA"
+    },
+    {
+      "account": "ROELLINGER RECYCLING2",
+      "target": "power bank 02-11 Manzilk Winners A (5 Ads) (1880696438045873)",
+      "action": "SCALE_BUDGET_PLUS_20_PCT",
+      "reason": "6 conversions today at .47 CPA (Super Winner) -> Scaled budget from  to ",
+      "time": "2026-11-02 13:13:00 KSA"
+    },
+    {
+      "account": "ROELLINGER RECYCLING",
+      "target": "power bank 02-11 Manzilk Winners C (5 Ads) (1880695903993266)",
+      "action": "SCALE_BUDGET_PLUS_20_PCT",
+      "reason": "3 conversions today at .86 CPA (Super Winner) -> Scaled budget from  to ",
+      "time": "2026-11-02 13:13:00 KSA"
+    },
+    {
+      "account": "ROELLINGER RECYCLING",
+      "target": "Video: 02-11_MZ_carmz_06_35s.mp4 (ad_id=1880695940482241)",
+      "action": "PAUSE_BLEEDER_VIDEO",
+      "reason": "High CPC  > .25 after spend  with 0 conversions",
+      "time": "2026-11-02 13:15:01 KSA"
+    },
+    {
+      "account": "ROELLINGER RECYCLING",
+      "target": "Video: 31-10_PB_30d_Recycled_Ad_29.mp4 (ad_id=1880666354081874)",
+      "action": "PAUSE_BLEEDER_VIDEO",
+      "reason": "High CPC  > .25 after spend  with 0 conversions",
+      "time": "2026-11-02 13:15:01 KSA"
+    },
+    {
+      "account": "ROELLINGER RECYCLING",
+      "target": "Video: 02-11_MZ_pbmz_06_80s.mp4 (ad_id=1880695916990641)",
+      "action": "PAUSE_BLEEDER_VIDEO",
+      "reason": "High CPC  > .25 after spend  with 0 conversions",
+      "time": "2026-11-02 13:15:01 KSA"
+    },
+    {
+      "account": "ROELLINGER RECYCLING",
+      "target": "Video: 31-10_PB_30d_Recycled_Ad_29.mp4 (ad_id=1880671172234065)",
+      "action": "PAUSE_BLEEDER_VIDEO",
+      "reason": "High CPC  > .25 after spend  with 0 conversions",
+      "time": "2026-11-02 13:15:01 KSA"
+    },
+    {
+      "account": "ROELLINGER RECYCLING2",
+      "target": "Video: 02-11_MZ_carmz_12_12s.mp4 (ad_id=1880696490200434)",
+      "action": "PAUSE_BLEEDER_VIDEO",
+      "reason": "High CPC  > .25 after spend  with 0 conversions",
+      "time": "2026-11-02 13:15:01 KSA"
+    },
+    {
+      "account": "ROELLINGER RECYCLING2",
+      "target": "Video: 02-11_MZ_carmz_09_17s.mp4 (ad_id=1880696490200434)",
+      "action": "PAUSE_BLEEDER_VIDEO",
+      "reason": "High CPC  > .25 after spend  with 0 conversions",
+      "time": "2026-11-02 13:15:01 KSA"
     }
   ],
   "failed_experiments": [
