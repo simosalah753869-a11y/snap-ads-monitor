@@ -572,7 +572,7 @@
       "scaled_at_purchases": 0,
       "target_bid_micro": 1900000,
       "target_budget_micro": 30000000,
-      "spend_1h": 0.16,
+      "spend_1h": 0.0,
       "spend_1d": 1.11,
       "purchases_1d": 0
     },
@@ -582,7 +582,7 @@
       "campaign_name": "باور بانك وينر - 30 أدست - بيد 1.6 / 1.65 / 1.67 30-10",
       "account": "CSP9860",
       "spend_date": "2026-11-03",
-      "spend_at_last_check": 0.0,
+      "spend_at_last_check": 0.03,
       "last_check_utc": "2026-11-03T09:57:10.530372+00:00",
       "last_action_utc": "2026-10-30T12:25:25.970000+00:00",
       "bumps_today": 0,
@@ -590,8 +590,8 @@
       "scaled_at_purchases": 0,
       "target_bid_micro": 1900000,
       "target_budget_micro": 20000000,
-      "spend_1h": 0.0,
-      "spend_1d": 0.0,
+      "spend_1h": 0.03,
+      "spend_1d": 0.03,
       "purchases_1d": 0
     },
     "37dbcde0-3283-4c81-90c2-39c26ca38c90": {
@@ -600,7 +600,7 @@
       "campaign_name": "باور بانك وينر - 30 أدست - بيد 1.6 / 1.65 / 1.67 30-10",
       "account": "CSP9860",
       "spend_date": "2026-11-03",
-      "spend_at_last_check": 0.62,
+      "spend_at_last_check": 0.63,
       "last_check_utc": "2026-11-03T09:57:10.530372+00:00",
       "last_action_utc": "2026-10-30T12:25:34.743000+00:00",
       "bumps_today": 0,
@@ -608,8 +608,8 @@
       "scaled_at_purchases": 0,
       "target_bid_micro": 1900000,
       "target_budget_micro": 20000000,
-      "spend_1h": 0.06,
-      "spend_1d": 0.62,
+      "spend_1h": 0.01,
+      "spend_1d": 0.63,
       "purchases_1d": 0
     },
     "3ee8a8a8-b9c5-41c3-aa0c-69f9543581e4": {
@@ -662,7 +662,7 @@
       "scaled_at_purchases": 0,
       "target_bid_micro": 1900000,
       "target_budget_micro": 20000000,
-      "spend_1h": 0.01,
+      "spend_1h": 0.0,
       "spend_1d": 0.02,
       "purchases_1d": 0
     },
@@ -680,7 +680,7 @@
       "scaled_at_purchases": 0,
       "target_bid_micro": 1800000,
       "target_budget_micro": 20000000,
-      "spend_1h": 0.01,
+      "spend_1h": 0.0,
       "spend_1d": 0.01,
       "purchases_1d": 0
     },
@@ -744,7 +744,7 @@
       "campaign_name": "باور بانك وينر - 30 أدست - بيد 1.6 / 1.65 / 1.67 30-10",
       "account": "CSP9860",
       "spend_date": "2026-11-03",
-      "spend_at_last_check": 0.01,
+      "spend_at_last_check": 0.02,
       "last_check_utc": "2026-11-03T09:57:10.530372+00:00",
       "last_action_utc": "2026-10-30T12:25:02.647000+00:00",
       "bumps_today": 0,
@@ -753,7 +753,7 @@
       "target_bid_micro": 1900000,
       "target_budget_micro": 20000000,
       "spend_1h": 0.01,
-      "spend_1d": 0.01,
+      "spend_1d": 0.02,
       "purchases_1d": 0
     },
     "6c710c22-63a3-440f-917a-8ae10553489b": {
@@ -816,7 +816,7 @@
       "campaign_name": "باور بانك وينر - 30 أدست - بيد 1.6 / 1.65 / 1.67 30-10",
       "account": "CSP9860",
       "spend_date": "2026-11-03",
-      "spend_at_last_check": 0.0,
+      "spend_at_last_check": 0.01,
       "last_check_utc": "2026-11-03T09:57:10.530372+00:00",
       "last_action_utc": "2026-10-30T12:25:02.646000+00:00",
       "bumps_today": 0,
@@ -824,8 +824,8 @@
       "scaled_at_purchases": 0,
       "target_bid_micro": 1900000,
       "target_budget_micro": 20000000,
-      "spend_1h": 0.0,
-      "spend_1d": 0.0,
+      "spend_1h": 0.01,
+      "spend_1d": 0.01,
       "purchases_1d": 0
     },
     "879d39bf-3b06-44f5-b265-37b3d6f66c9b": {
@@ -888,7 +888,7 @@
       "campaign_name": "باور بانك وينر - 30 أدست - بيد 1.6 / 1.65 / 1.67 30-10",
       "account": "CSP9860",
       "spend_date": "2026-11-03",
-      "spend_at_last_check": 0.0,
+      "spend_at_last_check": 0.01,
       "last_check_utc": "2026-11-03T09:57:10.530372+00:00",
       "last_action_utc": "2026-10-30T12:25:02.646000+00:00",
       "bumps_today": 0,
@@ -896,8 +896,8 @@
       "scaled_at_purchases": 0,
       "target_bid_micro": 1900000,
       "target_budget_micro": 20000000,
-      "spend_1h": 0.0,
-      "spend_1d": 0.0,
+      "spend_1h": 0.01,
+      "spend_1d": 0.01,
       "purchases_1d": 0
     },
     "ad03d05d-ea89-4f43-8655-31e5a3a89e74": {
@@ -906,7 +906,7 @@
       "campaign_name": "باور بانك وينر - 30 أدست - بيد 1.6 / 1.65 / 1.67 30-10",
       "account": "CSP9860",
       "spend_date": "2026-11-03",
-      "spend_at_last_check": 1.03,
+      "spend_at_last_check": 1.06,
       "last_check_utc": "2026-11-03T09:57:10.530372+00:00",
       "last_action_utc": "2026-10-30T12:25:02.647000+00:00",
       "bumps_today": 0,
@@ -914,8 +914,8 @@
       "scaled_at_purchases": 0,
       "target_bid_micro": 1900000,
       "target_budget_micro": 20000000,
-      "spend_1h": 0.2,
-      "spend_1d": 1.03,
+      "spend_1h": 0.03,
+      "spend_1d": 1.06,
       "purchases_1d": 0
     },
     "c7cad401-1c79-4d0b-8b2b-dc8641aaa591": {
@@ -1608,7 +1608,7 @@
       "campaign_name": "وسادة السيارة وينر - 30 أدست - بيد 1.6 / 1.65 / 1.67 30-10",
       "account": "CSP9860",
       "spend_date": "2026-11-03",
-      "spend_at_last_check": 0.0,
+      "spend_at_last_check": 0.01,
       "last_check_utc": "2026-11-03T09:57:10.530372+00:00",
       "last_action_utc": "2026-10-30T12:23:32.040000+00:00",
       "bumps_today": 0,
@@ -1616,8 +1616,8 @@
       "scaled_at_purchases": 0,
       "target_bid_micro": 1900000,
       "target_budget_micro": 20000000,
-      "spend_1h": 0.0,
-      "spend_1d": 0.0,
+      "spend_1h": 0.01,
+      "spend_1d": 0.01,
       "purchases_1d": 0
     },
     "187f58f7-d39e-46b9-a3ee-0fb83c57bf85": {
@@ -1662,7 +1662,7 @@
       "campaign_name": "وسادة السيارة وينر - 30 أدست - بيد 1.6 / 1.65 / 1.67 30-10",
       "account": "CSP9860",
       "spend_date": "2026-11-03",
-      "spend_at_last_check": 0.02,
+      "spend_at_last_check": 0.04,
       "last_check_utc": "2026-11-03T09:57:10.530372+00:00",
       "last_action_utc": "2026-10-30T12:23:32.041000+00:00",
       "bumps_today": 0,
@@ -1671,7 +1671,7 @@
       "target_bid_micro": 1900000,
       "target_budget_micro": 20000000,
       "spend_1h": 0.02,
-      "spend_1d": 0.02,
+      "spend_1d": 0.04,
       "purchases_1d": 0
     },
     "29fe2ebf-a1a8-4de3-a594-8b17a76ffb66": {
@@ -1734,7 +1734,7 @@
       "campaign_name": "وسادة السيارة وينر - 30 أدست - بيد 1.6 / 1.65 / 1.67 30-10",
       "account": "CSP9860",
       "spend_date": "2026-11-03",
-      "spend_at_last_check": 2.13,
+      "spend_at_last_check": 2.14,
       "last_check_utc": "2026-11-03T09:57:10.530372+00:00",
       "last_action_utc": "2026-10-30T12:23:40.522000+00:00",
       "bumps_today": 0,
@@ -1742,8 +1742,8 @@
       "scaled_at_purchases": 0,
       "target_bid_micro": 1900000,
       "target_budget_micro": 20000000,
-      "spend_1h": 0.06,
-      "spend_1d": 2.13,
+      "spend_1h": 0.01,
+      "spend_1d": 2.14,
       "purchases_1d": 0
     },
     "5e5232b3-c3b7-4320-815b-350c9e4fb28b": {
@@ -1814,7 +1814,7 @@
       "scaled_at_purchases": 0,
       "target_bid_micro": 1900000,
       "target_budget_micro": 20000000,
-      "spend_1h": 0.01,
+      "spend_1h": 0.0,
       "spend_1d": 0.02,
       "purchases_1d": 0
     },
@@ -1850,7 +1850,7 @@
       "scaled_at_purchases": 0,
       "target_bid_micro": 1900000,
       "target_budget_micro": 20000000,
-      "spend_1h": 0.01,
+      "spend_1h": 0.0,
       "spend_1d": 0.01,
       "purchases_1d": 0
     },
@@ -1968,7 +1968,7 @@
       "campaign_name": "وسادة السيارة وينر - 30 أدست - بيد 1.6 / 1.65 / 1.67 30-10",
       "account": "CSP9860",
       "spend_date": "2026-11-03",
-      "spend_at_last_check": 1.37,
+      "spend_at_last_check": 1.47,
       "last_check_utc": "2026-11-03T09:57:10.530372+00:00",
       "last_action_utc": "2026-10-30T12:23:40.522000+00:00",
       "bumps_today": 0,
@@ -1976,8 +1976,8 @@
       "scaled_at_purchases": 0,
       "target_bid_micro": 1900000,
       "target_budget_micro": 20000000,
-      "spend_1h": 0.21,
-      "spend_1d": 1.37,
+      "spend_1h": 0.1,
+      "spend_1d": 1.47,
       "purchases_1d": 0
     },
     "d3e8dbb1-021a-4d5c-82bc-1ec771dd8390": {
@@ -5234,7 +5234,7 @@
       "scaled_at_purchases": 1,
       "target_bid_micro": 1900000,
       "target_budget_micro": 40000000,
-      "spend_1h": 0.96,
+      "spend_1h": 0.0,
       "spend_1d": 6.94,
       "purchases_1d": 1
     },
@@ -6116,7 +6116,7 @@
       "scaled_at_purchases": 2,
       "target_bid_micro": 1900000,
       "target_budget_micro": 40000000,
-      "spend_1h": 0.69,
+      "spend_1h": 0.0,
       "spend_1d": 8.19,
       "purchases_1d": 2
     },
@@ -6692,7 +6692,7 @@
       "scaled_at_purchases": 0,
       "target_bid_micro": 1900000,
       "target_budget_micro": 30000000,
-      "spend_1h": 0.71,
+      "spend_1h": 0.0,
       "spend_1d": 1.19,
       "purchases_1d": 0
     },
@@ -9366,7 +9366,7 @@
       "campaign_name": "باور بانك وينر - 10 أدست - بيد 1.6 / 1.65 / 1.67",
       "account": "CSP9860",
       "spend_date": "2026-11-03",
-      "spend_at_last_check": 1.85,
+      "spend_at_last_check": 1.88,
       "last_check_utc": "2026-11-03T09:57:10.530372+00:00",
       "last_action_utc": "2026-11-01T11:20:13.250000+00:00",
       "bumps_today": 0,
@@ -9374,8 +9374,8 @@
       "scaled_at_purchases": 0,
       "target_bid_micro": 1900000,
       "target_budget_micro": 20000000,
-      "spend_1h": 0.28,
-      "spend_1d": 1.85,
+      "spend_1h": 0.03,
+      "spend_1d": 1.88,
       "purchases_1d": 0
     },
     "a4a1b379-2efb-4a42-99f9-cc871824d2ca": {
@@ -9384,7 +9384,7 @@
       "campaign_name": "باور بانك وينر - 10 أدست - بيد 1.6 / 1.65 / 1.67",
       "account": "CSP9860",
       "spend_date": "2026-11-03",
-      "spend_at_last_check": 3.48,
+      "spend_at_last_check": 3.6,
       "last_check_utc": "2026-11-03T09:57:10.530372+00:00",
       "last_action_utc": "2026-11-01T11:20:11.052000+00:00",
       "bumps_today": 0,
@@ -9392,8 +9392,8 @@
       "scaled_at_purchases": 0,
       "target_bid_micro": 1900000,
       "target_budget_micro": 20000000,
-      "spend_1h": 1.01,
-      "spend_1d": 3.48,
+      "spend_1h": 0.12,
+      "spend_1d": 3.6,
       "purchases_1d": 0
     },
     "b1840181-0c98-4fdd-ac78-28361a82e306": {
@@ -11228,7 +11228,7 @@
       "scaled_at_purchases": 2,
       "target_bid_micro": 1900000,
       "target_budget_micro": 35000000,
-      "spend_1h": 0.73,
+      "spend_1h": 0.0,
       "spend_1d": 4.75,
       "purchases_1d": 2
     },
@@ -11256,7 +11256,7 @@
       "campaign_name": "وسادة السيارة وينر منزلك بديلة - ماكس بيد 1.9 - 02-11",
       "account": "CSP9860 4",
       "spend_date": "2026-11-03",
-      "spend_at_last_check": 0.89,
+      "spend_at_last_check": 0.93,
       "last_check_utc": "2026-11-03T09:58:23.053248+00:00",
       "last_action_utc": "2026-11-02T09:29:51.126000+00:00",
       "bumps_today": 0,
@@ -11264,8 +11264,8 @@
       "scaled_at_purchases": 0,
       "target_bid_micro": 1900000,
       "target_budget_micro": 20000000,
-      "spend_1h": 0.27,
-      "spend_1d": 0.89,
+      "spend_1h": 0.04,
+      "spend_1d": 0.93,
       "purchases_1d": 0
     },
     "0bdd7054-cfa5-4c50-9360-d20141c42fa0": {
@@ -11372,7 +11372,7 @@
       "scaled_at_purchases": 0,
       "target_bid_micro": 1900000,
       "target_budget_micro": 20000000,
-      "spend_1h": 0.02,
+      "spend_1h": 0.0,
       "spend_1d": 0.03,
       "purchases_1d": 0
     },
@@ -11390,7 +11390,7 @@
       "scaled_at_purchases": 0,
       "target_bid_micro": 1900000,
       "target_budget_micro": 20000000,
-      "spend_1h": 0.02,
+      "spend_1h": 0.0,
       "spend_1d": 0.03,
       "purchases_1d": 0
     },
@@ -11408,7 +11408,7 @@
       "scaled_at_purchases": 0,
       "target_bid_micro": 1900000,
       "target_budget_micro": 20000000,
-      "spend_1h": 0.01,
+      "spend_1h": 0.0,
       "spend_1d": 0.02,
       "purchases_1d": 0
     },
@@ -11426,7 +11426,7 @@
       "scaled_at_purchases": 0,
       "target_bid_micro": 1800000,
       "target_budget_micro": 20000000,
-      "spend_1h": 0.01,
+      "spend_1h": 0.0,
       "spend_1d": 0.01,
       "purchases_1d": 0
     },
@@ -11436,7 +11436,7 @@
       "campaign_name": "وسادة السيارة وينر (26 أدست) - جديد من الصفر - بيد 1.7 - 02-11",
       "account": "CSP9860",
       "spend_date": "2026-11-03",
-      "spend_at_last_check": 0.06,
+      "spend_at_last_check": 0.07,
       "last_check_utc": "2026-11-03T09:57:10.530372+00:00",
       "last_action_utc": "2026-11-02T15:38:46.115000+00:00",
       "bumps_today": 0,
@@ -11445,7 +11445,7 @@
       "target_bid_micro": 1900000,
       "target_budget_micro": 20000000,
       "spend_1h": 0.01,
-      "spend_1d": 0.06,
+      "spend_1d": 0.07,
       "purchases_1d": 0
     },
     "698db8da-3610-42c4-bdf2-efcaef40cc16": {
@@ -11454,7 +11454,7 @@
       "campaign_name": "وسادة السيارة وينر (26 أدست) - جديد من الصفر - بيد 1.7 - 02-11",
       "account": "CSP9860",
       "spend_date": "2026-11-03",
-      "spend_at_last_check": 0.04,
+      "spend_at_last_check": 0.05,
       "last_check_utc": "2026-11-03T09:57:10.530372+00:00",
       "last_action_utc": "2026-11-02T15:38:46.116000+00:00",
       "bumps_today": 0,
@@ -11462,8 +11462,8 @@
       "scaled_at_purchases": 0,
       "target_bid_micro": 1900000,
       "target_budget_micro": 20000000,
-      "spend_1h": 0.02,
-      "spend_1d": 0.04,
+      "spend_1h": 0.01,
+      "spend_1d": 0.05,
       "purchases_1d": 0
     },
     "6a26a2e2-b1f0-4c54-b05a-88d603d4f8ad": {
@@ -11498,7 +11498,7 @@
       "scaled_at_purchases": 0,
       "target_bid_micro": 1900000,
       "target_budget_micro": 20000000,
-      "spend_1h": 0.04,
+      "spend_1h": 0.0,
       "spend_1d": 0.09,
       "purchases_1d": 0
     },
@@ -11508,7 +11508,7 @@
       "campaign_name": "وسادة السيارة وينر (26 أدست) - جديد من الصفر - بيد 1.7 - 02-11",
       "account": "CSP9860",
       "spend_date": "2026-11-03",
-      "spend_at_last_check": 0.08,
+      "spend_at_last_check": 0.09,
       "last_check_utc": "2026-11-03T09:57:10.530372+00:00",
       "last_action_utc": "2026-11-02T15:38:37.918000+00:00",
       "bumps_today": 0,
@@ -11516,8 +11516,8 @@
       "scaled_at_purchases": 0,
       "target_bid_micro": 1900000,
       "target_budget_micro": 20000000,
-      "spend_1h": 0.05,
-      "spend_1d": 0.08,
+      "spend_1h": 0.01,
+      "spend_1d": 0.09,
       "purchases_1d": 0
     },
     "7ce15ae5-30bf-4dc0-a4ea-3659ee1bdf44": {
@@ -11552,7 +11552,7 @@
       "scaled_at_purchases": 0,
       "target_bid_micro": 1800000,
       "target_budget_micro": 20000000,
-      "spend_1h": 0.01,
+      "spend_1h": 0.0,
       "spend_1d": 0.04,
       "purchases_1d": 0
     },
@@ -11570,7 +11570,7 @@
       "scaled_at_purchases": 0,
       "target_bid_micro": 1900000,
       "target_budget_micro": 20000000,
-      "spend_1h": 0.01,
+      "spend_1h": 0.0,
       "spend_1d": 0.02,
       "purchases_1d": 0
     },
@@ -11598,7 +11598,7 @@
       "campaign_name": "وسادة السيارة وينر (26 أدست) - جديد من الصفر - بيد 1.7 - 02-11",
       "account": "CSP9860",
       "spend_date": "2026-11-03",
-      "spend_at_last_check": 0.03,
+      "spend_at_last_check": 0.04,
       "last_check_utc": "2026-11-03T09:57:10.530372+00:00",
       "last_action_utc": "2026-11-02T15:38:43.378000+00:00",
       "bumps_today": 0,
@@ -11607,7 +11607,7 @@
       "target_bid_micro": 1900000,
       "target_budget_micro": 20000000,
       "spend_1h": 0.01,
-      "spend_1d": 0.03,
+      "spend_1d": 0.04,
       "purchases_1d": 0
     },
     "aea737ff-6a4f-414e-a7d5-ac1efd0abbc6": {
@@ -11624,7 +11624,7 @@
       "scaled_at_purchases": 0,
       "target_bid_micro": 1800000,
       "target_budget_micro": 20000000,
-      "spend_1h": 0.01,
+      "spend_1h": 0.0,
       "spend_1d": 0.03,
       "purchases_1d": 0
     },
@@ -11706,7 +11706,7 @@
       "campaign_name": "وسادة السيارة وينر (26 أدست) - جديد من الصفر - بيد 1.7 - 02-11",
       "account": "CSP9860",
       "spend_date": "2026-11-03",
-      "spend_at_last_check": 0.17,
+      "spend_at_last_check": 0.18,
       "last_check_utc": "2026-11-03T09:57:10.530372+00:00",
       "last_action_utc": "2026-11-02T15:38:46.115000+00:00",
       "bumps_today": 0,
@@ -11714,8 +11714,8 @@
       "scaled_at_purchases": 0,
       "target_bid_micro": 1900000,
       "target_budget_micro": 20000000,
-      "spend_1h": 0.06,
-      "spend_1d": 0.17,
+      "spend_1h": 0.01,
+      "spend_1d": 0.18,
       "purchases_1d": 0
     },
     "e955fdc2-d348-4a66-b5a8-c1839f0b319f": {
@@ -11786,7 +11786,7 @@
       "scaled_at_purchases": 0,
       "target_bid_micro": 1900000,
       "target_budget_micro": 20000000,
-      "spend_1h": 0.06,
+      "spend_1h": 0.0,
       "spend_1d": 0.08,
       "purchases_1d": 0
     },
@@ -11796,43 +11796,7 @@
       "campaign_name": "باور بانك وينر (18 أدست) - جديد من الصفر - بيد 1.7 - 02-11",
       "account": "CSP9860",
       "spend_date": "2026-11-03",
-      "spend_at_last_check": 0.08,
-      "last_check_utc": "2026-11-03T09:57:10.530372+00:00",
-      "last_action_utc": "2026-11-02T15:38:05.466000+00:00",
-      "bumps_today": 0,
-      "scales_today": 0,
-      "scaled_at_purchases": 0,
-      "target_bid_micro": 1900000,
-      "target_budget_micro": 20000000,
-      "spend_1h": 0.03,
-      "spend_1d": 0.08,
-      "purchases_1d": 0
-    },
-    "1eaa18d3-a77d-43a8-87e2-22f758d72854": {
-      "name": "PB 1.70 Max [H1] #04",
-      "campaign_id": "521ab366-c2dd-4f1a-beb1-63077655a182",
-      "campaign_name": "باور بانك وينر (18 أدست) - جديد من الصفر - بيد 1.7 - 02-11",
-      "account": "CSP9860",
-      "spend_date": "2026-11-03",
-      "spend_at_last_check": 0.1,
-      "last_check_utc": "2026-11-03T09:57:10.530372+00:00",
-      "last_action_utc": "2026-11-02T15:38:07.758000+00:00",
-      "bumps_today": 0,
-      "scales_today": 0,
-      "scaled_at_purchases": 0,
-      "target_bid_micro": 1900000,
-      "target_budget_micro": 20000000,
-      "spend_1h": 0.06,
-      "spend_1d": 0.1,
-      "purchases_1d": 0
-    },
-    "3f10671d-eafb-4788-b843-bd4125010db1": {
-      "name": "PB 1.70 Max [H1] #07",
-      "campaign_id": "521ab366-c2dd-4f1a-beb1-63077655a182",
-      "campaign_name": "باور بانك وينر (18 أدست) - جديد من الصفر - بيد 1.7 - 02-11",
-      "account": "CSP9860",
-      "spend_date": "2026-11-03",
-      "spend_at_last_check": 0.04,
+      "spend_at_last_check": 0.09,
       "last_check_utc": "2026-11-03T09:57:10.530372+00:00",
       "last_action_utc": "2026-11-02T15:38:05.466000+00:00",
       "bumps_today": 0,
@@ -11841,7 +11805,43 @@
       "target_bid_micro": 1900000,
       "target_budget_micro": 20000000,
       "spend_1h": 0.01,
-      "spend_1d": 0.04,
+      "spend_1d": 0.09,
+      "purchases_1d": 0
+    },
+    "1eaa18d3-a77d-43a8-87e2-22f758d72854": {
+      "name": "PB 1.70 Max [H1] #04",
+      "campaign_id": "521ab366-c2dd-4f1a-beb1-63077655a182",
+      "campaign_name": "باور بانك وينر (18 أدست) - جديد من الصفر - بيد 1.7 - 02-11",
+      "account": "CSP9860",
+      "spend_date": "2026-11-03",
+      "spend_at_last_check": 0.11,
+      "last_check_utc": "2026-11-03T09:57:10.530372+00:00",
+      "last_action_utc": "2026-11-02T15:38:07.758000+00:00",
+      "bumps_today": 0,
+      "scales_today": 0,
+      "scaled_at_purchases": 0,
+      "target_bid_micro": 1900000,
+      "target_budget_micro": 20000000,
+      "spend_1h": 0.01,
+      "spend_1d": 0.11,
+      "purchases_1d": 0
+    },
+    "3f10671d-eafb-4788-b843-bd4125010db1": {
+      "name": "PB 1.70 Max [H1] #07",
+      "campaign_id": "521ab366-c2dd-4f1a-beb1-63077655a182",
+      "campaign_name": "باور بانك وينر (18 أدست) - جديد من الصفر - بيد 1.7 - 02-11",
+      "account": "CSP9860",
+      "spend_date": "2026-11-03",
+      "spend_at_last_check": 0.05,
+      "last_check_utc": "2026-11-03T09:57:10.530372+00:00",
+      "last_action_utc": "2026-11-02T15:38:05.466000+00:00",
+      "bumps_today": 0,
+      "scales_today": 0,
+      "scaled_at_purchases": 0,
+      "target_bid_micro": 1900000,
+      "target_budget_micro": 20000000,
+      "spend_1h": 0.01,
+      "spend_1d": 0.05,
       "purchases_1d": 0
     },
     "52923a82-e0f3-4cc5-b6ca-fa6c27d518d1": {
@@ -11894,7 +11894,7 @@
       "scaled_at_purchases": 0,
       "target_bid_micro": 1800000,
       "target_budget_micro": 20000000,
-      "spend_1h": 0.01,
+      "spend_1h": 0.0,
       "spend_1d": 0.01,
       "purchases_1d": 0
     },
@@ -11904,7 +11904,7 @@
       "campaign_name": "باور بانك وينر (18 أدست) - جديد من الصفر - بيد 1.7 - 02-11",
       "account": "CSP9860",
       "spend_date": "2026-11-03",
-      "spend_at_last_check": 0.15,
+      "spend_at_last_check": 0.24,
       "last_check_utc": "2026-11-03T09:57:10.530372+00:00",
       "last_action_utc": "2026-11-02T15:38:07.758000+00:00",
       "bumps_today": 0,
@@ -11912,8 +11912,8 @@
       "scaled_at_purchases": 0,
       "target_bid_micro": 1900000,
       "target_budget_micro": 20000000,
-      "spend_1h": 0.08,
-      "spend_1d": 0.15,
+      "spend_1h": 0.09,
+      "spend_1d": 0.24,
       "purchases_1d": 0
     },
     "96882886-b512-4a68-86ef-d5a863dd1f10": {
@@ -11966,7 +11966,7 @@
       "scaled_at_purchases": 0,
       "target_bid_micro": 1800000,
       "target_budget_micro": 20000000,
-      "spend_1h": 0.01,
+      "spend_1h": 0.0,
       "spend_1d": 0.02,
       "purchases_1d": 0
     },
@@ -11984,7 +11984,7 @@
       "scaled_at_purchases": 0,
       "target_bid_micro": 1900000,
       "target_budget_micro": 20000000,
-      "spend_1h": 0.01,
+      "spend_1h": 0.0,
       "spend_1d": 0.01,
       "purchases_1d": 0
     },
@@ -12020,7 +12020,7 @@
       "scaled_at_purchases": 0,
       "target_bid_micro": 1900000,
       "target_budget_micro": 20000000,
-      "spend_1h": 0.01,
+      "spend_1h": 0.0,
       "spend_1d": 0.03,
       "purchases_1d": 0
     },
@@ -12048,7 +12048,7 @@
       "campaign_name": "باور بانك وينر بديلة - جديد من الصفر - بيد 1.7 - 02-11",
       "account": "CSP9860",
       "spend_date": "2026-11-03",
-      "spend_at_last_check": 0.86,
+      "spend_at_last_check": 1.25,
       "last_check_utc": "2026-11-03T09:57:10.530372+00:00",
       "last_action_utc": "2026-11-02T15:39:06.545000+00:00",
       "bumps_today": 0,
@@ -12056,8 +12056,8 @@
       "scaled_at_purchases": 0,
       "target_bid_micro": 1900000,
       "target_budget_micro": 20000000,
-      "spend_1h": 0.37,
-      "spend_1d": 0.86,
+      "spend_1h": 0.39,
+      "spend_1d": 1.25,
       "purchases_1d": 0
     },
     "d602f5ad-646a-40e7-885b-de8db965f8e9": {
@@ -12066,7 +12066,7 @@
       "campaign_name": "باور بانك وينر بديلة - جديد من الصفر - بيد 1.7 - 02-11",
       "account": "CSP9860",
       "spend_date": "2026-11-03",
-      "spend_at_last_check": 0.58,
+      "spend_at_last_check": 0.59,
       "last_check_utc": "2026-11-03T09:57:10.530372+00:00",
       "last_action_utc": "2026-11-02T15:39:06.545000+00:00",
       "bumps_today": 0,
@@ -12074,8 +12074,8 @@
       "scaled_at_purchases": 0,
       "target_bid_micro": 1800000,
       "target_budget_micro": 20000000,
-      "spend_1h": 0.17,
-      "spend_1d": 0.58,
+      "spend_1h": 0.01,
+      "spend_1d": 0.59,
       "purchases_1d": 0
     },
     "4011b17d-de13-417e-8b4f-a686d56ecd19": {
@@ -12084,7 +12084,7 @@
       "campaign_name": "باور بانك وينر (3 أدست) - جديد من الصفر - بيد 1.7 - 02-11",
       "account": "CSP9860",
       "spend_date": "2026-11-03",
-      "spend_at_last_check": 0.19,
+      "spend_at_last_check": 0.2,
       "last_check_utc": "2026-11-03T09:57:10.530372+00:00",
       "last_action_utc": "2026-11-02T15:39:02.123000+00:00",
       "bumps_today": 0,
@@ -12092,8 +12092,8 @@
       "scaled_at_purchases": 0,
       "target_bid_micro": 1800000,
       "target_budget_micro": 20000000,
-      "spend_1h": 0.06,
-      "spend_1d": 0.19,
+      "spend_1h": 0.01,
+      "spend_1d": 0.2,
       "purchases_1d": 0
     },
     "77aea682-5b5c-43a2-b120-3c2d26f8db2d": {
@@ -12102,7 +12102,7 @@
       "campaign_name": "باور بانك وينر (3 أدست) - جديد من الصفر - بيد 1.7 - 02-11",
       "account": "CSP9860",
       "spend_date": "2026-11-03",
-      "spend_at_last_check": 0.04,
+      "spend_at_last_check": 0.08,
       "last_check_utc": "2026-11-03T09:57:10.530372+00:00",
       "last_action_utc": "2026-11-02T15:39:02.123000+00:00",
       "bumps_today": 0,
@@ -12110,8 +12110,8 @@
       "scaled_at_purchases": 0,
       "target_bid_micro": 1900000,
       "target_budget_micro": 20000000,
-      "spend_1h": 0.03,
-      "spend_1d": 0.04,
+      "spend_1h": 0.04,
+      "spend_1d": 0.08,
       "purchases_1d": 0
     },
     "eedc93d6-66a9-4078-a821-c6fcd0c57bed": {
@@ -12120,7 +12120,7 @@
       "campaign_name": "باور بانك وينر (3 أدست) - جديد من الصفر - بيد 1.7 - 02-11",
       "account": "CSP9860",
       "spend_date": "2026-11-03",
-      "spend_at_last_check": 0.15,
+      "spend_at_last_check": 0.16,
       "last_check_utc": "2026-11-03T09:57:10.530372+00:00",
       "last_action_utc": "2026-11-02T15:39:02.124000+00:00",
       "bumps_today": 0,
@@ -12128,8 +12128,8 @@
       "scaled_at_purchases": 0,
       "target_bid_micro": 1900000,
       "target_budget_micro": 20000000,
-      "spend_1h": 0.08,
-      "spend_1d": 0.15,
+      "spend_1h": 0.01,
+      "spend_1d": 0.16,
       "purchases_1d": 0
     },
     "701da531-7701-44b2-875f-f4247cecb31c": {
@@ -12138,7 +12138,7 @@
       "campaign_name": "وسادة السيارة شاملة (22 فيديو) - جديد من الصفر - بيد 1.7 - 02-11",
       "account": "CSP9860",
       "spend_date": "2026-11-03",
-      "spend_at_last_check": 0.35,
+      "spend_at_last_check": 0.37,
       "last_check_utc": "2026-11-03T09:57:10.530372+00:00",
       "last_action_utc": "2026-11-02T15:37:47.199000+00:00",
       "bumps_today": 0,
@@ -12146,8 +12146,8 @@
       "scaled_at_purchases": 0,
       "target_bid_micro": 1900000,
       "target_budget_micro": 20000000,
-      "spend_1h": 0.08,
-      "spend_1d": 0.35,
+      "spend_1h": 0.02,
+      "spend_1d": 0.37,
       "purchases_1d": 0
     },
     "0db809a1-ad66-49a2-aae2-177d74366282": {
@@ -12228,7 +12228,7 @@
       "campaign_name": "باور بانك شاملة (3 أدست) - جديد من الصفر - بيد 1.7 - 02-11",
       "account": "CSP9860",
       "spend_date": "2026-11-03",
-      "spend_at_last_check": 0.86,
+      "spend_at_last_check": 0.95,
       "last_check_utc": "2026-11-03T09:57:10.530372+00:00",
       "last_action_utc": "2026-11-02T15:38:16.315000+00:00",
       "bumps_today": 0,
@@ -12236,8 +12236,8 @@
       "scaled_at_purchases": 0,
       "target_bid_micro": 1900000,
       "target_budget_micro": 20000000,
-      "spend_1h": 0.34,
-      "spend_1d": 0.86,
+      "spend_1h": 0.09,
+      "spend_1d": 0.95,
       "purchases_1d": 0
     },
     "5178fbb5-3a6b-4455-9a64-2b31dc0c4e56": {
@@ -12246,7 +12246,7 @@
       "campaign_name": "باور بانك شاملة (3 أدست) - جديد من الصفر - بيد 1.7 - 02-11",
       "account": "CSP9860",
       "spend_date": "2026-11-03",
-      "spend_at_last_check": 0.88,
+      "spend_at_last_check": 0.9,
       "last_check_utc": "2026-11-03T09:57:10.530372+00:00",
       "last_action_utc": "2026-11-02T15:38:16.314000+00:00",
       "bumps_today": 0,
@@ -12254,8 +12254,8 @@
       "scaled_at_purchases": 0,
       "target_bid_micro": 1800000,
       "target_budget_micro": 20000000,
-      "spend_1h": 0.36,
-      "spend_1d": 0.88,
+      "spend_1h": 0.02,
+      "spend_1d": 0.9,
       "purchases_1d": 0
     },
     "69b14c02-863b-49c6-892d-e468a822cc1b": {
@@ -12264,7 +12264,7 @@
       "campaign_name": "باور بانك شاملة (3 أدست) - جديد من الصفر - بيد 1.7 - 02-11",
       "account": "CSP9860",
       "spend_date": "2026-11-03",
-      "spend_at_last_check": 0.21,
+      "spend_at_last_check": 0.22,
       "last_check_utc": "2026-11-03T09:57:10.530372+00:00",
       "last_action_utc": "2026-11-02T15:38:16.315000+00:00",
       "bumps_today": 0,
@@ -12272,8 +12272,8 @@
       "scaled_at_purchases": 0,
       "target_bid_micro": 1900000,
       "target_budget_micro": 20000000,
-      "spend_1h": 0.06,
-      "spend_1d": 0.21,
+      "spend_1h": 0.01,
+      "spend_1d": 0.22,
       "purchases_1d": 0
     },
     "1e3664ac-097c-47e7-bd19-7d9063f9a6ed": {
@@ -12282,7 +12282,7 @@
       "campaign_name": "وسادة السيارة وينر منزلك بديلة - جديد من الصفر - بيد 1.7 - 02-11",
       "account": "CSP9860 4",
       "spend_date": "2026-11-03",
-      "spend_at_last_check": 1.2,
+      "spend_at_last_check": 1.25,
       "last_check_utc": "2026-11-03T09:58:23.053248+00:00",
       "last_action_utc": "2026-11-02T15:39:20.066000+00:00",
       "bumps_today": 0,
@@ -12290,8 +12290,8 @@
       "scaled_at_purchases": 1,
       "target_bid_micro": 1900000,
       "target_budget_micro": 20000000,
-      "spend_1h": 0.19,
-      "spend_1d": 1.2,
+      "spend_1h": 0.05,
+      "spend_1d": 1.25,
       "purchases_1d": 1
     },
     "f7fa93e5-2ce1-4f4f-886d-6ea729b99753": {
@@ -12300,7 +12300,7 @@
       "campaign_name": "وسادة السيارة وينر منزلك بديلة - جديد من الصفر - بيد 1.7 - 02-11",
       "account": "CSP9860 4",
       "spend_date": "2026-11-03",
-      "spend_at_last_check": 0.39,
+      "spend_at_last_check": 0.41,
       "last_check_utc": "2026-11-03T09:58:23.053248+00:00",
       "last_action_utc": "2026-11-02T15:39:20.066000+00:00",
       "bumps_today": 0,
@@ -12308,8 +12308,8 @@
       "scaled_at_purchases": 0,
       "target_bid_micro": 1800000,
       "target_budget_micro": 20000000,
-      "spend_1h": 0.04,
-      "spend_1d": 0.39,
+      "spend_1h": 0.02,
+      "spend_1d": 0.41,
       "purchases_1d": 0
     },
     "a5644a5e-37a4-4f6d-b0b4-0f7fab60a475": {
@@ -12390,7 +12390,7 @@
       "campaign_name": "باور بانك شاملة (3 أدست) - جديد من الصفر - بيد 1.7 - 02-11",
       "account": "CSP9860 4",
       "spend_date": "2026-11-03",
-      "spend_at_last_check": 2.37,
+      "spend_at_last_check": 2.55,
       "last_check_utc": "2026-11-03T09:58:23.053248+00:00",
       "last_action_utc": "2026-11-02T15:39:44.409000+00:00",
       "bumps_today": 0,
@@ -12398,8 +12398,8 @@
       "scaled_at_purchases": 0,
       "target_bid_micro": 1900000,
       "target_budget_micro": 20000000,
-      "spend_1h": 0.92,
-      "spend_1d": 2.37,
+      "spend_1h": 0.18,
+      "spend_1d": 2.55,
       "purchases_1d": 0
     },
     "f0f6def7-4bd1-4b49-b7a1-b2350955447e": {
@@ -12408,7 +12408,7 @@
       "campaign_name": "باور بانك شاملة (3 أدست) - جديد من الصفر - بيد 1.7 - 02-11",
       "account": "CSP9860 4",
       "spend_date": "2026-11-03",
-      "spend_at_last_check": 0.94,
+      "spend_at_last_check": 1.03,
       "last_check_utc": "2026-11-03T09:58:23.053248+00:00",
       "last_action_utc": "2026-11-02T15:39:44.409000+00:00",
       "bumps_today": 0,
@@ -12416,8 +12416,8 @@
       "scaled_at_purchases": 0,
       "target_bid_micro": 1800000,
       "target_budget_micro": 20000000,
-      "spend_1h": 0.19,
-      "spend_1d": 0.94,
+      "spend_1h": 0.09,
+      "spend_1d": 1.03,
       "purchases_1d": 0
     },
     "3ebbd4c2-5469-4155-8aa5-565a2bf3fb91": {
@@ -12452,7 +12452,7 @@
       "scaled_at_purchases": 0,
       "target_bid_micro": 1800000,
       "target_budget_micro": 20000000,
-      "spend_1h": 0.04,
+      "spend_1h": 0.0,
       "spend_1d": 0.43,
       "purchases_1d": 0
     },
@@ -12526,9 +12526,9 @@
       "name": "باور بانك وينر - 30 أدست - بيد 1.6 / 1.65 / 1.67 30-10",
       "account": "CSP9860",
       "spend_date": "2026-11-03",
-      "spend_at_last_check": 2.89,
-      "last_check_utc": "2026-11-03T11:27:00.453791+00:00",
-      "spend_1h": 0.46,
+      "spend_at_last_check": 2.98,
+      "last_check_utc": "2026-11-03T11:39:08.947529+00:00",
+      "spend_1h": 0.09,
       "purchases_1d": 0,
       "cpa_1d": null
     },
@@ -12546,9 +12546,9 @@
       "name": "وسادة السيارة وينر - 30 أدست - بيد 1.6 / 1.65 / 1.67 30-10",
       "account": "CSP9860",
       "spend_date": "2026-11-03",
-      "spend_at_last_check": 3.66,
-      "last_check_utc": "2026-11-03T11:27:00.453791+00:00",
-      "spend_1h": 0.32,
+      "spend_at_last_check": 3.78,
+      "last_check_utc": "2026-11-03T11:39:08.947529+00:00",
+      "spend_1h": 0.12,
       "purchases_1d": 0,
       "cpa_1d": null
     },
@@ -12627,8 +12627,8 @@
       "account": "CSP9860 4",
       "spend_date": "2026-11-03",
       "spend_at_last_check": 6.94,
-      "last_check_utc": "2026-11-03T11:28:34.576693+00:00",
-      "spend_1h": 0.96,
+      "last_check_utc": "2026-11-03T11:40:05.732957+00:00",
+      "spend_1h": 0.0,
       "purchases_1d": 1,
       "cpa_1d": 6.94
     },
@@ -12647,8 +12647,8 @@
       "account": "CSP9860 4",
       "spend_date": "2026-11-03",
       "spend_at_last_check": 15.4,
-      "last_check_utc": "2026-11-03T11:28:34.576693+00:00",
-      "spend_1h": 0.7,
+      "last_check_utc": "2026-11-03T11:40:05.732957+00:00",
+      "spend_1h": 0.0,
       "purchases_1d": 3,
       "cpa_1d": 5.13
     },
@@ -12656,11 +12656,11 @@
       "name": "باور بانك وينر - 30 أدست - بيد 1.7 / 1.6 30-10",
       "account": "CSP9860 4",
       "spend_date": "2026-11-03",
-      "spend_at_last_check": 8.73,
-      "last_check_utc": "2026-11-03T11:28:34.576693+00:00",
-      "spend_1h": 1.43,
+      "spend_at_last_check": 8.74,
+      "last_check_utc": "2026-11-03T11:40:05.732957+00:00",
+      "spend_1h": 0.01,
       "purchases_1d": 1,
-      "cpa_1d": 8.73
+      "cpa_1d": 8.74
     },
     "89aadf62-66f2-4ac8-9106-f92fd83b4277": {
       "name": "باور بانك وينر - 30 أدست - بيد 1.4 30-10",
@@ -12757,8 +12757,8 @@
       "account": "CSP9860",
       "spend_date": "2026-11-03",
       "spend_at_last_check": 10.67,
-      "last_check_utc": "2026-11-03T11:27:00.453791+00:00",
-      "spend_1h": 0.66,
+      "last_check_utc": "2026-11-03T11:39:08.947529+00:00",
+      "spend_1h": 0.0,
       "purchases_1d": 2,
       "cpa_1d": 5.33
     },
@@ -12786,11 +12786,11 @@
       "name": "تيست - باور بانك",
       "account": "CSP9860",
       "spend_date": "2026-11-03",
-      "spend_at_last_check": 28.78,
-      "last_check_utc": "2026-11-03T11:27:00.453791+00:00",
-      "spend_1h": 4.78,
+      "spend_at_last_check": 29.22,
+      "last_check_utc": "2026-11-03T11:39:08.947529+00:00",
+      "spend_1h": 0.44,
       "purchases_1d": 4,
-      "cpa_1d": 7.2
+      "cpa_1d": 7.3
     },
     "a9dcd138-a822-4664-bf0a-c36d02233956": {
       "name": "باور بانك وينر - 10 أدست - بيد 1.6 / 1.65 / 1.67",
@@ -12806,9 +12806,9 @@
       "name": "باور بانك وينر - 10 أدست - بيد 1.6 / 1.65 / 1.67",
       "account": "CSP9860",
       "spend_date": "2026-11-03",
-      "spend_at_last_check": 5.35,
-      "last_check_utc": "2026-11-03T11:27:00.453791+00:00",
-      "spend_1h": 1.29,
+      "spend_at_last_check": 5.5,
+      "last_check_utc": "2026-11-03T11:39:08.947529+00:00",
+      "spend_1h": 0.15,
       "purchases_1d": 0,
       "cpa_1d": null
     },
@@ -12866,11 +12866,11 @@
       "name": "تيست - وسادة السيارة",
       "account": "CSP9860 4",
       "spend_date": "2026-11-03",
-      "spend_at_last_check": 9.26,
-      "last_check_utc": "2026-11-03T11:28:34.576693+00:00",
-      "spend_1h": 1.69,
+      "spend_at_last_check": 9.43,
+      "last_check_utc": "2026-11-03T11:40:05.732957+00:00",
+      "spend_1h": 0.17,
       "purchases_1d": 1,
-      "cpa_1d": 9.26
+      "cpa_1d": 9.43
     },
     "9ff50b24-d5c3-48ba-b74e-7b55e8ffca52": {
       "name": "وسادة السيارة وينر - 10 أدست - بيد 1.7 / 1.6",
@@ -12896,11 +12896,11 @@
       "name": "تيست - باور بانك",
       "account": "CSP9860 4",
       "spend_date": "2026-11-03",
-      "spend_at_last_check": 32.85,
-      "last_check_utc": "2026-11-03T11:28:34.576693+00:00",
-      "spend_1h": 6.21,
+      "spend_at_last_check": 33.63,
+      "last_check_utc": "2026-11-03T11:40:05.732957+00:00",
+      "spend_1h": 0.78,
       "purchases_1d": 4,
-      "cpa_1d": 8.21
+      "cpa_1d": 8.41
     },
     "e21421ad-72a1-427e-987d-e6cc49384a31": {
       "name": "باور بانك وينر - 10 أدست - بيد 1.7 / 1.6",
@@ -12977,8 +12977,8 @@
       "account": "CSP9860",
       "spend_date": "2026-11-03",
       "spend_at_last_check": 4.75,
-      "last_check_utc": "2026-11-03T11:27:00.453791+00:00",
-      "spend_1h": 0.72,
+      "last_check_utc": "2026-11-03T11:39:08.947529+00:00",
+      "spend_1h": 0.0,
       "purchases_1d": 2,
       "cpa_1d": 2.38
     },
@@ -12986,9 +12986,9 @@
       "name": "وسادة السيارة وينر منزلك بديلة - ماكس بيد 1.9 - 02-11",
       "account": "CSP9860 4",
       "spend_date": "2026-11-03",
-      "spend_at_last_check": 0.89,
-      "last_check_utc": "2026-11-03T11:28:34.576693+00:00",
-      "spend_1h": 0.27,
+      "spend_at_last_check": 0.93,
+      "last_check_utc": "2026-11-03T11:40:05.732957+00:00",
+      "spend_1h": 0.04,
       "purchases_1d": 0,
       "cpa_1d": null
     },
@@ -13006,9 +13006,9 @@
       "name": "وسادة السيارة وينر (26 أدست) - جديد من الصفر - بيد 1.7 - 02-11",
       "account": "CSP9860",
       "spend_date": "2026-11-03",
-      "spend_at_last_check": 0.96,
-      "last_check_utc": "2026-11-03T11:27:00.453791+00:00",
-      "spend_1h": 0.28,
+      "spend_at_last_check": 1.01,
+      "last_check_utc": "2026-11-03T11:39:08.947529+00:00",
+      "spend_1h": 0.05,
       "purchases_1d": 0,
       "cpa_1d": null
     },
@@ -13016,9 +13016,9 @@
       "name": "باور بانك وينر (18 أدست) - جديد من الصفر - بيد 1.7 - 02-11",
       "account": "CSP9860",
       "spend_date": "2026-11-03",
-      "spend_at_last_check": 0.78,
-      "last_check_utc": "2026-11-03T11:27:00.453791+00:00",
-      "spend_1h": 0.28,
+      "spend_at_last_check": 0.91,
+      "last_check_utc": "2026-11-03T11:39:08.947529+00:00",
+      "spend_1h": 0.13,
       "purchases_1d": 0,
       "cpa_1d": null
     },
@@ -13026,9 +13026,9 @@
       "name": "باور بانك وينر بديلة - جديد من الصفر - بيد 1.7 - 02-11",
       "account": "CSP9860",
       "spend_date": "2026-11-03",
-      "spend_at_last_check": 1.45,
-      "last_check_utc": "2026-11-03T11:27:00.453791+00:00",
-      "spend_1h": 0.55,
+      "spend_at_last_check": 1.84,
+      "last_check_utc": "2026-11-03T11:39:08.947529+00:00",
+      "spend_1h": 0.39,
       "purchases_1d": 0,
       "cpa_1d": null
     },
@@ -13036,9 +13036,9 @@
       "name": "باور بانك وينر (3 أدست) - جديد من الصفر - بيد 1.7 - 02-11",
       "account": "CSP9860",
       "spend_date": "2026-11-03",
-      "spend_at_last_check": 0.38,
-      "last_check_utc": "2026-11-03T11:27:00.453791+00:00",
-      "spend_1h": 0.17,
+      "spend_at_last_check": 0.44,
+      "last_check_utc": "2026-11-03T11:39:08.947529+00:00",
+      "spend_1h": 0.06,
       "purchases_1d": 0,
       "cpa_1d": null
     },
@@ -13046,9 +13046,9 @@
       "name": "وسادة السيارة شاملة (22 فيديو) - جديد من الصفر - بيد 1.7 - 02-11",
       "account": "CSP9860",
       "spend_date": "2026-11-03",
-      "spend_at_last_check": 0.35,
-      "last_check_utc": "2026-11-03T11:27:00.453791+00:00",
-      "spend_1h": 0.08,
+      "spend_at_last_check": 0.37,
+      "last_check_utc": "2026-11-03T11:39:08.947529+00:00",
+      "spend_1h": 0.02,
       "purchases_1d": 0,
       "cpa_1d": null
     },
@@ -13066,9 +13066,9 @@
       "name": "باور بانك شاملة (3 أدست) - جديد من الصفر - بيد 1.7 - 02-11",
       "account": "CSP9860",
       "spend_date": "2026-11-03",
-      "spend_at_last_check": 1.95,
-      "last_check_utc": "2026-11-03T11:27:00.453791+00:00",
-      "spend_1h": 0.76,
+      "spend_at_last_check": 2.07,
+      "last_check_utc": "2026-11-03T11:39:08.947529+00:00",
+      "spend_1h": 0.12,
       "purchases_1d": 0,
       "cpa_1d": null
     },
@@ -13076,11 +13076,11 @@
       "name": "وسادة السيارة وينر منزلك بديلة - جديد من الصفر - بيد 1.7 - 02-11",
       "account": "CSP9860 4",
       "spend_date": "2026-11-03",
-      "spend_at_last_check": 1.59,
-      "last_check_utc": "2026-11-03T11:28:34.576693+00:00",
-      "spend_1h": 0.23,
+      "spend_at_last_check": 1.66,
+      "last_check_utc": "2026-11-03T11:40:05.732957+00:00",
+      "spend_1h": 0.07,
       "purchases_1d": 1,
-      "cpa_1d": 1.59
+      "cpa_1d": 1.66
     },
     "624a32cf-72b4-410b-8f31-02592f441d51": {
       "name": "باور بانك وينر 2 (1 أدست) - جديد من الصفر - بيد 1.7 - 02-11",
@@ -13106,9 +13106,9 @@
       "name": "باور بانك شاملة (3 أدست) - جديد من الصفر - بيد 1.7 - 02-11",
       "account": "CSP9860 4",
       "spend_date": "2026-11-03",
-      "spend_at_last_check": 5.45,
-      "last_check_utc": "2026-11-03T11:28:34.576693+00:00",
-      "spend_1h": 1.1,
+      "spend_at_last_check": 5.72,
+      "last_check_utc": "2026-11-03T11:40:05.732957+00:00",
+      "spend_1h": 0.27,
       "purchases_1d": 0,
       "cpa_1d": null
     },
@@ -13127,8 +13127,8 @@
       "account": "CSP9860 4",
       "spend_date": "2026-11-03",
       "spend_at_last_check": 0.43,
-      "last_check_utc": "2026-11-03T11:28:34.576693+00:00",
-      "spend_1h": 0.04,
+      "last_check_utc": "2026-11-03T11:40:05.732957+00:00",
+      "spend_1h": 0.0,
       "purchases_1d": 0,
       "cpa_1d": null
     },
@@ -16443,26 +16443,26 @@
   "latest_winning_structure_analysis": [
     {
       "structure": "10-AdSets + Target Cost $1.80–$2.10 + فيديوهات رابحة",
-      "m3": "$815.03 / 116 ($7.03)",
-      "m7": "$2116.04 / 331 ($6.39)",
+      "m3": "$815.39 / 116 ($7.03)",
+      "m7": "$2116.40 / 331 ($6.39)",
       "verdict": "✅ التركيبة رقم #1 المعتمدة للتعميم (عزل 10 مجموعات ببيد منخفض يحمي من حرق الميزانية)"
     },
     {
       "structure": "حملات الـ 30 أدست كوبي (Target Cost <= $1.80) للفيديوهات السوبر رابحة",
-      "m3": "$50.33 / 8 ($6.29)",
-      "m7": "$479.44 / 65 ($7.38)",
+      "m3": "$51.35 / 8 ($6.42)",
+      "m7": "$480.46 / 65 ($7.39)",
       "verdict": "✅ رابحة للسكيلينغ عند تصفية الأدست الصفرية أولاً بأول وحصر الصرف في الفيديوهات البيّاعة"
     },
     {
       "structure": "حملات الاختبار المخصصة (تيست / 4-AdSets بيد <= $1.80)",
-      "m3": "$172.04 / 16 ($10.75)",
-      "m7": "$172.04 / 16 ($10.75)",
+      "m3": "$173.44 / 16 ($10.84)",
+      "m7": "$173.44 / 16 ($10.84)",
       "verdict": "🧪 مخصصة لاكتشاف الفيديوهات الفائزة قبل نقلها لحملات السكيل أو جوجل أدز (فرملة $20 صارمة)"
     },
     {
       "structure": "بيد مرتفع (> $2.50) أو فيديوهات غير مصفاة",
-      "m3": "$138.56 / 11 ($12.60)",
-      "m7": "$367.94 / 27 ($13.63)",
+      "m3": "$139.65 / 11 ($12.70)",
+      "m7": "$369.03 / 27 ($13.67)",
       "verdict": "🚫 سبب الفترات السيئة (يرفع CPC فوق $0.28 ويستنزف الميزانية بدون مبيعات — ممنوع نهائياً)"
     }
   ],
