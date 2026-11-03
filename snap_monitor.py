@@ -204,7 +204,7 @@ def get_locked_low_bid_micro(campaign_id: str = "", campaign_name: str = "", squ
         if b_fc and 1_000_000 <= int(b_fc) <= 4_500_000:
             return int(b_fc)
     if is_dedicated_snap_test_campaign(campaign_id, campaign_name, squad_name):
-        return 2_800_000
+        return 3_000_000
     if campaign_id and campaign_id in ALLOWED_GULF_CAMPAIGN_IDS:
         return None
     if is_gulf_034_campaign(campaign_name, squad_name):
@@ -215,21 +215,11 @@ def get_locked_low_bid_micro(campaign_id: str = "", campaign_name: str = "", squ
         return 1_900_000
     if any(k in sn_l or k in cn_l for k in ("1.80 max", "1.8 max", "بيد 1.8", "ماكس بيد 1.8", "bid 1.8", " 1.80 ")):
         return 1_800_000
-    if any(k in sn_l for k in ("1.67 max", "بيد 1.67", "ماكس بيد 1.67", "bid 1.67", " 1.67 ", "1.47 max", "بيد 1.47", " 1.47 ")):
-        return 1_470_000
-    if any(k in sn_l for k in ("1.65 max", "بيد 1.65", "ماكس بيد 1.65", "bid 1.65", " 1.65 ", "1.45 max", "بيد 1.45", " 1.45 ")):
-        return 1_450_000
-    if any(k in sn_l for k in ("1.70 max", "1.7 max", "بيد 1.7", "ماكس بيد 1.7", "bid 1.7", " 1.70 ", " 1.7 ", "1.50 max", "1.5 max", "بيد 1.5")):
-        return 1_500_000
-    if any(k in sn_l for k in ("1.60 max", "1.6 max", "بيد 1.6", "ماكس بيد 1.6", "bid 1.6", " 1.60 ", " 1.6 ", "1.40 max", "1.4 max", "بيد 1.4")):
-        return 1_400_000
     m_num = re.search(r"#(\d+)", sn_l)
     if m_num:
         idx = int(m_num.group(1))
-        if campaign_id in TEN_SQUAD_CAMPAIGN_IDS:
-            return 1_500_000 if idx <= 5 else 1_400_000
-        return 1_500_000 if idx <= 15 else 1_400_000
-    return 1_400_000
+        return 1_900_000 if (idx % 2 == 1) else 1_800_000
+    return 1_800_000
 
 
 def is_low_bid_experiment_locked(campaign_id: str, campaign_name: str = "", squad_name: str = "", squad_id: str = "") -> bool:
@@ -324,21 +314,21 @@ def is_target_cost_campaign_or_squad(campaign_id: str, campaign_name: str = "", 
 
 
 SPENDING_TODAY_179_CAMPAIGN_IDS = set()
-MAX_SNAP_BID_MICRO = 1_800_000  # السقف الأقصى لبيدات السعودية (شامل حملات منزلك وينر الجديدة بـ $1.80 بأمر المستخدم 2026-11-01)
-MAX_NON_COPY_TEST_BID_MICRO = 1_800_000  # السقف الأقصى لحملات السعودية العادية ($1.80)
+MAX_SNAP_BID_MICRO = 1_900_000  # السقف الأقصى لبيدات الكوبي السعودية ($1.80 و $1.90 بأمر المستخدم 2026-11-03)
+MAX_NON_COPY_TEST_BID_MICRO = 1_900_000  # السقف الأقصى لحملات السعودية العادية ($1.90)
 
 
 def determine_expected_bid_micro_from_squad(
     squad_name: str, current_bid_micro: int = 0, expect_tc: bool = False, campaign_name: str = "", campaign_id: str = "", squad_id: str = ""
 ) -> int:
     """
-    أمر المستخدم الصارم (محدث 2026-11-02):
-    - تنزيل البيد بمقدار -$0.20 لكل أدست في جميع حملات سناب شات.
+    أمر المستخدم الصارم (محدث 2026-11-03):
+    - رفع بيدات أدست الكوبي في حملات سناب شات إلى $1.80 و $1.90 وتثبيتها.
     """
     locked_b = get_locked_low_bid_micro(campaign_id, campaign_name, squad_name, squad_id)
     if locked_b and 1_000_000 <= int(locked_b) <= 4_500_000:
         return int(locked_b)
-    return 1_400_000
+    return 1_800_000
 HISTORY_FILE = Path(__file__).parent / "paused_history.json"
 ACCOUNT_TZ = timezone(timedelta(hours=3))  # GMT+3 (Saudi/Qatar time)
 
@@ -1383,8 +1373,8 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
                         or (st3_sq_rev.get("purchases", 0) >= 1 and st3_sq_rev.get("cpa") is not None and st3_sq_rev["cpa"] <= max_revive_cpa)
                     ):
                         squad["status"] = "ACTIVE"
-                        if not is_gulf_034_campaign(c_name, s_name, squad) and (squad.get("bid_micro") or 0) > 1_800_000:
-                            squad["bid_micro"] = 1_800_000
+                        if not is_gulf_034_campaign(c_name, s_name, squad) and (squad.get("bid_micro") or 0) > 1_900_000:
+                            squad["bid_micro"] = 1_900_000
                         elif (squad.get("bid_micro") or 0) > 2_350_000:
                             squad["bid_micro"] = 2_250_000
                         api_put(f"/campaigns/{c_id}/adsquads", token, {"adsquads": [squad]})
