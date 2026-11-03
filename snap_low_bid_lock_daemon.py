@@ -196,9 +196,14 @@ def _process_direct_campaign(item: tuple, token: str) -> int:
                 sq["bid_strategy"] = "LOWEST_COST_WITH_MAX_BID"
                 sq["target_bid"] = False
                 changed = True
-        if is_active_sq and cur_budget > 0 and cur_budget != 20_000_000:
-            sq["daily_budget_micro"] = 20_000_000
-            changed = True
+        if is_active_sq and cur_budget > 0:
+            now_ksa = datetime.now(sm.ACCOUNT_TZ)
+            is_late_night_ksa = (now_ksa.hour >= 22 or now_ksa.hour < 6)
+            today_ksa_str = now_ksa.strftime("%Y-%m-%d")
+            expected_budget = 20_000_000 if is_late_night_ksa else (sm.get_custom_daytime_budget_micro(sid, today_ksa_str) or 20_000_000)
+            if cur_budget != expected_budget:
+                sq["daily_budget_micro"] = expected_budget
+                changed = True
 
         if changed:
             to_put.append(sq)
