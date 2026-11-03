@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-03T10:16:33.267900+00:00",
+  "updated_at": "2026-11-03T10:38:04.051165+00:00",
   "rule": "SNAP_COPY_BIDS_180_190_AND_TEST_300_2026_11_03",
   "by_squad_id": {
     "03105187-5949-41bd-a234-22b346ea48c0": 1400000,
@@ -1759,6 +1759,14 @@
     "9b90f1d2-7ada-42ff-9e59-7f7757460a46": 1700000
   },
   "randomized_campaigns": [],
-  "custom_daytime_budgets_micro": {},
-  "custom_daytime_budgets_date": ""
+  "custom_daytime_budgets_micro": {
+    "4a0003bf-2256-4702-82a1-ad3e90029e3f": 40000000,
+    "acbfa0ad-1b24-4927-b2f2-7b6ba42f2ee2": 35000000,
+    "54327c09-0ded-40c4-ad8a-f2ce5aeb85c5": 35000000,
+    "13073f3d-e9df-4c2d-ba18-b08a02fecce8": 30000000,
+    "6f5eaeac-b8ab-4bac-9194-3beb7c77b80e": 40000000,
+    "b07b52db-b142-45dc-8788-0a0f96b382c9": 40000000,
+    "537fa5eb-2720-45cb-9d56-b1571843bf23": 30000000
+  },
+  "custom_daytime_budgets_date": "2026-11-03"
 }
