@@ -1,9 +1,9 @@
 """
-حارس تثبيت بيدات أدست الكوبي ($1.80 و $1.90) وسقف $1.90 الصارم في سناب شات بالتوازي السريع المباشر
+حارس تثبيت بيدات أدست الكوبي ($1.90) الصارم في سناب شات بالتوازي السريع المباشر
 ===================================================================================================
 يفحص بالتوازي كل 15 ثانية في الخلفية التامة جميع الحملات النشطة في الحسابين (CSP9860 و CSP9860 4):
-1. بيدات أدست الكوبي في السعودية تثبّت على $1.80 (1,800,000 micro) و $1.90 (1,900,000 micro) حسب snap_squad_custom_bid_locks.json.
-2. حملات التيست المخصصة (تيست - باور بانك / تيست - وسادة السيارة) وحملات الخليج تبقى مستثناة ببيداتها المخصصة.
+1. بيدات جميع أدست الكوبي في السعودية تثبّت على $1.90 (1,900,000 micro) بأمر المستخدم الصارم (2026-11-03).
+2. حملات التيست المخصصة (تيست - باور بانك / تيست - وسادة السيارة @ $3.00) وحملات الخليج تبقى مستثناة ببيداتها المخصصة.
 """
 import concurrent.futures
 import json
@@ -191,7 +191,7 @@ def _process_direct_campaign(item: tuple, token: str) -> int:
             or sm.is_dedicated_snap_test_campaign(cid, cname, sname)
         )
         if not is_special_sq:
-            target_bid = sm.get_locked_low_bid_micro(cid, cname, sname, sid) or 1_800_000
+            target_bid = sm.get_locked_low_bid_micro(cid, cname, sname, sid) or 1_900_000
             if b != target_bid or sq.get("bid_strategy") != "LOWEST_COST_WITH_MAX_BID" or bool(sq.get("target_bid")):
                 sq["bid_micro"] = target_bid
                 sq["bid_strategy"] = "LOWEST_COST_WITH_MAX_BID"
@@ -286,8 +286,39 @@ def enforce_once() -> int:
     return fixed_count
 
 
+_SNAP_BID_MUTEX = None
+
+
+def _acquire_daemon_mutex() -> bool:
+    global _SNAP_BID_MUTEX
+    try:
+        import ctypes
+        from ctypes import wintypes
+        k = ctypes.WinDLL("kernel32", use_last_error=True)
+        k.CreateMutexW.argtypes = [wintypes.LPVOID, wintypes.BOOL, wintypes.LPCWSTR]
+        k.CreateMutexW.restype = wintypes.HANDLE
+        _SNAP_BID_MUTEX = k.CreateMutexW(None, False, "Local\\AntigravitySnapLowBidLockDaemon_v2")
+        if ctypes.get_last_error() == 183:  # ERROR_ALREADY_EXISTS
+            return False
+        return True
+    except Exception:
+        return not is_already_running()
+
+
+def _is_daemon_mutex_alive() -> bool:
+    try:
+        import ctypes
+        h = ctypes.windll.kernel32.OpenMutexW(0x00100000, False, "Local\\AntigravitySnapLowBidLockDaemon_v2")
+        if h:
+            ctypes.windll.kernel32.CloseHandle(h)
+            return True
+    except Exception:
+        pass
+    return is_already_running()
+
+
 def main():
-    if is_already_running():
+    if not _acquire_daemon_mutex():
         return
     try:
         LOCK_FILE.write_text(json.dumps({"pid": os.getpid(), "started_at": time.time()}), encoding="utf-8")
@@ -308,6 +339,8 @@ def main():
 
 if __name__ == "__main__":
     if "--once" in sys.argv:
-        enforce_once()
+        # Skip redundant parallel 22-campaign API sweep if the 15s background daemon is already active
+        if not _is_daemon_mutex_alive():
+            enforce_once()
     else:
         main()
