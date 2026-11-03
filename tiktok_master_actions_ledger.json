@@ -1,11 +1,6 @@
 {
   "cycles": [
     {
-      "timestamp": "2026-11-01 22:37",
-      "actions_count": 0,
-      "followups_count": 9
-    },
-    {
       "timestamp": "2026-11-01 23:00",
       "actions_count": 0,
       "followups_count": 9
@@ -359,6 +354,11 @@
       "timestamp": "2026-11-03 13:02",
       "actions_count": 0,
       "followups_count": 7
+    },
+    {
+      "timestamp": "2026-11-03 13:52",
+      "actions_count": 1,
+      "followups_count": 8
     }
   ],
   "actions": [
@@ -1579,7 +1579,7 @@
       ],
       "base_sp3": 0.0,
       "base_cv3": 0,
-      "status": "OPEN"
+      "status": "SUCCEEDED"
     },
     {
       "timestamp": "2026-10-31 20:23",
@@ -2240,7 +2240,7 @@
       "videos": [],
       "base_sp3": 31.79,
       "base_cv3": 7,
-      "status": "OPEN"
+      "status": "SUCCEEDED"
     },
     {
       "ts": 1793644197.5985258,
@@ -2358,6 +2358,22 @@
       ],
       "base_sp3": 0.0,
       "base_cv3": 0,
+      "status": "OPEN"
+    },
+    {
+      "timestamp": "2026-11-03 13:52",
+      "experiment_key": "REVIVE_1880671152548945_2026-11-03",
+      "is_experiment": false,
+      "aadvid": "7631763556322148369",
+      "acc_name": "ROELLINGER RECYCLING",
+      "campaign_id": "1880671152548945",
+      "campaign_name": "car armrest AutoPlacement Broad KSA 6 Winners 01-11",
+      "action_type": "إعادة تفعيل حملة فائزة (3 مبيعات @ $5.57) وحصر الميزانية في الفيديوهات الرابحة",
+      "videos": [
+        "15-10_video_4.mp4 (3D: 2 sales @ $3.72, CPC <= $0.35)"
+      ],
+      "base_sp3": 16.72,
+      "base_cv3": 3,
       "status": "OPEN"
     }
   ],
@@ -2896,6 +2912,15 @@
       ],
       "sp3": 117.55,
       "cv3": 21
+    },
+    "2026-11-03:7631763556322148369:1880671152548945": {
+      "campaign_name": "car armrest AutoPlacement Broad KSA 6 Winners 01-11",
+      "revived_at": "2026-11-03 13:52",
+      "videos": [
+        "15-10_video_4.mp4 (3D: 2 sales @ $3.72, CPC <= $0.35)"
+      ],
+      "sp3": 16.72,
+      "cv3": 3
     }
   },
   "launched_batch_campaigns": {
@@ -3189,30 +3214,30 @@
   },
   "latest_winning_structure_analysis": {
     "Website Leads [obj=8] + Auto Placement [3000,9000,1000] + 3–5 فيديوهات رابحة": {
-      "sp1": 13.56,
-      "cv1": 0,
-      "sp3": 149.68,
-      "cv3": 14,
-      "sp7": 188.66,
-      "cv7": 23,
+      "sp1": 16.7,
+      "cv1": 2,
+      "sp3": 152.89,
+      "cv3": 23,
+      "sp7": 191.71,
+      "cv7": 31,
       "decision": "✅ التركيبة رقم #1 اليوم لإنقاذ الـ CPC (< $0.22) وتوليد مبيعات فورية (SuperCombo / CPC-Rescued)"
     },
     "Website Leads [obj=8] + TikTok In-Feed Only [3000] + فيديوهات عابرة للمنصات": {
       "sp1": 0.02,
       "cv1": 0,
       "sp3": 227.93,
-      "cv3": 44,
+      "cv3": 45,
       "sp7": 417.33,
-      "cv7": 76,
+      "cv7": 77,
       "decision": "✅ التركيبة رقم #1 في حجم المبيعات لـ Cross-Platform Winners (مثل H7 صاحبة 43 بيعة بـ $5.25)"
     },
     "Smart+ Website Conversions + 3–4 فيديوهات رابحة معاد تدويرها (30d Batch)": {
-      "sp1": 44.96,
-      "cv1": 0,
-      "sp3": 743.56,
-      "cv3": 74,
-      "sp7": 814.53,
-      "cv7": 91,
+      "sp1": 47.55,
+      "cv1": 10,
+      "sp3": 746.2,
+      "cv3": 96,
+      "sp7": 817.1,
+      "cv7": 113,
       "decision": "✅ ناجحة عند حصر الحملة في 3–4 فيديوهات مجربة وتصفية الفيديوهات الخاسرة عند $1.00 و CPC > $0.25"
     },
     "حملات التوسيع المكررة (SCALE / Copy) أو تجميع > 6 فيديوهات خام": {
