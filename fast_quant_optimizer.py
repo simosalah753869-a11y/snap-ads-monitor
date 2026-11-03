@@ -330,16 +330,17 @@ def main():
                                             "max_bars": max_bars
                                         }
                                         is_r = run_sim(all_data, 205, mid_i, cfg)
-                                        oos_r = run_sim(all_data, mid_i, min_len, cfg)
-                                        full_r = run_sim(all_data, 205, min_len, cfg)
-                                        if (is_r["profit_factor"] >= 1.25 and oos_r["profit_factor"] >= 2.2
-                                                and full_r["max_drawdown_pct"] <= 2.20 and full_r["total_trades"] >= 15):
-                                            candidates.append({
-                                                "cfg": cfg,
-                                                "full_1500h": full_r,
-                                                "in_sample": is_r,
-                                                "out_of_sample": oos_r
-                                            })
+                                        if is_r["profit_factor"] >= 1.25 and is_r["total_trades"] >= 4:
+                                            oos_r = run_sim(all_data, mid_i, min_len, cfg)
+                                            if oos_r["profit_factor"] >= 2.2 and oos_r["total_trades"] >= 5:
+                                                full_r = run_sim(all_data, 205, min_len, cfg)
+                                                if full_r["max_drawdown_pct"] <= 2.20 and full_r["total_trades"] >= 15:
+                                                    candidates.append({
+                                                        "cfg": cfg,
+                                                        "full_1500h": full_r,
+                                                        "in_sample": is_r,
+                                                        "out_of_sample": oos_r
+                                                    })
 
     candidates.sort(
         key=lambda x: (
