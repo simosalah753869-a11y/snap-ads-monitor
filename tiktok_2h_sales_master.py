@@ -684,7 +684,7 @@ def launch_new_video_batch_campaign(
     new_camp_name: str,
     video_files: list[tuple[Path, str]],
     cpa_bid: str = "6.5",
-    budget: str = "60",
+    budget: str = "50",
     scheduled_start_time: str = "2026-10-31 05:00:00",
     tiktok_only_placement: bool = True,
     product_type: str = "pb",
@@ -1270,10 +1270,10 @@ def main():
                         print(f"  [WARN] Failed reviving 3D winner {cname}: {e_rev}", flush=True)
 
             # تم تعطيل إعادة التشغيل التلقائي لحملات 31-10 الموقوفة حتى لا تعود الحملات الخاسرة للنزيف:
-            is_car_cushion_camp = any(k in cname.lower() for k in ("car", "armrest", "cushion", "pillow", "وساد", "تكاي"))
+            is_car_cushion_camp = any(k in cname.lower() for k in ("car", "armrest", "cushion", "pillow", "وساد", "تكاي", "مسند", "maybach", "مايباخ"))
             if is_active:
                 cn_low_chk = cname.lower()
-                if (("kashaf" in cn_low_chk or "كشاف" in cn_low_chk) and not tm.is_gulf_campaign(cname)) or "pillow" in cn_low_chk or "وسادة نوم" in cn_low_chk:
+                if ((is_car_cushion_camp or "kashaf" in cn_low_chk or "kasahf" in cn_low_chk or "flash" in cn_low_chk or "كشاف" in cn_low_chk) and not tm.is_gulf_campaign(cname)) or "pillow" in cn_low_chk or "وسادة نوم" in cn_low_chk:
                     ok_pk, _ = tm.pause_campaign(session, headers, aadvid, cid, operation="disable")
                     if ok_pk:
                         is_active = False
@@ -1608,24 +1608,35 @@ def main():
                 cids_e = [str(a.get("creative_id")) for a in ads_e if str(a.get("campaign_id")) == m["campaign_id"] and a.get("creative_id")]
                 if cids_e:
                     mats_e = tm.fetch_expanded_materials(session, headers, aadvid, cids_e, two_str_audit, t_str_audit)
-                    for me in mats_e:
-                        if str(me.get("mix_material_aco_opt_status") or "0") != "0" or str(me.get("material_primary_status") or "") in ("disable", "delete"):
-                            continue
+                    active_mats_e = [
+                        me for me in mats_e
+                        if str(me.get("mix_material_aco_opt_status") or "0") == "0"
+                        and str(me.get("material_primary_status") or "") not in ("disable", "delete")
+                    ]
+                    remaining_active_e = len(active_mats_e)
+                    camp_profitable_e = (
+                        (m["cv1"] >= 1 and m["sp1"] > 0 and (m["sp1"] / m["cv1"]) <= 7.00)
+                        or (m["cv3"] >= 1 and m["sp3"] > 0 and (m["sp3"] / m["cv3"]) <= 7.00)
+                    )
+                    for me in active_mats_e:
+                        if remaining_active_e <= 1:
+                            break
                         v_sp = float(me.get("stat_cost") or 0.0)
                         v_cv = int(float(me.get("time_attr_convert_cnt") or 0))
                         v_clk = int(float(me.get("click_cnt") or 0))
-                        v_cpc = float(me.get("cpc") or 0.0)
+                        v_cpc = (v_sp / v_clk) if v_clk > 0 else float(me.get("cpc") or 0.0)
                         v_nm = me.get("main_entity_name") or "Video"
                         v_kill = None
-                        if v_cv == 0 and v_sp >= VIDEO_CPC_MIN_SPEND and (v_clk == 0 or v_cpc > VIDEO_MAX_CPC):
+                        if v_cv == 0 and v_sp >= VIDEO_CPC_MIN_SPEND and (v_clk == 0 or round(v_cpc, 2) > VIDEO_MAX_CPC):
                             v_kill = f"صرف ${v_sp:.2f} بـ CPC=${v_cpc:.2f} (> $0.25) بدون مبيعات"
-                        elif v_cv > 0 and v_sp >= VIDEO_CPC_MIN_SPEND and (v_clk == 0 or v_cpc > VIDEO_MAX_CPC_WITH_SALES):
+                        elif v_cv > 0 and v_sp >= VIDEO_CPC_MIN_SPEND and (v_clk == 0 or round(v_cpc, 2) > VIDEO_MAX_CPC_WITH_SALES):
                             v_kill = f"صرف ${v_sp:.2f} بـ CPC=${v_cpc:.2f} (> $0.35 سقف النقرة مع وجود مبيعات)"
-                        elif v_cv == 0 and not (m["cv1"] >= 1 and m["sp1"] > 0 and (m["sp1"] / m["cv1"]) <= 7.00 and v_clk > 0 and round(v_cpc, 2) <= VIDEO_MAX_CPC) and v_sp >= EXP_VIDEO_NO_SALE_MICRO_LIMIT:
+                        elif v_cv == 0 and not (camp_profitable_e and v_clk > 0 and round(v_cpc, 2) <= VIDEO_MAX_CPC) and v_sp >= EXP_VIDEO_NO_SALE_MICRO_LIMIT:
                             v_kill = f"صرف تجريبي ${v_sp:.2f} >= ${EXP_VIDEO_NO_SALE_MICRO_LIMIT:.2f} بدون مبيعات"
                         if v_kill:
                             ok_vk, _ = tm.pause_smart_plus_video(session, headers, aadvid, str(me.get("ad_id")), me, operation="disable")
                             if ok_vk:
+                                remaining_active_e -= 1
                                 new_actions_taken.append(f"🛡️ فرملة فيديو داخل التجربة '{v_nm}' في '{cname}' ({v_kill})")
             except Exception:
                 pass
@@ -1982,7 +1993,11 @@ def main():
             active_cnames_dyn = {
                 (m_it.get("campaign_name") or "").strip().lower()
                 for m_it in live_camp_metrics.values()
-                if m_it.get("aadvid") == aadvid_dyn and m_it.get("is_active")
+                if m_it.get("aadvid") == aadvid_dyn
+            } | {
+                (a_it.get("campaign_name") or "").strip().lower()
+                for a_it in ledger.get("actions", [])
+                if str(a_it.get("aadvid") or "") == aadvid_dyn
             }
             for prod_tag, prod_lbl, d_list, act_win_list in [
                 ("PB", "power bank", choked_pb_donors, active_pb_winners),
@@ -2062,7 +2077,7 @@ def main():
                         elif not is_car_t and vname_t not in seen_pb_t:
                             seen_pb_t.add(vname_t)
                             win_pb_tmr.append((cid_t, vname_t))
-                for p_tag, p_lbl, p_donors in [("PB", "power bank", win_pb_tmr), ("CAR", "car armrest", win_car_tmr)]:
+                for p_tag, p_lbl, p_donors in [("PB", "power bank", win_pb_tmr)]:
                     if len(p_donors) >= 3:
                         d_top = p_donors[:5]
                         EXPERIMENT_BLUEPRINTS.append({
@@ -2071,8 +2086,8 @@ def main():
                             "acc_name": acc_name_tmr,
                             "camp_name": f"[EXP-LEADS] {p_lbl} {len(d_top)} SuperCombo AutoPlc {tmr_tag}",
                             "method_label": f"خطة الغد المسبقة ({tmr_tag} الساعة 06:00 ص لتجاوز تأخر مراجعة تيك توك ليلاً): تجميع أقوى {len(d_top)} فيديوهات فائزة اليوم في Website Leads + Auto Placement",
-                            "cpa_bid": "6.3" if p_tag == "PB" else "6.2",
-                            "budget": "50" if p_tag == "PB" else "55",
+                            "cpa_bid": "6.3",
+                            "budget": "50",
                             "tiktok_only_placement": False,
                             "use_leads_objective": True,
                             "scheduled_start_time": tmr_sched_utc2,
