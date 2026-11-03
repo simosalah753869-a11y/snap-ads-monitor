@@ -1275,7 +1275,7 @@ def run_improvements_guardian(sales_3d: dict = None, sales_today: dict = None):
                         sn_s = s.get("name", "")
                         if is_dedicated_snap_test_campaign(cid, cname, sn_s):
                             continue
-                        target_b_s = get_locked_low_bid_micro(cid, cname, sn_s, s.get("id", "")) or 1_600_000
+                        target_b_s = get_locked_low_bid_micro(cid, cname, sn_s, s.get("id", "")) or 1_900_000
                         if bid_micro_s != target_b_s:
                             old_b_s = bid_micro_s / 1e6
                             new_b_s = target_b_s / 1e6
