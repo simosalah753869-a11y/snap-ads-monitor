@@ -1,3 +1,5 @@
+import csv
+import io
 import json
 import os
 import re
@@ -231,6 +233,94 @@ def load_history():
 
 def save_history(data):
     HISTORY_FILE.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
+
+
+SHEET_CSV_URL = "https://docs.google.com/spreadsheets/d/1AaGXjCDbrD7tLEpYaJf5cncgZ3HW5IP3J8TIVAcn0pE/gviz/tq?tqx=out:csv"
+_SHEET_GIFT_KW = ("باور بانك صغير للطوارئ", "سوار رجالي", "سماعات", "هدية", "مجانا", "مجاناً")
+_SHEET_UPSELL_KW = (
+    "عرض خاص",
+    "حامل الجوال المغناطيسي",
+    "شاحن سيارة فائق السرعة",
+    "كابل شحن 4 في 1",
+    "كابل شحن سلك",
+    "240w",
+    "مكنسة السيارة",
+    "ممتص صدمات",
+    "فوطة مايكروفايبر",
+    "ميدالية",
+)
+
+
+def fetch_sheet_tiktok_sales() -> dict:
+    """
+    Returns {date_yyyy_mm_dd_ksa: {utm_lower: deduplicated_main_orders_count}} from Lightfunnels Google Sheet.
+    Excludes free gifts and order-bump upsells, and deduplicates multi-row bundles within 60s per UTM.
+    """
+    by_day_utm = {}
+    csv_text = ""
+    for _ in range(2):
+        try:
+            r = requests.get(SHEET_CSV_URL, headers={"User-Agent": "Mozilla/5.0"}, timeout=15)
+            if r.status_code == 200 and r.text:
+                csv_text = r.text
+                break
+        except Exception:
+            time.sleep(0.8)
+    if not csv_text:
+        return by_day_utm
+
+    sa_tz = timezone(timedelta(hours=3))
+    seen_keys = set()
+    last_ts_by_utm = {}
+    try:
+        rows = list(csv.reader(io.StringIO(csv_text)))
+        for row in rows[1:]:
+            if len(row) < 3:
+                continue
+            p_raw = (row[0] or "").strip()
+            u_raw = (row[1] or "").strip()
+            d_raw = (row[2] or "").strip()
+            if not p_raw or not u_raw or len(d_raw) < 10:
+                continue
+            pl = p_raw.lower()
+            if any(g in pl for g in _SHEET_GIFT_KW) or any(u in pl for u in _SHEET_UPSELL_KW):
+                continue
+            ul = u_raw.lower()
+            if ul in ("direct", "__campaign_name__"):
+                continue
+            try:
+                dt_sa = datetime.strptime(d_raw[:19], "%Y-%m-%d %H:%M:%S").replace(tzinfo=timezone.utc).astimezone(sa_tz)
+                ts = dt_sa.timestamp()
+                d_str = dt_sa.strftime("%Y-%m-%d")
+            except Exception:
+                ts = None
+                d_str = d_raw[:10]
+            ukey = f"{ul}|{p_raw}|{d_raw[:16]}"
+            if ukey in seen_keys:
+                continue
+            if ts is not None and ul in last_ts_by_utm and abs(ts - last_ts_by_utm[ul]) <= 60:
+                seen_keys.add(ukey)
+                continue
+            seen_keys.add(ukey)
+            if ts is not None:
+                last_ts_by_utm[ul] = ts
+            day_map = by_day_utm.setdefault(d_str, {})
+            day_map[ul] = day_map.get(ul, 0) + 1
+    except Exception as e:
+        print(f"  [WARN] fetch_sheet_tiktok_sales parse warning: {e}")
+    return by_day_utm
+
+
+def sum_sheet_utm_window(sheet_by_day: dict, utm_keys: list[str], st_date: str, et_date: str) -> int:
+    if not sheet_by_day or not utm_keys:
+        return 0
+    total = 0
+    for d_str, umap in sheet_by_day.items():
+        if st_date <= d_str <= et_date:
+            for uk in utm_keys:
+                if uk:
+                    total += int(umap.get(uk, 0))
+    return total
 
 
 def build_session(cookies_raw):
@@ -882,25 +972,46 @@ def main():
     global_dup_videos = {}
     # Global tracker for NEW products across ALL campaigns & ALL 6 accounts ($7.00 0-sale stop-loss rule)
     global_new_products = {}
+    sheet_sales_by_day = fetch_sheet_tiktok_sales()
 
+    prefetched_acc = {}
+    cn_max_spender_1d = {}
+    cn_max_sp_val_1d = {}
+    cn_max_spender_3d = {}
+    cn_max_sp_val_3d = {}
     for acc_name, aadvid, utc_offset in ACCOUNTS:
         now_tz = datetime.now(timezone(timedelta(hours=utc_offset)))
         today_str = now_tz.strftime("%Y-%m-%d")
         yesterday_str = (now_tz - timedelta(days=1)).strftime("%Y-%m-%d")
         two_days_ago_str = (now_tz - timedelta(days=2)).strftime("%Y-%m-%d")
         six_days_ago_str = (now_tz - timedelta(days=6)).strftime("%Y-%m-%d")
-
-        # 1. Campaign-Level Multi-Window Check (Today, Yesterday, 2D, 3D, 7D)
         camps_1d = fetch_campaigns(session, headers, aadvid, today_str, today_str)
         camps_yest = fetch_campaigns(session, headers, aadvid, yesterday_str, yesterday_str)
         camps_2d = fetch_campaigns(session, headers, aadvid, yesterday_str, today_str)
         camps_3d = fetch_campaigns(session, headers, aadvid, two_days_ago_str, today_str)
         camps_7d = fetch_campaigns(session, headers, aadvid, six_days_ago_str, today_str)
+        prefetched_acc[aadvid] = (today_str, yesterday_str, two_days_ago_str, six_days_ago_str, camps_1d, camps_yest, camps_2d, camps_3d, camps_7d)
+        for c_it in camps_1d:
+            cn_l = (c_it.get("campaign_name") or "").strip().lower()
+            sp_v = float((c_it.get("row_data") or {}).get("stat_cost") or 0.0)
+            if cn_l and sp_v > cn_max_sp_val_1d.get(cn_l, 0.0):
+                cn_max_sp_val_1d[cn_l] = sp_v
+                cn_max_spender_1d[cn_l] = aadvid
+        for c_it in camps_3d:
+            cn_l = (c_it.get("campaign_name") or "").strip().lower()
+            sp_v = float((c_it.get("row_data") or {}).get("stat_cost") or 0.0)
+            if cn_l and sp_v > cn_max_sp_val_3d.get(cn_l, 0.0):
+                cn_max_sp_val_3d[cn_l] = sp_v
+                cn_max_spender_3d[cn_l] = aadvid
+
+    for acc_name, aadvid, utc_offset in ACCOUNTS:
+        today_str, yesterday_str, two_days_ago_str, six_days_ago_str, camps_1d, camps_yest, camps_2d, camps_3d, camps_7d = prefetched_acc[aadvid]
         camp_1d_map = {str(c.get("campaign_id")): c for c in camps_1d if c.get("campaign_id")}
         camp_yest_map = {str(c.get("campaign_id")): c for c in camps_yest if c.get("campaign_id")}
         camp_2d_map = {str(c.get("campaign_id")): c for c in camps_2d if c.get("campaign_id")}
         camp_3d_map = {str(c.get("campaign_id")): c for c in camps_3d if c.get("campaign_id")}
         camp_7d_map = {str(c.get("campaign_id")): c for c in camps_7d if c.get("campaign_id")}
+        camp_sheet_protected_1d = {}
 
         # Aggregate all campaigns (active + paused) per new product key across accounts
         all_known_cids_acc = set(camp_7d_map.keys()) | set(camp_3d_map.keys()) | set(camp_1d_map.keys())
@@ -1036,6 +1147,20 @@ def main():
             c_clicks_3d = int(float(rd3.get("click_cnt") or 0))
             c_spend_7d = float(rd7.get("stat_cost") or c_spend_3d)
             c_conv_7d = int(float(rd7.get("time_attr_convert_cnt") or c_conv_3d))
+
+            cn_low_sh = camp_name.strip().lower()
+            utm_k1 = [camp_id.lower()] + ([cn_low_sh] if (c_spend_1d >= 0.50 and cn_max_spender_1d.get(cn_low_sh) == aadvid) else [])
+            utm_k3 = [camp_id.lower()] + ([cn_low_sh] if (c_spend_3d >= 0.50 and cn_max_spender_3d.get(cn_low_sh) == aadvid) else [])
+            sh_c1 = sum_sheet_utm_window(sheet_sales_by_day, utm_k1, today_str, today_str)
+            sh_cy = sum_sheet_utm_window(sheet_sales_by_day, utm_k3, yesterday_str, yesterday_str)
+            sh_c2 = sum_sheet_utm_window(sheet_sales_by_day, utm_k3, yesterday_str, today_str)
+            sh_c3 = sum_sheet_utm_window(sheet_sales_by_day, utm_k3, two_days_ago_str, today_str)
+            sh_c7 = sum_sheet_utm_window(sheet_sales_by_day, utm_k3, six_days_ago_str, today_str)
+            c_conv_1d = max(c_conv_1d, sh_c1)
+            c_conv_yest = max(c_conv_yest, sh_cy)
+            c_conv_2d = max(c_conv_2d, sh_c2)
+            c_conv_3d = max(c_conv_3d, sh_c3)
+            c_conv_7d = max(c_conv_7d, sh_c7)
             c_cpc_1d = float(rd1.get("cpc") or 0.0)
             c_cpc_yest = float(rdy.get("cpc") or 0.0)
             c_cpc_2d = float(rd2.get("cpc") or 0.0)
@@ -1061,6 +1186,8 @@ def main():
             camp_no_sale_lim = gulf_camp_no_sale if camp_is_gulf else MAX_CAMPAIGN_NO_SALE_SPEND
             camp_cpa_lim = gulf_sim_cpa if camp_is_gulf else MAX_CAMPAIGN_CPA
             good_cpa_lim = gulf_sim_cpa if camp_is_gulf else 7.00
+            if sh_c1 >= 1 and c_spend_1d > 0 and (c_spend_1d / sh_c1) <= good_cpa_lim:
+                camp_sheet_protected_1d[camp_id] = sh_c1
             reg_no_sale_1d = gulf_camp_no_sale if camp_is_gulf else 5.00
             reg_no_sale_3d = (gulf_camp_no_sale + 2.50) if camp_is_gulf else MAX_REGULAR_CAMPAIGN_NO_SALE_3D
             reg_cpa_3d_lim = gulf_sim_cpa if camp_is_gulf else MAX_REGULAR_CAMPAIGN_CPA_3D
@@ -1586,11 +1713,29 @@ def main():
                 f"3D: ${spend_3d:.2f} (Conv={conv_3d}) | 7D: ${spend_7d:.2f} (Conv={conv_7d})"
             )
 
+            camp_id_for_v = str(m3.get("campaign_id") or "")
+            sh_c1_for_v = camp_sheet_protected_1d.get(camp_id_for_v, 0)
+            eff_v_conv_1d = conv_1d
+            eff_v_conv_2d = conv_2d
+            eff_v_conv_3d = conv_3d
+            eff_v_conv_7d = conv_7d
+            if (
+                eff_v_conv_1d == 0
+                and sh_c1_for_v >= 1
+                and clicks_1d > 0
+                and round(spend_1d / clicks_1d, 2) <= (MAX_CPC_WITH_SALES if conv_3d >= 1 else (v_gulf_max_cpc or MAX_CPC))
+                and (spend_1d / sh_c1_for_v) <= (v_gulf_cpa if v_is_gulf else 7.00)
+            ):
+                eff_v_conv_1d = sh_c1_for_v
+                eff_v_conv_2d = max(eff_v_conv_2d, sh_c1_for_v)
+                eff_v_conv_3d = max(eff_v_conv_3d, sh_c1_for_v)
+                eff_v_conv_7d = max(eff_v_conv_7d, sh_c1_for_v)
+
             reasons = evaluate_video_rules(
-                spend_1d, conv_1d, cpc_1d, clicks_1d,
-                spend_2d, conv_2d, cpc_2d, clicks_2d,
-                spend_3d, conv_3d, cpc_3d, clicks_3d,
-                spend_7d, conv_7d, cpc_7d, clicks_7d,
+                spend_1d, eff_v_conv_1d, cpc_1d, clicks_1d,
+                spend_2d, eff_v_conv_2d, cpc_2d, clicks_2d,
+                spend_3d, eff_v_conv_3d, cpc_3d, clicks_3d,
+                spend_7d, eff_v_conv_7d, cpc_7d, clicks_7d,
                 is_gulf=v_is_gulf,
                 is_new_test=v_is_new_test,
                 gulf_no_sale_limit=v_gulf_no_sale,
