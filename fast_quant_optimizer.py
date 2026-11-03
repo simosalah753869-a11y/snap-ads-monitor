@@ -61,6 +61,9 @@ def run_sim(all_data, start_i, end_i, cfg):
     short_max_vol_ratio = cfg.get("short_max_vol_ratio", 4.0)
     long_min_ret24 = cfg.get("long_min_ret24", -0.065)
     long_max_ret24 = cfg.get("long_max_ret24", -0.006)
+    max_entry_rng_atr = cfg.get("max_entry_rng_atr", 99.0)
+    low_atr_chop_stop_th = cfg.get("low_atr_chop_stop_th", 0.0)
+    low_atr_chop_scale = cfg.get("low_atr_chop_scale", 1.0)
     use_btc_leader = cfg.get("use_btc_leader", True)
     fee_rt = cfg.get("fee_rt", 0.0010)
     max_bars = cfg.get("max_bars", 96)
@@ -179,7 +182,11 @@ def run_sim(all_data, start_i, end_i, cfg):
                 stop_pct = (sl_mult * atr) / b["close"]
                 if stop_pct < 0.0045 or stop_pct > 0.04:
                     continue
+                if (b["high"] - b["low"]) / atr > max_entry_rng_atr:
+                    continue
                 size_usd = min(250.0, 2.50 / stop_pct)
+                if stop_pct < low_atr_chop_stop_th:
+                    size_usd = round(size_usd * low_atr_chop_scale, 2)
                 vol_ratio = b["vol"] / max(1e-9, b["vol_sma20"])
 
                 trend_up = (b["sma100"] >= b["sma200"]) if req_trend else True
@@ -299,36 +306,40 @@ def main():
                 for stag_ob in [True, False]:
                     for rsi_l, rsi_s in [(20, 76), (24, 76)]:
                         for buy_flow in [0.48, 0.50]:
-                            for short_ret24, short_vr, long_ret24, long_max_r24 in [(0.035, 4.0, -0.065, -0.006), (0.04, 4.0, -0.065, 99.0), (99.0, 99.0, -99.0, 99.0)]:
-                                for max_bars in [72, 96]:
-                                    cfg = {
-                                        "sl_atr": sl_atr, "tp_atr": tp_atr,
-                                        "trail_trig_atr": 99.0, "trail_lock_atr": 0.0,
-                                        "flow_rev_trig_atr": flow_rev_trig,
-                                        "flow_rev_lock_atr": flow_rev_lock,
-                                        "flow_rev_th": flow_rev_th,
-                                        "stag_tighten_48h": False,
-                                        "stag_ob_protect": stag_ob,
-                                        "rsi_long": rsi_l, "rsi_short": rsi_s,
-                                        "req_trend": True, "buy_flow": buy_flow,
-                                        "short_max_ret24": short_ret24,
-                                        "short_max_vol_ratio": short_vr,
-                                        "long_min_ret24": long_ret24,
-                                        "long_max_ret24": long_max_r24,
-                                        "use_btc_leader": True,
-                                        "max_bars": max_bars
-                                    }
-                                    is_r = run_sim(all_data, 205, mid_i, cfg)
-                                    oos_r = run_sim(all_data, mid_i, min_len, cfg)
-                                    full_r = run_sim(all_data, 205, min_len, cfg)
-                                    if (is_r["profit_factor"] >= 1.25 and oos_r["profit_factor"] >= 2.2
-                                            and full_r["max_drawdown_pct"] <= 2.20 and full_r["total_trades"] >= 15):
-                                        candidates.append({
-                                            "cfg": cfg,
-                                            "full_1500h": full_r,
-                                            "in_sample": is_r,
-                                            "out_of_sample": oos_r
-                                        })
+                            for short_ret24, short_vr, long_ret24, long_max_r24 in [(0.035, 4.0, -0.065, -0.006), (0.04, 4.0, -0.065, 99.0)]:
+                                for max_rng, chop_th, chop_sc in [(2.0, 0.0065, 0.55), (2.0, 0.0, 1.0), (99.0, 0.0, 1.0)]:
+                                    for max_bars in [72, 96]:
+                                        cfg = {
+                                            "sl_atr": sl_atr, "tp_atr": tp_atr,
+                                            "trail_trig_atr": 99.0, "trail_lock_atr": 0.0,
+                                            "flow_rev_trig_atr": flow_rev_trig,
+                                            "flow_rev_lock_atr": flow_rev_lock,
+                                            "flow_rev_th": flow_rev_th,
+                                            "stag_tighten_48h": False,
+                                            "stag_ob_protect": stag_ob,
+                                            "rsi_long": rsi_l, "rsi_short": rsi_s,
+                                            "req_trend": True, "buy_flow": buy_flow,
+                                            "short_max_ret24": short_ret24,
+                                            "short_max_vol_ratio": short_vr,
+                                            "long_min_ret24": long_ret24,
+                                            "long_max_ret24": long_max_r24,
+                                            "max_entry_rng_atr": max_rng,
+                                            "low_atr_chop_stop_th": chop_th,
+                                            "low_atr_chop_scale": chop_sc,
+                                            "use_btc_leader": True,
+                                            "max_bars": max_bars
+                                        }
+                                        is_r = run_sim(all_data, 205, mid_i, cfg)
+                                        oos_r = run_sim(all_data, mid_i, min_len, cfg)
+                                        full_r = run_sim(all_data, 205, min_len, cfg)
+                                        if (is_r["profit_factor"] >= 1.25 and oos_r["profit_factor"] >= 2.2
+                                                and full_r["max_drawdown_pct"] <= 2.20 and full_r["total_trades"] >= 15):
+                                            candidates.append({
+                                                "cfg": cfg,
+                                                "full_1500h": full_r,
+                                                "in_sample": is_r,
+                                                "out_of_sample": oos_r
+                                            })
 
     candidates.sort(
         key=lambda x: (
