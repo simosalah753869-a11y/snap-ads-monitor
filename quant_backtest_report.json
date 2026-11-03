@@ -1,5 +1,5 @@
 {
-  "updated_at_utc": "2026-11-02T21:55:46Z",
+  "updated_at_utc": "2026-11-03T00:38:01Z",
   "total_grid_tested": 789,
   "active_best_config": {
     "sl_atr": 1.8,
@@ -90,22 +90,22 @@
         "max_bars": 96
       },
       "full_1500h": {
-        "net_pnl_usd": 73.26,
+        "net_pnl_usd": 73.28,
         "wins": 21,
         "losses": 7,
         "total_trades": 28,
         "win_rate_pct": 75.0,
-        "profit_factor": 5.19,
-        "max_drawdown_pct": 1.07
+        "profit_factor": 5.2,
+        "max_drawdown_pct": 1.06
       },
       "in_sample": {
-        "net_pnl_usd": 14.41,
+        "net_pnl_usd": 14.43,
         "wins": 6,
         "losses": 5,
         "total_trades": 11,
         "win_rate_pct": 54.5,
-        "profit_factor": 2.08,
-        "max_drawdown_pct": 1.07
+        "profit_factor": 2.09,
+        "max_drawdown_pct": 1.06
       },
       "out_of_sample": {
         "net_pnl_usd": 53.46,
@@ -140,22 +140,22 @@
         "max_bars": 96
       },
       "full_1500h": {
-        "net_pnl_usd": 72.42,
+        "net_pnl_usd": 72.44,
         "wins": 21,
         "losses": 7,
         "total_trades": 28,
         "win_rate_pct": 75.0,
-        "profit_factor": 5.14,
-        "max_drawdown_pct": 1.07
+        "profit_factor": 5.15,
+        "max_drawdown_pct": 1.06
       },
       "in_sample": {
-        "net_pnl_usd": 14.41,
+        "net_pnl_usd": 14.43,
         "wins": 6,
         "losses": 5,
         "total_trades": 11,
         "win_rate_pct": 54.5,
-        "profit_factor": 2.08,
-        "max_drawdown_pct": 1.07
+        "profit_factor": 2.09,
+        "max_drawdown_pct": 1.06
       },
       "out_of_sample": {
         "net_pnl_usd": 52.62,
@@ -190,22 +190,22 @@
         "max_bars": 96
       },
       "full_1500h": {
-        "net_pnl_usd": 72.59,
+        "net_pnl_usd": 72.61,
         "wins": 21,
         "losses": 7,
         "total_trades": 28,
         "win_rate_pct": 75.0,
-        "profit_factor": 5.15,
-        "max_drawdown_pct": 1.07
+        "profit_factor": 5.16,
+        "max_drawdown_pct": 1.06
       },
       "in_sample": {
-        "net_pnl_usd": 16.94,
+        "net_pnl_usd": 16.95,
         "wins": 6,
         "losses": 5,
         "total_trades": 11,
         "win_rate_pct": 54.5,
-        "profit_factor": 2.27,
-        "max_drawdown_pct": 1.07
+        "profit_factor": 2.28,
+        "max_drawdown_pct": 1.06
       },
       "out_of_sample": {
         "net_pnl_usd": 50.55,
