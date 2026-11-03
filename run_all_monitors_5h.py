@@ -1187,7 +1187,7 @@ def run_improvements_guardian(sales_3d: dict = None, sales_today: dict = None):
         from snap_auth import load_config, refresh_access_token, api_get
         from snap_monitor import (TARGET_ACCOUNT_IDS, ALLOWED_GULF_CAMPAIGN_IDS, api_put, api_get_paginated,
                                   fetch_account_breakdown_stats, get_squad_countries, GULF_COUNTRY_CODES,
-                                  is_cross_monitored_product_campaign, is_gulf_034_campaign, load_paused_history, get_locked_low_bid_micro, is_dedicated_snap_test_campaign)
+                                  is_cross_monitored_product_campaign, is_gulf_034_campaign, load_paused_history, get_locked_low_bid_micro, get_custom_daytime_budget_micro, is_dedicated_snap_test_campaign)
         from topup_car_campaigns import main as run_cohort_topup_guardian
         tok = refresh_access_token(load_config())
         guard_hist = load_paused_history()
@@ -1298,10 +1298,12 @@ def run_improvements_guardian(sales_3d: dict = None, sales_today: dict = None):
                             continue
                         st_s_g = st1.get(s["id"], empty)
                         has_sales_or_scaled = (st_s_g.get("purchases", 0) >= 1) or (f"SQ:{s['id']}" in scaled_map_g)
-                        if abs(bud - 20.0) > 0.01 and camp.get("pacing_level") != "CAMPAIGN":
-                            s["daily_budget_micro"] = 20_000_000
+                        target_bud_micro_g = 20_000_000 if is_late_night_g else (get_custom_daytime_budget_micro(s["id"], now_sa.strftime("%Y-%m-%d")) or 20_000_000)
+                        target_bud_usd_g = target_bud_micro_g / 1e6
+                        if abs(bud - target_bud_usd_g) > 0.01 and camp.get("pacing_level") != "CAMPAIGN":
+                            s["daily_budget_micro"] = target_bud_micro_g
                             put_squad(s)
-                            actions.append(f"سناب: تثبيت ميزانية '{s.get('name','')}' على $20/يوم (كانت ${bud:.0f})")
+                            actions.append(f"سناب: تثبيت ميزانية '{s.get('name','')}' على ${target_bud_usd_g:.0f}/يوم (كانت ${bud:.0f})")
 
                 # (E) تشخيصات تحتاج قرار المستخدم
                 if c_sp1 >= 25 and c_pu1 == 0:
