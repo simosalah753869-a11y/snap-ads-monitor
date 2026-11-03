@@ -20,7 +20,7 @@ from snap_auth import API_BASE
 BASE_DIR = Path(__file__).parent
 LOCK_FILE = BASE_DIR / "snap_low_bid_lock_daemon.lock"
 LOG_FILE = BASE_DIR / "snap_low_bid_lock_daemon.log"
-MAX_BID = 1_900_000
+MAX_BID = 1_950_000
 
 DIRECT_CAMPAIGNS = [
     # CSP9860 (All Saudi Copy AdSquads unified to $1.90 per 2026-11-03 User Order; 'تيست' campaigns excluded @ $3.00)
