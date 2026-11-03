@@ -1,5 +1,5 @@
 {
-  "updated_at_utc": "2026-11-03T10:14:37Z",
+  "updated_at_utc": "2026-11-03T13:04:36Z",
   "total_grid_tested": 2294,
   "active_best_config": {
     "sl_atr": 1.8,
@@ -66,6 +66,13 @@
       "wins": 4,
       "losses": 1,
       "net_pnl_usd": -0.22,
+      "capital_weight": 1.0
+    },
+    "OLD_CLASSIC_PULLBACK": {
+      "trades": 1,
+      "wins": 1,
+      "losses": 0,
+      "net_pnl_usd": 3.43,
       "capital_weight": 1.0
     }
   },
