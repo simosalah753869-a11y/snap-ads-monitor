@@ -142,17 +142,18 @@ def is_already_running() -> bool:
     if not LOCK_FILE.exists():
         return False
     try:
+        import ctypes
         data = json.loads(LOCK_FILE.read_text(encoding="utf-8"))
         pid = int(data.get("pid", 0))
-        if pid and pid != os.getpid():
-            res = subprocess.run(
-                ["tasklist", "/FI", f"PID eq {pid}", "/NH"],
-                capture_output=True,
-                text=True,
-                creationflags=0x08000000,
-            )
-            if str(pid) in (res.stdout or ""):
-                return True
+        hb = float(data.get("heartbeat") or data.get("started_at") or 0.0)
+        if pid and pid != os.getpid() and (time.time() - hb < 180.0):
+            h = ctypes.windll.kernel32.OpenProcess(0x1000, False, pid)  # PROCESS_QUERY_LIMITED_INFORMATION
+            if h:
+                exit_code = ctypes.c_ulong(0)
+                ok = ctypes.windll.kernel32.GetExitCodeProcess(h, ctypes.byref(exit_code))
+                ctypes.windll.kernel32.CloseHandle(h)
+                if ok and exit_code.value == 259:  # STILL_ACTIVE
+                    return True
     except Exception:
         pass
     return False
