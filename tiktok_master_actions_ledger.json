@@ -1,11 +1,6 @@
 {
   "cycles": [
     {
-      "timestamp": "2026-11-01 15:21",
-      "actions_count": 3,
-      "followups_count": 12
-    },
-    {
       "timestamp": "2026-11-01 16:00",
       "actions_count": 1,
       "followups_count": 12
@@ -358,6 +353,11 @@
     {
       "timestamp": "2026-11-03 06:00",
       "actions_count": 3,
+      "followups_count": 8
+    },
+    {
+      "timestamp": "2026-11-03 06:02",
+      "actions_count": 0,
       "followups_count": 8
     }
   ],
@@ -3183,11 +3183,11 @@
       "decision": "✅ التركيبة رقم #1 في حجم المبيعات لـ Cross-Platform Winners (مثل H7 صاحبة 43 بيعة بـ $5.25)"
     },
     "Smart+ Website Conversions + 3–4 فيديوهات رابحة معاد تدويرها (30d Batch)": {
-      "sp1": 14.08,
+      "sp1": 14.13,
       "cv1": 0,
-      "sp3": 712.71,
+      "sp3": 712.76,
       "cv3": 74,
-      "sp7": 783.62,
+      "sp7": 783.66,
       "cv7": 91,
       "decision": "✅ ناجحة عند حصر الحملة في 3–4 فيديوهات مجربة وتصفية الفيديوهات الخاسرة عند $1.00 و CPC > $0.25"
     },
