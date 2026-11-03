@@ -1050,6 +1050,12 @@ def main():
 
     live_camp_metrics = {}
     active_exp_per_account = defaultdict(int)
+    sheet_sales_by_day = tm.fetch_sheet_tiktok_sales()
+    prefetched_m = {}
+    cn_max_sp_aadvid_1d = {}
+    cn_max_sp_val_1d = {}
+    cn_max_sp_aadvid_3d = {}
+    cn_max_sp_val_3d = {}
 
     for acc_name, aadvid, utc_offset in tm.ACCOUNTS:
         now_acc = datetime.now(timezone(timedelta(hours=utc_offset)))
@@ -1065,6 +1071,29 @@ def main():
         c_3d = {str(c.get("campaign_id")): c for c in tm.fetch_campaigns(session, headers, aadvid, two_str, t_str) if c.get("campaign_id")}
         c_7d = {str(c.get("campaign_id")): c for c in tm.fetch_campaigns(session, headers, aadvid, six_str, t_str) if c.get("campaign_id")}
         c_14d = {str(c.get("campaign_id")): c for c in tm.fetch_campaigns(session, headers, aadvid, fourteen_str, t_str) if c.get("campaign_id")}
+        prefetched_m[aadvid] = (t_str, y_str, two_str, six_str, fourteen_str, c_1d, c_yest, c_2d, c_3d, c_7d, c_14d)
+        for c_it in c_1d.values():
+            cn_l = (c_it.get("campaign_name") or "").strip().lower()
+            sp_v = float((c_it.get("row_data") or {}).get("stat_cost") or 0.0)
+            if cn_l and sp_v > cn_max_sp_val_1d.get(cn_l, 0.0):
+                cn_max_sp_val_1d[cn_l] = sp_v
+                cn_max_sp_aadvid_1d[cn_l] = aadvid
+        for c_it in c_3d.values():
+            cn_l = (c_it.get("campaign_name") or "").strip().lower()
+            sp_v = float((c_it.get("row_data") or {}).get("stat_cost") or 0.0)
+            if cn_l and sp_v > cn_max_sp_val_3d.get(cn_l, 0.0):
+                cn_max_sp_val_3d[cn_l] = sp_v
+                cn_max_sp_aadvid_3d[cn_l] = aadvid
+
+    for acc_name, aadvid, utc_offset in tm.ACCOUNTS:
+        t_str, y_str, two_str, six_str, fourteen_str, c_1d, c_yest, c_2d, c_3d, c_7d, c_14d = prefetched_m[aadvid]
+
+        def _camp_eff_cv(cid_k, cname_k, ui_cv, sp_chk, st_d, et_d, is_1d=False):
+            cn_l = (cname_k or "").strip().lower()
+            max_map = cn_max_sp_aadvid_1d if is_1d else cn_max_sp_aadvid_3d
+            ukeys = [str(cid_k).lower()] + ([cn_l] if (sp_chk >= 0.50 and max_map.get(cn_l) == aadvid) else [])
+            sh_v = tm.sum_sheet_utm_window(sheet_sales_by_day, ukeys, st_d, et_d)
+            return max(int(ui_cv), int(sh_v))
 
         ads_3d = tm.fetch_ads(session, headers, aadvid, two_str, t_str)
         cids_by_camp = defaultdict(list)
@@ -1083,10 +1112,28 @@ def main():
             if not tm.is_gulf_campaign(((c_14d.get(cid_s) or {}).get("campaign_name") or ""))
         ]
         pre_acc_sp1 = sum(float(((c_1d.get(cid) or {}).get("row_data") or {}).get("stat_cost") or 0.0) for cid in saudi_only_cids)
-        pre_acc_cv1 = sum(int(float(((c_1d.get(cid) or {}).get("row_data") or {}).get("time_attr_convert_cnt") or 0)) for cid in saudi_only_cids)
+        pre_acc_cv1 = sum(
+            _camp_eff_cv(
+                cid,
+                (c_14d.get(cid) or {}).get("campaign_name") or "",
+                int(float(((c_1d.get(cid) or {}).get("row_data") or {}).get("time_attr_convert_cnt") or 0)),
+                float(((c_1d.get(cid) or {}).get("row_data") or {}).get("stat_cost") or 0.0),
+                t_str, t_str, True,
+            )
+            for cid in saudi_only_cids
+        )
         pre_acc_cpa1 = (pre_acc_sp1 / pre_acc_cv1) if pre_acc_cv1 > 0 else 999.0
         pre_acc_sp3 = sum(float(((c_3d.get(cid) or {}).get("row_data") or {}).get("stat_cost") or 0.0) for cid in saudi_only_cids)
-        pre_acc_cv3 = sum(int(float(((c_3d.get(cid) or {}).get("row_data") or {}).get("time_attr_convert_cnt") or 0)) for cid in saudi_only_cids)
+        pre_acc_cv3 = sum(
+            _camp_eff_cv(
+                cid,
+                (c_14d.get(cid) or {}).get("campaign_name") or "",
+                int(float(((c_3d.get(cid) or {}).get("row_data") or {}).get("time_attr_convert_cnt") or 0)),
+                float(((c_3d.get(cid) or {}).get("row_data") or {}).get("stat_cost") or 0.0),
+                two_str, t_str, False,
+            )
+            for cid in saudi_only_cids
+        )
         pre_acc_cpa3 = (pre_acc_sp3 / pre_acc_cv3) if pre_acc_cv3 > 0 else 999.0
         account_is_bleeding = (
             (pre_acc_sp1 >= ACCOUNT_BLEED_SPEND_THRESHOLD and pre_acc_cpa1 > ACCOUNT_BLEED_MAX_CPA)
@@ -1101,18 +1148,19 @@ def main():
             rd7 = (c_7d.get(cid) or {}).get("row_data") or {}
             rd14 = c14_obj.get("row_data") or {}
 
+            cname_tmp = (c14_obj.get("campaign_name") or "").strip()
             sp1 = float(rd1.get("stat_cost") or 0.0)
-            cv1 = int(float(rd1.get("time_attr_convert_cnt") or 0))
+            cv1 = _camp_eff_cv(cid, cname_tmp, int(float(rd1.get("time_attr_convert_cnt") or 0)), sp1, t_str, t_str, True)
             spy = float(rdy.get("stat_cost") or 0.0)
-            cvy = int(float(rdy.get("time_attr_convert_cnt") or 0))
+            cvy = _camp_eff_cv(cid, cname_tmp, int(float(rdy.get("time_attr_convert_cnt") or 0)), max(sp1, spy), y_str, y_str, False)
             sp2 = float(rd2.get("stat_cost") or 0.0)
-            cv2 = int(float(rd2.get("time_attr_convert_cnt") or 0))
+            cv2 = _camp_eff_cv(cid, cname_tmp, int(float(rd2.get("time_attr_convert_cnt") or 0)), sp2, y_str, t_str, False)
             sp3 = float(rd3.get("stat_cost") or 0.0)
-            cv3 = int(float(rd3.get("time_attr_convert_cnt") or 0))
+            cv3 = _camp_eff_cv(cid, cname_tmp, int(float(rd3.get("time_attr_convert_cnt") or 0)), sp3, two_str, t_str, False)
             sp7 = float(rd7.get("stat_cost") or 0.0)
-            cv7 = int(float(rd7.get("time_attr_convert_cnt") or 0))
+            cv7 = _camp_eff_cv(cid, cname_tmp, int(float(rd7.get("time_attr_convert_cnt") or 0)), sp7, six_str, t_str, False)
             sp14 = float(rd14.get("stat_cost") or 0.0)
-            cv14 = int(float(rd14.get("time_attr_convert_cnt") or 0))
+            cv14 = max(int(float(rd14.get("time_attr_convert_cnt") or 0)), cv7)
 
             acc_sp1 += sp1
             acc_cv1 += cv1
@@ -1531,7 +1579,8 @@ def main():
                             v_cv3_p = int(float(mp3.get("time_attr_convert_cnt") or 0))
                             v_nm_p = mp3.get("main_entity_name") or "Video"
 
-                            is_bad_cpc_1d = (v_cv1_p == 0 and v_sp1_p >= 1.00 and (v_cl1_p == 0 or round(v_cpc1_p, 2) > VIDEO_MAX_CPC))
+                            v_sheet_has_sale = (cv1 >= 1 and sp1 > 0 and (sp1 / cv1) <= 7.00 and (v_cv3_p >= 1 or (v_cl1_p > 0 and round(v_cpc1_p, 2) <= VIDEO_MAX_CPC)))
+                            is_bad_cpc_1d = ((v_cv1_p == 0 and not v_sheet_has_sale) and v_sp1_p >= 1.00 and (v_cl1_p == 0 or round(v_cpc1_p, 2) > VIDEO_MAX_CPC)) or (v_sheet_has_sale and v_sp1_p >= 1.00 and (v_cl1_p == 0 or round(v_cpc1_p, 2) > VIDEO_MAX_CPC_WITH_SALES))
                             is_sibling_bleeder = (
                                 active_converting_vids >= 1
                                 and active_vids_total >= 2
