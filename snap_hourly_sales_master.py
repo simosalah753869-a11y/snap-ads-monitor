@@ -580,7 +580,7 @@ def run_hourly_master_for_account(token: str, ad_account_id: str, sheet_sales: d
             cur_bid_micro = int(sq.get("bid_micro") or 0)
             cur_budget_micro = int(sq.get("daily_budget_micro") or 0)
 
-            MAX_SNAP_BID_MICRO = 3_600_000 if is_gulf else 1_900_000
+            MAX_SNAP_BID_MICRO = 3_600_000 if is_gulf else 1_950_000
             base_budget_micro = 20_000_000
 
             bumps_today = 0
