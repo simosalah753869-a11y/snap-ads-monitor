@@ -1112,11 +1112,32 @@ def main():
                 continue
 
             # Strict Target Cost (Cost Cap) enforcement: NEVER allow Maximum Delivery / Maximum Bid without Target CPA
+            camp_cbo_bid = float((c3.get("row_data") or {}).get("cpa_bid") or c3.get("cpa_bid") or 0.0)
             camp_active_adsets = [a for a in active_ads if str(a.get("campaign_id") or "") == camp_id]
-            non_target_cost_adsets = [
-                a for a in camp_active_adsets
-                if float((a.get("row_data") or {}).get("cpa_bid") or a.get("cpa_bid") or 0.0) <= 0.0
-            ]
+            non_target_cost_adsets = (
+                []
+                if camp_cbo_bid > 0.0
+                else [
+                    a for a in camp_active_adsets
+                    if float((a.get("row_data") or {}).get("cpa_bid") or a.get("cpa_bid") or 0.0) <= 0.0
+                ]
+            )
+            if non_target_cost_adsets:
+                try:
+                    h_chk_cbo = dict(headers)
+                    h_chk_cbo["Referer"] = f"https://ads.tiktok.com/i18n/manage/campaign?aadvid={aadvid}"
+                    det_cbo = (
+                        session.get(
+                            f"https://ads.tiktok.com/api/v3/i18n/perf/campaign/detail/?aadvid={aadvid}&campaign_id={camp_id}",
+                            headers=h_chk_cbo,
+                            timeout=12,
+                        ).json().get("data")
+                        or {}
+                    )
+                    if float(det_cbo.get("cpa_bid") or 0.0) > 0.0:
+                        non_target_cost_adsets = []
+                except Exception:
+                    pass
             if non_target_cost_adsets:
                 ok_mb_p, _ = pause_campaign(session, headers, aadvid, camp_id, operation="disable")
                 if ok_mb_p:
@@ -1530,6 +1551,19 @@ def main():
                 continue
             aid_v = str(base_m.get("ad_id") or "")
             camp_id_v = str(base_m.get("campaign_id") or "")
+            sh_dup_1d = camp_sheet_protected_1d.get(camp_id_v, 0)
+            clk1_v = int(float(m1_all.get("click_cnt") or 0))
+            if (
+                cv1_v == 0
+                and sh_dup_1d >= 1
+                and clk1_v > 0
+                and round(sp1_v / clk1_v, 2) <= MAX_CPC_WITH_SALES
+                and (sp1_v / sh_dup_1d) <= 7.00
+            ):
+                cv1_v = sh_dup_1d
+                cv2_v += sh_dup_1d
+                cv3_v += sh_dup_1d
+                cv7_v += sh_dup_1d
             draft_ids_v = parse_draft_ids(base_m.get("ad_material_draft_id"))
             draft_str_v = ",".join(draft_ids_v)
             hist_key_v = f"{aadvid}:{aid_v}:{draft_str_v}"
@@ -1723,13 +1757,13 @@ def main():
                 eff_v_conv_1d == 0
                 and sh_c1_for_v >= 1
                 and clicks_1d > 0
-                and round(spend_1d / clicks_1d, 2) <= (MAX_CPC_WITH_SALES if conv_3d >= 1 else (v_gulf_max_cpc or MAX_CPC))
+                and round(spend_1d / clicks_1d, 2) <= (MAX_CPC_WITH_SALES if (conv_3d >= 1 or sh_c1_for_v >= 2) else (v_gulf_max_cpc or MAX_CPC))
                 and (spend_1d / sh_c1_for_v) <= (v_gulf_cpa if v_is_gulf else 7.00)
             ):
                 eff_v_conv_1d = sh_c1_for_v
-                eff_v_conv_2d = max(eff_v_conv_2d, sh_c1_for_v)
-                eff_v_conv_3d = max(eff_v_conv_3d, sh_c1_for_v)
-                eff_v_conv_7d = max(eff_v_conv_7d, sh_c1_for_v)
+                eff_v_conv_2d = conv_2d + sh_c1_for_v
+                eff_v_conv_3d = conv_3d + sh_c1_for_v
+                eff_v_conv_7d = conv_7d + sh_c1_for_v
 
             reasons = evaluate_video_rules(
                 spend_1d, eff_v_conv_1d, cpc_1d, clicks_1d,
@@ -1744,9 +1778,9 @@ def main():
             )
             v_cpa_lim = 5.99 if v_is_new_test else (v_gulf_cpa if v_is_gulf else MAX_VIDEO_CPA)
             v_has_profitable_sales = (
-                (conv_3d > 0 and (spend_3d / conv_3d) <= v_cpa_lim)
-                or (conv_1d > 0 and (spend_1d / conv_1d) <= v_cpa_lim)
-                or (conv_7d > 0 and (spend_7d / conv_7d) <= v_cpa_lim)
+                (eff_v_conv_3d > 0 and (spend_3d / eff_v_conv_3d) <= v_cpa_lim)
+                or (eff_v_conv_1d > 0 and (spend_1d / eff_v_conv_1d) <= v_cpa_lim)
+                or (eff_v_conv_7d > 0 and (spend_7d / eff_v_conv_7d) <= v_cpa_lim)
             )
             if v_key_cur in history.get("tiktok_disabled_dup_videos", {}) and not v_has_profitable_sales:
                 reasons.append(f"Blacklisted Multi-Day Non-Converting Video ('{v_key_cur}')")
