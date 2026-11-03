@@ -227,16 +227,38 @@ def _process_direct_campaign(item: tuple, token: str) -> int:
     return fixed_in_camp
 
 
+_PERSISTENT_POOL = concurrent.futures.ThreadPoolExecutor(max_workers=6)
+_cached_snap_token = ""
+_cached_snap_token_ts = 0.0
+
+
+def _get_cached_snap_token(force_refresh: bool = False) -> str:
+    global _cached_snap_token, _cached_snap_token_ts
+    now_t = time.time()
+    if (not force_refresh) and _cached_snap_token and (now_t - _cached_snap_token_ts < 2400.0):
+        return _cached_snap_token
+    cfg = sm.load_config()
+    tok = sm.refresh_access_token(cfg)
+    if tok:
+        _cached_snap_token = tok
+        _cached_snap_token_ts = now_t
+    return tok
+
+
 def enforce_once() -> int:
     fixed_count = 0
-    cfg = sm.load_config()
-    token = sm.refresh_access_token(cfg)
+    token = _get_cached_snap_token(force_refresh=False)
     camp_items = {cid: (acc_name, cid, cname, forced_low_bid) for acc_name, cid, cname, forced_low_bid in DIRECT_CAMPAIGNS}
     # أيضاً جلب أي حملة سعودية نشطة في الحسابين لضمان عدم إفلات أي حملة سعودية من سقف $1.80
+    s_acc = _get_thread_sess(token)
     for acc_id, acc_name in ((sm.TARGET_ACCOUNT_ID, "CSP9860"), (sm.SECOND_ACCOUNT_ID, "CSP9860 4")):
         try:
-            camps = sm.api_get_paginated(f"/adaccounts/{acc_id}/campaigns?limit=200", token, "campaigns", "campaign")
-            s_acc = _get_thread_sess(token)
+            r_c = s_acc.get(f"{API_BASE}/adaccounts/{acc_id}/campaigns?limit=200", timeout=15)
+            if r_c.status_code == 401:
+                token = _get_cached_snap_token(force_refresh=True)
+                s_acc = _get_thread_sess(token)
+                r_c = s_acc.get(f"{API_BASE}/adaccounts/{acc_id}/campaigns?limit=200", timeout=15)
+            camps = [el["campaign"] for el in (r_c.json().get("campaigns", []) if r_c.ok else []) if "campaign" in el]
             for c in camps:
                 if c and c.get("status") == "ACTIVE":
                     cid = c["id"]
@@ -253,13 +275,12 @@ def enforce_once() -> int:
         except Exception:
             pass
 
-    with concurrent.futures.ThreadPoolExecutor(max_workers=9) as ex:
-        futures = [ex.submit(_process_direct_campaign, item, token) for item in camp_items.values()]
-        for f in concurrent.futures.as_completed(futures):
-            try:
-                fixed_count += int(f.result() or 0)
-            except Exception:
-                pass
+    futures = [_PERSISTENT_POOL.submit(_process_direct_campaign, item, token) for item in camp_items.values()]
+    for f in concurrent.futures.as_completed(futures):
+        try:
+            fixed_count += int(f.result() or 0)
+        except Exception:
+            pass
     fixed_count += enforce_tiktok_50_cap_once()
     return fixed_count
 
