@@ -51,6 +51,7 @@ from snap_monitor import (
     api_put,
     determine_expected_bid_micro_from_squad,
     fetch_account_breakdown_stats,
+    get_custom_daytime_budget_micro,
     get_locked_low_bid_micro,
     is_30x_low_bid_test_campaign_or_squad,
     is_cross_monitored_product_campaign,
@@ -647,9 +648,20 @@ def run_hourly_master_for_account(token: str, ad_account_id: str, sheet_sales: d
                 and sid in top_efficient_squad_ids
             )
 
-            # أمر المستخدم الصارم (2026-11-02): تثبيت البدجت في سناب على $20.00 (20,000,000 micro) 24/7 بدون رفع
-            eff_base_budget_micro = 20_000_000
-            max_tier_budget_micro = 20_000_000
+            # البدجت الأساسي $20.00 مع احترام رفع البدجت النهاري للأدست المحققة >= 3 مبيعات بتكلفة رابحة وإرجاع الكل لـ $20 آخر الليل (22:00-05:59):
+            custom_dt_b_micro = None if is_late_night else get_custom_daytime_budget_micro(sid, today_str)
+            pu3_sq = int(st3.get("purchases", 0))
+            cpa3_sq = st3.get("cpa")
+            is_3sales_good_sq = (
+                not is_late_night
+                and not is_pixel_hallucinating
+                and pu3_sq >= 3
+                and cpa3_sq is not None
+                and cpa3_sq <= (12.00 if is_gulf else 7.00)
+                and (sp1 < 4.00 or pu1 >= 1)
+            )
+            eff_base_budget_micro = custom_dt_b_micro if (custom_dt_b_micro and custom_dt_b_micro > 20_000_000) else 20_000_000
+            max_tier_budget_micro = max(eff_base_budget_micro, 40_000_000 if is_3sales_good_sq else 20_000_000)
 
             # إذا كانت الميزانية الحالية متضخمة فوق السقف المسموح به (أو آخر الليل حيث يرجع البدجت 20$ في كل الأدست)، تُرجع فوراً للسقف الآمن!
             # وممنوع منعاً باتاً رفع البدجت بعد الساعة 6 مساءً (is_after_6pm)
