@@ -88,7 +88,7 @@ CORE_STUDIED_CRYPTO_SHORTS = ["BTCUSDC", "ETHUSDT", "SOLUSDT", "XRPUSDC", "DOGEU
 LONG_ELIGIBLE_PAIRS = list(CORE_STUDIED_CRYPTO_LONGS)
 SHORT_ELIGIBLE_PAIRS = list(CORE_STUDIED_CRYPTO_SHORTS)
 
-STUDIED_TECH_TICKERS = {"SPY", "QQQ", "AAPL", "MSFT", "GOOGL", "AMZN", "META", "NVDA"}
+STUDIED_TECH_TICKERS = {"SPY", "QQQ", "AAPL", "MSFT", "GOOGL", "AMZN", "META", "NVDA", "SMH", "AMD", "AVGO", "TSLA"}
 STUDIED_MACRO_TICKERS = {"GLD", "XLE", "TLT"}
 STUDIED_STOCK_UNIVERSE = ["SPY", "QQQ", "AAPL", "MSFT", "GOOGL", "AMZN", "META", "NVDA", "GLD", "XLE", "TLT"]
 
@@ -146,7 +146,13 @@ def load_validated_quant_config():
         "tp_atr": 4.0,
         "trail_trig_atr": 99.0,
         "trail_lock_atr": 0.0,
-        "stag_tighten_48h": True,
+        "flow_rev_trig_atr": 1.8,
+        "flow_rev_lock_atr": 1.0,
+        "flow_rev_th": 0.38,
+        "max_entry_rng_atr": 2.0,
+        "low_atr_chop_stop_th": 0.0065,
+        "low_atr_chop_scale": 0.55,
+        "stag_tighten_48h": False,
         "excursion_anti_squeeze": True,
         "rsi_long": 20,
         "rsi_short": 76,
@@ -645,8 +651,8 @@ class VirtualPortfolioEngine:
                     })
                     cycle_actions.append(f"LIVE_EXIT_ABOLISHED_PLAYBOOK:{sym}@${live_bid}:${pnl:+.2f}")
                 else:
-                    # Clear any premature breakeven choke on surviving NEW_PLAN trades
-                    if ptag == "NEW_PLAN":
+                    # Preserve legitimate ATR / Order-Flow locks; only clear legacy non-ATR breakeven chokes
+                    if ptag == "NEW_PLAN" and cyc.get("lock_source") not in ("ATR_PROFIT_LOCK", "FLOW_REVERSAL_LOCK"):
                         cyc.pop("breakeven_locked_price", None)
                     kept_pos.append(cyc)
             sniper["active_positions"] = kept_pos
@@ -823,6 +829,7 @@ class VirtualPortfolioEngine:
                 red_rejection = (closed_close < closed_open) and (closed_close < prev_closed_close) and (taker_buy_ratio <= (1.0 - buy_flow_req))
 
                 decs = 8 if live_price < 0.001 else (6 if live_price < 1.0 else 4)
+                bar_range_atr = ((highs[-1] - lows[-1]) / atr14) if atr14 > 0 else 0.0
                 market_scan[sym] = {
                     "price": round(live_price, decs),
                     "live_bid": round(live_bid, decs),
@@ -837,6 +844,7 @@ class VirtualPortfolioEngine:
                     "vwap24": round(vwap24, decs),
                     "vwap_dev_pct": round(vwap_dev_pct, 2),
                     "atr14": round(atr14, decs),
+                    "bar_range_atr": round(bar_range_atr, 2),
                     "rsi14": round(rsi14, 2),
                     "prev_rsi14": round(prev_rsi14, 2),
                     "ret24_pct": round(ret24 * 100.0, 2),
@@ -863,6 +871,7 @@ class VirtualPortfolioEngine:
         btc_not_pumping = btc_closed_flow <= 0.54
         rsi_long_th = float(qcfg.get("rsi_long", 20.0))
         rsi_short_th = float(qcfg.get("rsi_short", 76.0))
+        max_entry_rng_atr = float(qcfg.get("max_entry_rng_atr", 2.0))
 
         for sym, sc in market_scan.items():
             if "atr14" not in sc:
@@ -871,9 +880,10 @@ class VirtualPortfolioEngine:
             r_max = max(sc.get("rsi14", 50.0), sc.get("prev_rsi14", 50.0))
             ret24_pct = sc.get("ret24_pct", 0.0)
             v_rat = sc.get("vol_ratio", 1.0)
+            bar_rng_ok = sc.get("bar_range_atr", 1.0) <= max_entry_rng_atr
             already_acted = (acted_bars.get(sym) == sc.get("closed_bar_ts"))
 
-            # Studied Playbook 1: ASYM_TREND_PULLBACK (Closed-Candle Uptrend + Oversold RSI<=20 + Green Absorption Bar)
+            # Studied Playbook 1: ASYM_TREND_PULLBACK (Closed-Candle Uptrend + Oversold RSI<=20 + Green Absorption + Anti-Blowoff Guard)
             ldr_ok = True if sym == "PAXGUSDT" else btc_not_dumping
             live_long_ok = sc.get("live_ask", 0.0) >= sc.get("closed_low", 0.0)
             sc["dip_trigger"] = bool(
@@ -881,13 +891,14 @@ class VirtualPortfolioEngine:
                 and (sym in CORE_STUDIED_CRYPTO_LONGS)
                 and sc.get("uptrend_ok", False)
                 and ldr_ok
+                and bar_rng_ok
                 and (not sc["news_shock_blocked"])
                 and sc.get("green_absorption", False)
                 and (-6.50 <= ret24_pct <= -0.60)
                 and (r_min <= rsi_long_th)
                 and live_long_ok
             )
-            # Studied Playbook 2: BEAR_RALLY_SHORT_1X (Closed-Candle Downtrend + Overbought RSI>=76 + Red Rejection Bar)
+            # Studied Playbook 2: BEAR_RALLY_SHORT_1X (Closed-Candle Downtrend + Overbought RSI>=76 + Red Rejection + Anti-Blowoff Guard)
             live_short_ok = sc.get("live_bid", 0.0) <= sc.get("closed_high", 999999999.0)
             sc["short_bounce_trigger"] = bool(
                 (not already_acted)
@@ -895,6 +906,7 @@ class VirtualPortfolioEngine:
                 and (not sc.get("uptrend_ok", True))
                 and (not btc_uptrend)
                 and btc_not_pumping
+                and bar_rng_ok
                 and (not sc.get("short_shock_blocked", False))
                 and sc.get("red_rejection", False)
                 and (ret24_pct <= 3.50)
