@@ -302,7 +302,7 @@ def is_target_cost_campaign_or_squad(campaign_id: str, campaign_name: str = "", 
 
 
 SPENDING_TODAY_179_CAMPAIGN_IDS = set()
-MAX_SNAP_BID_MICRO = 1_900_000  # السقف الأقصى لبيدات الكوبي السعودية ($1.80 و $1.90 بأمر المستخدم 2026-11-03)
+MAX_SNAP_BID_MICRO = 1_900_000  # بيد جميع أدست الكوبي السعودية الموحد ($1.90 بأمر المستخدم 2026-11-03)
 MAX_NON_COPY_TEST_BID_MICRO = 1_900_000  # السقف الأقصى لحملات السعودية العادية ($1.90)
 
 
@@ -311,12 +311,12 @@ def determine_expected_bid_micro_from_squad(
 ) -> int:
     """
     أمر المستخدم الصارم (محدث 2026-11-03):
-    - رفع بيدات أدست الكوبي في حملات سناب شات إلى $1.80 و $1.90 وتثبيتها.
+    - توحيد وإرجاع بيدات جميع أدست الكوبي في حملات سناب شات إلى $1.90 وتثبيتها.
     """
     locked_b = get_locked_low_bid_micro(campaign_id, campaign_name, squad_name, squad_id)
     if locked_b and 1_000_000 <= int(locked_b) <= 4_500_000:
         return int(locked_b)
-    return 1_800_000
+    return 1_900_000
 HISTORY_FILE = Path(__file__).parent / "paused_history.json"
 ACCOUNT_TZ = timezone(timedelta(hours=3))  # GMT+3 (Saudi/Qatar time)
 
@@ -2164,7 +2164,7 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
         if not isinstance(history["bid_bumps"].get(old_bk), dict) or history["bid_bumps"][old_bk].get("schema_v") != 2:
             del history["bid_bumps"][old_bk]
     print(
-        f"\n🛡️ فحص سقف البيد الأقصى ($1.80 فقط مع عدم لمس أي بيد <= $1.80) + زيادة البدجت +30% كل ساعة للحملة أو الأدست الرابحة..."
+        f"\n🛡️ فحص ثبات البيد ($1.90 لجميع أدست الكوبي في سناب شات بدون أي تغيير تلقائي للبيد) + زيادة البدجت +30% كل ساعة للأدست الرابحة..."
     )
     for c in active_campaigns:
         c_id = c["id"]
