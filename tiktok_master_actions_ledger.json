@@ -3210,6 +3210,72 @@
         "03-11_Taager_22454_WinVac_Ad_03.mp4"
       ],
       "created_at": "2026-11-02 22:28:44"
+    },
+    "1880835841146545": {
+      "aadvid": "7649010597308301332",
+      "account_name": "Otyss - Ma - 138",
+      "campaign_name": "power bank winners 03-11 A (4 Ads)",
+      "product_type": "power_bank",
+      "budget": "50",
+      "bid": "6.30",
+      "start_time_ksa": "2026-11-03 14:22:00",
+      "videos": [
+        "03-11_OT_PB_01_66s_h7v4.mp4",
+        "03-11_OT_PB_02_34s_hk01.mp4",
+        "03-11_OT_PB_03_21s_rec29.mp4",
+        "03-11_OT_PB_04_12s_mz14.mp4"
+      ],
+      "created_at": "2026-11-03 14:22:00"
+    },
+    "1880835852819026": {
+      "aadvid": "7649010597308301332",
+      "account_name": "Otyss - Ma - 138",
+      "campaign_name": "power bank winners 03-11 B (5 Ads)",
+      "product_type": "power_bank",
+      "budget": "50",
+      "bid": "6.30",
+      "start_time_ksa": "2026-11-03 14:22:00",
+      "videos": [
+        "03-11_OT_PB_05_07s_new9.mp4",
+        "03-11_OT_PB_06_05s_rec20.mp4",
+        "03-11_OT_PB_07_05s_rec25.mp4",
+        "03-11_OT_PB_08_04s_rec23.mp4",
+        "03-11_OT_PB_09_04s_rec28.mp4"
+      ],
+      "created_at": "2026-11-03 14:22:00"
+    },
+    "1880835863894034": {
+      "aadvid": "7649010597308301332",
+      "account_name": "Otyss - Ma - 138",
+      "campaign_name": "car armrest winners 03-11 A (4 Ads)",
+      "product_type": "car_armrest",
+      "budget": "50",
+      "bid": "6.30",
+      "start_time_ksa": "2026-11-03 14:22:00",
+      "videos": [
+        "03-11_OT_CAR_01_45s_rec02.mp4",
+        "03-11_OT_CAR_02_34s_tt3.mp4",
+        "03-11_OT_CAR_03_17s_fh3.mp4",
+        "03-11_OT_CAR_04_06s_rec03.mp4"
+      ],
+      "created_at": "2026-11-03 14:22:00"
+    },
+    "1880835875272065": {
+      "aadvid": "7649010597308301332",
+      "account_name": "Otyss - Ma - 138",
+      "campaign_name": "car armrest winners 03-11 B (5 Ads)",
+      "product_type": "car_armrest",
+      "budget": "50",
+      "bid": "6.30",
+      "start_time_ksa": "2026-11-03 14:23:00",
+      "videos": [
+        "03-11_OT_CAR_05_03s_tt4.mp4",
+        "03-11_OT_CAR_06_03s_fh5.mp4",
+        "03-11_OT_CAR_07_03s_mz09.mp4",
+        "03-11_OT_CAR_08_02s_mnt06.mp4",
+        "03-11_OT_CAR_09_02s_fst06.mp4"
+      ],
+      "created_at": "2026-11-03 14:22:00"
     }
   },
   "latest_winning_structure_analysis": {
