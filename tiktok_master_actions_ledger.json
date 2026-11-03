@@ -1,11 +1,6 @@
 {
   "cycles": [
     {
-      "timestamp": "2026-11-01 15:03",
-      "actions_count": 0,
-      "followups_count": 11
-    },
-    {
       "timestamp": "2026-11-01 15:21",
       "actions_count": 3,
       "followups_count": 12
@@ -359,6 +354,11 @@
       "timestamp": "2026-11-03 05:02",
       "actions_count": 0,
       "followups_count": 7
+    },
+    {
+      "timestamp": "2026-11-03 06:00",
+      "actions_count": 3,
+      "followups_count": 8
     }
   ],
   "actions": [
@@ -2321,6 +2321,22 @@
       "base_sp3": 0.0,
       "base_cv3": 0,
       "status": "OPEN"
+    },
+    {
+      "timestamp": "2026-11-03 06:00",
+      "experiment_key": "REVIVE_1880584572912706_2026-11-03",
+      "is_experiment": false,
+      "aadvid": "7631763556322148369",
+      "acc_name": "ROELLINGER RECYCLING",
+      "campaign_id": "1880584572912706",
+      "campaign_name": "power bank 31-10 30d Batch C (3 Ads 28-30)",
+      "action_type": "إعادة تفعيل حملة فائزة (21 مبيعات @ $5.60) وحصر الميزانية في الفيديوهات الرابحة",
+      "videos": [
+        "31-10_PB_30d_Recycled_Ad_29.mp4 (3D: 19 sales @ $5.29, CPC <= $0.35)"
+      ],
+      "base_sp3": 117.55,
+      "base_cv3": 21,
+      "status": "OPEN"
     }
   ],
   "failed_experiments": [
@@ -2847,6 +2863,15 @@
       ],
       "sp3": 33.89,
       "cv3": 5
+    },
+    "2026-11-03:7631763556322148369:1880584572912706": {
+      "campaign_name": "power bank 31-10 30d Batch C (3 Ads 28-30)",
+      "revived_at": "2026-11-03 06:00",
+      "videos": [
+        "31-10_PB_30d_Recycled_Ad_29.mp4 (3D: 19 sales @ $5.29, CPC <= $0.35)"
+      ],
+      "sp3": 117.55,
+      "cv3": 21
     }
   },
   "launched_batch_campaigns": {
@@ -3140,11 +3165,11 @@
   },
   "latest_winning_structure_analysis": {
     "Website Leads [obj=8] + Auto Placement [3000,9000,1000] + 3–5 فيديوهات رابحة": {
-      "sp1": 0.82,
+      "sp1": 1.01,
       "cv1": 0,
-      "sp3": 137.0,
+      "sp3": 137.19,
       "cv3": 14,
-      "sp7": 175.82,
+      "sp7": 176.01,
       "cv7": 23,
       "decision": "✅ التركيبة رقم #1 اليوم لإنقاذ الـ CPC (< $0.22) وتوليد مبيعات فورية (SuperCombo / CPC-Rescued)"
     },
@@ -3158,11 +3183,11 @@
       "decision": "✅ التركيبة رقم #1 في حجم المبيعات لـ Cross-Platform Winners (مثل H7 صاحبة 43 بيعة بـ $5.25)"
     },
     "Smart+ Website Conversions + 3–4 فيديوهات رابحة معاد تدويرها (30d Batch)": {
-      "sp1": 12.19,
+      "sp1": 14.08,
       "cv1": 0,
-      "sp3": 710.85,
+      "sp3": 712.71,
       "cv3": 74,
-      "sp7": 781.76,
+      "sp7": 783.62,
       "cv7": 91,
       "decision": "✅ ناجحة عند حصر الحملة في 3–4 فيديوهات مجربة وتصفية الفيديوهات الخاسرة عند $1.00 و CPC > $0.25"
     },
