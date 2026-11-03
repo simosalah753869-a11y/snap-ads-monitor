@@ -2332,8 +2332,24 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
             max_win_cpa_sq = 12.0 if is_gulf_034_campaign(c_name, s_name, squad) else 7.00
             is_sq_winning_today = (sq_pu_today >= 1 and (sq_cpa_today is None or sq_cpa_today < max_win_cpa_sq))
 
-            # أمر المستخدم الصارم (2026-11-03): تثبيت البدجت في سناب شات على $20.00 (20_000_000 micro) 24/7 ومنع التضخم فوق $20:
-            max_allowed_budget_micro = base_floor_micro
+            # البدجت الأساسي $20.00 (20_000_000 micro) مع السماح بالبدجت النهاري المرفوع للأدست المحققة >= 3 مبيعات بتكلفة رابحة وإرجاع الكل لـ $20 آخر الليل (22:00-05:59):
+            custom_dt_b_micro = None if is_night_window else get_custom_daytime_budget_micro(s_id, today_date_str)
+            sq_pu_3d = int(st3_sq.get("purchases", 0))
+            sq_cpa_3d = st3_sq.get("cpa")
+            is_3sales_winner_sq = (
+                not is_night_window
+                and sq_pu_3d >= 3
+                and sq_cpa_3d is not None
+                and sq_cpa_3d <= max_win_cpa_sq
+                and (today_spend < 4.00 or sq_pu_today >= 1)
+            )
+            if custom_dt_b_micro and custom_dt_b_micro > base_floor_micro:
+                base_floor_micro = custom_dt_b_micro
+                max_allowed_budget_micro = custom_dt_b_micro
+            elif is_3sales_winner_sq:
+                max_allowed_budget_micro = 40_000_000
+            else:
+                max_allowed_budget_micro = base_floor_micro
 
             if not is_cbo_campaign:
                 if (not is_after_6pm and budget_micro < base_floor_micro) or budget_micro > max_allowed_budget_micro:
