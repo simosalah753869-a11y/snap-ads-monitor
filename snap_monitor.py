@@ -207,6 +207,9 @@ def get_locked_low_bid_micro(campaign_id: str = "", campaign_name: str = "", squ
         return None
     if is_gulf_034_campaign(campaign_name, squad_name):
         return None
+    cn_sn_l = f"{(campaign_name or '').lower()} {(squad_name or '').lower()}"
+    if "1.95" in cn_sn_l:
+        return 1_950_000
     return 1_900_000
 
 
@@ -236,7 +239,7 @@ def is_30x_low_bid_test_campaign_or_squad(campaign_id: str, campaign_name: str =
     if any(
         k in sn_l
         for k in (
-            "1.80", "1.8 max", "1.90", "1.9 max", "2.00", "2.0 max",
+            "1.80", "1.8 max", "1.90", "1.9 max", "1.95", "1.95 max", "2.00", "2.0 max",
         )
     ):
         return True
@@ -258,7 +261,7 @@ def is_scaling_winner_adsquad(adsquad_name: str, campaign_name: str = "") -> boo
         k in nm
         for k in (
             "1.80 max", "1.8 max", "1.70 max", "1.7 max", "1.60 max", "1.6 max", "1.50 max", "1.5 max", "1.40 max", "1.4 max",
-            "1.90 max", "1.9 max", "2.00 max", "2.0 max",
+            "1.90 max", "1.9 max", "1.95 max", "2.00 max", "2.0 max",
         )
     ):
         return True
@@ -302,8 +305,8 @@ def is_target_cost_campaign_or_squad(campaign_id: str, campaign_name: str = "", 
 
 
 SPENDING_TODAY_179_CAMPAIGN_IDS = set()
-MAX_SNAP_BID_MICRO = 1_900_000  # بيد جميع أدست الكوبي السعودية الموحد ($1.90 بأمر المستخدم 2026-11-03)
-MAX_NON_COPY_TEST_BID_MICRO = 1_900_000  # السقف الأقصى لحملات السعودية العادية ($1.90)
+MAX_SNAP_BID_MICRO = 1_950_000  # سقف البيد السعودي ($1.90 لأدست الكوبي الأساسية و$1.95 لنسخ حملات الباور بانك المنسوخة 2026-11-03)
+MAX_NON_COPY_TEST_BID_MICRO = 1_950_000  # السقف الأقصى لحملات السعودية العادية ($1.95)
 
 
 def determine_expected_bid_micro_from_squad(
@@ -1361,8 +1364,9 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
                         or (st3_sq_rev.get("purchases", 0) >= 1 and st3_sq_rev.get("cpa") is not None and st3_sq_rev["cpa"] <= max_revive_cpa)
                     ):
                         squad["status"] = "ACTIVE"
-                        if not is_gulf_034_campaign(c_name, s_name, squad) and (squad.get("bid_micro") or 0) > 1_900_000:
-                            squad["bid_micro"] = 1_900_000
+                        rev_cap_bid = get_locked_low_bid_micro(c_id, c_name, s_name, s_id) or 1_900_000
+                        if not is_gulf_034_campaign(c_name, s_name, squad) and (squad.get("bid_micro") or 0) > rev_cap_bid:
+                            squad["bid_micro"] = rev_cap_bid
                         elif (squad.get("bid_micro") or 0) > 2_350_000:
                             squad["bid_micro"] = 2_250_000
                         api_put(f"/campaigns/{c_id}/adsquads", token, {"adsquads": [squad]})
