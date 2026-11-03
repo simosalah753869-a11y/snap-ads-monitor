@@ -108,34 +108,34 @@ TARGET_COST_CAMPAIGN_IDS = {
 
 
 LOCKED_LOW_BID_CAMPAIGN_MAP = {
-    # CSP9860 (All Saudi Copy campaigns unified to $1.60/$1.65/$1.67 per 2026-11-01 User Rule; Test campaigns excluded & locked at $3.00)
-    "35597da7-a911-48f9-9567-7d81bfdebe00": 1_600_000,
-    "b8507a0f-9e9a-4e11-ad5f-0b4f791445e6": 1_600_000,
-    "3e82b3ff-64a9-4e74-ba35-7e673150cafe": 1_600_000,
-    "88928e2b-057d-4aed-aafe-f3d73ebc724c": 1_600_000,
-    "6e187c03-020b-439c-905e-f3d513cd80d6": 1_600_000,
-    "b4ec4259-1868-40f5-ba33-08a2dd0fd578": 1_600_000,
-    "11fa8aef-3a3c-418d-b5c4-8dc7b3ec7ab3": 1_600_000,
-    "2693cf34-1697-4bd9-b3eb-07ba7a64f6f1": 1_600_000,
-    "2e87b13a-90ba-4bee-b553-4ebc9c82186e": 1_600_000,
-    "a9dcd138-a822-4664-bf0a-c36d02233956": 1_600_000,
-    "ac64cb95-72d4-4043-905a-69fce2968a0a": 1_600_000,
-    "c89e6059-b826-4cec-8067-71ba2bd45699": 1_600_000,
-    "ee9d1a46-e08e-4a73-a910-f30941356671": 1_600_000,
-    # CSP9860 4 (All Saudi Copy campaigns unified to $1.70/$1.60 per 2026-11-01 User Rule; Test campaigns excluded & locked at $3.00)
-    "041280f3-1c1e-43fb-b8d4-860dd6c8957f": 1_600_000,
-    "a1121184-41a2-484d-8fa4-67011918698c": 1_600_000,
-    "6cb7f305-66ac-4e9e-8fe0-3cfccd09e3c8": 1_600_000,
-    "7fa61e5d-dd41-4ee5-af26-e5c0f773bdef": 1_600_000,
-    "7bffcb77-f2ae-427e-883a-f4e5f249cae9": 1_600_000,
-    "89aadf62-66f2-4ac8-9106-f92fd83b4277": 1_600_000,
-    "483f7e57-8a8e-4edb-8b74-7c67eb76419b": 1_600_000,
-    "e21421ad-72a1-427e-987d-e6cc49384a31": 1_600_000,
-    "c2b612d5-acfb-4935-8a5f-1cb090320542": 1_600_000,
-    "0bacf974-1fc2-4ba4-ac20-42b974911064": 1_600_000,
-    "9ff50b24-d5c3-48ba-b74e-7b55e8ffca52": 1_600_000,
-    "22d12681-930c-44a8-91e3-58f112789375": 1_600_000,
-    "828f2e42-96c5-4813-a780-bbc5d976075f": 1_600_000,
+    # CSP9860 (All Saudi Copy AdSquads unified to $1.90 per 2026-11-03 User Order; Test campaigns excluded & locked at $3.00)
+    "35597da7-a911-48f9-9567-7d81bfdebe00": 1_900_000,
+    "b8507a0f-9e9a-4e11-ad5f-0b4f791445e6": 1_900_000,
+    "3e82b3ff-64a9-4e74-ba35-7e673150cafe": 1_900_000,
+    "88928e2b-057d-4aed-aafe-f3d73ebc724c": 1_900_000,
+    "6e187c03-020b-439c-905e-f3d513cd80d6": 1_900_000,
+    "b4ec4259-1868-40f5-ba33-08a2dd0fd578": 1_900_000,
+    "11fa8aef-3a3c-418d-b5c4-8dc7b3ec7ab3": 1_900_000,
+    "2693cf34-1697-4bd9-b3eb-07ba7a64f6f1": 1_900_000,
+    "2e87b13a-90ba-4bee-b553-4ebc9c82186e": 1_900_000,
+    "a9dcd138-a822-4664-bf0a-c36d02233956": 1_900_000,
+    "ac64cb95-72d4-4043-905a-69fce2968a0a": 1_900_000,
+    "c89e6059-b826-4cec-8067-71ba2bd45699": 1_900_000,
+    "ee9d1a46-e08e-4a73-a910-f30941356671": 1_900_000,
+    # CSP9860 4 (All Saudi Copy AdSquads unified to $1.90 per 2026-11-03 User Order; Test campaigns excluded & locked at $3.00)
+    "041280f3-1c1e-43fb-b8d4-860dd6c8957f": 1_900_000,
+    "a1121184-41a2-484d-8fa4-67011918698c": 1_900_000,
+    "6cb7f305-66ac-4e9e-8fe0-3cfccd09e3c8": 1_900_000,
+    "7fa61e5d-dd41-4ee5-af26-e5c0f773bdef": 1_900_000,
+    "7bffcb77-f2ae-427e-883a-f4e5f249cae9": 1_900_000,
+    "89aadf62-66f2-4ac8-9106-f92fd83b4277": 1_900_000,
+    "483f7e57-8a8e-4edb-8b74-7c67eb76419b": 1_900_000,
+    "e21421ad-72a1-427e-987d-e6cc49384a31": 1_900_000,
+    "c2b612d5-acfb-4935-8a5f-1cb090320542": 1_900_000,
+    "0bacf974-1fc2-4ba4-ac20-42b974911064": 1_900_000,
+    "9ff50b24-d5c3-48ba-b74e-7b55e8ffca52": 1_900_000,
+    "22d12681-930c-44a8-91e3-58f112789375": 1_900_000,
+    "828f2e42-96c5-4813-a780-bbc5d976075f": 1_900_000,
 }
 
 CUSTOM_SQUAD_BID_LOCKS_FILE = Path(__file__).parent / "snap_squad_custom_bid_locks.json"
@@ -183,12 +183,10 @@ def is_dedicated_snap_test_campaign(campaign_id: str = "", campaign_name: str = 
 
 
 def get_locked_low_bid_micro(campaign_id: str = "", campaign_name: str = "", squad_name: str = "", squad_id: str = "") -> int | None:
-    """أمر المستخدم الصارم الدائم (محدث 2026-11-02):
-    - تنزيل البيد بمقدار -$0.20 (-200,000 micro) لكل أدست في جميع حملات سناب شات وتثبيت البدجت على $20.00:
-      * حملات التيست: بيد $2.80 ماكس بيد (2,800,000 micro بدلاً من 3.00).
-      * حملات منزلك وينر 02-11: بيد $1.60 ماكس بيد (1,600,000 micro بدلاً من 1.80).
-      * الحساب الأول (CSP9860): 1.40 / 1.45 / 1.47 (بدلاً من 1.60 / 1.65 / 1.67).
-      * الحساب الثاني (CSP9860 4): 1.50 / 1.40 (بدلاً من 1.70 / 1.60)."""
+    """أمر المستخدم الصارم الدائم (محدث 2026-11-03):
+    - توحيد وإرجاع بيد جميع أدست الكوبي في سناب شات (CSP9860 و CSP9860 4) إلى $1.90 ماكس بيد (1,900,000 micro).
+    - حملات التيست المخصصة (تيست - باور بانك / تيست - وسادة السيارة) تبقى على $3.00 ماكس بيد (3,000,000 micro).
+    - حملات الخليج تبقى مستثناة ببيداتها المخصصة."""
     locks = _get_custom_squad_bid_locks()
     if squad_id:
         b_id = (locks.get("by_squad_id") or {}).get(squad_id)
@@ -209,17 +207,7 @@ def get_locked_low_bid_micro(campaign_id: str = "", campaign_name: str = "", squ
         return None
     if is_gulf_034_campaign(campaign_name, squad_name):
         return None
-    sn_l = (squad_name or "").strip().lower()
-    cn_l = (campaign_name or "").strip().lower()
-    if any(k in sn_l or k in cn_l for k in ("1.90 max", "1.9 max", "بيد 1.9", "ماكس بيد 1.9", "bid 1.9", " 1.90 ")):
-        return 1_900_000
-    if any(k in sn_l or k in cn_l for k in ("1.80 max", "1.8 max", "بيد 1.8", "ماكس بيد 1.8", "bid 1.8", " 1.80 ")):
-        return 1_800_000
-    m_num = re.search(r"#(\d+)", sn_l)
-    if m_num:
-        idx = int(m_num.group(1))
-        return 1_900_000 if (idx % 2 == 1) else 1_800_000
-    return 1_800_000
+    return 1_900_000
 
 
 def is_low_bid_experiment_locked(campaign_id: str, campaign_name: str = "", squad_name: str = "", squad_id: str = "") -> bool:
