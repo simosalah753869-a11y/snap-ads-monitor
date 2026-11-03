@@ -1,11 +1,6 @@
 {
   "cycles": [
     {
-      "timestamp": "2026-11-01 20:07",
-      "actions_count": 1,
-      "followups_count": 9
-    },
-    {
       "timestamp": "2026-11-01 22:18",
       "actions_count": 0,
       "followups_count": 9
@@ -358,6 +353,11 @@
     {
       "timestamp": "2026-11-03 12:00",
       "actions_count": 1,
+      "followups_count": 7
+    },
+    {
+      "timestamp": "2026-11-03 12:02",
+      "actions_count": 0,
       "followups_count": 7
     }
   ],
@@ -3191,9 +3191,9 @@
     "Website Leads [obj=8] + Auto Placement [3000,9000,1000] + 3–5 فيديوهات رابحة": {
       "sp1": 12.93,
       "cv1": 0,
-      "sp3": 149.1,
+      "sp3": 149.11,
       "cv3": 14,
-      "sp7": 187.92,
+      "sp7": 187.93,
       "cv7": 23,
       "decision": "✅ التركيبة رقم #1 اليوم لإنقاذ الـ CPC (< $0.22) وتوليد مبيعات فورية (SuperCombo / CPC-Rescued)"
     },
@@ -3207,11 +3207,11 @@
       "decision": "✅ التركيبة رقم #1 في حجم المبيعات لـ Cross-Platform Winners (مثل H7 صاحبة 43 بيعة بـ $5.25)"
     },
     "Smart+ Website Conversions + 3–4 فيديوهات رابحة معاد تدويرها (30d Batch)": {
-      "sp1": 40.71,
+      "sp1": 41.11,
       "cv1": 0,
-      "sp3": 738.94,
+      "sp3": 739.74,
       "cv3": 74,
-      "sp7": 809.84,
+      "sp7": 810.65,
       "cv7": 91,
       "decision": "✅ ناجحة عند حصر الحملة في 3–4 فيديوهات مجربة وتصفية الفيديوهات الخاسرة عند $1.00 و CPC > $0.25"
     },
