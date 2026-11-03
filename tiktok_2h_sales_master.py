@@ -86,68 +86,25 @@ def save_ledger(data: dict):
 
 
 def fetch_sheet_tiktok_sales() -> dict:
-    """Fetches Lightfunnels Google Sheet orders for Today, Yesterday, 3D, and 7D."""
-    csv_url = "https://docs.google.com/spreadsheets/d/1AaGXjCDbrD7tLEpYaJf5cncgZ3HW5IP3J8TIVAcn0pE/gviz/tq?tqx=out:csv"
-    csv_text = ""
-    for _ in range(3):
-        try:
-            r = requests.get(csv_url, headers={"User-Agent": "Mozilla/5.0"}, timeout=20)
-            if r.status_code == 200 and r.text:
-                csv_text = r.text
-                break
-        except Exception:
-            time.sleep(1.0)
-    if not csv_text:
-        return {"1d": {}, "yest": {}, "3d": {}, "7d": {}}
-
-    rows = list(csv.reader(io.StringIO(csv_text)))
-    now_utc2 = datetime.now(timezone(timedelta(hours=2)))
-    today_s = now_utc2.strftime("%Y-%m-%d")
-    yest_s = (now_utc2 - timedelta(days=1)).strftime("%Y-%m-%d")
-    d3_set = {(now_utc2 - timedelta(days=i)).strftime("%Y-%m-%d") for i in range(3)}
-    d7_set = {(now_utc2 - timedelta(days=i)).strftime("%Y-%m-%d") for i in range(7)}
-
-    last_time_by_utm = {}
-    seen_keys = set()
+    """Fetches Lightfunnels Google Sheet orders for Today, Yesterday, 3D, and 7D (strictly excluding Gifts & Upsells, in KSA GMT+3)."""
+    by_day = tm.fetch_sheet_tiktok_sales()
+    now_ksa = datetime.now(SA_TZ)
+    today_s = now_ksa.strftime("%Y-%m-%d")
+    yest_s = (now_ksa - timedelta(days=1)).strftime("%Y-%m-%d")
+    d3_set = {(now_ksa - timedelta(days=i)).strftime("%Y-%m-%d") for i in range(3)}
+    d7_set = {(now_ksa - timedelta(days=i)).strftime("%Y-%m-%d") for i in range(7)}
     s1, sy, s3, s7 = defaultdict(int), defaultdict(int), defaultdict(int), defaultdict(int)
-
-    for r in rows[1:]:
-        if len(r) < 3:
-            continue
-        prod_raw = (r[0] or "").strip().lower()
-        if any(g in prod_raw for g in ("باور بانك صغير للطوارئ", "سوار رجالي", "سماعات", "هدية", "مجانا", "مجاناً")):
-            continue
-        utm_raw = (r[1] or "").strip()
-        date_raw = (r[2] or "").strip()
-        if not utm_raw or not date_raw:
-            continue
-        d_str = date_raw.split(" ")[0]
+    for d_str, umap in (by_day or {}).items():
         if d_str not in d7_set:
             continue
-        utm = utm_raw.lower()
-        try:
-            dt = datetime.strptime(date_raw[:19], "%Y-%m-%d %H:%M:%S")
-            t_ms = dt.timestamp() * 1000.0
-        except Exception:
-            t_ms = 0.0
-        ukey = f"{utm}|{date_raw}"
-        if ukey in seen_keys:
-            continue
-        if t_ms > 0 and utm in last_time_by_utm and abs(t_ms - last_time_by_utm[utm]) <= 60000:
-            seen_keys.add(ukey)
-            continue
-        seen_keys.add(ukey)
-        if t_ms > 0:
-            last_time_by_utm[utm] = t_ms
-
-        s7[utm] += 1
-        if d_str in d3_set:
-            s3[utm] += 1
-        if d_str == today_s:
-            s1[utm] += 1
-        elif d_str == yest_s:
-            sy[utm] += 1
-
+        for utm_k, cnt in umap.items():
+            s7[utm_k] += int(cnt)
+            if d_str in d3_set:
+                s3[utm_k] += int(cnt)
+            if d_str == today_s:
+                s1[utm_k] += int(cnt)
+            elif d_str == yest_s:
+                sy[utm_k] += int(cnt)
     return {"1d": dict(s1), "yest": dict(sy), "3d": dict(s3), "7d": dict(s7)}
 
 
@@ -1229,8 +1186,7 @@ def main():
                 and not tm.extract_new_product_key_tt(cname)
                 and not tm.is_cross_monitored_product_campaign(cname)
                 and not tm.is_banned_pillow_tiktok(cname)
-                and "kashaf" not in cname.lower()
-                and "كشاف" not in cname
+                and not any(k in cname.lower() for k in ("car", "armrest", "cushion", "pillow", "وساد", "تكاي", "kashaf", "كشاف"))
                 and cv3 >= 3
                 and cpa3_val is not None
                 and cpa3_val <= 7.00
@@ -1400,9 +1356,7 @@ def main():
                 hist_tt_scale = (hist_tt_all.get("proactive_scaled_tiktok") or {}).get(scale_rec_key) or {}
                 last_scaled_cv1 = max(int(prev_scale.get("cv1") or prev_scale.get("conv_today") or 0), int(hist_tt_scale.get("conv_today") or 0))
                 last_scaled_bdg = max(float(prev_scale.get("new_budget") or 0.0), float(hist_tt_scale.get("new_budget") or 0.0))
-                cur_bdg_est = int(round(bdg if bdg >= 20 else 50))
-                if last_scaled_bdg > cur_bdg_est:
-                    cur_bdg_est = int(round(last_scaled_bdg))
+                cur_bdg_est = min(50, int(round(bdg if bdg >= 20 else 50)))
                 other_auto_wait_needed = False
                 for _sc_dt_raw in (prev_scale.get("scaled_at"), hist_tt_scale.get("scaled_at")):
                     if _sc_dt_raw:
@@ -1667,7 +1621,7 @@ def main():
                             v_kill = f"صرف ${v_sp:.2f} بـ CPC=${v_cpc:.2f} (> $0.25) بدون مبيعات"
                         elif v_cv > 0 and v_sp >= VIDEO_CPC_MIN_SPEND and (v_clk == 0 or v_cpc > VIDEO_MAX_CPC_WITH_SALES):
                             v_kill = f"صرف ${v_sp:.2f} بـ CPC=${v_cpc:.2f} (> $0.35 سقف النقرة مع وجود مبيعات)"
-                        elif v_cv == 0 and v_sp >= EXP_VIDEO_NO_SALE_MICRO_LIMIT:
+                        elif v_cv == 0 and not (m["cv1"] >= 1 and m["sp1"] > 0 and (m["sp1"] / m["cv1"]) <= 7.00 and v_clk > 0 and round(v_cpc, 2) <= VIDEO_MAX_CPC) and v_sp >= EXP_VIDEO_NO_SALE_MICRO_LIMIT:
                             v_kill = f"صرف تجريبي ${v_sp:.2f} >= ${EXP_VIDEO_NO_SALE_MICRO_LIMIT:.2f} بدون مبيعات"
                         if v_kill:
                             ok_vk, _ = tm.pause_smart_plus_video(session, headers, aadvid, str(me.get("ad_id")), me, operation="disable")
@@ -2025,9 +1979,13 @@ def main():
                             active_car_winners.append((cid_d, vname_d))
                         else:
                             active_pb_winners.append((cid_d, vname_d))
+            active_cnames_dyn = {
+                (m_it.get("campaign_name") or "").strip().lower()
+                for m_it in live_camp_metrics.values()
+                if m_it.get("aadvid") == aadvid_dyn and m_it.get("is_active")
+            }
             for prod_tag, prod_lbl, d_list, act_win_list in [
                 ("PB", "power bank", choked_pb_donors, active_pb_winners),
-                ("CAR", "car armrest", choked_car_donors, active_car_winners),
             ]:
                 if len(d_list) >= 1:
                     combined_donors = list(d_list)
@@ -2041,7 +1999,8 @@ def main():
                     if len(combined_donors) >= 3:
                         d5 = combined_donors[:5]
                         choked_sig = "_".join(sorted(vn[-8:-4] for _, vn in d_list[:3]))
-                        EXPERIMENT_BLUEPRINTS.append({
+                        if f"[exp-leads] {prod_lbl} {len(d5)} cpc-rescued leads autoplacement {date_tag}".lower() not in active_cnames_dyn:
+                            EXPERIMENT_BLUEPRINTS.append({
                             "key": f"DYN_{aadvid_dyn[-4:]}_{prod_tag}_LEADS_AUTO_{date_tag}_{choked_sig}",
                             "is_cpc_rescue": True,
                             "aadvid": aadvid_dyn,
@@ -2054,7 +2013,8 @@ def main():
                             "use_leads_objective": True,
                             "donors": d5,
                         })
-                        EXPERIMENT_BLUEPRINTS.append({
+                        if f"[exp-leads] {prod_lbl} {len(d5)} cpc-rescued conv autoplacement {date_tag}".lower() not in active_cnames_dyn:
+                            EXPERIMENT_BLUEPRINTS.append({
                             "key": f"DYN_{aadvid_dyn[-4:]}_{prod_tag}_CONV_AUTO_{date_tag}_{choked_sig}",
                             "is_cpc_rescue": True,
                             "aadvid": aadvid_dyn,
