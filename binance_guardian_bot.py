@@ -768,9 +768,9 @@ class VirtualPortfolioEngine:
         earn_inc = earn_base * (res["flexible_earn_apr_pct"] / 100.0) * (elapsed_hours / (365.0 * 24.0))
         res["accrued_earn_usd"] = round(res["accrued_earn_usd"] + earn_inc, 5)
 
-        # 3. Studied Closed-Candle Crypto & Gold Engine (Zero Intra-Hour Repainting, Zero Premature Choke, OOS PF=2.53)
+        # 3. Studied Closed-Candle Crypto & Gold Engine (Zero Intra-Hour Repainting, Anti-Blowoff + Low-ATR Chop Sizing, OOS PF=16.29)
         sniper = self.state["engine2_spot_sniper"]
-        sniper["quant_engine_version"] = "v12_studied_closed_candle_core_asymmetric_oos253"
+        sniper["quant_engine_version"] = "v13_dual_regime_chop_blowoff_flowrev_oos1629"
         sniper["active_quant_config"] = qcfg
         acted_bars = sniper.setdefault("acted_closed_bars", {})
 
@@ -979,10 +979,22 @@ class VirtualPortfolioEngine:
                         cyc["sl_price"] = tight_sl
                         cyc["stagnation_sl_tightened"] = True
 
-            # Late-Stage Profit Lock ONLY (>= +3.0 ATR -> lock +1.6 ATR; ZERO early +1.0 ATR choke!)
-            if atr_now > 0 and cur_p >= cyc["avg_entry_price"] + 3.0 * atr_now:
-                new_lock = round(cyc["avg_entry_price"] + 1.60 * atr_now, decs)
+            # Validated Order-Flow Reversal Profit Lock (OOS PF=16.29) + Late-Stage Trail
+            cyc["max_price_seen"] = max(float(cyc.get("max_price_seen") or cur_p), cur_p)
+            flow_trig = float(qcfg.get("flow_rev_trig_atr", 1.8))
+            flow_lock = float(qcfg.get("flow_rev_lock_atr", 1.0))
+            flow_th = float(qcfg.get("flow_rev_th", 0.38))
+            trail_trig = float(qcfg.get("trail_trig_atr", 99.0)) if cyc.get("plan_tag") == "NEW_PLAN" else 3.0
+            trail_lock = float(qcfg.get("trail_lock_atr", 0.0)) if cyc.get("plan_tag") == "NEW_PLAN" else 1.60
+            if cyc.get("plan_tag") == "NEW_PLAN" and atr_now > 0 and flow_trig < 90.0:
+                if cyc["max_price_seen"] >= cyc["avg_entry_price"] + flow_trig * atr_now and sc_sym.get("taker_buy_ratio", 0.5) <= flow_th:
+                    f_lock = round(cyc["avg_entry_price"] + flow_lock * atr_now, decs)
+                    cyc["breakeven_locked_price"] = max(cyc.get("breakeven_locked_price") or 0.0, f_lock)
+                    cyc["lock_source"] = "FLOW_REVERSAL_LOCK"
+            if atr_now > 0 and trail_trig < 90.0 and cur_p >= cyc["avg_entry_price"] + trail_trig * atr_now:
+                new_lock = round(cyc["avg_entry_price"] + trail_lock * atr_now, decs)
                 cyc["breakeven_locked_price"] = max(cyc.get("breakeven_locked_price") or 0.0, new_lock)
+                cyc["lock_source"] = "ATR_PROFIT_LOCK"
 
             if cur_p >= tp_price:
                 gross_val = round(cyc["total_qty"] * cur_p * (1.0 - 0.0005), 2)
@@ -1129,11 +1141,24 @@ class VirtualPortfolioEngine:
                 cycle_actions.append(f"SHORT_1X_STAGNATION_PROFIT_TAKE_LIVE:{sym}@${cur_p}:${pnl:+.2f}")
                 continue
 
-            # Late-Stage Profit Lock ONLY (<= -3.0 ATR -> lock -1.6 ATR; ZERO early choke!)
-            if atr_now > 0 and cur_p <= entry_p - 3.0 * atr_now:
-                new_lock = round(entry_p - 1.60 * atr_now, decs)
+            # Validated Order-Flow Reversal Profit Lock (OOS PF=16.29) + Late-Stage Trail
+            scyc["min_price_seen"] = min(float(scyc.get("min_price_seen") or cur_p), cur_p)
+            flow_trig_s = float(qcfg.get("flow_rev_trig_atr", 1.8))
+            flow_lock_s = float(qcfg.get("flow_rev_lock_atr", 1.0))
+            flow_th_s = float(qcfg.get("flow_rev_th", 0.38))
+            trail_trig_s = float(qcfg.get("trail_trig_atr", 99.0))
+            trail_lock_s = float(qcfg.get("trail_lock_atr", 0.0))
+            if atr_now > 0 and flow_trig_s < 90.0:
+                if scyc["min_price_seen"] <= entry_p - flow_trig_s * atr_now and sc_sym.get("taker_buy_ratio", 0.5) >= (1.0 - flow_th_s):
+                    f_lock_s = round(entry_p - flow_lock_s * atr_now, decs)
+                    if scyc.get("breakeven_locked_price") is None or f_lock_s < scyc["breakeven_locked_price"]:
+                        scyc["breakeven_locked_price"] = f_lock_s
+                        scyc["lock_source"] = "FLOW_REVERSAL_LOCK"
+            if atr_now > 0 and trail_trig_s < 90.0 and cur_p <= entry_p - trail_trig_s * atr_now:
+                new_lock = round(entry_p - trail_lock_s * atr_now, decs)
                 if scyc.get("breakeven_locked_price") is None or new_lock < scyc["breakeven_locked_price"]:
                     scyc["breakeven_locked_price"] = new_lock
+                    scyc["lock_source"] = "ATR_PROFIT_LOCK"
 
             if cur_p <= tp_price:
                 pnl_pct = ((entry_p - cur_p) / entry_p) - 0.001
@@ -1307,10 +1332,12 @@ class VirtualPortfolioEngine:
         new_short_count = len(sniper["active_short_positions"])
         sl_m_core = float(qcfg.get("sl_atr", 1.8))
         tp_m_core = float(qcfg.get("tp_atr", 4.0))
+        low_chop_th = float(qcfg.get("low_atr_chop_stop_th", 0.0065))
+        low_chop_scale = float(qcfg.get("low_atr_chop_scale", 0.55))
 
         # 3C-2A. Bear-Regime 1x Short Entry at Exact Live Bid (Core Liquid Majors Only)
         for sym in CORE_STUDIED_CRYPTO_SHORTS:
-            if (new_c_count + new_short_count) >= 2 or new_c_free < 100.0 or sniper["free_cash_usd"] < 100.0:
+            if (new_c_count + new_short_count) >= 2 or new_c_free < 65.0 or sniper["free_cash_usd"] < 65.0:
                 break
             if sym in new_held_short_syms or sym in new_held_long_syms or sym in new_cooldown_syms:
                 continue
@@ -1318,11 +1345,16 @@ class VirtualPortfolioEngine:
             atr = sc.get("atr14", 0.0)
             p_bid = sc.get("live_bid") or sc.get("price", 0.0)
             if sc.get("short_bounce_trigger") and atr > 0 and p_bid > 0:
-                stop_pct = max(0.006, (sl_m_core * atr) / p_bid)
-                if stop_pct <= 0.042:
+                raw_stop_pct = (sl_m_core * atr) / p_bid
+                stop_pct = max(0.0045, raw_stop_pct)
+                if 0.0045 <= raw_stop_pct <= 0.042:
                     decs = 8 if p_bid < 0.001 else (6 if p_bid < 1.0 else 4)
                     amt = round(min(new_c_free, sniper["free_cash_usd"], 250.0, 4.50 / stop_pct), 2)
-                    if amt >= 100.0:
+                    min_ticket = 100.0
+                    if raw_stop_pct < low_chop_th:
+                        amt = round(min(new_c_free, sniper["free_cash_usd"], amt * low_chop_scale), 2)
+                        min_ticket = 65.0
+                    if amt >= min_ticket:
                         qty = round((amt * (1.0 - 0.0005)) / p_bid, 2 if p_bid < 0.001 else 6)
                         sniper["free_cash_usd"] = round(sniper["free_cash_usd"] - amt, 2)
                         new_c_free = round(new_c_free - amt, 2)
@@ -1342,6 +1374,7 @@ class VirtualPortfolioEngine:
                             "tp_target_price": tp_s_new,
                             "sl_price": sl_s_new,
                             "breakeven_locked_price": None,
+                            "min_price_seen": p_bid,
                             "accrued_funding_usd": 0.0,
                             "funding_settlements_credited": 0,
                             "hours_held": 0.0,
@@ -1367,7 +1400,7 @@ class VirtualPortfolioEngine:
 
         # 3C-2B. Uptrend Asymmetric Pullback Long Entry at Exact Live Ask (Core Liquid Majors + Gold PAXGUSDT)
         for sym in CORE_STUDIED_CRYPTO_LONGS:
-            if (new_c_count + new_short_count) >= 2 or new_c_free < 100.0 or sniper["free_cash_usd"] < 100.0:
+            if (new_c_count + new_short_count) >= 2 or new_c_free < 65.0 or sniper["free_cash_usd"] < 65.0:
                 break
             if sym in new_held_long_syms or sym in new_held_short_syms or sym in new_cooldown_syms:
                 continue
@@ -1375,11 +1408,16 @@ class VirtualPortfolioEngine:
             atr = sc.get("atr14", 0.0)
             p_ask = sc.get("live_ask") or sc.get("price", 0.0)
             if sc.get("dip_trigger") and atr > 0 and p_ask > 0:
-                stop_pct = max(0.006, (sl_m_core * atr) / p_ask)
-                if stop_pct <= 0.042:
+                raw_stop_pct = (sl_m_core * atr) / p_ask
+                stop_pct = max(0.0045, raw_stop_pct)
+                if 0.0045 <= raw_stop_pct <= 0.042:
                     decs = 8 if p_ask < 0.001 else (6 if p_ask < 1.0 else 4)
                     amt = round(min(new_c_free, sniper["free_cash_usd"], 250.0, 4.50 / stop_pct), 2)
-                    if amt >= 100.0:
+                    min_ticket = 100.0
+                    if raw_stop_pct < low_chop_th:
+                        amt = round(min(new_c_free, sniper["free_cash_usd"], amt * low_chop_scale), 2)
+                        min_ticket = 65.0
+                    if amt >= min_ticket:
                         qty = round((amt * (1.0 - 0.0005)) / p_ask, 2 if p_ask < 0.001 else 6)
                         sniper["free_cash_usd"] = round(sniper["free_cash_usd"] - amt, 2)
                         new_c_free = round(new_c_free - amt, 2)
@@ -1399,6 +1437,7 @@ class VirtualPortfolioEngine:
                             "total_qty": qty,
                             "tp_target_price": tp_p_new,
                             "sl_price": sl_p_new,
+                            "max_price_seen": p_ask,
                             "hours_held": 0.0,
                             "current_price": p_ask,
                             "unrealized_pnl_usd": round(qty * p_ask - amt, 2),
@@ -1864,9 +1903,21 @@ class VirtualPortfolioEngine:
             sl_price = cyc.get("sl_price", round(cyc["avg_entry_price"] * 0.965, decs))
             pb_name = cyc.get("playbook", "MEAN_REV_DIP")
 
-            if atr_now > 0 and cur_p >= cyc["avg_entry_price"] + 3.0 * atr_now:
-                new_lock = round(cyc["avg_entry_price"] + 1.60 * atr_now, decs)
+            cyc["max_price_seen"] = max(float(cyc.get("max_price_seen") or cur_p), cur_p)
+            flow_trig = float(qcfg.get("flow_rev_trig_atr", 1.8))
+            flow_lock = float(qcfg.get("flow_rev_lock_atr", 1.0))
+            flow_th = float(qcfg.get("flow_rev_th", 0.38))
+            trail_trig = float(qcfg.get("trail_trig_atr", 99.0)) if cyc.get("plan_tag") == "NEW_PLAN" else 3.0
+            trail_lock = float(qcfg.get("trail_lock_atr", 0.0)) if cyc.get("plan_tag") == "NEW_PLAN" else 1.60
+            if cyc.get("plan_tag") == "NEW_PLAN" and atr_now > 0 and flow_trig < 90.0:
+                if cyc["max_price_seen"] >= cyc["avg_entry_price"] + flow_trig * atr_now and sc_sym.get("taker_buy_ratio", 0.5) <= flow_th:
+                    f_lock = round(cyc["avg_entry_price"] + flow_lock * atr_now, decs)
+                    cyc["breakeven_locked_price"] = max(cyc.get("breakeven_locked_price") or 0.0, f_lock)
+                    cyc["lock_source"] = "FLOW_REVERSAL_LOCK"
+            if atr_now > 0 and trail_trig < 90.0 and cur_p >= cyc["avg_entry_price"] + trail_trig * atr_now:
+                new_lock = round(cyc["avg_entry_price"] + trail_lock * atr_now, decs)
                 cyc["breakeven_locked_price"] = max(cyc.get("breakeven_locked_price") or 0.0, new_lock)
+                cyc["lock_source"] = "ATR_PROFIT_LOCK"
 
             if cur_p >= tp_price:
                 gross_val = round(cyc["total_qty"] * cur_p * (1.0 - 0.0005), 2)
@@ -1942,10 +1993,23 @@ class VirtualPortfolioEngine:
             sl_price = scyc["sl_price"]
             pb_name = scyc.get("playbook", "CROWDED_FADE_SHORT")
 
-            if atr_now > 0 and cur_p <= entry_p - 3.0 * atr_now:
-                new_lock = round(entry_p - 1.60 * atr_now, decs)
+            scyc["min_price_seen"] = min(float(scyc.get("min_price_seen") or cur_p), cur_p)
+            flow_trig_s = float(qcfg.get("flow_rev_trig_atr", 1.8))
+            flow_lock_s = float(qcfg.get("flow_rev_lock_atr", 1.0))
+            flow_th_s = float(qcfg.get("flow_rev_th", 0.38))
+            trail_trig_s = float(qcfg.get("trail_trig_atr", 99.0))
+            trail_lock_s = float(qcfg.get("trail_lock_atr", 0.0))
+            if atr_now > 0 and flow_trig_s < 90.0:
+                if scyc["min_price_seen"] <= entry_p - flow_trig_s * atr_now and sc_sym.get("taker_buy_ratio", 0.5) >= (1.0 - flow_th_s):
+                    f_lock_s = round(entry_p - flow_lock_s * atr_now, decs)
+                    if scyc.get("breakeven_locked_price") is None or f_lock_s < scyc["breakeven_locked_price"]:
+                        scyc["breakeven_locked_price"] = f_lock_s
+                        scyc["lock_source"] = "FLOW_REVERSAL_LOCK"
+            if atr_now > 0 and trail_trig_s < 90.0 and cur_p <= entry_p - trail_trig_s * atr_now:
+                new_lock = round(entry_p - trail_lock_s * atr_now, decs)
                 if scyc.get("breakeven_locked_price") is None or new_lock < scyc["breakeven_locked_price"]:
                     scyc["breakeven_locked_price"] = new_lock
+                    scyc["lock_source"] = "ATR_PROFIT_LOCK"
 
             if cur_p <= tp_price:
                 pnl_pct = ((entry_p - cur_p) / entry_p) - 0.001
