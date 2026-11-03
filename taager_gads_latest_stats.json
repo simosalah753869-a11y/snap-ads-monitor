@@ -34,7 +34,7 @@
       "campaign_name": "bakhoor bw20 taager 01-11",
       "product_key": "bakhoor_bw20",
       "has_enabled": false,
-      "sp1": 28.93,
+      "sp1": 0.0,
       "sp2": 28.93,
       "sp3": 28.93,
       "sp7": 28.93,
@@ -42,18 +42,15 @@
       "ui2": 0.0,
       "ui3": 0.0,
       "ui7": 0.0,
-      "sh1": 1.0,
+      "sh1": 0.0,
       "sh2": 1.0,
       "sh3": 1.0,
       "sh7": 1.0,
-      "eff1": 0,
-      "eff2": 1,
-      "eff3": 1,
-      "eff7": 1,
-      "updated_at": "2026-11-03T10:02:38.357001+03:00",
-      "account": "Google Ads (914-615-0891)",
-      "campaign_id": "24420202985",
-      "status": "ELIGIBLE"
+      "eff1": 0.0,
+      "eff2": 1.0,
+      "eff3": 1.0,
+      "eff7": 1.0,
+      "updated_at": "2026-11-03T15:07:52.539566+03:00"
     }
   }
 }
