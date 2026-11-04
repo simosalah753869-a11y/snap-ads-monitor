@@ -186,8 +186,6 @@
     "0e6e5109-d336-44f6-8ce3-601bbe2d0262": "40f592a6-e275-4f67-bce3-85e06b1b93c4"
   },
   "big_actions_log": [
-    "[2026-11-01 20:06] Re-activated Gulf Campaign باور بانك قطر 18-10 (67de1daa-7ffb-4194-9c44-00dcb7163d4d)",
-    "[2026-11-01 20:06] Re-activated Gulf Campaign powe bank oman (efccbe22-8951-49f4-b118-cd67f2cec64b)",
     "[2026-11-01 20:06] Re-activated Gulf Campaign وسادة السيارة الكويت 18-10 (3fb9b26f-7705-4286-b371-4efcd904670c)",
     "[2026-11-01 20:06] Re-activated Gulf Campaign qatar car scaling new 2 text (f7f6b623-46d5-48af-9a21-fb2584106da8)",
     "[2026-11-01 20:06] Re-activated Gulf Campaign منتج الكشاف عمان (2958697d-af14-4afc-a42a-1de78106b8a1)",
@@ -245,7 +243,9 @@
     "[2026-11-02 16:31] 🔄 REVIVED Profitable Gulf Winner Squad 9496d93b in وسادة السيارة الكويت 18-10 (1D: $8.94/1p CPA=$8.94 <= SimCap $11.48)",
     "[2026-11-01 19:24] Re-activated Gulf Campaign وسادة السيارة الكويت 18-10 (3fb9b26f-7705-4286-b371-4efcd904670c)",
     "[2026-11-01 19:24] Re-activated Gulf Campaign qatar car scaling new 2 text (f7f6b623-46d5-48af-9a21-fb2584106da8)",
-    "[2026-11-03 10:49] Paused Gulf Campaign Copy of kasahf smart+ qatar 3.5 (0e6e5109-d336-44f6-8ce3-601bbe2d0262) — All Squads Hit Stop-Loss"
+    "[2026-11-03 10:49] Paused Gulf Campaign Copy of kasahf smart+ qatar 3.5 (0e6e5109-d336-44f6-8ce3-601bbe2d0262) — All Squads Hit Stop-Loss",
+    "[2026-11-04 11:26] Paused Squad fa002a7f in Copy of kasahf smart+ qatar 3.5 (1D: $1.05/0p CPC=0.35 | 3D: $5.95/1p | SimCap=$11.5)",
+    "[2026-11-04 11:26] Paused Gulf Campaign Copy of kasahf smart+ qatar 3.5 (0e6e5109-d336-44f6-8ce3-601bbe2d0262) — All Squads Hit Stop-Loss"
   ],
   "tiktok_gulf_scaled": {},
   "tiktok_gulf_night_halved": {},
