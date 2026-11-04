@@ -269,6 +269,12 @@
       "campaign": "باور بانك قطر 18-10",
       "reason": "[Gulf AdSquad CPC > $0.26 after $0.80] صرفت المجموعة $2.64 بدون مبيعات | النقرات: 7 | CPC = $0.377 (> $0.26)",
       "paused_at": "2026-11-04 17:54 GMT+3"
+    },
+    "150bdd56-e284-4681-b8a4-b5d320ef017e": {
+      "name": "مجموعة نخبة الباور بانك #03 - بيد 2.1",
+      "campaign": "باور بانك شاملة نخبة (5 أدست) - بيد 2.1 - 03-11",
+      "reason": "[1D AdSquad >= $4.00 No-Sale Stop] صرفت المجموعة $4.30 (>= $4.00) بدون أي مبيعة (0 مبيعات)",
+      "paused_at": "2026-11-04 21:51 GMT+3"
     }
   },
   "ads": {
@@ -1951,6 +1957,69 @@
       "adsquad": "مجموعة نخبة الباور بانك #03 - بيد 2.1",
       "reason": "[Global Accumulated Video Stop-Loss 1D (اليوم)] مجموع صرف الفيديو التراكمي على مستوى الحساب = $8.69 (>= $7.01) بدون أي مبيعة",
       "paused_at": "2026-11-04 19:54 GMT+3"
+    },
+    "4e3444aa-e53d-46e3-93d0-fcbc0b4882b5": {
+      "name": "Car_v1_15-10_4_m1efb6f [H1]",
+      "campaign": "وسادة السيارة وينر نخبة #02 (5 أدست) - بيد 2.1 - 04-11",
+      "adsquad": "مجموعة نخبة وسادة السيارة #01 - بيد 2.1",
+      "reason": "[Global Accumulated Video High CPA 1D (اليوم)] مجموع صرف الفيديو التراكمي على مستوى الحساب = $9.43 | المبيعات = 1 | CPA التراكمي = $9.43 (> $7.99)",
+      "paused_at": "2026-11-04 21:51 GMT+3"
+    },
+    "a6d10c07-c990-49f5-a024-1e2bece60766": {
+      "name": "Car_v1_15-10_4_m1efb6f [H1]",
+      "campaign": "وسادة السيارة وينر نخبة #02 (5 أدست) - بيد 2.1 - 04-11",
+      "adsquad": "مجموعة نخبة وسادة السيارة #04 - بيد 2.1",
+      "reason": "[Global Accumulated Video High CPA 1D (اليوم)] مجموع صرف الفيديو التراكمي على مستوى الحساب = $9.43 | المبيعات = 1 | CPA التراكمي = $9.43 (> $7.99)",
+      "paused_at": "2026-11-04 21:51 GMT+3"
+    },
+    "a764f624-d5c9-4be4-911c-f76add57e12a": {
+      "name": "Car_v1_15-10_4_m1efb6f [H1]",
+      "campaign": "وسادة السيارة وينر نخبة #02 (5 أدست) - بيد 2.1 - 04-11",
+      "adsquad": "مجموعة نخبة وسادة السيارة #03 - بيد 2.1",
+      "reason": "[Global Accumulated Video High CPA 1D (اليوم)] مجموع صرف الفيديو التراكمي على مستوى الحساب = $9.43 | المبيعات = 1 | CPA التراكمي = $9.43 (> $7.99)",
+      "paused_at": "2026-11-04 21:51 GMT+3"
+    },
+    "ee43b5b4-e6a6-4230-8048-c56110c7ea72": {
+      "name": "Car_v1_15-10_4_m1efb6f [H1]",
+      "campaign": "وسادة السيارة وينر نخبة #02 (5 أدست) - بيد 2.1 - 04-11",
+      "adsquad": "مجموعة نخبة وسادة السيارة #05 - بيد 2.1",
+      "reason": "[Global Accumulated Video High CPA 1D (اليوم)] مجموع صرف الفيديو التراكمي على مستوى الحساب = $9.43 | المبيعات = 1 | CPA التراكمي = $9.43 (> $7.99)",
+      "paused_at": "2026-11-04 21:51 GMT+3"
+    },
+    "11baa403-c47d-474b-a7da-3a745e74478e": {
+      "name": "Car_v1_15-10_4_m1efb6f [H1]",
+      "campaign": "وسادة السيارة وينر نخبة #01 (5 أدست) - بيد 2.1 - 04-11",
+      "adsquad": "مجموعة نخبة وسادة السيارة #03 - بيد 2.1",
+      "reason": "[Global Accumulated Video High CPA 1D (اليوم)] مجموع صرف الفيديو التراكمي على مستوى الحساب = $9.43 | المبيعات = 1 | CPA التراكمي = $9.43 (> $7.99)",
+      "paused_at": "2026-11-04 21:51 GMT+3"
+    },
+    "62859339-1622-4ec6-add6-5ed7eecf31c4": {
+      "name": "Car_v1_15-10_4_m1efb6f [H1]",
+      "campaign": "وسادة السيارة وينر نخبة #01 (5 أدست) - بيد 2.1 - 04-11",
+      "adsquad": "مجموعة نخبة وسادة السيارة #05 - بيد 2.1",
+      "reason": "[Global Accumulated Video High CPA 1D (اليوم)] مجموع صرف الفيديو التراكمي على مستوى الحساب = $9.43 | المبيعات = 1 | CPA التراكمي = $9.43 (> $7.99)",
+      "paused_at": "2026-11-04 21:51 GMT+3"
+    },
+    "66e28188-44ca-4415-a083-e2c714af4d37": {
+      "name": "Car_v1_15-10_4_m1efb6f [H1]",
+      "campaign": "وسادة السيارة وينر نخبة #01 (5 أدست) - بيد 2.1 - 04-11",
+      "adsquad": "مجموعة نخبة وسادة السيارة #04 - بيد 2.1",
+      "reason": "[Global Accumulated Video High CPA 1D (اليوم)] مجموع صرف الفيديو التراكمي على مستوى الحساب = $9.43 | المبيعات = 1 | CPA التراكمي = $9.43 (> $7.99)",
+      "paused_at": "2026-11-04 21:51 GMT+3"
+    },
+    "74d3f8f4-afcc-4e07-ac71-c4cde7106dba": {
+      "name": "Car_v1_15-10_4_m1efb6f [H1]",
+      "campaign": "وسادة السيارة وينر نخبة #01 (5 أدست) - بيد 2.1 - 04-11",
+      "adsquad": "مجموعة نخبة وسادة السيارة #02 - بيد 2.1",
+      "reason": "[Global Accumulated Video High CPA 1D (اليوم)] مجموع صرف الفيديو التراكمي على مستوى الحساب = $9.43 | المبيعات = 1 | CPA التراكمي = $9.43 (> $7.99)",
+      "paused_at": "2026-11-04 21:51 GMT+3"
+    },
+    "7c8baa8d-f1ff-490e-a979-7910ac7f5926": {
+      "name": "Car_v1_15-10_4_m1efb6f [H1]",
+      "campaign": "وسادة السيارة وينر نخبة #01 (5 أدست) - بيد 2.1 - 04-11",
+      "adsquad": "مجموعة نخبة وسادة السيارة #01 - بيد 2.1",
+      "reason": "[Global Accumulated Video High CPA 1D (اليوم)] مجموع صرف الفيديو التراكمي على مستوى الحساب = $9.43 | المبيعات = 1 | CPA التراكمي = $9.43 (> $7.99)",
+      "paused_at": "2026-11-04 21:51 GMT+3"
     }
   },
   "bid_bumps": {
@@ -6586,6 +6655,28 @@
       "total_purchases": 0,
       "reason": "[Global Accumulated Video Stop-Loss 1D (اليوم)] مجموع صرف الفيديو التراكمي على مستوى الحساب = $8.69 (>= $7.01) بدون أي مبيعة",
       "disabled_at": "2026-11-04 19:54 GMT+3"
+    },
+    "da6a694e-9de9-4af3-8037-dc1c502ace55:MEDIA:1efb6ffc-aced-4da1-8103-da4ce6012aaf": {
+      "campaign_id": "da6a694e-9de9-4af3-8037-dc1c502ace55",
+      "campaign_name": "وسادة السيارة وينر نخبة #02 (5 أدست) - بيد 2.1 - 04-11",
+      "video_media_id": "1efb6ffc-aced-4da1-8103-da4ce6012aaf",
+      "sample_ad_name": "Car_v1_15-10_4_m1efb6f",
+      "closed_instances": 1,
+      "total_spend": 9.43,
+      "total_purchases": 1,
+      "reason": "[Global Accumulated Video High CPA 1D (اليوم)] مجموع صرف الفيديو التراكمي على مستوى الحساب = $9.43 | المبيعات = 1 | CPA التراكمي = $9.43 (> $7.99)",
+      "disabled_at": "2026-11-04 21:51 GMT+3"
+    },
+    "ec8c686f-83c0-4aa7-af6b-d79deabbe9cc:MEDIA:1efb6ffc-aced-4da1-8103-da4ce6012aaf": {
+      "campaign_id": "ec8c686f-83c0-4aa7-af6b-d79deabbe9cc",
+      "campaign_name": "وسادة السيارة وينر نخبة #01 (5 أدست) - بيد 2.1 - 04-11",
+      "video_media_id": "1efb6ffc-aced-4da1-8103-da4ce6012aaf",
+      "sample_ad_name": "Car_v1_15-10_4_m1efb6f",
+      "closed_instances": 1,
+      "total_spend": 9.43,
+      "total_purchases": 1,
+      "reason": "[Global Accumulated Video High CPA 1D (اليوم)] مجموع صرف الفيديو التراكمي على مستوى الحساب = $9.43 | المبيعات = 1 | CPA التراكمي = $9.43 (> $7.99)",
+      "disabled_at": "2026-11-04 21:51 GMT+3"
     }
   },
   "snap_3h_budget_scale": {
@@ -6802,32 +6893,32 @@
     "29891f22-e046-4cc8-b9ee-9921d2d65f0b": {
       "name": "مسخن الرضاعات اللاسلكي 22-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-11-04 20:48 GMT+3"
+      "updated_at": "2026-11-04 21:51 GMT+3"
     },
     "4eefa50f-9008-4aea-b159-d370150b60cf": {
       "name": "صندوق دفاتر TIME X 21-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-11-04 20:48 GMT+3"
+      "updated_at": "2026-11-04 21:51 GMT+3"
     },
     "a171c141-a6d5-403e-8357-5c8f6c01bce0": {
       "name": "وسادة مايباخ 21-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-11-04 20:48 GMT+3"
+      "updated_at": "2026-11-04 21:51 GMT+3"
     },
     "c5a7cade-6ec3-4c47-b3a2-c5f08bcf8da0": {
       "name": "وسادة مايباخ 21-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-11-04 20:48 GMT+3"
+      "updated_at": "2026-11-04 21:51 GMT+3"
     },
     "e8f0a5e9-89c5-4c14-aabb-c9c6c657891d": {
       "name": "مسخن الرضاعات اللاسلكي 22-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-11-04 20:48 GMT+3"
+      "updated_at": "2026-11-04 21:51 GMT+3"
     },
     "f18a3bf4-148a-4f5e-baa1-f90335f1884c": {
       "name": "مسخن الرضاعات اللاسلكي 22-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-11-04 20:48 GMT+3"
+      "updated_at": "2026-11-04 21:51 GMT+3"
     },
     "828f2e42-96c5-4813-a780-bbc5d976075f": {
       "name": "وسادة السيارة وينر 2 - 10 أدست - بيد 1.7 / 1.6",
@@ -6848,35 +6939,35 @@
       "spend_3d": 11.56,
       "purchases_3d": 0,
       "cpa_3d": null,
-      "updated_at": "2026-11-04 20:51 GMT+3"
+      "updated_at": "2026-11-04 21:53 GMT+3"
     },
     "c5e25aa8-766e-4cea-a794-9c3c5f832d06": {
       "name": "تيست - باور بانك",
       "spend_3d": 101.15,
       "purchases_3d": 5,
       "cpa_3d": 20.23,
-      "updated_at": "2026-11-04 20:51 GMT+3"
+      "updated_at": "2026-11-04 21:53 GMT+3"
     },
     "a4518953-cef3-4b77-9af1-20f6724623f8": {
       "name": "باور بانك وينر منزلك بديلة - بيد 2.1 - 02-11",
       "spend_3d": 9.22,
       "purchases_3d": 1,
       "cpa_3d": 9.22,
-      "updated_at": "2026-11-04 20:51 GMT+3"
+      "updated_at": "2026-11-04 21:53 GMT+3"
     },
     "987600c3-9d2c-4a73-8826-7a7413a086ed": {
       "name": "تيست - وسادة السيارة",
       "spend_3d": 44.48,
       "purchases_3d": 2,
       "cpa_3d": 22.24,
-      "updated_at": "2026-11-04 20:51 GMT+3"
+      "updated_at": "2026-11-04 21:53 GMT+3"
     },
     "9b90f1d2-7ada-42ff-9e59-7f7757460a46": {
       "name": "باور بانك وينر أ (2 أدست) - جديد من الصفر - بيد 2.1 - 02-11",
       "spend_3d": 11.25,
       "purchases_3d": 1,
       "cpa_3d": 11.25,
-      "updated_at": "2026-11-04 20:51 GMT+3"
+      "updated_at": "2026-11-04 21:53 GMT+3"
     },
     "a1121184-41a2-484d-8fa4-67011918698c": {
       "name": "وسادة السيارة وينر - 30 أدست - بيد 1.5 30-10",
@@ -6890,21 +6981,21 @@
       "spend_3d": 10.96,
       "purchases_3d": 0,
       "cpa_3d": null,
-      "updated_at": "2026-11-04 20:51 GMT+3"
+      "updated_at": "2026-11-04 21:53 GMT+3"
     },
     "b454cd6e-ae09-4496-ba36-8345dd544614": {
       "name": "باور بانك وينر منزلك - بيد 2.1 - 02-11",
       "spend_3d": 14.39,
       "purchases_3d": 1,
       "cpa_3d": 14.39,
-      "updated_at": "2026-11-04 20:51 GMT+3"
+      "updated_at": "2026-11-04 21:53 GMT+3"
     },
     "51945aea-b2d6-4742-815c-feb85620d8ff": {
       "name": "وسادة السيارة وينر منزلك بديلة - بيد 2.1 - 02-11",
       "spend_3d": 11.04,
       "purchases_3d": 1,
       "cpa_3d": 11.04,
-      "updated_at": "2026-11-04 20:51 GMT+3"
+      "updated_at": "2026-11-04 21:53 GMT+3"
     },
     "89aadf62-66f2-4ac8-9106-f92fd83b4277": {
       "name": "باور بانك وينر - 30 أدست - بيد 1.4 30-10",
@@ -6926,21 +7017,21 @@
       "spend_3d": 7.96,
       "purchases_3d": 1,
       "cpa_3d": 7.96,
-      "updated_at": "2026-11-04 20:51 GMT+3"
+      "updated_at": "2026-11-04 21:53 GMT+3"
     },
     "0bacf974-1fc2-4ba4-ac20-42b974911064": {
       "name": "وسادة السيارة وينر - 10 أدست - بيد 2.1",
       "spend_3d": 7.57,
       "purchases_3d": 1,
       "cpa_3d": 7.57,
-      "updated_at": "2026-11-04 20:51 GMT+3"
+      "updated_at": "2026-11-04 21:53 GMT+3"
     },
     "e21421ad-72a1-427e-987d-e6cc49384a31": {
       "name": "باور بانك وينر - 10 أدست - بيد 2.1",
       "spend_3d": 22.55,
       "purchases_3d": 2,
       "cpa_3d": 11.28,
-      "updated_at": "2026-11-04 20:51 GMT+3"
+      "updated_at": "2026-11-04 21:53 GMT+3"
     },
     "1880685110891601": {
       "name": "kuwait car armrest 01-11 (5 Winners CC 8.5)",
@@ -6979,7 +7070,7 @@
       "spend_3d": 18.17,
       "purchases_3d": 1,
       "cpa_3d": 18.17,
-      "updated_at": "2026-11-04 20:51 GMT+3"
+      "updated_at": "2026-11-04 21:53 GMT+3"
     },
     "1880835852819026": {
       "name": "power bank winners 03-11 B (5 Ads)",
@@ -6994,7 +7085,7 @@
       "spend_3d": 9.83,
       "purchases_3d": 1,
       "cpa_3d": 9.83,
-      "updated_at": "2026-11-04 20:51 GMT+3"
+      "updated_at": "2026-11-04 21:53 GMT+3"
     },
     "1880864364977410": {
       "name": "doorbell 10165 taager 04-11 B (3 Ads)",
@@ -7007,23 +7098,23 @@
     "1880864349907970": {
       "name": "doorbell 10165 taager 04-11 A (3 Ads)",
       "aadvid": "7631763556322148369",
-      "spend_3d": 9.98,
+      "spend_3d": 10.91,
       "purchases_3d": 1,
-      "cpa_3d": 9.98,
+      "cpa_3d": 10.91,
       "reason": "3-Day CPA > $7.00 — Duplication Blocked"
     },
     "1880865605611922": {
       "name": "dryer 21982 taager 04-11 A (4 Ads)",
       "aadvid": "7631763556322148369",
-      "spend_3d": 26.5,
+      "spend_3d": 26.67,
       "purchases_3d": 3,
-      "cpa_3d": 8.83,
+      "cpa_3d": 8.89,
       "reason": "3-Day CPA > $7.00 — Duplication Blocked"
     },
     "1880858529891665": {
       "name": "denx 20001 taager 04-11 B (4 Ads)",
       "aadvid": "7631763556322148369",
-      "spend_3d": 9.91,
+      "spend_3d": 11.59,
       "purchases_3d": 0,
       "cpa_3d": null,
       "reason": "3-Day CPA > $7.00 — Duplication Blocked"
@@ -7031,24 +7122,24 @@
     "1880865622479041": {
       "name": "dryer 21982 taager 04-11 B (3 Ads)",
       "aadvid": "7631763556322148369",
-      "spend_3d": 8.61,
+      "spend_3d": 9.42,
       "purchases_3d": 0,
       "cpa_3d": null,
       "reason": "3-Day CPA > $7.00 — Duplication Blocked"
     },
     "f3d40a5c-fcdc-46bd-9b9b-70abe7e1a0a2": {
       "name": "باور بانك وينر نخبة #01 (5 أدست) - بيد 2.1 - 04-11",
-      "spend_3d": 9.79,
+      "spend_3d": 17.27,
       "purchases_3d": 1,
-      "cpa_3d": 9.79,
-      "updated_at": "2026-11-04 20:51 GMT+3"
+      "cpa_3d": 17.27,
+      "updated_at": "2026-11-04 21:53 GMT+3"
     },
     "b0a54bcf-31fb-428a-ac15-b5381b82a3b0": {
       "name": "باور بانك وينر نخبة #02 (5 أدست) - بيد 2.1 - 04-11",
-      "spend_3d": 12.87,
+      "spend_3d": 13.64,
       "purchases_3d": 1,
-      "cpa_3d": 12.87,
-      "updated_at": "2026-11-04 20:51 GMT+3"
+      "cpa_3d": 13.64,
+      "updated_at": "2026-11-04 21:53 GMT+3"
     }
   },
   "user_reactivated_ads": {},
@@ -9816,6 +9907,48 @@
       "spend_7d": 2.33,
       "conv_7d": 0,
       "paused_at": "2026-11-04T17:53:22.724157+00:00"
+    },
+    "7631763556322148369:1880864349907986:1880864353958098": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "ad_id": "1880864349907986",
+      "creative_id": "1880864352325650",
+      "campaign_ad_name": "doorbell 10165 taager 04-11 A (3 Ads) / doorbell 10165 taager 04-11 A (3 Ads) - Creative",
+      "video_name": "04-11_Taager_10165_Doorbell_Ad_02.mp4",
+      "draft_ids": [
+        "1880864353958098"
+      ],
+      "reason": "Today Spend $4.54 > $4.50 with 0 sales Today",
+      "spend_1d": 4.54,
+      "conv_1d": 0,
+      "spend_2d": 4.54,
+      "conv_2d": 0,
+      "spend_3d": 4.54,
+      "conv_3d": 0,
+      "spend_7d": 4.57,
+      "conv_7d": 0,
+      "paused_at": "2026-11-04T18:55:53.687589+00:00"
+    },
+    "7631763556322148369:1880858529891681:1880858532742145": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "ad_id": "1880858529891681",
+      "creative_id": "1880858531091954",
+      "campaign_ad_name": "denx 20001 taager 04-11 B (4 Ads) / denx 20001 taager 04-11 B (4 Ads) - Creative",
+      "video_name": "04-11_Taager_20001_DENX_Ad_05.mp4",
+      "draft_ids": [
+        "1880858532742145"
+      ],
+      "reason": "Today Spend $2.57 >= $1.00 & CPC $0.26 > $0.25 (Clicks=10, 0 sales Today)",
+      "spend_1d": 2.57,
+      "conv_1d": 0,
+      "spend_2d": 2.57,
+      "conv_2d": 0,
+      "spend_3d": 2.57,
+      "conv_3d": 0,
+      "spend_7d": 2.6,
+      "conv_7d": 0,
+      "paused_at": "2026-11-04T18:55:54.309535+00:00"
     }
   },
   "tiktok_ads": {},
@@ -10347,6 +10480,19 @@
       "conv_7d": 0,
       "reason": "Today Spend $4.51 > $4.50 with 0 sales Today",
       "disabled_at": "2026-11-04T13:54:27.166755+00:00"
+    },
+    "04-11_taager_10165_doorbell_ad_02": {
+      "v_key": "04-11_taager_10165_doorbell_ad_02",
+      "sample_name": "04-11_Taager_10165_Doorbell_Ad_02.mp4",
+      "accounts": [
+        "ROELLINGER RECYCLING"
+      ],
+      "spend_3d": 4.54,
+      "conv_3d": 0,
+      "spend_7d": 4.57,
+      "conv_7d": 0,
+      "reason": "Today Spend $4.54 > $4.50 with 0 sales Today",
+      "disabled_at": "2026-11-04T18:55:53.687605+00:00"
     }
   },
   "proactive_scaled_tiktok": {
@@ -10459,7 +10605,7 @@
       "combined_sales": 1.0,
       "combined_cpa": 47.37,
       "reason": "[Taager Product Test Failed: Combined CPA >= $27 Stop] سعر البيعة المشترك للمنتج 'مبخرة الملابس المرنة 360° BW-20 (تاجر)' في الحسابات (غوغل + تيك توك) وصل إلى CPA = $47.37 (>= $27.00 | الصرف المشترك=$47.37 | المبيعات=1)",
-      "failed_at": "2026-11-04 20:54 GMT+3"
+      "failed_at": "2026-11-04 21:56 GMT+3"
     },
     "washer_hp909": {
       "product_key": "washer_hp909",
@@ -10468,7 +10614,7 @@
       "combined_sales": 2.0,
       "combined_cpa": 62.67,
       "reason": "[Taager Product Test Failed: Combined CPA >= $27 Stop] سعر البيعة المشترك للمنتج 'غسالة الملابس المحمولة 3 في 1 HP-909 (تاجر)' في الحسابات (غوغل + تيك توك) وصل إلى CPA = $62.67 (>= $27.00 | الصرف المشترك=$125.34 | المبيعات=2)",
-      "failed_at": "2026-11-04 20:54 GMT+3"
+      "failed_at": "2026-11-04 21:56 GMT+3"
     }
   },
   "user_protected_tiktok_campaigns": {
