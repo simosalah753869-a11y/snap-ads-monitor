@@ -7,7 +7,7 @@ import sys
 import time
 import urllib.parse
 import urllib.request
-from snap_auth import API_BASE, _get_snap_session, api_get, load_config, refresh_access_token
+from snap_auth import API_BASE, _get_snap_session, api_get, get_token_for_account, load_config, refresh_access_token
 from duplicate_gulf_campaigns import clone_adsquad_exact, make_session
 
 if sys.stdout is not None:
@@ -15,12 +15,29 @@ if sys.stdout is not None:
 
 TARGET_ACCOUNT_ID = "350cb560-ad77-4fb5-9bbf-4c090c9ad081"  # CSP9860
 SECOND_ACCOUNT_ID = "0d00760b-6793-441f-a675-e35371ce9c7c"  # CSP9860 4
-TARGET_ACCOUNT_IDS = [TARGET_ACCOUNT_ID, SECOND_ACCOUNT_ID]
+DARALRIMAL_ACCOUNT_ID = "c6447397-25a3-418a-8529-422581e1bbe0"  # Daralrimal Self Service (New Snapchat)
+DARALRIMAL_ACCOUNT_2_ID = "0385c6d4-7a29-41bb-9bf1-16fe430c8ec9"  # Daralrimal Self Service 2
+DARALRIMAL_ACCOUNT_3_ID = "f451e3dd-ccf2-4721-9aac-a6a74c8ad26d"  # Daralrimal Self Service 3 (Funded)
+CN_MANZILK_2_ACCOUNT_ID = "421ceb8f-a1fb-40ac-a26e-803e662d8bfe"  # CN-Manzilk 2
+CN_MANZILK_0505_ACCOUNT_ID = "f983cc8c-f12a-4d53-b072-eb147795d535"  # CN - Manzilk 0505
+WATCH_BV_ACCOUNT_ID = "34bca683-5511-4c44-8a12-60af5527537d"  # watch-wuhanjuxiangwangluokeji-/-BV-EC-01-LT
+TARGET_ACCOUNT_IDS = [
+    TARGET_ACCOUNT_ID,
+    SECOND_ACCOUNT_ID,
+    DARALRIMAL_ACCOUNT_ID,
+    DARALRIMAL_ACCOUNT_2_ID,
+    DARALRIMAL_ACCOUNT_3_ID,
+    CN_MANZILK_2_ACCOUNT_ID,
+    CN_MANZILK_0505_ACCOUNT_ID,
+    WATCH_BV_ACCOUNT_ID,
+]
 DEDICATED_SNAP_TEST_CAMPAIGN_IDS = {
     "25192738-8b28-44c0-9d6f-44408b6b3bf9",  # CSP9860 - تيست - وسادة السيارة ($3.00 Max Bid)
     "57c21f10-0cd3-4bd5-bee1-621bf60aa48b",  # CSP9860 - تيست - باور بانك ($3.00 Max Bid)
     "987600c3-9d2c-4a73-8826-7a7413a086ed",  # CSP9860 4 - تيست - وسادة السيارة ($3.00 Max Bid)
     "c5e25aa8-766e-4cea-a794-9c3c5f832d06",  # CSP9860 4 - تيست - باور بانك ($3.00 Max Bid)
+    "c44d7057-d745-498a-8d2c-56b8840ff8cd",  # Daralrimal - تيست - غسالة الملابس المحمولة HP909 - 04-11 ($30/day, 1 AdSquad)
+    "42fdd40d-da60-4962-bc1a-11d9a8730806",  # Daralrimal - تيست - ممسحة الزجاج الكهربائية 22454 - 06-11 ($3.00 Target Cost, 1 AdSquad)
 }
 TEN_SQUAD_CAMPAIGN_IDS = {
     # CSP9860 (10 AdSquads @ $1.80 Max Bid — #1 Best 3D Video Only)
@@ -48,7 +65,8 @@ PERMANENTLY_PAUSED_CPA10_CAMPAIGN_IDS = {
     "89aadf62-66f2-4ac8-9106-f92fd83b4277",  # CSP9860 4 - باور بانك وينر - 30 أدست - بيد 1.4 30-10 (CPA > $10)
     "a1121184-41a2-484d-8fa4-67011918698c",  # CSP9860 4 - وسادة السيارة وينر - 30 أدست - بيد 1.5 30-10 (CPA > $10)
     "6cb7f305-66ac-4e9e-8fe0-3cfccd09e3c8",  # CSP9860 4 - وسادة السيارة وينر - 30 أدست - بيد 1.4 30-10 (CPA > $10)
-    "dab749f9-2dca-497b-a8c3-39f2201162a7",  # CSP9860 4 - باور بانك وينر - تارقيت كوست (CPA > $10)
+    "dab749f9-2dca-497b-a8c3-39f2201162a7",
+    "42fdd40d-da60-4962-bc1a-11d9a8730806",  # Daralrimal - تيست - ممسحة الزجاج الكهربائية 22454 - 06-11 ($3.00 Target Cost)  # CSP9860 4 - باور بانك وينر - تارقيت كوست (CPA > $10)
     "041280f3-1c1e-43fb-b8d4-860dd6c8957f",  # CSP9860 4 - وسادة السيارة وينر - 30 أدست - بيد 1.6 30-10 (CPA > $10)
     "f82c765e-5b7c-4787-be62-3e07b7602db8",  # CSP9860 4 - وسادة السيارة وينر 2 - 30 أدست 30-10 (CPA > $10)
     "a9dcd138-a822-4664-bf0a-c36d02233956",  # CSP9860 - باور بانك وينر - 10 أدست (1D $11.97 / 0p >= $10)
@@ -85,12 +103,43 @@ ALLOWED_30X_CAMPAIGN_IDS = (
         "ad1ecffe-0b2d-4f7a-b5ea-ab5843a11235",  # CSP9860 4 - باور بانك وينر ب (1 أدست) - جديد من الصفر - بيد 1.7 - 02-11
         "f3372321-bb10-4da7-a17c-8ca4f28d3a47",  # CSP9860 4 - وسادة السيارة شاملة (16 فيديو) - جديد من الصفر - بيد 1.7 - 02-11
         "a7b2a8c6-2c1b-43c2-90b9-eb5624e5eaad",  # CSP9860 4 - باور بانك شاملة (3 أدست) - جديد من الصفر - بيد 1.7 - 02-11
+        "6b0de02e-978d-4332-9698-743a2524b87c",  # CSP9860 - باور بانك شاملة (5 أدست) - بيد 2.1 - 03-11
+        "9aa60a77-d16c-41a5-95ee-4a31159a1011",  # CSP9860 - باور بانك وينر نخبة #01 (5 أدست) - بيد 2.1 - 04-11
+        "e43ce7d5-38fc-4bc2-b4d3-1069aecdf6c1",  # CSP9860 - باور بانك وينر نخبة #02 (5 أدست) - بيد 2.1 - 04-11
+        "ec8c686f-83c0-4aa7-af6b-d79deabbe9cc",  # CSP9860 - وسادة السيارة وينر نخبة #01 (5 أدست) - بيد 2.1 - 04-11
+        "da6a694e-9de9-4af3-8037-dc1c502ace55",  # CSP9860 - وسادة السيارة وينر نخبة #02 (5 أدست) - بيد 2.1 - 04-11
+        "f3d40a5c-fcdc-46bd-9b9b-70abe7e1a0a2",  # CSP9860 4 - باور بانك وينر نخبة #01 (5 أدست) - بيد 2.1 - 04-11
+        "b0a54bcf-31fb-428a-ac15-b5381b82a3b0",  # CSP9860 4 - باور بانك وينر نخبة #02 (5 أدست) - بيد 2.1 - 04-11
+        "daf8a0fd-9e22-4e90-88ad-54a09dade4e8",  # CSP9860 4 - باور بانك وينر نخبة #03 (5 أدست) - بيد 2.1 - 04-11
+        "fbb1a3c5-b922-4d47-bde8-49f40a59263b",  # CSP9860 4 - وسادة السيارة وينر نخبة #01 (5 أدست) - بيد 2.1 - 04-11
+        "4ec7415b-bc77-42ae-9795-0dad4da72248",  # CSP9860 4 - وسادة السيارة وينر نخبة #02 (5 أدست) - بيد 2.1 - 04-11
     }
     | DEDICATED_SNAP_TEST_CAMPAIGN_IDS
     | TEN_SQUAD_CAMPAIGN_IDS
 )
 FOUR_SQUAD_CAMPAIGN_IDS = set()
-ALLOWED_GULF_CAMPAIGN_IDS = {
+REVIVED_LOW_CPM_SQUAD_IDS = {
+    "192d7461-7e73-4df0-9180-13337381cf1f",
+    "f61f153f-3129-4a84-96eb-5368ebadd7de",
+    "0865363e-64d4-4217-a233-fd1595c52a89",
+    "9145c59b-083c-4dcc-a88d-813673e93fa2",
+    "87acab08-a623-4d60-9904-7dd0438f55a6",
+    "635cd129-cc5b-4ab9-98d3-2267692c2538",
+    "150bdd56-e284-4681-b8a4-b5d320ef017e",
+    "75dc0847-a499-4b89-aa80-ab57023ad7df",
+    "137354ca-0ca4-43ae-8f66-74eb7987dcbb",
+    "537fa5eb-2720-45cb-9d56-b1571843bf23",
+    "8351a35f-ced1-4540-b87c-599bcb1e544b",
+    "a2fb722b-c726-45e4-8e3d-80a6cba8900e",
+    "d14b64f9-a6c1-4bff-8cd6-8a5b3862b186",
+    "50b215c8-a1f7-4e42-84f9-59c2a3cb7db4",
+    "6f5eaeac-b8ab-4bac-9194-3beb7c77b80e",
+    "0dd09725-6129-4b16-80cd-48ecc8b1fdc7",
+    "fb16e579-98db-4146-b1ec-145e99347d45",
+    "7f7b045c-5bd7-4c1a-a2d1-675da707f1ed",
+}
+ALLOWED_GULF_CAMPAIGN_IDS = set()  # Permanently emptied per 2026-11-05 User Order (All KW/QA/OM campaigns OFF)
+PERMANENTLY_PAUSED_CPA10_CAMPAIGN_IDS = PERMANENTLY_PAUSED_CPA10_CAMPAIGN_IDS | {
     "67de1daa-7ffb-4194-9c44-00dcb7163d4d",  # CSP9860 - باور بانك قطر 18-10
     "efccbe22-8951-49f4-b118-cd67f2cec64b",  # CSP9860 - powe bank oman
     "3fb9b26f-7705-4286-b371-4efcd904670c",  # CSP9860 - وسادة السيارة الكويت 18-10
@@ -98,44 +147,128 @@ ALLOWED_GULF_CAMPAIGN_IDS = {
     "f7f6b623-46d5-48af-9a21-fb2584106da8",  # CSP9860 - qatar car scaling new 2 text
     "2958697d-af14-4afc-a42a-1de78106b8a1",  # CSP9860 - منتج الكشاف عمان
     "0e6e5109-d336-44f6-8ce3-601bbe2d0262",  # CSP9860 - Copy of kasahf smart+ qatar 3.5
+    "c8587cf5-0e54-467d-bdd5-a954e1f57bca",  # Daralrimal - تيست - جرس الباب الذكي عُمان TAG 21482 - 04-11
+    "c3b74d2d-a623-4982-811e-6277e8cc7c9c",  # Dropped Rejected US Account #2 (Okup Digital Media LLC)
+    "048a7764-1ecb-4a3f-9bf6-9e839272133e",  # Dropped Rejected US Account #4 (GVB Digital Retail LLC)
 }
+WARMING_ENGAGEMENT_CAMPAIGN_IDS = {
+    "73b09cba-b144-4429-9319-30462ff7e4ea",  # Daralrimal Self Service - Awareness and engagement (Warming)
+    "2d4af8ca-2ab7-4034-acd4-0d1398908da5",  # Daralrimal Self Service 2 - Awareness and engagement (Warming)
+    "a14f11ae-ce00-48b0-9670-4db45064f223",  # Daralrimal Self Service 3 (Funded) - Awareness and engagement (Warming)
+    "b12db6dc-c528-4c49-bfd9-480ff9b15469",  # US Account #1 (Summit Media LLC) - Awareness and engagement (Warming)
+    "58d28c5f-b8a8-4ea1-9d54-8cd24762cfa5",  # US Account #5 (Nihal Digital Media LLC) - Awareness and engagement (Warming)
+}
+
+
+def is_warming_engagement_campaign(campaign_id: str = "", campaign_name: str = "", campaign_obj: dict | None = None) -> bool:
+    """أمر المستخدم الصارم (2026-11-05):
+    حملات الوارمينق والتفاعل (Awareness and engagement / Warming):
+    - بيد مخفض ($0.20 = 200,000 micro).
+    - أي حملة وارمينق تصرف $1.00 (>= $1.00) يطفئها البوت وGitHub Actions مباشرةً وفوراً!"""
+    cid = (campaign_id or (campaign_obj or {}).get("id") or "").strip().lower()
+    if cid in WARMING_ENGAGEMENT_CAMPAIGN_IDS:
+        return True
+    obj_type = str((campaign_obj or {}).get("objective") or "").strip().upper()
+    if obj_type in ("AWARENESS_AND_ENGAGEMENT", "ENGAGEMENT", "BRAND_AWARENESS", "VIDEO_VIEWS"):
+        return True
+    cn_l = (campaign_name or (campaign_obj or {}).get("name") or "").strip().lower()
+    if any(k in cn_l for k in ("awareness and engagement", "warming", "warm-up", "warmup", "وارمينق", "وارمنق", "تفاعل ووعي")):
+        return True
+    return False
+
+
+DARALRIMAL_TARGET_COST_2USD_CAMPAIGN_IDS = {
+    "0b71e6c3-59eb-41b7-824e-d87ae4b30d0a",  # Daralrimal - مجفف الملابس المحمول TAG 21982 - 04-11
+    "c44d7057-d745-498a-8d2c-56b8840ff8cd",  # Daralrimal - تيست - غسالة الملابس المحمولة HP909 - 04-11
+    # 5 Power Bank Target Cost $2.00 Campaigns (5 AdSquads each):
+    "d1786a69-0f47-4ac9-9974-40d08e763595",  # باور بانك وينر #1 - 5 أدست تارغت كوست 2$ - دار الرمال
+    "e0408af5-25ce-4f34-b213-9955c66a5df0",  # باور بانك وينر #2 - 5 أدست تارغت كوست 2$ - دار الرمال
+    "d101f11f-ac19-49ae-b7a1-93f0fd39f7f9",  # باور بانك وينر #3 - 5 أدست تارغت كوست 2$ - دار الرمال
+    "8601c3bf-07fc-4431-a674-bdfde20a2542",  # باور بانك وينر #4 - 5 أدست تارغت كوست 2$ - دار الرمال
+    "477e55c9-79cc-4454-88b8-761292f952fe",  # باور بانك وينر #5 - 5 أدست تارغت كوست 2$ - دار الرمال
+    # 5 Car Armrest Cushion Target Cost $2.00 Campaigns (5 AdSquads each):
+    "9ac21701-4fc2-47f7-bf17-a79fe9367740",  # وسادة السيارة وينر #1 - 5 أدست تارغت كوست 2$ - دار الرمال
+    "92764ea0-fc04-443a-ba89-1ab4e937ec32",  # وسادة السيارة وينر #2 - 5 أدست تارغت كوست 2$ - دار الرمال
+    "b967ba9f-7914-42d3-ae7b-b49c03b15812",  # وسادة السيارة وينر #3 - 5 أدست تارغت كوست 2$ - دار الرمال
+    "74e86066-6d1f-4b3f-a4cd-d89e5c310e3d",  # وسادة السيارة وينر #4 - 5 أدست تارغت كوست 2$ - دار الرمال
+    "d1d20828-8e34-419f-8577-4b39c83ab772",  # وسادة السيارة وينر #5 - 5 أدست تارغت كوست 2$ - دار الرمال
+}
+ALLOWED_30X_CAMPAIGN_IDS = ALLOWED_30X_CAMPAIGN_IDS | DARALRIMAL_TARGET_COST_2USD_CAMPAIGN_IDS | WARMING_ENGAGEMENT_CAMPAIGN_IDS
 TARGET_COST_CAMPAIGN_IDS = {
     "baa69314-505c-4b3a-851e-883c10034935",
     "4e01cc73-1d2f-4198-8cac-ecb5862f29eb",
     "558c5d45-f08e-400c-a499-7668e801c347",
     "dab749f9-2dca-497b-a8c3-39f2201162a7",
-}
+} | DARALRIMAL_TARGET_COST_2USD_CAMPAIGN_IDS
 
 
 LOCKED_LOW_BID_CAMPAIGN_MAP = {
-    # CSP9860 (All Saudi Copy AdSquads unified to $1.90 per 2026-11-03 User Order; Test campaigns excluded & locked at $3.00)
-    "35597da7-a911-48f9-9567-7d81bfdebe00": 1_900_000,
-    "b8507a0f-9e9a-4e11-ad5f-0b4f791445e6": 1_900_000,
-    "3e82b3ff-64a9-4e74-ba35-7e673150cafe": 1_900_000,
-    "88928e2b-057d-4aed-aafe-f3d73ebc724c": 1_900_000,
-    "6e187c03-020b-439c-905e-f3d513cd80d6": 1_900_000,
-    "b4ec4259-1868-40f5-ba33-08a2dd0fd578": 1_900_000,
-    "11fa8aef-3a3c-418d-b5c4-8dc7b3ec7ab3": 1_900_000,
-    "2693cf34-1697-4bd9-b3eb-07ba7a64f6f1": 1_900_000,
-    "2e87b13a-90ba-4bee-b553-4ebc9c82186e": 1_900_000,
-    "a9dcd138-a822-4664-bf0a-c36d02233956": 1_900_000,
-    "ac64cb95-72d4-4043-905a-69fce2968a0a": 1_900_000,
-    "c89e6059-b826-4cec-8067-71ba2bd45699": 1_900_000,
-    "ee9d1a46-e08e-4a73-a910-f30941356671": 1_900_000,
-    # CSP9860 4 (All Saudi Copy AdSquads unified to $1.90 per 2026-11-03 User Order; Test campaigns excluded & locked at $3.00)
-    "041280f3-1c1e-43fb-b8d4-860dd6c8957f": 1_900_000,
-    "a1121184-41a2-484d-8fa4-67011918698c": 1_900_000,
-    "6cb7f305-66ac-4e9e-8fe0-3cfccd09e3c8": 1_900_000,
-    "7fa61e5d-dd41-4ee5-af26-e5c0f773bdef": 1_900_000,
-    "7bffcb77-f2ae-427e-883a-f4e5f249cae9": 1_900_000,
-    "89aadf62-66f2-4ac8-9106-f92fd83b4277": 1_900_000,
-    "483f7e57-8a8e-4edb-8b74-7c67eb76419b": 1_900_000,
-    "e21421ad-72a1-427e-987d-e6cc49384a31": 1_900_000,
-    "c2b612d5-acfb-4935-8a5f-1cb090320542": 1_900_000,
-    "0bacf974-1fc2-4ba4-ac20-42b974911064": 1_900_000,
-    "9ff50b24-d5c3-48ba-b74e-7b55e8ffca52": 1_900_000,
-    "22d12681-930c-44a8-91e3-58f112789375": 1_900_000,
-    "828f2e42-96c5-4813-a780-bbc5d976075f": 1_900_000,
+    # CSP9860 (Copy campaigns raised to $2.10 per 2026-11-04 User Order)
+    "35597da7-a911-48f9-9567-7d81bfdebe00": 2_100_000,
+    "b8507a0f-9e9a-4e11-ad5f-0b4f791445e6": 2_100_000,
+    "3e82b3ff-64a9-4e74-ba35-7e673150cafe": 2_100_000,
+    "88928e2b-057d-4aed-aafe-f3d73ebc724c": 2_100_000,
+    "6e187c03-020b-439c-905e-f3d513cd80d6": 2_100_000,
+    "b4ec4259-1868-40f5-ba33-08a2dd0fd578": 2_100_000,
+    "11fa8aef-3a3c-418d-b5c4-8dc7b3ec7ab3": 2_100_000,
+    "2693cf34-1697-4bd9-b3eb-07ba7a64f6f1": 2_100_000,
+    "2e87b13a-90ba-4bee-b553-4ebc9c82186e": 2_100_000,
+    "a9dcd138-a822-4664-bf0a-c36d02233956": 2_100_000,
+    "ac64cb95-72d4-4043-905a-69fce2968a0a": 2_100_000,
+    "c89e6059-b826-4cec-8067-71ba2bd45699": 2_100_000,
+    "ee9d1a46-e08e-4a73-a910-f30941356671": 2_100_000,
+    "6b0de02e-978d-4332-9698-743a2524b87c": 2_100_000,
+    "9aa60a77-d16c-41a5-95ee-4a31159a1011": 2_100_000,
+    "e43ce7d5-38fc-4bc2-b4d3-1069aecdf6c1": 2_100_000,
+    "ec8c686f-83c0-4aa7-af6b-d79deabbe9cc": 2_100_000,
+    "da6a694e-9de9-4af3-8037-dc1c502ace55": 2_100_000,
+    "f3d40a5c-fcdc-46bd-9b9b-70abe7e1a0a2": 2_100_000,
+    "b0a54bcf-31fb-428a-ac15-b5381b82a3b0": 2_100_000,
+    "daf8a0fd-9e22-4e90-88ad-54a09dade4e8": 2_100_000,
+    "fbb1a3c5-b922-4d47-bde8-49f40a59263b": 2_100_000,
+    "4ec7415b-bc77-42ae-9795-0dad4da72248": 2_100_000,
+    "bfe9ec1d-d6c6-416d-a3f0-46c50c2b7a76": 2_100_000,
+    "a2849f8c-a7e3-452a-8f3e-813745028989": 2_100_000,
+    "35c8668c-903f-4a80-a3af-edb4f8cce5cb": 2_100_000,
+    "25192738-8b28-44c0-9d6f-44408b6b3bf9": 2_000_000,
+    # CSP9860 4 (Copy campaigns raised to $2.10 per 2026-11-04 User Order)
+    "041280f3-1c1e-43fb-b8d4-860dd6c8957f": 2_100_000,
+    "a1121184-41a2-484d-8fa4-67011918698c": 2_100_000,
+    "6cb7f305-66ac-4e9e-8fe0-3cfccd09e3c8": 2_100_000,
+    "7fa61e5d-dd41-4ee5-af26-e5c0f773bdef": 2_100_000,
+    "7bffcb77-f2ae-427e-883a-f4e5f249cae9": 2_100_000,
+    "89aadf62-66f2-4ac8-9106-f92fd83b4277": 2_100_000,
+    "483f7e57-8a8e-4edb-8b74-7c67eb76419b": 2_100_000,
+    "e21421ad-72a1-427e-987d-e6cc49384a31": 2_100_000,
+    "c2b612d5-acfb-4935-8a5f-1cb090320542": 2_100_000,
+    "0bacf974-1fc2-4ba4-ac20-42b974911064": 2_100_000,
+    "9ff50b24-d5c3-48ba-b74e-7b55e8ffca52": 2_100_000,
+    "22d12681-930c-44a8-91e3-58f112789375": 2_100_000,
+    "828f2e42-96c5-4813-a780-bbc5d976075f": 2_100_000,
+    "c46290e2-62b9-450b-bf66-e921b564aba0": 2_100_000,
+    "35515ff0-e28b-4e8a-b8f7-714c84e98e1b": 2_100_000,
+    "987600c3-9d2c-4a73-8826-7a7413a086ed": 2_000_000,
+    # Daralrimal Self Service (All campaigns locked at $2.00 Target Cost per 2026-11-04 User Order)
+    "0b71e6c3-59eb-41b7-824e-d87ae4b30d0a": 2_500_000,
+    "c44d7057-d745-498a-8d2c-56b8840ff8cd": 2_500_000,
+    "d1786a69-0f47-4ac9-9974-40d08e763595": 2_000_000,
+    "e0408af5-25ce-4f34-b213-9955c66a5df0": 2_000_000,
+    "d101f11f-ac19-49ae-b7a1-93f0fd39f7f9": 2_000_000,
+    "8601c3bf-07fc-4431-a674-bdfde20a2542": 2_000_000,
+    "477e55c9-79cc-4454-88b8-761292f952fe": 2_000_000,
+    "9ac21701-4fc2-47f7-bf17-a79fe9367740": 2_000_000,
+    "92764ea0-fc04-443a-ba89-1ab4e937ec32": 2_000_000,
+    "b967ba9f-7914-42d3-ae7b-b49c03b15812": 2_000_000,
+    "74e86066-6d1f-4b3f-a4cd-d89e5c310e3d": 2_000_000,
+    "d1d20828-8e34-419f-8577-4b39c83ab772": 2_000_000,
+    # Daralrimal Self Service - Window Vacuum #22454 Test Campaign locked at $3.00 Target Cost per 2026-11-05 User Order:
+    "42fdd40d-da60-4962-bc1a-11d9a8730806": 3_000_000,
+    # Warming / Awareness and engagement campaigns locked at $0.10 (100,000 micro) per 2026-11-05 User Order:
+    "73b09cba-b144-4429-9319-30462ff7e4ea": 100_000,
+    "2d4af8ca-2ab7-4034-acd4-0d1398908da5": 100_000,
+    "a14f11ae-ce00-48b0-9670-4db45064f223": 100_000,
+    "b12db6dc-c528-4c49-bfd9-480ff9b15469": 100_000,
+    "58d28c5f-b8a8-4ea1-9d54-8cd24762cfa5": 100_000,
 }
 
 CUSTOM_SQUAD_BID_LOCKS_FILE = Path(__file__).parent / "snap_squad_custom_bid_locks.json"
@@ -170,23 +303,23 @@ def get_custom_daytime_budget_micro(squad_id: str, today_date_str: str = "") -> 
 
 
 def is_dedicated_snap_test_campaign(campaign_id: str = "", campaign_name: str = "", squad_name: str = "") -> bool:
-    """أمر المستخدم الصارم (2026-11-01):
-    حملات 'تيست' المخصصة للوسادة والباور بانك في الحسابين (تيست - وسادة السيارة / تيست - باور بانك):
-    - البيد فيها $3.00 ماكس بيد (3,000,000 micro) ومجدولة للانطلاق صباح الغد، والأتمتة لا تقترب منها.
-    - البوت لا يطفي فيها الحملة ولا الأدست أبداً."""
+    """أمر المستخدم الصارم (محدث 2026-11-03):
+    حملات 'تيست' / 'تسيت' المخصصة في سناب شات (بما فيها تيست - غسالة الملابس المحمولة HP909 في حساب Daralrimal):
+    - البيد والبدجت ($30.00/يوم) لا يُلمسان، ولا يطفي البوت الأدست بداخلها عند $4.00.
+    - يطفي البوت فقط الفيديوهات الفردية الخاسرة بداخلها (CPC > $0.27 بعد $1.00 بصفر بيع، أو $4.00 بصفر بيع، أو CPA >= $7.00).
+    - إذا وصل مجموع صرف الحملة أكثر من $10.00 (> $10.00، أي >= $10.01) بدون مبيعة (0 مبيعات)، يطفئ البوت الحملة كاملة فوراً!"""
     if campaign_id and campaign_id in DEDICATED_SNAP_TEST_CAMPAIGN_IDS:
         return True
     cn_l = (campaign_name or "").strip().lower()
-    if cn_l.startswith("تيست") or "تيست -" in cn_l or "حملة تيست" in cn_l:
+    if any(k in cn_l for k in ("تيست", "تسيت", "حملة تست", "تست -")) or cn_l.startswith("تست") or cn_l.startswith("test") or " test" in cn_l:
         return True
     return False
 
 
 def get_locked_low_bid_micro(campaign_id: str = "", campaign_name: str = "", squad_name: str = "", squad_id: str = "") -> int | None:
-    """أمر المستخدم الصارم الدائم (محدث 2026-11-03):
-    - توحيد وإرجاع بيد جميع أدست الكوبي في سناب شات (CSP9860 و CSP9860 4) إلى $1.90 ماكس بيد (1,900,000 micro).
-    - حملات التيست المخصصة (تيست - باور بانك / تيست - وسادة السيارة) تبقى على $3.00 ماكس بيد (3,000,000 micro).
-    - حملات الخليج تبقى مستثناة ببيداتها المخصصة."""
+    """أمر المستخدم الصارم الدائم (محدث 2026-11-04):
+    - رفع وتثبيت البيد على $2.10 (2,100,000 micro) في جميع حملات الكوبي في سناب شات.
+    - حملات التيست المخصصة وحملات غير الكوبي تبقى على $2.00، وحملات الخليج تبقى مستثناة ببيداتها المخصصة."""
     locks = _get_custom_squad_bid_locks()
     if squad_id:
         b_id = (locks.get("by_squad_id") or {}).get(squad_id)
@@ -201,16 +334,19 @@ def get_locked_low_bid_micro(campaign_id: str = "", campaign_name: str = "", squ
         b_fc = (locks.get("fixed_campaign_bids") or {}).get(campaign_id)
         if b_fc and 1_000_000 <= int(b_fc) <= 4_500_000:
             return int(b_fc)
-    if is_dedicated_snap_test_campaign(campaign_id, campaign_name, squad_name):
-        return 3_000_000
     if campaign_id and campaign_id in ALLOWED_GULF_CAMPAIGN_IDS:
         return None
     if is_gulf_034_campaign(campaign_name, squad_name):
         return None
-    cn_sn_l = f"{(campaign_name or '').lower()} {(squad_name or '').lower()}"
-    if "1.95" in cn_sn_l:
-        return 1_950_000
-    return 1_900_000
+    if is_warming_engagement_campaign(campaign_id, campaign_name):
+        return 100_000
+    if campaign_id and campaign_id in LOCKED_LOW_BID_CAMPAIGN_MAP:
+        return int(LOCKED_LOW_BID_CAMPAIGN_MAP[campaign_id])
+    if is_dedicated_snap_test_campaign(campaign_id, campaign_name, squad_name):
+        return 2_000_000
+    if is_scaling_winner_adsquad(squad_name, campaign_name) or any(k in (campaign_name or "") for k in ("أدست", "ادست", "وينر")):
+        return 2_100_000
+    return 2_000_000
 
 
 def is_low_bid_experiment_locked(campaign_id: str, campaign_name: str = "", squad_name: str = "", squad_id: str = "") -> bool:
@@ -239,7 +375,7 @@ def is_30x_low_bid_test_campaign_or_squad(campaign_id: str, campaign_name: str =
     if any(
         k in sn_l
         for k in (
-            "1.80", "1.8 max", "1.90", "1.9 max", "1.95", "1.95 max", "2.00", "2.0 max",
+            "1.80", "1.8 max", "1.90", "1.9 max", "1.95", "1.95 max", "2.00", "2.0 max", "2.10", "2.1 max",
         )
     ):
         return True
@@ -261,11 +397,11 @@ def is_scaling_winner_adsquad(adsquad_name: str, campaign_name: str = "") -> boo
         k in nm
         for k in (
             "1.80 max", "1.8 max", "1.70 max", "1.7 max", "1.60 max", "1.6 max", "1.50 max", "1.5 max", "1.40 max", "1.4 max",
-            "1.90 max", "1.9 max", "1.95 max", "2.00 max", "2.0 max",
+            "1.90 max", "1.9 max", "1.95 max", "2.00 max", "2.0 max", "2.10 max", "2.1 max",
         )
     ):
         return True
-    if "30 أدست" in cn or "30 ادست" in cn or "10 أدست" in cn or "10 ادست" in cn or "بيد 1." in cn:
+    if "30 أدست" in cn or "30 ادست" in cn or "10 أدست" in cn or "10 ادست" in cn or "بيد 1." in cn or "بيد 2." in cn:
         return True
     return False
 
@@ -285,10 +421,14 @@ def is_powerbank_snap_campaign(campaign_name: str) -> bool:
 
 
 def is_target_cost_campaign_or_squad(campaign_id: str, campaign_name: str = "", squad_name: str = "", ad_account_id: str = "") -> bool:
+    if ad_account_id == DARALRIMAL_ACCOUNT_ID or campaign_id in DARALRIMAL_TARGET_COST_2USD_CAMPAIGN_IDS:
+        return True
     if is_dedicated_snap_test_campaign(campaign_id, campaign_name, squad_name) or campaign_id in TEN_SQUAD_CAMPAIGN_IDS:
         return False
     cn_l = (campaign_name or "").lower()
     sn_l = (squad_name or "").lower()
+    if "دار الرمال" in cn_l or "تارغت كوست" in cn_l or "تارغت كوست" in sn_l:
+        return True
     if is_30x_low_bid_test_campaign_or_squad(campaign_id, campaign_name, squad_name):
         return False
     if ("max" in sn_l or "ماكس بيد" in sn_l or "بيد 1." in cn_l) and " tc " not in f" {sn_l} ":
@@ -305,21 +445,21 @@ def is_target_cost_campaign_or_squad(campaign_id: str, campaign_name: str = "", 
 
 
 SPENDING_TODAY_179_CAMPAIGN_IDS = set()
-MAX_SNAP_BID_MICRO = 1_950_000  # سقف البيد السعودي ($1.90 لأدست الكوبي الأساسية و$1.95 لنسخ حملات الباور بانك المنسوخة 2026-11-03)
-MAX_NON_COPY_TEST_BID_MICRO = 1_950_000  # السقف الأقصى لحملات السعودية العادية ($1.95)
+MAX_SNAP_BID_MICRO = 2_100_000  # سقف البيد السعودي ($2.10 بعد زيادة +$0.10 للحملات الأقل من $3 صرفاً 2026-11-03)
+MAX_NON_COPY_TEST_BID_MICRO = 2_100_000  # السقف الأقصى لحملات السعودية العادية ($2.10)
 
 
 def determine_expected_bid_micro_from_squad(
     squad_name: str, current_bid_micro: int = 0, expect_tc: bool = False, campaign_name: str = "", campaign_id: str = "", squad_id: str = ""
 ) -> int:
     """
-    أمر المستخدم الصارم (محدث 2026-11-03):
-    - توحيد وإرجاع بيدات جميع أدست الكوبي في حملات سناب شات إلى $1.90 وتثبيتها.
+    أمر المستخدم الصارم (محدث 2026-11-04):
+    - رفع وتثبيت بيدات جميع حملات الكوبي في سناب شات إلى $2.10 (2,100,000 micro).
     """
     locked_b = get_locked_low_bid_micro(campaign_id, campaign_name, squad_name, squad_id)
-    if locked_b and 1_000_000 <= int(locked_b) <= 4_500_000:
+    if locked_b and 100_000 <= int(locked_b) <= 4_500_000:
         return int(locked_b)
-    return 1_900_000
+    return 2_100_000
 HISTORY_FILE = Path(__file__).parent / "paused_history.json"
 ACCOUNT_TZ = timezone(timedelta(hours=3))  # GMT+3 (Saudi/Qatar time)
 
@@ -473,7 +613,7 @@ def api_put(endpoint: str, token: str, payload: dict) -> dict:
     return {}
 
 
-def api_get_paginated(endpoint: str, token: str, list_key: str, item_key: str, max_pages: int = 50) -> list[dict]:
+def api_get_paginated(endpoint: str, token: str, list_key: str, item_key: str, max_pages: int = 150) -> list[dict]:
     items = []
     next_url = endpoint
     for _ in range(max_pages):
@@ -629,6 +769,14 @@ def evaluate_adsquad_rule(adsquad_name: str, st: dict, campaign_name: str = "", 
     # - في حملات الخليج (الكويت وقطر وعُمان): تطبق حدود المحاكاة المالية لكل دولة ومنتج بدقة 100%.
     sn_l = (adsquad_name or "").strip().lower()
     c_id_sq = (squad or {}).get("campaign_id", "") if isinstance(squad, dict) else ""
+    if is_warming_engagement_campaign(c_id_sq, campaign_name):
+        spend_w = st.get("spend", 0.0)
+        if spend_w >= 1.00:
+            return (
+                True,
+                f"[Warming Campaign $1.00 Stop-Loss] صرفت مجموعة الوارمينق ${spend_w:.2f} (>= $1.00 حد إيقاف الوارمينق الفوري)",
+            )
+        return False, ""
     is_gulf = (c_id_sq in ALLOWED_GULF_CAMPAIGN_IDS) or is_gulf_034_campaign(campaign_name, adsquad_name, squad)
     if not is_gulf and (sn_l.startswith("base -") or is_dedicated_snap_test_campaign("", campaign_name, adsquad_name) or is_non_copy_test_adsquad(adsquad_name, campaign_name)):
         return False, ""
@@ -688,6 +836,10 @@ def evaluate_single_ad_rule(
     purchases = st["purchases"]
     cpa = st.get("cpa")
     cpc = st["cpc"]
+    if is_warming_engagement_campaign(campaign_id, campaign_name):
+        if spend >= 1.00:
+            return True, f"[Warming Ad $1.00 Stop-Loss] صرف إعلان الوارمينق ${spend:.2f} (>= $1.00 حد إيقاف الوارمينق الفوري)"
+        return False, ""
     is_copy = is_scaling_winner_adsquad(adsquad_name, campaign_name)
     is_test_non_copy = is_new_test_video(adsquad_name, ad_name, campaign_name, media_id) or is_dedicated_snap_test_campaign(campaign_id, campaign_name, adsquad_name)
     is_cross_prod = is_cross_monitored_product_campaign(campaign_name, adsquad_name)
@@ -761,7 +913,12 @@ def is_cross_monitored_product_campaign(campaign_name: str, adsquad_name: str = 
 
 
 def is_shutoff_pillow_campaign(campaign_name: str, adsquad_name: str = "") -> bool:
-    """بأمر المستخدم (2026-10-29): تفعيل حملة الوسادة القديمة (car scaling camp) في سناب شات."""
+    """بأمر المستخدم الصارم (2026-11-05): إيقاف جميع حملات الوسادة كلها في سناب شات وتيك توك وغوغل أدز كاملة بدون استثناء."""
+    combined = f"{campaign_name or ''} {adsquad_name or ''}".lower()
+    if any(k in combined for k in ("وسادة", "وساده", "وسائد", "تكاية", "تكايه", "مسند", "cushion", "pillow", "armrest", "carmz", "18186", "19355", "21088")):
+        return True
+    if combined.startswith("car ") or " car " in f" {combined} " or "car_" in combined or "car-" in combined:
+        return True
     return False
 
 
@@ -776,6 +933,8 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
     # السماح بحملات الباور بانك والوسادة المعتمدة في الحسابين CSP9860 و CSP9860 4 أو الحملات المنشأة بعد 2026-10-23T18:00:00
     LEGACY_SNAP_CUTOFF = "2026-10-23T18:00:00"
     user_paused_camps_set = set(history.get("user_paused_campaigns") or [])
+    legacy_unpausable_set = set(history.setdefault("legacy_unpausable_campaigns", []))
+    legacy_to_pause_batch = []
     for c in all_campaigns_list:
         camp_names[c["id"]] = c.get("name", "")
         # ممنوع منعاً باتاً إعادة تشغيل أي حملة موقوفة تلقائياً
@@ -785,6 +944,7 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
                 c["id"] in user_paused_camps_set
                 or c["id"] in PERMANENTLY_PAUSED_CPA10_CAMPAIGN_IDS
                 or is_shutoff_pillow_campaign(c.get("name", ""))
+                or is_gulf_034_campaign(c.get("name", ""))
                 or is_cross_monitored_product_campaign(c.get("name", ""))
                 or (
                     c["id"] not in ALLOWED_30X_CAMPAIGN_IDS
@@ -794,15 +954,27 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
                     and created_ts < LEGACY_SNAP_CUTOFF
                 )
             ):
-                if not dry_run:
+                deliv_st = set(c.get("delivery_status") or [])
+                if not dry_run and c["id"] not in legacy_unpausable_set and "INVALID_NOT_EFFECTIVE_ACTIVE" not in deliv_st:
                     c_off = dict(c)
                     c_off["status"] = "PAUSED"
-                    api_put(f"/adaccounts/{ad_account_id}/campaigns", token, {"campaigns": [c_off]})
-                    print(f"🛑 [إيقاف دائم للحملات القديمة أو الموقوفة بأمر المستخدم في سناب] تم إيقاف حملة '{c.get('name', '')}' ({c['id']}).")
+                    legacy_to_pause_batch.append(c_off)
                 continue
             active_campaigns.append(c)
+    if legacy_to_pause_batch and not dry_run:
+        for i_b in range(0, len(legacy_to_pause_batch), 20):
+            chunk_b = legacy_to_pause_batch[i_b:i_b + 20]
+            api_put(f"/adaccounts/{ad_account_id}/campaigns", token, {"campaigns": chunk_b})
+            for c_off in chunk_b:
+                legacy_unpausable_set.add(c_off["id"])
+                print(f"🛑 [إيقاف دائم للحملات القديمة أو الموقوفة بأمر المستخدم في سناب] تم إيقاف حملة '{c_off.get('name', '')}' ({c_off['id']}).")
+        history["legacy_unpausable_campaigns"] = sorted(legacy_unpausable_set)
+        save_paused_history(history)
 
     # 1. جلب إحصائيات الـ AdSquads أولاً + تحميل الـ AdSquads النشطة لكل حملة حتى يُحسَب شرط إيقاف الحملة ($15.00) على الـ AdSquads النشطة حالياً فقط بدون المجموعات القديمة الموقوفة!
+    if not active_campaigns:
+        print(f"ℹ️ الحساب ({ad_account_id}) لا يحتوي على أي حملة نشطة حالياً — تم التحقق بنجاح.")
+        return
     squad_stats = fetch_account_breakdown_stats(token, ad_account_id, "adsquad", days_back=0)
     squad_stats_map = {st["id"]: st for st in squad_stats}
     squad_stats_2d = fetch_account_breakdown_stats(token, ad_account_id, "adsquad", days_back=1)
@@ -825,15 +997,24 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
 
     squad_cache = {}
     camp_squads_cache = {}
+    try:
+        all_acc_squads = api_get_paginated(f"/adaccounts/{ad_account_id}/adsquads?limit=500", token, "adsquads", "adsquad", max_pages=10)
+        for sq in all_acc_squads:
+            squad_cache[sq["id"]] = sq
+            camp_squads_cache.setdefault(sq.get("campaign_id", ""), []).append(sq)
+    except Exception:
+        all_acc_squads = []
     for c in active_campaigns:
         c_id = c["id"]
+        if c_id in camp_squads_cache and camp_squads_cache[c_id]:
+            continue
         try:
             c_squads = api_get_paginated(f"/campaigns/{c_id}/adsquads?limit=1000", token, "adsquads", "adsquad", max_pages=5)
             camp_squads_cache[c_id] = c_squads
             for sq in c_squads:
                 squad_cache[sq["id"]] = sq
         except Exception:
-            camp_squads_cache[c_id] = []
+            camp_squads_cache.setdefault(c_id, [])
 
     # 0. فحص الحملات وإيقاف أي حملة تصرف >= $20.00 بدون مبيعة، وأي حملة يصل فيها سعر البيعة CPA >= $21.00 (أمر المستخدم 2026-10-30):
     sheet_sales_multi = {}
@@ -847,12 +1028,19 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
     for c in active_campaigns:
         cid_chk = c["id"]
         cname_chk = c.get("name", "")
-        if is_dedicated_snap_test_campaign(cid_chk, cname_chk):
-            kept_active_campaigns.append(c)
-            continue
+        is_warming_camp_chk = is_warming_engagement_campaign(cid_chk, cname_chk, c)
+        is_ded_test_camp_chk = is_dedicated_snap_test_campaign(cid_chk, cname_chk)
         act_sq_ids_c = [sq["id"] for sq in camp_squads_cache.get(cid_chk, []) if sq and sq.get("status") == "ACTIVE"]
         is_gulf_camp_chk = (cid_chk in ALLOWED_GULF_CAMPAIGN_IDS) or is_gulf_034_campaign(cname_chk)
-        if is_gulf_camp_chk:
+        if is_warming_camp_chk:
+            # أمر المستخدم الصارم (2026-11-05): أي حملة وارمينق (Awareness and engagement) تصرف $1.00 (>= $1.00) يطفئها جيت هاب والبوت مباشرةً وفوراً!
+            no_sale_camp_limit = 1.00
+            max_cpa_camp_limit = 1.00
+        elif is_ded_test_camp_chk:
+            # أمر المستخدم الصارم (2026-11-03): الحملة التي فيها 'تيست' يطفئ البوت الفيديوهات الخاسرة بداخلها فقط، ولو وصل مجموع صرف الحملة أكثر من $10.00 (> $10.00) بدون مبيعة يطفئون الحملة!
+            no_sale_camp_limit = 10.01
+            max_cpa_camp_limit = 999.0
+        elif is_gulf_camp_chk:
             g_sim_cpa, _, g_camp_stop = get_gulf_simulation_limits(cname_chk, campaign_id=cid_chk)
             no_sale_camp_limit = g_camp_stop
             max_cpa_camp_limit = g_sim_cpa
@@ -866,17 +1054,32 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
             sum(squad_stats_map.get(sid_x, {}).get("spend", 0.0) for sid_x in act_sq_ids_c),
             camp_stats_1d.get(cid_chk, {}).get("spend", 0.0),
         ), 2)
+        is_low_cpm_revived_pb_camp = cid_chk in {
+            "11fa8aef-3a3c-418d-b5c4-8dc7b3ec7ab3",
+            "6b0de02e-978d-4332-9698-743a2524b87c",
+            "7fa61e5d-dd41-4ee5-af26-e5c0f773bdef",
+            "7bffcb77-f2ae-427e-883a-f4e5f249cae9",
+        }
+        _locks_c = _get_custom_squad_bid_locks()
+        _raw_c_base = (_locks_c.get("revived_low_cpm_1d_camp_baseline") or {}).get(cid_chk, 0.0) if (_locks_c.get("revived_low_cpm_date") == datetime.now(ACCOUNT_TZ).strftime("%Y-%m-%d")) else 0.0
+        _camp_base_1d = float(_raw_c_base.get("spend_1d", 0.0) if isinstance(_raw_c_base, dict) else (_raw_c_base or 0.0))
         for w_lbl_c, sq_map_w, camp_map_w, sh_key_w in (
             ("1D (اليوم)", squad_stats_map, camp_stats_1d, "1d"),
             ("2D (يومين)", squad_stats_2d_map, camp_stats_2d, "2d"),
             ("3D (آخر 3 أيام)", squad_stats_3d_map, camp_stats_3d_map, "3d"),
             ("7D (آخر 7 أيام)", squad_stats_7d_map, camp_stats_7d, "7d"),
         ):
+            if is_low_cpm_revived_pb_camp and sh_key_w != "1d":
+                continue
             if is_gulf_camp_chk and sh_key_w != "1d" and sp1_camp_check < 0.25:
                 continue
             sp_sq_act = round(sum(sq_map_w.get(sid_x, {}).get("spend", 0.0) for sid_x in act_sq_ids_c), 2)
             sp_camp = round(camp_map_w.get(cid_chk, {}).get("spend", 0.0), 2)
-            if sh_key_w == "1d" or (cid_chk not in FOUR_SQUAD_CAMPAIGN_IDS and not is_gulf_camp_chk):
+            if is_low_cpm_revived_pb_camp:
+                sp_c = round(max(0.0, sp_camp - _camp_base_1d), 2)
+            elif is_ded_test_camp_chk:
+                sp_c = sp_sq_act
+            elif sh_key_w == "1d" or (cid_chk not in FOUR_SQUAD_CAMPAIGN_IDS and not is_gulf_camp_chk):
                 sp_c = max(sp_sq_act, sp_camp)
             else:
                 sp_c = min(sp_sq_act, sp_camp) if (sp_camp > 0 and sp_sq_act > 0) else sp_sq_act
@@ -890,7 +1093,9 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
                 c_1d_healthy = True
             if sh_key_w != "1d" and c_1d_healthy:
                 continue
-            if pu_c > 0 and cpa_c is not None and cpa_c > max_cpa_camp_limit:
+            if is_warming_camp_chk and sp_c >= 1.00:
+                c_kill_reasons.append(f"{w_lbl_c} [Warming $1.00 Cap]: صرفت حملة الوارمينق ${sp_c:.2f} (>= $1.00 حد الإيقاف الفوري)")
+            elif pu_c > 0 and cpa_c is not None and cpa_c > max_cpa_camp_limit:
                 c_kill_reasons.append(f"{w_lbl_c}: CPA=${cpa_c:.2f} (${sp_c:.2f}/{pu_c} مبيعات > ${max_cpa_camp_limit:.2f})")
             elif pu_c == 0 and sp_c >= no_sale_camp_limit:
                 c_kill_reasons.append(f"{w_lbl_c}: صرف ${sp_c:.2f} بدون مبيعات (>= ${no_sale_camp_limit:.2f})")
@@ -910,7 +1115,11 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
                         api_put(f"/campaigns/{cid_chk}/adsquads", token, {"adsquads": act_squads_to_pause[i_p:i_p+20]})
                     except Exception:
                         pass
-                print(f"🛑 [إيقاف فوري لحملة خاسرة] تم إيقاف حملة '{cname_chk}' ({cid_chk}) و{len(act_squads_to_pause)} أدست بداخلها | {' ؛ '.join(c_kill_reasons)}")
+                if is_warming_camp_chk:
+                    user_paused_camps_set.add(cid_chk)
+                    history["user_paused_campaigns"] = sorted(user_paused_camps_set)
+                    save_paused_history(history)
+                print(f"🛑 [إيقاف فوري لحملة خاسرة/وارمينق] تم إيقاف حملة '{cname_chk}' ({cid_chk}) و{len(act_squads_to_pause)} أدست بداخلها | {' ؛ '.join(c_kill_reasons)}")
             continue
         kept_active_campaigns.append(c)
     active_campaigns = kept_active_campaigns
@@ -986,37 +1195,32 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
     camp_ads_cache = {}
     ads_by_squad_cache = {}
     all_account_ads = []
+    try:
+        acct_ads_full = api_get_paginated(f"/adaccounts/{ad_account_id}/ads?limit=1000", token, "ads", "ad", max_pages=15)
+        for a in acct_ads_full:
+            ad_cache[a["id"]] = a
+            all_account_ads.append(a)
+            sq_id_a = a.get("ad_squad_id")
+            ads_by_squad_cache.setdefault(sq_id_a, []).append(a)
+            cid_a = squad_cache.get(sq_id_a, {}).get("campaign_id")
+            if cid_a:
+                camp_ads_cache.setdefault(cid_a, []).append(a)
+    except Exception:
+        pass
     for c in active_campaigns:
         c_id = c["id"]
+        if c_id in camp_ads_cache and camp_ads_cache[c_id]:
+            continue
         try:
             c_ads = api_get_paginated(f"/campaigns/{c_id}/ads?limit=1000", token, "ads", "ad", max_pages=3)
             camp_ads_cache[c_id] = c_ads
             for a in c_ads:
-                ad_cache[a["id"]] = a
-                all_account_ads.append(a)
-                ads_by_squad_cache.setdefault(a.get("ad_squad_id"), []).append(a)
-            # ضمان تحميل إعلانات جميع المجموعات النشطة بالكامل بسرعة فائقة عبر التوازي
-            missing_active_sqs = [
-                sq_chk for sq_chk in camp_squads_cache.get(c_id, [])
-                if sq_chk.get("status") == "ACTIVE" and len(ads_by_squad_cache.get(sq_chk["id"], [])) < 5
-            ]
-            if missing_active_sqs:
-                import concurrent.futures
-                def _fetch_sq_ads(sq_id_val):
-                    try:
-                        return sq_id_val, api_get_paginated(f"/adsquads/{sq_id_val}/ads?limit=100", token, "ads", "ad", max_pages=2)
-                    except Exception:
-                        return sq_id_val, []
-                with concurrent.futures.ThreadPoolExecutor(max_workers=8) as ex:
-                    for sq_id_val, sq_direct_ads in ex.map(_fetch_sq_ads, [s["id"] for s in missing_active_sqs]):
-                        for da in sq_direct_ads:
-                            if da["id"] not in ad_cache:
-                                ad_cache[da["id"]] = da
-                                c_ads.append(da)
-                                all_account_ads.append(da)
-                                ads_by_squad_cache.setdefault(sq_id_val, []).append(da)
+                if a["id"] not in ad_cache:
+                    ad_cache[a["id"]] = a
+                    all_account_ads.append(a)
+                    ads_by_squad_cache.setdefault(a.get("ad_squad_id"), []).append(a)
         except Exception:
-            camp_ads_cache[c_id] = None
+            camp_ads_cache.setdefault(c_id, None)
 
     # 1A. (موقوف نهائياً بأمر المستخدم: ممنوع إعادة تشغيل أي مجموعة إعلانية موقوفة في سناب شات — التزام كامل بحملة واحدة وأدست واحدة فقط)
     for s_id, info in []:
@@ -1135,6 +1339,33 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
             win_cpa_cap = 6.99
             no_sale_cap_sq = 4.00
 
+        pass  # REVIVED_LOW_CPM_SQUAD_IDS defined at module level
+        _locks_sq = _get_custom_squad_bid_locks()
+        is_revived_low_cpm_sq = (
+            s_id in REVIVED_LOW_CPM_SQUAD_IDS
+            and (
+                _locks_sq.get("revived_low_cpm_date") == today_d_str
+                or (
+                    st_7d["purchases"] >= 1
+                    and st_7d["cpa"] is not None
+                    and st_7d["cpa"] <= win_cpa_cap
+                )
+            )
+        )
+        if is_revived_low_cpm_sq:
+            if _locks_sq.get("revived_low_cpm_date") == today_d_str:
+                _raw_sq_b = (_locks_sq.get("revived_low_cpm_1d_squad_baseline") or {}).get(s_id, 0.0)
+                _sq_base_1d = float(_raw_sq_b.get("spend_1d", 0.0) if isinstance(_raw_sq_b, dict) else (_raw_sq_b or 0.0))
+                _new_sp1 = round(max(0.0, st_1d["spend"] - _sq_base_1d), 2)
+                _pu1 = st_1d["purchases"]
+                st_1d = dict(st_1d, spend=_new_sp1, cpa=(round(_new_sp1 / _pu1, 2) if _pu1 > 0 else None))
+            _zero_st = {"spend": 0.0, "purchases": 0, "cpa": None, "cpc": 0.0, "swipes": 0}
+            st_2d = dict(_zero_st)
+            st_3d = dict(_zero_st)
+            st_4d = dict(_zero_st)
+            st_5d = dict(_zero_st)
+            st_7d = dict(_zero_st)
+
         copy_high_cpa_hit = False
         copy_high_cpa_reason = ""
         if (is_copy_sq or is_gulf_sq) and not is_non_copy_test_adsquad(s_name, c_name):
@@ -1206,8 +1437,12 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
                 else:
                     reason = f"[7-Day Audit] {reason_7d}"
 
+        if is_warming_engagement_campaign(c_id, c_name) and max(st_1d["spend"], st_2d["spend"], st_3d["spend"], st_4d["spend"], st_5d["spend"], st_7d["spend"]) >= 1.00:
+            w_max_sp = max(st_1d["spend"], st_2d["spend"], st_3d["spend"], st_4d["spend"], st_5d["spend"], st_7d["spend"])
+            should_pause = True
+            reason = f"[Warming $1.00 Immediate Stop] صرفت مجموعة الوارمينق ${w_max_sp:.2f} (>= $1.00)"
         if should_pause:
-            # بأمر المستخدم: أي أدست تصل CPA >= $7.00 أو تصرف >= $4.00 بدون مبيعة تُطفأ على طول فوراً!
+            # بأمر المستخدم: أي أدست تصل CPA >= $7.00 أو تصرف >= $4.00 بدون مبيعة (أو $1.00 للوارمينق) تُطفأ على طول فوراً!
             if dry_run:
                 print(f"🔍 [مطابق للشرط] المجموعة: '{s_name}' (حملة: '{c_name}') | {reason}")
             else:
@@ -1430,16 +1665,24 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
             and st["purchases"] == 0
             and (st["swipes"] == 0 or st["cpc"] > max_cpc_1d_ind)
         )
+        is_proven_1d_winner = (
+            st["purchases"] >= 1
+            and st["cpa"] is not None
+            and st["cpa"] <= max_cpa_3d_ind
+        )
         is_proven_3d_winner = (
-            st3["purchases"] >= 1
-            and st3["cpa"] is not None
-            and st3["cpa"] <= max_cpa_3d_ind
-            and (st4["purchases"] == 0 or (st4["cpa"] is not None and st4["cpa"] <= max_cpa_3d_ind))
-            and (st5["purchases"] == 0 or (st5["cpa"] is not None and st5["cpa"] <= max_cpa_3d_ind))
-            and not (st["spend"] >= no_sale_1d_ind and st["purchases"] == 0)
-            and not has_today_high_cpc_bleed
-            and not (st["purchases"] > 0 and st["cpa"] is not None and st["cpa"] > max_cpa_3d_ind)
-            and not (st2["purchases"] > 0 and st2["cpa"] is not None and st2["cpa"] > max_cpa_3d_ind)
+            is_proven_1d_winner
+            or (
+                st3["purchases"] >= 1
+                and st3["cpa"] is not None
+                and st3["cpa"] <= max_cpa_3d_ind
+                and (st4["purchases"] == 0 or (st4["cpa"] is not None and st4["cpa"] <= max_cpa_3d_ind))
+                and (st5["purchases"] == 0 or (st5["cpa"] is not None and st5["cpa"] <= max_cpa_3d_ind))
+                and not (st["spend"] >= no_sale_1d_ind and st["purchases"] == 0)
+                and not has_today_high_cpc_bleed
+                and not (st["purchases"] > 0 and st["cpa"] is not None and st["cpa"] > max_cpa_3d_ind)
+                and not (st2["purchases"] > 0 and st2["cpa"] is not None and st2["cpa"] > max_cpa_3d_ind)
+            )
         )
         allow_multi_ad = (not is_gulf_sq) or (st["spend"] >= 0.25)
         should_pause, reason = (
@@ -1451,15 +1694,15 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
             should_pause, reason = evaluate_single_ad_rule(st2, c_name, s_name, squad, ad_name=ad_name, media_id=ad_media_id, campaign_id=c_id)
             if should_pause:
                 reason = f"[2-Day Audit] {reason}"
-        if not should_pause and allow_multi_ad and st3["spend"] >= min_spend_chk:
+        if not should_pause and allow_multi_ad and st3["spend"] >= min_spend_chk and not is_proven_3d_winner:
             should_pause, reason = evaluate_single_ad_rule(st3, c_name, s_name, squad, ad_name=ad_name, media_id=ad_media_id, campaign_id=c_id)
             if should_pause:
                 reason = f"[3-Day Audit] {reason}"
-        if not should_pause and allow_multi_ad and st4["spend"] >= min_spend_chk:
+        if not should_pause and allow_multi_ad and st4["spend"] >= min_spend_chk and not is_proven_3d_winner:
             should_pause, reason = evaluate_single_ad_rule(st4, c_name, s_name, squad, ad_name=ad_name, media_id=ad_media_id, campaign_id=c_id)
             if should_pause:
                 reason = f"[4-Day Audit] {reason}"
-        if not should_pause and allow_multi_ad and st5["spend"] >= min_spend_chk:
+        if not should_pause and allow_multi_ad and st5["spend"] >= min_spend_chk and not is_proven_3d_winner:
             should_pause, reason = evaluate_single_ad_rule(st5, c_name, s_name, squad, ad_name=ad_name, media_id=ad_media_id, campaign_id=c_id)
             if should_pause:
                 reason = f"[5-Day Audit] {reason}"
@@ -1546,8 +1789,6 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
         video_groups = {}
         for a in c_ads:
             aid_cur = a.get("id")
-            if squad_status_map.get(a.get("ad_squad_id")) != "ACTIVE":
-                continue
             is_act_in_act_sq = (a.get("status") == "ACTIVE" and squad_status_map.get(a.get("ad_squad_id")) == "ACTIVE")
             if (
                 not is_act_in_act_sq
@@ -1789,7 +2030,7 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
         sq_id = a.get("ad_squad_id")
         sq_obj = squad_cache.get(sq_id, {})
         c_id = sq_obj.get("campaign_id", "")
-        if c_id not in active_camp_ids or sq_obj.get("status") != "ACTIVE":
+        if not c_id:
             continue
         c_name = camp_names.get(c_id, "")
         s_name = sq_obj.get("name", "")
@@ -1992,6 +2233,19 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
     for c in active_campaigns:
         c_id = c["id"]
         c_name = c.get("name", "")
+        if is_warming_engagement_campaign(c_id, c_name, c):
+            # حماية حملات الوارمينق من رفع البدجت لـ $20.00، وتثبيت بيدها على $0.10 (100,000 micro)
+            w_squads = camp_squads_cache.get(c_id) or []
+            for w_sq in w_squads:
+                if w_sq and int(w_sq.get("bid_micro") or 0) > 100_000 and not dry_run:
+                    w_sq["optimization_goal"] = "IMPRESSIONS"
+                    w_sq["bid_micro"] = 100_000
+                    try:
+                        api_put(f"/campaigns/{c_id}/adsquads", token, {"adsquads": [w_sq]})
+                        print(f"📉 [تثبيت بيد الوارمينق على $0.10] المجموعة '{w_sq.get('name', '')}' (حملة: '{c_name}')")
+                    except Exception:
+                        pass
+            continue
         if is_dedicated_snap_test_campaign(c_id, c_name) or c_id in ALLOWED_GULF_CAMPAIGN_IDS or is_gulf_034_campaign(c_name):
             continue
         c_squads = camp_squads_cache.get(c_id)
@@ -2168,7 +2422,7 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
         if not isinstance(history["bid_bumps"].get(old_bk), dict) or history["bid_bumps"][old_bk].get("schema_v") != 2:
             del history["bid_bumps"][old_bk]
     print(
-        f"\n🛡️ فحص ثبات البيد ($1.90 لجميع أدست الكوبي في سناب شات بدون أي تغيير تلقائي للبيد) + زيادة البدجت +30% كل ساعة للأدست الرابحة..."
+        f"\n🛡️ فحص ثبات البيد ($2.10 لجميع حملات وأدست الكوبي في سناب شات بدون أي تغيير تلقائي للبيد) + زيادة البدجت +30% كل ساعة للأدست الرابحة..."
     )
     for c in active_campaigns:
         c_id = c["id"]
@@ -2314,8 +2568,8 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
             history["bid_bumps"][s_id] = b_rec
 
             # (ب) قاعدة البدجت الحريصة والمنضبطة ($20.00 لجميع الأدست والحملات بأمر المستخدم 2026-11-02، وممنوع رفع البدجت بعد 6 مساءً):
-            # ملاحظة: حملات الخليج (الكويت وقطر وعمان) تُدار ميزانياتها حصرياً عبر gulf_2h_profit_and_ads_master.py
-            if is_gulf_sq or c_id in ALLOWED_GULF_CAMPAIGN_IDS:
+            # ملاحظة: حملات الخليج (الكويت وقطر وعمان) وحملات 'تيست' المخصصة ($30/يوم) لا يُلمس بدجتها هنا
+            if is_gulf_sq or is_ded_test or c_id in ALLOWED_GULF_CAMPAIGN_IDS:
                 continue
             is_cbo_campaign = (c.get("pacing_level") == "CAMPAIGN")
             base_floor_micro = 20_000_000
@@ -2325,7 +2579,7 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
             is_sq_winning_today = (sq_pu_today >= 1 and (sq_cpa_today is None or sq_cpa_today < max_win_cpa_sq))
 
             # البدجت الأساسي $20.00 (20_000_000 micro) مع السماح بالبدجت النهاري المرفوع للأدست المحققة >= 3 مبيعات بتكلفة رابحة وإرجاع الكل لـ $20 آخر الليل (22:00-05:59):
-            custom_dt_b_micro = None if is_night_window else get_custom_daytime_budget_micro(s_id, today_date_str)
+            custom_dt_b_micro = 30_000_000 if (s_id in REVIVED_LOW_CPM_SQUAD_IDS) else (None if is_night_window else get_custom_daytime_budget_micro(s_id, today_date_str))
             sq_pu_3d = int(st3_sq.get("purchases", 0))
             sq_cpa_3d = st3_sq.get("cpa")
             is_3sales_winner_sq = (
@@ -2457,7 +2711,12 @@ if __name__ == "__main__":
             print(f"\n==================================================================")
             print(f"🛡️ تشغيل مراقب سناب شات على الحساب: {acc_id}")
             print(f"==================================================================")
-            run_automation(token, acc_id, dry_run=dry)
+            try:
+                acc_tok = get_token_for_account(acc_id)
+            except Exception as _tok_err:
+                print(f"⚠️ تعذر جلب توكن الحساب {acc_id}: {_tok_err}")
+                continue
+            run_automation(acc_tok, acc_id, dry_run=dry)
         print("🛡️ [أمر المستخدم 2026-10-30] إيقاف أي أدست تصرف >= $4.00 بدون بيعة أو CPA >= $7.00 | إيقاف أي حملة تصرف >= $20.00 بدون بيعة أو CPA >= $21.00 | زيادة البدجت +30% كل ساعة للحملة أو الأدست الرابحة.")
         if not dry and os.environ.get("GITHUB_ACTIONS") != "true":
             try:
