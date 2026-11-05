@@ -479,7 +479,7 @@ def run_hourly_master_for_account(token: str, ad_account_id: str, sheet_sales: d
             and float(squad_1d.get(sq_x["id"], {}).get("cpc", 9.99) or 9.99) <= 0.19
         }
 
-        if is_late_night and c.get("pacing_level") != "CAMPAIGN" and not is_ded_test_camp:
+        if False and is_late_night and c.get("pacing_level") != "CAMPAIGN" and not is_ded_test_camp:
             for sq_any in c_squads:
                 if not sq_any:
                     continue
@@ -705,8 +705,8 @@ def run_hourly_master_for_account(token: str, ad_account_id: str, sheet_sales: d
             )
 
             # البدجت الأساسي $20.00 ثابت في جميع الأدست في سناب شات بأمر المستخدم:
-            eff_base_budget_micro = 50_000_000 if (is_low_cpm_pb_camp or sid in rev_sq_base_map) else 20_000_000
-            max_tier_budget_micro = 50_000_000 if (is_low_cpm_pb_camp or sid in rev_sq_base_map) else 20_000_000
+            eff_base_budget_micro = 30_000_000 if (is_low_cpm_pb_camp or sid in rev_sq_base_map) else 30_000_000
+            max_tier_budget_micro = 30_000_000 if (is_low_cpm_pb_camp or sid in rev_sq_base_map) else 30_000_000
 
             # إذا كانت الميزانية الحالية متضخمة فوق السقف المسموح به (أو آخر الليل حيث يرجع البدجت 20$ في كل الأدست)، تُرجع فوراً للسقف الآمن!
             # وممنوع منعاً باتاً رفع البدجت بعد الساعة 6 مساءً (is_after_6pm)
