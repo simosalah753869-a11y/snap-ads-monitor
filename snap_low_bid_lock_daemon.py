@@ -1,9 +1,9 @@
 """
-حارس تثبيت بيدات أدست الكوبي ($1.90) الصارم في سناب شات بالتوازي السريع المباشر
+حارس تثبيت بيدات أدست الكوبي ($2.10) الصارم في سناب شات بالتوازي السريع المباشر
 ===================================================================================================
 يفحص بالتوازي كل 15 ثانية في الخلفية التامة جميع الحملات النشطة في الحسابين (CSP9860 و CSP9860 4):
-1. بيدات جميع أدست الكوبي في السعودية تثبّت على $1.90 (1,900,000 micro) بأمر المستخدم الصارم (2026-11-03).
-2. حملات التيست المخصصة (تيست - باور بانك / تيست - وسادة السيارة @ $3.00) وحملات الخليج تبقى مستثناة ببيداتها المخصصة.
+1. بيدات جميع حملات الكوبي في سناب شات تثبّت على $2.10 (2,100,000 micro) بأمر المستخدم الصارم (2026-11-04).
+2. حملات الخليج وحملات التيست المخصصة تبقى ببيداتها المخصصة.
 """
 import concurrent.futures
 import json
@@ -20,35 +20,38 @@ from snap_auth import API_BASE
 BASE_DIR = Path(__file__).parent
 LOCK_FILE = BASE_DIR / "snap_low_bid_lock_daemon.lock"
 LOG_FILE = BASE_DIR / "snap_low_bid_lock_daemon.log"
-MAX_BID = 1_950_000
+MAX_BID = 2_100_000
 
 DIRECT_CAMPAIGNS = [
-    # CSP9860 (All Saudi Copy AdSquads unified to $1.90 per 2026-11-03 User Order; 'تيست' campaigns excluded @ $3.00)
-    ("CSP9860", "35597da7-a911-48f9-9567-7d81bfdebe00", "باور بانك وينر - 30 أدست - بيد 1.6 / 1.65 / 1.67 30-10", 1_900_000),
-    ("CSP9860", "6e187c03-020b-439c-905e-f3d513cd80d6", "وسادة السيارة وينر - 30 أدست - بيد 1.6 / 1.65 / 1.67 30-10", 1_900_000),
-    ("CSP9860", "b4ec4259-1868-40f5-ba33-08a2dd0fd578", "وسادة السيارة وينر - 30 أدست - بيد 1.6 30-10", 1_900_000),
-    ("CSP9860", "11fa8aef-3a3c-418d-b5c4-8dc7b3ec7ab3", "باور بانك وينر 2 - 30 أدست 30-10", 1_900_000),
-    ("CSP9860", "2693cf34-1697-4bd9-b3eb-07ba7a64f6f1", "وسادة السيارة وينر 2 - 10 أدست - بيد 1.6", 1_900_000),
-    ("CSP9860", "ee9d1a46-e08e-4a73-a910-f30941356671", "وسادة السيارة وينر - 10 أدست - بيد 1.6", 1_900_000),
-    ("CSP9860", "c89e6059-b826-4cec-8067-71ba2bd45699", "باور بانك وينر - 10 أدست - بيد 1.6", 1_900_000),
-    ("CSP9860", "a9dcd138-a822-4664-bf0a-c36d02233956", "باور بانك وينر - 10 أدست - بيد 1.6", 1_900_000),
-    ("CSP9860", "2e87b13a-90ba-4bee-b553-4ebc9c82186e", "وسادة السيارة سكيلينج - 10 أدست - بيد 1.6", 1_900_000),
-    ("CSP9860", "ac64cb95-72d4-4043-905a-69fce2968a0a", "باور بانك وينر - 10 أدست - بيد 1.6", 1_900_000),
-    # CSP9860 4 (All Saudi Copy AdSquads unified to $1.90 per 2026-11-03 User Order; 'تيست' campaigns excluded @ $3.00)
-    ("CSP9860 4", "7fa61e5d-dd41-4ee5-af26-e5c0f773bdef", "باور بانك وينر - 30 أدست - بيد 1.7 / 1.6 30-10", 1_900_000),
-    ("CSP9860 4", "7bffcb77-f2ae-427e-883a-f4e5f249cae9", "باور بانك وينر - 30 أدست - بيد 1.7 / 1.6 30-10", 1_900_000),
-    ("CSP9860 4", "483f7e57-8a8e-4edb-8b74-7c67eb76419b", "باور بانك وينر 2 - 30 أدست 30-10", 1_900_000),
-    ("CSP9860 4", "e21421ad-72a1-427e-987d-e6cc49384a31", "باور بانك وينر - 10 أدست - بيد 1.6", 1_900_000),
-    ("CSP9860 4", "0bacf974-1fc2-4ba4-ac20-42b974911064", "وسادة السيارة وينر - 10 أدست - بيد 1.6", 1_900_000),
-    ("CSP9860 4", "c2b612d5-acfb-4935-8a5f-1cb090320542", "وسادة السيارة وينر - 10 أدست - بيد 1.6", 1_900_000),
-    ("CSP9860 4", "22d12681-930c-44a8-91e3-58f112789375", "باور بانك وينر - 10 أدست - بيد 1.6", 1_900_000),
-    ("CSP9860 4", "9ff50b24-d5c3-48ba-b74e-7b55e8ffca52", "وسادة السيارة وينر - 10 أدست - بيد 1.6", 1_900_000),
-    ("CSP9860 4", "828f2e42-96c5-4813-a780-bbc5d976075f", "وسادة السيارة وينر 2 - 10 أدست - بيد 1.6", 1_900_000),
-    # 2026-11-02 Replacement Campaigns ($1.90 Max Bid)
-    ("CSP9860", "bfe9ec1d-d6c6-416d-a3f0-46c50c2b7a76", "باور بانك وينر بديلة - ماكس بيد 1.9 - 02-11", 1_900_000),
-    ("CSP9860", "0ea95b38-9d67-4e15-973d-86adf3d4104a", "وسادة السيارة وينر بديلة - ماكس بيد 1.9 - 02-11", 1_900_000),
-    ("CSP9860 4", "51945aea-b2d6-4742-815c-feb85620d8ff", "وسادة السيارة وينر منزلك بديلة - ماكس بيد 1.9 - 02-11", 1_900_000),
-    ("CSP9860 4", "a4518953-cef3-4b77-9af1-20f6724623f8", "باور بانك وينر منزلك بديلة - ماكس بيد 1.9 - 02-11", 1_900_000),
+    # CSP9860 & CSP9860 4 (Copy campaigns raised to $2.10 per 2026-11-04 User Order)
+    ("CSP9860", "6b0de02e-978d-4332-9698-743a2524b87c", "باور بانك شاملة (3 أدست) - بيد 2.1 - 03-11", 2_100_000),
+    ("CSP9860", "a2849f8c-a7e3-452a-8f3e-813745028989", "باور بانك وينر - 30 أدست - بيد 2.1 - 03-11", 2_100_000),
+    ("CSP9860", "6e187c03-020b-439c-905e-f3d513cd80d6", "وسادة السيارة وينر - 30 أدست - بيد 2.1 30-10", 2_100_000),
+    ("CSP9860", "35c8668c-903f-4a80-a3af-edb4f8cce5cb", "وسادة السيارة وينر (26 أدست) - جديد من الصفر - بيد 2.1 - 02-11", 2_100_000),
+    ("CSP9860 4", "c46290e2-62b9-450b-bf66-e921b564aba0", "باور بانك وينر أ (30 أدست) - بيد 2.1 - 03-11", 2_100_000),
+    ("CSP9860 4", "35515ff0-e28b-4e8a-b8f7-714c84e98e1b", "وسادة السيارة وينر منزلك بديلة - جديد من الصفر - بيد 2.1 - 02-11", 2_100_000),
+    ("CSP9860", "35597da7-a911-48f9-9567-7d81bfdebe00", "باور بانك وينر - 30 أدست - بيد 2.1 30-10", 2_100_000),
+    ("CSP9860", "b4ec4259-1868-40f5-ba33-08a2dd0fd578", "وسادة السيارة وينر - 30 أدست - بيد 2.1 30-10", 2_100_000),
+    ("CSP9860", "11fa8aef-3a3c-418d-b5c4-8dc7b3ec7ab3", "باور بانك وينر 2 - 30 أدست 30-10", 2_100_000),
+    ("CSP9860", "2693cf34-1697-4bd9-b3eb-07ba7a64f6f1", "وسادة السيارة وينر 2 - 10 أدست - بيد 2.1", 2_100_000),
+    ("CSP9860", "ee9d1a46-e08e-4a73-a910-f30941356671", "وسادة السيارة وينر - 10 أدست - بيد 2.1", 2_100_000),
+    ("CSP9860", "c89e6059-b826-4cec-8067-71ba2bd45699", "باور بانك وينر - 10 أدست - بيد 2.1", 2_100_000),
+    ("CSP9860", "a9dcd138-a822-4664-bf0a-c36d02233956", "باور بانك وينر - 10 أدست - بيد 2.1", 2_100_000),
+    ("CSP9860", "2e87b13a-90ba-4bee-b553-4ebc9c82186e", "وسادة السيارة سكيلينج - 10 أدست - بيد 2.1", 2_100_000),
+    ("CSP9860", "ac64cb95-72d4-4043-905a-69fce2968a0a", "باور بانك وينر - 10 أدست - بيد 2.1", 2_100_000),
+    ("CSP9860 4", "7fa61e5d-dd41-4ee5-af26-e5c0f773bdef", "باور بانك وينر - 30 أدست - بيد 2.1 30-10", 2_100_000),
+    ("CSP9860 4", "7bffcb77-f2ae-427e-883a-f4e5f249cae9", "باور بانك وينر - 30 أدست - بيد 2.1 30-10", 2_100_000),
+    ("CSP9860 4", "483f7e57-8a8e-4edb-8b74-7c67eb76419b", "باور بانك وينر 2 - 30 أدست 30-10", 2_100_000),
+    ("CSP9860 4", "e21421ad-72a1-427e-987d-e6cc49384a31", "باور بانك وينر - 10 أدست - بيد 2.1", 2_100_000),
+    ("CSP9860 4", "0bacf974-1fc2-4ba4-ac20-42b974911064", "وسادة السيارة وينر - 10 أدست - بيد 2.1", 2_100_000),
+    ("CSP9860 4", "c2b612d5-acfb-4935-8a5f-1cb090320542", "وسادة السيارة وينر - 10 أدست - بيد 2.1", 2_100_000),
+    ("CSP9860 4", "22d12681-930c-44a8-91e3-58f112789375", "باور بانك وينر - 10 أدست - بيد 2.1", 2_100_000),
+    ("CSP9860 4", "9ff50b24-d5c3-48ba-b74e-7b55e8ffca52", "وسادة السيارة وينر - 10 أدست - بيد 2.1", 2_100_000),
+    ("CSP9860 4", "828f2e42-96c5-4813-a780-bbc5d976075f", "وسادة السيارة وينر 2 - 10 أدست - بيد 2.1", 2_100_000),
+    ("CSP9860", "bfe9ec1d-d6c6-416d-a3f0-46c50c2b7a76", "باور بانك وينر بديلة - بيد 2.1 - 02-11", 2_100_000),
+    ("CSP9860", "0ea95b38-9d67-4e15-973d-86adf3d4104a", "وسادة السيارة وينر بديلة - بيد 2.1 - 02-11", 2_100_000),
+    ("CSP9860 4", "51945aea-b2d6-4742-815c-feb85620d8ff", "وسادة السيارة وينر منزلك بديلة - بيد 2.1 - 02-11", 2_100_000),
+    ("CSP9860 4", "a4518953-cef3-4b77-9af1-20f6724623f8", "باور بانك وينر منزلك بديلة - بيد 2.1 - 02-11", 2_100_000),
 ]
 
 _tls = threading.local()
@@ -161,9 +164,8 @@ def is_already_running() -> bool:
 
 def _process_direct_campaign(item: tuple, token: str) -> int:
     acc_name, cid, cname, forced_low_bid = item
-    is_gulf_or_test_camp = (
-        sm.is_dedicated_snap_test_campaign(cid, cname)
-        or sm.is_gulf_034_campaign(cname)
+    is_gulf_camp = (
+        sm.is_gulf_034_campaign(cname)
         or cid in getattr(sm, "ALLOWED_GULF_CAMPAIGN_IDS", set())
     )
     s = _get_thread_sess(token)
@@ -186,22 +188,21 @@ def _process_direct_campaign(item: tuple, token: str) -> int:
         sname = sq.get("name", "")
         sid = sq.get("id", "")
         is_special_sq = (
-            is_gulf_or_test_camp
+            is_gulf_camp
             or sm.is_gulf_034_campaign(cname, sname, sq)
-            or sm.is_dedicated_snap_test_campaign(cid, cname, sname)
         )
         if not is_special_sq:
-            target_bid = sm.get_locked_low_bid_micro(cid, cname, sname, sid) or 1_900_000
+            target_bid = sm.get_locked_low_bid_micro(cid, cname, sname, sid) or (forced_low_bid or 2_100_000)
             if b != target_bid or sq.get("bid_strategy") != "LOWEST_COST_WITH_MAX_BID" or bool(sq.get("target_bid")):
                 sq["bid_micro"] = target_bid
                 sq["bid_strategy"] = "LOWEST_COST_WITH_MAX_BID"
                 sq["target_bid"] = False
                 changed = True
-        if is_active_sq and cur_budget > 0:
+        if is_active_sq and cur_budget > 0 and not is_special_sq:
             now_ksa = datetime.now(sm.ACCOUNT_TZ)
             is_late_night_ksa = (now_ksa.hour >= 22 or now_ksa.hour < 6)
             today_ksa_str = now_ksa.strftime("%Y-%m-%d")
-            expected_budget = 20_000_000 if is_late_night_ksa else (sm.get_custom_daytime_budget_micro(sid, today_ksa_str) or 20_000_000)
+            expected_budget = 30_000_000 if (sid in sm.REVIVED_LOW_CPM_SQUAD_IDS) else (sm.get_custom_daytime_budget_micro(sid, today_ksa_str) or 30_000_000)
             if cur_budget != expected_budget:
                 sq["daily_budget_micro"] = expected_budget
                 changed = True
@@ -254,12 +255,9 @@ def enforce_once() -> int:
     s_acc = _get_thread_sess(token)
     for acc_id, acc_name in ((sm.TARGET_ACCOUNT_ID, "CSP9860"), (sm.SECOND_ACCOUNT_ID, "CSP9860 4")):
         try:
-            r_c = s_acc.get(f"{API_BASE}/adaccounts/{acc_id}/campaigns?limit=200", timeout=15)
-            if r_c.status_code == 401:
-                token = _get_cached_snap_token(force_refresh=True)
-                s_acc = _get_thread_sess(token)
-                r_c = s_acc.get(f"{API_BASE}/adaccounts/{acc_id}/campaigns?limit=200", timeout=15)
-            camps = [el["campaign"] for el in (r_c.json().get("campaigns", []) if r_c.ok else []) if "campaign" in el]
+            camps = sm.api_get_paginated(
+                f"/adaccounts/{acc_id}/campaigns?limit=200", token, "campaigns", "campaign", max_pages=10
+            )
             for c in camps:
                 if c and c.get("status") == "ACTIVE":
                     cid = c["id"]
