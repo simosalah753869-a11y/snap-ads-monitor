@@ -381,12 +381,12 @@ SNAP_GULF_CAMPAIGN_PLAN = [
 # --- TikTok Gulf 6 Clean Smart+ Cost-Cap Campaigns (Top 5 Proven Winners Each | TikTok In-Feed Only [3000] | Standard Pacing) ---
 # Approved Distribution: KW = Cushion ONLY | QA = Cushion + Power Bank + Flashlight | OM = Power Bank + Flashlight ONLY (ZERO Cushion in Oman)
 TIKTOK_GULF_CAMPAIGN_PLAN = [
-    {"account_name": "ROELLINGER RECYCLING", "aadvid": "7631763556322148369", "campaign_id": "1880685110891601", "name": "kuwait car armrest 01-11 (5 Winners CC 8.5)", "country": "KW", "product": "cushion", "max_safe_cpa": 11.48, "ad_no_sale_stop": 3.20, "max_cpc": 0.26, "base_budget": 35.0, "cpa_bid": 8.50},
-    {"account_name": "ROELLINGER RECYCLING", "aadvid": "7631763556322148369", "campaign_id": "1880685124565442", "name": "qatar car armrest 01-11 (5 Winners CC 7.8)", "country": "QA", "product": "cushion", "max_safe_cpa": 10.00, "ad_no_sale_stop": 3.20, "max_cpc": 0.26, "base_budget": 35.0, "cpa_bid": 7.80},
-    {"account_name": "ROELLINGER RECYCLING", "aadvid": "7631763556322148369", "campaign_id": "1880685702354274", "name": "qatar power bank 01-11 (5 Winners CC 8.5)", "country": "QA", "product": "powerbank", "max_safe_cpa": 11.50, "ad_no_sale_stop": 3.50, "max_cpc": 0.26, "base_budget": 35.0, "cpa_bid": 8.50},
-    {"account_name": "ROELLINGER RECYCLING", "aadvid": "7631763556322148369", "campaign_id": "1880685160856705", "name": "oman power bank 01-11 (5 Winners CC 6.2)", "country": "OM", "product": "powerbank", "max_safe_cpa": 7.87, "ad_no_sale_stop": 2.75, "max_cpc": 0.25, "base_budget": 30.0, "cpa_bid": 6.60},
-    {"account_name": "ROELLINGER RECYCLING", "aadvid": "7631763556322148369", "campaign_id": "1880685952492818", "name": "qatar kashaf 01-11 (5 Winners CC 8.5)", "country": "QA", "product": "flashlight", "max_safe_cpa": 11.50, "ad_no_sale_stop": 3.50, "max_cpc": 0.26, "base_budget": 30.0, "cpa_bid": 8.90},
-    {"account_name": "ROELLINGER RECYCLING", "aadvid": "7631763556322148369", "campaign_id": "1880685181798465", "name": "oman kashaf 01-11 (5 Winners CC 5.5)", "country": "OM", "product": "flashlight", "max_safe_cpa": 6.69, "ad_no_sale_stop": 2.80, "max_cpc": 0.25, "base_budget": 30.0, "cpa_bid": 6.00},
+    {"account_name": "ROELLINGER RECYCLING", "aadvid": "7631763556322148369", "campaign_id": "1880685110891601", "name": "kuwait car armrest 01-11 (5 Winners CC 8.5)", "country": "KW", "product": "cushion", "max_safe_cpa": 11.48, "ad_no_sale_stop": 3.20, "max_cpc": 0.26, "base_budget": 35.0, "cpa_bid": 10.10},
+    {"account_name": "ROELLINGER RECYCLING", "aadvid": "7631763556322148369", "campaign_id": "1880685124565442", "name": "qatar car armrest 01-11 (5 Winners CC 7.8)", "country": "QA", "product": "cushion", "max_safe_cpa": 10.00, "ad_no_sale_stop": 3.20, "max_cpc": 0.26, "base_budget": 35.0, "cpa_bid": 9.10},
+    {"account_name": "ROELLINGER RECYCLING", "aadvid": "7631763556322148369", "campaign_id": "1880685702354274", "name": "qatar power bank 01-11 (5 Winners CC 8.5)", "country": "QA", "product": "powerbank", "max_safe_cpa": 11.50, "ad_no_sale_stop": 3.50, "max_cpc": 0.26, "base_budget": 35.0, "cpa_bid": 10.10},
+    {"account_name": "ROELLINGER RECYCLING", "aadvid": "7631763556322148369", "campaign_id": "1880685160856705", "name": "oman power bank 01-11 (5 Winners CC 6.2)", "country": "OM", "product": "powerbank", "max_safe_cpa": 7.87, "ad_no_sale_stop": 2.75, "max_cpc": 0.25, "base_budget": 30.0, "cpa_bid": 7.35},
+    {"account_name": "ROELLINGER RECYCLING", "aadvid": "7631763556322148369", "campaign_id": "1880685952492818", "name": "qatar kashaf 01-11 (5 Winners CC 8.5)", "country": "QA", "product": "flashlight", "max_safe_cpa": 11.50, "ad_no_sale_stop": 3.50, "max_cpc": 0.26, "base_budget": 30.0, "cpa_bid": 10.20},
+    {"account_name": "ROELLINGER RECYCLING", "aadvid": "7631763556322148369", "campaign_id": "1880685181798465", "name": "oman kashaf 01-11 (5 Winners CC 5.5)", "country": "OM", "product": "flashlight", "max_safe_cpa": 6.69, "ad_no_sale_stop": 2.80, "max_cpc": 0.25, "base_budget": 30.0, "cpa_bid": 6.40},
 ]
 
 # --- Banned Old/Faulty TikTok Gulf Campaigns (25-video bloat, OpenBid/Accelerated burn, wrong $11.50 Oman Cost Cap) ---
@@ -706,15 +706,23 @@ def run_snap_gulf_campaigns(sim_cpa_lookup: dict | None = None) -> list[dict]:
         )
 
         # 1) STRICT CAMPAIGN-LEVEL SIMULATION STOP-LOSS GATE (1D & 3D):
-        # If Campaign total spend or CPA exceeds the Simulation Safe CPA (and no isolated profitable winner squad within BE headroom), PAUSE Campaign!
+        try:
+            from autonomous_fix_and_rollback_engine import get_active_trial_campaign_overrides
+            _camp_trial_ov = get_active_trial_campaign_overrides().get(cid)
+        except Exception:
+            _camp_trial_ov = None
         c3_zero_stop = min(20.00, round(sim_max_cpa * 1.85, 2)) if c1_sp < 0.25 else min(20.00, round(sim_max_cpa + max(2.50, sq_no_sale_stop), 2))
-        camp_bled_1d = (c1_pu == 0 and c1_sp >= sim_max_cpa) or (
-            c1_pu > 0 and c1_cpa is not None and c1_cpa > sim_max_cpa and not has_profitable_winner_squads
-        )
-        camp_bled_3d = (
-            c1_pu == 0
-            and ((c3_pu == 0 and c3_sp >= c3_zero_stop) or (c3_pu > 0 and c3_cpa is not None and c3_cpa > sim_max_cpa * 1.15 and c1_sp >= 1.50))
-        )
+        if _camp_trial_ov and c1_sp < float(_camp_trial_ov.get("max_allowed_spend_1d") or 999.0):
+            camp_bled_1d = False
+            camp_bled_3d = False
+        else:
+            camp_bled_1d = (c1_pu == 0 and c1_sp >= sim_max_cpa) or (
+                c1_pu > 0 and c1_cpa is not None and c1_cpa > sim_max_cpa and not has_profitable_winner_squads
+            )
+            camp_bled_3d = (
+                c1_pu == 0
+                and ((c3_pu == 0 and c3_sp >= c3_zero_stop) or (c3_pu > 0 and c3_cpa is not None and c3_cpa > sim_max_cpa * 1.15 and c1_sp >= 1.50))
+            )
         if camp_bled_1d or camp_bled_3d:
             if c_obj.get("status") == "ACTIVE":
                 c_obj["status"] = "PAUSED"
@@ -784,24 +792,41 @@ def run_snap_gulf_campaigns(sim_cpa_lookup: dict | None = None) -> list[dict]:
             eff_sq_no_sale_stop = round(min(sq_no_sale_stop, remaining_camp_headroom), 2)
 
             # 2) STRICT ADSQUAD-LEVEL SIMULATION, HEADROOM & EARLY CPC STOP-LOSS (1D & 3D):
+            try:
+                from autonomous_fix_and_rollback_engine import get_active_trial_campaign_overrides
+                _sq_trial_ov = get_active_trial_campaign_overrides().get(cid)
+            except Exception:
+                _sq_trial_ov = None
+            _sq_in_active_trial = bool(
+                _sq_trial_ov
+                and sid in (_sq_trial_ov.get("winning_squad_ids") or [])
+                and c1_sp < float(_sq_trial_ov.get("max_allowed_spend_1d") or 999.0)
+            )
+            _has_3d_profitable_sale = (s3_pu >= 1 and (s3_cpa or 999.0) <= sim_max_cpa)
+            eff_sq_max_cpc = round(sq_max_cpc + 0.08, 2) if (_has_3d_profitable_sale or _sq_in_active_trial) else sq_max_cpc
             s3_zero_stop = round(eff_sq_no_sale_stop * 1.85, 2) if s1_sp < 0.20 else round(eff_sq_no_sale_stop * 1.35, 2)
-            high_cpc_1d = s1_pu == 0 and s1_sp >= 0.75 and (s1_sw == 0 or (s1_cpc is not None and s1_cpc > sq_max_cpc))
-            high_cpc_3d = s1_pu == 0 and s1_sp >= 0.25 and s3_pu == 0 and s3_sp >= 1.20 and (s3_sw == 0 or (s3_cpc is not None and s3_cpc > sq_max_cpc + 0.02))
-            preemptive_zero_sale_cut = near_sim_ceiling and s1_pu == 0 and (s1_sp >= 0.50 or c1_pu >= 1)
+            high_cpc_1d = (not _sq_in_active_trial) and s1_pu == 0 and s1_sp >= 0.75 and (s1_sw == 0 or (s1_cpc is not None and s1_cpc > eff_sq_max_cpc))
+            high_cpc_3d = (not _sq_in_active_trial) and s1_pu == 0 and s1_sp >= 0.25 and s3_pu == 0 and s3_sp >= 1.20 and (s3_sw == 0 or (s3_cpc is not None and s3_cpc > eff_sq_max_cpc + 0.02))
+            preemptive_zero_sale_cut = (not _sq_in_active_trial) and near_sim_ceiling and s1_pu == 0 and (s1_sp >= 0.50 or c1_pu >= 1)
             bled_1d = (
-                (s1_pu == 0 and s1_sp >= eff_sq_no_sale_stop)
+                (not _sq_in_active_trial and s1_pu == 0 and s1_sp >= eff_sq_no_sale_stop)
                 or (s1_pu > 0 and s1_cpa is not None and s1_cpa > sim_max_cpa)
                 or high_cpc_1d
                 or preemptive_zero_sale_cut
             )
             bled_3d = (
-                s1_pu == 0
+                (not _sq_in_active_trial)
+                and s1_pu == 0
                 and (
                     (s3_pu == 0 and s3_sp >= s3_zero_stop)
                     or (s3_pu > 0 and s3_cpa is not None and s3_cpa > sim_max_cpa * 1.15 and s1_sp >= 0.50)
                     or high_cpc_3d
                 )
             )
+            if _sq_in_active_trial and s_obj.get("status") != "ACTIVE":
+                s_obj["status"] = "ACTIVE"
+                if s_obj not in to_update:
+                    to_update.append(s_obj)
             if bled_1d or bled_3d:
                 if s_obj.get("status") == "ACTIVE":
                     s_obj["status"] = "PAUSED"
@@ -896,7 +921,7 @@ def run_snap_gulf_campaigns(sim_cpa_lookup: dict | None = None) -> list[dict]:
                     or (a1_pu > 0 and a1_cpa is not None and a1_cpa > sim_max_cpa)
                     or (a1_pu == 0 and a1_sp >= 0.40 and a3_pu > 0 and a3_cpa is not None and a3_cpa > sim_max_cpa * 1.15)
                 )
-                if is_bad_gulf_ad:
+                if is_bad_gulf_ad and not _sq_in_active_trial:
                     if a.get("status") == "ACTIVE":
                         a["status"] = "PAUSED"
                         ads_mutations.append(a)
@@ -960,8 +985,16 @@ def run_snap_gulf_campaigns(sim_cpa_lookup: dict | None = None) -> list[dict]:
             for sq_item in to_update:
                 sm.api_put(f"/campaigns/{cid}/adsquads", tok, {"adsquads": [sq_item]})
 
-        # If all squads inside the campaign were paused, pause the campaign too (NEVER auto-re-activate a paused campaign)
+        # If all squads inside the campaign were paused, pause the campaign too (unless active trial override with active winner squad)
+        try:
+            from autonomous_fix_and_rollback_engine import get_active_trial_campaign_overrides
+            snap_trial_ov = get_active_trial_campaign_overrides().get(cid)
+        except Exception:
+            snap_trial_ov = None
         still_active_sq = [s for s in sq_map.values() if s.get("status") == "ACTIVE"]
+        if still_active_sq and snap_trial_ov and c_obj.get("status") != "ACTIVE" and c1_sp < snap_trial_ov["max_allowed_spend_1d"]:
+            c_obj["status"] = "ACTIVE"
+            sm.api_put(f"/adaccounts/{acc_id}/campaigns", tok, {"campaigns": [c_obj]})
         camp_final_status = f"{c_obj.get('status', 'ACTIVE')} (1D: ${c1_sp:.2f}/{c1_pu}p | SimCap=${sim_max_cpa})"
         if not still_active_sq:
             if c_obj.get("status") == "ACTIVE":
@@ -1069,9 +1102,16 @@ def run_tiktok_gulf_campaigns(sim_cpa_lookup: dict | None = None) -> list[dict]:
     today_str = riyadh_now.strftime("%Y-%m-%d")
     allow_budget_scale = 6 <= riyadh_hour < 18
 
+    try:
+        from autonomous_fix_and_rollback_engine import get_active_trial_campaign_overrides
+        tt_trial_overrides = get_active_trial_campaign_overrides()
+    except Exception:
+        tt_trial_overrides = {}
+
     for item in TIKTOK_GULF_CAMPAIGN_PLAN:
         aid = item["aadvid"]
         cid = item["campaign_id"]
+        trial_ov = tt_trial_overrides.get(cid)
         sim_key = (item["country"], item["product"])
         live_sim_cpa = (sim_cpa_lookup or {}).get(sim_key, item["max_safe_cpa"])
         sim_max_cpa = round(min(float(item["max_safe_cpa"]), float(live_sim_cpa)), 2)
@@ -1090,12 +1130,17 @@ def run_tiktok_gulf_campaigns(sim_cpa_lookup: dict | None = None) -> list[dict]:
         opt_status = str(row1.get("opt_status", "0"))
         cur_budget = float(row1.get("budget") or rd1.get("budget") or base_budget)
 
-        # Campaign-level Simulation Stop-Loss (identical to Snapchat Gulf Simulation Gate)
+        # Campaign-level Simulation Stop-Loss (with Active Trial Winner-Isolation Allowance support)
         tt_c3_zero_stop = min(20.00, round(sim_max_cpa * 1.85, 2)) if spend_1d < 0.25 else min(20.00, round(sim_max_cpa + max(2.50, ad_no_sale_stop), 2))
-        bled_1d = (conv_1d == 0 and spend_1d >= sim_max_cpa) or (conv_1d > 0 and (spend_1d / conv_1d) > sim_max_cpa)
-        bled_3d = (conv_1d == 0 and conv_3d == 0 and spend_3d >= tt_c3_zero_stop) or (
-            conv_1d == 0 and spend_1d >= 1.00 and conv_3d > 0 and (spend_3d / conv_3d) > sim_max_cpa * 1.15
-        )
+        if trial_ov and spend_1d < trial_ov["max_allowed_spend_1d"]:
+            bled_1d = False
+            bled_3d = False
+        else:
+            eff_1d_stop = trial_ov["max_allowed_spend_1d"] if trial_ov else sim_max_cpa
+            bled_1d = (conv_1d == 0 and spend_1d >= eff_1d_stop) or (conv_1d > 0 and (spend_1d / conv_1d) > sim_max_cpa)
+            bled_3d = (conv_1d == 0 and conv_3d == 0 and spend_3d >= tt_c3_zero_stop) or (
+                conv_1d == 0 and spend_1d >= 1.00 and conv_3d > 0 and (spend_3d / conv_3d) > sim_max_cpa * 1.15 and not trial_ov
+            )
         # Pre-emptive Simulation Protection @ 68% of allowed Simulation ceiling when campaign has >=1 sale
         preemptive_68_prune = (conv_1d >= 1) and (spend_1d >= 0.68 * (conv_1d * sim_max_cpa))
         is_stop_loss_only_tt = (os.environ.get("GITHUB_ACTIONS") == "true" or os.environ.get("STOP_LOSS_PAUSE_ONLY") == "1")
@@ -1105,26 +1150,37 @@ def run_tiktok_gulf_campaigns(sim_cpa_lookup: dict | None = None) -> list[dict]:
             not is_stop_loss_only_tt
             and opt_status != "0"
             and not (bled_1d or bled_3d)
-            and conv_1d >= 1
-            and (spend_1d / conv_1d) <= sim_max_cpa
-            and (conv_3d == 0 or (spend_3d / conv_3d) <= sim_max_cpa)
+            and (
+                (conv_1d >= 1 and (spend_1d / conv_1d) <= sim_max_cpa and (conv_3d == 0 or (spend_3d / conv_3d) <= sim_max_cpa))
+                or (trial_ov is not None and spend_1d < trial_ov["max_allowed_spend_1d"])
+            )
         ):
             tm.pause_campaign(s, th, aid, cid, operation="enable")
             opt_status = "0"
             revived_tt_camp = True
-            budget_note = " | 🔄 Revived Under SimCap"
+            budget_note = " | 🧪 Active Winner-Isolation Trial" if trial_ov else " | 🔄 Revived Under SimCap"
+        elif trial_ov is not None and spend_1d < trial_ov["max_allowed_spend_1d"]:
+            budget_note = f" | 🧪 Trial Cap=${trial_ov['max_allowed_spend_1d']:.2f}"
 
         # Micro-Video Pruning inside each Gulf TikTok Smart+ campaign (via fetch_expanded_materials -> 5 individual videos)
         camp_ads = [a for a in acc_ads_1d.get(aid, []) if str(a.get("campaign_id") or (a.get("row_data") or {}).get("campaign_id")) == cid]
         creative_ids = [str(a.get("creative_id") or (a.get("row_data") or {}).get("creative_id") or "") for a in camp_ads if (a.get("creative_id") or (a.get("row_data") or {}).get("creative_id"))]
         pruned_tt_ads = 0
         active_tt_ads = 0
+        trial_win_vids = set(trial_ov.get("winning_video_ids") or []) if trial_ov else set()
         if creative_ids:
+            seven_d = (datetime.datetime.now() - datetime.timedelta(days=6)).strftime("%Y-%m-%d")
             mats_1d = tm.fetch_expanded_materials(s, th, aid, creative_ids, today_d, today_d) or []
             mats_3d_list = tm.fetch_expanded_materials(s, th, aid, creative_ids, two_d, today_d) or []
+            mats_7d_list = tm.fetch_expanded_materials(s, th, aid, creative_ids, seven_d, today_d) or []
             mats_1d_map = {str(m.get("main_entity_id") or (m.get("row_data") or {}).get("main_entity_id") or ""): (m.get("row_data") or m) for m in mats_1d}
             mats_3d_map = {str(m.get("main_entity_id") or (m.get("row_data") or {}).get("main_entity_id") or ""): (m.get("row_data") or m) for m in mats_3d_list}
-            for m_row in (mats_3d_list or mats_1d):
+            merged_mats_by_meid = {}
+            for _m_src in (mats_7d_list + mats_3d_list + mats_1d):
+                _m_id = str(_m_src.get("main_entity_id") or (_m_src.get("row_data") or {}).get("main_entity_id") or "")
+                if _m_id:
+                    merged_mats_by_meid[_m_id] = _m_src
+            for m_row in merged_mats_by_meid.values():
                 mrd_base = m_row.get("row_data") or m_row
                 meid = str(m_row.get("main_entity_id") or mrd_base.get("main_entity_id") or "")
                 ad_id = str(m_row.get("ad_id") or mrd_base.get("ad_id") or (camp_ads[0].get("ad_id") if camp_ads else ""))
@@ -1142,6 +1198,17 @@ def run_tiktok_gulf_campaigns(sim_cpa_lookup: dict | None = None) -> list[dict]:
                 a_cpc3 = (a_sp3 / a_clk3) if a_clk3 > 0 else None
                 aco_opt = str(mrd3.get("mix_material_aco_opt_status") or mrd1.get("mix_material_aco_opt_status") or m_row.get("mix_material_aco_opt_status") or "0")
                 prim_st = str(mrd3.get("material_primary_status") or mrd1.get("material_primary_status") or "")
+                if trial_win_vids and not (bled_1d or bled_3d):
+                    if meid in trial_win_vids:
+                        if aco_opt != "0":
+                            tm.pause_smart_plus_video(s, th, aid, ad_id, mrd3, operation="enable")
+                        active_tt_ads += 1
+                        continue
+                    else:
+                        if aco_opt == "0":
+                            tm.pause_smart_plus_video(s, th, aid, ad_id, mrd3, operation="disable")
+                        pruned_tt_ads += 1
+                        continue
                 bad_tt_vid = (
                     (a_cv1 == 0 and a_sp1 >= 1.00 and (a_clk1 == 0 or (a_cpc1 is not None and a_cpc1 > max_cpc)))
                     or (a_cv1 == 0 and a_cv3 == 0 and a_sp3 >= 1.00 and (a_clk3 == 0 or (a_cpc3 is not None and a_cpc3 > max_cpc)))
@@ -1208,142 +1275,19 @@ APPROVED_SIM_SAFE_CPA = {
 
 
 def main():
+    """
+    PERMANENT SHUTOFF ENFORCER (2026-11-05 User Order):
+    All Kuwait (KW), Qatar (QA), and Oman (OM) campaigns and automations are permanently turned OFF.
+    If invoked, ensures all KW/QA/OM campaigns on Snapchat and TikTok remain strictly PAUSED.
+    """
     now_str = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    print(f"=== GULF HOURLY PROFIT, PRICING, STOCK & ADS MASTER ({now_str}) ===")
-    cod_metrics, stock_summary = fetch_cod_partner_gulf_metrics_and_stock()
-
-    funnel_economics = []
-    sim_cpa_lookup = {}
-    for f in GULF_FUNNELS:
-        cc = f["country"]
-        m = cod_metrics.get(cc, {"conf_rate": 0.65, "deliv_rate_closed": 0.65})
-        p1 = f["prices_local"][0]
-        p2 = f["prices_local"][1]
-        p3 = f["prices_local"][2] if len(f["prices_local"]) >= 3 else p2
-        ups = f.get("upsell_prices_local") or [p2, p3]
-        u2 = ups[0]
-        u3 = ups[1] if len(ups) >= 2 else p3
-        be1 = compute_gulf_break_even_cpa(p1, f["currency"], 1, f["product_type"], m["conf_rate"], m["deliv_rate_closed"])
-        be2 = compute_gulf_break_even_cpa(p2, f["currency"], 2, f["product_type"], m["conf_rate"], m["deliv_rate_closed"])
-        be2_up = compute_gulf_break_even_cpa(u2, f["currency"], 2, f["product_type"], m["conf_rate"], m["deliv_rate_closed"])
-        be3 = compute_gulf_break_even_cpa(p3, f["currency"], 3, f["product_type"], m["conf_rate"], m["deliv_rate_closed"])
-        # Blended Break-Even with 5-Offer AOV Ladder (65% 1u + 20% 2u Special Upsell + 10% 2u Bundle + 5% 3u Bundle)
-        blended_be = round(
-            0.65 * be1["break_even_cpa_usd"]
-            + 0.20 * be2_up["break_even_cpa_usd"]
-            + 0.10 * be2["break_even_cpa_usd"]
-            + 0.05 * be3["break_even_cpa_usd"],
-            2,
-        )
-        approved_cap = APPROVED_SIM_SAFE_CPA.get((cc, f["product_type"]), 11.50)
-        safe_cpa = round(min(approved_cap, max(3.50, blended_be - 0.20)), 2)
-        item_res = {
-            "country": cc,
-            "product_type": f["product_type"],
-            "product_id": f.get("product_id", ""),
-            "funnel_id": f["funnel_id"],
-            "funnel_name": f["name"],
-            "slug": f["slug"],
-            "currency": f["currency"],
-            "prices_local": f["prices_local"],
-            "upsell_prices_local": ups,
-            "be_1unit_usd": be1["break_even_cpa_usd"],
-            "be_2unit_upsell_usd": be2_up["break_even_cpa_usd"],
-            "be_2unit_usd": be2["break_even_cpa_usd"],
-            "be_3unit_usd": be3["break_even_cpa_usd"],
-            "blended_be_cpa_usd": blended_be,
-            "max_safe_cpa_usd": safe_cpa,
-            "d_net_pct": be1["d_net_pct"],
-        }
-        funnel_economics.append(item_res)
-        # Skip blocked google funnel in Qatar (mXYlz1bqb) when building active simulation lookup
-        if f["slug"] != "mXYlz1bqb":
-            sim_key = (cc, f["product_type"])
-            if sim_key not in sim_cpa_lookup or safe_cpa < sim_cpa_lookup[sim_key]:
-                sim_cpa_lookup[sim_key] = safe_cpa
-        print(
-            f"  [{cc} - {f['product_type']}] {f['name']} ({f['prices_local']} + Upsell {ups} {f['currency']}) -> "
-            f"1u BE=${be1['break_even_cpa_usd']} | 2u-Upsell BE=${be2_up['break_even_cpa_usd']} | 2u BE=${be2['break_even_cpa_usd']} | "
-            f"Blended BE=${blended_be} | Max Safe CPA=${safe_cpa}"
-        )
-
-    snap_results = run_snap_gulf_campaigns(sim_cpa_lookup)
-    for sr in snap_results:
-        print(f"  [SNAP ACTIVE] {sr['country']} | {sr['campaign_name']} ({sr['campaign_id']}) -> {' ; '.join(sr['experiments'])}")
-
-    tt_results = run_tiktok_gulf_campaigns(sim_cpa_lookup)
-    for tr in tt_results:
-        print(f"  [TIKTOK] {tr['country']} | {tr['campaign_name']} ({tr['campaign_id']}) -> {tr['status']}")
-
-    payload = {
-        "timestamp": now_str,
-        "cod_partner_gulf_metrics": cod_metrics,
-        "cod_partner_warehouse_stock": stock_summary,
-        "funnel_economics": funnel_economics,
-        "snapchat_gulf_campaigns": snap_results,
-        "tiktok_gulf_campaigns": tt_results,
-    }
-    REPORT_JSON.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
-
-    md_lines = [
-        f"# تقرير أوتوميشن الخليج الموحد كل ساعة (قطر وعُمان والكويت) — {now_str}",
-        "",
-        "## 1. اقتصاديات الفانلز وسقف البيعة الآمن",
-        "| الدولة | المنتج | الأسعار | التعادل المدمج | سقف CPA الآمن |",
-        "| :--- | :--- | :--- | :--- | :--- |",
-    ]
-    for r in funnel_economics:
-        md_lines.append(
-            f"| **{r['country']}** | `{r['product_type']}` | `{r['prices_local']} {r['currency']}` | `${r['blended_be_cpa_usd']}` | **`${r['max_safe_cpa_usd']}`** |"
-        )
-
-    md_lines.extend([
-        "",
-        "## 2. حملات سناب شات وتجارب البيدات والهيكلة في الخليج",
-        "| الدولة | المنتج | الحملة | الحالة | المجموعات النشطة والبيدات |",
-        "| :--- | :--- | :--- | :--- | :--- |",
-    ])
-    for sr in snap_results:
-        md_lines.append(
-            f"| **{sr['country']}** | `{sr['product']}` | `{sr['campaign_name']}` | `{sr['status']}` | {' <br> '.join(sr['experiments'])} |"
-        )
-
-    md_lines.extend([
-        "",
-        "## 3. حملات تيك توك في الخليج",
-        "| الدولة | المنتج | الحملة | الحساب | الحالة |",
-        "| :--- | :--- | :--- | :--- | :--- |",
-    ])
-    for tr in tt_results:
-        md_lines.append(
-            f"| **{tr['country']}** | `{tr['product']}` | `{tr['campaign_name']}` | `{tr['platform']}` | `{tr['status']}` |"
-        )
-
-    REPORT_MD.write_text("\n".join(md_lines) + "\n", encoding="utf-8")
-    print(f"Saved report to {REPORT_MD}")
-    if os.environ.get("GITHUB_ACTIONS") != "true":
-        try:
-            from github_deploy import sync_state_and_rules_to_github
-            sync_state_and_rules_to_github("gulf_2h_profit_and_ads_master")
-        except Exception as _sync_err:
-            print(f"ℹ️ ملاحظة مزامنة GitHub من gulf_2h_profit_and_ads_master: {_sync_err}")
-
-
-
-    # --- Auto-run Sales Stall Detector & Immediate Recovery + Historical Master Advisor ---
-    if os.environ.get("GITHUB_ACTIONS") != "true":
-        try:
-            import sales_stall_recovery_engine
-            sales_stall_recovery_engine.run_stall_detector_and_recovery(dry_run=False)
-        except Exception as _st_err:
-            print(f"ℹ️ ملاحظة محرك استعادة المبيعات اللحظي: {_st_err}")
-        try:
-            import historical_and_consultation_master_advisor
-            historical_and_consultation_master_advisor.main()
-            import subprocess as _sp_exp
-            _sp_exp.run([sys.executable, '-X', 'utf8', str(Path(__file__).resolve().parent / 'proactive_domain_expert_advisor.py'), '--domain', 'gulf'], check=False)
-        except Exception as _adv_err:
-            print(f"ℹ️ ملاحظة المستشار التاريخي والتنفيذي: {_adv_err}")
+    print(f"=== GULF (KW/QA/OM) PERMANENT SHUTOFF ENFORCER ({now_str}) — ALL CAMPAIGNS & AUTOMATIONS DISABLED ===")
+    try:
+        import pause_all_kw_qa_om_now
+        pause_all_kw_qa_om_now.pause_all_snap_kw_qa_om()
+        pause_all_kw_qa_om_now.pause_all_tiktok_kw_qa_om()
+    except Exception as exc:
+        print(f"[GULF-SHUTOFF] Note: {exc}")
 
 
 if __name__ == "__main__":
