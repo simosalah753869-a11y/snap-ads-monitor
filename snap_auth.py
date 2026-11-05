@@ -10,7 +10,7 @@ from pathlib import Path
 _orig_getaddrinfo = socket.getaddrinfo
 _dns_cache = {}
 _STATIC_DNS_FALLBACK = {
-    "adsapi.snapchat.com": "34.110.187.193",
+    "adsapi.snapchat.com": "34.102.183.120",
     "accounts.snapchat.com": "34.149.46.130",
     "ads.tiktok.com": "2.19.51.52",
     "business-api.tiktok.com": "2.19.51.52",
@@ -62,6 +62,13 @@ socket.getaddrinfo = _doh_getaddrinfo
 CONFIG_FILE = Path(__file__).parent / "snap_config.json"
 DARALRIMAL_CONFIG_FILE = Path(__file__).parent / "snap_config_daralrimal.json"
 DARALRIMAL_AD_ACCOUNT_ID = "c6447397-25a3-418a-8529-422581e1bbe0"
+DARALRIMAL_AD_ACCOUNT_2_ID = "0385c6d4-7a29-41bb-9bf1-16fe430c8ec9"
+DARALRIMAL_AD_ACCOUNT_3_ID = "f451e3dd-ccf2-4721-9aac-a6a74c8ad26d"
+DARALRIMAL_ACCOUNT_IDS = {
+    DARALRIMAL_AD_ACCOUNT_ID,
+    DARALRIMAL_AD_ACCOUNT_2_ID,
+    DARALRIMAL_AD_ACCOUNT_3_ID,
+}
 DARALRIMAL_ORG_ID = "ba7867b0-bd79-4026-bf90-13ab06361520"
 DARALRIMAL_PIXEL_ID = "17658288-4114-4eb3-afc9-62da64437fee"
 REDIRECT_URI = "https://example.com/callback"
@@ -85,11 +92,13 @@ def load_daralrimal_config():
         return json.loads(DARALRIMAL_CONFIG_FILE.read_text(encoding="utf-8-sig"))
     main_cfg = load_config()
     dar = main_cfg.get("daralrimal_account", {})
-    if dar.get("refresh_token"):
+    env_rt = (os.environ.get("SNAP_DARALRIMAL_REFRESH_TOKEN") or "").strip()
+    rt = dar.get("refresh_token") or env_rt
+    if rt:
         return {
-            "client_id": main_cfg.get("client_id"),
-            "client_secret": main_cfg.get("client_secret"),
-            "refresh_token": dar.get("refresh_token"),
+            "client_id": main_cfg.get("client_id") or os.environ.get("SNAP_CLIENT_ID", ""),
+            "client_secret": main_cfg.get("client_secret") or os.environ.get("SNAP_CLIENT_SECRET", ""),
+            "refresh_token": rt,
             "access_token": dar.get("access_token", ""),
         }
     return {}
@@ -137,7 +146,7 @@ def refresh_daralrimal_token() -> str:
 
 
 def get_token_for_account(account_id: str) -> str:
-    if account_id == DARALRIMAL_AD_ACCOUNT_ID:
+    if account_id in DARALRIMAL_ACCOUNT_IDS:
         return refresh_daralrimal_token()
     return refresh_access_token(load_config())
 
@@ -157,6 +166,7 @@ def exchange_code_for_token(client_id: str, client_secret: str, code: str) -> di
 
 def refresh_access_token(cfg: dict) -> str:
     import time, requests
+    orig_rt = cfg.get("refresh_token", "")
     payload = {
         "client_id": cfg["client_id"],
         "client_secret": cfg["client_secret"],
@@ -178,11 +188,27 @@ def refresh_access_token(cfg: dict) -> str:
         if cfg.get("access_token"):
             return cfg["access_token"]
         raise RuntimeError("Failed to refresh Snapchat token")
-    cfg["access_token"] = tokens["access_token"]
-    if "refresh_token" in tokens:
-        cfg["refresh_token"] = tokens["refresh_token"]
-    save_config(cfg)
-    return cfg["access_token"]
+    new_acc_tok = tokens["access_token"]
+    new_ref_tok = tokens.get("refresh_token", orig_rt)
+    cfg["access_token"] = new_acc_tok
+    cfg["refresh_token"] = new_ref_tok
+    dar_disk = {}
+    if DARALRIMAL_CONFIG_FILE.exists():
+        try:
+            dar_disk = json.loads(DARALRIMAL_CONFIG_FILE.read_text(encoding="utf-8-sig"))
+        except Exception:
+            dar_disk = {}
+    if dar_disk.get("refresh_token") and orig_rt == dar_disk.get("refresh_token"):
+        dar_disk["access_token"] = new_acc_tok
+        dar_disk["refresh_token"] = new_ref_tok
+        DARALRIMAL_CONFIG_FILE.write_text(json.dumps(dar_disk, indent=2, ensure_ascii=False), encoding="utf-8")
+    else:
+        disk_cfg = load_config()
+        disk_cfg.update(cfg)
+        disk_cfg["access_token"] = new_acc_tok
+        disk_cfg["refresh_token"] = new_ref_tok
+        save_config(disk_cfg)
+    return new_acc_tok
 
 
 _SNAP_SESSION = None
