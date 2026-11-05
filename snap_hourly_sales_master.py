@@ -23,8 +23,8 @@
 4. محرك التجارب الذكي #2 — اختبارات العناوين التسويقية وحقن الفيديوهات السوبر رابحة بـ $0 بدجت إضافي ([EXP-SNAP Micro Tests]):
    - فحص كل إعلان تجريبي يحمل وسم [EXP-]: إذا صرف >= $2.50 بدون مبيعة (أو >= $1.00 بـ CPC > $0.26 بدون مبيعة) يُوقف فوراً (فرملة ميكرو صارمة لحماية البدجت). وإذا حقق مبيعة بـ CPA <= $5.50 يُعمّم تلقائياً على 5 مجموعات نشطة إضافية.
    - زرع تجارب عناوين تسويقية جديدة ([EXP-H2] / [EXP-H3]) على أفضل فيديو رابح في الحملات الرابحة، وحقن الفيديو السوبر رابح عبر الحسابين ([EXP-WIN]) داخل أفضل 3–5 مجموعات رابحة فقط (مشاركة نفس البدجت الحالي = $0 بدجت إضافي).
-5. قفل البيد الصارم ($1.90 لجميع أدست الكوبي بأمر المستخدم 2026-11-03):
-   - جميع أدست الكوبي في سناب شات مثبتة على $1.90 ماكس بيد، ولا يُلمس بيدها تلقائياً نهائياً.
+5. قفل البيد الصارم ($2.10 لجميع حملات وأدست الكوبي بأمر المستخدم 2026-11-04):
+   - جميع حملات وأدست الكوبي في سناب شات مثبتة على $2.10 ماكس بيد، ولا يُلمس بيدها تلقائياً نهائياً.
 """
 
 from datetime import datetime, timedelta, timezone
@@ -34,12 +34,13 @@ from pathlib import Path
 import re
 import sys
 import time
-from snap_auth import API_BASE, api_get, load_config, refresh_access_token
+from snap_auth import API_BASE, api_get, get_token_for_account, load_config, refresh_access_token
 import snap_monitor as sm
 from snap_monitor import (
     ACCOUNT_TZ,
     ALLOWED_30X_CAMPAIGN_IDS,
     ALLOWED_GULF_CAMPAIGN_IDS,
+    DARALRIMAL_ACCOUNT_ID,
     DEDICATED_SNAP_TEST_CAMPAIGN_IDS,
     FOUR_SQUAD_CAMPAIGN_IDS,
     SECOND_ACCOUNT_ID,
@@ -79,6 +80,12 @@ REPORT_FILE = BASE_DIR / "snap_hourly_sales_report.md"
 ACCOUNT_LABELS = {
     TARGET_ACCOUNT_ID: "CSP9860",
     SECOND_ACCOUNT_ID: "CSP9860 4",
+    DARALRIMAL_ACCOUNT_ID: "Daralrimal Self Service",
+    "0385c6d4-7a29-41bb-9bf1-16fe430c8ec9": "Daralrimal Self Service 2",
+    "f451e3dd-ccf2-4721-9aac-a6a74c8ad26d": "Daralrimal Self Service 3 (Funded)",
+    "421ceb8f-a1fb-40ac-a26e-803e662d8bfe": "CN-Manzilk 2",
+    "f983cc8c-f12a-4d53-b072-eb147795d535": "CN - Manzilk 0505",
+    "34bca683-5511-4c44-8a12-60af5527537d": "watch-BV-EC-01-LT",
 }
 
 ONE_HOUR_SEC = 6600  # 110 دقائق (ساعة و50 دقيقة) لضمان التنفيذ في كل دورة (كل ساعتين) بدون تفويت
@@ -333,7 +340,7 @@ def run_hourly_master_for_account(token: str, ad_account_id: str, sheet_sales: d
         # حساب إحصائيات الحملة الحقيقية (Pixel + Sheet) عبر 1D و 2D و 3D
         sp_act_1d = round(sum(float(squad_1d.get(sq["id"], {}).get("spend", 0.0)) for sq in active_squads), 2)
         sp_camp_1d = round(float(camp_1d.get(cid, {}).get("spend", 0.0)), 2)
-        camp_spend_1d = max(sp_act_1d, sp_camp_1d)
+        camp_spend_1d = sp_act_1d if is_ded_test_camp else max(sp_act_1d, sp_camp_1d)
         pu_px_1d = max(
             sum(int(squad_1d.get(sq["id"], {}).get("purchases", 0)) for sq in active_squads),
             int(camp_1d.get(cid, {}).get("purchases", 0)),
@@ -342,11 +349,13 @@ def run_hourly_master_for_account(token: str, ad_account_id: str, sheet_sales: d
         camp_purch_1d = max(pu_px_1d, pu_sh_1d)
         camp_cpa_1d = round(camp_spend_1d / camp_purch_1d, 2) if camp_purch_1d > 0 else None
 
-        camp_spend_2d = round(float(camp_2d.get(cid, {}).get("spend", 0.0)), 2)
+        sp_act_2d = round(sum(float(squad_2d.get(sq["id"], {}).get("spend", 0.0)) for sq in active_squads), 2)
+        camp_spend_2d = sp_act_2d if is_ded_test_camp else round(float(camp_2d.get(cid, {}).get("spend", 0.0)), 2)
         camp_purch_2d = max(int(camp_2d.get(cid, {}).get("purchases", 0)), camp_purch_1d)
         camp_cpa_2d = round(camp_spend_2d / camp_purch_2d, 2) if camp_purch_2d > 0 else None
 
-        camp_spend_3d = round(float(camp_3d.get(cid, {}).get("spend", 0.0)), 2)
+        sp_act_3d = round(sum(float(squad_3d.get(sq["id"], {}).get("spend", 0.0)) for sq in active_squads), 2)
+        camp_spend_3d = sp_act_3d if is_ded_test_camp else round(float(camp_3d.get(cid, {}).get("spend", 0.0)), 2)
         camp_purch_3d = max(int(camp_3d.get(cid, {}).get("purchases", 0)), int(sh_3d.get(cid.lower(), 0)), camp_purch_2d)
         camp_cpa_3d = round(camp_spend_3d / camp_purch_3d, 2) if camp_purch_3d > 0 else None
 
@@ -356,7 +365,42 @@ def run_hourly_master_for_account(token: str, ad_account_id: str, sheet_sales: d
         no_sale_camp_cap = 8.50 if is_exp_camp else 10.00
         max_cpa_camp_cap = 11.00
         stop_loss_reason = None
-        if not is_ded_test_camp:
+        LOW_CPM_PB_CAMPAIGNS = {
+            "11fa8aef-3a3c-418d-b5c4-8dc7b3ec7ab3",
+            "6b0de02e-978d-4332-9698-743a2524b87c",
+            "7fa61e5d-dd41-4ee5-af26-e5c0f773bdef",
+            "7bffcb77-f2ae-427e-883a-f4e5f249cae9",
+        }
+        is_low_cpm_pb_camp = cid in LOW_CPM_PB_CAMPAIGNS
+        rev_camp_base_map = {}
+        rev_sq_base_map = {}
+        try:
+            with open(os.path.join(BASE_DIR, "snap_squad_custom_bid_locks.json"), "r", encoding="utf-8") as _lf:
+                _ldata = json.load(_lf)
+                rev_camp_base_map = _ldata.get("revived_low_cpm_1d_camp_baseline", {}) or {}
+                rev_sq_base_map = _ldata.get("revived_low_cpm_1d_squad_baseline", {}) or {}
+        except Exception:
+            pass
+        if is_low_cpm_pb_camp:
+            c_base = rev_camp_base_map.get(cid, {})
+            c_base_sp = float(c_base.get("spend_1d", 0.0)) if isinstance(c_base, dict) else float(c_base or 0.0)
+            c_base_pu = int(c_base.get("purch_1d", 0)) if isinstance(c_base, dict) else (1 if cid == "6b0de02e-978d-4332-9698-743a2524b87c" else 0)
+            post_rev_c_sp = max(0.0, round(camp_spend_1d - c_base_sp, 2))
+            post_rev_c_pu = max(0, camp_purch_1d - c_base_pu)
+            post_rev_c_cpa = round(post_rev_c_sp / post_rev_c_pu, 2) if post_rev_c_pu > 0 else None
+            if post_rev_c_pu == 0 and post_rev_c_sp >= 12.00:
+                stop_loss_reason = f"[استراتيجية CPM المنخفض] صرف جديد بعد الإنعاش=${post_rev_c_sp:.2f} >= $12.00 بـ 0 مبيعات"
+            elif post_rev_c_pu > 0 and post_rev_c_cpa is not None and post_rev_c_cpa > 11.00 and post_rev_c_sp >= 12.00:
+                stop_loss_reason = f"[استراتيجية CPM المنخفض] CPA جديد بعد الإنعاش=${post_rev_c_cpa:.2f} > $11.00"
+        elif is_ded_test_camp:
+            # أمر المستخدم الصارم (2026-11-03): الحملة التي فيها 'تيست' يطفئ البوت الفيديوهات الخاسرة بداخلها فقط، ولو وصل مجموع الصرف أكثر من $10.00 (> $10.00) بدون مبيعة يطفئون الحملة!
+            if camp_purch_1d == 0 and camp_spend_1d > 10.00:
+                stop_loss_reason = f"[قاعدة تيست > $10.00 بدون مبيعة] صرف اليوم=${camp_spend_1d:.2f} > $10.00 بـ 0 مبيعات"
+            elif camp_purch_2d == 0 and camp_spend_2d > 10.00:
+                stop_loss_reason = f"[قاعدة تيست > $10.00 بدون مبيعة] صرف يومين=${camp_spend_2d:.2f} > $10.00 بـ 0 مبيعات"
+            elif camp_purch_3d == 0 and camp_spend_3d > 10.00:
+                stop_loss_reason = f"[قاعدة تيست > $10.00 بدون مبيعة] صرف 3 أيام=${camp_spend_3d:.2f} > $10.00 بـ 0 مبيعات"
+        else:
             if camp_purch_1d == 0 and camp_spend_1d >= no_sale_camp_cap:
                 stop_loss_reason = f"صرف اليوم=${camp_spend_1d:.2f} >= ${no_sale_camp_cap:.2f} بـ 0 مبيعات"
             elif camp_purch_2d == 0 and camp_spend_2d >= no_sale_camp_cap:
@@ -435,7 +479,7 @@ def run_hourly_master_for_account(token: str, ad_account_id: str, sheet_sales: d
             and float(squad_1d.get(sq_x["id"], {}).get("cpc", 9.99) or 9.99) <= 0.19
         }
 
-        if is_late_night and c.get("pacing_level") != "CAMPAIGN":
+        if is_late_night and c.get("pacing_level") != "CAMPAIGN" and not is_ded_test_camp:
             for sq_any in c_squads:
                 if not sq_any:
                     continue
@@ -533,6 +577,18 @@ def run_hourly_master_for_account(token: str, ad_account_id: str, sheet_sales: d
                     if is_ded_test_sq
                     else ("تمت تصفية جميع الفيديوهات غير الرابحة داخل الأدست (0 فيديوهات متبقية)" if (sq_ads_nc and surviving_nc <= 0) else "")
                 )
+            elif sid in rev_sq_base_map:
+                pause_sq_reason = ""
+                sq_b = rev_sq_base_map.get(sid, {})
+                sq_b_sp = float(sq_b.get("spend_1d", 0.0)) if isinstance(sq_b, dict) else float(sq_b or 0.0)
+                sq_b_pu = int(sq_b.get("purch_1d", 0)) if isinstance(sq_b, dict) else 0
+                post_sq_sp1 = max(0.0, round(sp1 - sq_b_sp, 2))
+                post_sq_pu1 = max(0, pu1 - sq_b_pu)
+                post_sq_cpa1 = round(post_sq_sp1 / post_sq_pu1, 2) if post_sq_pu1 > 0 else None
+                if post_sq_pu1 == 0 and post_sq_sp1 >= no_sale_sq_cap:
+                    pause_sq_reason = f"صرف جديد بعد خفض البيد ${post_sq_sp1:.2f} (>= ${no_sale_sq_cap:.2f}) بدون مبيعات"
+                elif post_sq_pu1 > 0 and post_sq_cpa1 is not None and post_sq_cpa1 >= max_cpa_sq_cap and post_sq_sp1 >= no_sale_sq_cap:
+                    pause_sq_reason = f"CPA جديد بعد خفض البيد مرتفع ${post_sq_cpa1:.2f} (>= ${max_cpa_sq_cap:.2f})"
             else:
                 # 1) فحص الإيقاف الفوري لأدست الكوبي الخاسرة (>= $4.00 بدون بيع أو CPA >= $7.00)
                 pause_sq_reason = ""
@@ -580,7 +636,7 @@ def run_hourly_master_for_account(token: str, ad_account_id: str, sheet_sales: d
             cur_bid_micro = int(sq.get("bid_micro") or 0)
             cur_budget_micro = int(sq.get("daily_budget_micro") or 0)
 
-            MAX_SNAP_BID_MICRO = 3_600_000 if is_gulf else 1_950_000
+            MAX_SNAP_BID_MICRO = 3_600_000 if is_gulf else 2_100_000
             base_budget_micro = 20_000_000
 
             bumps_today = 0
@@ -648,20 +704,9 @@ def run_hourly_master_for_account(token: str, ad_account_id: str, sheet_sales: d
                 and sid in top_efficient_squad_ids
             )
 
-            # البدجت الأساسي $20.00 مع احترام رفع البدجت النهاري للأدست المحققة >= 3 مبيعات بتكلفة رابحة وإرجاع الكل لـ $20 آخر الليل (22:00-05:59):
-            custom_dt_b_micro = None if is_late_night else get_custom_daytime_budget_micro(sid, today_str)
-            pu3_sq = int(st3.get("purchases", 0))
-            cpa3_sq = st3.get("cpa")
-            is_3sales_good_sq = (
-                not is_late_night
-                and not is_pixel_hallucinating
-                and pu3_sq >= 3
-                and cpa3_sq is not None
-                and cpa3_sq <= (12.00 if is_gulf else 7.00)
-                and (sp1 < 4.00 or pu1 >= 1)
-            )
-            eff_base_budget_micro = custom_dt_b_micro if (custom_dt_b_micro and custom_dt_b_micro > 20_000_000) else 20_000_000
-            max_tier_budget_micro = max(eff_base_budget_micro, 40_000_000 if is_3sales_good_sq else 20_000_000)
+            # البدجت الأساسي $20.00 ثابت في جميع الأدست في سناب شات بأمر المستخدم:
+            eff_base_budget_micro = 50_000_000 if (is_low_cpm_pb_camp or sid in rev_sq_base_map) else 20_000_000
+            max_tier_budget_micro = 50_000_000 if (is_low_cpm_pb_camp or sid in rev_sq_base_map) else 20_000_000
 
             # إذا كانت الميزانية الحالية متضخمة فوق السقف المسموح به (أو آخر الليل حيث يرجع البدجت 20$ في كل الأدست)، تُرجع فوراً للسقف الآمن!
             # وممنوع منعاً باتاً رفع البدجت بعد الساعة 6 مساءً (is_after_6pm)
@@ -1104,9 +1149,13 @@ def collect_human_eye_account_overview(token: str, sheet_sales: dict) -> list[di
     overview = []
     for acc_id in TARGET_ACCOUNT_IDS:
         acc_label = ACCOUNT_LABELS.get(acc_id, acc_id)
-        camps = api_get_paginated(f"/adaccounts/{acc_id}/campaigns?limit=200", token, "campaigns", "campaign")
-        c1_list = fetch_account_breakdown_stats(token, acc_id, "campaign", days_back=0)
-        c3_list = fetch_account_breakdown_stats(token, acc_id, "campaign", days_back=2)
+        try:
+            acc_tok = get_token_for_account(acc_id)
+        except Exception:
+            acc_tok = token
+        camps = api_get_paginated(f"/adaccounts/{acc_id}/campaigns?limit=200", acc_tok, "campaigns", "campaign")
+        c1_list = fetch_account_breakdown_stats(acc_tok, acc_id, "campaign", days_back=0)
+        c3_list = fetch_account_breakdown_stats(acc_tok, acc_id, "campaign", days_back=2)
         c1_map = {x["id"]: x for x in c1_list}
         c3_map = {x["id"]: x for x in c3_list}
 
@@ -1186,9 +1235,13 @@ def analyze_snap_periods_and_winning_structures(token: str, sheet_sales: dict) -
         "بيد مرتفع (> $2.50) أو فيديوهات غير مصفاة": {"sp3": 0.0, "pu3": 0, "sp7": 0.0, "pu7": 0, "verdict": "🚫 سبب الفترات السيئة (يرفع CPC فوق $0.28 ويستنزف الميزانية بدون مبيعات — ممنوع نهائياً)"},
     }
     for acc_id in TARGET_ACCOUNT_IDS:
-        camps = api_get_paginated(f"/adaccounts/{acc_id}/campaigns?limit=200", token, "campaigns", "campaign")
-        c3_map = {x["id"]: x for x in fetch_account_breakdown_stats(token, acc_id, "campaign", days_back=2)}
-        c7_map = {x["id"]: x for x in fetch_account_breakdown_stats(token, acc_id, "campaign", days_back=6)}
+        try:
+            acc_tok = get_token_for_account(acc_id)
+        except Exception:
+            acc_tok = token
+        camps = api_get_paginated(f"/adaccounts/{acc_id}/campaigns?limit=200", acc_tok, "campaigns", "campaign")
+        c3_map = {x["id"]: x for x in fetch_account_breakdown_stats(acc_tok, acc_id, "campaign", days_back=2)}
+        c7_map = {x["id"]: x for x in fetch_account_breakdown_stats(acc_tok, acc_id, "campaign", days_back=6)}
         for c in camps:
             cid = c["id"]
             cname = (c.get("name") or "").strip()
@@ -1286,7 +1339,11 @@ def main():
     print("🚀 تشغيل خبير مبيعات وصرف وتجارب سناب شات المستقل كل ساعة (Snap 1H Master)")
     print("=========================================================================")
     for acc_id in TARGET_ACCOUNT_IDS:
-        run_hourly_master_for_account(token, acc_id, sheet_sales, ledger, actions_taken, dry_run=dry_run)
+        try:
+            acc_tok = get_token_for_account(acc_id)
+        except Exception:
+            acc_tok = token
+        run_hourly_master_for_account(acc_tok, acc_id, sheet_sales, ledger, actions_taken, dry_run=dry_run)
 
     account_overview = collect_human_eye_account_overview(token, sheet_sales)
     structure_rows = analyze_snap_periods_and_winning_structures(token, sheet_sales)
