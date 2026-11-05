@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-03 15:57:33",
+  "updated_at": "2026-11-05 18:58:24",
   "campaigns": {
     "8024627197:washer hp909 taager 01-11": {
       "ocid": "8024627197",
@@ -8,7 +8,7 @@
       "product_key": "washer_hp909",
       "has_enabled": true,
       "sp1": 0.0,
-      "sp2": 53.59,
+      "sp2": 90.1,
       "sp3": 90.1,
       "sp7": 90.1,
       "ui1": 0.0,
@@ -19,10 +19,10 @@
       "sh2": 7.0,
       "sh3": 11.0,
       "sh7": 11.0,
-      "eff1": 2,
-      "eff2": 2,
-      "eff3": 2,
-      "eff7": 2,
+      "eff1": 0,
+      "eff2": 14,
+      "eff3": 14,
+      "eff7": 14,
       "updated_at": "2026-11-03T15:10:46.390740+03:00",
       "account": "Google Ads (744-305-2213)",
       "campaign_id": "24425950201",
@@ -54,6 +54,45 @@
       "account": "Google Ads (914-615-0891)",
       "campaign_id": "24420202985",
       "status": "ELIGIBLE"
+    },
+    "8436939582:doorbell 10165 taager 04-11": {
+      "account": "Google Ads (914-615-0891)",
+      "ocid": "8436939582",
+      "campaign_id": "",
+      "campaign_name": "doorbell 10165 taager 04-11",
+      "product_key": "doorbell_10165",
+      "status": "DRAFT",
+      "sp1": 0.0,
+      "sp2": 0.0,
+      "sp3": 0.0,
+      "sp7": 0.0,
+      "eff1": 0,
+      "eff2": 0,
+      "eff3": 0,
+      "eff7": 0
+    },
+    "8024627197:pillow 18186 taager 04-11": {
+      "ocid": "8024627197",
+      "account_label": "Account 2: 744-305-2213 (802-462-7197)",
+      "account": "Google Ads (744-305-2213)",
+      "campaign_id": "24432586039",
+      "campaign_name": "pillow 18186 taager 04-11",
+      "product_key": "pillow_18186",
+      "has_enabled": true,
+      "status": "ELIGIBLE",
+      "budget": 50.0,
+      "target_cpa": 7.0,
+      "impr1": 151,
+      "clicks1": 4,
+      "ctr1": "2.65%",
+      "sp1": 0.63,
+      "sp2": 0.63,
+      "sp3": 0.63,
+      "sp7": 0.63,
+      "ui1": 0.0,
+      "sh1": 0.0,
+      "eff1": 0,
+      "updated_at": "2026-11-04T12:03:03.282544+03:00"
     }
   }
 }
