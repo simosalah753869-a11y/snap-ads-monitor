@@ -21,7 +21,7 @@ sys.stdout.reconfigure(encoding="utf-8")
 _orig_getaddrinfo = socket.getaddrinfo
 _dns_cache = {}
 _STATIC_DNS_FALLBACK = {
-    "adsapi.snapchat.com": "34.110.187.193",
+    "adsapi.snapchat.com": "34.102.183.120",
     "accounts.snapchat.com": "34.149.46.130",
     "docs.google.com": "142.251.27.100",
     "api.github.com": "140.82.121.5",
@@ -241,14 +241,14 @@ def fetch_sheet_multiwindow_sales(ref_date_str: str = None) -> dict:
 # PART 1 & 2: RUN SNAPCHAT & TIKTOK MONITORS + MULTI-WINDOW DISSECTION
 # ==============================================================================
 def audit_snapchat_multiwindow(sheet_sales: dict) -> dict:
-    from snap_auth import load_config, refresh_access_token
+    from snap_auth import get_token_for_account, load_config, refresh_access_token
     import snap_monitor as sm
 
     print("\n======================================================================")
     print("👻 [1/3] فحص وتفصيص جميع حسابات سناب شات والفيديوهات عبر 4 نوافذ (1D / 2D / 3D / 7D) بحد CPA <= $7.00")
     print("======================================================================", flush=True)
 
-    token = refresh_access_token(load_config())
+    default_token = refresh_access_token(load_config())
     account_ids = getattr(sm, "TARGET_ACCOUNT_IDS", [sm.TARGET_ACCOUNT_ID])
     snap_summary = []
     snap_videos_summary = []
@@ -257,6 +257,10 @@ def audit_snapchat_multiwindow(sheet_sales: dict) -> dict:
     now_str = datetime.now(SA_TZ).strftime("%Y-%m-%d %H:%M GMT+3")
 
     for acc_id in account_ids:
+        try:
+            token = get_token_for_account(acc_id)
+        except Exception:
+            token = default_token
         # Run standard snap_monitor on each account unless --post-monitor is passed (when snap_monitor just ran)
         if "--post-monitor" not in sys.argv:
             sm.run_automation(token, acc_id, dry_run=False)
@@ -294,8 +298,13 @@ def audit_snapchat_multiwindow(sheet_sales: dict) -> dict:
                 continue
             c_squads = {sq["id"]: sq for sq in sm.api_get_paginated(f"/campaigns/{cid}/adsquads?limit=1000", token, "adsquads", "adsquad", max_pages=5)}
 
-            # أمر المستخدم الصارم (2026-11-01): أي حملة إعلانية ماشية في طريق غلط وصرفت >= $20.00 بدون مبيعة (أو CPA >= $20.00) يقتلها البوت فوراً دون تساهل! (مع عدم لمس حملات التيست)
-            if not sm.is_cross_monitored_product_campaign(cname) and not sm.is_dedicated_snap_test_campaign(cid, cname):
+            # أمر المستخدم الصارم (محدث 2026-11-03): أي حملة إعلانية ماشية في طريق غلط وصرفت >= $20.00 بدون مبيعة (أو CPA >= $20.00) يقتلها البوت فوراً، ولحملات 'تيست' إذا وصل مجموع الصرف أكثر من $10.00 (> $10.00) بدون مبيعة يطفئون الحملة!
+            _locks_dm = sm._get_custom_squad_bid_locks() if hasattr(sm, "_get_custom_squad_bid_locks") else {}
+            _is_rev_today = (_locks_dm.get("revived_low_cpm_date") == datetime.now(sm.ACCOUNT_TZ).strftime("%Y-%m-%d")) if hasattr(sm, "ACCOUNT_TZ") else False
+            _rev_camp_bases = (_locks_dm.get("revived_low_cpm_1d_camp_baseline") or {}) if _is_rev_today else {}
+            _rev_sq_bases = (_locks_dm.get("revived_low_cpm_1d_squad_baseline") or {}) if _is_rev_today else {}
+            if not sm.is_cross_monitored_product_campaign(cname):
+                is_ded_test_c = sm.is_dedicated_snap_test_campaign(cid, cname)
                 sh1_c = (sheet_sales.get("1d") or {}).get(cid.lower(), 0)
                 sh2_c = (sheet_sales.get("2d") or {}).get(cid.lower(), 0)
                 sh3_c = (sheet_sales.get("3d") or {}).get(cid.lower(), 0)
@@ -310,11 +319,28 @@ def audit_snapchat_multiwindow(sheet_sales: dict) -> dict:
                 pu1_chk = max(int(s1.get("purchases", 0)), int(sh1_c))
                 pu2_chk = max(int(s2.get("purchases", 0)), int(sh2_c))
                 pu3_chk = max(int(s3.get("purchases", 0)), int(sh3_c))
+                if cid in _rev_camp_bases:
+                    _cb = _rev_camp_bases[cid]
+                    _cb_sp = float(_cb.get("spend_1d", 0.0) if isinstance(_cb, dict) else (_cb or 0.0))
+                    sp1_chk = round(max(0.0, float(s1.get("spend", 0.0)) - _cb_sp), 2)
+                    sp2_chk = sp1_chk
+                    sp3_chk = sp1_chk
                 cpa1_chk = round(sp1_chk / pu1_chk, 2) if pu1_chk > 0 else None
                 cpa2_chk = round(sp2_chk / pu2_chk, 2) if pu2_chk > 0 else None
                 cpa3_chk = round(sp3_chk / pu3_chk, 2) if pu3_chk > 0 else None
                 camp_kill_20 = None
-                if sp1_chk >= 20.00 and pu1_chk == 0:
+                is_warming_c = hasattr(sm, "is_warming_engagement_campaign") and sm.is_warming_engagement_campaign(cid, cname, c)
+                if is_warming_c:
+                    if max(sp1_chk, sp2_chk, sp3_chk, float(s7.get("spend", 0.0))) >= 1.00:
+                        camp_kill_20 = f"[Warming Campaign >= $1.00 Stop] Spend ${max(sp1_chk, sp2_chk, sp3_chk, float(s7.get('spend', 0.0))):.2f} >= $1.00"
+                elif is_ded_test_c:
+                    if sp1_chk > 10.00 and pu1_chk == 0:
+                        camp_kill_20 = f"[Test Campaign > $10.00 Stop] 1D Spend ${sp1_chk:.2f} > $10.00 with 0 sales"
+                    elif sp2_chk > 10.00 and pu2_chk == 0:
+                        camp_kill_20 = f"[Test Campaign > $10.00 Stop] 2D Spend ${sp2_chk:.2f} > $10.00 with 0 sales"
+                    elif sp3_chk > 10.00 and pu3_chk == 0:
+                        camp_kill_20 = f"[Test Campaign > $10.00 Stop] 3D Spend ${sp3_chk:.2f} > $10.00 with 0 sales"
+                elif sp1_chk >= 20.00 and pu1_chk == 0:
                     camp_kill_20 = f"1D Campaign Spend ${sp1_chk:.2f} >= $20.00 with 0 sales"
                 elif sp2_chk >= 20.00 and pu2_chk == 0:
                     camp_kill_20 = f"2D Campaign Spend ${sp2_chk:.2f} >= $20.00 with 0 sales"
@@ -353,9 +379,17 @@ def audit_snapchat_multiwindow(sheet_sales: dict) -> dict:
                 else:
                     sq_max_cpa = 6.99
                     sq_nosale_lim = 4.00
-                sq1 = sq_1d.get(sq_id_chk, {"spend": 0.0, "purchases": 0, "cpa": None})
-                sq2 = sq_2d.get(sq_id_chk, {"spend": 0.0, "purchases": 0, "cpa": None})
-                sq3 = sq_3d.get(sq_id_chk, {"spend": 0.0, "purchases": 0, "cpa": None})
+                sq1 = dict(sq_1d.get(sq_id_chk, {"spend": 0.0, "purchases": 0, "cpa": None}))
+                sq2 = dict(sq_2d.get(sq_id_chk, {"spend": 0.0, "purchases": 0, "cpa": None}))
+                sq3 = dict(sq_3d.get(sq_id_chk, {"spend": 0.0, "purchases": 0, "cpa": None}))
+                if sq_id_chk in _rev_sq_bases:
+                    _sb = _rev_sq_bases[sq_id_chk]
+                    _sb_sp = float(_sb.get("spend_1d", 0.0) if isinstance(_sb, dict) else (_sb or 0.0))
+                    _new_sq1_sp = round(max(0.0, float(sq1.get("spend", 0.0)) - _sb_sp), 2)
+                    sq1["spend"] = _new_sq1_sp
+                    sq1["cpa"] = round(_new_sq1_sp / sq1["purchases"], 2) if sq1.get("purchases", 0) > 0 else None
+                    sq2 = {"spend": 0.0, "purchases": 0, "cpa": None}
+                    sq3 = {"spend": 0.0, "purchases": 0, "cpa": None}
                 sq_good_1d = sq1["purchases"] >= 1 and sq1["cpa"] is not None and sq1["cpa"] <= sq_max_cpa
                 sq_good_3d = sq3["purchases"] >= 1 and sq3["cpa"] is not None and sq3["cpa"] <= sq_max_cpa and not (sq1["spend"] >= sq_nosale_lim and sq1["purchases"] == 0)
                 sq_kill = None
@@ -582,14 +616,36 @@ def wait_for_table_change(ws, old_sig, timeout=9.0):
     return get_total_row_sig(ws)
 
 
+_SHADOW_DP_TEXT_JS = """
+(() => {
+    function collectAll(root, acc = []) {
+        for (const el of root.querySelectorAll('*')) {
+            acc.push(el);
+            if (el.shadowRoot) collectAll(el.shadowRoot, acc);
+        }
+        return acc;
+    }
+    const all = collectAll(document);
+    const d = all.find(el => el.tagName === 'MATERIAL-DATE-RANGE-PICKER-FACADE' || el.tagName === 'MATERIAL-DATE-RANGE-PICKER' || (el.classList && el.classList.contains('date-range-picker')));
+    if (!d) return '';
+    const rt = d.querySelector && d.querySelector('.range-title');
+    const bt = d.querySelector && d.querySelector('.button-text');
+    if (rt || bt) {
+        return (((rt ? rt.innerText : '') + ' ' + (bt ? bt.innerText : '')).replace(/\\s+/g, ' ').trim());
+    }
+    return (d.innerText || d.textContent || '')
+        .replace(/Show last 30 days|arrow_drop_down|chevron_left|chevron_right/gi, ' ')
+        .replace(/\\s+/g, ' ')
+        .trim();
+})()
+"""
+
+
 def select_date_preset(ws, option_text, port=None):
     old_sig = get_total_row_sig(ws)
     for attempt in range(3):
-        cur_dt = eval_js(
-            ws,
-            "(() => { const d = document.querySelector('material-date-range-picker, .date-range-picker'); return d ? (d.innerText || '').replace(/\\s+/g, ' ').trim() : ''; })()",
-        ) or ""
-        if cur_dt.startswith(option_text):
+        cur_dt = eval_js(ws, _SHADOW_DP_TEXT_JS) or ""
+        if cur_dt.lower().startswith(option_text.lower()):
             return f"SELECTED:{option_text}"
 
         send_cdp(ws, "Input.dispatchKeyEvent", {"type": "keyDown", "key": "Escape", "code": "Escape", "windowsVirtualKeyCode": 27})
@@ -599,11 +655,25 @@ def select_date_preset(ws, option_text, port=None):
 
         js_open = """
         (() => {
-            const icons = Array.from(document.querySelectorAll('material-date-range-picker material-icon, .date-range-picker material-icon'));
-            const arrow = icons.find(i => (i.innerText || '').trim() === 'arrow_drop_down');
-            const btn = arrow ? (arrow.closest('[role="button"], material-button, .dropdown-button') || arrow) : document.querySelector('material-date-range-picker .dropdown-button, material-date-range-picker');
-            if (!btn) return null;
-            const r = btn.getBoundingClientRect();
+            function collectAll(root, acc = []) {
+                for (const el of root.querySelectorAll('*')) {
+                    acc.push(el);
+                    if (el.shadowRoot) collectAll(el.shadowRoot, acc);
+                }
+                return acc;
+            }
+            const all = collectAll(document);
+            const primaryBtn = all.find(el => el.tagName === 'DROPDOWN-BUTTON' && el.classList && el.classList.contains('primary-range') && el.getBoundingClientRect().width > 0);
+            if (primaryBtn) {
+                const r = primaryBtn.getBoundingClientRect();
+                return {x: Math.round(r.left + r.width/2), y: Math.round(r.top + r.height/2)};
+            }
+            const dpRoot = all.find(el => el.tagName === 'MATERIAL-DATE-RANGE-PICKER-FACADE' || el.tagName === 'MATERIAL-DATE-RANGE-PICKER' || el.tagName === 'DATE-PICKER-SLIM' || (el.classList && el.classList.contains('date-range-picker')));
+            if (!dpRoot) return null;
+            const sub = collectAll(dpRoot.shadowRoot || dpRoot);
+            const arrow = sub.find(i => (i.innerText || i.textContent || '').trim() === 'arrow_drop_down' && i.getBoundingClientRect().width > 0);
+            const target = arrow || dpRoot;
+            const r = target.getBoundingClientRect();
             if (r.width <= 0 || r.height <= 0) return null;
             return {x: Math.round(r.left + r.width/2), y: Math.round(r.top + r.height/2)};
         })()
@@ -624,18 +694,38 @@ def select_date_preset(ws, option_text, port=None):
         pk = {"found": False}
         for scroll_pos in (0, 180):
             if scroll_pos > 0:
-                eval_js(ws, f"Array.from(document.querySelectorAll('.preset-list, .presets, material-list')).forEach(lst => lst.scrollTop = {scroll_pos});")
+                eval_js(
+                    ws,
+                    f"""(() => {{
+                        function collectAll(root, acc = []) {{
+                            for (const el of root.querySelectorAll('*')) {{
+                                acc.push(el);
+                                if (el.shadowRoot) collectAll(el.shadowRoot, acc);
+                            }}
+                            return acc;
+                        }}
+                        collectAll(document).filter(el => el.classList && (el.classList.contains('preset-list') || el.classList.contains('presets')) || el.tagName === 'MATERIAL-LIST').forEach(lst => lst.scrollTop = {scroll_pos});
+                    }})()""",
+                )
                 time.sleep(0.15)
             js_pick = f"""
             (() => {{
+                function collectAll(root, acc = []) {{
+                    for (const el of root.querySelectorAll('*')) {{
+                        acc.push(el);
+                        if (el.shadowRoot) collectAll(el.shadowRoot, acc);
+                    }}
+                    return acc;
+                }}
                 const want = {json.dumps(option_text)};
-                const items = Array.from(document.querySelectorAll('material-select-item')).filter(el => {{
+                const items = collectAll(document).filter(el => {{
+                    if (!(el.tagName === 'MATERIAL-SELECT-ITEM' || el.tagName === 'MATERIAL-LIST-ITEM' || el.getAttribute('role') === 'menuitem' || el.getAttribute('role') === 'option')) return false;
                     const r = el.getBoundingClientRect();
                     return r.width > 0 && r.height > 0;
                 }});
                 for (const itemEl of items) {{
-                    const t = (itemEl.innerText || '').replace(/\\s+/g, ' ').trim();
-                    if (t === want || t.startsWith(want + ' ')) {{
+                    const t = (itemEl.innerText || itemEl.textContent || '').replace(/\\s+/g, ' ').trim();
+                    if (t.toLowerCase() === want.toLowerCase() || t.toLowerCase().startsWith(want.toLowerCase() + ' ')) {{
                         const r = itemEl.getBoundingClientRect();
                         return {{found: true, x: Math.round(r.left + r.width/2), y: Math.round(r.top + r.height/2), label: t}};
                     }}
@@ -652,11 +742,8 @@ def select_date_preset(ws, option_text, port=None):
             wait_for_table_change(ws, old_sig, timeout=7.5)
             time.sleep(0.4)
             keep_adspower_offscreen(port)
-            new_dt = eval_js(
-                ws,
-                "(() => { const d = document.querySelector('material-date-range-picker, .date-range-picker'); return d ? (d.innerText || '').replace(/\\s+/g, ' ').trim() : ''; })()",
-            ) or ""
-            if new_dt.startswith(option_text):
+            new_dt = eval_js(ws, _SHADOW_DP_TEXT_JS) or ""
+            if new_dt.lower().startswith(option_text.lower()):
                 return f"SELECTED:{option_text}"
 
     send_cdp(ws, "Input.dispatchKeyEvent", {"type": "keyDown", "key": "Escape", "code": "Escape", "windowsVirtualKeyCode": 27})
@@ -673,9 +760,16 @@ def click_prev_day_js(ws, prev_date_text=""):
         time.sleep(0.3)
         js = """
         (() => {
-            const icons = Array.from(document.querySelectorAll('material-date-range-picker material-icon, .date-range-picker material-icon, material-date-range-picker i'));
-            const prev = icons.find(el => (el.innerText || '').trim() === 'chevron_left');
-            const btn = prev ? (prev.closest('material-button, button, [role="button"]') || prev) : document.querySelector('material-date-range-picker material-button.prev, material-date-range-picker [aria-label="Previous"]');
+            function collectAll(root, acc = []) {
+                for (const el of root.querySelectorAll('*')) {
+                    acc.push(el);
+                    if (el.shadowRoot) collectAll(el.shadowRoot, acc);
+                }
+                return acc;
+            }
+            const all = collectAll(document);
+            const btn = all.find(el => (el.tagName === 'MATERIAL-BUTTON' && el.classList && el.classList.contains('prev') && el.getBoundingClientRect().top < 220 && el.getBoundingClientRect().width > 0))
+                || all.find(el => el.getAttribute && el.getAttribute('aria-label') === 'Previous' && el.getBoundingClientRect().top < 220 && el.getBoundingClientRect().width > 0);
             if (!btn) return {found: false};
             const r = btn.getBoundingClientRect();
             if (r.width > 0 && r.height > 0) {
@@ -691,10 +785,7 @@ def click_prev_day_js(ws, prev_date_text=""):
         cdp_click(ws, r["x"], r["y"])
         wait_for_table_change(ws, old_sig, timeout=7.5)
         time.sleep(0.4)
-        cur_dt = eval_js(
-            ws,
-            "(() => { const d = document.querySelector('material-date-range-picker, .date-range-picker'); return d ? (d.innerText || '').replace(/\\s+/g, ' ').trim() : ''; })()",
-        ) or ""
+        cur_dt = eval_js(ws, _SHADOW_DP_TEXT_JS) or ""
         if not prev_date_text or (cur_dt and cur_dt != prev_date_text):
             return True
     return False
@@ -815,10 +906,7 @@ def scrape_google_ads_table(ws) -> dict:
         if not went_prev:
             break
         time.sleep(0.8)
-    date_txt = eval_js(
-        ws,
-        "(() => { const d = document.querySelector('material-date-range-picker, .date-range-picker'); return d ? (d.innerText || '').replace(/\\s+/g, ' ').trim() : ''; })()",
-    ) or ""
+    date_txt = eval_js(ws, _SHADOW_DP_TEXT_JS) or ""
     return {"dateText": date_txt, "rows": rows_out}
 
 
@@ -1439,7 +1527,7 @@ def audit_google_ads_multiwindow() -> dict:
                 prof_today = eff1_tot >= 1.0 and cpa1_tot is not None and cpa1_tot <= 7.00
 
                 c_nm_low = c_nm.lower()
-                is_taager_c = any(k in c_nm_low for k in ("taager", "تاجر", "washer", "hp909", "hp-909", "غسالة", "bakhoor", "bw20", "bw-20", "مبخرة", "r8019", "r.8019", "8019", "raf ", "cooker", "موقد"))
+                is_taager_c = any(k in c_nm_low for k in ("taager", "تاجر", "washer", "hp909", "hp-909", "غسالة", "bakhoor", "bw20", "bw-20", "مبخرة", "r8019", "r.8019", "8019", "raf ", "cooker", "موقد", "doorbell", "10165", "جرس", "انتركم", "aroura", "15047", "winvac", "22454", "denx", "20001", "18186"))
                 taager_prod_key_c = None
                 if is_taager_c:
                     if any(k in c_nm_low for k in ("washer", "hp909", "hp-909", "غسالة")):
@@ -1448,6 +1536,16 @@ def audit_google_ads_multiwindow() -> dict:
                         taager_prod_key_c = "bakhoor_bw20"
                     elif any(k in c_nm_low for k in ("r8019", "r.8019", "8019", "raf", "cooker", "موقد")):
                         taager_prod_key_c = "cooker_raf8019"
+                    elif any(k in c_nm_low for k in ("doorbell", "10165", "جرس", "انتركم")):
+                        taager_prod_key_c = "doorbell_10165"
+                    elif any(k in c_nm_low for k in ("aroura", "15047", "أرورا", "ارورا")):
+                        taager_prod_key_c = "aroura_15047"
+                    elif any(k in c_nm_low for k in ("winvac", "22454", "ممسحة الزجاج")):
+                        taager_prod_key_c = "winvac_22454"
+                    elif any(k in c_nm_low for k in ("denx", "20001")):
+                        taager_prod_key_c = "denx_20001"
+                    elif "18186" in c_nm_low:
+                        taager_prod_key_c = "pillow_18186"
                     else:
                         taager_prod_key_c = "taager_product"
                     taager_gads_cache["campaigns"][f"{ocid}:{c_nm}"] = {
