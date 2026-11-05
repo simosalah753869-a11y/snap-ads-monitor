@@ -1,4 +1,4 @@
-name: Snapchat & TikTok Ads 24/7 Monitor
+name: Snapchat, TikTok & Facebook Ads 24/7 Monitor
 
 on:
   schedule:
@@ -27,13 +27,14 @@ jobs:
       - name: Install dependencies
         run: pip install requests
 
-      - name: Create snap_config.json
+      - name: Create snap_config.json & snap_config_daralrimal.json (All 8 Snapchat Accounts Across Both Orgs)
         env:
           SNAP_CLIENT_ID: ${{ vars.SNAP_CLIENT_ID || secrets.SNAP_CLIENT_ID }}
           SNAP_CLIENT_SECRET: ${{ vars.SNAP_CLIENT_SECRET || secrets.SNAP_CLIENT_SECRET }}
           SNAP_REFRESH_TOKEN: ${{ vars.SNAP_REFRESH_TOKEN || secrets.SNAP_REFRESH_TOKEN }}
+          SNAP_DARALRIMAL_REFRESH_TOKEN: ${{ vars.SNAP_DARALRIMAL_REFRESH_TOKEN || secrets.SNAP_DARALRIMAL_REFRESH_TOKEN }}
         run: |
-          python -c "import json, os; open('snap_config.json', 'w').write(json.dumps({'client_id': os.environ['SNAP_CLIENT_ID'], 'client_secret': os.environ['SNAP_CLIENT_SECRET'], 'refresh_token': os.environ['SNAP_REFRESH_TOKEN']}))"
+          python -c "import json, os; dar_rt = os.environ.get('SNAP_DARALRIMAL_REFRESH_TOKEN', ''); cfg = {'client_id': os.environ['SNAP_CLIENT_ID'], 'client_secret': os.environ['SNAP_CLIENT_SECRET'], 'refresh_token': os.environ['SNAP_REFRESH_TOKEN'], 'daralrimal_account': {'ad_account_id': 'c6447397-25a3-418a-8529-422581e1bbe0', 'pixel_id': '17658288-4114-4eb3-afc9-62da64437fee', 'refresh_token': dar_rt}}; open('snap_config.json', 'w').write(json.dumps(cfg)); open('snap_config_daralrimal.json', 'w').write(json.dumps({'client_id': os.environ['SNAP_CLIENT_ID'], 'client_secret': os.environ['SNAP_CLIENT_SECRET'], 'refresh_token': dar_rt})) if dar_rt else None"
 
       - name: Run Snapchat Automation Rules (Pause Violating Campaigns/AdSquads/Videos Only — ZERO Bid Changes)
         continue-on-error: true
@@ -49,19 +50,21 @@ jobs:
           TIKTOK_COOKIES_JSON: ${{ vars.TIKTOK_COOKIES_JSON || secrets.TIKTOK_COOKIES_JSON }}
         run: python tiktok_monitor.py
 
+      - name: Run Facebook Ads 24/7 Automation Rules (All 3 Ad Accounts — Pause Violating Campaigns/Ads Only)
+        continue-on-error: true
+        env:
+          STOP_LOSS_PAUSE_ONLY: "1"
+          FB_COOKIE_STR: ${{ vars.FB_COOKIE_STR || secrets.FB_COOKIE_STR }}
+          FB_PROXY_AUTH: ${{ vars.FB_PROXY_AUTH || secrets.FB_PROXY_AUTH }}
+          FB_ACCESS_TOKEN: ${{ vars.FB_ACCESS_TOKEN || secrets.FB_ACCESS_TOKEN }}
+        run: python facebook_monitor.py
+
       - name: Run Combined Cross-Platform Monitor (Maybach & TIME X & Taager Tests)
         continue-on-error: true
         env:
           STOP_LOSS_PAUSE_ONLY: "1"
           TIKTOK_COOKIES_JSON: ${{ vars.TIKTOK_COOKIES_JSON || secrets.TIKTOK_COOKIES_JSON }}
         run: python cross_product_monitor.py
-
-      - name: Run Gulf (KW / QA / OM) Stop-Loss Monitor (Pause Violating Campaigns/AdSquads/Videos Only — ZERO Bid Changes)
-        continue-on-error: true
-        env:
-          STOP_LOSS_PAUSE_ONLY: "1"
-          TIKTOK_COOKIES_JSON: ${{ vars.TIKTOK_COOKIES_JSON || secrets.TIKTOK_COOKIES_JSON }}
-        run: python gulf_2h_profit_and_ads_master.py
 
       - name: Run 24/7 Cloud Quant Trading Guardian (5m OCO Replay + Crypto/Gold/US Stocks Execution While Laptop is Off)
         continue-on-error: true
