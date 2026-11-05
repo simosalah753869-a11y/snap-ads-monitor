@@ -69,8 +69,7 @@ def is_banned_kashaf(text: str) -> bool:
 
 
 def keep_adspower_in_bg():
-    if not os.path.exists(r"C:\Users\salah\.gemini\antigravity\scratch\hide_sunbrowser.flag"):
-        return
+    return
     try:
         import websocket
         for pat in (
@@ -900,23 +899,26 @@ def run_proactive_sales_scaling(sales_3d: dict, sales_today: dict):
 
 
 def find_open_adspower_ports():
+    """Connects exclusively to local Chrome profiles on the same computer (ports 9241 / 9242) — ZERO AdsPower usage."""
     ports = []
-    patterns = [
-        r"E:\.ADSPOWER_GLOBAL\cache\*\DevToolsActivePort",
-        r"C:\.ADSPOWER_GLOBAL\cache\*\DevToolsActivePort",
-        r"C:\Users\salah\.adspower_global\cache\*\DevToolsActivePort",
-    ]
-    all_files = []
-    for pat in patterns:
-        all_files.extend(glob.glob(pat))
-    pfs = sorted(set(all_files), key=os.path.getmtime, reverse=True)
-    for p in pfs[:12]:
+    for prof_lbl, port in [("local_gads_0_9341", 9341), ("local_gads_0_9238", 9238), ("local_gads_0_9272", 9272), ("local_gads_1_k1dh2jyf", 9241), ("local_gads_2_k1cekgik", 9242)]:
         try:
-            lines = Path(p).read_text(encoding="utf-8", errors="ignore").splitlines()
-            if lines and lines[0].strip().isdigit():
-                port = int(lines[0].strip())
-                urllib.request.urlopen(f"http://127.0.0.1:{port}/json/version", timeout=1.2).read()
-                ports.append((os.path.basename(os.path.dirname(p)), port))
+            tabs = json.loads(urllib.request.urlopen(f"http://127.0.0.1:{port}/json/list", timeout=2.0).read().decode("utf-8"))
+            page_tabs = [t for t in tabs if t.get("type") == "page"]
+            has_logged_in_gads = any("ads.google.com/aw/" in (t.get("url") or "") and "accounts.google.com" not in (t.get("url") or "") for t in page_tabs)
+            if has_logged_in_gads:
+                # Detect which account(s) are open on this port
+                matched_any = False
+                for t in page_tabs:
+                    u = (t.get("url") or "")
+                    if "8024627197" in u and not any(p[0] == "k1dh2jyf" for p in ports):
+                        ports.append(("k1dh2jyf", port))
+                        matched_any = True
+                    if "8436939582" in u and not any(p[0] == "k1cekgik" for p in ports):
+                        ports.append(("k1cekgik", port))
+                        matched_any = True
+                if not matched_any:
+                    ports.append((prof_lbl, port))
         except Exception:
             pass
     return ports
@@ -1208,7 +1210,12 @@ def run_improvements_guardian(sales_3d: dict = None, sales_today: dict = None):
         def put_squad(sq):
             api_put(f"/campaigns/{sq['campaign_id']}/adsquads", tok, {"adsquads": [sq]})
 
+        from snap_auth import get_token_for_account
         for snap_acc_id in TARGET_ACCOUNT_IDS:
+            try:
+                tok = get_token_for_account(snap_acc_id)
+            except Exception:
+                continue
             camps = api_get_paginated(f"/adaccounts/{snap_acc_id}/campaigns", tok, "campaigns", "campaign", max_pages=5)
             st1 = {x["id"]: x for x in fetch_account_breakdown_stats(tok, snap_acc_id, "adsquad", days_back=0)}
             st2 = {x["id"]: x for x in fetch_account_breakdown_stats(tok, snap_acc_id, "adsquad", days_back=1)}
@@ -1360,7 +1367,7 @@ def run_improvements_guardian(sales_3d: dict = None, sales_today: dict = None):
                     actions.append(f"تيك توك ({acc_name}): إيقاف حملة وسادة/كشاف محظورة '{cn}' (اليوم ${sp:.2f}/{cv} مبيعة)")
                     continue
                 is_exp_tt = "[exp-" in cn.lower() or "autoplacement" in cn.lower()
-                is_taager_tt = any(k in cn.lower() for k in ("taager", "تاجر", "washer", "hp909", "hp-909", "غسالة", "bakhoor", "bw20", "bw-20", "مبخرة", "r8019", "r.8019", "8019", "raf ", "cooker", "موقد"))
+                is_taager_tt = any(k in cn.lower() for k in ("taager", "تاجر", "washer", "hp909", "hp-909", "غسالة", "bakhoor", "bw20", "bw-20", "مبخرة", "r8019", "r.8019", "8019", "raf ", "cooker", "موقد", "doorbell", "10165", "جرس", "انتركم", "aroura", "15047", "winvac", "22454", "denx", "20001", "18186"))
                 is_new_prod = (not is_gulf_tt) and (not is_taager_tt) and (not any(k in cn.lower() for k in ("car", "armrest", "power", "voltrx", "وساد", "تكاي", "باور")))
                 if is_taager_tt and ((sp > 25.00 and cv == 0) or (sp3 > 25.00 and cv3 == 0) or (cpa1 is not None and cpa1 >= 27.00) or (cpa3 is not None and cpa3 >= 27.00)):
                     ok, _ = pause_campaign(session, headers, aadvid, x.get("campaign_id"))
@@ -1513,6 +1520,7 @@ def main():
         run_step("تأكيد عين المستخدم البشري والمجموعات بدون Copy بعد التحديث", "restore_non_copy_and_fix_all.py")
         run_step("تأكيد عين المستخدم البشري بعد التحديث", "restore_winners_and_pause_losers_now.py")
         run_step("مراقب ومحسن تيك توك (جميع الحسابات الـ 6)", "tiktok_monitor.py")
+        run_step("مراقب ومحسن إعلانات فيسبوك (جميع الحسابات الـ 3)", "facebook_monitor.py")
         run_step("خبير مبيعات وتجارب تيك توك المستقل كل ساعتين (Leads للفيديوهات الرابحة + فرملة 20$)", "tiktok_2h_sales_master.py")
         run_step("المفصّص الشامل وقاطع النزيف عبر 4 نوافذ (1D/2D/3D/7D — سقف 7$ لسناب وتيك توك وجوجل)", "deep_multiwindow_account_auditor.py", ["--post-monitor"])
         run_step("مراقب منتجات تاجر قيد الاختبار (25$ بدون بيع / 27$ CPA لكل منتج على حدة عبر غوغل وتيك توك) والمنتجات المشتركة", "cross_product_monitor.py")
@@ -1528,7 +1536,6 @@ def main():
         run_step("شريك النجاح وفاحص المتجر والحملات للمنتجات النشطة", "store_and_ads_growth_partner.py")
         run_step("كاشف فترات توقف البيع المفاجئ والأكشن الفوري لاستعادة سرعة المبيعات", "sales_stall_recovery_engine.py")
         run_step("المستشار التاريخي الشامل ومحلل فترات الذروة وخطة مضاعفة المبيعات والأرباح", "historical_and_consultation_master_advisor.py")
-        run_step("أوتوميشن مبيعات وتسعير وإعلانات الخليج كل ساعة (قطر وعمان والكويت)", "gulf_2h_profit_and_ads_master.py")
         run_step("مُدخل الطلبات المتروكة التلقائي إلى COD Partner كل ساعتين", "auto_recover_abandoned_orders.py")
         # فاحص السكرول يعمل كل 3 ساعات داخل sales_loss_and_growth_advisor_4h.py؛ نشغله هنا فقط إذا مر أكثر من 3 ساعات على آخر تقرير لتجنب تعليق دورة الإعلانات الساعية 15 دقيقة
         scroll_rep = BASE_DIR / "lf_scroll_inspector_latest_report.md"
