@@ -1152,10 +1152,11 @@ def main():
             }
             live_camp_metrics[f"{aadvid}:NAME:{cname}"] = live_camp_metrics[f"{aadvid}:{cid}"]
 
-            # حملات الخليج (الكويت، قطر، عمان) مفصولة 100% وتخضع حصرياً لـ gulf_2h_profit_and_ads_master.py
-            if tm.is_gulf_campaign(cname):
-                if is_active or sp1 > 0 or spy > 0 or sp3 > 0:
-                    campaign_rows.append(live_camp_metrics[f"{aadvid}:{cid}"])
+            # أمر المستخدم الدائم (2026-11-05): إيقاف جميع حملات الكويت وقطر وعُمان نهائياً (مع ترك الإمارات UAE/21088)
+            if str(aadvid) in getattr(tm, "SHUTOFF_CURRENT_6_TIKTOK_AADVIDS", set()) or (hasattr(tm, "is_shutoff_kw_qa_om_campaign_tt") and tm.is_shutoff_kw_qa_om_campaign_tt(cname)):
+                if is_active:
+                    tm.pause_campaign(session, headers, aadvid, cid, operation="disable")
+                    live_camp_metrics[f"{aadvid}:{cid}"]["is_active"] = False
                 continue
 
             is_exp = "[exp-leads]" in cname.lower() or "[exp-" in cname.lower() or "exp leads" in cname.lower()
@@ -2097,7 +2098,7 @@ def main():
                 print(f"  [WARN] Evening Tomorrow Plan Scanner ({acc_name_tmr}): {e_tmr}", flush=True)
 
     launched_this_cycle_per_acc = defaultdict(int)
-    for bp in EXPERIMENT_BLUEPRINTS:
+    for bp in []:  # Disabled: All 6 current TikTok accounts are permanently paused per user command (2026-11-05)
         b_key = bp["key"]
         b_aadvid = bp["aadvid"]
         b_acc = bp["acc_name"]
