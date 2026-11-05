@@ -7,15 +7,14 @@ Monitors all 4 Facebook Ad Accounts via US Residential ISP Proxy Tunnel + Graph 
   - act_2031165734260288 (Isabel Van Der Sluis - USA)
 
 Rules Enforced Every 20 Minutes (Updated 2026-11-05 per User Directive):
-  1. Ad / Video Level Rules (Same as Snapchat Losing Video Rules):
-     - CPC Cut after $1.00 No-Sale: Spend >= $1.00 with 0 sales and (Clicks == 0 or CPC > $0.27) -> Pause Ad immediately.
-     - Single Video No-Sale Stop-Loss: Any Ad / Video that spends >= $4.00 (1D / 3D / cumulative) with 0 sales -> Pause Ad immediately.
-     - Single Video High CPA Cut: Sales >= 1 and CPA >= $7.00 (Saudi) / >= $12.00 (Gulf) -> Pause Ad immediately.
+  1. Ad / Video Level Rules (Evaluated on Video Cumulative Stats):
+     - Single Video Cumulative No-Sale Stop-Loss ($9.00): Any Ad / Video whose cumulative spend reaches >= $9.00 with 0 sales -> Pause Ad immediately.
+     - Single Video Cumulative High CPA Cut ($8.00): Any Ad / Video with cumulative Sales >= 1 and cumulative CPA >= $8.00 (Saudi) / >= $12.00 (Gulf) -> Pause Ad immediately.
   2. Campaign Level Rules:
      - Banned Products (kashaf / warmer / maybach): Pause immediately.
      - Dead Campaign (0 active ads): Pause immediately.
-     - Campaign No-Sale Stop-Loss ($15.00): Any Campaign that spends >= $15.00 (1D / 3D / cumulative) with 0 sales -> Pause Campaign immediately.
-     - Campaign High CPA Cut ($15.00): Any Campaign with Sales >= 1 and CPA >= $15.00 (1D / 3D / cumulative) -> Pause Campaign immediately.
+     - Campaign No-Sale Stop-Loss ($20.00): Any Campaign that spends >= $20.00 (1D / 3D / cumulative) with 0 sales -> Pause Campaign immediately.
+     - Campaign High CPA Cut ($20.00): Any Campaign with Sales >= 1 and CPA >= $20.00 (1D / 3D / cumulative) -> Pause Campaign immediately.
 """
 import csv
 import io
@@ -40,15 +39,13 @@ HISTORY_FILE = BASE_DIR / "paused_history.json"
 SNAPSHOT_FILE = BASE_DIR / "fb_live_spend_snapshot.json"
 SA_TZ = timezone(timedelta(hours=3))
 
-# Core Facebook Stop-Loss Thresholds (User Directive 2026-11-05: Same as Snapchat for losing videos + $15.00 Campaign No-Sale / CPA >= $15.00)
-AD_CPC_MIN_SPEND = 1.00              # فحص سعر النقرة بعد صرف $1.00 بدون بيع
-AD_MAX_CPC_NO_SALE = 0.27            # إيقاف الفيديو إذا تجاوز CPC > $0.27 بعد $1.00 بدون مبيعة (نفس سناب)
-AD_NO_SALE_CUMULATIVE_MAX = 4.00     # أي فيديو يصرف >= $4.00 بدون مبيعات يطفيه فوراً (نفس سناب)
-CAMP_NO_SALE_CUMULATIVE_MAX = 15.00  # أي حملة تصرف >= $15.00 بدون مبيعات يطفيها فوراً
+# Core Facebook Stop-Loss Thresholds (User Directive 2026-11-05: Video Cumulative >= $9.00 No-Sale or Cumulative CPA >= $8.00 | Campaign >= $20.00 No-Sale or CPA >= $20.00)
+AD_NO_SALE_CUMULATIVE_MAX = 9.00     # أي فيديو يوصل التراكمي الخاص به >= $9.00 بدون مبيعة يطفيه فوراً
+CAMP_NO_SALE_CUMULATIVE_MAX = 20.00  # أي حملة تصرف >= $20.00 بدون مبيعات يطفيها فوراً
 
-AD_MAX_CPA_SA = 7.00                 # أي فيديو سعر البيعة فيه >= $7.00 في السعودية يطفيه فوراً (نفس سناب)
-AD_MAX_CPA_GULF = 12.00              # سقف سعر البيعة للفيديو في الخليج
-CAMP_CORE_MAX_CPA = 15.00            # أي حملة سعر البيعة فيها >= $15.00 يطفيها فوراً
+AD_MAX_CPA_SA = 8.00                 # أي فيديو يوصل التراكمي الخاص به سعر البيعة >= $8.00 في السعودية يطفيه فوراً
+AD_MAX_CPA_GULF = 12.00              # سقف سعر البيعة التراكمي للفيديو في الخليج
+CAMP_CORE_MAX_CPA = 20.00            # أي حملة سعر البيعة فيها >= $20.00 يطفيها فوراً
 
 BANNED_KEYWORDS = ("kashaf", "kahsaf", "كشاف", "warmer", "مسخن", "maybach", "مايباخ")
 GULF_KEYWORDS = (
@@ -341,9 +338,9 @@ def main():
     print("======================================================================")
     print(f"📘 [Facebook Ads 24/7 Monitor] بدء فحص حسابات فيسبوك — {now_str}")
     print(
-        f"⚙️ القواعد المفعلة (نفس سناب للفيديو الخاسر + 15$ للحملة): "
-        f"الفيديو (CPC > ${AD_MAX_CPC_NO_SALE:.2f} بعد ${AD_CPC_MIN_SPEND:.2f} بصفر بيع | >= ${AD_NO_SALE_CUMULATIVE_MAX:.2f} بصفر بيع | CPA >= ${AD_MAX_CPA_SA:.2f}) | "
-        f"الحملة (>= ${CAMP_NO_SALE_CUMULATIVE_MAX:.2f} بصفر بيع أو CPA >= ${CAMP_CORE_MAX_CPA:.2f})"
+        f"⚙️ القواعد المفعلة: "
+        f"الفيديو التراكمي (>= ${AD_NO_SALE_CUMULATIVE_MAX:.2f} بدون بيعة أو CPA التراكمي >= ${AD_MAX_CPA_SA:.2f}) | "
+        f"الحملة (>= ${CAMP_NO_SALE_CUMULATIVE_MAX:.2f} بدون مبيعات أو CPA >= ${CAMP_CORE_MAX_CPA:.2f})"
     )
     print("======================================================================")
 
@@ -550,9 +547,6 @@ def main():
                 cpa_cum = round(ast_cum["spend"] / cv_cum, 2) if cv_cum > 0 else None
 
                 max_cpa_allowed = AD_MAX_CPA_GULF if is_gulf else AD_MAX_CPA_SA
-                # Protect proven multi-sale winners (e.g. >= 3 sales today with upsells up to $7.50) and 1D profitable winners (<=$7.00 today) from cumulative stop-loss
-                eff_max_cpa_today = (max_cpa_allowed + 0.50) if (not is_gulf and cv1 >= 3) else max_cpa_allowed
-                is_1d_profitable_winner = (cv1 >= 1 and cpa1 is not None and cpa1 <= eff_max_cpa_today)
 
                 print(
                     f"    🎬 إعلان: {ad_name} ({ad_id}) [{ad_eff}] -> "
@@ -587,33 +581,16 @@ def main():
                     continue
 
                 ad_pause_reason = None
-                # Rule 1 (Same as Snapchat Video Rule, with 1D Winner Protection):
-                # 1-A: High CPA >= $7.00 (SA) / $12.00 (Gulf) when sales >= 1
-                if cv1 > 0 and cpa1 is not None and cpa1 > eff_max_cpa_today:
+                # Rule 1 (Video Cumulative Rules Only: Cumulative CPA >= $8.00 OR Cumulative Spend >= $9.00 with 0 sales):
+                # 1-A: Cumulative CPA >= $8.00 (SA) / $12.00 (Gulf) when cumulative sales >= 1
+                if cv_cum > 0 and cpa_cum is not None and cpa_cum >= max_cpa_allowed:
                     ad_pause_reason = (
-                        f"[Facebook Video Rule: Today CPA > ${eff_max_cpa_today:.2f}] سعر البيعة اليوم للفيديو مرتفع (CPA=${cpa1:.2f} > ${eff_max_cpa_today:.2f} بصرف ${ast1['spend']:.2f} / {cv1} مبيعة)"
+                        f"[Facebook Video Rule: Cumulative CPA >= ${max_cpa_allowed:.2f}] سعر البيعة التراكمي للفيديو وصل ${cpa_cum:.2f} (>= ${max_cpa_allowed:.2f} بصرف ${ast_cum['spend']:.2f} / {cv_cum} مبيعة)"
                     )
-                elif not is_1d_profitable_winner and cv_cum > 0 and cpa_cum is not None and cpa_cum > max_cpa_allowed and (cv1 == 0 and ast1["spend"] >= 3.50 or cv1 > 0):
-                    ad_pause_reason = (
-                        f"[Facebook Video Rule: CPA > ${max_cpa_allowed:.2f}] سعر البيعة التراكمي للفيديو مرتفع (CPA=${cpa_cum:.2f} > ${max_cpa_allowed:.2f} بصرف ${ast_cum['spend']:.2f} / {cv_cum} مبيعة)"
-                    )
-                # 1-B: Spend >= $4.00 with 0 sales (Cumulative or Today)
+                # 1-B: Cumulative Spend >= $9.00 with 0 sales
                 elif ast_cum["spend"] >= AD_NO_SALE_CUMULATIVE_MAX and cv_cum == 0:
                     ad_pause_reason = (
-                        f"[Facebook Video Rule: >= ${AD_NO_SALE_CUMULATIVE_MAX:.2f} No-Sale Stop] الفيديو صرف ${ast_cum['spend']:.2f} تراكمي (>= ${AD_NO_SALE_CUMULATIVE_MAX:.2f}) بدون مبيعات (0 مبيعات)"
-                    )
-                elif ast1["spend"] >= AD_NO_SALE_CUMULATIVE_MAX and cv1 == 0:
-                    ad_pause_reason = (
-                        f"[Facebook Video Rule: Today >= ${AD_NO_SALE_CUMULATIVE_MAX:.2f} No-Sale Stop] الفيديو صرف اليوم ${ast1['spend']:.2f} (>= ${AD_NO_SALE_CUMULATIVE_MAX:.2f}) بدون مبيعات اليوم (0 مبيعات)"
-                    )
-                # 1-C: CPC > $0.27 after $1.00 spend with 0 sales (Same as Snapchat Test Video Rule)
-                elif cv_cum == 0 and ast_cum["spend"] >= AD_CPC_MIN_SPEND and (ast_cum["clicks"] == 0 or ast_cum["cpc"] > AD_MAX_CPC_NO_SALE):
-                    ad_pause_reason = (
-                        f"[Facebook Video Rule: CPC > ${AD_MAX_CPC_NO_SALE:.2f} after ${AD_CPC_MIN_SPEND:.2f}] صرف الفيديو ${ast_cum['spend']:.2f} بدون مبيعات | النقرات: {ast_cum['clicks']} | CPC = ${ast_cum['cpc']:.3f} (> ${AD_MAX_CPC_NO_SALE:.2f})"
-                    )
-                elif cv1 == 0 and ast1["spend"] >= AD_CPC_MIN_SPEND and (ast1["clicks"] == 0 or ast1["cpc"] > AD_MAX_CPC_NO_SALE):
-                    ad_pause_reason = (
-                        f"[Facebook Video Rule: Today CPC > ${AD_MAX_CPC_NO_SALE:.2f} after ${AD_CPC_MIN_SPEND:.2f}] صرف الفيديو اليوم ${ast1['spend']:.2f} بدون مبيعات | النقرات: {ast1['clicks']} | CPC = ${ast1['cpc']:.3f} (> ${AD_MAX_CPC_NO_SALE:.2f})"
+                        f"[Facebook Video Rule: Cumulative >= ${AD_NO_SALE_CUMULATIVE_MAX:.2f} No-Sale Stop] الفيديو صرف ${ast_cum['spend']:.2f} تراكمي (>= ${AD_NO_SALE_CUMULATIVE_MAX:.2f}) بدون مبيعات (0 مبيعات)"
                     )
 
                 if ad_pause_reason:
@@ -639,14 +616,12 @@ def main():
                                 "paused_at": now_str,
                             }
 
-            # Check Campaign-Level Stop-Loss if ACTIVE ($15.00 No-Sale OR CPA >= $15.00)
+            # Check Campaign-Level Stop-Loss if ACTIVE ($20.00 No-Sale OR CPA >= $20.00)
             # Combine Meta Pixel purchases with verified unique per-ad Sheet sales (camp_sheet_sales_cum / camp_sheet_sales_1d)
             camp_total_purchases_cum = max(st_cum["purchases"], camp_sheet_sales_cum)
             camp_cpa_cum = round(st_cum["spend"] / camp_total_purchases_cum, 2) if camp_total_purchases_cum > 0 else None
             camp_total_purchases_1d = max(st1["purchases"], camp_sheet_sales_1d)
             camp_cpa_1d = round(st1["spend"] / camp_total_purchases_1d, 2) if camp_total_purchases_1d > 0 else None
-            camp_1d_cpa_cap = AD_MAX_CPA_GULF if is_gulf else (7.50 if camp_total_purchases_1d >= 3 else AD_MAX_CPA_SA)
-            is_camp_1d_profitable = (camp_total_purchases_1d >= 1 and camp_cpa_1d is not None and camp_cpa_1d <= camp_1d_cpa_cap)
 
             camp_pause_reason = None
             if c_status == "ACTIVE":
@@ -662,7 +637,7 @@ def main():
                     camp_pause_reason = (
                         f"[Campaign Today >= ${CAMP_NO_SALE_CUMULATIVE_MAX:.2f} No-Sale Stop] الحملة صرفت اليوم ${st1['spend']:.2f} (>= ${CAMP_NO_SALE_CUMULATIVE_MAX:.2f}) بدون مبيعات اليوم (0 مبيعات)"
                     )
-                elif camp_total_purchases_cum > 0 and camp_cpa_cum is not None and camp_cpa_cum >= CAMP_CORE_MAX_CPA and not is_camp_1d_profitable:
+                elif camp_total_purchases_cum > 0 and camp_cpa_cum is not None and camp_cpa_cum >= CAMP_CORE_MAX_CPA:
                     camp_pause_reason = (
                         f"[Campaign CPA >= ${CAMP_CORE_MAX_CPA:.2f} Cut] سعر البيعة التراكمي للحملة وصل ${camp_cpa_cum:.2f} (>= ${CAMP_CORE_MAX_CPA:.2f} بصرف ${st_cum['spend']:.2f} / {camp_total_purchases_cum} مبيعة)"
                     )
