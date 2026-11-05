@@ -344,7 +344,9 @@ def main():
 
     candidates.sort(
         key=lambda x: (
-            (x["out_of_sample"]["profit_factor"] ** 3.0)
+            (x["out_of_sample"]["profit_factor"] ** 2.0)
+            * (x["full_1500h"]["profit_factor"] ** 2.5)
+            * (x["full_1500h"]["win_rate_pct"] ** 2.0)
             * x["out_of_sample"]["net_pnl_usd"]
             * x["in_sample"]["profit_factor"]
             * (x["full_1500h"]["net_pnl_usd"] / max(0.5, x["full_1500h"]["max_drawdown_pct"]))
