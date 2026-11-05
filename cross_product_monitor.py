@@ -643,6 +643,18 @@ TAAGER_PRODUCT_DEFS = {
         "keywords": ("r8019", "r.8019", "8019", "raf ", "cooker", "موقد", "سيراميك"),
         "sheet_cat": "cooker",
     },
+    "dryer_21982": {
+        "key": "dryer_21982",
+        "label": "مجفف الملابس المحمول TAG 21982 (تاجر)",
+        "keywords": ("21982", "dryer", "مجفف الملابس", "مجفف"),
+        "sheet_cat": "dryer",
+    },
+    "pillow_uae_21088": {
+        "key": "pillow_uae_21088",
+        "label": "وسادة الفراشة الطبية الإمارات TAG 21088 (تاجر)",
+        "keywords": ("21088", "وسادة الفراشة", "فراشة"),
+        "sheet_cat": "pillow_uae",
+    },
 }
 
 TAAGER_ZERO_SALE_SPEND_LIMIT = 25.00
@@ -829,12 +841,15 @@ def run_taager_test_products_monitor(tt_session, tt_headers, history: dict, now_
                 "gads_campaigns": [],
             }
         b = buckets[p_key_g]
+        g_cv1 = max(float(g_info.get("eff1") or 0.0), float(g_info.get("sh1") or 0.0), float(g_info.get("ui1") or 0.0))
+        g_cv3 = max(float(g_info.get("eff3") or 0.0), float(g_info.get("sh3") or 0.0), float(g_info.get("ui3") or 0.0))
+        g_cv7 = max(float(g_info.get("eff7") or 0.0), float(g_info.get("sh7") or 0.0), float(g_info.get("ui7") or 0.0))
         b["gads_sp_1d"] = round(b["gads_sp_1d"] + float(g_info.get("sp1") or 0.0), 2)
-        b["gads_cv_1d"] = round(b["gads_cv_1d"] + float(g_info.get("eff1") or 0.0), 2)
+        b["gads_cv_1d"] = round(b["gads_cv_1d"] + g_cv1, 2)
         b["gads_sp_3d"] = round(b["gads_sp_3d"] + float(g_info.get("sp3") or 0.0), 2)
-        b["gads_cv_3d"] = round(b["gads_cv_3d"] + float(g_info.get("eff3") or 0.0), 2)
+        b["gads_cv_3d"] = round(b["gads_cv_3d"] + g_cv3, 2)
         b["gads_sp_7d"] = round(b["gads_sp_7d"] + float(g_info.get("sp7") or 0.0), 2)
-        b["gads_cv_7d"] = round(b["gads_cv_7d"] + float(g_info.get("eff7") or 0.0), 2)
+        b["gads_cv_7d"] = round(b["gads_cv_7d"] + g_cv7, 2)
         b["gads_campaigns"].append(g_info)
 
     # 5. Evaluate each Taager product separately (كل منتج على حدة)
