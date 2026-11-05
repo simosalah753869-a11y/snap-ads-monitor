@@ -9966,32 +9966,32 @@
     "29891f22-e046-4cc8-b9ee-9921d2d65f0b": {
       "name": "مسخن الرضاعات اللاسلكي 22-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-11-06 01:44 GMT+3"
+      "updated_at": "2026-11-06 02:40 GMT+3"
     },
     "4eefa50f-9008-4aea-b159-d370150b60cf": {
       "name": "صندوق دفاتر TIME X 21-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-11-06 01:44 GMT+3"
+      "updated_at": "2026-11-06 02:40 GMT+3"
     },
     "a171c141-a6d5-403e-8357-5c8f6c01bce0": {
       "name": "وسادة مايباخ 21-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-11-06 01:44 GMT+3"
+      "updated_at": "2026-11-06 02:40 GMT+3"
     },
     "c5a7cade-6ec3-4c47-b3a2-c5f08bcf8da0": {
       "name": "وسادة مايباخ 21-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-11-06 01:44 GMT+3"
+      "updated_at": "2026-11-06 02:40 GMT+3"
     },
     "e8f0a5e9-89c5-4c14-aabb-c9c6c657891d": {
       "name": "مسخن الرضاعات اللاسلكي 22-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-11-06 01:44 GMT+3"
+      "updated_at": "2026-11-06 02:40 GMT+3"
     },
     "f18a3bf4-148a-4f5e-baa1-f90335f1884c": {
       "name": "مسخن الرضاعات اللاسلكي 22-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-11-06 01:44 GMT+3"
+      "updated_at": "2026-11-06 02:40 GMT+3"
     },
     "c5e25aa8-766e-4cea-a794-9c3c5f832d06": {
       "name": "تيست - باور بانك",
@@ -14286,7 +14286,7 @@
       "combined_sales": 1.0,
       "combined_cpa": 47.37,
       "reason": "[Taager Product Test Failed: Combined CPA >= $27 Stop] سعر البيعة المشترك للمنتج 'مبخرة الملابس المرنة 360° BW-20 (تاجر)' في الحسابات (غوغل + تيك توك) وصل إلى CPA = $47.37 (>= $27.00 | الصرف المشترك=$47.37 | المبيعات=1)",
-      "failed_at": "2026-11-06 01:51 GMT+3"
+      "failed_at": "2026-11-06 02:47 GMT+3"
     },
     "denx_20001": {
       "product_key": "denx_20001",
@@ -14295,7 +14295,7 @@
       "combined_sales": 0.0,
       "combined_cpa": null,
       "reason": "[Taager Product Test Failed: > $25 Zero-Sale Stop] مجموع صرف المنتج 'منتج تاجر (denx_20001)' في الحسابات (غوغل + تيك توك) = $25.72 (> $25.00) بدون ولا بيعة (0 مبيعات) -> المنتج فاشل",
-      "failed_at": "2026-11-06 01:51 GMT+3"
+      "failed_at": "2026-11-06 02:47 GMT+3"
     },
     "7631763556322148369:denx_20001": {
       "product_key": "denx_20001",
@@ -14477,11 +14477,11 @@
     }
   },
   "facebook_latest_summary": {
-    "updated_at": "2026-11-06 01:51:23 GMT+3",
-    "total_spend_today": 72.04,
-    "total_purchases_today": 5,
-    "total_spend_maximum": 213.96,
-    "total_purchases_maximum": 31,
+    "updated_at": "2026-11-06 02:46:50 GMT+3",
+    "total_spend_today": 0.0,
+    "total_purchases_today": 0,
+    "total_spend_maximum": 0.0,
+    "total_purchases_maximum": 0,
     "actions_taken": []
   },
   "user_paused_campaigns": [
