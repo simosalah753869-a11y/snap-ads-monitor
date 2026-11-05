@@ -1,0 +1,43 @@
+{
+  "access_token": "EAABsbCS1iHgBS9sgBA2LFkZBA3saMyUfDkpf1ZBFRSQ512BQNeer1wvTD38QMFvNClSPZCb19scbkApNlW8wOWeSK5sVwrapH5OkRNlSUEXw9ZCXb3IfJYZCnr0mkslGjZBjZBfDzqXvOTmnOBuHLCI9NhI59AA3JeXyqkE3h3aCozPQ2z0dLKGpkWmOQJlZBG2ZBAxWB9RsU0BZBwZCwZDZD",
+  "fb_dtsg": "NAfz9yyJi4TT0f0-BBixsr9uJzeVkSh3fkzOmoRrNdQu9nVIeQUuhmA:33:1780142490",
+  "updated_at": 1793904950.0852904,
+  "ad_accounts": {
+    "bm1": {
+      "id": "act_4504761856414520",
+      "account_id": "4504761856414520",
+      "name": "DarAlRimal_1208",
+      "bm_id": "1465639688821208",
+      "bm_name": "Shopify: 0fix9tqe 1793332235",
+      "pixel_id": "1819055765900235",
+      "business_user_id": "61596098431559"
+    },
+    "bm2": {
+      "id": "act_1164514299337955",
+      "account_id": "1164514299337955",
+      "name": "DarAlRimal_2611",
+      "bm_id": "1142937861502611",
+      "bm_name": "Shopify: 5uy7kbgk 1793331353",
+      "pixel_id": "1516213130335779",
+      "business_user_id": "61596066303050"
+    },
+    "bm2_2": {
+      "id": "act_1135591735634568",
+      "account_id": "1135591735634568",
+      "name": "DarAlRimal_BM2_2",
+      "bm_id": "1142937861502611",
+      "bm_name": "Shopify: 5uy7kbgk 1793331353",
+      "pixel_id": "1516213130335779",
+      "business_user_id": "61596066303050"
+    },
+    "personal": {
+      "id": "act_2031165734260288",
+      "account_id": "2031165734260288",
+      "name": "Isabel Van Der Sluis",
+      "bm_id": null,
+      "bm_name": "Personal Account",
+      "pixel_id": "1430250438628657",
+      "business_user_id": null
+    }
+  }
+}
