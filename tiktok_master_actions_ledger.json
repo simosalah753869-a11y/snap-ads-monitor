@@ -1,121 +1,6 @@
 {
   "cycles": [
     {
-      "timestamp": "2026-11-02 00:20",
-      "actions_count": 2,
-      "followups_count": 9
-    },
-    {
-      "timestamp": "2026-11-02 00:41",
-      "actions_count": 0,
-      "followups_count": 9
-    },
-    {
-      "timestamp": "2026-11-02 01:00",
-      "actions_count": 0,
-      "followups_count": 9
-    },
-    {
-      "timestamp": "2026-11-02 01:08",
-      "actions_count": 0,
-      "followups_count": 6
-    },
-    {
-      "timestamp": "2026-11-02 01:19",
-      "actions_count": 6,
-      "followups_count": 6
-    },
-    {
-      "timestamp": "2026-11-02 01:39",
-      "actions_count": 0,
-      "followups_count": 6
-    },
-    {
-      "timestamp": "2026-11-02 02:00",
-      "actions_count": 0,
-      "followups_count": 6
-    },
-    {
-      "timestamp": "2026-11-02 02:19",
-      "actions_count": 0,
-      "followups_count": 6
-    },
-    {
-      "timestamp": "2026-11-02 02:38",
-      "actions_count": 0,
-      "followups_count": 6
-    },
-    {
-      "timestamp": "2026-11-02 03:00",
-      "actions_count": 0,
-      "followups_count": 6
-    },
-    {
-      "timestamp": "2026-11-02 03:18",
-      "actions_count": 0,
-      "followups_count": 6
-    },
-    {
-      "timestamp": "2026-11-02 03:34",
-      "actions_count": 0,
-      "followups_count": 6
-    },
-    {
-      "timestamp": "2026-11-02 04:00",
-      "actions_count": 0,
-      "followups_count": 6
-    },
-    {
-      "timestamp": "2026-11-02 12:19",
-      "actions_count": 2,
-      "followups_count": 7
-    },
-    {
-      "timestamp": "2026-11-02 12:39",
-      "actions_count": 4,
-      "followups_count": 9
-    },
-    {
-      "timestamp": "2026-11-02 13:00",
-      "actions_count": 0,
-      "followups_count": 8
-    },
-    {
-      "timestamp": "2026-11-02 13:19",
-      "actions_count": 5,
-      "followups_count": 9
-    },
-    {
-      "timestamp": "2026-11-02 13:41",
-      "actions_count": 2,
-      "followups_count": 11
-    },
-    {
-      "timestamp": "2026-11-02 14:00",
-      "actions_count": 1,
-      "followups_count": 12
-    },
-    {
-      "timestamp": "2026-11-02 14:19",
-      "actions_count": 2,
-      "followups_count": 14
-    },
-    {
-      "timestamp": "2026-11-02 14:40",
-      "actions_count": 1,
-      "followups_count": 14
-    },
-    {
-      "timestamp": "2026-11-02 15:00",
-      "actions_count": 1,
-      "followups_count": 13
-    },
-    {
-      "timestamp": "2026-11-02 15:19",
-      "actions_count": 2,
-      "followups_count": 15
-    },
-    {
       "timestamp": "2026-11-02 15:44",
       "actions_count": 0,
       "followups_count": 15
@@ -359,6 +244,121 @@
       "timestamp": "2026-11-03 16:03",
       "actions_count": 0,
       "followups_count": 5
+    },
+    {
+      "timestamp": "2026-11-03 17:03",
+      "actions_count": 0,
+      "followups_count": 4
+    },
+    {
+      "timestamp": "2026-11-03 18:07",
+      "actions_count": 0,
+      "followups_count": 4
+    },
+    {
+      "timestamp": "2026-11-03 19:11",
+      "actions_count": 2,
+      "followups_count": 4
+    },
+    {
+      "timestamp": "2026-11-03 20:08",
+      "actions_count": 1,
+      "followups_count": 4
+    },
+    {
+      "timestamp": "2026-11-03 21:08",
+      "actions_count": 0,
+      "followups_count": 4
+    },
+    {
+      "timestamp": "2026-11-03 23:03",
+      "actions_count": 0,
+      "followups_count": 4
+    },
+    {
+      "timestamp": "2026-11-04 00:03",
+      "actions_count": 2,
+      "followups_count": 4
+    },
+    {
+      "timestamp": "2026-11-04 01:03",
+      "actions_count": 4,
+      "followups_count": 6
+    },
+    {
+      "timestamp": "2026-11-04 01:09",
+      "actions_count": 1,
+      "followups_count": 4
+    },
+    {
+      "timestamp": "2026-11-04 02:03",
+      "actions_count": 0,
+      "followups_count": 5
+    },
+    {
+      "timestamp": "2026-11-04 12:03",
+      "actions_count": 7,
+      "followups_count": 8
+    },
+    {
+      "timestamp": "2026-11-04 13:03",
+      "actions_count": 0,
+      "followups_count": 9
+    },
+    {
+      "timestamp": "2026-11-04 14:03",
+      "actions_count": 2,
+      "followups_count": 7
+    },
+    {
+      "timestamp": "2026-11-04 15:09",
+      "actions_count": 0,
+      "followups_count": 6
+    },
+    {
+      "timestamp": "2026-11-04 16:03",
+      "actions_count": 4,
+      "followups_count": 5
+    },
+    {
+      "timestamp": "2026-11-04 17:03",
+      "actions_count": 0,
+      "followups_count": 5
+    },
+    {
+      "timestamp": "2026-11-04 19:12",
+      "actions_count": 0,
+      "followups_count": 4
+    },
+    {
+      "timestamp": "2026-11-04 23:03",
+      "actions_count": 0,
+      "followups_count": 4
+    },
+    {
+      "timestamp": "2026-11-05 00:03",
+      "actions_count": 4,
+      "followups_count": 3
+    },
+    {
+      "timestamp": "2026-11-05 04:03",
+      "actions_count": 0,
+      "followups_count": 7
+    },
+    {
+      "timestamp": "2026-11-05 12:04",
+      "actions_count": 0,
+      "followups_count": 5
+    },
+    {
+      "timestamp": "2026-11-05 16:04",
+      "actions_count": 0,
+      "followups_count": 5
+    },
+    {
+      "timestamp": "2026-11-05 20:04",
+      "actions_count": 0,
+      "followups_count": 2
     }
   ],
   "actions": [
@@ -1715,7 +1715,8 @@
       "videos": [],
       "base_sp3": 4.44,
       "base_cv3": 4,
-      "status": "OPEN"
+      "status": "FAILED_AND_CUT",
+      "closed_at": "2026-11-04T01:03:47.627006+03:00"
     },
     {
       "timestamp": "2026-11-01 15:00",
@@ -1758,7 +1759,8 @@
       "videos": [],
       "base_sp3": 20.39,
       "base_cv3": 9,
-      "status": "OPEN"
+      "status": "FAILED_AND_CUT",
+      "closed_at": "2026-11-04T01:03:47.627006+03:00"
     },
     {
       "ts": 1793571949.008011,
@@ -1983,7 +1985,8 @@
       "videos": [],
       "base_sp3": 14.09,
       "base_cv3": 6,
-      "status": "OPEN"
+      "status": "FAILED_AND_CUT",
+      "closed_at": "2026-11-05T04:03:58.853192+03:00"
     },
     {
       "account": "ROELLINGER RECYCLING",
@@ -2124,7 +2127,8 @@
       "videos": [],
       "base_sp3": 13.29,
       "base_cv3": 3,
-      "status": "OPEN"
+      "status": "FAILED_AND_CUT",
+      "closed_at": "2026-11-05T04:03:58.853192+03:00"
     },
     {
       "timestamp": "2026-11-02 14:19",
@@ -2377,6 +2381,223 @@
       "base_cv3": 3,
       "status": "FAILED_AND_CUT",
       "closed_at": "2026-11-03T14:53:00.198528+03:00"
+    },
+    {
+      "timestamp": "2026-11-04 00:03",
+      "experiment_key": "DYN_8369_PB_LEADS_AUTO_04-11_d_14_d_25_d_27",
+      "is_experiment": true,
+      "aadvid": "7631763556322148369",
+      "acc_name": "ROELLINGER RECYCLING",
+      "campaign_id": "1880873185346706",
+      "campaign_name": "[EXP-LEADS] power bank 5 CPC-Rescued Leads AutoPlacement 04-11",
+      "action_type": "إنقاذ تلقائي للفيديوهات البيّاعة الموقوفة بسبب الـ CPC > $0.35 عبر Website Leads + Auto Placement (5 فيديوهات)",
+      "videos": [
+        "26-10_Voltrx_Seedance_Ad_14.mp4",
+        "31-10_PB_30d_Recycled_Ad_25.mp4",
+        "31-10_PB_30d_Recycled_Ad_27.mp4",
+        "30-10_PB_FlowHook_Ad_03.mp4",
+        "30-10_PB_FlowHook_Ad_04.mp4"
+      ],
+      "base_sp3": 0.0,
+      "base_cv3": 0,
+      "status": "FAILED_AND_CUT",
+      "closed_at": "2026-11-04T17:03:40.023429+03:00"
+    },
+    {
+      "timestamp": "2026-11-04 00:03",
+      "experiment_key": "DYN_8369_PB_CONV_AUTO_04-11_d_14_d_25_d_27",
+      "is_experiment": true,
+      "aadvid": "7631763556322148369",
+      "acc_name": "ROELLINGER RECYCLING",
+      "campaign_id": "1880873215607362",
+      "campaign_name": "[EXP-LEADS] power bank 5 CPC-Rescued Conv AutoPlacement 04-11",
+      "action_type": "إنقاذ تلقائي للفيديوهات البيّاعة الموقوفة بسبب الـ CPC > $0.35 عبر Website Conversions + Auto Placement (5 فيديوهات)",
+      "videos": [
+        "26-10_Voltrx_Seedance_Ad_14.mp4",
+        "31-10_PB_30d_Recycled_Ad_25.mp4",
+        "31-10_PB_30d_Recycled_Ad_27.mp4",
+        "30-10_PB_FlowHook_Ad_03.mp4",
+        "30-10_PB_FlowHook_Ad_04.mp4"
+      ],
+      "base_sp3": 0.0,
+      "base_cv3": 0,
+      "status": "OPEN"
+    },
+    {
+      "timestamp": "2026-11-04 01:09",
+      "experiment_key": "DYN_9959_PB_LEADS_AUTO_04-11_d_02_d_05_fast",
+      "is_experiment": true,
+      "aadvid": "7631765070816509959",
+      "acc_name": "ROELLINGER RECYCLING2",
+      "campaign_id": "1880877107265713",
+      "campaign_name": "[EXP-LEADS] power bank 5 CPC-Rescued Leads AutoPlacement 04-11",
+      "action_type": "إنقاذ تلقائي للفيديوهات البيّاعة الموقوفة بسبب الـ CPC > $0.35 عبر Website Leads + Auto Placement (5 فيديوهات)",
+      "videos": [
+        "26-10_Voltrx_Full_Hook_Ad_01_v3fast.mp4",
+        "31-10_PB_Recycled_Ad_02.mp4",
+        "31-10_PB_Recycled_Ad_05.mp4",
+        "30-10_PB_New5_Ad_02.mp4",
+        "02-11_PB_WinTest_pbwt_03_FakeVsReal.mp4"
+      ],
+      "base_sp3": 0.0,
+      "base_cv3": 0,
+      "status": "FAILED_AND_CUT",
+      "closed_at": "2026-11-04T15:09:41.507307+03:00"
+    },
+    {
+      "timestamp": "2026-11-04 12:03",
+      "experiment_key": "REVIVE_1880695903993266_2026-11-04",
+      "is_experiment": false,
+      "aadvid": "7631763556322148369",
+      "acc_name": "ROELLINGER RECYCLING",
+      "campaign_id": "1880695903993266",
+      "campaign_name": "power bank 02-11 Manzilk Winners C (5 Ads)",
+      "action_type": "إعادة تفعيل حملة فائزة (18 مبيعات @ $5.77) وحصر الميزانية في الفيديوهات الرابحة",
+      "videos": [
+        "02-11_MZ_pbmz_14_17s.mp4 (3D: 12 sales @ $6.73, CPC <= $0.35)"
+      ],
+      "base_sp3": 103.87,
+      "base_cv3": 18,
+      "status": "FAILED_AND_CUT",
+      "closed_at": "2026-11-04T13:03:32.696676+03:00"
+    },
+    {
+      "timestamp": "2026-11-04 12:03",
+      "experiment_key": "REVIVE_1880772017515601_2026-11-04",
+      "is_experiment": false,
+      "aadvid": "7631763556322148369",
+      "acc_name": "ROELLINGER RECYCLING",
+      "campaign_id": "1880772017515601",
+      "campaign_name": "power bank test 03-11 A (4 Ads)",
+      "action_type": "إعادة تفعيل حملة فائزة (5 مبيعات @ $3.55) وحصر الميزانية في الفيديوهات الرابحة",
+      "videos": [
+        "03-11_PB_WinFixed_pbnv_03_FakeVsReal.mp4 (3D: 1 sales @ $3.07, CPC <= $0.35)"
+      ],
+      "base_sp3": 17.75,
+      "base_cv3": 5,
+      "status": "FAILED_AND_CUT",
+      "closed_at": "2026-11-04T13:03:32.696676+03:00"
+    },
+    {
+      "timestamp": "2026-11-04 12:03",
+      "experiment_key": "REVIVE_1880696438045873_2026-11-04",
+      "is_experiment": false,
+      "aadvid": "7631765070816509959",
+      "acc_name": "ROELLINGER RECYCLING2",
+      "campaign_id": "1880696438045873",
+      "campaign_name": "power bank 02-11 Manzilk Winners A (5 Ads)",
+      "action_type": "إعادة تفعيل حملة فائزة (12 مبيعات @ $5.73) وحصر الميزانية في الفيديوهات الرابحة",
+      "videos": [
+        "02-11_MZ_pbmz_03_95s.mp4 (3D: 4 sales @ $5.68, CPC <= $0.35)"
+      ],
+      "base_sp3": 68.82,
+      "base_cv3": 12,
+      "status": "FAILED_AND_CUT",
+      "closed_at": "2026-11-04T14:03:47.000085+03:00"
+    },
+    {
+      "timestamp": "2026-11-04 12:03",
+      "experiment_key": "DYN_9959_PB_CONV_AUTO_04-11_d_02_d_05_fast",
+      "is_experiment": true,
+      "aadvid": "7631765070816509959",
+      "acc_name": "ROELLINGER RECYCLING2",
+      "campaign_id": "1880918475447890",
+      "campaign_name": "[EXP-LEADS] power bank 5 CPC-Rescued Conv AutoPlacement 04-11",
+      "action_type": "إنقاذ تلقائي للفيديوهات البيّاعة الموقوفة بسبب الـ CPC > $0.35 عبر Website Conversions + Auto Placement (5 فيديوهات)",
+      "videos": [
+        "26-10_Voltrx_Full_Hook_Ad_01_v3fast.mp4",
+        "31-10_PB_Recycled_Ad_02.mp4",
+        "31-10_PB_Recycled_Ad_05.mp4",
+        "30-10_PB_New5_Ad_02.mp4",
+        "02-11_MZ_pbmz_03_95s.mp4"
+      ],
+      "base_sp3": 0.0,
+      "base_cv3": 0,
+      "status": "FAILED_AND_CUT",
+      "closed_at": "2026-11-04T23:03:26.821775+03:00"
+    },
+    {
+      "timestamp": "2026-11-05 00:03",
+      "experiment_key": "DYN_8369_PB_LEADS_AUTO_05-11_d_14_d_25_d_27",
+      "is_experiment": true,
+      "aadvid": "7631763556322148369",
+      "acc_name": "ROELLINGER RECYCLING",
+      "campaign_id": "1880964095672898",
+      "campaign_name": "[EXP-LEADS] power bank 5 CPC-Rescued Leads AutoPlacement 05-11",
+      "action_type": "إنقاذ تلقائي للفيديوهات البيّاعة الموقوفة بسبب الـ CPC > $0.35 عبر Website Leads + Auto Placement (5 فيديوهات)",
+      "videos": [
+        "26-10_Voltrx_Seedance_Ad_14.mp4",
+        "31-10_PB_30d_Recycled_Ad_25.mp4",
+        "31-10_PB_30d_Recycled_Ad_27.mp4",
+        "30-10_PB_FlowHook_Ad_03.mp4",
+        "30-10_PB_FlowHook_Ad_04.mp4"
+      ],
+      "base_sp3": 0.0,
+      "base_cv3": 0,
+      "status": "OPEN"
+    },
+    {
+      "timestamp": "2026-11-05 00:03",
+      "experiment_key": "DYN_8369_PB_CONV_AUTO_05-11_d_14_d_25_d_27",
+      "is_experiment": true,
+      "aadvid": "7631763556322148369",
+      "acc_name": "ROELLINGER RECYCLING",
+      "campaign_id": "1880964140072962",
+      "campaign_name": "[EXP-LEADS] power bank 5 CPC-Rescued Conv AutoPlacement 05-11",
+      "action_type": "إنقاذ تلقائي للفيديوهات البيّاعة الموقوفة بسبب الـ CPC > $0.35 عبر Website Conversions + Auto Placement (5 فيديوهات)",
+      "videos": [
+        "26-10_Voltrx_Seedance_Ad_14.mp4",
+        "31-10_PB_30d_Recycled_Ad_25.mp4",
+        "31-10_PB_30d_Recycled_Ad_27.mp4",
+        "30-10_PB_FlowHook_Ad_03.mp4",
+        "30-10_PB_FlowHook_Ad_04.mp4"
+      ],
+      "base_sp3": 0.0,
+      "base_cv3": 0,
+      "status": "FAILED_AND_CUT",
+      "closed_at": "2026-11-05T16:04:22.395233+03:00"
+    },
+    {
+      "timestamp": "2026-11-05 00:03",
+      "experiment_key": "DYN_9959_PB_LEADS_AUTO_05-11_d_02_d_05_fast",
+      "is_experiment": true,
+      "aadvid": "7631765070816509959",
+      "acc_name": "ROELLINGER RECYCLING2",
+      "campaign_id": "1880964191683313",
+      "campaign_name": "[EXP-LEADS] power bank 5 CPC-Rescued Leads AutoPlacement 05-11",
+      "action_type": "إنقاذ تلقائي للفيديوهات البيّاعة الموقوفة بسبب الـ CPC > $0.35 عبر Website Leads + Auto Placement (5 فيديوهات)",
+      "videos": [
+        "26-10_Voltrx_Full_Hook_Ad_01_v3fast.mp4",
+        "31-10_PB_Recycled_Ad_02.mp4",
+        "31-10_PB_Recycled_Ad_05.mp4",
+        "30-10_PB_New5_Ad_02.mp4",
+        "31-10_PB_H7_SnapGads_Winner_02.mp4"
+      ],
+      "base_sp3": 0.0,
+      "base_cv3": 0,
+      "status": "FAILED_AND_CUT",
+      "closed_at": "2026-11-05T16:04:22.395233+03:00"
+    },
+    {
+      "timestamp": "2026-11-05 00:03",
+      "experiment_key": "DYN_9959_PB_CONV_AUTO_05-11_d_02_d_05_fast",
+      "is_experiment": true,
+      "aadvid": "7631765070816509959",
+      "acc_name": "ROELLINGER RECYCLING2",
+      "campaign_id": "1880964237495297",
+      "campaign_name": "[EXP-LEADS] power bank 5 CPC-Rescued Conv AutoPlacement 05-11",
+      "action_type": "إنقاذ تلقائي للفيديوهات البيّاعة الموقوفة بسبب الـ CPC > $0.35 عبر Website Conversions + Auto Placement (5 فيديوهات)",
+      "videos": [
+        "26-10_Voltrx_Full_Hook_Ad_01_v3fast.mp4",
+        "31-10_PB_Recycled_Ad_02.mp4",
+        "31-10_PB_Recycled_Ad_05.mp4",
+        "30-10_PB_New5_Ad_02.mp4",
+        "31-10_PB_H7_SnapGads_Winner_02.mp4"
+      ],
+      "base_sp3": 0.0,
+      "base_cv3": 0,
+      "status": "FAILED_AND_CUT",
+      "closed_at": "2026-11-05T16:04:22.395233+03:00"
     }
   ],
   "failed_experiments": [
@@ -2431,7 +2652,20 @@
     "REVIVE_1880584572912706_2026-11-03",
     "DYN_8369_PB_LEADS_AUTO_03-11_d_14_d_25_d_27",
     "REVIVE_1880671152548945_2026-11-03",
-    "DYN_8369_PB_CONV_AUTO_03-11_d_14_d_25_d_27"
+    "DYN_8369_PB_CONV_AUTO_03-11_d_14_d_25_d_27",
+    "SCALE_1880584564639777_2026-11-01_CV4_B57",
+    "SCALE_1880584572912706_2026-11-01_CV9_B114",
+    "REVIVE_1880695903993266_2026-11-04",
+    "REVIVE_1880772017515601_2026-11-04",
+    "REVIVE_1880696438045873_2026-11-04",
+    "DYN_9959_PB_LEADS_AUTO_04-11_d_02_d_05_fast",
+    "DYN_8369_PB_LEADS_AUTO_04-11_d_14_d_25_d_27",
+    "DYN_9959_PB_CONV_AUTO_04-11_d_02_d_05_fast",
+    "SCALE_1880696438045873_2026-11-02_CV6_B40",
+    "SCALE_1880695916990625_2026-11-02_CV3_B142",
+    "DYN_8369_PB_CONV_AUTO_05-11_d_14_d_25_d_27",
+    "DYN_9959_PB_LEADS_AUTO_05-11_d_02_d_05_fast",
+    "DYN_9959_PB_CONV_AUTO_05-11_d_02_d_05_fast"
   ],
   "scaled_campaigns": {
     "2026-10-30:7631763556322148369:1880427722388082": {
@@ -2925,6 +3159,33 @@
       ],
       "sp3": 16.72,
       "cv3": 3
+    },
+    "2026-11-04:7631763556322148369:1880695903993266": {
+      "campaign_name": "power bank 02-11 Manzilk Winners C (5 Ads)",
+      "revived_at": "2026-11-04 12:03",
+      "videos": [
+        "02-11_MZ_pbmz_14_17s.mp4 (3D: 12 sales @ $6.73, CPC <= $0.35)"
+      ],
+      "sp3": 103.87,
+      "cv3": 18
+    },
+    "2026-11-04:7631763556322148369:1880772017515601": {
+      "campaign_name": "power bank test 03-11 A (4 Ads)",
+      "revived_at": "2026-11-04 12:03",
+      "videos": [
+        "03-11_PB_WinFixed_pbnv_03_FakeVsReal.mp4 (3D: 1 sales @ $3.07, CPC <= $0.35)"
+      ],
+      "sp3": 17.75,
+      "cv3": 5
+    },
+    "2026-11-04:7631765070816509959:1880696438045873": {
+      "campaign_name": "power bank 02-11 Manzilk Winners A (5 Ads)",
+      "revived_at": "2026-11-04 12:03",
+      "videos": [
+        "02-11_MZ_pbmz_03_95s.mp4 (3D: 4 sales @ $5.68, CPC <= $0.35)"
+      ],
+      "sp3": 68.82,
+      "cv3": 12
     }
   },
   "launched_batch_campaigns": {
@@ -3280,34 +3541,269 @@
         "03-11_OT_CAR_09_02s_fst06.mp4"
       ],
       "created_at": "2026-11-03 14:22:00"
+    },
+    "1880853016434081": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "campaign_name": "pillow 18186 taager 04-11 A (5 Ads)",
+      "product_type": "pillow_18186",
+      "budget": "50",
+      "bid": "6.50",
+      "start_time_ksa": "2026-11-04 06:00:00",
+      "videos": [
+        "04-11_Taager_18186_Pillow_Ad_01.mp4",
+        "04-11_Taager_18186_Pillow_Ad_02.mp4",
+        "04-11_Taager_18186_Pillow_Ad_03.mp4",
+        "04-11_Taager_18186_Pillow_Ad_04.mp4",
+        "04-11_Taager_18186_Pillow_Ad_05.mp4"
+      ],
+      "created_at": "2026-11-03 18:54:38"
+    },
+    "1880853025604817": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "campaign_name": "pillow 18186 taager 04-11 B (5 Ads)",
+      "product_type": "pillow_18186",
+      "budget": "50",
+      "bid": "6.50",
+      "start_time_ksa": "2026-11-04 06:00:00",
+      "videos": [
+        "04-11_Taager_18186_Pillow_Ad_06.mp4",
+        "04-11_Taager_18186_Pillow_Ad_07.mp4",
+        "04-11_Taager_18186_Pillow_Ad_08.mp4",
+        "04-11_Taager_18186_Pillow_Ad_09.mp4",
+        "04-11_Taager_18186_Pillow_Ad_10.mp4"
+      ],
+      "created_at": "2026-11-03 18:54:38"
+    },
+    "1880864349907970": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "campaign_name": "doorbell 10165 taager 04-11 A (3 Ads)",
+      "product_type": "doorbell_10165",
+      "budget": "50",
+      "bid": "6.50",
+      "start_time_ksa": "2026-11-04 06:00:00",
+      "videos": [
+        "04-11_Taager_10165_Doorbell_Ad_01.mp4",
+        "04-11_Taager_10165_Doorbell_Ad_02.mp4",
+        "04-11_Taager_10165_Doorbell_Ad_03.mp4"
+      ],
+      "created_at": "2026-11-03 21:54:43"
+    },
+    "1880864364977410": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "campaign_name": "doorbell 10165 taager 04-11 B (3 Ads)",
+      "product_type": "doorbell_10165",
+      "budget": "50",
+      "bid": "6.50",
+      "start_time_ksa": "2026-11-04 06:00:00",
+      "videos": [
+        "04-11_Taager_10165_Doorbell_Ad_04.mp4",
+        "04-11_Taager_10165_Doorbell_Ad_05.mp4",
+        "04-11_Taager_10165_Doorbell_Ad_06.mp4"
+      ],
+      "created_at": "2026-11-03 21:54:43"
+    },
+    "1880865605611922": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "campaign_name": "dryer 21982 taager 04-11 A (4 Ads)",
+      "product_type": "dryer_21982",
+      "budget": "50",
+      "bid": "6.50",
+      "start_time_ksa": "2026-11-04 06:00:00",
+      "videos": [
+        "04-11_Taager_21982_Dryer_Ad_01.mp4",
+        "04-11_Taager_21982_Dryer_Ad_02.mp4",
+        "04-11_Taager_21982_Dryer_Ad_03.mp4",
+        "04-11_Taager_21982_Dryer_Ad_04.mp4"
+      ],
+      "created_at": "2026-11-03 22:25:37"
+    },
+    "1880865622479041": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "campaign_name": "dryer 21982 taager 04-11 B (3 Ads)",
+      "product_type": "dryer_21982",
+      "budget": "50",
+      "bid": "6.50",
+      "start_time_ksa": "2026-11-04 06:00:00",
+      "videos": [
+        "04-11_Taager_21982_Dryer_Ad_05.mp4",
+        "04-11_Taager_21982_Dryer_Ad_06.mp4",
+        "04-11_Taager_21982_Dryer_Ad_07.mp4"
+      ],
+      "created_at": "2026-11-03 22:25:37"
+    },
+    "1880935759125154": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "campaign_name": "doorbell 21482 oman taager 04-11 A (3 Ads)",
+      "product_type": "doorbell_21482_om",
+      "launched_at": "2026-11-04 17:26:00",
+      "budget": "30",
+      "bid": "6.50",
+      "videos": [
+        "04-11_Taager_10165_Doorbell_Ad_01.mp4",
+        "04-11_Taager_10165_Doorbell_Ad_02.mp4",
+        "04-11_Taager_10165_Doorbell_Ad_03.mp4"
+      ]
+    },
+    "1880935800107794": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "campaign_name": "doorbell 21482 oman taager 04-11 B (3 Ads)",
+      "product_type": "doorbell_21482_om",
+      "launched_at": "2026-11-04 17:26:00",
+      "budget": "30",
+      "bid": "6.50",
+      "videos": [
+        "04-11_Taager_10165_Doorbell_Ad_04.mp4",
+        "04-11_Taager_10165_Doorbell_Ad_05.mp4",
+        "04-11_Taager_10165_Doorbell_Ad_06.mp4"
+      ]
+    },
+    "1880935853513777": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "campaign_name": "pillow 21088 uae taager 04-11 B (5 Ads)",
+      "product_type": "pillow_21088_ae",
+      "launched_at": "2026-11-04 16:52:57",
+      "budget": "30",
+      "bid": "6.50",
+      "videos": [
+        "04-11_Taager_18186_Pillow_Ad_06.mp4",
+        "04-11_Taager_18186_Pillow_Ad_07.mp4",
+        "04-11_Taager_18186_Pillow_Ad_08.mp4",
+        "04-11_Taager_18186_Pillow_Ad_09.mp4",
+        "04-11_Taager_18186_Pillow_Ad_10.mp4"
+      ]
+    },
+    "1880935884026097": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "campaign_name": "pillow 19355 oman taager 04-11 A (5 Ads)",
+      "product_type": "pillow_19355_om",
+      "launched_at": "2026-11-04 16:52:57",
+      "budget": "30",
+      "bid": "6.50",
+      "videos": [
+        "04-11_Taager_18186_Pillow_Ad_01.mp4",
+        "04-11_Taager_18186_Pillow_Ad_02.mp4",
+        "04-11_Taager_18186_Pillow_Ad_03.mp4",
+        "04-11_Taager_18186_Pillow_Ad_04.mp4",
+        "04-11_Taager_18186_Pillow_Ad_05.mp4"
+      ]
+    },
+    "1880935903138033": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "campaign_name": "pillow 19355 oman taager 04-11 B (5 Ads)",
+      "product_type": "pillow_19355_om",
+      "launched_at": "2026-11-04 16:52:57",
+      "budget": "30",
+      "bid": "6.50",
+      "videos": [
+        "04-11_Taager_18186_Pillow_Ad_06.mp4",
+        "04-11_Taager_18186_Pillow_Ad_07.mp4",
+        "04-11_Taager_18186_Pillow_Ad_08.mp4",
+        "04-11_Taager_18186_Pillow_Ad_09.mp4",
+        "04-11_Taager_18186_Pillow_Ad_10.mp4"
+      ]
+    },
+    "1880936016391649": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "campaign_name": "pillow 21088 uae taager 04-11 A (5 Ads)",
+      "product_type": "pillow_21088_ae",
+      "launched_at": "2026-11-04 17:26:00",
+      "budget": "30",
+      "bid": "6.50",
+      "videos": [
+        "04-11_Taager_18186_Pillow_Ad_01.mp4",
+        "04-11_Taager_18186_Pillow_Ad_02.mp4",
+        "04-11_Taager_18186_Pillow_Ad_03.mp4",
+        "04-11_Taager_18186_Pillow_Ad_04.mp4",
+        "04-11_Taager_18186_Pillow_Ad_05.mp4"
+      ]
+    },
+    "1880938040086914": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "campaign_name": "pillow 21088 uae taager 04-11 B (5 Ads)",
+      "product_type": "pillow_21088_ae",
+      "launched_at": "2026-11-04 17:26:00",
+      "budget": "30",
+      "bid": "6.50",
+      "videos": [
+        "04-11_Taager_18186_Pillow_Ad_06.mp4",
+        "04-11_Taager_18186_Pillow_Ad_07.mp4",
+        "04-11_Taager_18186_Pillow_Ad_08.mp4",
+        "04-11_Taager_18186_Pillow_Ad_09.mp4",
+        "04-11_Taager_18186_Pillow_Ad_10.mp4"
+      ]
+    },
+    "1880938062496338": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "campaign_name": "pillow 19355 oman taager 04-11 A (5 Ads)",
+      "product_type": "pillow_19355_om",
+      "launched_at": "2026-11-04 17:26:00",
+      "budget": "30",
+      "bid": "6.50",
+      "videos": [
+        "04-11_Taager_18186_Pillow_Ad_01.mp4",
+        "04-11_Taager_18186_Pillow_Ad_02.mp4",
+        "04-11_Taager_18186_Pillow_Ad_03.mp4",
+        "04-11_Taager_18186_Pillow_Ad_04.mp4",
+        "04-11_Taager_18186_Pillow_Ad_05.mp4"
+      ]
+    },
+    "1880938095992977": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "campaign_name": "pillow 19355 oman taager 04-11 B (5 Ads)",
+      "product_type": "pillow_19355_om",
+      "launched_at": "2026-11-04 17:26:00",
+      "budget": "30",
+      "bid": "6.50",
+      "videos": [
+        "04-11_Taager_18186_Pillow_Ad_06.mp4",
+        "04-11_Taager_18186_Pillow_Ad_07.mp4",
+        "04-11_Taager_18186_Pillow_Ad_08.mp4",
+        "04-11_Taager_18186_Pillow_Ad_09.mp4",
+        "04-11_Taager_18186_Pillow_Ad_10.mp4"
+      ]
     }
   },
   "latest_winning_structure_analysis": {
     "Website Leads [obj=8] + Auto Placement [3000,9000,1000] + 3–5 فيديوهات رابحة": {
-      "sp1": 21.75,
-      "cv1": 2,
-      "sp3": 158.01,
-      "cv3": 23,
-      "sp7": 196.75,
-      "cv7": 31,
+      "sp1": 0.0,
+      "cv1": 0,
+      "sp3": 0.0,
+      "cv3": 0,
+      "sp7": 0.0,
+      "cv7": 0,
       "decision": "✅ التركيبة رقم #1 اليوم لإنقاذ الـ CPC (< $0.22) وتوليد مبيعات فورية (SuperCombo / CPC-Rescued)"
     },
     "Website Leads [obj=8] + TikTok In-Feed Only [3000] + فيديوهات عابرة للمنصات": {
-      "sp1": 0.02,
+      "sp1": 0.0,
       "cv1": 0,
-      "sp3": 227.93,
-      "cv3": 45,
-      "sp7": 417.33,
-      "cv7": 77,
+      "sp3": 0.0,
+      "cv3": 0,
+      "sp7": 0.0,
+      "cv7": 0,
       "decision": "✅ التركيبة رقم #1 في حجم المبيعات لـ Cross-Platform Winners (مثل H7 صاحبة 43 بيعة بـ $5.25)"
     },
     "Smart+ Website Conversions + 3–4 فيديوهات رابحة معاد تدويرها (30d Batch)": {
-      "sp1": 56.27,
-      "cv1": 11,
-      "sp3": 754.95,
-      "cv3": 97,
-      "sp7": 825.93,
-      "cv7": 114,
+      "sp1": 0.0,
+      "cv1": 0,
+      "sp3": 0.0,
+      "cv3": 0,
+      "sp7": 0.0,
+      "cv7": 0,
       "decision": "✅ ناجحة عند حصر الحملة في 3–4 فيديوهات مجربة وتصفية الفيديوهات الخاسرة عند $1.00 و CPC > $0.25"
     },
     "حملات التوسيع المكررة (SCALE / Copy) أو تجميع > 6 فيديوهات خام": {
