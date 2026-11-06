@@ -1436,6 +1436,13 @@ def audit_google_ads_multiwindow() -> dict:
             ingest_table(tbl_d2, "d2")
             ingest_table(tbl_l7, "l7")
 
+            # [حماية إعادة تشغيل الباور بانك 2026-11-06]: تصفير الصرف القديم لما قبل اليوم (d1/d2/l7) لحملة pb manzilk winners 10-adsets 02-11
+            # حتى يعاملها البوت وفيديوهاتها كأدست منسوخة جديدة تبدأ من اليوم (d0) ولا يطفئ الفيديوهات بسبب صرف أمس عند بدجت 150$.
+            for (c_rst, _ag_rst, _ad_rst), inf_rst in ads_map.items():
+                if "pb manzilk winners 10-adsets 02-11" in c_rst.lower():
+                    for _old_slot in ("d1", "d2", "l7"):
+                        inf_rst[_old_slot] = {"spend": 0.0, "ui_conv": 0.0, "clicks": 0, "cpc": 0.0, "impr": 0}
+
             # =====================================================================
             # MANDATORY CAMPAIGN-LEVEL 3-DAY $20.00 NO-SALE & $21.00 CPA BRAKE (2026-10-30):
             # "بالنسبة لغوغل ادس ثبت القاعدة هاذي انا الحملة لو صرفت 20$ بدون مبيعات يطفيها بعد ما يرجع اخر 3 ايام طبعاً ولو سعر البيع 21$ سطفيها"
