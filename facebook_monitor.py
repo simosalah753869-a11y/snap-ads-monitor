@@ -369,29 +369,7 @@ def main():
         print(f"⚠️ تعذر الاتصال بـ Facebook Graph API عبر البروكسي: {e_auth}")
         return
 
-    # Execute pending user budget/status commands automatically as soon as token is active
-    pending_updates = [
-        ("52542228452250", {"daily_budget": "8000", "name": "سكيل - SA - Car Armrest Cushion - 3 Winners ($80)"}, "رفع بدجت حملة سكيل وسادة السيارة الهولندية إلى $80/يوم"),
-        ("52542620865650", {"name": "سكيل - SA - Power Bank 4in1 - 3 Winners ($30)"}, "تسمية حملة سكيل الباور بانك الهولندية"),
-    ]
-    for obj_id, payload, desc in pending_updates:
-        try:
-            _s = fb.open_tunnel("graph.facebook.com")
-            _r = fb.graph_call(_s, "POST", obj_id, data=payload, token=tok)
-            _s.close()
-            if _r.get("success") or _r.get("id"):
-                print(f"⚡ {desc} ({obj_id}): نجح ✅")
-        except Exception:
-            pass
-
-    # Auto-launch the 2 Dedicated Facebook Test Campaigns (5 Car + 5 Power Bank Proven Winners) as soon as token is active
-    if not dry_run:
-        try:
-            import launch_fb_5car_5pb_dedicated_test_campaigns as fb_test_launcher
-            fb_test_launcher.ensure_5car_5pb_test_campaigns_launched(tok)
-        except Exception as e_lnch:
-            print(f"ℹ️ انتظار فك قفل الأمان في فيسبوك لإطلاق حملتي التيست (5 وسادة + 5 باور بانك): {e_lnch}")
-
+    # Anti-Automation Shield: Do NOT run bulk auto-launchers or write calls on every monitor tick
     sales_all, sales_3d, sales_today = fetch_sheet_sales()
     history = load_paused_history()
     fb_ads_hist = history.setdefault("facebook_ads", {})
@@ -410,6 +388,9 @@ def main():
     for acc_key, acc_cfg in fb.AD_ACCOUNTS.items():
         aid = acc_cfg["id"]
         aname = acc_cfg["name"]
+        # Skip disabled accounts to prevent Graph API request bursts that trigger Account Integrity Automation flags
+        if aid in ("act_1164514299337955", "act_1135591735634568", "act_2031165734260288"):
+            continue
         if aid in getattr(fb, "RETIRED_PERSONAL_FB_ACCOUNTS", {"act_2031165734260288", "2031165734260288"}) or acc_key == "personal" or "isabel" in aname.lower():
             continue
         try:
