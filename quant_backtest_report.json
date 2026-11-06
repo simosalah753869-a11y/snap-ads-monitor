@@ -1,5 +1,5 @@
 {
-  "updated_at_utc": "2026-11-06T09:58:52Z",
+  "updated_at_utc": "2026-11-06T10:19:45Z",
   "total_grid_tested": 5039,
   "active_best_config": {
     "sl_atr": 1.8,
@@ -103,13 +103,13 @@
         "max_bars": 96
       },
       "full_1500h": {
-        "net_pnl_usd": 85.03,
+        "net_pnl_usd": 90.25,
         "wins": 22,
-        "losses": 6,
-        "total_trades": 28,
-        "win_rate_pct": 78.6,
-        "profit_factor": 7.03,
-        "max_drawdown_pct": 0.88
+        "losses": 4,
+        "total_trades": 26,
+        "win_rate_pct": 84.6,
+        "profit_factor": 11.16,
+        "max_drawdown_pct": 0.53
       },
       "in_sample": {
         "net_pnl_usd": 27.39,
@@ -121,13 +121,13 @@
         "max_drawdown_pct": 0.53
       },
       "out_of_sample": {
-        "net_pnl_usd": 52.22,
+        "net_pnl_usd": 57.44,
         "wins": 14,
-        "losses": 4,
-        "total_trades": 18,
-        "win_rate_pct": 77.8,
-        "profit_factor": 7.01,
-        "max_drawdown_pct": 0.94
+        "losses": 2,
+        "total_trades": 16,
+        "win_rate_pct": 87.5,
+        "profit_factor": 17.57,
+        "max_drawdown_pct": 0.5
       }
     },
     {
@@ -156,13 +156,13 @@
         "max_bars": 96
       },
       "full_1500h": {
-        "net_pnl_usd": 85.03,
+        "net_pnl_usd": 90.25,
         "wins": 22,
-        "losses": 6,
-        "total_trades": 28,
-        "win_rate_pct": 78.6,
-        "profit_factor": 7.03,
-        "max_drawdown_pct": 0.88
+        "losses": 4,
+        "total_trades": 26,
+        "win_rate_pct": 84.6,
+        "profit_factor": 11.16,
+        "max_drawdown_pct": 0.53
       },
       "in_sample": {
         "net_pnl_usd": 27.39,
@@ -174,13 +174,13 @@
         "max_drawdown_pct": 0.53
       },
       "out_of_sample": {
-        "net_pnl_usd": 52.22,
+        "net_pnl_usd": 57.44,
         "wins": 14,
-        "losses": 4,
-        "total_trades": 18,
-        "win_rate_pct": 77.8,
-        "profit_factor": 7.01,
-        "max_drawdown_pct": 0.94
+        "losses": 2,
+        "total_trades": 16,
+        "win_rate_pct": 87.5,
+        "profit_factor": 17.57,
+        "max_drawdown_pct": 0.5
       }
     },
     {
@@ -209,13 +209,13 @@
         "max_bars": 96
       },
       "full_1500h": {
-        "net_pnl_usd": 85.03,
+        "net_pnl_usd": 90.25,
         "wins": 22,
-        "losses": 6,
-        "total_trades": 28,
-        "win_rate_pct": 78.6,
-        "profit_factor": 7.03,
-        "max_drawdown_pct": 0.88
+        "losses": 4,
+        "total_trades": 26,
+        "win_rate_pct": 84.6,
+        "profit_factor": 11.16,
+        "max_drawdown_pct": 0.53
       },
       "in_sample": {
         "net_pnl_usd": 27.39,
@@ -227,13 +227,13 @@
         "max_drawdown_pct": 0.53
       },
       "out_of_sample": {
-        "net_pnl_usd": 52.22,
+        "net_pnl_usd": 57.44,
         "wins": 14,
-        "losses": 4,
-        "total_trades": 18,
-        "win_rate_pct": 77.8,
-        "profit_factor": 7.01,
-        "max_drawdown_pct": 0.94
+        "losses": 2,
+        "total_trades": 16,
+        "win_rate_pct": 87.5,
+        "profit_factor": 17.57,
+        "max_drawdown_pct": 0.5
       }
     }
   ]
