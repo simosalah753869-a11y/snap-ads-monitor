@@ -1054,9 +1054,10 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
             no_sale_camp_limit = g_camp_stop
             max_cpa_camp_limit = g_sim_cpa
         else:
-            # أمر المستخدم الصارم (2026-11-02): أي حملة في سناب صرفت $10.00 بدون بيعة أو سعر البيعة فيها أكثر من $11.00 (CPA > $11.00) يطفئها البوت فوراً!
+            # أمر المستخدم الصارم (2026-11-06): لا توقف الحملة طالما لم تصل إلى $10.00 سعر بيعة (CPA >= $10.00) أو $10.00 صرف بدون مبيعة؛ أوقف الأدست الخاسرة فقط!
             no_sale_camp_limit = 10.00
-            max_cpa_camp_limit = 11.00
+            max_cpa_camp_limit = 10.00
+        all_sq_ids_c = [sq["id"] for sq in camp_squads_cache.get(cid_chk, []) if sq]
         c_kill_reasons = []
         c_1d_healthy = False
         sp1_camp_check = round(max(
@@ -1092,20 +1093,20 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
                 sp_c = max(sp_sq_act, sp_camp)
             else:
                 sp_c = min(sp_sq_act, sp_camp) if (sp_camp > 0 and sp_sq_act > 0) else sp_sq_act
-            pu_sq_act = sum(sq_map_w.get(sid_x, {}).get("purchases", 0) for sid_x in act_sq_ids_c)
+            pu_sq_all = sum(sq_map_w.get(sid_x, {}).get("purchases", 0) for sid_x in all_sq_ids_c)
             pu_camp = camp_map_w.get(cid_chk, {}).get("purchases", 0)
             sh_map_w = sheet_sales_multi.get(sh_key_w, {}) or {}
             pu_sh = sh_map_w.get(cid_chk.lower(), 0)
-            pu_c = max(pu_sq_act, pu_camp, pu_sh)
+            pu_c = max(pu_sq_all, pu_camp, pu_sh)
             cpa_c = round(sp_c / pu_c, 2) if pu_c > 0 else None
-            if sh_key_w in ("1d", "2d", "3d") and pu_c > 0 and cpa_c is not None and cpa_c <= max_cpa_camp_limit:
+            if sh_key_w in ("1d", "2d", "3d") and pu_c > 0 and cpa_c is not None and cpa_c < max_cpa_camp_limit:
                 c_1d_healthy = True
             if sh_key_w != "1d" and c_1d_healthy:
                 continue
             if is_warming_camp_chk and sp_c >= 1.00:
                 c_kill_reasons.append(f"{w_lbl_c} [Warming $1.00 Cap]: صرفت حملة الوارمينق ${sp_c:.2f} (>= $1.00 حد الإيقاف الفوري)")
-            elif pu_c > 0 and cpa_c is not None and cpa_c > max_cpa_camp_limit:
-                c_kill_reasons.append(f"{w_lbl_c}: CPA=${cpa_c:.2f} (${sp_c:.2f}/{pu_c} مبيعات > ${max_cpa_camp_limit:.2f})")
+            elif pu_c > 0 and cpa_c is not None and cpa_c >= max_cpa_camp_limit:
+                c_kill_reasons.append(f"{w_lbl_c}: CPA=${cpa_c:.2f} (${sp_c:.2f}/{pu_c} مبيعات >= ${max_cpa_camp_limit:.2f})")
             elif pu_c == 0 and sp_c >= no_sale_camp_limit:
                 c_kill_reasons.append(f"{w_lbl_c}: صرف ${sp_c:.2f} بدون مبيعات (>= ${no_sale_camp_limit:.2f})")
         if c_kill_reasons:
