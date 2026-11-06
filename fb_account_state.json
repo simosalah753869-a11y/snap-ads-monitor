@@ -1,7 +1,7 @@
 {
-  "access_token": "EAABsbCS1iHgBS7r7oj0e2jP4MTIHmRhkS6NANZBaaOvtEIZBvn494ZBw77eKntgqpogQRHoM0ZAffwvTfZAuAsLU8JYOD7eUbJEQwkqKScYTtMXL1HSxB0PiK9laYrvRjq7XZCdkFktYcvnbmUxMzAVglemhbeVnMsLAcuo3E2y0wulZBLKni94ZBAjopuQZAXTmKMLf0wS6JrnvEcwZDZD",
+  "access_token": "EAABsbCS1iHgBS7JYL8r2dAu2WlMZBtSOgX45wRKCMyt21UQIQtY7KLftQHazwze8WzsSgGG8Bbteiqc4MqQjFP97855ZBZAMSDLPWmV6Vh7edBv2HXxcs2SFGoNcT3l4ypPgJfJCXXWtTDHaZCJte4SD4kvfHfj4kPTZCPEdTzoeUZA8EE3ZARpJ1xdhLSvqQZDZD",
   "fb_dtsg": "NAfybs2NupUZvCXPVALWdQ6qcPL_pjA6vndFTT7wzdNa1Yt8BvECNPw:33:1780142490",
-  "updated_at": 1793915358.8486254,
+  "updated_at": 1793967490.1100307,
   "ad_accounts": {
     "bm1": {
       "id": "act_4504761856414520",
@@ -39,5 +39,6 @@
       "pixel_id": "1430250438628657",
       "business_user_id": null
     }
-  }
+  },
+  "cookie_string": "dpr=1.25; wd=1427x828; datr=C9EaaszFEW-rtcYGSDNlGPfB; sb=TdEaajERkVxza3dgxwahg2zB; c_user=61580737875912; xs=33%3A6Zy2gLs6fYlxQw%3A2%3A1780142490%3A-1%3A-1; fr=0o7lrpL4HKRhEc7ve.AWcqWPUC2Ip7iVV9y3gCcmqDHqVBy2dIRU7lzfqglLxSM_N3EiQ.BqIr8Q..AAA.0.0.BqwqX2.AWcn267xgXwRhVTB6rx-6U753Bo; ps_l=1; ps_n=1; alsfid={\"id\":\"fa091e545\",\"timestamp\":1793967458021.3}"
 }
