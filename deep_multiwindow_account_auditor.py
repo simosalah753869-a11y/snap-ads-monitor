@@ -1074,9 +1074,7 @@ def set_google_ad_status_carefully(ws, camp_name: str, ad_name: str, desired_sta
                             return '';
                         }})()""",
                     ) or ""
-                    if cur_after != expected_label and minfo.get("x") and minfo.get("y"):
-                        cdp_click(ws, minfo["x"], minfo["y"])
-                        time.sleep(1.2)
+                    time.sleep(1.0)
                     keep_adspower_offscreen(port)
                     return f"{desired_status.upper()}_SUCCESS (was {info.get('cur')})"
                 return "MENU_NOT_FOUND"
@@ -1185,9 +1183,7 @@ def set_google_campaign_status_carefully(ws, camp_name: str, desired_status: str
                         return '';
                     }})()""",
                 ) or ""
-                if cur_after_c != expected_label and minfo.get("x") and minfo.get("y"):
-                    cdp_click(ws, minfo["x"], minfo["y"])
-                    time.sleep(1.2)
+                time.sleep(1.0)
                 keep_adspower_offscreen(port)
                 return f"{desired_status.upper()}_SUCCESS (was {info.get('cur')})"
             return "MENU_NOT_FOUND"
@@ -1201,24 +1197,27 @@ def set_google_campaign_status_carefully(ws, camp_name: str, desired_status: str
 def audit_google_ads_multiwindow() -> dict:
     from run_all_monitors_5h import find_open_adspower_ports
 
-    if os.path.exists(r"C:\Users\salah\.gemini\antigravity\scratch\pause_gads_bot.flag"):
-        print("⏸️ [Google Ads Audit Paused] تم إيقاف بوت جوجل أدز مؤقتاً بطلب المستخدم لاستخدام المتصفح بحرية.", flush=True)
-        return {"accounts": [], "actions": []}
-
     print("\n======================================================================")
-    print("🌐 [3/3] فحص وتفصيص حسابات Google Ads عبر 4 نوافذ (1D / 2D / 3D / 7D) بحرص 1000% (بيكسل + شيت Lightfunnels)")
+    print("🌐 [3/3] فحص وتفصيص حسابات Google Ads عبر 4 نوافذ (1D / 2D / 3D / 7D) بحرص 1000% (بيكسل + شيت Lightfunnels — سقف الحملة الصارم $20.00 بدون بيع)")
     print("======================================================================", flush=True)
 
-    ports = dict(find_open_adspower_ports())
-    if len([k for k in ports if "k1cekgik" in k or "k1dh2jyf" in k]) < 2:
-        try:
-            from gads_hourly_tcpa_bumper import ensure_adspower_profiles_open
-            opened_p = ensure_adspower_profiles_open()
-            for pk, pv in (opened_p or {}).items():
-                if not any(pk in ek for ek in ports):
-                    ports[pk] = pv
-        except Exception:
-            pass
+    try:
+        from restore_pb_manzilk_both_accounts import ensure_edge_port
+        ensure_edge_port(
+            9341,
+            BASE_DIR / "gads_dedicated_p9341",
+            "https://ads.google.com/aw/ads?ocid=8024627197&euid=1627094383&__u=6435946167&uscid=8024627197&__c=4917575253&authuser=0&hl=en",
+        )
+        ensure_edge_port(
+            9248,
+            Path(r"C:\Users\salah\.gemini\antigravity\scratch\montage_projects\washer_test_1ad\edge_profile_fuch_us_9248"),
+            "https://ads.google.com/aw/ads?ocid=8436939582&euid=6586960300&__u=5820794700&uscid=8436939582&__c=1618215118&authuser=0&hl=en",
+        )
+        subprocess.run(["schtasks", "/Run", "/TN", "HideBrowsersInteractive"], capture_output=True)
+    except Exception:
+        pass
+
+    ports = {"k1dh2jyf": 9341, "k1cekgik": 9248}
     if not ports:
         print("⚠️ لا توجد منافذ AdsPower مفتوحة حالياً!", flush=True)
         return {"accounts": [], "actions": []}
@@ -1256,7 +1255,7 @@ def audit_google_ads_multiwindow() -> dict:
                 try:
                     ver_info = json.loads(urllib.request.urlopen(f"http://127.0.0.1:{port}/json/version", timeout=3).read().decode("utf-8"))
                     bws_new = websocket.create_connection(ver_info["webSocketDebuggerUrl"].replace("ws://localhost:", "ws://127.0.0.1:"), suppress_origin=True, timeout=5)
-                    new_ads_url = f"https://ads.google.com/aw/ads?ocid={ocid}" if ocid else "https://ads.google.com/aw/ads"
+                    new_ads_url = (f"https://ads.google.com/aw/ads?ocid={ocid}&authuser=1" if ocid == "8024627197" else f"https://ads.google.com/aw/ads?ocid={ocid}&authuser=0") if ocid else "https://ads.google.com/aw/ads"
                     bws_new.send(json.dumps({"id": 1, "method": "Target.createTarget", "params": {"url": new_ads_url}}))
                     bws_new.recv()
                     bws_new.close()
@@ -1303,7 +1302,7 @@ def audit_google_ads_multiwindow() -> dict:
             # Navigate to /aw/ads
             cur_url = eval_js(ws, "location.href") or ""
             if "/aw/ads" not in cur_url:
-                nav_url = f"https://ads.google.com/aw/ads?ocid={ocid}" if ocid else "https://ads.google.com/aw/ads"
+                nav_url = (f"https://ads.google.com/aw/ads?ocid={ocid}&authuser=1" if ocid == "8024627197" else f"https://ads.google.com/aw/ads?ocid={ocid}&authuser=0") if ocid else "https://ads.google.com/aw/ads"
                 send_cdp(ws, "Page.navigate", {"url": nav_url})
                 time.sleep(6.5)
                 keep_adspower_offscreen(port)
@@ -1568,31 +1567,29 @@ def audit_google_ads_multiwindow() -> dict:
                         "updated_at": datetime.now(SA_TZ).isoformat(),
                     }
 
-                c_no_sale_lim = 25.00 if is_taager_c else 20.00
-                c_cpa_lim = 27.00 if is_taager_c else 20.00
+                # أمر المستخدم الصارم (2026-11-06): إيقاف أي حملة في غوغل أدز فوراً إذا صرفت $20.00 بدون مبيعات (سواء حملة عادية أو تاجر)!
+                c_no_sale_lim = 20.00
+                c_cpa_lim = 20.00
 
-                # الفحص الإلزامي لآخر 3 أيام (3D) واليوم (1D) ويومين (2D) و7 أيام (7D):
-                # - للحملات العادية: >= $20.00 بدون مبيعات أو CPA >= $20.00 -> إيقاف فوري للحملة كاملة
-                # - لحملات تيست منتجات تاجر (كل منتج على حدة): > $25.00 بدون مبيعات أو CPA >= $27.00 -> إيقاف كل حملات المنتج في غوغل وتيك توك
                 c_reason = None
                 try:
                     ph_p = BASE_DIR / "paused_history.json"
                     if taager_prod_key_c and ph_p.exists():
                         ph_d = json.loads(ph_p.read_text(encoding="utf-8"))
                         if taager_prod_key_c in (ph_d.get("taager_failed_products") or {}):
-                            c_reason = f"[قاعدة تيست تاجر: المنتج فاشل '{taager_prod_key_c}'] مجموع صرف المنتج تعدى $25.00 بدون بيع أو وصل CPA >= $27.00"
+                            c_reason = f"[قاعدة تيست تاجر: المنتج فاشل '{taager_prod_key_c}'] مجموع صرف المنتج تعدى $20.00 بدون بيع"
                 except Exception:
                     pass
                 if not c_reason and any(k in c_nm_low for k in ("31-10", "rescue 10 ads", "recycled 5ads")):
                     c_reason = "حملة 31-10 موقوفة بأمر المستخدم (زيارات رديئة رخيصة وCPA مرتفع)"
-                elif not c_reason and (cb["sp1"] > 25.00 if is_taager_c else cb["sp1"] >= c_no_sale_lim) and eff1_tot == 0:
-                    c_reason = f"الحملة صرفت اليوم (1D) ${cb['sp1']:.2f} ({'>' if is_taager_c else '>='} ${c_no_sale_lim:.2f}) بـ 0 مبيعات"
-                elif not c_reason and (cb["sp2"] > 25.00 if is_taager_c else cb["sp2"] >= c_no_sale_lim) and eff2_tot == 0:
-                    c_reason = f"الحملة صرفت في يومين (2D) ${cb['sp2']:.2f} ({'>' if is_taager_c else '>='} ${c_no_sale_lim:.2f}) بـ 0 مبيعات"
-                elif not c_reason and (cb["sp3"] > 25.00 if is_taager_c else cb["sp3"] >= c_no_sale_lim) and eff3_tot == 0:
-                    c_reason = f"الحملة صرفت في آخر 3 أيام (3D) ${cb['sp3']:.2f} ({'>' if is_taager_c else '>='} ${c_no_sale_lim:.2f}) بـ 0 مبيعات"
-                elif not c_reason and (cb["sp7"] > 25.00 if is_taager_c else cb["sp7"] >= c_no_sale_lim) and eff7_tot == 0:
-                    c_reason = f"الحملة صرفت في آخر 7 أيام (7D) ${cb['sp7']:.2f} ({'>' if is_taager_c else '>='} ${c_no_sale_lim:.2f}) بـ 0 مبيعات"
+                elif not c_reason and cb["sp1"] >= c_no_sale_lim and eff1_tot == 0:
+                    c_reason = f"الحملة صرفت اليوم (1D) ${cb['sp1']:.2f} (>= ${c_no_sale_lim:.2f}) بـ 0 مبيعات"
+                elif not c_reason and cb["sp2"] >= c_no_sale_lim and eff2_tot == 0:
+                    c_reason = f"الحملة صرفت في يومين (2D) ${cb['sp2']:.2f} (>= ${c_no_sale_lim:.2f}) بـ 0 مبيعات"
+                elif not c_reason and cb["sp3"] >= c_no_sale_lim and eff3_tot == 0:
+                    c_reason = f"الحملة صرفت في آخر 3 أيام (3D) ${cb['sp3']:.2f} (>= ${c_no_sale_lim:.2f}) بـ 0 مبيعات"
+                elif not c_reason and cb["sp7"] >= c_no_sale_lim and eff7_tot == 0:
+                    c_reason = f"الحملة صرفت في آخر 7 أيام (7D) ${cb['sp7']:.2f} (>= ${c_no_sale_lim:.2f}) بـ 0 مبيعات"
                 elif not c_reason and cb["sp1"] >= c_cpa_lim and eff1_tot > 0 and cpa1_tot is not None and cpa1_tot >= c_cpa_lim:
                     c_reason = f"سعر المبيعة في الحملة اليوم (1D) CPA=${cpa1_tot:.2f} (>= ${c_cpa_lim:.2f}) [صرف ${cb['sp1']:.2f} / {eff1_tot:g} مبيعات]"
                 elif not c_reason and cb["sp2"] >= c_cpa_lim and eff2_tot > 0 and cpa2_tot is not None and cpa2_tot >= c_cpa_lim and not prof_today:
@@ -1606,6 +1603,50 @@ def audit_google_ads_multiwindow() -> dict:
                 taager_gads_cache_path.write_text(json.dumps(taager_gads_cache, ensure_ascii=False, indent=2), encoding="utf-8")
             except Exception:
                 pass
+
+            # فحص مباشر إضافي لجدول الحملات (/aw/campaigns) للتأكد 1000% من إيقاف أي حملة مفعلة صرفت >= $20.00 بصفر مبيعات حتى لو كانت إعلاناتها موقوفة جزئياً!
+            if today_verified:
+                try:
+                    camps_chk_url = f"https://ads.google.com/aw/campaigns?ocid={ocid}" if ocid else "https://ads.google.com/aw/campaigns"
+                    send_cdp(ws, "Page.navigate", {"url": camps_chk_url})
+                    time.sleep(5.0)
+                    keep_adspower_offscreen(port)
+                    for _win_lbl, _win_tag in [("Today", "1D"), ("Yesterday", "Yesterday"), ("Last 7 days", "7D")]:
+                        select_date_preset(ws, _win_lbl, port=port)
+                        time.sleep(1.5)
+                        c_rows = eval_js(ws, '''(() => {
+                            const rows = Array.from(document.querySelectorAll('.particle-table-row, ess-table-row'));
+                            const out = [];
+                            for (const r of rows) {
+                                const stImg = r.querySelector('[essfield="status"] [role="img"]');
+                                const st = stImg ? (stImg.getAttribute('aria-label') || '') : '';
+                                const cnEl = r.querySelector('[essfield="campaign_name"] a, [essfield="campaign_name"], [essfield="name"] a, [essfield="name"]');
+                                const nm = cnEl ? (cnEl.innerText || '').trim().split('\n')[0].replace(/\s*settings$/, '').trim() : '';
+                                const costEl = r.querySelector('[essfield="stats.cost"]');
+                                const convEl = r.querySelector('[essfield="stats.conversions"], [essfield="conversions"]');
+                                let sp = 0.0, cv = 0.0;
+                                if (costEl) { const m = costEl.innerText.match(/([0-9,]+\.[0-9]{2})/); if (m) sp = parseFloat(m[1].replace(/,/g, '')); }
+                                if (convEl) { const m2 = convEl.innerText.match(/([0-9,]+\.[0-9]{2})/); if (m2) cv = parseFloat(m2[1].replace(/,/g, '')); }
+                                if (nm && !nm.startsWith('Drafts') && !nm.startsWith('Total')) out.push({name: nm, state: st, spend: sp, conv: cv});
+                            }
+                            return out;
+                        })()''') or []
+                        for cr in c_rows:
+                            cnm = cr.get("name") or ""
+                            if not cnm or "pb manzilk winners 10-adsets 02-11" in cnm.lower():
+                                continue
+                            cb_ref = camp_agg.get(cnm, {})
+                            sh_tot_7 = round(sum(v[3] for v in (cb_ref.get("sh_by_ad") or {}).values()), 2)
+                            eff_c = max(float(cr.get("conv") or 0.0), sh_tot_7)
+                            if cr.get("state") == "Enabled" and float(cr.get("spend") or 0.0) >= 20.00 and eff_c == 0:
+                                violating_20dollar_camps[cnm] = f"الحملة صرفت في ({_win_tag}) على جدول الحملات ${cr['spend']:.2f} (>= $20.00) بـ 0 مبيعات"
+                                camp_agg.setdefault(cnm, {"has_enabled": True, "sp1": cr["spend"]})["has_enabled"] = True
+                    select_date_preset(ws, "Today", port=port)
+                    nav_back_ads0 = f"https://ads.google.com/aw/ads?ocid={ocid}" if ocid else "https://ads.google.com/aw/ads"
+                    send_cdp(ws, "Page.navigate", {"url": nav_back_ads0})
+                    time.sleep(4.5)
+                except Exception as _ce:
+                    print(f"  ℹ️ ملاحظة فحص جدول الحملات المباشر: {_ce}", flush=True)
 
             # إيقاف الحملات المخالفة فوراً على مستوى الحملة (/aw/campaigns) أولاً قبل فحص الإعلانات الفردية لمنع أي سنت إضافي!
             active_violating_20dollar_camps = {
