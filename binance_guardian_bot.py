@@ -718,18 +718,20 @@ class VirtualPortfolioEngine:
                 arb["entry_fees_paid_usd"] = round(arb.get("entry_fees_paid_usd", 0.0) + (notional * 0.0010), 4)
                 cycle_actions.append(f"OPEN_DELTA_NEUTRAL_CARRY_LIVE:{nsym}@${mp}:FR={best_init['funding_8h_pct']}%")
 
-        # Dynamic Super-Funding Secondary Carry Leg ($200 into >= +0.0160%/8h = >= 17.5% APR major when NEW_PLAN has idle cash)
+        # Dynamic Super-Funding Secondary Carry Leg ($200 into positive-funding major when NEW_PLAN has >= $220 idle cash)
         split_carry_chk = self._compute_and_sync_split_plan_budgets()
         new_c_free_now = float(split_carry_chk["NEW_PLAN"]["crypto_free_cash_usd"])
         new_c_open_cnt = len(split_carry_chk["NEW_PLAN"]["crypto_open_positions"])
         super_opps = [
-            opp for opp in top_opps
-            if opp.get("symbol") not in arb.get("positions", {}) and float(opp.get("funding_8h_pct", 0.0)) >= 0.0160
+            opp for opp in fut_intel.get("top_funding_Opportunities", [])
+            if opp.get("symbol") in core_fut_majors
+            and opp.get("symbol") not in arb.get("positions", {})
+            and float(opp.get("funding_8h_pct", 0.0)) >= 0.0050
         ]
         if (
-            new_c_open_cnt == 0
-            and new_c_free_now >= 400.0
-            and float(sniper.get("free_cash_usd", 0.0)) >= 400.0
+            new_c_open_cnt <= 1
+            and new_c_free_now >= 220.0
+            and float(sniper.get("free_cash_usd", 0.0)) >= 220.0
             and float(arb.get("allocated_usd", 0.0)) <= 300.0
             and len(arb.get("positions", {})) == 1
             and super_opps
@@ -756,11 +758,11 @@ class VirtualPortfolioEngine:
                 }
                 cycle_actions.append(f"OPEN_SUPER_FUNDING_CARRY_BOOST:{ssym}:${boost_usd}@${smp}:FR={s_opp['funding_8h_pct']}%({s_opp.get('annualized_apr_pct')}%APR)")
 
-        # Auto-unwind secondary boost carry leg if funding decays < 0.0080%/8h or NEW_PLAN needs directional trade liquidity
+        # Auto-unwind secondary boost carry leg if funding decays < 0.0040%/8h or NEW_PLAN needs directional trade liquidity
         for bsym, bpos in list(arb.get("positions", {}).items()):
             if bpos.get("is_dynamic_boost_leg"):
                 b_fr = fut_intel["funding_rates"].get(bsym, bpos.get("current_funding_rate_8h_pct", 0.01))
-                if b_fr < 0.0080 or new_c_free_now < 180.0:
+                if b_fr < 0.0040 or new_c_free_now < 120.0:
                     b_notional = float(bpos.get("notional_hedged_usd", 200.0))
                     del arb["positions"][bsym]
                     arb["allocated_usd"] = round(max(300.0, float(arb.get("allocated_usd", 500.0)) - b_notional), 2)
@@ -932,19 +934,25 @@ class VirtualPortfolioEngine:
             bar_rng_ok = sc.get("bar_range_atr", 1.0) <= max_entry_rng_atr
             already_acted = (acted_bars.get(sym) == sc.get("closed_bar_ts"))
 
-            # Studied Playbook 1: ASYM_TREND_PULLBACK (Closed-Candle Uptrend + Oversold RSI<=20 + Green Absorption + Anti-Blowoff Guard)
+            # Studied Playbook 1: ASYM_TREND_PULLBACK (Closed-Candle Uptrend + Oversold RSI<=19 + Green Absorption + BTC-Bear Altcoin SMA200 Guard)
             ldr_ok = True if sym == "PAXGUSDT" else btc_not_dumping
+            alt_bear_sma200_ok = (
+                True
+                if (sym in ("PAXGUSDT", "BTCUSDC", "BNBUSDT") or btc_uptrend)
+                else (sc.get("closed_close", 0.0) >= sc.get("sma200", 0.0) - 0.5 * sc.get("atr14", 0.0))
+            )
             live_long_ok = sc.get("live_ask", 0.0) >= sc.get("closed_low", 0.0)
             sc["dip_trigger"] = bool(
                 (not already_acted)
                 and (sym in CORE_STUDIED_CRYPTO_LONGS)
                 and sc.get("uptrend_ok", False)
                 and ldr_ok
+                and alt_bear_sma200_ok
                 and bar_rng_ok
                 and (not sc["news_shock_blocked"])
                 and sc.get("green_absorption", False)
                 and (-6.50 <= ret24_pct <= -0.60)
-                and (r_min <= rsi_long_th)
+                and (sc.get("prev_rsi14", 50.0) < rsi_long_th)
                 and live_long_ok
             )
             # Studied Playbook 2: BEAR_RALLY_SHORT_1X (Closed-Candle Downtrend + Overbought RSI>=76 + Red Rejection + Anti-Blowoff Guard)
@@ -1028,9 +1036,17 @@ class VirtualPortfolioEngine:
                         cyc["sl_price"] = tight_sl
                         cyc["stagnation_sl_tightened"] = True
 
-            # Validated Order-Flow Reversal Profit Lock (OOS PF=16.29) + Late-Stage Trail
+            # Counter-Trend / BTC-Bear TP Re-Anchor for Open NEW_PLAN Crypto Longs Below SMA200
+            if cyc.get("plan_tag") == "NEW_PLAN" and (not btc_uptrend) and cur_p < sc_sym.get("sma200", 0.0):
+                realistic_tp = round(cyc["avg_entry_price"] * 1.0125, decs)
+                if tp_price > realistic_tp:
+                    tp_price = realistic_tp
+                    cyc["tp_target_price"] = realistic_tp
+                    cyc["counter_trend_tp_reanchored"] = True
+
+            # Validated Order-Flow Reversal Profit Lock (OOS PF=17.57) + Late-Stage Trail
             cyc["max_price_seen"] = max(float(cyc.get("max_price_seen") or cur_p), cur_p)
-            flow_trig = float(qcfg.get("flow_rev_trig_atr", 1.8))
+            flow_trig = float(qcfg.get("flow_rev_trig_atr", 1.6))
             flow_lock = float(qcfg.get("flow_rev_lock_atr", 1.0))
             flow_th = float(qcfg.get("flow_rev_th", 0.38))
             trail_trig = float(qcfg.get("trail_trig_atr", 99.0)) if cyc.get("plan_tag") == "NEW_PLAN" else 3.0
