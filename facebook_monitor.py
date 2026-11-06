@@ -410,6 +410,8 @@ def main():
     for acc_key, acc_cfg in fb.AD_ACCOUNTS.items():
         aid = acc_cfg["id"]
         aname = acc_cfg["name"]
+        if aid in getattr(fb, "RETIRED_PERSONAL_FB_ACCOUNTS", {"act_2031165734260288", "2031165734260288"}) or acc_key == "personal" or "isabel" in aname.lower():
+            continue
         try:
             def _fb_get_retry(path, params):
                 for _att in range(4):
