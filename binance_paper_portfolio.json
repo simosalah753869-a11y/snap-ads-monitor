@@ -1,8 +1,8 @@
 {
   "started_at_utc": "2026-11-02T16:48:48Z",
   "started_at_ms": 1793638128171,
-  "last_updated_utc": "2026-11-06T22:49:29Z",
-  "last_updated_ms": 1794005369924,
+  "last_updated_utc": "2026-11-06T22:49:44Z",
+  "last_updated_ms": 1794005384383,
   "initial_capital_usd": 2000.0,
   "macro_news_shield": {
     "active": true,
@@ -19,7 +19,7 @@
     "entry_fees_paid_usd": 0.3,
     "funding_collected_usd": 0.3517,
     "funding_events_count": 13,
-    "last_funding_check_ms": 1794005369924,
+    "last_funding_check_ms": 1794005384383,
     "positions": {},
     "plan_tag": "NEW_PLAN"
   },
@@ -707,7 +707,7 @@
         "total_qty": 1332.666667,
         "tp_target_price": 0.189844,
         "sl_price": 0.179062,
-        "hours_held": 31.5,
+        "hours_held": 31.6,
         "current_price": 0.1857,
         "unrealized_pnl_usd": -2.52,
         "dist_to_sl_pct": 3.57,
@@ -862,9 +862,9 @@
       "stat_arb_short_trigger": false
     },
     "SOLUSDT": {
-      "price": 90.215,
-      "live_bid": 90.21,
-      "live_ask": 90.22,
+      "price": 90.195,
+      "live_bid": 90.19,
+      "live_ask": 90.2,
       "closed_bar_ts": 1793998800000,
       "closed_close": 90.36,
       "closed_high": 90.37,
@@ -1047,9 +1047,9 @@
       "stat_arb_short_trigger": false
     },
     "SUIUSDT": {
-      "price": 0.87085,
-      "live_bid": 0.8708,
-      "live_ask": 0.8709,
+      "price": 0.87095,
+      "live_bid": 0.8709,
+      "live_ask": 0.871,
       "closed_bar_ts": 1793998800000,
       "closed_close": 0.8735,
       "closed_high": 0.8761,
@@ -1084,9 +1084,9 @@
       "stat_arb_short_trigger": false
     },
     "LINKUSDT": {
-      "price": 10.8945,
-      "live_bid": 10.894,
-      "live_ask": 10.895,
+      "price": 10.8955,
+      "live_bid": 10.895,
+      "live_ask": 10.896,
       "closed_bar_ts": 1793998800000,
       "closed_close": 10.937,
       "closed_high": 10.939,
@@ -1162,11 +1162,11 @@
   "net_pnl_usd": -1029.17,
   "engine4_us_stocks": {
     "started_at_utc": "2026-11-02T16:48:48Z",
-    "last_updated_ms": 1794005369924,
+    "last_updated_ms": 1794005384383,
     "initial_capital_usd": 3000.0,
     "free_cash_usd": 34.25,
     "treasury_yield_apr_pct": 4.5,
-    "accrued_treasury_yield_usd": 0.42233,
+    "accrued_treasury_yield_usd": 0.42234,
     "realized_pnl_usd": 9.02,
     "cycles_won": 8,
     "cycles_stopped": 12,
@@ -2124,8 +2124,8 @@
     }
   },
   "last_cycle_delta": {
-    "timestamp_utc": "2026-11-06T22:49:29Z",
-    "equity_before_usd": 972.39,
+    "timestamp_utc": "2026-11-06T22:49:44Z",
+    "equity_before_usd": 970.01,
     "equity_after_usd": 970.83,
     "realized_pnl_before_usd": -38.07,
     "realized_pnl_after_usd": -38.07,
