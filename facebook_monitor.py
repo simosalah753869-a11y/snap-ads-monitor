@@ -285,36 +285,8 @@ SHARED_CAMPAIGN_UTMS = {"fb_car_test_10usd", "fb_car_test", "facebook", "paid"}
 
 
 def extract_ad_utm_keys(ad_obj: dict) -> list[str]:
-    """Extracts ONLY unique ad/video-specific UTM identifiers (never shared campaign-wide UTMs), including normalized underscore variants (e.g. carmz07 <-> fb_usa_car_carmz_07)."""
+    """Extracts ONLY unique Facebook-specific ad/video UTM campaign identifiers (strictly fb_* prefix; never bare pbmz_XX / carmz_XX which belong to Google Ads)."""
     keys = set()
-    ad_name = (ad_obj.get("name") or "").strip().lower()
-    if ad_name:
-        keys.add(ad_name)
-        for token in re.split(r"[^a-z0-9_]+", ad_name):
-            if len(token) >= 5 and token not in ("winner", "creative", "multi5h") and token not in SHARED_CAMPAIGN_UTMS:
-                keys.add(token)
-                # Match carmz07 <-> carmz_07 / fb_usa_car_carmz_07 / fb_pb_pbmz08
-                m = re.match(r"^([a-z]+)_?(\d+)$", token)
-                if m:
-                    prefix, digits = m.group(1), m.group(2)
-                    no_us = f"{prefix}{digits}"
-                    with_us = f"{prefix}_{digits}"
-                    keys.update({
-                        no_us,
-                        with_us,
-                        f"fb_pb_{no_us}",
-                        f"fb_pb_{with_us}",
-                        f"fb_car_{no_us}",
-                        f"fb_car_{with_us}",
-                        f"fb_usa_pb_{no_us}",
-                        f"fb_usa_pb_{with_us}",
-                        f"fb_usa_car_{no_us}",
-                        f"fb_usa_car_{with_us}",
-                        f"fb_test_pb_{no_us}",
-                        f"fb_test_pb_{with_us}",
-                        f"fb_test_car_{no_us}",
-                        f"fb_test_car_{with_us}",
-                    })
     creative = ad_obj.get("creative") or {}
     oss = creative.get("object_story_spec") or {}
     vdata = oss.get("video_data") or {}
@@ -322,11 +294,32 @@ def extract_ad_utm_keys(ad_obj: dict) -> list[str]:
     link = cta.get("link") or ""
     if link and "?" in link:
         qs = urllib.parse.parse_qs(link.split("?", 1)[1])
-        for k in ("utm_content", "utm_campaign"):
-            for v in qs.get(k, []):
-                val = (v or "").strip().lower()
-                if val and val not in SHARED_CAMPAIGN_UTMS:
-                    keys.add(val)
+        for v in qs.get("utm_campaign", []):
+            val = (v or "").strip().lower()
+            if val and val not in SHARED_CAMPAIGN_UTMS and val.startswith("fb_"):
+                keys.add(val)
+    ad_name = (ad_obj.get("name") or "").strip().lower()
+    if ad_name:
+        for token in re.split(r"[^a-z0-9_]+", ad_name):
+            m = re.match(r"^([a-z]+)_?(\d+)$", token)
+            if m and m.group(1) in ("pbmz", "carmz", "pbwt", "wh", "dr", "bw"):
+                prefix, digits = m.group(1), m.group(2)
+                no_us = f"{prefix}{digits}"
+                with_us = f"{prefix}_{digits}"
+                keys.update({
+                    f"fb_pb_{no_us}",
+                    f"fb_pb_{with_us}",
+                    f"fb_car_{no_us}",
+                    f"fb_car_{with_us}",
+                    f"fb_usa_pb_{no_us}",
+                    f"fb_usa_pb_{with_us}",
+                    f"fb_usa_car_{no_us}",
+                    f"fb_usa_car_{with_us}",
+                    f"fb_test_pb_{no_us}",
+                    f"fb_test_pb_{with_us}",
+                    f"fb_test_car_{no_us}",
+                    f"fb_test_car_{with_us}",
+                })
     return list(keys)
 
 
@@ -380,8 +373,6 @@ def main():
     pending_updates = [
         ("52542228452250", {"daily_budget": "8000", "name": "سكيل - SA - Car Armrest Cushion - 3 Winners ($80)"}, "رفع بدجت حملة سكيل وسادة السيارة الهولندية إلى $80/يوم"),
         ("52542620865650", {"name": "سكيل - SA - Power Bank 4in1 - 3 Winners ($30)"}, "تسمية حملة سكيل الباور بانك الهولندية"),
-        ("120247881183330658", {"daily_budget": "5000", "name": "SA - Power Bank 4in1 - Untested Batch 2 ($50)"}, "رفع بدجت حملة الباور بانك Untested Batch 2 إلى $50/يوم"),
-        ("120247859287340658", {"status": "PAUSED"}, "إيقاف حملة SA - Power Bank 4in1 - USA 3 Winners ($30)"),
     ]
     for obj_id, payload, desc in pending_updates:
         try:
@@ -651,6 +642,8 @@ def main():
                 if ad_pause_reason:
                     if dry_run:
                         print(f"      🔍 [DRY-RUN] سيتم إيقاف إعلان فيسبوك '{ad_name}' ({ad_id}): {ad_pause_reason}")
+                    elif acc_info.get("account_status") != 1:
+                        print(f"      ⏳ [مجدول فور تفعيل الحساب] إيقاف إعلان '{ad_name}' ({ad_id}): {ad_pause_reason}")
                     else:
                         ok, resp = fb_post_status(tok, ad_id, "PAUSED")
                         act_txt = f"إيقاف إعلان فيسبوك '{ad_name}' ({ad_id}) في '{cname}': {ad_pause_reason} -> {'نجح ✅' if ok else f'فشل ⚠️ {resp}'}"
@@ -720,6 +713,8 @@ def main():
             if camp_pause_reason:
                 if dry_run:
                     print(f"    🔍 [DRY-RUN] سيتم إيقاف حملة فيسبوك '{cname}' ({cid}): {camp_pause_reason}")
+                elif acc_info.get("account_status") != 1:
+                    print(f"    ⏳ [مجدول فور تفعيل الحساب] إيقاف حملة '{cname}' ({cid}): {camp_pause_reason}")
                 else:
                     ok, resp = fb_post_status(tok, cid, "PAUSED")
                     act_txt = f"إيقاف حملة فيسبوك '{cname}' ({cid}): {camp_pause_reason} -> {'نجح ✅' if ok else f'فشل ⚠️ {resp}'}"
