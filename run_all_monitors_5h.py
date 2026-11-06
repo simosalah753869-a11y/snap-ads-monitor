@@ -901,11 +901,11 @@ def run_proactive_sales_scaling(sales_3d: dict, sales_today: dict):
 def find_open_adspower_ports():
     """Connects exclusively to local Chrome profiles on the same computer (ports 9241 / 9242) — ZERO AdsPower usage."""
     ports = []
-    for prof_lbl, port in [("local_gads_0_9341", 9341), ("local_gads_0_9238", 9238), ("local_gads_0_9272", 9272), ("local_gads_1_k1dh2jyf", 9241), ("local_gads_2_k1cekgik", 9242)]:
+    for prof_lbl, port in [("local_gads_0_9341", 9341), ("local_gads_0_9248", 9248), ("local_gads_0_9238", 9238), ("local_gads_0_9272", 9272), ("local_gads_1_k1dh2jyf", 9241), ("local_gads_2_k1cekgik", 9242)]:
         try:
             tabs = json.loads(urllib.request.urlopen(f"http://127.0.0.1:{port}/json/list", timeout=2.0).read().decode("utf-8"))
             page_tabs = [t for t in tabs if t.get("type") == "page"]
-            has_logged_in_gads = any("ads.google.com/aw/" in (t.get("url") or "") and "accounts.google.com" not in (t.get("url") or "") for t in page_tabs)
+            has_logged_in_gads = any(("ads.google.com/aw/" in (t.get("url") or "") or "accounts.google.com" in (t.get("url") or "")) for t in page_tabs)
             if has_logged_in_gads:
                 # Detect which account(s) are open on this port
                 matched_any = False
