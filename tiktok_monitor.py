@@ -107,25 +107,36 @@ socket.getaddrinfo = _doh_getaddrinfo
 BASE_DIR = Path(__file__).resolve().parent
 
 COOKIES_FILE = BASE_DIR / "tiktok_cookies.json"
-
+NEW_4_COOKIES_FILE = BASE_DIR / "tiktok_new_4_cookies.json"
 HISTORY_FILE = BASE_DIR / "paused_history.json"
 
+OLD_6_TIKTOK_AADVIDS = {
+    "7615303174180814849",
+    "7462914566645694480",
+    "7649010597308301332",
+    "7631763556322148369",
+    "7631765139798081554",
+    "7631765070816509959",
+}
 
+NEW_4_TIKTOK_AADVIDS = {
+    "7676560890858356737",
+    "7676562721130676240",
+    "7676563747497066512",
+    "7676564656949002257",
+}
 
 ACCOUNTS = [
-
     ("1035 Susan LLC0309", "7615303174180814849", -4),
-
     ("CN-Manzilk", "7462914566645694480", 1),
-
     ("Otyss - Ma - 138", "7649010597308301332", 3),
-
     ("ROELLINGER RECYCLING", "7631763556322148369", 2),
-
     ("ROELLINGER RECYCLING1", "7631765139798081554", 2),
-
     ("ROELLINGER RECYCLING2", "7631765070816509959", 2),
-
+    ("Das Leben Ist Schön0821", "7676560890858356737", 1),
+    ("Kentucky Fried Chicken0821404", "7676562721130676240", 1),
+    ("thesmashburgertruck0821", "7676563747497066512", 1),
+    ("5 Way Asia Food Frankfurt0821", "7676564656949002257", 1),
 ]
 
 
@@ -661,84 +672,86 @@ def sum_sheet_utm_window(sheet_by_day: dict, utm_keys: list[str], st_date: str, 
 
 
 
-def build_session(cookies_raw):
+def _load_new_4_cookies_map() -> dict:
+    env_new4 = os.environ.get("TIKTOK_NEW_4_COOKIES_JSON", "").strip()
+    if env_new4:
+        try:
+            d = json.loads(env_new4)
+            if isinstance(d, dict):
+                return d
+        except Exception:
+            pass
+    if NEW_4_COOKIES_FILE.exists():
+        try:
+            d = json.loads(NEW_4_COOKIES_FILE.read_text(encoding="utf-8-sig"))
+            if isinstance(d, dict):
+                return d
+        except Exception:
+            pass
+    return {}
 
-    s = requests.Session()
 
+def _build_single_cookie_session(cookies_list):
+    s_sub = requests.Session()
     retry = Retry(
-
         total=3,
-
         backoff_factor=1.0,
-
         status_forcelist=[429, 500, 502, 503, 504],
-
         allowed_methods=["GET", "POST"],
-
     )
-
     adapter = HTTPAdapter(max_retries=retry)
+    s_sub.mount("https://", adapter)
+    s_sub.mount("http://", adapter)
+    csrf_sub = ""
+    for c in (cookies_list or []):
+        s_sub.cookies.set(c["name"], c["value"], domain=c.get("domain", ".tiktok.com"))
+        if c["name"] == "csrftoken":
+            if "ads.tiktok.com" in c.get("domain", "") or not csrf_sub:
+                csrf_sub = c["value"]
+    return s_sub, csrf_sub
 
-    s.mount("https://", adapter)
 
-    s.mount("http://", adapter)
-
-
+def build_session(cookies_raw):
+    s, csrf = _build_single_cookie_session(cookies_raw)
+    new4_map_raw = _load_new_4_cookies_map()
+    per_acc_sessions = {}
+    for acc_id, c_list in new4_map_raw.items():
+        if isinstance(c_list, list) and c_list:
+            per_acc_sessions[str(acc_id)] = _build_single_cookie_session(c_list)
 
     _orig_request = s.request
 
     def _resilient_request(method, url, **kwargs):
-
+        req_fn = _orig_request
+        m_aadv = re.search(r"aadvid=(\d+)", str(url or ""))
+        if m_aadv:
+            aid_k = m_aadv.group(1)
+            if aid_k in per_acc_sessions:
+                sub_s, sub_csrf = per_acc_sessions[aid_k]
+                req_fn = sub_s.request
+                hdrs = dict(kwargs.get("headers") or {})
+                if sub_csrf:
+                    hdrs["x-csrftoken"] = sub_csrf
+                kwargs["headers"] = hdrs
         last_exc = None
-
         for attempt in range(3):
-
             try:
-
-                return _orig_request(method, url, **kwargs)
-
+                return req_fn(method, url, **kwargs)
             except Exception as exc:
-
                 last_exc = exc
-
                 if attempt < 2:
-
                     time.sleep(1.5 * (attempt + 1))
-
         raise last_exc
 
     s.request = _resilient_request
 
-
-
-    csrf = ""
-
-    for c in cookies_raw:
-
-        s.cookies.set(c["name"], c["value"], domain=c.get("domain", ".tiktok.com"))
-
-        if c["name"] == "csrftoken":
-
-            if "ads.tiktok.com" in c.get("domain", "") or not csrf:
-
-                csrf = c["value"]
-
-
-
     headers = {
-
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36",
-
         "Accept": "application/json, text/plain, */*",
-
         "Content-Type": "application/json",
-
         "Origin": "https://ads.tiktok.com",
-
         "x-csrftoken": csrf,
-
     }
-
     return s, headers
 
 
@@ -769,20 +782,14 @@ def is_cross_monitored_product_campaign(campaign_name: str, video_name: str = ""
 
 
 
-def is_shutoff_pillow_campaign_tt(campaign_name: str, video_name: str = "") -> bool:
-
-    """بأمر المستخدم الصارم (2026-11-05): إيقاف جميع حملات الوسادة كلها في سناب شات وتيك توك وغوغل أدز كاملة بدون استثناء."""
-
+def is_shutoff_pillow_campaign_tt(campaign_name: str, video_name: str = "", aadvid: str = "") -> bool:
+    """إيقاف حملات وسادة النوم (18186 / pillow) ومايباخ، مع السماح بحملات وسادة تكاية السيارة (car armrest) المعتمدة في الحسابات الجديدة."""
     combined = f"{campaign_name or ''} {video_name or ''}".lower()
-
-    if any(k in combined for k in ("وسادة", "وساده", "وسائد", "تكاية", "تكايه", "مسند", "cushion", "pillow", "armrest", "carmz", "18186", "19355", "21088", "maybach")):
-
+    if any(k in combined for k in ("pillow", "18186", "19355", "21088", "maybach", "مايباخ", "وسادة نوم")):
         return True
-
-    if combined.startswith("car ") or " car " in f" {combined} " or "car_" in combined or "car-" in combined:
-
-        return True
-
+    if str(aadvid) in OLD_6_TIKTOK_AADVIDS:
+        if any(k in combined for k in ("وسادة", "وساده", "وسائد", "تكاية", "تكايه", "مسند", "cushion", "armrest", "carmz")) or combined.startswith("car ") or " car " in f" {combined} ":
+            return True
     return False
 
 
@@ -1018,7 +1025,7 @@ def fetch_campaigns(session, headers, aadvid, st_date, et_date):
 
 
 
-SHUTOFF_CURRENT_6_TIKTOK_AADVIDS = set()
+SHUTOFF_CURRENT_6_TIKTOK_AADVIDS = set(OLD_6_TIKTOK_AADVIDS)
 
 
 def pause_campaign(session, headers, aadvid, campaign_id, operation="disable"):
@@ -2154,7 +2161,7 @@ def main():
         for c_rev_cand in camps_3d:
             cid_rc = str(c_rev_cand.get("campaign_id") or (c_rev_cand.get("row_data") or {}).get("campaign_id") or "")
             cname_rc = str(c_rev_cand.get("campaign_name") or (c_rev_cand.get("row_data") or {}).get("campaign_name") or "")
-            if not cid_rc or is_shutoff_pillow_campaign_tt(cname_rc) or is_shutoff_kw_qa_om_campaign_tt(cname_rc) or is_cross_monitored_product_campaign(cname_rc):
+            if not cid_rc or is_shutoff_pillow_campaign_tt(cname_rc, aadvid=str(aadvid)) or is_shutoff_kw_qa_om_campaign_tt(cname_rc) or is_cross_monitored_product_campaign(cname_rc):
                 continue
             tp_k_rc = extract_taager_product_key_tt(cname_rc)
             if tp_k_rc and (tp_k_rc in (history.get("taager_failed_products") or {}) or f"{aadvid}:{tp_k_rc}" in (history.get("taager_failed_products") or {})):
@@ -2280,7 +2287,7 @@ def main():
 
             camp_name = c3.get("campaign_name") or "Campaign"
 
-            if str(aadvid) in SHUTOFF_CURRENT_6_TIKTOK_AADVIDS or is_shutoff_pillow_campaign_tt(camp_name) or is_cross_monitored_product_campaign(camp_name):
+            if str(aadvid) in SHUTOFF_CURRENT_6_TIKTOK_AADVIDS or is_shutoff_pillow_campaign_tt(camp_name, aadvid=str(aadvid)) or is_cross_monitored_product_campaign(camp_name):
 
                 ok_new_p, _ = pause_campaign(session, headers, aadvid, camp_id, operation="disable")
 
@@ -2316,7 +2323,7 @@ def main():
 
             )
 
-            if non_target_cost_adsets:
+            if non_target_cost_adsets and str(aadvid) not in NEW_4_TIKTOK_AADVIDS:
 
                 try:
 
@@ -2348,7 +2355,7 @@ def main():
 
                     pass
 
-            if non_target_cost_adsets:
+            if non_target_cost_adsets and str(aadvid) not in NEW_4_TIKTOK_AADVIDS:
 
                 ok_mb_p, _ = pause_campaign(session, headers, aadvid, camp_id, operation="disable")
 
@@ -3172,7 +3179,7 @@ def main():
 
             raw_vname = base_m.get("main_entity_name") or ""
 
-            v_key = canonical_video_name(raw_vname, str(base_m.get("main_entity_id") or k_all))
+            v_key = ("new4:" if str(aadvid) in NEW_4_TIKTOK_AADVIDS else "old6:") + canonical_video_name(raw_vname, str(base_m.get("main_entity_id") or k_all))
 
 
 
@@ -3486,7 +3493,7 @@ def main():
 
             vid_name = (m3.get("main_entity_name") or "Video")[:45]
 
-            v_key_cur = canonical_video_name(m3.get("main_entity_name") or "", str(m3.get("main_entity_id") or ""))
+            v_key_cur = ("new4:" if str(aadvid) in NEW_4_TIKTOK_AADVIDS else "old6:") + canonical_video_name(m3.get("main_entity_name") or "", str(m3.get("main_entity_id") or ""))
 
             cid = str(m3.get("creative_id") or "")
 
@@ -4063,7 +4070,7 @@ def main():
 
             inst for inst in grp["instances"]
 
-            if inst["is_active"]
+            if inst["is_active"] and (inst["spend_1d"] > 0 or inst["spend_3d"] > 0 or inst["spend_7d"] > 0)
             and not (
                 (
                     inst["hist_key"] in _prot_vids_p2
