@@ -52,6 +52,18 @@ AD_MAX_CPA_SA = 8.00                 # أي فيديو يوصل التراكمي
 AD_MAX_CPA_GULF = 12.00              # سقف سعر البيعة التراكمي للفيديو في الخليج
 CAMP_CORE_MAX_CPA = 20.00            # أي حملة سعر البيعة فيها >= $20.00 يطفيها فوراً
 
+
+def is_dedicated_fb_test_camp(cname: str, cid: str = "") -> bool:
+    """
+    حملات التيست المخصصة في فيسبوك ('تيست' / 'Facebook Test') منفصلة تماماً عن حملات السكيل:
+    - البوت لا يوقف هذه الحملات أبداً على مستوى الحملة أو المجموعة الإعلانية (مهما صرفت أو حتى لو انطفأت الفيديوهات الحالية داخلها).
+    - البوت يوقف فقط الفيديوهات (Ads) الخاسرة داخلها (CPC > $0.27 بعد $1.00 بصفر بيع | >= $9.00 بدون بيع | CPA >= $8.00).
+    """
+    if str(cid) in ("52542228452250", "52542620865650"):
+        return False  # حملات السكيل الرئيسية (Scale Campaigns)
+    cl = (cname or "").lower()
+    return ("تيست" in cl) or ("facebook test" in cl) or ("حملة تيست" in cl) or ("dedicated test" in cl)
+
 BANNED_KEYWORDS = ("kashaf", "kahsaf", "كشاف", "warmer", "مسخن", "maybach", "مايباخ")
 GULF_KEYWORDS = (
     "oman", "qatar", "qat", "bahrain", "kuwait", "kuwiat", "kwt", "uae", "emarat", "gcc", "gulf",
@@ -298,6 +310,10 @@ def extract_ad_utm_keys(ad_obj: dict) -> list[str]:
                         f"fb_usa_pb_{with_us}",
                         f"fb_usa_car_{no_us}",
                         f"fb_usa_car_{with_us}",
+                        f"fb_test_pb_{no_us}",
+                        f"fb_test_pb_{with_us}",
+                        f"fb_test_car_{no_us}",
+                        f"fb_test_car_{with_us}",
                     })
     creative = ad_obj.get("creative") or {}
     oss = creative.get("object_story_spec") or {}
@@ -362,7 +378,8 @@ def main():
 
     # Execute pending user budget/status commands automatically as soon as token is active
     pending_updates = [
-        ("52542228452250", {"daily_budget": "8000", "name": "SA - Car Armrest Cushion - Test 3 Winners ($80)"}, "رفع بدجت حملة وسادة السيارة الهولندية إلى $80/يوم"),
+        ("52542228452250", {"daily_budget": "8000", "name": "سكيل - SA - Car Armrest Cushion - 3 Winners ($80)"}, "رفع بدجت حملة سكيل وسادة السيارة الهولندية إلى $80/يوم"),
+        ("52542620865650", {"name": "سكيل - SA - Power Bank 4in1 - 3 Winners ($30)"}, "تسمية حملة سكيل الباور بانك الهولندية"),
         ("120247881183330658", {"daily_budget": "5000", "name": "SA - Power Bank 4in1 - Untested Batch 2 ($50)"}, "رفع بدجت حملة الباور بانك Untested Batch 2 إلى $50/يوم"),
         ("120247859287340658", {"status": "PAUSED"}, "إيقاف حملة SA - Power Bank 4in1 - USA 3 Winners ($30)"),
     ]
@@ -375,6 +392,14 @@ def main():
                 print(f"⚡ {desc} ({obj_id}): نجح ✅")
         except Exception:
             pass
+
+    # Auto-launch the 2 Dedicated Facebook Test Campaigns (5 Car + 5 Power Bank Proven Winners) as soon as token is active
+    if not dry_run:
+        try:
+            import launch_fb_5car_5pb_dedicated_test_campaigns as fb_test_launcher
+            fb_test_launcher.ensure_5car_5pb_test_campaigns_launched(tok)
+        except Exception as e_lnch:
+            print(f"ℹ️ انتظار فك قفل الأمان في فيسبوك لإطلاق حملتي التيست (5 وسادة + 5 باور بانك): {e_lnch}")
 
     sales_all, sales_3d, sales_today = fetch_sheet_sales()
     history = load_paused_history()
@@ -652,11 +677,24 @@ def main():
             camp_cpa_cum = round(st_cum["spend"] / camp_total_purchases_cum, 2) if camp_total_purchases_cum > 0 else None
             camp_total_purchases_1d = max(st1["purchases"], camp_sheet_sales_1d)
             camp_cpa_1d = round(st1["spend"] / camp_total_purchases_1d, 2) if camp_total_purchases_1d > 0 else None
+            is_dedicated_test = is_dedicated_fb_test_camp(cname, cid)
             is_new_test_camp = any(k in cname_low for k in ("untested", "taager", "usa 3 winners", "batch"))
             eff_camp_no_sale_max = CAMP_MIN_SPEND_BEFORE_PAUSE if is_new_test_camp else CAMP_NO_SALE_CUMULATIVE_MAX
 
             camp_pause_reason = None
-            if c_status == "ACTIVE":
+            if is_dedicated_test:
+                # قاعدة حملات التيست المخصصة (تيست / Facebook Test):
+                # البوت لا يوقف هذه الحملات أبداً على مستوى الحملة أو المجموعة الإعلانية، وإنما يوقف الفيديوهات (Ads) الخاسرة داخلها فقط!
+                print(
+                    f"    🛡️ [حماية حملة تيست مخصصة] '{cname}' ({cid}): محمية 100% من الإيقاف الكلي للحملة — الفحص والإيقاف يتم على مستوى الفيديوهات الفردية فقط ({active_ads_count}/{len(ads_list)} فيديو نشط)."
+                )
+                user_paused_fb = set((history.get("user_paused_campaigns") or {}).keys())
+                if c_status == "PAUSED" and active_ads_count > 0 and cid not in user_paused_fb and not dry_run:
+                    ok_re, resp_re = fb_post_status(tok, cid, "ACTIVE")
+                    act_re = f"إعادة تفعيل حملة التيست المخصصة '{cname}' ({cid}) تلقائياً لوجود {active_ads_count} فيديو نشط -> {'نجح ✅' if ok_re else f'فشل ⚠️ {resp_re}'}"
+                    print(f"    ♻️ {act_re}")
+                    snapshot_out["actions_taken"].append(act_re)
+            elif c_status == "ACTIVE":
                 if any(b in cname_low for b in BANNED_KEYWORDS):
                     camp_pause_reason = f"حملة منتج محظور ({cname})"
                 elif len(ads_list) > 0 and active_ads_count == 0:
