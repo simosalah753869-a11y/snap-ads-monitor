@@ -81,8 +81,8 @@
     "fa002a7f-b707-4660-b78d-cc7283d93727": {
       "name": "Qatar, Male and All ages",
       "campaign": "Copy of  kasahf smart+ qatar 3.5",
-      "reason": "[2-Day Audit] [Gulf AdSquad CPC > $0.26 after $0.80] صرفت المجموعة $0.99 بدون مبيعات | النقرات: 1 | CPC = $0.990 (> $0.26)",
-      "paused_at": "2026-11-06 13:58 GMT+3"
+      "reason": "[2-Day Audit] [Gulf AdSquad CPC > $0.26 after $0.80] صرفت المجموعة $0.97 بدون مبيعات | النقرات: 1 | CPC = $0.970 (> $0.26)",
+      "paused_at": "2026-11-06 13:34 GMT+3"
     },
     "0029bfb5-8d47-4f05-aa10-16cf61818db9": {
       "name": "مجموعة باور بانك - ماكس بيد 1.7",
@@ -2801,6 +2801,76 @@
       "adsquad": "مجموعة نخبة الباور بانك #05 - بيد 2.4",
       "reason": "[Global Accumulated Video High CPA 7D (7 أيام)] مجموع صرف الفيديو التراكمي على مستوى الحساب = $12.68 | المبيعات = 1 | CPA التراكمي = $12.68 (> $7.99)",
       "paused_at": "2026-11-06 13:34 GMT+3"
+    },
+    "11ad8cdd-bf17-4f63-9bd8-50f1f20b76af": {
+      "name": "PB_v7_Hist64_mfae396 [H1]",
+      "campaign": "باور بانك وينر نخبة #01 (5 أدست) - بيد 2.4",
+      "adsquad": "مجموعة نخبة الباور بانك #01 - بيد 2.4",
+      "reason": "[Global Accumulated Video High CPA 3D (آخر 3 أيام)] مجموع صرف الفيديو التراكمي على مستوى الحساب = $17.40 | المبيعات = 2 | CPA التراكمي = $8.70 (> $7.99)",
+      "paused_at": "2026-11-06 14:20 GMT+3"
+    },
+    "14dd5705-12e4-44cd-8a4c-16cb1e4f5832": {
+      "name": "PB_v7_Hist64_mfae396 [H1]",
+      "campaign": "باور بانك وينر نخبة #02 (5 أدست) - بيد 2.4",
+      "adsquad": "مجموعة نخبة الباور بانك #04 - بيد 2.4",
+      "reason": "[Global Accumulated Video High CPA 3D (آخر 3 أيام)] مجموع صرف الفيديو التراكمي على مستوى الحساب = $17.40 | المبيعات = 2 | CPA التراكمي = $8.70 (> $7.99)",
+      "paused_at": "2026-11-06 14:20 GMT+3"
+    },
+    "1dea4a4e-6ad2-4384-889d-c1e7212d214d": {
+      "name": "PB_v7_Hist64_mfae396 [H1]",
+      "campaign": "باور بانك وينر نخبة #01 (5 أدست) - بيد 2.4",
+      "adsquad": "مجموعة نخبة الباور بانك #02 - بيد 2.4",
+      "reason": "[Global Accumulated Video High CPA 3D (آخر 3 أيام)] مجموع صرف الفيديو التراكمي على مستوى الحساب = $17.40 | المبيعات = 2 | CPA التراكمي = $8.70 (> $7.99)",
+      "paused_at": "2026-11-06 14:20 GMT+3"
+    },
+    "34dd876b-8f43-4521-a665-842c5c070b66": {
+      "name": "PB_v7_Hist64_mfae396 [H1]",
+      "campaign": "باور بانك وينر نخبة #02 (5 أدست) - بيد 2.4",
+      "adsquad": "مجموعة نخبة الباور بانك #02 - بيد 2.4",
+      "reason": "[Global Accumulated Video High CPA 3D (آخر 3 أيام)] مجموع صرف الفيديو التراكمي على مستوى الحساب = $17.40 | المبيعات = 2 | CPA التراكمي = $8.70 (> $7.99)",
+      "paused_at": "2026-11-06 14:20 GMT+3"
+    },
+    "4c7de18d-d8ae-41ae-8f7d-eca0ae1a4b15": {
+      "name": "PB_v7_Hist64_mfae396 [H1]",
+      "campaign": "باور بانك وينر نخبة #02 (5 أدست) - بيد 2.4",
+      "adsquad": "مجموعة نخبة الباور بانك #01 - بيد 2.4",
+      "reason": "[Global Accumulated Video High CPA 3D (آخر 3 أيام)] مجموع صرف الفيديو التراكمي على مستوى الحساب = $17.40 | المبيعات = 2 | CPA التراكمي = $8.70 (> $7.99)",
+      "paused_at": "2026-11-06 14:20 GMT+3"
+    },
+    "5d682b96-3602-4356-9753-17e1da9a2ad6": {
+      "name": "PB_v7_Hist64_mfae396 [H1]",
+      "campaign": "باور بانك وينر نخبة #02 (5 أدست) - بيد 2.4",
+      "adsquad": "مجموعة نخبة الباور بانك #05 - بيد 2.4",
+      "reason": "[Global Accumulated Video High CPA 3D (آخر 3 أيام)] مجموع صرف الفيديو التراكمي على مستوى الحساب = $17.40 | المبيعات = 2 | CPA التراكمي = $8.70 (> $7.99)",
+      "paused_at": "2026-11-06 14:20 GMT+3"
+    },
+    "8f023662-22d8-41c7-83c6-eafac19ffdea": {
+      "name": "PB_v7_Hist64_mfae396 [H1]",
+      "campaign": "باور بانك وينر نخبة #01 (5 أدست) - بيد 2.4",
+      "adsquad": "مجموعة نخبة الباور بانك #03 - بيد 2.4",
+      "reason": "[Global Accumulated Video High CPA 3D (آخر 3 أيام)] مجموع صرف الفيديو التراكمي على مستوى الحساب = $17.40 | المبيعات = 2 | CPA التراكمي = $8.70 (> $7.99)",
+      "paused_at": "2026-11-06 14:20 GMT+3"
+    },
+    "b429b1a3-0f0d-4073-b6fa-0fa8cbf87418": {
+      "name": "PB_v7_Hist64_mfae396 [H1]",
+      "campaign": "باور بانك وينر نخبة #01 (5 أدست) - بيد 2.4",
+      "adsquad": "مجموعة نخبة الباور بانك #05 - بيد 2.4",
+      "reason": "[Global Accumulated Video High CPA 3D (آخر 3 أيام)] مجموع صرف الفيديو التراكمي على مستوى الحساب = $17.40 | المبيعات = 2 | CPA التراكمي = $8.70 (> $7.99)",
+      "paused_at": "2026-11-06 14:20 GMT+3"
+    },
+    "bc13f78e-cf0b-419f-b4e9-08a29a623456": {
+      "name": "PB_v7_Hist64_mfae396 [H1]",
+      "campaign": "باور بانك وينر نخبة #01 (5 أدست) - بيد 2.4",
+      "adsquad": "مجموعة نخبة الباور بانك #04 - بيد 2.4",
+      "reason": "[Global Accumulated Video High CPA 3D (آخر 3 أيام)] مجموع صرف الفيديو التراكمي على مستوى الحساب = $17.40 | المبيعات = 2 | CPA التراكمي = $8.70 (> $7.99)",
+      "paused_at": "2026-11-06 14:20 GMT+3"
+    },
+    "fd1475ef-4223-4be6-b1ac-7525080ce8cf": {
+      "name": "PB_v7_Hist64_mfae396 [H1]",
+      "campaign": "باور بانك وينر نخبة #02 (5 أدست) - بيد 2.4",
+      "adsquad": "مجموعة نخبة الباور بانك #03 - بيد 2.4",
+      "reason": "[Global Accumulated Video High CPA 3D (آخر 3 أيام)] مجموع صرف الفيديو التراكمي على مستوى الحساب = $17.40 | المبيعات = 2 | CPA التراكمي = $8.70 (> $7.99)",
+      "paused_at": "2026-11-06 14:20 GMT+3"
     }
   },
   "bid_bumps": {
@@ -9793,6 +9863,28 @@
       "total_purchases": 1,
       "reason": "[Global Accumulated Video High CPA 7D (7 أيام)] مجموع صرف الفيديو التراكمي على مستوى الحساب = $12.68 | المبيعات = 1 | CPA التراكمي = $12.68 (> $7.99)",
       "disabled_at": "2026-11-06 13:34 GMT+3"
+    },
+    "c0ce83d6-e40e-4455-a845-87a6b08ef1c3:MEDIA:fae396e6-c536-43a5-a207-7af64945a4e5": {
+      "campaign_id": "c0ce83d6-e40e-4455-a845-87a6b08ef1c3",
+      "campaign_name": "باور بانك وينر نخبة #01 (5 أدست) - بيد 2.4",
+      "video_media_id": "fae396e6-c536-43a5-a207-7af64945a4e5",
+      "sample_ad_name": "PB_v7_Hist64_mfae396",
+      "closed_instances": 1,
+      "total_spend": 19.33,
+      "total_purchases": 3,
+      "reason": "[Global Accumulated Video High CPA 3D (آخر 3 أيام)] مجموع صرف الفيديو التراكمي على مستوى الحساب = $17.40 | المبيعات = 2 | CPA التراكمي = $8.70 (> $7.99)",
+      "disabled_at": "2026-11-06 14:20 GMT+3"
+    },
+    "40c0ffaa-8892-43a1-b246-983f5e370dd6:MEDIA:fae396e6-c536-43a5-a207-7af64945a4e5": {
+      "campaign_id": "40c0ffaa-8892-43a1-b246-983f5e370dd6",
+      "campaign_name": "باور بانك وينر نخبة #02 (5 أدست) - بيد 2.4",
+      "video_media_id": "fae396e6-c536-43a5-a207-7af64945a4e5",
+      "sample_ad_name": "PB_v7_Hist64_mfae396",
+      "closed_instances": 1,
+      "total_spend": 19.33,
+      "total_purchases": 3,
+      "reason": "[Global Accumulated Video High CPA 3D (آخر 3 أيام)] مجموع صرف الفيديو التراكمي على مستوى الحساب = $17.40 | المبيعات = 2 | CPA التراكمي = $8.70 (> $7.99)",
+      "disabled_at": "2026-11-06 14:20 GMT+3"
     }
   },
   "snap_3h_budget_scale": {
@@ -10035,81 +10127,32 @@
     "29891f22-e046-4cc8-b9ee-9921d2d65f0b": {
       "name": "مسخن الرضاعات اللاسلكي 22-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-11-06 13:58 GMT+3"
+      "updated_at": "2026-11-06 14:17 GMT+3"
     },
     "4eefa50f-9008-4aea-b159-d370150b60cf": {
       "name": "صندوق دفاتر TIME X 21-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-11-06 13:58 GMT+3"
+      "updated_at": "2026-11-06 14:17 GMT+3"
     },
     "a171c141-a6d5-403e-8357-5c8f6c01bce0": {
       "name": "وسادة مايباخ 21-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-11-06 13:58 GMT+3"
+      "updated_at": "2026-11-06 14:17 GMT+3"
     },
     "c5a7cade-6ec3-4c47-b3a2-c5f08bcf8da0": {
       "name": "وسادة مايباخ 21-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-11-06 13:58 GMT+3"
+      "updated_at": "2026-11-06 14:17 GMT+3"
     },
     "e8f0a5e9-89c5-4c14-aabb-c9c6c657891d": {
       "name": "مسخن الرضاعات اللاسلكي 22-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-11-06 13:58 GMT+3"
+      "updated_at": "2026-11-06 14:17 GMT+3"
     },
     "f18a3bf4-148a-4f5e-baa1-f90335f1884c": {
       "name": "مسخن الرضاعات اللاسلكي 22-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-11-06 13:58 GMT+3"
-    },
-    "c5e25aa8-766e-4cea-a794-9c3c5f832d06": {
-      "name": "تيست - باور بانك",
-      "spend_3d": 10.62,
-      "purchases_3d": 0,
-      "cpa_3d": null,
-      "updated_at": "2026-11-06 13:39 GMT+3"
-    },
-    "c46290e2-62b9-450b-bf66-e921b564aba0": {
-      "name": "باور بانك وينر أ (30 أدست) - بيد 2.1 - 03-11",
-      "spend_3d": 13.82,
-      "purchases_3d": 1,
-      "cpa_3d": 13.82,
-      "updated_at": "2026-11-06 13:39 GMT+3"
-    },
-    "daf8a0fd-9e22-4e90-88ad-54a09dade4e8": {
-      "name": "باور بانك وينر نخبة #03 (5 أدست) - بيد 2.1 - 04-11",
-      "spend_3d": 13.88,
-      "purchases_3d": 1,
-      "cpa_3d": 13.88,
-      "updated_at": "2026-11-06 13:39 GMT+3"
-    },
-    "f3d40a5c-fcdc-46bd-9b9b-70abe7e1a0a2": {
-      "name": "باور بانك وينر نخبة #01 (5 أدست) - بيد 2.1 - 04-11",
-      "spend_3d": 21.38,
-      "purchases_3d": 3,
-      "cpa_3d": 7.13,
-      "updated_at": "2026-11-06 13:39 GMT+3"
-    },
-    "4ec7415b-bc77-42ae-9795-0dad4da72248": {
-      "name": "وسادة السيارة وينر نخبة #02 (5 أدست) - بيد 2.1 - 04-11",
-      "spend_3d": 11.2,
-      "purchases_3d": 0,
-      "cpa_3d": null,
-      "updated_at": "2026-11-06 13:39 GMT+3"
-    },
-    "fbb1a3c5-b922-4d47-bde8-49f40a59263b": {
-      "name": "وسادة السيارة وينر نخبة #01 (5 أدست) - بيد 2.1 - 04-11",
-      "spend_3d": 15.99,
-      "purchases_3d": 1,
-      "cpa_3d": 15.99,
-      "updated_at": "2026-11-06 13:39 GMT+3"
-    },
-    "b0a54bcf-31fb-428a-ac15-b5381b82a3b0": {
-      "name": "باور بانك وينر نخبة #02 (5 أدست) - بيد 2.1 - 04-11",
-      "spend_3d": 13.67,
-      "purchases_3d": 1,
-      "cpa_3d": 13.67,
-      "updated_at": "2026-11-06 13:39 GMT+3"
+      "updated_at": "2026-11-06 14:17 GMT+3"
     }
   },
   "user_reactivated_ads": {},
@@ -14320,7 +14363,7 @@
       "combined_sales": 1.0,
       "combined_cpa": 47.37,
       "reason": "[Taager Product Test Failed: Combined CPA >= $27 Stop] سعر البيعة المشترك للمنتج 'مبخرة الملابس المرنة 360° BW-20 (تاجر)' في الحسابات (غوغل + تيك توك) وصل إلى CPA = $47.37 (>= $27.00 | الصرف المشترك=$47.37 | المبيعات=1)",
-      "failed_at": "2026-11-06 14:06 GMT+3"
+      "failed_at": "2026-11-06 13:53 GMT+3"
     },
     "denx_20001": {
       "product_key": "denx_20001",
@@ -14329,7 +14372,7 @@
       "combined_sales": 0.0,
       "combined_cpa": null,
       "reason": "[Taager Product Test Failed: > $25 Zero-Sale Stop] مجموع صرف المنتج 'منتج تاجر (denx_20001)' في الحسابات (غوغل + تيك توك) = $25.72 (> $25.00) بدون ولا بيعة (0 مبيعات) -> المنتج فاشل",
-      "failed_at": "2026-11-06 14:06 GMT+3"
+      "failed_at": "2026-11-06 13:53 GMT+3"
     },
     "7631763556322148369:denx_20001": {
       "product_key": "denx_20001",
@@ -14511,7 +14554,7 @@
     }
   },
   "facebook_latest_summary": {
-    "updated_at": "2026-11-06 14:06:36 GMT+3",
+    "updated_at": "2026-11-06 13:47:24 GMT+3",
     "total_spend_today": 0.0,
     "total_purchases_today": 0,
     "total_spend_maximum": 0.0,
