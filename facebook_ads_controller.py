@@ -60,17 +60,11 @@ AD_ACCOUNTS = {
         "bm_name": "Shopify: 5uy7kbgk 1793331353",
         "pixel_id": "1516213130335779",
         "business_user_id": "61596066303050"
-    },
-    "personal": {
-        "id": "act_2031165734260288",
-        "account_id": "2031165734260288",
-        "name": "Isabel Van Der Sluis",
-        "bm_id": None,
-        "bm_name": "Personal Account",
-        "pixel_id": "1430250438628657",
-        "business_user_id": None
     }
+    # NOTE (2026-11-06 User Directive): حساب فيسبوك الشخصي (Isabel Van Der Sluis / act_2031165734260288 / UID 61580737875912) تم إيقاف العمل به نهائياً وللأبد
 }
+
+RETIRED_PERSONAL_FB_ACCOUNTS = {"act_2031165734260288", "2031165734260288", "61580737875912"}
 
 def open_tunnel(target_host, target_port=443, max_retries=25):
     for _ in range(max_retries):
@@ -104,7 +98,7 @@ def open_tunnel(target_host, target_port=443, max_retries=25):
 def refresh_live_token():
     ssock = open_tunnel("adsmanager.facebook.com")
     hdr_lines = [
-        "GET /adsmanager/manage/campaigns?act=2031165734260288 HTTP/1.1",
+        "GET /adsmanager/manage/campaigns?act=1164514299337955 HTTP/1.1",
         "Host: adsmanager.facebook.com",
         "Connection: keep-alive",
         "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36",
