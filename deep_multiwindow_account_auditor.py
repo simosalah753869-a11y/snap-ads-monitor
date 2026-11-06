@@ -1572,9 +1572,10 @@ def audit_google_ads_multiwindow() -> dict:
                 c_cpa_lim = 20.00
 
                 c_reason = None
+                is_gads_flow_video_test_only = ("washer hp909 flow" in c_nm_low) or ("flow 05-11" in c_nm_low)
                 try:
                     ph_p = BASE_DIR / "paused_history.json"
-                    if taager_prod_key_c and ph_p.exists():
+                    if taager_prod_key_c and ph_p.exists() and not is_gads_flow_video_test_only:
                         ph_d = json.loads(ph_p.read_text(encoding="utf-8"))
                         if taager_prod_key_c in (ph_d.get("taager_failed_products") or {}):
                             c_reason = f"[قاعدة تيست تاجر: المنتج فاشل '{taager_prod_key_c}'] مجموع صرف المنتج تعدى $20.00 بدون بيع"
