@@ -2149,6 +2149,64 @@ def main():
             tp_b["spend_7d"] = round(tp_b["spend_7d"] + sp7_tp, 2)
             tp_b["conv_7d"] += cv7_tp
 
+        # [أمر المستخدم الدائم 2026-11-06]: فحص جميع الحملات في الحساب ومقارنة مبيعات الشيت مع مبيعات المنصة الإعلانية؛
+        # إذا أوقف البوت أو غيت هاب أي حملة ووجدت الأتمتة أن في الشيت أو المنصة مبيعات تجعلها رابحة اليوم (CPA <= $8.50)، تعيد تفعيل الحملة والفيديوهات بداخلها فوراً!
+        for c_rev_cand in camps_3d:
+            cid_rc = str(c_rev_cand.get("campaign_id") or (c_rev_cand.get("row_data") or {}).get("campaign_id") or "")
+            cname_rc = str(c_rev_cand.get("campaign_name") or (c_rev_cand.get("row_data") or {}).get("campaign_name") or "")
+            if not cid_rc or is_shutoff_pillow_campaign_tt(cname_rc) or is_shutoff_kw_qa_om_campaign_tt(cname_rc) or is_cross_monitored_product_campaign(cname_rc):
+                continue
+            tp_k_rc = extract_taager_product_key_tt(cname_rc)
+            if tp_k_rc and (tp_k_rc in (history.get("taager_failed_products") or {}) or f"{aadvid}:{tp_k_rc}" in (history.get("taager_failed_products") or {})):
+                continue
+            c1_rc = camp_1d_map.get(cid_rc) or {}
+            rd1_rc = c1_rc.get("row_data") or c1_rc
+            rd3_rc = c_rev_cand.get("row_data") or c_rev_cand
+            sp1_rc = float(rd1_rc.get("stat_cost") or 0.0)
+            px1_rc = int(float(rd1_rc.get("time_attr_convert_cnt") or 0))
+            sp3_rc = float(rd3_rc.get("stat_cost") or 0.0)
+            px3_rc = int(float(rd3_rc.get("time_attr_convert_cnt") or 0))
+            cn_l_rc = cname_rc.strip().lower()
+            sh1_rc = sum_sheet_utm_window(sheet_sales_by_day, [cid_rc.lower(), cn_l_rc], today_str, today_str)
+            sh3_rc = sum_sheet_utm_window(sheet_sales_by_day, [cid_rc.lower(), cn_l_rc], two_days_ago_str, today_str)
+            eff1_rc = max(px1_rc, sh1_rc)
+            eff3_rc = max(px3_rc, sh3_rc)
+            opt_rc = str((c1_rc or c_rev_cand).get("opt_status") or rd1_rc.get("opt_status") or rd3_rc.get("opt_status") or "")
+            prim_rc = str((c1_rc or c_rev_cand).get("primary_status") or rd1_rc.get("primary_status") or rd3_rc.get("primary_status") or "")
+            is_paused_rc = (opt_rc != "0") or any(k in prim_rc.lower() for k in ("disable", "not_deliver"))
+            if is_paused_rc and eff1_rc >= 1 and sp1_rc > 0 and (sp1_rc / eff1_rc) <= 8.50:
+                ok_rev_c, _ = pause_campaign(session, headers, aadvid, cid_rc, operation="enable")
+                if ok_rev_c:
+                    c_rev_cand["opt_status"] = "0"
+                    c_rev_cand["primary_status"] = "delivery_ok"
+                    if cid_rc in camp_1d_map:
+                        camp_1d_map[cid_rc]["opt_status"] = "0"
+                        camp_1d_map[cid_rc]["primary_status"] = "delivery_ok"
+                    history.get("tiktok_campaigns", {}).pop(f"{aadvid}:{cid_rc}", None)
+                    history.setdefault("user_protected_tiktok_campaigns", {})[cid_rc] = {
+                        "account_name": acc_name,
+                        "aadvid": aadvid,
+                        "campaign_id": cid_rc,
+                        "campaign_name": cname_rc,
+                        "restored_at": datetime.now(timezone.utc).isoformat(),
+                        "reason": f"Auto-revived: Sheet={sh1_rc} vs Platform={px1_rc} sales Today (Spend=${sp1_rc:.2f}, CPA=${sp1_rc/eff1_rc:.2f})",
+                    }
+                    total_revived += 1
+                    print(f"  ♻️🔥 [AUTO-REVIVED SHEET/PLATFORM WINNER CAMPAIGN] '{cname_rc}' ({cid_rc}) | Today=${sp1_rc:.2f} | Platform={px1_rc}cv | Sheet={sh1_rc}cv (CPA=${sp1_rc/eff1_rc:.2f})")
+                    try:
+                        ads_rc = fetch_ads(session, headers, aadvid, two_days_ago_str, today_str)
+                        c_ads_rc = [a for a in ads_rc if str(a.get("campaign_id") or (a.get("row_data") or {}).get("campaign_id") or "") == cid_rc]
+                        c_cids_rc = [str(a.get("creative_id") or (a.get("row_data") or {}).get("creative_id") or "") for a in c_ads_rc if a.get("creative_id") or (a.get("row_data") or {}).get("creative_id")]
+                        if c_cids_rc:
+                            mats_rc = fetch_expanded_materials(session, headers, aadvid, c_cids_rc, today_str, today_str) or fetch_expanded_materials(session, headers, aadvid, c_cids_rc, two_days_ago_str, today_str)
+                            for m_rc in mats_rc:
+                                v_sp_rc = float((m_rc.get("row_data") or m_rc).get("stat_cost") or 0.0)
+                                v_opt_rc = str(m_rc.get("mix_material_aco_opt_status") or "0")
+                                if v_opt_rc != "0" and v_sp_rc < 4.50:
+                                    pause_smart_plus_video(session, headers, aadvid, str(m_rc.get("ad_id")), m_rc, operation="enable")
+                    except Exception:
+                        pass
+
         active_camps = [
             c for c in camps_3d
             if not any(k in str(c.get("primary_status") or "").lower() for k in ("disable", "delete", "not_deliver", "audit_deny", "time_done"))
@@ -2353,10 +2411,12 @@ def main():
 
 
             cn_low_sh = camp_name.strip().lower()
+            raw_sh_by_name_1d = sum_sheet_utm_window(sheet_sales_by_day, [cn_low_sh], today_str, today_str) if cn_low_sh else 0
+            raw_sh_by_name_3d = sum_sheet_utm_window(sheet_sales_by_day, [cn_low_sh], two_days_ago_str, today_str) if cn_low_sh else 0
 
-            utm_k1 = [camp_id.lower()] + ([cn_low_sh] if (c_spend_1d >= 0.50 and cn_max_spender_1d.get(cn_low_sh) == aadvid) else [])
+            utm_k1 = [camp_id.lower()] + ([cn_low_sh] if (c_spend_1d >= 0.30 and (cn_max_spender_1d.get(cn_low_sh) == aadvid or (raw_sh_by_name_1d >= 1 and (c_spend_1d / raw_sh_by_name_1d) <= 8.50))) else [])
 
-            utm_k3 = [camp_id.lower()] + ([cn_low_sh] if (c_spend_3d >= 0.50 and cn_max_spender_3d.get(cn_low_sh) == aadvid) else [])
+            utm_k3 = [camp_id.lower()] + ([cn_low_sh] if (c_spend_3d >= 0.30 and (cn_max_spender_3d.get(cn_low_sh) == aadvid or (raw_sh_by_name_3d >= 1 and (c_spend_3d / raw_sh_by_name_3d) <= 8.50))) else [])
 
             sh_c1 = sum_sheet_utm_window(sheet_sales_by_day, utm_k1, today_str, today_str)
 
@@ -3588,9 +3648,7 @@ def main():
 
                 and clicks_1d > 0
 
-                and round(spend_1d / clicks_1d, 2) <= (MAX_CPC_WITH_SALES if (conv_3d >= 1 or sh_c1_for_v >= 2) else (v_gulf_max_cpc or MAX_CPC))
-
-                and (spend_1d / sh_c1_for_v) <= (v_gulf_cpa if v_is_gulf else 7.00)
+                and (spend_1d / sh_c1_for_v) <= (v_gulf_cpa if v_is_gulf else 7.50)
 
             ):
 
@@ -3632,6 +3690,11 @@ def main():
                 reasons.append(f"Blacklisted Multi-Day Non-Converting Video ('{v_key_cur}')")
 
 
+
+            # حماية الحملة الرابحة في الشيت/المنصة اليوم من تصفير جميع فيديوهاتها (0 active videos remaining):
+            if reasons and sh_c1_for_v >= 1 and active_videos_per_ad.get(ad_id, 1) <= 1 and (spend_1d / sh_c1_for_v) <= 7.50:
+                print(f"    🛡️ [SHEET WINNER CAMPAIGN PROTECTION] Keeping last active video '{vid_name}' alive because campaign has {sh_c1_for_v} Sheet sales Today (Spend=${spend_1d:.2f})!")
+                reasons = []
 
             if reasons:
 
