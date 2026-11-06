@@ -1,6 +1,6 @@
 {
-  "updated_at_utc": "2026-11-06T10:19:45Z",
-  "total_grid_tested": 5039,
+  "updated_at_utc": "2026-11-06T15:54:35Z",
+  "total_grid_tested": 5106,
   "active_best_config": {
     "sl_atr": 1.8,
     "tp_atr": 4.0,
@@ -55,11 +55,11 @@
       "capital_weight": 0.0
     },
     "US_STOCK_PULLBACK": {
-      "trades": 17,
-      "wins": 7,
+      "trades": 18,
+      "wins": 8,
       "losses": 10,
-      "net_pnl_usd": -14.55,
-      "capital_weight": 0.65
+      "net_pnl_usd": 5.03,
+      "capital_weight": 1.0
     },
     "15M_FLOW_SCALP": {
       "trades": 5,
