@@ -510,16 +510,16 @@
       "campaign_name": "باور بانك وينر 2 - 30 أدست 30-10",
       "account": "CSP9860",
       "spend_date": "2026-11-06",
-      "spend_at_last_check": 0.02,
-      "last_check_utc": "2026-11-05T21:24:11.796530+00:00",
+      "spend_at_last_check": 0.97,
+      "last_check_utc": "2026-11-06T09:24:12.616232+00:00",
       "last_action_utc": "2026-10-30T16:37:22.308137+00:00",
       "bumps_today": 0,
       "scales_today": 0,
       "scaled_at_purchases": 0,
       "target_bid_micro": 2100000,
       "target_budget_micro": 30000000,
-      "spend_1h": 0.02,
-      "spend_1d": 0.02,
+      "spend_1h": 0.95,
+      "spend_1d": 0.97,
       "purchases_1d": 0
     },
     "01da5be3-3f2f-4df6-a0b3-786cb7f5ffb7": {
@@ -6684,17 +6684,17 @@
       "campaign_name": "باور بانك وينر - 30 أدست - بيد 2.1 30-10",
       "account": "CSP9860 4",
       "spend_date": "2026-11-06",
-      "spend_at_last_check": 0.04,
-      "last_check_utc": "2026-11-05T21:25:44.178773+00:00",
+      "spend_at_last_check": 1.24,
+      "last_check_utc": "2026-11-06T09:25:05.453233+00:00",
       "last_action_utc": "2026-11-01T08:52:12.943188+00:00",
       "bumps_today": 0,
       "scales_today": 0,
-      "scaled_at_purchases": 0,
+      "scaled_at_purchases": 1,
       "target_bid_micro": 2100000,
       "target_budget_micro": 30000000,
-      "spend_1h": 0.04,
-      "spend_1d": 0.04,
-      "purchases_1d": 0
+      "spend_1h": 1.2,
+      "spend_1d": 1.24,
+      "purchases_1d": 1
     },
     "5b125927-05c1-48ee-af99-648817234ed5": {
       "name": "PB 1.60 Max [H1] #16",
@@ -13488,16 +13488,16 @@
       "campaign_name": "مجفف الملابس المحمول TAG 21982 - 04-11",
       "account": "Daralrimal Self Service",
       "spend_date": "2026-11-06",
-      "spend_at_last_check": 0.06,
-      "last_check_utc": "2026-11-05T21:26:33.372052+00:00",
+      "spend_at_last_check": 2.17,
+      "last_check_utc": "2026-11-06T09:25:24.045380+00:00",
       "last_action_utc": "2026-11-04T03:00:00+00:00",
       "bumps_today": 0,
       "scales_today": 0,
       "scaled_at_purchases": 0,
       "target_bid_micro": 2500000,
       "target_budget_micro": 30000000,
-      "spend_1h": 0.06,
-      "spend_1d": 0.06,
+      "spend_1h": 2.11,
+      "spend_1d": 2.17,
       "purchases_1d": 0
     },
     "0fbf78f6-560b-4d81-8eeb-713d5c129440": {
@@ -15235,13 +15235,13 @@
       "account": "Daralrimal Self Service 2",
       "spend_date": "2026-11-06",
       "spend_at_last_check": 0.0,
-      "last_check_utc": "2026-11-05T21:27:33.664014+00:00",
+      "last_check_utc": "2026-11-06T09:25:43.785675+00:00",
       "last_action_utc": "2026-11-05T21:00:00+00:00",
       "bumps_today": 0,
       "scales_today": 0,
       "scaled_at_purchases": 0,
       "target_bid_micro": 100000,
-      "target_budget_micro": 5000000,
+      "target_budget_micro": 30000000,
       "spend_1h": 0.0,
       "spend_1d": 0.0,
       "purchases_1d": 0
@@ -15253,13 +15253,13 @@
       "account": "Daralrimal Self Service 3 (Funded)",
       "spend_date": "2026-11-06",
       "spend_at_last_check": 0.0,
-      "last_check_utc": "2026-11-05T21:28:14.491948+00:00",
+      "last_check_utc": "2026-11-06T09:25:50.670128+00:00",
       "last_action_utc": "2026-11-05T21:00:00+00:00",
       "bumps_today": 0,
       "scales_today": 0,
       "scaled_at_purchases": 0,
       "target_bid_micro": 100000,
-      "target_budget_micro": 5000000,
+      "target_budget_micro": 30000000,
       "spend_1h": 0.0,
       "spend_1d": 0.0,
       "purchases_1d": 0
@@ -15270,9 +15270,9 @@
       "name": "باور بانك وينر 2 - 30 أدست 30-10",
       "account": "CSP9860",
       "spend_date": "2026-11-06",
-      "spend_at_last_check": 0.02,
-      "last_check_utc": "2026-11-05T21:24:11.796530+00:00",
-      "spend_1h": 0.02,
+      "spend_at_last_check": 0.97,
+      "last_check_utc": "2026-11-06T09:24:12.616232+00:00",
+      "spend_1h": 0.95,
       "purchases_1d": 0,
       "cpa_1d": null
     },
@@ -15410,11 +15410,11 @@
       "name": "باور بانك وينر - 30 أدست - بيد 2.1 30-10",
       "account": "CSP9860 4",
       "spend_date": "2026-11-06",
-      "spend_at_last_check": 0.04,
-      "last_check_utc": "2026-11-05T21:25:44.178773+00:00",
-      "spend_1h": 0.04,
-      "purchases_1d": 0,
-      "cpa_1d": null
+      "spend_at_last_check": 1.24,
+      "last_check_utc": "2026-11-06T09:25:05.453233+00:00",
+      "spend_1h": 1.2,
+      "purchases_1d": 1,
+      "cpa_1d": 1.24
     },
     "89aadf62-66f2-4ac8-9106-f92fd83b4277": {
       "name": "باور بانك وينر - 30 أدست - بيد 1.4 30-10",
@@ -16000,9 +16000,9 @@
       "name": "مجفف الملابس المحمول TAG 21982 - 04-11",
       "account": "Daralrimal Self Service",
       "spend_date": "2026-11-06",
-      "spend_at_last_check": 0.35,
-      "last_check_utc": "2026-11-05T21:26:33.372052+00:00",
-      "spend_1h": 0.35,
+      "spend_at_last_check": 3.38,
+      "last_check_utc": "2026-11-06T09:25:24.045380+00:00",
+      "spend_1h": 3.03,
       "purchases_1d": 0,
       "cpa_1d": null
     },
@@ -16020,11 +16020,11 @@
       "name": "تيست - غسالة الملابس المحمولة HP909 - 04-11",
       "account": "Daralrimal Self Service",
       "spend_date": "2026-11-06",
-      "spend_at_last_check": 0.08,
-      "last_check_utc": "2026-11-05T21:26:33.372052+00:00",
-      "spend_1h": 0.08,
-      "purchases_1d": 0,
-      "cpa_1d": null
+      "spend_at_last_check": 3.16,
+      "last_check_utc": "2026-11-06T09:25:24.045380+00:00",
+      "spend_1h": 3.08,
+      "purchases_1d": 1,
+      "cpa_1d": 3.16
     },
     "e0408af5-25ce-4f34-b213-9955c66a5df0": {
       "name": "باور بانك وينر - دار الرمال",
@@ -16250,9 +16250,9 @@
       "name": "تيست - ممسحة الزجاج الكهربائية 22454 - 06-11",
       "account": "Daralrimal Self Service",
       "spend_date": "2026-11-06",
-      "spend_at_last_check": 0.0,
-      "last_check_utc": "2026-11-05T21:26:33.372052+00:00",
-      "spend_1h": 0.0,
+      "spend_at_last_check": 0.1,
+      "last_check_utc": "2026-11-06T09:25:24.045380+00:00",
+      "spend_1h": 0.1,
       "purchases_1d": 0,
       "cpa_1d": null
     },
@@ -16260,9 +16260,9 @@
       "name": "تيست - غسالة الملابس المحمولة HP909 - هوك فلو 05-11",
       "account": "Daralrimal Self Service",
       "spend_date": "2026-11-06",
-      "spend_at_last_check": 0.0,
-      "last_check_utc": "2026-11-05T21:26:33.372052+00:00",
-      "spend_1h": 0.0,
+      "spend_at_last_check": 1.04,
+      "last_check_utc": "2026-11-06T09:25:24.045380+00:00",
+      "spend_1h": 1.04,
       "purchases_1d": 0,
       "cpa_1d": null
     },
@@ -16271,7 +16271,7 @@
       "account": "Daralrimal Self Service 2",
       "spend_date": "2026-11-06",
       "spend_at_last_check": 0.0,
-      "last_check_utc": "2026-11-05T21:27:33.664014+00:00",
+      "last_check_utc": "2026-11-06T09:25:43.785675+00:00",
       "spend_1h": 0.0,
       "purchases_1d": 0,
       "cpa_1d": null
@@ -16281,7 +16281,7 @@
       "account": "Daralrimal Self Service 3 (Funded)",
       "spend_date": "2026-11-06",
       "spend_at_last_check": 0.0,
-      "last_check_utc": "2026-11-05T21:28:14.491948+00:00",
+      "last_check_utc": "2026-11-06T09:25:50.670128+00:00",
       "spend_1h": 0.0,
       "purchases_1d": 0,
       "cpa_1d": null
@@ -16386,30 +16386,6 @@
     }
   },
   "actions_log": [
-    {
-      "ts": "2026-10-31 14:22 GMT+3",
-      "account": "CSP9860 4",
-      "action_type": "إرجاع أي بيد أعلى من $1.80 إلى $1.80 (مع عدم لمس أي بيد <= $1.80)",
-      "target": "باور بانك وينر - تارقيت كوست",
-      "details": "ضبط البيد لـ 1 أدست في الحملة: Copy - PB 3.00 TC [H1] #14: إرجاع البيد $1.90->$1.80 (سقف $1.80 الأقصى)",
-      "metrics": "صرف اليوم=$0.36 | مبيعات=0 | جميع الـ 4 أدست <= $1.80"
-    },
-    {
-      "ts": "2026-10-31 14:55 GMT+3",
-      "account": "CSP9860",
-      "action_type": "حماية البدجت ومنع التضخم (Budget Guardrail)",
-      "target": "Copy of  kasahf smart+ qatar 3.5",
-      "details": "إرجاع ميزانية 1 أدست إلى السقف الآمن حسب مبيعاتها: Qatar, Male and All ages: ضبط البدجت $50.0->$30.0 (مبيعات اليوم=0)",
-      "metrics": "منع تضخم البدجت للأدست الصفرية ($20) وسقف تدريجي للرابحة ($26/$34/$45)"
-    },
-    {
-      "ts": "2026-10-31 14:56 GMT+3",
-      "account": "CSP9860",
-      "action_type": "تجربة عزل وتعميم الفيديوهات الرابحة [EXP-SNAP Winner Isolation]",
-      "target": "باور بانك وينر 2 - 30 أدست 30-10",
-      "details": "تعميم الرابح: PB_v7_Hist64_m08e86a [H1] (تفعيل +23 نسخة | مبيعات الحملة=1 بـ CPA=$4.03) | إيقاف المستنزف: PB_v3_Winner3_mf03b43 [H1] (إيقاف 21 نسخة | صرف $3.39 / 0 مبيعات)",
-      "metrics": "توجيه 100% من البدجت للفيديوهات الرابحة اليوم بدون دولار بدجت إضافي"
-    },
     {
       "ts": "2026-10-31 14:56 GMT+3",
       "account": "CSP9860",
@@ -19582,13 +19558,37 @@
       "target": "مجفف الملابس المحمول TAG 21982 - 04-11",
       "details": "تفعيل مجفف الملابس 21982 - تارغت كوست - السعودية (مبيعات=None, CPA=$5.83)",
       "metrics": "عدد الأدست النشطة=2/30"
+    },
+    {
+      "ts": "2026-11-06 12:25 GMT+3",
+      "account": "Daralrimal Self Service",
+      "action_type": "حماية البدجت ومنع التضخم (Budget Guardrail)",
+      "target": "مجفف الملابس المحمول TAG 21982 - 04-11",
+      "details": "إرجاع ميزانية 1 أدست إلى السقف الآمن حسب مبيعاتها: مجفف الملابس 21982 - تارغت كوست - السعودية: ضبط البدجت $20.0->$30.0 (تثبيت $30)",
+      "metrics": "منع تضخم البدجت للأدست الصفرية ($20) وسقف تدريجي للرابحة ($26/$34/$45)"
+    },
+    {
+      "ts": "2026-11-06 12:25 GMT+3",
+      "account": "Daralrimal Self Service 2",
+      "action_type": "حماية البدجت ومنع التضخم (Budget Guardrail)",
+      "target": "Awareness and engagement",
+      "details": "إرجاع ميزانية 1 أدست إلى السقف الآمن حسب مبيعاتها: Saudi Arabia, All genders and All ages: ضبط البدجت $5.0->$30.0 (تثبيت $30)",
+      "metrics": "منع تضخم البدجت للأدست الصفرية ($20) وسقف تدريجي للرابحة ($26/$34/$45)"
+    },
+    {
+      "ts": "2026-11-06 12:25 GMT+3",
+      "account": "Daralrimal Self Service 3 (Funded)",
+      "action_type": "حماية البدجت ومنع التضخم (Budget Guardrail)",
+      "target": "Awareness and engagement",
+      "details": "إرجاع ميزانية 1 أدست إلى السقف الآمن حسب مبيعاتها: Saudi Arabia, All genders and All ages: ضبط البدجت $5.0->$30.0 (تثبيت $30)",
+      "metrics": "منع تضخم البدجت للأدست الصفرية ($20) وسقف تدريجي للرابحة ($26/$34/$45)"
     }
   ],
   "latest_winning_structure_analysis": [
     {
       "structure": "10-AdSets + Target Cost $1.80–$2.10 + فيديوهات رابحة",
-      "m3": "$52.75 / 7 ($7.54)",
-      "m7": "$1667.59 / 259 ($6.44)",
+      "m3": "$54.86 / 8 ($6.86)",
+      "m7": "$1669.70 / 259 ($6.45)",
       "verdict": "✅ التركيبة رقم #1 المعتمدة للتعميم (عزل 10 مجموعات ببيد منخفض يحمي من حرق الميزانية)"
     },
     {
@@ -19599,14 +19599,14 @@
     },
     {
       "structure": "حملات الاختبار المخصصة (تيست / 4-AdSets بيد <= $1.80)",
-      "m3": "$46.84 / 3 ($15.61)",
-      "m7": "$278.19 / 23 ($12.10)",
+      "m3": "$50.94 / 4 ($12.73)",
+      "m7": "$282.29 / 24 ($11.76)",
       "verdict": "🧪 مخصصة لاكتشاف الفيديوهات الفائزة قبل نقلها لحملات السكيل أو جوجل أدز (فرملة $20 صارمة)"
     },
     {
       "structure": "بيد مرتفع (> $2.50) أو فيديوهات غير مصفاة",
-      "m3": "$222.46 / 9 ($24.72)",
-      "m7": "$380.03 / 19 ($20.00)",
+      "m3": "$225.25 / 9 ($25.03)",
+      "m7": "$382.82 / 19 ($20.15)",
       "verdict": "🚫 سبب الفترات السيئة (يرفع CPC فوق $0.28 ويستنزف الميزانية بدون مبيعات — ممنوع نهائياً)"
     }
   ],
