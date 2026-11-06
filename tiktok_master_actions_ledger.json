@@ -3776,6 +3776,74 @@
         "04-11_Taager_18186_Pillow_Ad_09.mp4",
         "04-11_Taager_18186_Pillow_Ad_10.mp4"
       ]
+    },
+    "1881128463672385": {
+      "aadvid": "7649010597308301332",
+      "account_name": "Otyss - Ma - 138",
+      "campaign_name": "power bank top 5 winners 07-11",
+      "product_type": "power_bank",
+      "budget": "30",
+      "bid": "6.30",
+      "start_time_ksa": "2026-11-07 06:00:00",
+      "videos": [
+        "07-11_TOP5_PB_01_66s_h7v4.mp4",
+        "07-11_TOP5_PB_02_56s_mz08.mp4",
+        "07-11_TOP5_PB_03_34s_hk01.mp4",
+        "03-11_OT_PB_03_21s_rec29.mp4",
+        "07-11_TOP5_PB_05_17s_mz14.mp4"
+      ],
+      "created_at": "2026-11-06 19:57:34"
+    },
+    "1881128717990226": {
+      "aadvid": "7631765070816509959",
+      "account_name": "ROELLINGER RECYCLING2",
+      "campaign_name": "power bank top 5 winners 07-11",
+      "product_type": "power_bank",
+      "budget": "30",
+      "bid": "6.30",
+      "start_time_ksa": "2026-11-07 06:00:00",
+      "videos": [
+        "07-11_TOP5_PB_01_66s_h7v4.mp4",
+        "02-11_MZ_pbmz_08T_56s.mp4",
+        "07-11_TOP5_PB_03_34s_hk01.mp4",
+        "07-11_TOP5_PB_04_21s_rec29.mp4",
+        "02-11_MZ_pbmz_14_17s.mp4"
+      ],
+      "created_at": "2026-11-06 19:57:34"
+    },
+    "1881128764263762": {
+      "aadvid": "7631763556322148369",
+      "account_name": "ROELLINGER RECYCLING",
+      "campaign_name": "car armrest top 5 winners 07-11",
+      "product_type": "car_armrest",
+      "budget": "30",
+      "bid": "6.30",
+      "start_time_ksa": "2026-11-07 06:00:00",
+      "videos": [
+        "07-11_TOP5_CAR_01_45s_rec02.mp4",
+        "07-11_TOP5_CAR_02_34s_tt3.mp4",
+        "07-11_TOP5_CAR_03_17s_fh3.mp4",
+        "02-11_MZ_carmz_09_17s.mp4",
+        "07-11_TOP5_CAR_05_06s_rec03.mp4"
+      ],
+      "created_at": "2026-11-06 19:57:34"
+    },
+    "1881128827328850": {
+      "aadvid": "7631765139798081554",
+      "account_name": "ROELLINGER RECYCLING1",
+      "campaign_name": "car armrest top 5 winners 07-11",
+      "product_type": "car_armrest",
+      "budget": "30",
+      "bid": "6.30",
+      "start_time_ksa": "2026-11-07 06:00:00",
+      "videos": [
+        "07-11_TOP5_CAR_01_45s_rec02.mp4",
+        "07-11_TOP5_CAR_02_34s_tt3.mp4",
+        "07-11_TOP5_CAR_03_17s_fh3.mp4",
+        "02-11_MZ_carmz_09_17s.mp4",
+        "07-11_TOP5_CAR_05_06s_rec03.mp4"
+      ],
+      "created_at": "2026-11-06 19:57:34"
     }
   },
   "latest_winning_structure_analysis": {
