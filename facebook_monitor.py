@@ -740,19 +740,22 @@ def main():
             "campaigns": acc_camps_summary,
         }
 
-    history["facebook_latest_summary"] = {
-        "updated_at": now_str,
-        "total_spend_today": snapshot_out["total_spend_today"],
-        "total_purchases_today": snapshot_out["total_purchases_today"],
-        "total_spend_maximum": snapshot_out["total_spend_maximum"],
-        "total_purchases_maximum": snapshot_out["total_purchases_maximum"],
-        "actions_taken": snapshot_out["actions_taken"],
-    }
-    save_paused_history(history)
-    try:
-        SNAPSHOT_FILE.write_text(json.dumps(snapshot_out, indent=2, ensure_ascii=False), encoding="utf-8")
-    except Exception:
-        pass
+    if snapshot_out["total_spend_maximum"] > 0 or snapshot_out["total_spend_today"] > 0:
+        history["facebook_latest_summary"] = {
+            "updated_at": now_str,
+            "total_spend_today": snapshot_out["total_spend_today"],
+            "total_purchases_today": snapshot_out["total_purchases_today"],
+            "total_spend_maximum": snapshot_out["total_spend_maximum"],
+            "total_purchases_maximum": snapshot_out["total_purchases_maximum"],
+            "actions_taken": snapshot_out["actions_taken"],
+        }
+        save_paused_history(history)
+        try:
+            SNAPSHOT_FILE.write_text(json.dumps(snapshot_out, indent=2, ensure_ascii=False), encoding="utf-8")
+        except Exception:
+            pass
+    else:
+        print("⚠️ لم يتم تحديث fb_live_spend_snapshot.json لأن الحسابات أرجعت 0 بيانات (تحقق من حالة التوكن/الحساب).")
 
     tot_sp = snapshot_out["total_spend_today"]
     tot_cv = snapshot_out["total_purchases_today"]
