@@ -618,16 +618,25 @@ def main():
                     continue
 
                 ad_pause_reason = None
-                # Rule 1 (Video Rules: Mandatory High CPC > $0.27 after $1.00 with 0 sales | Cumulative CPA >= $8.00 | Cumulative Spend >= $9.00 with 0 sales):
+                # Rule 1 (Video Rules: Mandatory High CPC > $0.27 after $1.00 with 0 sales | Today or Cumulative CPA >= $8.00 | Today or Cumulative Spend >= $9.00 with 0 sales):
                 # 1-A: Cumulative CPA >= $8.00 (SA) / $12.00 (Gulf) when cumulative sales >= 1
                 if cv_cum > 0 and cpa_cum is not None and cpa_cum >= max_cpa_allowed:
                     ad_pause_reason = (
                         f"[Facebook Video Rule: Cumulative CPA >= ${max_cpa_allowed:.2f}] سعر البيعة التراكمي للفيديو وصل ${cpa_cum:.2f} (>= ${max_cpa_allowed:.2f} بصرف ${ast_cum['spend']:.2f} / {cv_cum} مبيعة)"
                     )
-                # 1-B: Cumulative Spend >= $9.00 with 0 sales
+                # 1-A2: Today (1D) CPA >= $8.00 (SA) / $12.00 (Gulf) when Today spend >= $8.00 and Today sales >= 1
+                elif ast1["spend"] >= max_cpa_allowed and cv1 > 0 and cpa1 is not None and cpa1 >= max_cpa_allowed:
+                    ad_pause_reason = (
+                        f"[Facebook Video Rule: Today CPA >= ${max_cpa_allowed:.2f}] سعر البيعة اليوم للفيديو وصل ${cpa1:.2f} (>= ${max_cpa_allowed:.2f} بصرف اليوم ${ast1['spend']:.2f} / {cv1} مبيعة)"
+                    )
+                # 1-B: Cumulative or Today Spend >= $9.00 with 0 sales
                 elif ast_cum["spend"] >= AD_NO_SALE_CUMULATIVE_MAX and cv_cum == 0:
                     ad_pause_reason = (
                         f"[Facebook Video Rule: Cumulative >= ${AD_NO_SALE_CUMULATIVE_MAX:.2f} No-Sale Stop] الفيديو صرف ${ast_cum['spend']:.2f} تراكمي (>= ${AD_NO_SALE_CUMULATIVE_MAX:.2f}) بدون مبيعات (0 مبيعات)"
+                    )
+                elif ast1["spend"] >= AD_NO_SALE_CUMULATIVE_MAX and cv1 == 0:
+                    ad_pause_reason = (
+                        f"[Facebook Video Rule: Today >= ${AD_NO_SALE_CUMULATIVE_MAX:.2f} No-Sale Stop] الفيديو صرف اليوم ${ast1['spend']:.2f} (>= ${AD_NO_SALE_CUMULATIVE_MAX:.2f}) بدون مبيعات اليوم (0 مبيعات)"
                     )
                 # 1-C: Mandatory & Unconditional High CPC > $0.27 after $1.00 spend with 0 sales (ضروري بعد $1.00 بدون أي استثناء)
                 elif cv_cum == 0 and ast_cum["spend"] >= AD_CPC_MIN_SPEND and (ast_cum["clicks"] == 0 or ast_cum["cpc"] > AD_MAX_CPC_NO_SALE):
