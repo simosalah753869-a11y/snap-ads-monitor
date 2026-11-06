@@ -170,8 +170,10 @@ def run_sim(all_data, start_i, end_i, cfg):
             max_dd_pct = max(max_dd_pct, dd)
         else:
             btc_b = all_data["BTCUSDC"][i]
+            btc_uptrend = (btc_b["sma100"] >= btc_b["sma200"])
             btc_not_dumping = (btc_b["taker_buy_ratio"] >= 0.45) if use_btc_leader else True
             btc_not_pumping = (btc_b["taker_buy_ratio"] <= 0.55) if use_btc_leader else True
+            alt_bear_guard = cfg.get("alt_btc_bear_guard", True)
 
             for sym in SYMBOLS:
                 b = all_data[sym][i]
@@ -191,8 +193,13 @@ def run_sim(all_data, start_i, end_i, cfg):
 
                 trend_up = (b["sma100"] >= b["sma200"]) if req_trend else True
                 trend_dn = (b["sma100"] < b["sma200"]) if req_trend else True
+                macro_long_ok = (
+                    True
+                    if (not alt_bear_guard or sym in ("PAXGUSDT", "BTCUSDC", "BNBUSDT") or btc_uptrend)
+                    else (b["close"] >= b["sma200"] - 0.5 * atr)
+                )
 
-                if (btc_not_dumping and trend_up and prev["rsi14"] < rsi_long
+                if (btc_not_dumping and trend_up and macro_long_ok and prev["rsi14"] < rsi_long
                         and (long_min_ret24 <= b["ret24"] <= long_max_ret24)
                         and b["close"] > b["open"]
                         and b["close"] > prev["close"]
