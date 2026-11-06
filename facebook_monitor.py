@@ -365,7 +365,6 @@ def main():
         ("52542228452250", {"daily_budget": "8000", "name": "SA - Car Armrest Cushion - Test 3 Winners ($80)"}, "رفع بدجت حملة وسادة السيارة الهولندية إلى $80/يوم"),
         ("120247881183330658", {"daily_budget": "5000", "name": "SA - Power Bank 4in1 - Untested Batch 2 ($50)"}, "رفع بدجت حملة الباور بانك Untested Batch 2 إلى $50/يوم"),
         ("120247859287340658", {"status": "PAUSED"}, "إيقاف حملة SA - Power Bank 4in1 - USA 3 Winners ($30)"),
-        ("120247876087820658", {"status": "ACTIVE"}, "إعادة تفعيل حملة النشافة 120247876087820658 لأنها صرفت $6.75 فقط (< $15.00)"),
     ]
     for obj_id, payload, desc in pending_updates:
         try:
@@ -603,10 +602,7 @@ def main():
                     continue
 
                 ad_pause_reason = None
-                # Rule 1 (Video Rules: Cumulative CPA >= $8.00 | Cumulative Spend >= $9.00 with 0 sales | High CPC > $0.27 after $1.00):
-                # Note: If this is the LAST active ad in a new 0-sale campaign that has spent < $15.00, do NOT kill the last ad for CPC alone before the campaign tests up to $15.00 (or the ad hits $9.00)!
-                protect_last_ad_until_15 = (active_ads_count <= 1 and st_cum["purchases"] == 0 and st_cum["spend"] < CAMP_MIN_SPEND_BEFORE_PAUSE)
-
+                # Rule 1 (Video Rules: Mandatory High CPC > $0.27 after $1.00 with 0 sales | Cumulative CPA >= $8.00 | Cumulative Spend >= $9.00 with 0 sales):
                 # 1-A: Cumulative CPA >= $8.00 (SA) / $12.00 (Gulf) when cumulative sales >= 1
                 if cv_cum > 0 and cpa_cum is not None and cpa_cum >= max_cpa_allowed:
                     ad_pause_reason = (
@@ -617,12 +613,12 @@ def main():
                     ad_pause_reason = (
                         f"[Facebook Video Rule: Cumulative >= ${AD_NO_SALE_CUMULATIVE_MAX:.2f} No-Sale Stop] الفيديو صرف ${ast_cum['spend']:.2f} تراكمي (>= ${AD_NO_SALE_CUMULATIVE_MAX:.2f}) بدون مبيعات (0 مبيعات)"
                     )
-                # 1-C: High CPC > $0.27 after $1.00 spend with 0 sales (unless it is the last ad keeping a <$15 new campaign alive)
-                elif not protect_last_ad_until_15 and cv_cum == 0 and ast_cum["spend"] >= AD_CPC_MIN_SPEND and (ast_cum["clicks"] == 0 or ast_cum["cpc"] > AD_MAX_CPC_NO_SALE):
+                # 1-C: Mandatory & Unconditional High CPC > $0.27 after $1.00 spend with 0 sales (ضروري بعد $1.00 بدون أي استثناء)
+                elif cv_cum == 0 and ast_cum["spend"] >= AD_CPC_MIN_SPEND and (ast_cum["clicks"] == 0 or ast_cum["cpc"] > AD_MAX_CPC_NO_SALE):
                     ad_pause_reason = (
                         f"[Facebook Video Rule: CPC > ${AD_MAX_CPC_NO_SALE:.2f} after ${AD_CPC_MIN_SPEND:.2f}] صرف الفيديو ${ast_cum['spend']:.2f} بدون مبيعات | النقرات: {ast_cum['clicks']} | CPC = ${ast_cum['cpc']:.3f} (> ${AD_MAX_CPC_NO_SALE:.2f})"
                     )
-                elif not protect_last_ad_until_15 and cv1 == 0 and ast1["spend"] >= AD_CPC_MIN_SPEND and (ast1["clicks"] == 0 or ast1["cpc"] > AD_MAX_CPC_NO_SALE):
+                elif cv1 == 0 and ast1["spend"] >= AD_CPC_MIN_SPEND and (ast1["clicks"] == 0 or ast1["cpc"] > AD_MAX_CPC_NO_SALE):
                     ad_pause_reason = (
                         f"[Facebook Video Rule: Today CPC > ${AD_MAX_CPC_NO_SALE:.2f} after ${AD_CPC_MIN_SPEND:.2f}] صرف الفيديو اليوم ${ast1['spend']:.2f} بدون مبيعات | النقرات: {ast1['clicks']} | CPC = ${ast1['cpc']:.3f} (> ${AD_MAX_CPC_NO_SALE:.2f})"
                     )
@@ -663,8 +659,8 @@ def main():
             if c_status == "ACTIVE":
                 if any(b in cname_low for b in BANNED_KEYWORDS):
                     camp_pause_reason = f"حملة منتج محظور ({cname})"
-                elif len(ads_list) > 0 and active_ads_count == 0 and st_cum["spend"] >= CAMP_MIN_SPEND_BEFORE_PAUSE:
-                    camp_pause_reason = f"حملة ميتة بدون أي إعلانات نشطة (0/{len(ads_list)} إعلان نشط بعد صرف ${st_cum['spend']:.2f})"
+                elif len(ads_list) > 0 and active_ads_count == 0:
+                    camp_pause_reason = f"حملة ميتة بدون أي إعلانات نشطة (0/{len(ads_list)} إعلان نشط بعد إيقاف جميع الفيديوهات الخاسرة)"
                 elif st_cum["spend"] >= eff_camp_no_sale_max and camp_total_purchases_cum == 0:
                     camp_pause_reason = (
                         f"[Campaign >= ${eff_camp_no_sale_max:.2f} No-Sale Stop] الحملة صرفت ${st_cum['spend']:.2f} تراكمي (>= ${eff_camp_no_sale_max:.2f}) بدون مبيعات (0 مبيعات)"
