@@ -1018,14 +1018,7 @@ def fetch_campaigns(session, headers, aadvid, st_date, et_date):
 
 
 
-SHUTOFF_CURRENT_6_TIKTOK_AADVIDS = {
-    "7615303174180814849",  # 1035 Susan LLC0309
-    "7462914566645694480",  # CN-Manzilk
-    "7649010597308301332",  # Otyss - Ma - 138
-    "7631763556322148369",  # ROELLINGER RECYCLING
-    "7631765139798081554",  # ROELLINGER RECYCLING1
-    "7631765070816509959",  # ROELLINGER RECYCLING2
-}
+SHUTOFF_CURRENT_6_TIKTOK_AADVIDS = set()
 
 
 def pause_campaign(session, headers, aadvid, campaign_id, operation="disable"):
@@ -2525,7 +2518,7 @@ def main():
                 strict_camp_cpa_lim = gulf_sim_cpa
             elif is_exp_leads:
                 strict_no_sale_lim = 8.50
-                strict_camp_cpa_lim = 9.50
+                strict_camp_cpa_lim = 20.00
             else:
                 strict_no_sale_lim = 20.00
                 strict_camp_cpa_lim = 20.00
@@ -2536,8 +2529,11 @@ def main():
                 _tt_trial_ov = get_active_trial_campaign_overrides().get(str(camp_id))
             except Exception:
                 _tt_trial_ov = None
+            _is_user_restored_camp = str(camp_id) in (history.get("user_protected_tiktok_campaigns") or {})
             if _tt_trial_ov and c_spend_1d < _tt_trial_ov["max_allowed_spend_1d"]:
                 strict_no_sale_lim = _tt_trial_ov["max_allowed_spend_1d"]
+                allow_multi_camp_chk = False
+            elif _is_user_restored_camp:
                 allow_multi_camp_chk = False
             else:
                 allow_multi_camp_chk = (not camp_is_gulf) or (c_spend_1d >= 0.25)
@@ -3608,42 +3604,31 @@ def main():
 
 
 
+            _prot_vids_map = history.get("user_protected_tiktok_videos") or {}
+            _is_user_restored_vid = (
+                hist_key in _prot_vids_map
+                or f"{aadvid}:{ad_id}:{meid_for_v}" in _prot_vids_map
+                or f"{aadvid}:{camp_id_for_v}:{v_key_cur}" in _prot_vids_map
+            )
             reasons = evaluate_video_rules(
-
                 spend_1d, eff_v_conv_1d, cpc_1d, clicks_1d,
-
-                spend_2d, eff_v_conv_2d, cpc_2d, clicks_2d,
-
-                spend_3d, eff_v_conv_3d, cpc_3d, clicks_3d,
-
-                spend_7d, eff_v_conv_7d, cpc_7d, clicks_7d,
-
+                (spend_1d if _is_user_restored_vid else spend_2d), (eff_v_conv_1d if _is_user_restored_vid else eff_v_conv_2d), (cpc_1d if _is_user_restored_vid else cpc_2d), (clicks_1d if _is_user_restored_vid else clicks_2d),
+                (spend_1d if _is_user_restored_vid else spend_3d), (eff_v_conv_1d if _is_user_restored_vid else eff_v_conv_3d), (cpc_1d if _is_user_restored_vid else cpc_3d), (clicks_1d if _is_user_restored_vid else clicks_3d),
+                (spend_1d if _is_user_restored_vid else spend_7d), (eff_v_conv_1d if _is_user_restored_vid else eff_v_conv_7d), (cpc_1d if _is_user_restored_vid else cpc_7d), (clicks_1d if _is_user_restored_vid else clicks_7d),
                 is_gulf=v_is_gulf,
-
                 is_new_test=v_is_new_test,
-
                 gulf_no_sale_limit=v_gulf_no_sale,
-
                 gulf_cpa_limit=v_gulf_cpa,
-
                 gulf_max_cpc=v_gulf_max_cpc,
-
             )
-
             v_cpa_lim = 5.99 if v_is_new_test else (v_gulf_cpa if v_is_gulf else MAX_VIDEO_CPA)
-
             v_has_profitable_sales = (
-
-                (eff_v_conv_3d > 0 and (spend_3d / eff_v_conv_3d) <= v_cpa_lim)
-
+                _is_user_restored_vid
+                or (eff_v_conv_3d > 0 and (spend_3d / eff_v_conv_3d) <= v_cpa_lim)
                 or (eff_v_conv_1d > 0 and (spend_1d / eff_v_conv_1d) <= v_cpa_lim)
-
                 or (eff_v_conv_7d > 0 and (spend_7d / eff_v_conv_7d) <= v_cpa_lim)
-
             )
-
             if v_key_cur in history.get("tiktok_disabled_dup_videos", {}) and not v_has_profitable_sales:
-
                 reasons.append(f"Blacklisted Multi-Day Non-Converting Video ('{v_key_cur}')")
 
 
@@ -4010,11 +3995,19 @@ def main():
 
 
 
+        _prot_vids_p2 = history.get("user_protected_tiktok_videos") or {}
         active_insts = [
 
             inst for inst in grp["instances"]
 
             if inst["is_active"]
+            and not (
+                (
+                    inst["hist_key"] in _prot_vids_p2
+                    or f"{inst['aadvid']}:{inst['campaign_id']}:{v_key}" in _prot_vids_p2
+                )
+                and inst["spend_1d"] < 4.50
+            )
 
             and not (
 
