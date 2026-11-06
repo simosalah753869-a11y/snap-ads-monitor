@@ -455,9 +455,11 @@ class VirtualPortfolioEngine:
             new_c_open_syms.append(f"{sp['symbol']}(1X_SHORT)")
 
         # 3. Tag US Stocks trade_history & active_positions
-        half_treasury = round(float(stocks.get("accrued_treasury_yield_usd", 0.0)) / 2.0, 2)
-        old_s_realized = half_treasury
-        new_s_realized = half_treasury
+        tot_treasury = round(float(stocks.get("accrued_treasury_yield_usd", 0.0)), 2)
+        old_treasury_share = round(tot_treasury * (1.0 / 3.0), 2)
+        new_treasury_share = round(tot_treasury - old_treasury_share, 2)
+        old_s_realized = old_treasury_share
+        new_s_realized = new_treasury_share
         old_s_wins, old_s_losses = 0, 0
         new_s_wins, new_s_losses = 0, 0
 
@@ -503,16 +505,18 @@ class VirtualPortfolioEngine:
                 new_s_unrealized = round(new_s_unrealized + unr, 2)
                 new_s_open_syms.append(sp["symbol"])
 
-        # 4. Compute exact independent cash pools & equities ($1000 Crypto + $1000 Stocks = $2000 per plan)
+        # 4. Compute exact independent cash pools & equities:
+        # - OLD_PLAN: $1,000 Crypto + $1,000 US Stocks = $2,000 Total
+        # - NEW_PLAN: $0 Crypto + $2,000 US Stocks Only = $2,000 Total (retains historical crypto realized PnL transparently)
         old_c_free = round(max(0.0, 1000.0 + old_sniper_realized - old_c_invested), 2)
-        new_c_free = round(max(0.0, 1000.0 + new_sniper_realized - new_c_invested - new_c_carry_alloc - new_c_earn_alloc), 2)
-        old_s_free = round(max(0.0, 1000.0 + (old_s_realized - half_treasury) - old_s_invested), 2)
-        new_s_free = round(max(0.0, 1000.0 + (new_s_realized - half_treasury) - new_s_invested), 2)
+        new_c_free = 0.0
+        old_s_free = round(max(0.0, 1000.0 + (old_s_realized - old_treasury_share) - old_s_invested), 2)
+        new_s_free = round(max(0.0, 2000.0 + new_c_realized + (new_s_realized - new_treasury_share) - new_s_invested), 2)
 
         old_c_eq = round(1000.0 + old_c_realized + old_c_unrealized, 2)
-        new_c_eq = round(1000.0 + new_c_realized + new_c_unrealized, 2)
+        new_c_eq = 0.0
         old_s_eq = round(1000.0 + old_s_realized + old_s_unrealized, 2)
-        new_s_eq = round(1000.0 + new_s_realized + new_s_unrealized, 2)
+        new_s_eq = round(2000.0 + new_c_realized + new_s_realized + new_s_unrealized, 2)
 
         old_tot_realized = round(old_c_realized + old_s_realized, 2)
         old_tot_unrealized = round(old_c_unrealized + old_s_unrealized, 2)
@@ -522,7 +526,7 @@ class VirtualPortfolioEngine:
 
         new_tot_realized = round(new_c_realized + new_s_realized, 2)
         new_tot_unrealized = round(new_c_unrealized + new_s_unrealized, 2)
-        new_tot_eq = round(new_c_eq + new_s_eq, 2)
+        new_tot_eq = round(new_s_eq, 2)
         new_tot_wins = new_c_wins + new_s_wins
         new_tot_losses = new_c_losses + new_s_losses
 
@@ -530,7 +534,7 @@ class VirtualPortfolioEngine:
         lead_diff = round(abs(old_tot_eq - new_tot_eq), 2)
 
         split_summary = {
-            "allocated_mode": "STRICT_ISOLATED_BUDGETS ($2000 OLD_PLAN vs $2000 NEW_PLAN = $4000 TOTAL)",
+            "allocated_mode": "STRICT_ISOLATED_BUDGETS ($2000 OLD_PLAN [Crypto+Stocks] vs $2000 NEW_PLAN [100% US Stocks Only] = $4000 TOTAL)",
             "leading_plan": leader,
             "lead_margin_usd": lead_diff,
             "OLD_PLAN": {
@@ -560,18 +564,18 @@ class VirtualPortfolioEngine:
                 "win_rate_pct": round(old_tot_wins / max(1, old_tot_wins + old_tot_losses) * 100.0, 1) if (old_tot_wins + old_tot_losses) > 0 else 0.0
             },
             "NEW_PLAN": {
-                "description": "الخطة الكمية المؤسسية المدروسة ($2000 = $1000 كريبتو وذهب وعائد تمويل محايد + $1000 أسهم أمريكية بنظام RSI2 إلى SMA10 وسقف ارتباط القطاعات)",
+                "description": "خطة نخبة الأسهم الأمريكية فقط ($2000 بالكامل في الأسهم والمؤشرات الأمريكية القيادية — تنفيذ حي 100% وقت جلسة نيويورك مع درع قفل الربح)",
                 "initial_budget_usd": 2000.0,
-                "crypto_budget_usd": 1000.0,
-                "crypto_invested_usd": new_c_invested,
-                "crypto_carry_hedged_usd": new_c_carry_alloc,
-                "crypto_earn_reserve_usd": new_c_earn_alloc,
-                "crypto_free_cash_usd": new_c_free,
+                "crypto_budget_usd": 0.0,
+                "crypto_invested_usd": 0.0,
+                "crypto_carry_hedged_usd": 0.0,
+                "crypto_earn_reserve_usd": 0.0,
+                "crypto_free_cash_usd": 0.0,
                 "crypto_realized_pnl_usd": new_c_realized,
-                "crypto_unrealized_pnl_usd": new_c_unrealized,
-                "crypto_equity_usd": new_c_eq,
-                "crypto_open_positions": new_c_open_syms,
-                "stocks_budget_usd": 1000.0,
+                "crypto_unrealized_pnl_usd": 0.0,
+                "crypto_equity_usd": 0.0,
+                "crypto_open_positions": [],
+                "stocks_budget_usd": 2000.0,
                 "stocks_invested_usd": new_s_invested,
                 "stocks_free_cash_usd": new_s_free,
                 "stocks_realized_pnl_usd": new_s_realized,
@@ -623,14 +627,14 @@ class VirtualPortfolioEngine:
         except Exception:
             pass
 
-        # 1A. Live Clean Unwind of Abolished Noisy Playbooks (15M_FLOW_SCALP / STAT_ARB) in NEW_PLAN at Exact Live Bid
+        # 1A. Live Clean Unwind of ALL NEW_PLAN Crypto Positions & Carry/Earn Reserves at Exact Live Bid (Transition NEW_PLAN to 100% US Stocks Only!)
         if "active_positions" in sniper and live_book:
             kept_pos = []
             for cyc in sniper["active_positions"]:
                 sym = cyc["symbol"]
                 pb_n = cyc.get("playbook", "")
                 ptag = cyc.get("plan_tag", "NEW_PLAN")
-                if ptag == "NEW_PLAN" and pb_n in ("15M_FLOW_SCALP", "STAT_ARB_AND_FUNDING_SQUEEZE") and sym in live_book:
+                if ptag == "NEW_PLAN" and sym in live_book:
                     live_bid = live_book[sym]["bid"]
                     gross_val = round(cyc["total_qty"] * live_bid * (1.0 - 0.0005), 2)
                     pnl = round(gross_val - cyc["invested_usd"], 2)
@@ -642,36 +646,27 @@ class VirtualPortfolioEngine:
                         sniper["cycles_stopped"] = sniper.get("cycles_stopped", 0) + 1
                     sniper["trade_history"].append({
                         "time_utc": now_iso,
-                        "action": "LIVE_EXIT_ABOLISHED_NOISY_PLAYBOOK",
+                        "action": "LIVE_EXIT_CRYPTO_TO_US_STOCKS_ONLY_PLAN",
                         "playbook": pb_n,
                         "plan_tag": "NEW_PLAN",
                         "symbol": sym,
                         "price": live_bid,
                         "pnl_usd": pnl
                     })
-                    cycle_actions.append(f"LIVE_EXIT_ABOLISHED_PLAYBOOK:{sym}@${live_bid}:${pnl:+.2f}")
+                    cycle_actions.append(f"LIVE_EXIT_CRYPTO_TO_US_STOCKS_PLAN:{sym}@${live_bid}:${pnl:+.2f}")
                 else:
-                    # Preserve legitimate ATR / Order-Flow locks; only clear legacy non-ATR breakeven chokes
-                    if ptag == "NEW_PLAN" and cyc.get("lock_source") not in ("ATR_PROFIT_LOCK", "FLOW_REVERSAL_LOCK"):
-                        cyc.pop("breakeven_locked_price", None)
                     kept_pos.append(cyc)
             sniper["active_positions"] = kept_pos
 
-        # 1B. Fund NEW_PLAN Institutional Yield Floor ($300 Delta-Neutral Carry + $150 Flexible Earn Reserve)
+        # 1B. Unwind NEW_PLAN Crypto Carry & Flash Reserve (Shift 100% of NEW_PLAN $2000 Budget to US Stocks)
+        if float(arb.get("allocated_usd", 0.0)) > 0.0 or float(res.get("allocated_usd", 0.0)) > 0.0:
+            arb["positions"] = {}
+            arb["allocated_usd"] = 0.0
+            res["allocated_usd"] = 0.0
+            sniper["allocated_usd"] = 1000.0
+            cycle_actions.append("SHIFT_NEW_PLAN_100PCT_TO_US_STOCKS_2000USD")
         split_pre = self._compute_and_sync_split_plan_budgets()
-        new_free_pre = split_pre["NEW_PLAN"]["crypto_free_cash_usd"]
-        if float(arb.get("allocated_usd", 0.0)) < 300.0 and new_free_pre >= 450.0 and float(sniper.get("free_cash_usd", 0.0)) >= 450.0:
-            need_arb = round(300.0 - float(arb.get("allocated_usd", 0.0)), 2)
-            need_res = round(max(0.0, 150.0 - float(res.get("allocated_usd", 0.0))), 2)
-            tot_shift = round(need_arb + need_res, 2)
-            if tot_shift > 0 and float(sniper["free_cash_usd"]) >= tot_shift:
-                sniper["free_cash_usd"] = round(float(sniper["free_cash_usd"]) - tot_shift, 2)
-                sniper["allocated_usd"] = round(float(sniper.get("allocated_usd", 2000.0)) - tot_shift, 2)
-                arb["allocated_usd"] = round(float(arb.get("allocated_usd", 0.0)) + need_arb, 2)
-                arb["plan_tag"] = "NEW_PLAN"
-                res["allocated_usd"] = round(float(res.get("allocated_usd", 0.0)) + need_res, 2)
-                res["plan_tag"] = "NEW_PLAN"
-                cycle_actions.append(f"ALLOCATE_NEW_PLAN_YIELD_FLOOR:CARRY_${arb['allocated_usd']}+EARN_${res['allocated_usd']}")
+        sniper["free_cash_usd"] = split_pre["OLD_PLAN"]["crypto_free_cash_usd"]
 
         # Keep watched_pairs strictly clean: Core Liquid Crypto/Gold + any currently open legacy pair
         clean_watch = list(CORE_STUDIED_CRYPTO_LONGS)
@@ -1620,7 +1615,7 @@ class VirtualPortfolioEngine:
         spy_sc = stock_scan.get("SPY", {})
         qqq_rsi = qqq_sc.get("rsi14", 50.0)
         spy_rsi = spy_sc.get("rsi14", 50.0)
-        index_freefall = (qqq_rsi < 18.0) or (spy_rsi < 18.0)
+        index_freefall = ((qqq_rsi < 14.0) and not qqq_sc.get("green_reversal", False)) or ((spy_rsi < 14.0) and not spy_sc.get("green_reversal", False))
         acted_stock_bars = stocks.setdefault("acted_closed_bars", {})
 
         for ticker, sscan in stock_scan.items():
@@ -1628,17 +1623,28 @@ class VirtualPortfolioEngine:
             cc_s = sscan.get("closed_close", 0.0)
             sma20_s = sscan.get("sma20", 0.0)
             ret24_s = sscan.get("ret24_pct", 0.0)
+            rsi14_s = sscan.get("rsi14", 50.0)
+            rsi2_s = sscan.get("rsi2", 50.0)
             already_st = (acted_stock_bars.get(ticker) == sscan.get("closed_bar_ts"))
-            # Upgraded Connors Institutional RSI(2) <= 6.0 + Strict SMA200 + Anti-Waterfall (-3.5% <= ret24) (IS WR=100%, OOS WR=94.1%, OOS PF=8.09)
+            # NEW_PLAN ($2,000 100% US Stocks Only):
+            # 1) Uptrend Pullback (above SMA200 with RSI14 <= 33.5 or RSI2 <= 10 below SMA20)
+            # 2) Oversold Washout Reversal (below SMA200 with RSI14 <= 29.0 + Green Reversal below SMA20 - 1.0*ATR)
+            uptrend_pullback_ok = (
+                sscan.get("uptrend_ok", False)
+                and (rsi14_s <= 33.5 or (rsi2_s <= 10.0 and atr_s > 0 and cc_s < (sma20_s - 0.5 * atr_s)))
+            )
+            washout_reversal_ok = (
+                (not sscan.get("uptrend_ok", False))
+                and (rsi14_s <= 29.0)
+                and sscan.get("green_reversal", False)
+                and (atr_s > 0 and cc_s < (sma20_s - 1.0 * atr_s))
+            )
             sscan["dip_trigger"] = bool(
                 (not already_st)
                 and (ticker in STUDIED_STOCK_UNIVERSE)
                 and (not sscan.get("news_shock_blocked", False))
                 and (not index_freefall)
-                and sscan.get("uptrend_ok", False)
-                and (ret24_s >= -3.50)
-                and (sscan.get("rsi2", 50.0) <= 6.0)
-                and (atr_s > 0 and cc_s < (sma20_s - 0.8 * atr_s))
+                and (uptrend_pullback_ok or washout_reversal_ok)
             )
         stocks["latest_stock_scan"] = stock_scan
         stocks["us_regular_market_open"] = us_market_open
@@ -1669,7 +1675,7 @@ class VirtualPortfolioEngine:
             if ptag_st == "NEW_PLAN":
                 scyc.pop("breakeven_locked_price", None)
 
-            # Counter-Trend NYSE Open Gap & Profit-Lock Shield + Stagnant ETF Realistic Target Re-Anchoring
+            # Automatic Profit-Lock Shield (Both Plans) + Counter-Trend Target Re-Anchoring
             atr_tk = float(sc_tk.get("atr14") or 0.0)
             sma20_tk = float(sc_tk.get("sma20") or 0.0)
             sma100_tk = float(sc_tk.get("sma100") or 0.0)
@@ -1677,21 +1683,21 @@ class VirtualPortfolioEngine:
             qqq_uptrend = bool(qqq_sc.get("uptrend_ok", False))
             unr_now = round(scyc["total_qty"] * cur_sp - scyc["invested_usd"], 2)
 
-            if atr_tk > 0 and (not tk_uptrend or not qqq_uptrend):
-                # Lock +0.35*ATR guaranteed profit on counter-trend bounces above SMA20 (e.g., MSFT +$3.09)
-                if sma20_tk > 0 and cur_sp >= sma20_tk and unr_now >= 2.00:
-                    lock_sl = round(scyc["avg_entry_price"] + 0.35 * atr_tk, 2)
+            if atr_tk > 0 and (ptag_st == "NEW_PLAN" or not tk_uptrend or not qqq_uptrend):
+                # Tier-2 Profit Lock: +1.20*ATR or above SMA20 -> lock +0.55*ATR guaranteed profit
+                if ((sma20_tk > 0 and cur_sp >= sma20_tk) or (cur_sp >= scyc["avg_entry_price"] + 1.20 * atr_tk)) and unr_now >= 2.50:
+                    lock_sl = round(scyc["avg_entry_price"] + 0.55 * atr_tk, 2)
                     if lock_sl > scyc["sl_price"] and cur_sp > lock_sl:
                         scyc["sl_price"] = lock_sl
                         scyc["counter_trend_profit_locked"] = True
-                        cycle_actions.append(f"STOCK_COUNTER_TREND_PROFIT_LOCK:{tk}:SL->${lock_sl}")
-                # Lock breakeven+0.10*ATR on counter-trend index/stock rebounds >= +0.65*ATR (e.g., SPY +$0.68)
-                elif cur_sp >= scyc["avg_entry_price"] + 0.65 * atr_tk and unr_now >= 0.50:
-                    be_sl = round(scyc["avg_entry_price"] + 0.10 * atr_tk, 2)
+                        cycle_actions.append(f"STOCK_PROFIT_LOCK_TIER2:{tk}({ptag_st}):SL->${lock_sl}")
+                # Tier-1 Breakeven+Profit Shield: >= +0.60*ATR -> lock +0.12*ATR above entry
+                elif cur_sp >= scyc["avg_entry_price"] + 0.60 * atr_tk and unr_now >= 0.80:
+                    be_sl = round(scyc["avg_entry_price"] + 0.12 * atr_tk, 2)
                     if be_sl > scyc["sl_price"] and cur_sp > be_sl:
                         scyc["sl_price"] = be_sl
                         scyc["counter_trend_profit_locked"] = True
-                        cycle_actions.append(f"STOCK_COUNTER_TREND_BREAKEVEN_SHIELD:{tk}:SL->${be_sl}")
+                        cycle_actions.append(f"STOCK_BREAKEVEN_SHIELD:{tk}({ptag_st}):SL->${be_sl}")
 
             # Re-anchor over-stretched OLD_PLAN Macro ETF or Counter-Trend Stock targets (e.g., NVDA 3.62x ATR -> realistic 2.2x ATR)
             if ptag_st == "OLD_PLAN" and (tk in STUDIED_MACRO_TICKERS or not tk_uptrend) and atr_tk > 0:
@@ -1711,16 +1717,16 @@ class VirtualPortfolioEngine:
                 updated_stocks.append(scyc)
                 continue
 
-            sma10_now = sc_tk.get("sma10", 0.0)
             rsi14_now = sc_tk.get("rsi14", 50.0)
-            mean_rev_exit_hit = (
+            overbought_bounce_done = (
                 ptag_st == "NEW_PLAN"
-                and active_mkt_h >= 0.8
-                and ((sma10_now > 0 and cur_sp >= sma10_now) or rsi14_now >= 60.0)
+                and active_mkt_h >= 1.0
+                and rsi14_now >= 66.0
+                and cur_sp > scyc["avg_entry_price"] * 1.008
             )
-            max_mkt_h = 35.0 if ptag_st == "NEW_PLAN" else 96.0
+            max_mkt_h = 45.0 if ptag_st == "NEW_PLAN" else 96.0
 
-            if mean_rev_exit_hit or cur_sp >= scyc["tp_target_price"]:
+            if overbought_bounce_done or cur_sp >= scyc["tp_target_price"]:
                 gross_val = round(scyc["total_qty"] * cur_sp, 2)
                 pnl = round(gross_val - scyc["invested_usd"], 2)
                 stocks["free_cash_usd"] = round(stocks["free_cash_usd"] + gross_val, 2)
@@ -1729,7 +1735,7 @@ class VirtualPortfolioEngine:
                     stocks["cycles_won"] += 1
                 else:
                     stocks["cycles_stopped"] += 1
-                act_st_lbl = "MEAN_SMA10_EXIT_LIVE" if mean_rev_exit_hit else "TAKE_PROFIT_LIVE"
+                act_st_lbl = "OVERBOUGHT_RSI_PROFIT_EXIT_LIVE" if overbought_bounce_done else "TAKE_PROFIT_LIVE"
                 stocks["trade_history"].append({
                     "time_utc": now_iso,
                     "action": act_st_lbl,
@@ -1739,13 +1745,16 @@ class VirtualPortfolioEngine:
                     "price": cur_sp,
                     "pnl_usd": pnl
                 })
-                cycle_actions.append(f"STOCK_{act_st_lbl}:{tk}@${cur_sp}:${pnl:+.2f}")
+                cycle_actions.append(f"STOCK_{act_st_lbl}:{tk}({ptag_st})@${cur_sp}:${pnl:+.2f}")
             elif cur_sp <= scyc["sl_price"]:
                 gross_val = round(scyc["total_qty"] * cur_sp, 2)
                 pnl = round(gross_val - scyc["invested_usd"], 2)
                 stocks["free_cash_usd"] = round(stocks["free_cash_usd"] + gross_val, 2)
                 stocks["realized_pnl_usd"] = round(stocks["realized_pnl_usd"] + pnl, 2)
-                stocks["cycles_stopped"] += 1
+                if pnl >= 0:
+                    stocks["cycles_won"] += 1
+                else:
+                    stocks["cycles_stopped"] += 1
                 stocks["trade_history"].append({
                     "time_utc": now_iso,
                     "action": "STOP_LOSS_LIVE",
@@ -1755,7 +1764,7 @@ class VirtualPortfolioEngine:
                     "price": cur_sp,
                     "pnl_usd": pnl
                 })
-                cycle_actions.append(f"STOCK_STOP_LOSS_LIVE:{tk}@${cur_sp}:${pnl:+.2f}")
+                cycle_actions.append(f"STOCK_STOP_LOSS_LIVE:{tk}({ptag_st})@${cur_sp}:${pnl:+.2f}")
             elif active_mkt_h >= max_mkt_h:
                 gross_val = round(scyc["total_qty"] * cur_sp, 2)
                 pnl = round(gross_val - scyc["invested_usd"], 2)
@@ -1774,7 +1783,7 @@ class VirtualPortfolioEngine:
                     "price": cur_sp,
                     "pnl_usd": pnl
                 })
-                cycle_actions.append(f"STOCK_TIME_MAX_BARS_EXIT_LIVE:{tk}@${cur_sp}:${pnl:+.2f}")
+                cycle_actions.append(f"STOCK_TIME_MAX_BARS_EXIT_LIVE:{tk}({ptag_st})@${cur_sp}:${pnl:+.2f}")
             else:
                 scyc["current_price"] = cur_sp
                 scyc["unrealized_pnl_usd"] = round(scyc["total_qty"] * cur_sp - scyc["invested_usd"], 2)
@@ -1784,17 +1793,20 @@ class VirtualPortfolioEngine:
 
         stocks["active_positions"] = updated_stocks
 
-        # Re-sync isolated stock cash pools ($1000 OLD_PLAN vs $1000 NEW_PLAN)
+        # Re-sync isolated stock cash pools ($1000 OLD_PLAN + $2000 NEW_PLAN = $3000 Total Stock Pool)
+        stocks["initial_capital_usd"] = 3000.0
         split_budgets_st = self._compute_and_sync_split_plan_budgets()
         old_s_free = split_budgets_st["OLD_PLAN"]["stocks_free_cash_usd"]
         new_s_free = split_budgets_st["NEW_PLAN"]["stocks_free_cash_usd"]
+        stocks["free_cash_usd"] = round(old_s_free + new_s_free, 2)
         old_s_count = sum(1 for p in stocks["active_positions"] if p.get("plan_tag") == "OLD_PLAN")
         new_s_count = sum(1 for p in stocks["active_positions"] if p.get("plan_tag") == "NEW_PLAN")
 
         # 5B. Open NEW US Stock Positions Strictly When NYSE Regular Session is OPEN!
+        INDIVIDUAL_TECH_STOCKS = {"AAPL", "MSFT", "GOOGL", "AMZN", "META", "NVDA", "AMD", "AVGO", "TSLA"}
         old_held_tickers = {p["symbol"] for p in stocks["active_positions"] if p.get("plan_tag") == "OLD_PLAN"}
         new_held_tickers = {p["symbol"] for p in stocks["active_positions"] if p.get("plan_tag") == "NEW_PLAN"}
-        new_tech_held = sum(1 for tk_h in new_held_tickers if tk_h in STUDIED_TECH_TICKERS)
+        new_tech_held = sum(1 for tk_h in new_held_tickers if tk_h in INDIVIDUAL_TECH_STOCKS)
         old_cooldown_tickers = set()
         new_cooldown_tickers = set()
         for sth in stocks.get("trade_history", [])[-25:]:
@@ -1866,32 +1878,31 @@ class VirtualPortfolioEngine:
                     })
                     cycle_actions.append(f"OPEN_OLD_US_STOCK_LIVE:{tk}@${ep}:${amt}")
 
-        # 5B-2. NEW_PLAN Studied Connors RSI(2)->SMA10 Entry (Max 2 Slots, MAX 1 Tech Ticker, Min $250 T-Bill Reserve)
+        # 5B-2. NEW_PLAN 100% US Stocks Only Entry ($2,000 Budget, Max 5 Slots x $400, Max 3 Individual Tech Stocks, 100% Live Execution)
         for tk in STUDIED_STOCK_UNIVERSE:
-            if (not us_market_open) or new_s_count >= 2 or new_s_free < 390.0 or stocks["free_cash_usd"] < 150.0:
+            if (not us_market_open) or new_s_count >= 5 or new_s_free < 180.0 or stocks["free_cash_usd"] < 180.0:
                 break
             if tk in new_held_tickers or tk in new_cooldown_tickers:
                 continue
-            if (tk in STUDIED_TECH_TICKERS) and new_tech_held >= 1:
+            if (tk in INDIVIDUAL_TECH_STOCKS) and new_tech_held >= 3:
                 continue
             sscan = stock_scan.get(tk, {})
             atr = sscan.get("atr14", 0.0)
             ep = sscan.get("price", 0.0)
             if sscan.get("dip_trigger") and atr > 0 and ep > 0:
-                pool_avail_st = min(stocks["free_cash_usd"], new_s_free - 250.0)
-                sl_m_st = 3.2
-                stop_pct = max(0.008, (sl_m_st * atr) / ep)
-                amt = round(min(pool_avail_st, 320.0, 5.00 / stop_pct), 2)
-                if amt >= 140.0:
+                pool_avail_st = min(stocks["free_cash_usd"], new_s_free)
+                amt = round(min(pool_avail_st, 400.0), 2)
+                if amt >= 180.0:
                     qty = round(amt / ep, 5)
                     stocks["free_cash_usd"] = round(stocks["free_cash_usd"] - amt, 2)
                     new_s_free = round(new_s_free - amt, 2)
                     new_s_count += 1
-                    if tk in STUDIED_TECH_TICKERS:
+                    if tk in INDIVIDUAL_TECH_STOCKS:
                         new_tech_held += 1
                     acted_stock_bars[tk] = sscan.get("closed_bar_ts")
-                    tp_st_new = round(max(ep * 1.006, sscan.get("sma10", ep + 2.0 * atr)), 2)
-                    sl_st_new = round(ep - sl_m_st * atr, 2)
+                    tp_mult_new = 2.5 if sscan.get("uptrend_ok") else 2.0
+                    tp_st_new = round(ep + tp_mult_new * atr, 2)
+                    sl_st_new = round(ep - 2.0 * atr, 2)
                     new_st = {
                         "symbol": tk,
                         "playbook": "US_STOCK_PULLBACK",
@@ -1914,7 +1925,7 @@ class VirtualPortfolioEngine:
                     new_held_tickers.add(tk)
                     stocks["trade_history"].append({
                         "time_utc": now_iso,
-                        "action": "OPEN_CONNORS_RSI2_PULLBACK_LIVE",
+                        "action": "OPEN_NEW_US_STOCK_ELITE_LIVE",
                         "playbook": "US_STOCK_PULLBACK",
                         "plan_tag": "NEW_PLAN",
                         "symbol": tk,
@@ -1924,7 +1935,7 @@ class VirtualPortfolioEngine:
                         "uptrend_ok": sscan.get("uptrend_ok"),
                         "amount_usd": amt
                     })
-                    cycle_actions.append(f"OPEN_NEW_US_STOCK_RSI2_LIVE:{tk}@${ep}:${amt}")
+                    cycle_actions.append(f"OPEN_NEW_US_STOCK_ELITE_LIVE:{tk}@${ep}:${amt}")
 
         stocks["active_cycle"] = stocks["active_positions"][0] if stocks["active_positions"] else None
 
