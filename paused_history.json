@@ -5020,10 +5020,10 @@
       "campaign": "باور بانك وينر - 30 أدست - بيد 2.1 30-10",
       "base_bid_micro": 2100000,
       "bumps_count": 0,
-      "last_check_utc": "2026-11-06T15:36:43.650411+00:00",
+      "last_check_utc": "2026-11-06T21:47:52.936884+00:00",
       "last_bump_utc": null,
-      "spend_at_last_check": 2.01,
-      "spend_date": "2026-11-06",
+      "spend_at_last_check": 0.12,
+      "spend_date": "2026-11-07",
       "current_bid_micro": 2100000
     },
     "16846bd6-8df1-481b-a8e3-6f2f0bd5f85d": {
@@ -8469,6 +8469,18 @@
       "spend_at_last_check": 0.02,
       "spend_date": "2026-11-07",
       "current_bid_micro": 2200000
+    },
+    "053c2707-4047-40f3-a4a9-5fe71d06153d": {
+      "schema_v": 2,
+      "name": "مجموعة نخبة الباور بانك #04 - بيد 2.2",
+      "campaign": "باور بانك وينر نخبة #02 (5 أدست) - بيد 2.2",
+      "base_bid_micro": 2200000,
+      "bumps_count": 0,
+      "last_check_utc": "2026-11-06T21:47:52.936884+00:00",
+      "last_bump_utc": null,
+      "spend_at_last_check": 0.36,
+      "spend_date": "2026-11-07",
+      "current_bid_micro": 2200000
     }
   },
   "scaling_bid_bumps": {},
@@ -9972,11 +9984,11 @@
       "campaign_name": "باور بانك وينر نخبة #02 (5 أدست) - بيد 2.2",
       "video_media_id": "198c6ee8-d20a-483d-bf48-8b97fecd4697",
       "sample_ad_name": "PB_v2_Winner2_m198c6e",
-      "closed_instances": 1,
-      "total_spend": 13.27,
+      "closed_instances": 0,
+      "total_spend": 13.5,
       "total_purchases": 1,
-      "reason": "[Aggregated Video High CPA 2D (يومين) - السعودية] مجموع صرف الفيديو التراكمي = $13.27 | المبيعات = 1 | CPA التراكمي = $13.27 (> $7.99)",
-      "disabled_at": "2026-11-07 00:28 GMT+3"
+      "reason": "[Aggregated Video High CPA 2D (يومين) - السعودية] مجموع صرف الفيديو التراكمي = $13.50 | المبيعات = 1 | CPA التراكمي = $13.50 (> $7.99)",
+      "disabled_at": "2026-11-07 00:45 GMT+3"
     },
     "7fa61e5d-dd41-4ee5-af26-e5c0f773bdef:MEDIA:bf3fa914-1816-4101-8cd7-e3a4ec14d060": {
       "campaign_id": "7fa61e5d-dd41-4ee5-af26-e5c0f773bdef",
@@ -9987,7 +9999,7 @@
       "total_spend": 3.3,
       "total_purchases": 0,
       "reason": "[Aggregated Video High CPA 7D (7 أيام) - السعودية] مجموع صرف الفيديو التراكمي = $41.67 | المبيعات = 4 | CPA التراكمي = $10.42 (> $7.99)",
-      "disabled_at": "2026-11-07 00:28 GMT+3"
+      "disabled_at": "2026-11-07 00:45 GMT+3"
     }
   },
   "snap_3h_budget_scale": {
@@ -10257,26 +10269,26 @@
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
       "updated_at": "2026-11-07 00:41 GMT+3"
     },
-    "d01d1ae0-9e64-4815-81ae-fbd24a6f7f43": {
-      "name": "باور بانك وينر نخبة #02 (5 أدست) - بيد 2.2",
-      "spend_3d": 45.25,
-      "purchases_3d": 5,
-      "cpa_3d": 9.05,
-      "updated_at": "2026-11-07 00:41 GMT+3"
-    },
-    "f8859403-3bd5-4015-808d-200f97f44431": {
+    "c0ce83d6-e40e-4455-a845-87a6b08ef1c3": {
       "name": "باور بانك وينر نخبة #01 (5 أدست) - بيد 2.4",
-      "spend_3d": 38.74,
-      "purchases_3d": 4,
-      "cpa_3d": 9.69,
-      "updated_at": "2026-11-07 00:41 GMT+3"
+      "spend_3d": 14.84,
+      "purchases_3d": 0,
+      "cpa_3d": null,
+      "updated_at": "2026-11-07 00:45 GMT+3"
     },
-    "6b0de02e-978d-4332-9698-743a2524b87c": {
-      "name": "باور بانك شاملة نخبة (5 أدست) - بيد 2.1 - 03-11",
-      "spend_3d": 11.92,
+    "40c0ffaa-8892-43a1-b246-983f5e370dd6": {
+      "name": "باور بانك وينر نخبة #02 (5 أدست) - بيد 2.2",
+      "spend_3d": 32.28,
+      "purchases_3d": 4,
+      "cpa_3d": 8.07,
+      "updated_at": "2026-11-07 00:45 GMT+3"
+    },
+    "fbb1a3c5-b922-4d47-bde8-49f40a59263b": {
+      "name": "وسادة السيارة وينر نخبة #01 (5 أدست) - بيد 2.1 - 04-11",
+      "spend_3d": 11.75,
       "purchases_3d": 1,
-      "cpa_3d": 11.92,
-      "updated_at": "2026-11-07 00:41 GMT+3"
+      "cpa_3d": 11.75,
+      "updated_at": "2026-11-07 00:45 GMT+3"
     }
   },
   "user_reactivated_ads": {},
