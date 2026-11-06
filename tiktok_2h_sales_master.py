@@ -1272,7 +1272,7 @@ def main():
 
             # تم تعطيل إعادة التشغيل التلقائي لحملات 31-10 الموقوفة حتى لا تعود الحملات الخاسرة للنزيف:
             is_car_cushion_camp = any(k in cname.lower() for k in ("car", "armrest", "cushion", "pillow", "وساد", "تكاي", "مسند", "maybach", "مايباخ"))
-            if is_active:
+            if is_active and str(aadvid) not in getattr(tm, "NEW_4_TIKTOK_AADVIDS", set()):
                 cn_low_chk = cname.lower()
                 if ((is_car_cushion_camp or "kashaf" in cn_low_chk or "kasahf" in cn_low_chk or "flash" in cn_low_chk or "كشاف" in cn_low_chk) and not tm.is_gulf_campaign(cname)) or "pillow" in cn_low_chk or "وسادة نوم" in cn_low_chk:
                     ok_pk, _ = tm.pause_campaign(session, headers, aadvid, cid, operation="disable")
