@@ -1,8 +1,8 @@
 {
   "started_at_utc": "2026-11-02T16:48:48Z",
   "started_at_ms": 1793638128171,
-  "last_updated_utc": "2026-11-06T10:04:46Z",
-  "last_updated_ms": 1793959486920,
+  "last_updated_utc": "2026-11-06T10:07:23Z",
+  "last_updated_ms": 1793959643706,
   "initial_capital_usd": 2000.0,
   "macro_news_shield": {
     "active": true,
@@ -19,7 +19,7 @@
     "entry_fees_paid_usd": 0.3,
     "funding_collected_usd": 0.325,
     "funding_events_count": 12,
-    "last_funding_check_ms": 1793959486920,
+    "last_funding_check_ms": 1793959643706,
     "positions": {
       "BTCUSDT": {
         "spot_qty": 0.00391,
@@ -28,7 +28,7 @@
         "entry_futures_price": 76820.01,
         "current_funding_rate_8h_pct": 0.0047,
         "notional_hedged_usd": 300.0,
-        "current_mark_price": 76127.435,
+        "current_mark_price": 76134.025,
         "opened_at_utc": "2026-11-02T21:53:16Z"
       }
     },
@@ -87,11 +87,11 @@
       "total_qty": 0.351555,
       "tp_target_price": 719.6546,
       "sl_price": 678.7853,
-      "hours_held": 21.1,
-      "current_price": 693.95,
-      "unrealized_pnl_usd": -6.04,
-      "dist_to_sl_pct": 2.19,
-      "dist_to_tp_pct": 3.7,
+      "hours_held": 21.2,
+      "current_price": 693.81,
+      "unrealized_pnl_usd": -6.09,
+      "dist_to_sl_pct": 2.17,
+      "dist_to_tp_pct": 3.73,
       "max_price_seen": 712.28
     },
     "trade_history": [
@@ -671,11 +671,11 @@
         "total_qty": 0.351555,
         "tp_target_price": 719.6546,
         "sl_price": 678.7853,
-        "hours_held": 21.1,
-        "current_price": 693.95,
-        "unrealized_pnl_usd": -6.04,
-        "dist_to_sl_pct": 2.19,
-        "dist_to_tp_pct": 3.7,
+        "hours_held": 21.2,
+        "current_price": 693.81,
+        "unrealized_pnl_usd": -6.09,
+        "dist_to_sl_pct": 2.17,
+        "dist_to_tp_pct": 3.73,
         "max_price_seen": 712.28
       },
       {
@@ -690,7 +690,7 @@
         "total_qty": 28.369321,
         "tp_target_price": 8.4746,
         "sl_price": 7.9933,
-        "hours_held": 18.9,
+        "hours_held": 19.0,
         "current_price": 8.341,
         "unrealized_pnl_usd": -0.94,
         "dist_to_sl_pct": 4.17,
@@ -710,10 +710,10 @@
         "tp_target_price": 0.189844,
         "sl_price": 0.179062,
         "hours_held": 18.8,
-        "current_price": 0.1851,
-        "unrealized_pnl_usd": -3.32,
-        "dist_to_sl_pct": 3.26,
-        "dist_to_tp_pct": 2.56,
+        "current_price": 0.1853,
+        "unrealized_pnl_usd": -3.06,
+        "dist_to_sl_pct": 3.37,
+        "dist_to_tp_pct": 2.45,
         "max_price_seen": 0.1872
       },
       {
@@ -728,11 +728,11 @@
         "total_qty": 0.059511,
         "tp_target_price": 4135.052,
         "sl_price": 3919.5779,
-        "hours_held": 17.7,
-        "current_price": 4060.98,
-        "unrealized_pnl_usd": -2.7,
-        "dist_to_sl_pct": 3.48,
-        "dist_to_tp_pct": 1.82,
+        "hours_held": 17.8,
+        "current_price": 4064.14,
+        "unrealized_pnl_usd": -2.51,
+        "dist_to_sl_pct": 3.56,
+        "dist_to_tp_pct": 1.74,
         "max_price_seen": 4117.14
       },
       {
@@ -749,10 +749,10 @@
         "sl_price": 2197.6565,
         "max_price_seen": 2250.92,
         "hours_held": 13.9,
-        "current_price": 2236.86,
-        "unrealized_pnl_usd": -1.22,
-        "dist_to_sl_pct": 1.75,
-        "dist_to_tp_pct": 5.77
+        "current_price": 2237.64,
+        "unrealized_pnl_usd": -1.15,
+        "dist_to_sl_pct": 1.79,
+        "dist_to_tp_pct": 5.73
       }
     ],
     "active_short_positions": [],
@@ -766,15 +766,15 @@
   "engine3_flash_reserve": {
     "allocated_usd": 150.0,
     "flexible_earn_apr_pct": 4.2,
-    "accrued_earn_usd": 0.07184,
+    "accrued_earn_usd": 0.07127,
     "flash_position": null,
     "plan_tag": "NEW_PLAN"
   },
   "latest_market_scan": {
     "BTCUSDC": {
-      "price": 76042.345,
-      "live_bid": 76042.34,
-      "live_ask": 76042.35,
+      "price": 76053.635,
+      "live_bid": 76053.63,
+      "live_ask": 76053.64,
       "closed_bar_ts": 1793955600000,
       "closed_close": 76102.98,
       "closed_high": 76200.0,
@@ -809,9 +809,9 @@
       "stat_arb_short_trigger": false
     },
     "ETHUSDT": {
-      "price": 2236.865,
-      "live_bid": 2236.86,
-      "live_ask": 2236.87,
+      "price": 2237.645,
+      "live_bid": 2237.64,
+      "live_ask": 2237.65,
       "closed_bar_ts": 1793955600000,
       "closed_close": 2239.1,
       "closed_high": 2247.44,
@@ -846,9 +846,9 @@
       "stat_arb_short_trigger": false
     },
     "BNBUSDT": {
-      "price": 693.955,
-      "live_bid": 693.95,
-      "live_ask": 693.96,
+      "price": 693.815,
+      "live_bid": 693.81,
+      "live_ask": 693.82,
       "closed_bar_ts": 1793955600000,
       "closed_close": 694.33,
       "closed_high": 695.1,
@@ -883,9 +883,9 @@
       "stat_arb_short_trigger": false
     },
     "SOLUSDT": {
-      "price": 90.085,
-      "live_bid": 90.08,
-      "live_ask": 90.09,
+      "price": 90.135,
+      "live_bid": 90.13,
+      "live_ask": 90.14,
       "closed_bar_ts": 1793955600000,
       "closed_close": 90.07,
       "closed_high": 90.42,
@@ -920,9 +920,9 @@
       "stat_arb_short_trigger": false
     },
     "XRPUSDC": {
-      "price": 1.1978,
-      "live_bid": 1.1978,
-      "live_ask": 1.1979,
+      "price": 1.1974,
+      "live_bid": 1.1974,
+      "live_ask": 1.1975,
       "closed_bar_ts": 1793955600000,
       "closed_close": 1.1983,
       "closed_high": 1.2,
@@ -994,9 +994,9 @@
       "stat_arb_short_trigger": false
     },
     "PAXGUSDT": {
-      "price": 4060.985,
-      "live_bid": 4060.98,
-      "live_ask": 4060.99,
+      "price": 4064.145,
+      "live_bid": 4064.14,
+      "live_ask": 4064.15,
       "closed_bar_ts": 1793955600000,
       "closed_close": 4065.26,
       "closed_high": 4075.1,
@@ -1105,9 +1105,9 @@
       "stat_arb_short_trigger": false
     },
     "LINKUSDT": {
-      "price": 10.7835,
-      "live_bid": 10.783,
-      "live_ask": 10.784,
+      "price": 10.7945,
+      "live_bid": 10.794,
+      "live_ask": 10.795,
       "closed_bar_ts": 1793955600000,
       "closed_close": 10.803,
       "closed_high": 10.854,
@@ -1142,9 +1142,9 @@
       "stat_arb_short_trigger": false
     },
     "ADAUSDT": {
-      "price": 0.18515,
-      "live_bid": 0.1851,
-      "live_ask": 0.1852,
+      "price": 0.18535,
+      "live_bid": 0.1853,
+      "live_ask": 0.1854,
       "closed_bar_ts": 1793955600000,
       "closed_close": 0.1851,
       "closed_high": 0.1853,
@@ -1179,15 +1179,15 @@
       "stat_arb_short_trigger": false
     }
   },
-  "current_total_equity_usd": 1949.84,
-  "net_pnl_usd": -50.16,
+  "current_total_equity_usd": 1950.32,
+  "net_pnl_usd": -49.68,
   "engine4_us_stocks": {
     "started_at_utc": "2026-11-02T16:48:48Z",
-    "last_updated_ms": 1793959486920,
+    "last_updated_ms": 1793959643706,
     "initial_capital_usd": 2000.0,
     "free_cash_usd": 1325.45,
     "treasury_yield_apr_pct": 4.5,
-    "accrued_treasury_yield_usd": 0.36024,
+    "accrued_treasury_yield_usd": 0.36055,
     "realized_pnl_usd": -14.55,
     "cycles_won": 6,
     "cycles_stopped": 11,
@@ -1613,13 +1613,13 @@
         "price": 647.05,
         "closed_close": 647.05,
         "closed_bar_ts": 1793912400000,
-        "sma10": 661.05,
-        "sma20": 675.78,
+        "sma10": 661.08,
+        "sma20": 675.79,
         "sma100": 703.95,
         "sma200": 723.55,
-        "atr14": 7.95,
+        "atr14": 7.96,
         "rsi14": 11.85,
-        "prev_rsi14": 25.96,
+        "prev_rsi14": 26.05,
         "rsi2": 0.0,
         "ret24_pct": -6.3,
         "uptrend_ok": false,
@@ -1632,12 +1632,12 @@
         "closed_close": 344.17,
         "closed_bar_ts": 1793912400000,
         "sma10": 346.36,
-        "sma20": 344.31,
+        "sma20": 344.3,
         "sma100": 344.19,
         "sma200": 340.75,
         "atr14": 3.05,
-        "rsi14": 24.17,
-        "prev_rsi14": 65.61,
+        "rsi14": 24.2,
+        "prev_rsi14": 65.6,
         "rsi2": 0.0,
         "ret24_pct": -2.02,
         "uptrend_ok": true,
@@ -1668,8 +1668,8 @@
         "closed_close": 282.57,
         "closed_bar_ts": 1793912400000,
         "sma10": 284.97,
-        "sma20": 285.42,
-        "sma100": 309.54,
+        "sma20": 285.41,
+        "sma100": 309.53,
         "sma200": 328.4,
         "atr14": 3.75,
         "rsi14": 22.2,
@@ -1687,7 +1687,7 @@
         "closed_bar_ts": 1793912400000,
         "sma10": 261.07,
         "sma20": 260.22,
-        "sma100": 253.93,
+        "sma100": 253.92,
         "sma200": 254.0,
         "atr14": 4.08,
         "rsi14": 35.66,
@@ -1903,9 +1903,9 @@
     }
   },
   "last_cycle_delta": {
-    "timestamp_utc": "2026-11-06T10:04:46Z",
-    "equity_before_usd": 1949.07,
-    "equity_after_usd": 1949.84,
+    "timestamp_utc": "2026-11-06T10:07:23Z",
+    "equity_before_usd": 1950.17,
+    "equity_after_usd": 1950.32,
     "realized_pnl_before_usd": -36.11,
     "realized_pnl_after_usd": -36.11,
     "actions_executed": []
@@ -1923,7 +1923,7 @@
   "plan_ab_split_budgets": {
     "allocated_mode": "STRICT_ISOLATED_BUDGETS ($2000 OLD_PLAN vs $2000 NEW_PLAN = $4000 TOTAL)",
     "leading_plan": "OLD_PLAN",
-    "lead_margin_usd": 5.13,
+    "lead_margin_usd": 5.46,
     "OLD_PLAN": {
       "description": "الخطة القديمة الكلاسيكية ($2000 = $1000 كريبتو + $1000 أسهم أمريكية — شراء التراجعات الكلاسيكية مع تعديل هدف 48 ساعة)",
       "initial_budget_usd": 2000.0,
@@ -1931,8 +1931,8 @@
       "crypto_invested_usd": 981.94,
       "crypto_free_cash_usd": 0.0,
       "crypto_realized_pnl_usd": -18.06,
-      "crypto_unrealized_pnl_usd": -13.0,
-      "crypto_equity_usd": 968.94,
+      "crypto_unrealized_pnl_usd": -12.6,
+      "crypto_equity_usd": 969.34,
       "crypto_open_positions": [
         "BNBUSDT",
         "AVAXUSDT",
@@ -1950,10 +1950,10 @@
         "NVDA"
       ],
       "total_realized_pnl_usd": -17.2,
-      "total_unrealized_pnl_usd": -11.89,
-      "current_total_equity_usd": 1970.91,
-      "net_return_usd": -29.09,
-      "net_return_pct": -1.45,
+      "total_unrealized_pnl_usd": -11.49,
+      "current_total_equity_usd": 1971.31,
+      "net_return_usd": -28.69,
+      "net_return_pct": -1.43,
       "wins": 11,
       "losses": 9,
       "win_rate_pct": 55.0
@@ -1967,8 +1967,8 @@
       "crypto_earn_reserve_usd": 150.0,
       "crypto_free_cash_usd": 338.12,
       "crypto_realized_pnl_usd": -17.95,
-      "crypto_unrealized_pnl_usd": -1.22,
-      "crypto_equity_usd": 980.83,
+      "crypto_unrealized_pnl_usd": -1.15,
+      "crypto_equity_usd": 980.9,
       "crypto_open_positions": [
         "ETHUSDT"
       ],
@@ -1980,9 +1980,9 @@
       "stocks_equity_usd": 984.95,
       "stocks_open_positions": [],
       "total_realized_pnl_usd": -33.0,
-      "total_unrealized_pnl_usd": -1.22,
-      "current_total_equity_usd": 1965.78,
-      "net_return_usd": -34.22,
+      "total_unrealized_pnl_usd": -1.15,
+      "current_total_equity_usd": 1965.85,
+      "net_return_usd": -34.15,
       "net_return_pct": -1.71,
       "wins": 8,
       "losses": 12,
