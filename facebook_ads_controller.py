@@ -128,6 +128,14 @@ def refresh_live_token():
         env_tok = (os.environ.get("FB_ACCESS_TOKEN") or "").strip()
         if env_tok:
             return env_tok
+        if os.path.exists(STATE_FILE):
+            try:
+                with open(STATE_FILE, "r", encoding="utf-8") as f:
+                    st = json.load(f)
+                if st.get("access_token"):
+                    return st["access_token"]
+            except Exception:
+                pass
         raise RuntimeError("Failed to extract live EAA token from Ads Manager")
     state = {"access_token": tokens[0], "fb_dtsg": dtsg[0] if dtsg else "", "updated_at": time.time(), "ad_accounts": AD_ACCOUNTS}
     try:
@@ -138,12 +146,14 @@ def refresh_live_token():
     return state["access_token"]
 
 def get_token():
+    saved_tok = ""
     if os.path.exists(STATE_FILE):
         try:
             with open(STATE_FILE, "r", encoding="utf-8") as f:
                 st = json.load(f)
-            if time.time() - st.get("updated_at", 0) < 7200 and st.get("access_token"):
-                return st["access_token"]
+            saved_tok = (st.get("access_token") or "").strip()
+            if time.time() - st.get("updated_at", 0) < 86400 and saved_tok:
+                return saved_tok
         except Exception:
             pass
     env_tok = (os.environ.get("FB_ACCESS_TOKEN") or "").strip()
@@ -152,7 +162,12 @@ def get_token():
             return refresh_live_token()
         except Exception:
             return env_tok
-    return refresh_live_token()
+    try:
+        return refresh_live_token()
+    except Exception:
+        if saved_tok:
+            return saved_tok
+        raise
 
 def graph_call(ssock, method, path, params=None, data=None, token=None):
     tok = token or get_token()
