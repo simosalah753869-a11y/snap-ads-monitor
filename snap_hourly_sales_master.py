@@ -342,7 +342,7 @@ def run_hourly_master_for_account(token: str, ad_account_id: str, sheet_sales: d
         sp_camp_1d = round(float(camp_1d.get(cid, {}).get("spend", 0.0)), 2)
         camp_spend_1d = sp_act_1d if is_ded_test_camp else max(sp_act_1d, sp_camp_1d)
         pu_px_1d = max(
-            sum(int(squad_1d.get(sq["id"], {}).get("purchases", 0)) for sq in active_squads),
+            sum(int(squad_1d.get(sq["id"], {}).get("purchases", 0)) for sq in c_squads if sq),
             int(camp_1d.get(cid, {}).get("purchases", 0)),
         )
         pu_sh_1d = int(sh_1d.get(cid.lower(), 0))
@@ -363,7 +363,7 @@ def run_hourly_master_for_account(token: str, ad_account_id: str, sheet_sales: d
         # المرحلة 1: فرملة الخسارة الصارمة على مستوى الحملة والأدست (الحملة >= $10 بدون بيع أو CPA > $11.00 في 1D/2D/3D بدون أي استثناء، باستثناء حملات التيست المخصصة بأمر المستخدم)
         # ---------------------------------------------------------------------
         no_sale_camp_cap = 8.50 if is_exp_camp else 10.00
-        max_cpa_camp_cap = 11.00
+        max_cpa_camp_cap = 10.00
         stop_loss_reason = None
         LOW_CPM_PB_CAMPAIGNS = {
             "11fa8aef-3a3c-418d-b5c4-8dc7b3ec7ab3",
