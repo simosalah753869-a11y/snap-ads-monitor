@@ -53,7 +53,7 @@
       "updated_at": "2026-11-03T15:07:52.539566+03:00",
       "account": "Google Ads (914-615-0891)",
       "campaign_id": "24420202985",
-      "status": "ELIGIBLE"
+      "status": "PAUSED"
     },
     "8436939582:doorbell 10165 taager 04-11": {
       "account": "Google Ads (914-615-0891)",
@@ -61,7 +61,7 @@
       "campaign_id": "",
       "campaign_name": "doorbell 10165 taager 04-11",
       "product_key": "doorbell_10165",
-      "status": "DRAFT",
+      "status": "PAUSED",
       "sp1": 0.0,
       "sp2": 0.0,
       "sp3": 0.0,
@@ -79,7 +79,7 @@
       "campaign_name": "pillow 18186 taager 04-11",
       "product_key": "pillow_18186",
       "has_enabled": true,
-      "status": "ELIGIBLE",
+      "status": "PAUSED",
       "budget": 50.0,
       "target_cpa": 7.0,
       "impr1": 151,
