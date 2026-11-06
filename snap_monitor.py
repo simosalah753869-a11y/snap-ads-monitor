@@ -2569,7 +2569,7 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
 
             # (ب) قاعدة البدجت الحريصة والمنضبطة ($20.00 لجميع الأدست والحملات بأمر المستخدم 2026-11-02، وممنوع رفع البدجت بعد 6 مساءً):
             # ملاحظة: حملات الخليج (الكويت وقطر وعمان) وحملات 'تيست' المخصصة ($30/يوم) لا يُلمس بدجتها هنا
-            if is_gulf_sq or is_ded_test or c_id in ALLOWED_GULF_CAMPAIGN_IDS:
+            if is_gulf_sq or is_ded_test or c_id in ALLOWED_GULF_CAMPAIGN_IDS or c.get("objective") == "AWARENESS_AND_ENGAGEMENT" or "awareness" in c_name.lower():
                 continue
             is_cbo_campaign = (c.get("pacing_level") == "CAMPAIGN")
             base_floor_micro = 20_000_000
