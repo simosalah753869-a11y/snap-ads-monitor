@@ -43,11 +43,12 @@ jobs:
         run: |
           python snap_monitor.py
 
-      - name: Run TikTok Smart+ Automation Rules (All 6 Accounts — Pause Violating Campaigns/Videos Only)
+      - name: Run TikTok Smart+ Automation Rules (All 10 Accounts Including 4 New Accounts — Pause Violating Campaigns/Videos Only)
         continue-on-error: true
         env:
           STOP_LOSS_PAUSE_ONLY: "1"
           TIKTOK_COOKIES_JSON: ${{ vars.TIKTOK_COOKIES_JSON || secrets.TIKTOK_COOKIES_JSON }}
+          TIKTOK_NEW_4_COOKIES_JSON: ${{ vars.TIKTOK_NEW_4_COOKIES_JSON || secrets.TIKTOK_NEW_4_COOKIES_JSON }}
         run: python tiktok_monitor.py
 
       - name: Run Facebook Ads 24/7 Automation Rules (All 3 Ad Accounts — Pause Violating Campaigns/Ads Only)
@@ -64,6 +65,7 @@ jobs:
         env:
           STOP_LOSS_PAUSE_ONLY: "1"
           TIKTOK_COOKIES_JSON: ${{ vars.TIKTOK_COOKIES_JSON || secrets.TIKTOK_COOKIES_JSON }}
+          TIKTOK_NEW_4_COOKIES_JSON: ${{ vars.TIKTOK_NEW_4_COOKIES_JSON || secrets.TIKTOK_NEW_4_COOKIES_JSON }}
         run: python cross_product_monitor.py
 
       - name: Run 24/7 Cloud Quant Trading Guardian (5m OCO Replay + Crypto/Gold/US Stocks Execution While Laptop is Off)
