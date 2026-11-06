@@ -302,9 +302,9 @@ def main():
     candidates = []
     for sl_atr in [1.7, 1.8, 1.9, 2.0]:
         for tp_atr in [3.6, 3.8, 4.0]:
-            for flow_rev_trig, flow_rev_lock, flow_rev_th in [(1.8, 1.0, 0.38), (99.0, 0.0, 0.38)]:
+            for flow_rev_trig, flow_rev_lock, flow_rev_th in [(1.6, 1.0, 0.38), (1.8, 1.0, 0.38), (99.0, 0.0, 0.38)]:
                 for stag_ob in [True, False]:
-                    for rsi_l, rsi_s in [(20, 76), (24, 76)]:
+                    for rsi_l, rsi_s in [(19, 76), (20, 76), (24, 76)]:
                         for buy_flow in [0.48, 0.50]:
                             for short_ret24, short_vr, long_ret24, long_max_r24 in [(0.035, 4.0, -0.065, -0.006), (0.04, 4.0, -0.065, 99.0)]:
                                 for max_rng, chop_th, chop_sc in [(2.0, 0.0065, 0.55), (2.0, 0.0, 1.0), (99.0, 0.0, 1.0)]:
