@@ -52,6 +52,10 @@ DIRECT_CAMPAIGNS = [
     ("CSP9860", "0ea95b38-9d67-4e15-973d-86adf3d4104a", "وسادة السيارة وينر بديلة - بيد 2.1 - 02-11", 2_100_000),
     ("CSP9860 4", "51945aea-b2d6-4742-815c-feb85620d8ff", "وسادة السيارة وينر منزلك بديلة - بيد 2.1 - 02-11", 2_100_000),
     ("CSP9860 4", "a4518953-cef3-4b77-9af1-20f6724623f8", "باور بانك وينر منزلك بديلة - بيد 2.1 - 02-11", 2_100_000),
+    ("CSP9860", "f8859403-3bd5-4015-808d-200f97f44431", "باور بانك وينر نخبة #01 (5 أدست) - بيد 2.4", 2_400_000),
+    ("CSP9860", "d01d1ae0-9e64-4815-81ae-fbd24a6f7f43", "باور بانك وينر نخبة #02 (5 أدست) - بيد 2.4", 2_400_000),
+    ("CSP9860 4", "c0ce83d6-e40e-4455-a845-87a6b08ef1c3", "باور بانك وينر نخبة #01 (5 أدست) - بيد 2.4", 2_400_000),
+    ("CSP9860 4", "40c0ffaa-8892-43a1-b246-983f5e370dd6", "باور بانك وينر نخبة #02 (5 أدست) - بيد 2.4", 2_400_000),
 ]
 
 _tls = threading.local()
@@ -202,7 +206,7 @@ def _process_direct_campaign(item: tuple, token: str) -> int:
             now_ksa = datetime.now(sm.ACCOUNT_TZ)
             is_late_night_ksa = (now_ksa.hour >= 22 or now_ksa.hour < 6)
             today_ksa_str = now_ksa.strftime("%Y-%m-%d")
-            expected_budget = 30_000_000 if (sid in sm.REVIVED_LOW_CPM_SQUAD_IDS) else (sm.get_custom_daytime_budget_micro(sid, today_ksa_str) or 30_000_000)
+            expected_budget = 30_000_000 if (sid in sm.REVIVED_LOW_CPM_SQUAD_IDS) else (sm.get_custom_daytime_budget_micro(sid, today_ksa_str) or 20_000_000)
             if cur_budget != expected_budget:
                 sq["daily_budget_micro"] = expected_budget
                 changed = True
