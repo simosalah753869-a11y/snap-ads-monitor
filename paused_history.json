@@ -81,8 +81,8 @@
     "fa002a7f-b707-4660-b78d-cc7283d93727": {
       "name": "Qatar, Male and All ages",
       "campaign": "Copy of  kasahf smart+ qatar 3.5",
-      "reason": "[2-Day Audit] [Gulf AdSquad CPC > $0.26 after $0.80] صرفت المجموعة $0.95 بدون مبيعات | النقرات: 1 | CPC = $0.950 (> $0.26)",
-      "paused_at": "2026-11-06 09:39 GMT+3"
+      "reason": "[2-Day Audit] [Gulf AdSquad CPC > $0.26 after $0.80] صرفت المجموعة $1.49 بدون مبيعات | النقرات: 4 | CPC = $0.372 (> $0.26)",
+      "paused_at": "2026-11-05 20:50 GMT+3"
     },
     "0029bfb5-8d47-4f05-aa10-16cf61818db9": {
       "name": "مجموعة باور بانك - ماكس بيد 1.7",
@@ -2752,20 +2752,6 @@
       "adsquad": "Copy - PB 2.00 Max [H1] #29",
       "reason": "[Global Accumulated Video High CPA 5D (5 أيام)] مجموع صرف الفيديو التراكمي على مستوى الحساب = $36.72 | المبيعات = 2 | CPA التراكمي = $18.36 (> $7.99)",
       "paused_at": "2026-11-05 17:34 GMT+3"
-    },
-    "6d63614f-461c-448e-bb3b-6185bcd9088d": {
-      "name": "Copy of Copy of Copy of Copy of 3",
-      "campaign": "Copy of  kasahf smart+ qatar 3.5",
-      "adsquad": "Qatar, Male and All ages",
-      "reason": "[3-Day Audit] [Gulf Video CPC > $0.26 after $0.80] صرف الفيديو $1.20 بدون مبيعات | النقرات: 4 | CPC = $0.300 (> $0.26)",
-      "paused_at": "2026-11-06 09:39 GMT+3"
-    },
-    "2a7b5a32-8889-4b19-a684-bcc31a813b1d": {
-      "name": "Dryer21982_dr0411_02_0ab51bc2 [TC]",
-      "campaign": "مجفف الملابس المحمول TAG 21982 - 04-11",
-      "adsquad": "مجفف الملابس 21982 - تارغت كوست - السعودية",
-      "reason": "[2-Day Audit] [Test Video Rule: CPC > $0.27 after $1.00] صرف الفيديو $1.00 (>= $1.00) | النقرات: 3 | سعر النقرة CPC = $0.333 (> $0.27)",
-      "paused_at": "2026-11-06 09:43 GMT+3"
     }
   },
   "bid_bumps": {
@@ -2869,13 +2855,13 @@
       "schema_v": 2,
       "name": "Copy - PB 2.00 Max [H1] #06",
       "campaign": "باور بانك وينر 2 - 30 أدست 30-10",
-      "base_bid_micro": 1650000,
+      "base_bid_micro": 2100000,
       "bumps_count": 0,
-      "last_check_utc": "2026-11-05T15:50:29.980256+00:00",
+      "last_check_utc": "2026-11-06T08:54:28.793837+00:00",
       "last_bump_utc": null,
-      "spend_at_last_check": 1.44,
-      "spend_date": "2026-11-05",
-      "current_bid_micro": 1650000
+      "spend_at_last_check": 0.91,
+      "spend_date": "2026-11-06",
+      "current_bid_micro": 2100000
     },
     "54327c09-0ded-40c4-ad8a-f2ce5aeb85c5": {
       "schema_v": 2,
@@ -4837,13 +4823,13 @@
       "schema_v": 2,
       "name": "PB 1.60 Max [H1] #21",
       "campaign": "باور بانك وينر - 30 أدست - بيد 2.1 30-10",
-      "base_bid_micro": 1650000,
+      "base_bid_micro": 2100000,
       "bumps_count": 0,
-      "last_check_utc": "2026-11-05T15:53:52.155611+00:00",
+      "last_check_utc": "2026-11-05T22:07:45.654990+00:00",
       "last_bump_utc": null,
-      "spend_at_last_check": 4.83,
-      "spend_date": "2026-11-05",
-      "current_bid_micro": 1650000
+      "spend_at_last_check": 0.12,
+      "spend_date": "2026-11-06",
+      "current_bid_micro": 2100000
     },
     "16846bd6-8df1-481b-a8e3-6f2f0bd5f85d": {
       "schema_v": 2,
@@ -7045,13 +7031,13 @@
       "schema_v": 2,
       "name": "مجفف الملابس 21982 - تارغت كوست - السعودية",
       "campaign": "مجفف الملابس المحمول TAG 21982 - 04-11",
-      "base_bid_micro": 2000000,
+      "base_bid_micro": 2500000,
       "bumps_count": 0,
-      "last_check_utc": "2026-11-05T15:55:16.385880+00:00",
+      "last_check_utc": "2026-11-05T22:09:34.505863+00:00",
       "last_bump_utc": null,
-      "spend_at_last_check": 0.93,
-      "spend_date": "2026-11-05",
-      "current_bid_micro": 2000000
+      "spend_at_last_check": 0.25,
+      "spend_date": "2026-11-06",
+      "current_bid_micro": 2500000
     },
     "150bdd56-e284-4681-b8a4-b5d320ef017e": {
       "schema_v": 2,
@@ -8245,25 +8231,25 @@
       "schema_v": 2,
       "name": "Saudi Arabia, All genders and All ages",
       "campaign": "Awareness and engagement",
-      "base_bid_micro": 200000,
+      "base_bid_micro": 100000,
       "bumps_count": 0,
-      "last_check_utc": "2026-11-05T16:17:07.117606+00:00",
+      "last_check_utc": "2026-11-05T22:11:56.206814+00:00",
       "last_bump_utc": null,
       "spend_at_last_check": 0.0,
-      "spend_date": "2026-11-05",
-      "current_bid_micro": 200000
+      "spend_date": "2026-11-06",
+      "current_bid_micro": 100000
     },
     "561c2774-65c5-4576-89b3-1c4569f27df9": {
       "schema_v": 2,
       "name": "Saudi Arabia, All genders and All ages",
       "campaign": "Awareness and engagement",
-      "base_bid_micro": 200000,
+      "base_bid_micro": 100000,
       "bumps_count": 0,
-      "last_check_utc": "2026-11-05T16:18:10.530859+00:00",
+      "last_check_utc": "2026-11-05T22:14:53.751573+00:00",
       "last_bump_utc": null,
       "spend_at_last_check": 0.0,
-      "spend_date": "2026-11-05",
-      "current_bid_micro": 200000
+      "spend_date": "2026-11-06",
+      "current_bid_micro": 100000
     }
   },
   "scaling_bid_bumps": {},
@@ -9621,10 +9607,7 @@
     "65f06340-abc1-46aa-b88e-eb66e03d6948": "b5bb896e-c813-44b0-b643-26091fbeaed6",
     "d0ccbf30-1531-48fe-ab01-1d82ebda39ec": "db63db6f-3f93-4d17-9b14-089e3c84e09c",
     "6c7378e5-c590-48f6-bf5a-8686a91ab4f8": "db63db6f-3f93-4d17-9b14-089e3c84e09c",
-    "13b7e31a-6444-45d0-bcb4-1bd0df0eed1e": "47acfb82-e212-4a16-977a-c41e9f5c9f8a",
-    "585e801f-449e-41c3-bd83-2fea03bd0bd2": "58161238-5338-449a-b5fd-15dd824788bd",
-    "468a79a6-794a-4522-8ae9-f203fdd9c981": "5b8e68b0-9af0-4257-af09-3f3f820f7fce",
-    "c41ed264-6b0a-4f4a-8502-aeb5898f65d6": "a06b0f66-4d4d-42a8-ae4c-3bf600d18b63"
+    "13b7e31a-6444-45d0-bcb4-1bd0df0eed1e": "47acfb82-e212-4a16-977a-c41e9f5c9f8a"
   },
   "disabled_videos": {
     "b4ec4259-1868-40f5-ba33-08a2dd0fd578:MEDIA:b7751519-8006-478c-81ec-4223d51be3de": {
@@ -9978,32 +9961,81 @@
     "29891f22-e046-4cc8-b9ee-9921d2d65f0b": {
       "name": "مسخن الرضاعات اللاسلكي 22-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-11-06 11:53 GMT+3"
+      "updated_at": "2026-11-06 12:06 GMT+3"
     },
     "4eefa50f-9008-4aea-b159-d370150b60cf": {
       "name": "صندوق دفاتر TIME X 21-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-11-06 11:53 GMT+3"
+      "updated_at": "2026-11-06 12:06 GMT+3"
     },
     "a171c141-a6d5-403e-8357-5c8f6c01bce0": {
       "name": "وسادة مايباخ 21-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-11-06 11:53 GMT+3"
+      "updated_at": "2026-11-06 12:06 GMT+3"
     },
     "c5a7cade-6ec3-4c47-b3a2-c5f08bcf8da0": {
       "name": "وسادة مايباخ 21-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-11-06 11:53 GMT+3"
+      "updated_at": "2026-11-06 12:06 GMT+3"
     },
     "e8f0a5e9-89c5-4c14-aabb-c9c6c657891d": {
       "name": "مسخن الرضاعات اللاسلكي 22-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-11-06 11:53 GMT+3"
+      "updated_at": "2026-11-06 12:06 GMT+3"
     },
     "f18a3bf4-148a-4f5e-baa1-f90335f1884c": {
       "name": "مسخن الرضاعات اللاسلكي 22-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-11-06 11:53 GMT+3"
+      "updated_at": "2026-11-06 12:06 GMT+3"
+    },
+    "c5e25aa8-766e-4cea-a794-9c3c5f832d06": {
+      "name": "تيست - باور بانك",
+      "spend_3d": 10.62,
+      "purchases_3d": 0,
+      "cpa_3d": null,
+      "updated_at": "2026-11-06 12:11 GMT+3"
+    },
+    "c46290e2-62b9-450b-bf66-e921b564aba0": {
+      "name": "باور بانك وينر أ (30 أدست) - بيد 2.1 - 03-11",
+      "spend_3d": 13.82,
+      "purchases_3d": 1,
+      "cpa_3d": 13.82,
+      "updated_at": "2026-11-06 12:11 GMT+3"
+    },
+    "daf8a0fd-9e22-4e90-88ad-54a09dade4e8": {
+      "name": "باور بانك وينر نخبة #03 (5 أدست) - بيد 2.1 - 04-11",
+      "spend_3d": 13.88,
+      "purchases_3d": 1,
+      "cpa_3d": 13.88,
+      "updated_at": "2026-11-06 12:11 GMT+3"
+    },
+    "f3d40a5c-fcdc-46bd-9b9b-70abe7e1a0a2": {
+      "name": "باور بانك وينر نخبة #01 (5 أدست) - بيد 2.1 - 04-11",
+      "spend_3d": 21.38,
+      "purchases_3d": 3,
+      "cpa_3d": 7.13,
+      "updated_at": "2026-11-06 12:11 GMT+3"
+    },
+    "4ec7415b-bc77-42ae-9795-0dad4da72248": {
+      "name": "وسادة السيارة وينر نخبة #02 (5 أدست) - بيد 2.1 - 04-11",
+      "spend_3d": 11.2,
+      "purchases_3d": 0,
+      "cpa_3d": null,
+      "updated_at": "2026-11-06 12:11 GMT+3"
+    },
+    "fbb1a3c5-b922-4d47-bde8-49f40a59263b": {
+      "name": "وسادة السيارة وينر نخبة #01 (5 أدست) - بيد 2.1 - 04-11",
+      "spend_3d": 15.99,
+      "purchases_3d": 1,
+      "cpa_3d": 15.99,
+      "updated_at": "2026-11-06 12:11 GMT+3"
+    },
+    "b0a54bcf-31fb-428a-ac15-b5381b82a3b0": {
+      "name": "باور بانك وينر نخبة #02 (5 أدست) - بيد 2.1 - 04-11",
+      "spend_3d": 13.67,
+      "purchases_3d": 1,
+      "cpa_3d": 13.67,
+      "updated_at": "2026-11-06 12:11 GMT+3"
     }
   },
   "user_reactivated_ads": {},
@@ -14060,48 +14092,6 @@
       "conv_7d": 0,
       "reason": "2-Day Spend $5.94 > $4.50 with 0 sales",
       "disabled_at": "2026-11-05T10:22:03.589005+00:00"
-    },
-    "30-10_pb_flowhook_ad_02": {
-      "v_key": "30-10_pb_flowhook_ad_02",
-      "sample_name": "30-10_PB_FlowHook_Ad_02.mp4",
-      "accounts": [
-        "ROELLINGER RECYCLING",
-        "ROELLINGER RECYCLING1",
-        "ROELLINGER RECYCLING2"
-      ],
-      "total_copies": 6,
-      "closed_copies": 0,
-      "spend_1d": 0.0,
-      "conv_1d": 0,
-      "spend_2d": 0.0,
-      "conv_2d": 0,
-      "spend_3d": 0.0,
-      "conv_3d": 0,
-      "spend_7d": 7.82,
-      "conv_7d": 0,
-      "reason": "[Global Dup Video Stop-Loss 7D] Total 7-Day Spend $7.82 >= $7.00 with 0 sales",
-      "disabled_at": "2026-11-05T22:51:23.314715+00:00"
-    },
-    "30-10_pb_flowhook_ad_04": {
-      "v_key": "30-10_pb_flowhook_ad_04",
-      "sample_name": "30-10_PB_FlowHook_Ad_04.mp4",
-      "accounts": [
-        "ROELLINGER RECYCLING",
-        "ROELLINGER RECYCLING1",
-        "ROELLINGER RECYCLING2"
-      ],
-      "total_copies": 17,
-      "closed_copies": 0,
-      "spend_1d": 0.0,
-      "conv_1d": 0,
-      "spend_2d": 1.14,
-      "conv_2d": 0,
-      "spend_3d": 3.51,
-      "conv_3d": 0,
-      "spend_7d": 7.64,
-      "conv_7d": 0,
-      "reason": "[Global Dup Video Stop-Loss 7D] Total 7-Day Spend $7.64 >= $7.00 with 0 sales",
-      "disabled_at": "2026-11-05T22:51:23.314738+00:00"
     }
   },
   "proactive_scaled_tiktok": {
@@ -14214,7 +14204,7 @@
       "combined_sales": 1.0,
       "combined_cpa": 47.37,
       "reason": "[Taager Product Test Failed: Combined CPA >= $27 Stop] سعر البيعة المشترك للمنتج 'مبخرة الملابس المرنة 360° BW-20 (تاجر)' في الحسابات (غوغل + تيك توك) وصل إلى CPA = $47.37 (>= $27.00 | الصرف المشترك=$47.37 | المبيعات=1)",
-      "failed_at": "2026-11-06 11:59 GMT+3"
+      "failed_at": "2026-11-05 22:52 GMT+3"
     },
     "denx_20001": {
       "product_key": "denx_20001",
@@ -14223,7 +14213,7 @@
       "combined_sales": 0.0,
       "combined_cpa": null,
       "reason": "[Taager Product Test Failed: > $25 Zero-Sale Stop] مجموع صرف المنتج 'منتج تاجر (denx_20001)' في الحسابات (غوغل + تيك توك) = $25.72 (> $25.00) بدون ولا بيعة (0 مبيعات) -> المنتج فاشل",
-      "failed_at": "2026-11-06 11:59 GMT+3"
+      "failed_at": "2026-11-05 22:52 GMT+3"
     },
     "7631763556322148369:denx_20001": {
       "product_key": "denx_20001",
@@ -14405,7 +14395,7 @@
     }
   },
   "facebook_latest_summary": {
-    "updated_at": "2026-11-06 11:59:13 GMT+3",
+    "updated_at": "2026-11-06 11:54:53 GMT+3",
     "total_spend_today": 0.0,
     "total_purchases_today": 0,
     "total_spend_maximum": 0.0,
@@ -14615,5 +14605,6 @@
     "fdd9a02e-d97c-4a20-bff3-eda8a558702f",
     "ff9b8424-237c-446e-81a7-cba17546de6d"
   ],
-  "pause_all_current_tiktok_accounts_lock": true
+  "pause_all_current_tiktok_accounts_lock": true,
+  "smart_spend_watchdog": {}
 }
