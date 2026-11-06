@@ -688,7 +688,8 @@ def main():
                 print(
                     f"    🛡️ [حماية حملة تيست مخصصة] '{cname}' ({cid}): محمية 100% من الإيقاف الكلي للحملة — الفحص والإيقاف يتم على مستوى الفيديوهات الفردية فقط ({active_ads_count}/{len(ads_list)} فيديو نشط)."
                 )
-                user_paused_fb = set((history.get("user_paused_campaigns") or {}).keys())
+                raw_up = history.get("user_paused_campaigns") or {}
+                user_paused_fb = set(raw_up.keys() if isinstance(raw_up, dict) else raw_up)
                 if c_status == "PAUSED" and active_ads_count > 0 and cid not in user_paused_fb and not dry_run:
                     ok_re, resp_re = fb_post_status(tok, cid, "ACTIVE")
                     act_re = f"إعادة تفعيل حملة التيست المخصصة '{cname}' ({cid}) تلقائياً لوجود {active_ads_count} فيديو نشط -> {'نجح ✅' if ok_re else f'فشل ⚠️ {resp_re}'}"
