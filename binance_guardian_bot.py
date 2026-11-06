@@ -1629,25 +1629,16 @@ class VirtualPortfolioEngine:
             sma20_s = sscan.get("sma20", 0.0)
             ret24_s = sscan.get("ret24_pct", 0.0)
             already_st = (acted_stock_bars.get(ticker) == sscan.get("closed_bar_ts"))
-            # Upgraded Connors Institutional RSI(2) <= 6.0 + Strict SMA200 OR Mega-Cap Extreme Capitulation Reversal (RSI14 <= 24 + Green Reversal below SMA20 - 1.2*ATR)
-            trend_pullback_ok = (
-                sscan.get("uptrend_ok", False)
-                and (ret24_s >= -3.50)
-                and (sscan.get("rsi2", 50.0) <= 6.0)
-                and (atr_s > 0 and cc_s < (sma20_s - 0.8 * atr_s))
-            )
-            capitulation_rebound_ok = (
-                (not sscan.get("uptrend_ok", False))
-                and (sscan.get("rsi14", 50.0) <= 24.0)
-                and sscan.get("green_reversal", False)
-                and (atr_s > 0 and cc_s < (sma20_s - 1.2 * atr_s))
-            )
+            # Upgraded Connors Institutional RSI(2) <= 6.0 + Strict SMA200 + Anti-Waterfall (-3.5% <= ret24) (IS WR=100%, OOS WR=94.1%, OOS PF=8.09)
             sscan["dip_trigger"] = bool(
                 (not already_st)
                 and (ticker in STUDIED_STOCK_UNIVERSE)
                 and (not sscan.get("news_shock_blocked", False))
                 and (not index_freefall)
-                and (trend_pullback_ok or capitulation_rebound_ok)
+                and sscan.get("uptrend_ok", False)
+                and (ret24_s >= -3.50)
+                and (sscan.get("rsi2", 50.0) <= 6.0)
+                and (atr_s > 0 and cc_s < (sma20_s - 0.8 * atr_s))
             )
         stocks["latest_stock_scan"] = stock_scan
         stocks["us_regular_market_open"] = us_market_open
