@@ -237,9 +237,9 @@ LOCKED_LOW_BID_CAMPAIGN_MAP = {
     "25192738-8b28-44c0-9d6f-44408b6b3bf9": 2_000_000,
     # 2x5 Power Bank Winner Campaigns locked at $2.40 Max Bid ($20 Budget) per 2026-11-06 User Order:
     "f8859403-3bd5-4015-808d-200f97f44431": 2_400_000,
-    "d01d1ae0-9e64-4815-81ae-fbd24a6f7f43": 2_400_000,
+    "d01d1ae0-9e64-4815-81ae-fbd24a6f7f43": 2_200_000,
     "c0ce83d6-e40e-4455-a845-87a6b08ef1c3": 2_400_000,
-    "40c0ffaa-8892-43a1-b246-983f5e370dd6": 2_400_000,
+    "40c0ffaa-8892-43a1-b246-983f5e370dd6": 2_200_000,
     # CSP9860 4 (Copy campaigns raised to $2.10 per 2026-11-04 User Order)
     "041280f3-1c1e-43fb-b8d4-860dd6c8957f": 2_100_000,
     "a1121184-41a2-484d-8fa4-67011918698c": 2_100_000,
@@ -980,6 +980,55 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
         history["legacy_unpausable_campaigns"] = sorted(legacy_unpausable_set)
         save_paused_history(history)
 
+    # [أمر المستخدم الدائم 2026-11-06]: مقارنة مبيعات الشيت مع مبيعات المنصة الإعلانية؛ لو غيت هاب أو البوت أوقف حملة والشيت (أو المنصة) فيها مبيعات رابحة اليوم، يعيد تشغيلها وتفعيل مجموعاتها تلقائياً!
+    sheet_sales_early = {}
+    try:
+        from deep_multiwindow_account_auditor import fetch_sheet_multiwindow_sales
+        sheet_sales_early = fetch_sheet_multiwindow_sales() or {}
+    except Exception:
+        sheet_sales_early = {}
+    sh_1d_early = sheet_sales_early.get("1d", {}) or {}
+    if sh_1d_early and not dry_run:
+        camp_stats_1d_early = {st["id"]: st for st in fetch_account_breakdown_stats(token, ad_account_id, "campaign", days_back=0)}
+        for c_cand in all_campaigns_list:
+            cid_cand = c_cand.get("id", "")
+            cname_cand = c_cand.get("name", "")
+            if (
+                not cid_cand
+                or cid_cand in user_paused_camps_set
+                or cid_cand in PERMANENTLY_PAUSED_CPA10_CAMPAIGN_IDS
+                or is_shutoff_pillow_campaign(cname_cand)
+                or is_gulf_034_campaign(cname_cand)
+                or is_warming_engagement_campaign(cid_cand, cname_cand, c_cand)
+            ):
+                continue
+            sh_cnt_1d = int(sh_1d_early.get(cid_cand.lower(), 0))
+            st_c1 = camp_stats_1d_early.get(cid_cand, {})
+            sp_c1 = float(st_c1.get("spend", 0.0))
+            px_c1 = int(st_c1.get("purchases", 0))
+            eff_pu_1d = max(px_c1, sh_cnt_1d)
+            if eff_pu_1d >= 1 and sp_c1 > 0 and (sp_c1 / eff_pu_1d) < 10.00 and sh_cnt_1d >= 1:
+                if c_cand.get("status") != "ACTIVE":
+                    c_cand["status"] = "ACTIVE"
+                    api_put(f"/adaccounts/{ad_account_id}/campaigns", token, {"campaigns": [c_cand]})
+                    active_campaigns.append(c_cand)
+                    print(f"♻️🔥 [إعادة تشغيل تلقائي لحملة رابحة في الشيت] الحملة '{cname_cand}' ({cid_cand}) | صرف اليوم=${sp_c1:.2f} | مبيعات المنصة={px_c1} | مبيعات الشيت={sh_cnt_1d} (CPA=${sp_c1/eff_pu_1d:.2f})")
+                # التأكد من أن مجموعاتها الإعلانية غير مطفأة بالكامل
+                try:
+                    c_sq_list = api_get_paginated(f"/campaigns/{cid_cand}/adsquads?limit=100", token, "adsquads", "adsquad", max_pages=2)
+                    act_sq_now = [s for s in c_sq_list if s.get("status") == "ACTIVE"]
+                    if not act_sq_now and c_sq_list:
+                        exp_bid = get_locked_low_bid_micro(cid_cand, cname_cand) or 2_100_000
+                        for s_rev in c_sq_list:
+                            s_rev["status"] = "ACTIVE"
+                            if exp_bid:
+                                s_rev["bid_micro"] = exp_bid
+                            history.get("adsquads", {}).pop(s_rev["id"], None)
+                        api_put(f"/campaigns/{cid_cand}/adsquads", token, {"adsquads": c_sq_list})
+                        print(f"  ♻️ تم إعادة تفعيل {len(c_sq_list)} مجموعات إعلانية داخل الحملة الرابحة في الشيت '{cname_cand}'!")
+                except Exception:
+                    pass
+
     # 1. جلب إحصائيات الـ AdSquads أولاً + تحميل الـ AdSquads النشطة لكل حملة حتى يُحسَب شرط إيقاف الحملة ($15.00) على الـ AdSquads النشطة حالياً فقط بدون المجموعات القديمة الموقوفة!
     if not active_campaigns:
         print(f"ℹ️ الحساب ({ad_account_id}) لا يحتوي على أي حملة نشطة حالياً — تم التحقق بنجاح.")
@@ -1451,6 +1500,22 @@ def run_automation(token: str, ad_account_id: str, dry_run: bool = False):
             w_max_sp = max(st_1d["spend"], st_2d["spend"], st_3d["spend"], st_4d["spend"], st_5d["spend"], st_7d["spend"])
             should_pause = True
             reason = f"[Warming $1.00 Immediate Stop] صرفت مجموعة الوارمينق ${w_max_sp:.2f} (>= $1.00)"
+        # حماية مجموعات الحملة الرابحة في شيت Lightfunnels (عندما تكون المبيعات مسجلة في الشيت على معرّف الحملة أكثر من بيكسل المنصة و CPA الحملة الحقيقي مربح < $9.00)
+        sh_camp_1d_val = int((sheet_sales_multi.get("1d", {}) or {}).get(c_id.lower(), 0))
+        sp_camp_1d_val = float(camp_stats_1d.get(c_id, {}).get("spend", 0.0))
+        px_camp_1d_val = int(camp_stats_1d.get(c_id, {}).get("purchases", 0))
+        if (
+            should_pause
+            and not is_warming_engagement_campaign(c_id, c_name)
+            and sh_camp_1d_val > px_camp_1d_val
+            and sh_camp_1d_val >= 1
+            and sp_camp_1d_val > 0
+            and (sp_camp_1d_val / sh_camp_1d_val) <= 9.00
+            and st_1d["spend"] < 12.00
+            and (st_1d["swipes"] > 0 and st_1d["cpc"] <= 0.33)
+        ):
+            should_pause = False
+            reason = ""
         if should_pause:
             # بأمر المستخدم: أي أدست تصل CPA >= $7.00 أو تصرف >= $4.00 بدون مبيعة (أو $1.00 للوارمينق) تُطفأ على طول فوراً!
             if dry_run:
