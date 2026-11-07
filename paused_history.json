@@ -81,8 +81,8 @@
     "fa002a7f-b707-4660-b78d-cc7283d93727": {
       "name": "Qatar, Male and All ages",
       "campaign": "Copy of  kasahf smart+ qatar 3.5",
-      "reason": "[2-Day Audit] [Gulf AdSquad CPC > $0.26 after $0.80] صرفت المجموعة $1.04 بدون مبيعات | النقرات: 2 | CPC = $0.520 (> $0.26)",
-      "paused_at": "2026-11-06 20:45 GMT+3"
+      "reason": "[2-Day Audit] [Gulf AdSquad CPC > $0.26 after $0.80] صرفت المجموعة $1.01 بدون مبيعات | النقرات: 3 | CPC = $0.337 (> $0.26)",
+      "paused_at": "2026-11-07 12:42 GMT+3"
     },
     "0029bfb5-8d47-4f05-aa10-16cf61818db9": {
       "name": "مجموعة باور بانك - ماكس بيد 1.7",
@@ -312,6 +312,24 @@
       "campaign": "باور بانك وينر نخبة #02 (5 أدست) - بيد 2.2",
       "reason": "[1D AdSquad >= $4.00 No-Sale Stop] صرفت المجموعة $4.78 (>= $4.00) بدون أي مبيعة (0 مبيعات)",
       "paused_at": "2026-11-07 04:28 GMT+3"
+    },
+    "229ac1b7-99d4-4b63-885e-03a1be68639a": {
+      "name": "مجموعة نخبة الباور بانك #02 - بيد 2.2",
+      "campaign": "باور بانك وينر نخبة #02 (5 أدست) - بيد 2.2 - 07-11",
+      "reason": "[1D AdSquad >= $4.00 No-Sale Stop] صرفت المجموعة $4.66 (>= $4.00) بدون أي مبيعة (0 مبيعات)",
+      "paused_at": "2026-11-07 12:42 GMT+3"
+    },
+    "9ada44bf-1ffe-4f1b-b1db-c7f6a111a4cf": {
+      "name": "مجموعة نخبة الباور بانك #05 - بيد 2.2",
+      "campaign": "باور بانك وينر نخبة #02 (5 أدست) - بيد 2.2 - 07-11",
+      "reason": "[1D AdSquad >= $4.00 No-Sale Stop] صرفت المجموعة $4.06 (>= $4.00) بدون أي مبيعة (0 مبيعات)",
+      "paused_at": "2026-11-07 12:42 GMT+3"
+    },
+    "bae9def0-15e4-4a57-b559-95db417dce9c": {
+      "name": "مجموعة نخبة الباور بانك #04 - بيد 2.2",
+      "campaign": "باور بانك وينر نخبة #02 (5 أدست) - بيد 2.2 - 07-11",
+      "reason": "[1D AdSquad >= $4.00 No-Sale Stop] صرفت المجموعة $4.20 (>= $4.00) بدون أي مبيعة (0 مبيعات)",
+      "paused_at": "2026-11-07 12:45 GMT+3"
     }
   },
   "ads": {
@@ -9983,7 +10001,7 @@
       "total_spend": 0.87,
       "total_purchases": 0,
       "reason": "[Aggregated Video High CPA 7D (7 أيام) - السعودية] مجموع صرف الفيديو التراكمي = $12.36 | المبيعات = 1 | CPA التراكمي = $12.36 (> $7.99)",
-      "disabled_at": "2026-11-07 11:46 GMT+3"
+      "disabled_at": "2026-11-07 12:42 GMT+3"
     },
     "40c0ffaa-8892-43a1-b246-983f5e370dd6:MEDIA:198c6ee8-d20a-483d-bf48-8b97fecd4697": {
       "campaign_id": "40c0ffaa-8892-43a1-b246-983f5e370dd6",
@@ -10005,7 +10023,7 @@
       "total_spend": 3.3,
       "total_purchases": 0,
       "reason": "[Aggregated Video High CPA 7D (7 أيام) - السعودية] مجموع صرف الفيديو التراكمي = $41.67 | المبيعات = 4 | CPA التراكمي = $10.42 (> $7.99)",
-      "disabled_at": "2026-11-07 11:49 GMT+3"
+      "disabled_at": "2026-11-07 12:45 GMT+3"
     }
   },
   "snap_3h_budget_scale": {
@@ -10248,32 +10266,32 @@
     "29891f22-e046-4cc8-b9ee-9921d2d65f0b": {
       "name": "مسخن الرضاعات اللاسلكي 22-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-11-07 11:46 GMT+3"
+      "updated_at": "2026-11-07 12:42 GMT+3"
     },
     "4eefa50f-9008-4aea-b159-d370150b60cf": {
       "name": "صندوق دفاتر TIME X 21-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-11-07 11:46 GMT+3"
+      "updated_at": "2026-11-07 12:42 GMT+3"
     },
     "a171c141-a6d5-403e-8357-5c8f6c01bce0": {
       "name": "وسادة مايباخ 21-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-11-07 11:46 GMT+3"
+      "updated_at": "2026-11-07 12:42 GMT+3"
     },
     "c5a7cade-6ec3-4c47-b3a2-c5f08bcf8da0": {
       "name": "وسادة مايباخ 21-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-11-07 11:46 GMT+3"
+      "updated_at": "2026-11-07 12:42 GMT+3"
     },
     "e8f0a5e9-89c5-4c14-aabb-c9c6c657891d": {
       "name": "مسخن الرضاعات اللاسلكي 22-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-11-07 11:46 GMT+3"
+      "updated_at": "2026-11-07 12:42 GMT+3"
     },
     "f18a3bf4-148a-4f5e-baa1-f90335f1884c": {
       "name": "مسخن الرضاعات اللاسلكي 22-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-11-07 11:46 GMT+3"
+      "updated_at": "2026-11-07 12:42 GMT+3"
     }
   },
   "user_reactivated_ads": {},
@@ -14992,7 +15010,7 @@
       "combined_sales": 1.0,
       "combined_cpa": 56.13,
       "reason": "[Taager Product Test Failed: Combined CPA >= $27 Stop] سعر البيعة المشترك للمنتج 'منتج تاجر (winvac_22454)' في الحسابات (غوغل + تيك توك) وصل إلى CPA = $56.13 (>= $27.00 | الصرف المشترك=$56.13 | المبيعات=1)",
-      "failed_at": "2026-11-07 11:53 GMT+3"
+      "failed_at": "2026-11-07 12:49 GMT+3"
     },
     "pillow_18186": {
       "product_key": "pillow_18186",
@@ -15031,7 +15049,7 @@
       "combined_sales": 1.0,
       "combined_cpa": 27.36,
       "reason": "[Taager Product Test Failed: Combined CPA >= $27 Stop] سعر البيعة المشترك للمنتج 'منتج تاجر (doorbell_10165)' في الحسابات (غوغل + تيك توك) وصل إلى CPA = $27.36 (>= $27.00 | الصرف المشترك=$27.36 | المبيعات=1)",
-      "failed_at": "2026-11-07 11:53 GMT+3"
+      "failed_at": "2026-11-07 12:49 GMT+3"
     }
   },
   "user_protected_tiktok_campaigns": {
@@ -15458,6 +15476,30 @@
       "purchases_cumulative": 7,
       "reason": "[Facebook Video Rule: Today CPA >= $8.00] سعر البيعة اليوم للفيديو وصل $13.22 (>= $8.00 بصرف اليوم $52.89 / 4 مبيعة)",
       "paused_at": "2026-11-06 19:51:25 GMT+3"
+    },
+    "120252196628730455": {
+      "ad_id": "120252196628730455",
+      "ad_name": "PB_NL2_Winner_02_pbmz03",
+      "campaign_id": "120252196562050455",
+      "campaign_name": "سكيل - SA - Power Bank 4in1 - NL2 Winners ($30)",
+      "account_id": "act_4504761856414520",
+      "spend_today": 1.04,
+      "spend_cumulative": 1.04,
+      "purchases_cumulative": 0,
+      "reason": "[Facebook Video Rule: CPC > $0.27 after $1.00] صرف الفيديو $1.04 بدون مبيعات | النقرات: 2 | CPC = $0.520 (> $0.27)",
+      "paused_at": "2026-11-07 12:49:04 GMT+3"
+    },
+    "120252196593320455": {
+      "ad_id": "120252196593320455",
+      "ad_name": "PB_NL2_Winner_01_pbmz12",
+      "campaign_id": "120252196562050455",
+      "campaign_name": "سكيل - SA - Power Bank 4in1 - NL2 Winners ($30)",
+      "account_id": "act_4504761856414520",
+      "spend_today": 1.39,
+      "spend_cumulative": 1.39,
+      "purchases_cumulative": 0,
+      "reason": "[Facebook Video Rule: CPC > $0.27 after $1.00] صرف الفيديو $1.39 بدون مبيعات | النقرات: 4 | CPC = $0.347 (> $0.27)",
+      "paused_at": "2026-11-07 12:49:04 GMT+3"
     }
   },
   "facebook_campaigns": {
@@ -15513,12 +15555,15 @@
     }
   },
   "facebook_latest_summary": {
-    "updated_at": "2026-11-07 11:53:08 GMT+3",
-    "total_spend_today": 6.07,
+    "updated_at": "2026-11-07 12:49:04 GMT+3",
+    "total_spend_today": 11.94,
     "total_purchases_today": 1,
-    "total_spend_maximum": 6.07,
+    "total_spend_maximum": 11.94,
     "total_purchases_maximum": 1,
-    "actions_taken": []
+    "actions_taken": [
+      "إيقاف إعلان فيسبوك 'PB_NL2_Winner_02_pbmz03' (120252196628730455) في 'سكيل - SA - Power Bank 4in1 - NL2 Winners ($30)': [Facebook Video Rule: CPC > $0.27 after $1.00] صرف الفيديو $1.04 بدون مبيعات | النقرات: 2 | CPC = $0.520 (> $0.27) -> نجح ✅",
+      "إيقاف إعلان فيسبوك 'PB_NL2_Winner_01_pbmz12' (120252196593320455) في 'سكيل - SA - Power Bank 4in1 - NL2 Winners ($30)': [Facebook Video Rule: CPC > $0.27 after $1.00] صرف الفيديو $1.39 بدون مبيعات | النقرات: 4 | CPC = $0.347 (> $0.27) -> نجح ✅"
+    ]
   },
   "user_paused_campaigns": [
     "062d0141-ee12-4fab-857c-7e07a78654a8",
