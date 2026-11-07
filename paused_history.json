@@ -328,8 +328,8 @@
     "bae9def0-15e4-4a57-b559-95db417dce9c": {
       "name": "مجموعة نخبة الباور بانك #04 - بيد 2.2",
       "campaign": "باور بانك وينر نخبة #02 (5 أدست) - بيد 2.2 - 07-11",
-      "reason": "[1D AdSquad >= $4.00 No-Sale Stop] صرفت المجموعة $4.20 (>= $4.00) بدون أي مبيعة (0 مبيعات)",
-      "paused_at": "2026-11-07 12:45 GMT+3"
+      "reason": "[1D AdSquad CPA > $6.99 Sim Rule] صرفت المجموعة $7.22 | المبيعات: 1 | سعر البيعة CPA = $7.22 (> $6.99)",
+      "paused_at": "2026-11-07 15:49 GMT+3"
     }
   },
   "ads": {
@@ -10001,7 +10001,7 @@
       "total_spend": 0.87,
       "total_purchases": 0,
       "reason": "[Aggregated Video High CPA 7D (7 أيام) - السعودية] مجموع صرف الفيديو التراكمي = $12.36 | المبيعات = 1 | CPA التراكمي = $12.36 (> $7.99)",
-      "disabled_at": "2026-11-07 14:57 GMT+3"
+      "disabled_at": "2026-11-07 15:46 GMT+3"
     },
     "40c0ffaa-8892-43a1-b246-983f5e370dd6:MEDIA:198c6ee8-d20a-483d-bf48-8b97fecd4697": {
       "campaign_id": "40c0ffaa-8892-43a1-b246-983f5e370dd6",
@@ -10023,7 +10023,7 @@
       "total_spend": 3.3,
       "total_purchases": 0,
       "reason": "[Aggregated Video High CPA 7D (7 أيام) - السعودية] مجموع صرف الفيديو التراكمي = $41.67 | المبيعات = 4 | CPA التراكمي = $10.42 (> $7.99)",
-      "disabled_at": "2026-11-07 15:00 GMT+3"
+      "disabled_at": "2026-11-07 15:49 GMT+3"
     }
   },
   "snap_3h_budget_scale": {
@@ -10266,32 +10266,32 @@
     "29891f22-e046-4cc8-b9ee-9921d2d65f0b": {
       "name": "مسخن الرضاعات اللاسلكي 22-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-11-07 14:57 GMT+3"
+      "updated_at": "2026-11-07 15:46 GMT+3"
     },
     "4eefa50f-9008-4aea-b159-d370150b60cf": {
       "name": "صندوق دفاتر TIME X 21-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-11-07 14:57 GMT+3"
+      "updated_at": "2026-11-07 15:46 GMT+3"
     },
     "a171c141-a6d5-403e-8357-5c8f6c01bce0": {
       "name": "وسادة مايباخ 21-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-11-07 14:57 GMT+3"
+      "updated_at": "2026-11-07 15:46 GMT+3"
     },
     "c5a7cade-6ec3-4c47-b3a2-c5f08bcf8da0": {
       "name": "وسادة مايباخ 21-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-11-07 14:57 GMT+3"
+      "updated_at": "2026-11-07 15:46 GMT+3"
     },
     "e8f0a5e9-89c5-4c14-aabb-c9c6c657891d": {
       "name": "مسخن الرضاعات اللاسلكي 22-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-11-07 14:57 GMT+3"
+      "updated_at": "2026-11-07 15:46 GMT+3"
     },
     "f18a3bf4-148a-4f5e-baa1-f90335f1884c": {
       "name": "مسخن الرضاعات اللاسلكي 22-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-11-07 14:57 GMT+3"
+      "updated_at": "2026-11-07 15:46 GMT+3"
     },
     "1881144468479074": {
       "name": "car armrest top 5 winners 07-11",
@@ -15073,7 +15073,7 @@
       "combined_sales": 1.0,
       "combined_cpa": 56.13,
       "reason": "[Taager Product Test Failed: Combined CPA >= $27 Stop] سعر البيعة المشترك للمنتج 'منتج تاجر (winvac_22454)' في الحسابات (غوغل + تيك توك) وصل إلى CPA = $56.13 (>= $27.00 | الصرف المشترك=$56.13 | المبيعات=1)",
-      "failed_at": "2026-11-07 15:04 GMT+3"
+      "failed_at": "2026-11-07 15:53 GMT+3"
     },
     "pillow_18186": {
       "product_key": "pillow_18186",
@@ -15112,7 +15112,7 @@
       "combined_sales": 1.0,
       "combined_cpa": 27.36,
       "reason": "[Taager Product Test Failed: Combined CPA >= $27 Stop] سعر البيعة المشترك للمنتج 'منتج تاجر (doorbell_10165)' في الحسابات (غوغل + تيك توك) وصل إلى CPA = $27.36 (>= $27.00 | الصرف المشترك=$27.36 | المبيعات=1)",
-      "failed_at": "2026-11-07 15:04 GMT+3"
+      "failed_at": "2026-11-07 15:53 GMT+3"
     }
   },
   "user_protected_tiktok_campaigns": {
