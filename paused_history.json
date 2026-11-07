@@ -9983,7 +9983,7 @@
       "total_spend": 0.87,
       "total_purchases": 0,
       "reason": "[Aggregated Video High CPA 7D (7 أيام) - السعودية] مجموع صرف الفيديو التراكمي = $12.36 | المبيعات = 1 | CPA التراكمي = $12.36 (> $7.99)",
-      "disabled_at": "2026-11-07 10:41 GMT+3"
+      "disabled_at": "2026-11-07 11:46 GMT+3"
     },
     "40c0ffaa-8892-43a1-b246-983f5e370dd6:MEDIA:198c6ee8-d20a-483d-bf48-8b97fecd4697": {
       "campaign_id": "40c0ffaa-8892-43a1-b246-983f5e370dd6",
@@ -10005,7 +10005,7 @@
       "total_spend": 3.3,
       "total_purchases": 0,
       "reason": "[Aggregated Video High CPA 7D (7 أيام) - السعودية] مجموع صرف الفيديو التراكمي = $41.67 | المبيعات = 4 | CPA التراكمي = $10.42 (> $7.99)",
-      "disabled_at": "2026-11-07 10:44 GMT+3"
+      "disabled_at": "2026-11-07 11:49 GMT+3"
     }
   },
   "snap_3h_budget_scale": {
@@ -10248,32 +10248,32 @@
     "29891f22-e046-4cc8-b9ee-9921d2d65f0b": {
       "name": "مسخن الرضاعات اللاسلكي 22-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-11-07 10:41 GMT+3"
+      "updated_at": "2026-11-07 11:46 GMT+3"
     },
     "4eefa50f-9008-4aea-b159-d370150b60cf": {
       "name": "صندوق دفاتر TIME X 21-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-11-07 10:41 GMT+3"
+      "updated_at": "2026-11-07 11:46 GMT+3"
     },
     "a171c141-a6d5-403e-8357-5c8f6c01bce0": {
       "name": "وسادة مايباخ 21-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-11-07 10:41 GMT+3"
+      "updated_at": "2026-11-07 11:46 GMT+3"
     },
     "c5a7cade-6ec3-4c47-b3a2-c5f08bcf8da0": {
       "name": "وسادة مايباخ 21-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-11-07 10:41 GMT+3"
+      "updated_at": "2026-11-07 11:46 GMT+3"
     },
     "e8f0a5e9-89c5-4c14-aabb-c9c6c657891d": {
       "name": "مسخن الرضاعات اللاسلكي 22-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-11-07 10:41 GMT+3"
+      "updated_at": "2026-11-07 11:46 GMT+3"
     },
     "f18a3bf4-148a-4f5e-baa1-f90335f1884c": {
       "name": "مسخن الرضاعات اللاسلكي 22-10",
       "reason": "Cross-Platform Monitored Product Campaign (1 AdSquad Only)",
-      "updated_at": "2026-11-07 10:41 GMT+3"
+      "updated_at": "2026-11-07 11:46 GMT+3"
     }
   },
   "user_reactivated_ads": {},
@@ -14992,7 +14992,7 @@
       "combined_sales": 1.0,
       "combined_cpa": 56.13,
       "reason": "[Taager Product Test Failed: Combined CPA >= $27 Stop] سعر البيعة المشترك للمنتج 'منتج تاجر (winvac_22454)' في الحسابات (غوغل + تيك توك) وصل إلى CPA = $56.13 (>= $27.00 | الصرف المشترك=$56.13 | المبيعات=1)",
-      "failed_at": "2026-11-07 10:47 GMT+3"
+      "failed_at": "2026-11-07 11:53 GMT+3"
     },
     "pillow_18186": {
       "product_key": "pillow_18186",
@@ -15031,7 +15031,7 @@
       "combined_sales": 1.0,
       "combined_cpa": 27.36,
       "reason": "[Taager Product Test Failed: Combined CPA >= $27 Stop] سعر البيعة المشترك للمنتج 'منتج تاجر (doorbell_10165)' في الحسابات (غوغل + تيك توك) وصل إلى CPA = $27.36 (>= $27.00 | الصرف المشترك=$27.36 | المبيعات=1)",
-      "failed_at": "2026-11-07 10:47 GMT+3"
+      "failed_at": "2026-11-07 11:53 GMT+3"
     }
   },
   "user_protected_tiktok_campaigns": {
@@ -15513,11 +15513,11 @@
     }
   },
   "facebook_latest_summary": {
-    "updated_at": "2026-11-07 10:47:48 GMT+3",
-    "total_spend_today": 3.13,
-    "total_purchases_today": 0,
-    "total_spend_maximum": 3.13,
-    "total_purchases_maximum": 0,
+    "updated_at": "2026-11-07 11:53:08 GMT+3",
+    "total_spend_today": 6.07,
+    "total_purchases_today": 1,
+    "total_spend_maximum": 6.07,
+    "total_purchases_maximum": 1,
     "actions_taken": []
   },
   "user_paused_campaigns": [
